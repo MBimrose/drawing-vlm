@@ -1,0 +1,23 @@
+# FSDP2 full-shard for Qwen3-VL dense (32B) on 8x H200.
+# 32B full FT: ~64 GB/rank optimizer+master state, comfortable.
+compute_environment: LOCAL_MACHINE
+distributed_type: FSDP
+mixed_precision: bf16
+num_machines: 1
+num_processes: 8
+machine_rank: 0
+main_training_function: main
+rdzv_backend: static
+same_network: true
+fsdp_config:
+  fsdp_version: 2
+  fsdp_sharding_strategy: FULL_SHARD
+  fsdp_offload_params: false
+  fsdp_state_dict_type: SHARDED_STATE_DICT
+  fsdp_activation_checkpointing: true
+  fsdp_auto_wrap_policy: TRANSFORMER_BASED_WRAP
+  fsdp_transformer_layer_cls_to_wrap: Qwen3VLTextDecoderLayer,Qwen3VLVisionBlock
+  fsdp_cpu_ram_efficient_loading: false
+  fsdp_use_orig_params: true
+  fsdp_sync_module_states: true
+  fsdp_reshard_after_forward: true

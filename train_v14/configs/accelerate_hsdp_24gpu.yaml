@@ -1,0 +1,26 @@
+# 3-node HSDP for the production run: FSDP2 shards within each 8-GPU node
+# (NVLink), replicates across nodes so only the gradient all-reduce crosses
+# the 100Gb inter-node link (amortized by grad accumulation).
+# machine_rank / main_process_ip are supplied per-node on the CLI by the
+# sbatch launcher.
+compute_environment: LOCAL_MACHINE
+distributed_type: FSDP
+mixed_precision: bf16
+num_machines: 3
+num_processes: 24
+machine_rank: 0
+main_training_function: main
+rdzv_backend: static
+same_network: true
+fsdp_config:
+  fsdp_version: 2
+  fsdp_sharding_strategy: HYBRID_SHARD
+  fsdp_offload_params: false
+  fsdp_state_dict_type: SHARDED_STATE_DICT
+  fsdp_activation_checkpointing: true
+  fsdp_auto_wrap_policy: TRANSFORMER_BASED_WRAP
+  fsdp_transformer_layer_cls_to_wrap: Qwen3_5DecoderLayer,Qwen3_5VisionBlock
+  fsdp_cpu_ram_efficient_loading: false
+  fsdp_use_orig_params: true
+  fsdp_sync_module_states: true
+  fsdp_reshard_after_forward: true

@@ -1,0 +1,50 @@
+# E27 — full stack: e22 recipe + dims filter + 40% round-2 RFT tier
+# (rft_v2: e22-ckpt3500 generations, iou>=0.8 verified). The everything-
+# combined candidate for the next champion.
+run_name: e27-combined-rft2
+run_name: e27-combined-rft2
+model_id: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/models/Qwen3.8-27B
+output_dir: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/e27-combined-rft2
+accel_config: accelerate_fsdp2_8gpu.yaml
+
+use_lora: false
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.4
+image_aug: true
+exec_filter: true
+dims_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 5120
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 6.0e-6
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+
+max_steps: 6000
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 42

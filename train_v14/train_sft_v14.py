@@ -1,0 +1,474 @@
+"""SFT entrypoint for Qwen3.8-27B on drawing -> (trace) -> build123d (v14).
+
+Usage (via run.sh normally):
+    accelerate launch --config_file configs/<accel>.yaml \
+        train_sft_v14.py configs/<experiment>.yaml [--key=value ...]
+"""
+from __future__ import annotations
+
+import argparse
+import os
+import sys
+from pathlib import Path
+
+import torch
+import yaml
+from transformers import (
+    AutoProcessor,
+    Qwen3_5ForConditionalGeneration,
+    Trainer,
+    TrainerCallback,
+    TrainingArguments,
+)
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from collate_v14 import VLMCollator
+from data_v14 import EvalDataset, EvalDatasetV2, build_mixed_v2, build_train_dataset
+
+
+def _coerce(v: str):
+    if v.lower() in {"true", "false"}:
+        return v.lower() == "true"
+    for cast in (int, float):
+        try:
+            return cast(v)
+        except ValueError:
+            pass
+    return v
+
+
+def _parse_overrides(argv: list[str]) -> dict:
+    out = {}
+    for a in argv:
+        if a.startswith("--"):
+            k, _, v = a[2:].partition("=")
+            out[k] = _coerce(v) if v else True
+    return out
+
+
+def load_cfg(path: str, overrides: dict) -> dict:
+    with open(path) as f:
+        cfg = yaml.safe_load(f)
+    cfg.update(overrides)
+    return cfg
+
+
+def find_vision_tower(model):
+    for path in ("model.visual", "visual", "vision_tower", "vision_model"):
+        obj = model
+        try:
+            for part in path.split("."):
+                obj = getattr(obj, part)
+            return path, obj
+        except AttributeError:
+            continue
+    for name, mod in model.named_modules():
+        if name.endswith("visual") or name.endswith("vision_tower"):
+            return name, mod
+    return None, None
+
+
+def apply_vision_strategy(model, strategy: str):
+    _, visual = find_vision_tower(model)
+    if visual is None:
+        raise RuntimeError("could not locate vision tower")
+    for p in visual.parameters():
+        p.requires_grad_(False)
+    if strategy == "frozen":
+        pass
+    elif strategy == "projector":
+        for name in ("merger", "deepstack_merger_list"):
+            if hasattr(visual, name):
+                for p in getattr(visual, name).parameters():
+                    p.requires_grad_(True)
+    elif strategy == "full":
+        for p in visual.parameters():
+            p.requires_grad_(True)
+    elif strategy.startswith("last_"):
+        n_last = int(strategy.split("_")[1])
+        for blk in list(visual.blocks)[-n_last:]:
+            for p in blk.parameters():
+                p.requires_grad_(True)
+        for name in ("merger", "deepstack_merger_list"):
+            if hasattr(visual, name):
+                for p in getattr(visual, name).parameters():
+                    p.requires_grad_(True)
+    else:
+        raise ValueError(f"unknown vision_strategy {strategy!r}")
+    n_t = sum(p.numel() for p in visual.parameters() if p.requires_grad)
+    n_f = sum(p.numel() for p in visual.parameters() if not p.requires_grad)
+    print(f"[vision] strategy={strategy} trainable={n_t/1e6:.1f}M frozen={n_f/1e6:.1f}M",
+          flush=True)
+
+
+def auto_lora_targets(model) -> list[str]:
+    """Collect leaf names of every nn.Linear in the language model (covers the
+    hybrid stack: full-attention q/k/v/o, Gated-DeltaNet in/out projections,
+    and MLP gate/up/down). Excludes vision tower, lm_head, mtp, embeddings."""
+    import torch.nn as nn
+
+    _, visual = find_vision_tower(model)
+    vis_ids = {id(m) for m in visual.modules()} if visual is not None else set()
+    names = set()
+    for fqn, mod in model.named_modules():
+        if not isinstance(mod, nn.Linear):
+            continue
+        if id(mod) in vis_ids:
+            continue
+        low = fqn.lower()
+        if "lm_head" in low or "mtp" in low or "embed" in low:
+            continue
+        names.add(fqn.rsplit(".", 1)[-1])
+    out = sorted(names)
+    print(f"[lora] auto target modules: {out}", flush=True)
+    return out
+
+
+def maybe_wrap_lora(model, cfg):
+    if not cfg.get("use_lora", False):
+        return model
+    from peft import LoraConfig, TaskType, get_peft_model
+
+    targets = cfg.get("lora_target_modules", "auto")
+    if targets == "auto":
+        targets = auto_lora_targets(model)
+    lora_cfg = LoraConfig(
+        r=int(cfg.get("lora_rank", 64)),
+        lora_alpha=int(cfg.get("lora_alpha", 2 * int(cfg.get("lora_rank", 64)))),
+        target_modules=targets,
+        lora_dropout=float(cfg.get("lora_dropout", 0.05)),
+        bias="none",
+        task_type=TaskType.CAUSAL_LM,
+    )
+    model = get_peft_model(model, lora_cfg)
+    model.print_trainable_parameters()
+    return model
+
+
+class ConfigToWandb(TrainerCallback):
+    def __init__(self, cfg: dict):
+        self.cfg = cfg
+
+    def on_train_begin(self, args, state, control, **kwargs):
+        if state.is_world_process_zero:
+            try:
+                import wandb
+                if wandb.run is not None:
+                    wandb.config.update({f"exp/{k}": v for k, v in self.cfg.items()},
+                                        allow_val_change=True)
+            except Exception:
+                pass
+        return control
+
+
+class EvalLossCallback(TrainerCallback):
+    """Fixed-set eval loss every `every` steps. All ranks forward the same
+    batches (safe under FSDP/DDP); rank 0 logs val/loss to wandb.
+
+    With save_best=True, an improved val/loss triggers a checkpoint save
+    (control.should_save). Combined with save_strategy="no" and
+    save_total_limit=1, exactly one checkpoint — the best so far — is kept
+    on disk (only-on-improvement saves mean newest == best)."""
+
+    def __init__(self, eval_ds, collator, every: int, n_batches: int, batch_size: int,
+                 save_best: bool = True):
+        self.every = every
+        self.save_best = save_best
+        self.best = float("inf")
+        self.batches = []
+        for i in range(0, min(len(eval_ds), n_batches * batch_size), batch_size):
+            self.batches.append(collator([eval_ds[j] for j in range(i, i + batch_size)]))
+        print(f"[eval] prepared {len(self.batches)} fixed eval batches", flush=True)
+
+    def on_step_end(self, args, state, control, model=None, **kwargs):
+        if state.global_step <= 0 or state.global_step % self.every != 0 or model is None:
+            return control
+        device = next(model.parameters()).device
+        was_training = model.training
+        model.eval()
+        losses = []
+        with torch.no_grad():
+            for b in self.batches:
+                bb = {k: (v.to(device) if hasattr(v, "to") else v) for k, v in b.items()}
+                out = model(**bb)
+                if out.loss is not None:
+                    losses.append(float(out.loss.detach().item()))
+        if was_training:
+            model.train()
+        mean = sum(losses) / len(losses) if losses else float("inf")
+
+        # The improve/save decision must be identical on every rank; broadcast
+        # rank 0's value so float non-determinism can never split the ranks.
+        import torch.distributed as dist
+        if dist.is_initialized():
+            t = torch.tensor([mean], device=device)
+            dist.broadcast(t, src=0)
+            mean = float(t.item())
+
+        improved = mean < self.best
+        if improved:
+            self.best = mean
+            if self.save_best:
+                control.should_save = True
+        if state.is_world_process_zero:
+            tag = "  (new best -> saving checkpoint)" if improved and self.save_best else ""
+            print(f"[eval] step {state.global_step} val/loss={mean:.4f}{tag}", flush=True)
+            try:
+                import wandb
+                if wandb.run is not None:
+                    wandb.log({"val/loss": mean, "val/loss_best": self.best},
+                              step=state.global_step)
+            except Exception:
+                pass
+        return control
+
+
+def main():
+    ap = argparse.ArgumentParser(allow_abbrev=False)
+    ap.add_argument("config")
+    args, rest = ap.parse_known_args()
+    cfg = load_cfg(args.config, _parse_overrides(rest))
+
+    run_name = cfg["run_name"]
+    output_dir = cfg["output_dir"]
+    model_id = cfg["model_id"]
+    os.environ.setdefault("WANDB_RUN_NAME", run_name)
+
+    # NOTE: every rank loads the full bf16 model into host RAM (~108 GB peak
+    # each with the state-dict copy) — jobs must request >=1.4 TB on 8 ranks.
+    # The meta-device fast path (dist init before from_pretrained +
+    # cpu_ram_efficient_loading) deadlocked accelerate 1.14's FSDP2 broadcast
+    # on this hybrid arch, so we stick with the proven load-everywhere path.
+
+    processor = AutoProcessor.from_pretrained(
+        model_id,
+        min_pixels=cfg.get("min_pixels", 256 * 28 * 28),
+        max_pixels=cfg.get("max_pixels", 1179648),
+    )
+
+    # Arch dispatch: Qwen3.5/3.8 hybrid family vs Qwen3-VL (dense/MoE).
+    from transformers import AutoConfig
+    arch = (AutoConfig.from_pretrained(model_id).architectures or [""])[0]
+    if arch.startswith("Qwen3_5"):
+        model_cls = Qwen3_5ForConditionalGeneration
+    else:
+        from transformers import Qwen3VLForConditionalGeneration
+        model_cls = Qwen3VLForConditionalGeneration
+        if "Moe" in arch:
+            from transformers import Qwen3VLMoeForConditionalGeneration
+            model_cls = Qwen3VLMoeForConditionalGeneration
+    print(f"[model] arch={arch} -> {model_cls.__name__}", flush=True)
+    model = model_cls.from_pretrained(
+        model_id,
+        dtype=torch.bfloat16,
+        attn_implementation=cfg.get("attn_implementation", "sdpa"),
+        low_cpu_mem_usage=True,
+    )
+    if hasattr(model.config, "text_config") and hasattr(model.config.text_config, "attention_dropout"):
+        model.config.text_config.attention_dropout = cfg.get("attention_dropout", 0.0)
+
+    # Kill the KV/recurrent cache for training: with activation checkpointing
+    # the recompute pass appends to the cache a second time and doubles the
+    # key length (SDPA mask-size crash). Trainer only does this for its own
+    # gradient_checkpointing flag, not FSDP's activation checkpointing.
+    model.config.use_cache = False
+    if hasattr(model.config, "text_config"):
+        model.config.text_config.use_cache = False
+    if hasattr(model, "generation_config") and model.generation_config is not None:
+        model.generation_config.use_cache = False
+    # Submodules built via _from_config hold deep-copied configs — walk them.
+    for m in model.modules():
+        sub_cfg = getattr(m, "config", None)
+        if sub_cfg is not None and hasattr(sub_cfg, "use_cache"):
+            sub_cfg.use_cache = False
+
+    apply_vision_strategy(model, cfg.get("vision_strategy", "frozen"))
+    model = maybe_wrap_lora(model, cfg)
+
+    if int(cfg.get("data_version", 1)) == 2:
+        # Certified-manifest era: bundle reasoning tier + filtered plain tier.
+        train_ds = build_mixed_v2(
+            reasoning_frac=float(cfg.get("reasoning_frac", 0.2)),
+            image_aug=bool(cfg.get("image_aug", True)),
+            exec_filter=bool(cfg.get("exec_filter", True)),
+            rft_frac=float(cfg.get("rft_frac", 0.0)),
+            dims_filter=bool(cfg.get("dims_filter", False)),
+            seed=int(cfg.get("seed", 42)),
+        )
+    else:
+        train_ds = build_train_dataset(
+            trace_mode=cfg.get("trace_mode", "required"),
+            trace_gate=cfg.get("trace_gate", "pass_only"),
+            image_aug=bool(cfg.get("image_aug", False)),
+            exec_filter=bool(cfg.get("exec_filter", False)),
+        )
+
+    collator = VLMCollator(
+        processor,
+        max_seq_len=cfg.get("max_seq_len", 5120),
+        system_prompt=cfg.get("system_prompt", "detailed"),
+        reasoning_effort=cfg.get("reasoning_effort", "medium"),
+        trace_style=cfg.get("trace_style", "think"),
+    )
+
+    # Plain transformers Trainer: TRL 1.x's SFTTrainer rejects torch
+    # IterableDatasets (webdataset), and our collator + compute_loss_func
+    # already cover everything SFT-specific.
+    sft_cfg = TrainingArguments(
+        output_dir=output_dir,
+        run_name=run_name,
+        num_train_epochs=cfg.get("epochs", 1),
+        max_steps=cfg.get("max_steps", 3000),
+        per_device_train_batch_size=cfg["per_device_train_batch_size"],
+        gradient_accumulation_steps=cfg.get("gradient_accumulation_steps", 1),
+        learning_rate=cfg["lr"],
+        lr_scheduler_type=cfg.get("lr_scheduler_type", "cosine_with_min_lr"),
+        lr_scheduler_kwargs=cfg.get("lr_scheduler_kwargs", {"min_lr_rate": 0.1}) or {},
+        # TRL 1.x SFTConfig dropped warmup_ratio; derive warmup_steps from it.
+        warmup_steps=int(float(cfg.get("warmup_ratio", 0.03))
+                         * int(cfg.get("max_steps", 3000))),
+        weight_decay=cfg.get("weight_decay", 0.0),
+        optim=cfg.get("optim", "adamw_torch_fused"),
+        max_grad_norm=cfg.get("max_grad_norm", 1.0),
+        bf16=True,
+        gradient_checkpointing=cfg.get("gradient_checkpointing", False),
+        gradient_checkpointing_kwargs={"use_reentrant": False}
+        if cfg.get("gradient_checkpointing", False) else None,
+        logging_steps=cfg.get("logging_steps", 10),
+        eval_strategy="no",
+        save_strategy=cfg.get("save_strategy", "steps"),
+        save_steps=cfg.get("save_steps", 500),
+        save_total_limit=cfg.get("save_total_limit", 2),
+        save_only_model=cfg.get("save_only_model", False),
+        report_to=["wandb"],
+        dataloader_num_workers=cfg.get("dataloader_num_workers", 6),
+        dataloader_prefetch_factor=cfg.get("dataloader_prefetch_factor", 4),
+        remove_unused_columns=False,
+        seed=cfg.get("seed", 42),
+        accelerator_config={"dispatch_batches": False, "split_batches": False},
+    )
+
+    _loss_buffer: list[tuple[float, float]] = []
+
+    def vlm_loss(outputs, labels, num_items_in_batch=None, **kwargs):
+        if getattr(outputs, "loss", None) is not None:
+            loss = outputs.loss
+        else:
+            import torch.nn.functional as F
+            logits = outputs.logits[..., :-1, :].contiguous()
+            shift = labels[..., 1:].contiguous()
+            loss = F.cross_entropy(
+                logits.view(-1, logits.size(-1)), shift.view(-1), ignore_index=-100)
+        with torch.no_grad():
+            try:
+                logits = outputs.logits[..., :-1, :]
+                shift = labels[..., 1:]
+                mask = shift != -100
+                if mask.any():
+                    preds = logits.argmax(dim=-1)
+                    if preds.device != shift.device:
+                        shift = shift.to(preds.device)
+                        mask = mask.to(preds.device)
+                    acc = (preds[mask] == shift[mask]).float().mean().item()
+                else:
+                    acc = float("nan")
+            except Exception:
+                acc = float("nan")
+        _loss_buffer.append((float(loss.detach().item()), float(acc)))
+        return loss
+
+    class ManualLossLogger(TrainerCallback):
+        def __init__(self, buf, log_every: int):
+            self.buf, self.log_every = buf, log_every
+
+        def on_step_end(self, args, state, control, **kwargs):
+            if state.global_step <= 0 or state.global_step % self.log_every != 0 or not self.buf:
+                return control
+            losses = [x[0] for x in self.buf]
+            accs = [x[1] for x in self.buf if x[1] == x[1]]
+            mean_loss = sum(losses) / len(losses)
+            mean_acc = sum(accs) / len(accs) if accs else float("nan")
+            self.buf.clear()
+            if state.is_world_process_zero:
+                print(f"[step {state.global_step}/{state.max_steps}] "
+                      f"loss={mean_loss:.4f} token_acc={mean_acc:.4f}", flush=True)
+                try:
+                    import wandb
+                    if wandb.run is not None:
+                        wandb.log({"train/loss_manual": mean_loss,
+                                   "train/token_acc": mean_acc}, step=state.global_step)
+                except Exception:
+                    pass
+            return control
+
+    callbacks: list[TrainerCallback] = [
+        ConfigToWandb(cfg),
+        ManualLossLogger(_loss_buffer, cfg.get("logging_steps", 10)),
+    ]
+
+    if cfg.get("eval_every", 500) > 0:
+        if int(cfg.get("data_version", 1)) == 2:
+            eval_ds = EvalDatasetV2(max_n=cfg.get("eval_n", 128))
+        else:
+            eval_ds = EvalDataset(
+                trace_mode=cfg.get("trace_mode", "required"),
+                trace_gate=cfg.get("trace_gate", "pass_only"),
+                max_n=cfg.get("eval_n", 128),
+            )
+        print(f"[data] {len(eval_ds)} validation examples", flush=True)
+        callbacks.append(EvalLossCallback(
+            eval_ds, collator,
+            every=cfg.get("eval_every", 500),
+            n_batches=cfg.get("eval_n_batches", 16),
+            batch_size=cfg.get("per_device_eval_batch_size", 2),
+            save_best=bool(cfg.get("save_best", True)),
+        ))
+
+    trainer = Trainer(
+        model=model,
+        processing_class=processor,
+        args=sft_cfg,
+        train_dataset=train_ds,
+        eval_dataset=None,
+        data_collator=collator,
+        callbacks=callbacks,
+        compute_loss_func=vlm_loss,
+    )
+
+    trainer.train(resume_from_checkpoint=cfg.get("resume"))
+
+    # Final consolidated save.
+    import torch.distributed as dist
+    rank = dist.get_rank() if dist.is_initialized() else 0
+    if cfg.get("save_final", True):
+        final_dir = os.path.join(output_dir, "final")
+        if cfg.get("use_lora", False):
+            # Adapters are small; every strategy can save them via trainer.
+            trainer.save_model(final_dir)
+            if rank == 0:
+                processor.save_pretrained(final_dir)
+                print(f"[final_save] adapter saved to {final_dir}", flush=True)
+        else:
+            try:
+                from torch.distributed.checkpoint.state_dict import (
+                    StateDictOptions, get_model_state_dict)
+                options = StateDictOptions(full_state_dict=True, cpu_offload=True)
+                full_state = get_model_state_dict(model, options=options)
+                if rank == 0:
+                    os.makedirs(final_dir, exist_ok=True)
+                    unwrapped = trainer.accelerator.unwrap_model(model)
+                    unwrapped.save_pretrained(
+                        final_dir, state_dict=full_state, safe_serialization=True)
+                    processor.save_pretrained(final_dir)
+                    print(f"[final_save] full model saved to {final_dir}", flush=True)
+            except Exception as e:
+                if rank == 0:
+                    print(f"[final_save] gather failed ({type(e).__name__}: {e}); "
+                          f"falling back to trainer.save_model", flush=True)
+                trainer.save_model(final_dir)
+        if dist.is_initialized():
+            dist.barrier()
+
+
+if __name__ == "__main__":
+    main()

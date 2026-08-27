@@ -1,0 +1,18 @@
+# data, weights, runs, envs — never in git
+models/
+runs/
+step_to_drw/
+v14_bundle/
+rft_v1/
+rft_v2/
+viz_*/
+logs/
+.venv/
+.venv_next/
+*.pkl
+*.safetensors
+*.tar
+*.jsonl
+*.stl
+*.step
+__pycache__/

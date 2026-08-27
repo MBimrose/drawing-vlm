@@ -1,0 +1,49 @@
+# E13 — PRODUCTION: the sweep winner (e2's recipe: full FT, all ~500k
+# samples, gate-verified traces where available, image aug) scaled to
+# ONE node (24-way FULL_SHARD over 100GbE measured 116s/step vs 10.4 here;
+# accelerate 1.14 FSDP2 has no HYBRID_SHARD) and trained 2.4x longer.
+# e2 (iou_mean 0.559, best of 12) was still improving at its final step.
+# Same eff batch 64 and LR as e2 — a pure continuation of the winner.
+run_name: e13-production
+model_id: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/models/Qwen3.8-27B
+output_dir: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/e13-production
+accel_config: accelerate_fsdp2_8gpu.yaml
+
+use_lora: false
+vision_strategy: frozen
+
+trace_mode: optional
+trace_gate: pass_only
+image_aug: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 5120
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 6.0e-6
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+
+max_steps: 6000
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 42

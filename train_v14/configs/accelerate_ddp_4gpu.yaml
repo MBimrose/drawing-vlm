@@ -1,0 +1,11 @@
+# DDP for LoRA runs: 27B bf16 base (~54 GB) fits on one H200; only adapters
+# train, so no sharding needed. 4 processes -> two LoRA jobs share one node.
+compute_environment: LOCAL_MACHINE
+distributed_type: MULTI_GPU
+mixed_precision: bf16
+num_machines: 1
+num_processes: 4
+machine_rank: 0
+main_training_function: main
+rdzv_backend: static
+same_network: true

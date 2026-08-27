@@ -1,0 +1,46 @@
+# E8 — LR axis: full FT at 4e-6 (the historically stable 27B refine LR).
+# e1 at 1e-5 hit best val at step 500 then overfit; this tests whether a
+# gentler LR holds the val minimum longer.
+run_name: e8-full-lowlr
+model_id: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/models/Qwen3.8-27B
+output_dir: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/e8-full-lowlr
+accel_config: accelerate_fsdp2_8gpu.yaml
+
+use_lora: false
+vision_strategy: frozen
+
+trace_mode: required
+trace_gate: pass_only
+image_aug: false
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 5120
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 4.0e-6
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+
+max_steps: 2000
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 42

@@ -1,0 +1,275 @@
+<title>The Verified-Data Flywheel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --paper:#F7F7F4; --ink:#1F2428; --ink-2:#5B636B; --line:#C9CCC6;
+  --accent:#2B5F8A; --clay:#C77E4F; --steel:#5C88AE;
+  --panel:#FFFFFF; --panel-edge:#DDDFD9;
+  --pass:#2E7D4F; --pass-bg:#E4F0E8;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#15191D; --ink:#E7E5E0; --ink-2:#98A0A8; --line:#394148;
+    --accent:#7FAFD4; --clay:#D99B72; --steel:#84AACB;
+    --panel:#1D2228; --panel-edge:#2F363D;
+    --pass:#7FC79A; --pass-bg:#1E3227;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#15191D; --ink:#E7E5E0; --ink-2:#98A0A8; --line:#394148;
+  --accent:#7FAFD4; --clay:#D99B72; --steel:#84AACB;
+  --panel:#1D2228; --panel-edge:#2F363D;
+  --pass:#7FC79A; --pass-bg:#1E3227;
+}
+* { box-sizing:border-box; }
+body { background:var(--paper); color:var(--ink); margin:0;
+  font-family:"Source Sans 3",system-ui,sans-serif; font-size:17px;
+  line-height:1.55; padding:2.2rem 1.25rem 5rem; }
+main { max-width:900px; margin:0 auto; }
+.titleblock { border:2px solid var(--ink); display:grid;
+  grid-template-columns:1fr auto auto; }
+.titleblock > div { padding:.6rem 1rem; border-left:1px solid var(--line); }
+.titleblock > div:first-child { border-left:none; }
+.tb-label { font-family:"IBM Plex Mono",monospace; font-size:.62rem;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2); }
+.tb-val { font-family:"Archivo Narrow",sans-serif; font-weight:600;
+  font-size:1.05rem; white-space:nowrap; }
+h1 { font-family:"Archivo Narrow",sans-serif; font-weight:700;
+  font-size:1.85rem; margin:0; letter-spacing:.01em; text-wrap:balance; }
+.sub { color:var(--ink-2); margin:.15rem 0 0; font-size:.95rem; }
+.arc { display:flex; gap:1px; background:var(--ink); border:2px solid var(--ink);
+  border-top:none; margin-bottom:2.4rem; }
+.arc > div { flex:1; background:var(--panel); padding:.65rem 1rem; }
+.arc b { font-family:"Archivo Narrow",sans-serif; font-size:1.5rem;
+  display:block; font-variant-numeric:tabular-nums; }
+.arc .now b { color:var(--pass); }
+.arc span { font-size:.72rem; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--ink-2); }
+h2 { font-family:"Archivo Narrow",sans-serif; font-weight:600;
+  font-size:1.3rem; margin:2.6rem 0 .7rem; }
+h2 .no { color:var(--accent); font-family:"IBM Plex Mono",monospace;
+  font-size:1rem; margin-right:.5rem; }
+p { max-width:70ch; margin:.65rem 0; }
+strong { font-weight:600; }
+figure { margin:1.6rem 0; }
+figure svg { max-width:100%; height:auto; display:block; }
+figcaption { font-size:.85rem; color:var(--ink-2); margin-top:.6rem;
+  max-width:75ch; }
+table { border-collapse:collapse; width:100%; margin:1rem 0;
+  font-size:.92rem; }
+th { font-family:"IBM Plex Mono",monospace; font-size:.68rem;
+  text-transform:uppercase; letter-spacing:.08em; color:var(--ink-2);
+  text-align:left; padding:.4rem .7rem; border-bottom:2px solid var(--ink); }
+td { padding:.42rem .7rem; border-bottom:1px solid var(--panel-edge);
+  font-variant-numeric:tabular-nums; }
+tr.champ td { background:var(--pass-bg); font-weight:600; }
+.mono { font-family:"IBM Plex Mono",monospace; font-size:.85em; }
+ul, ol { max-width:72ch; padding-left:1.3rem; }
+li { margin:.35rem 0; }
+.note { border-left:3px solid var(--clay); padding:.15rem 0 .15rem 1rem;
+  margin:1.2rem 0; }
+.note b { color:var(--clay); }
+.tablewrap { overflow-x:auto; }
+</style>
+<main>
+<div class="titleblock">
+  <div>
+    <h1>The Verified-Data Flywheel</h1>
+    <p class="sub">Drawing to build123d code · Qwen 3.8-27B · WPK lab</p>
+  </div>
+  <div><span class="tb-label">Text standard</span><div class="tb-val">ASD-STE100</div></div>
+  <div><span class="tb-label">Rev</span><div class="tb-val">2026-08-27</div></div>
+</div>
+<div class="arc">
+  <div><b>0.434</b><span>first measurement (e1)</span></div>
+  <div><b>0.559</b><span>more data (e2)</span></div>
+  <div><b>0.659</b><span>repair step (e15)</span></div>
+  <div><b>0.795</b><span>self-made data (e24)</span></div>
+  <div class="now"><b>0.876</b><span>best-of-4 serving (now)</span></div>
+</div>
+
+<p>This document describes the training pipeline. The pipeline makes a model.
+The model reads an engineering drawing and writes a build123d program. The
+program makes the part. The pipeline then uses the model to make new
+training data. This document also gives the results.</p>
+<p>The pipeline has one rule: <strong>Use only data that a test has
+approved.</strong> This rule caused each gain in the strip above. The mean
+IoU on the test set increased from 0.434 to 0.876. Now 99% of the programs
+run correctly. Now 72% of the parts have an IoU of 0.85 or more.</p>
+<p><strong>Terms.</strong> IoU is the volume of the intersection divided by
+the volume of the union. An IoU of 1.0 means that the model part and the
+reference part are the same. A trace is a numbered plan for the part. A
+checkpoint is a saved copy of the model weights.</p>
+
+<figure>
+<svg viewBox="0 0 900 470" role="img"
+     aria-label="The pipeline loop. Three approved data sets go into a sampler. The sampler feeds the training step. Each checkpoint goes to the geometry test. The test selects the best model. The best model serves requests and also makes the next self-made data set.">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7"
+            markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+    </marker>
+    <marker id="arrclay" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7"
+            markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--clay)"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="currentColor" stroke-width="1.4">
+    <rect x="20"  y="30"  width="200" height="66" rx="3"/>
+    <rect x="20"  y="116" width="200" height="66" rx="3"/>
+    <rect x="20"  y="202" width="200" height="66" rx="3" stroke="var(--clay)" stroke-width="2"/>
+    <rect x="285" y="116" width="120" height="66" rx="3"/>
+    <rect x="470" y="116" width="150" height="66" rx="3"/>
+    <rect x="470" y="260" width="150" height="80" rx="3"/>
+    <rect x="685" y="260" width="190" height="80" rx="3" stroke="var(--pass)" stroke-width="2"/>
+    <rect x="685" y="390" width="190" height="60" rx="3"/>
+    <line x1="220" y1="63"  x2="285" y2="135" marker-end="url(#arr)"/>
+    <line x1="220" y1="149" x2="285" y2="149" marker-end="url(#arr)"/>
+    <line x1="220" y1="235" x2="285" y2="163" marker-end="url(#arr)"/>
+    <line x1="405" y1="149" x2="470" y2="149" marker-end="url(#arr)"/>
+    <line x1="545" y1="182" x2="545" y2="260" marker-end="url(#arr)"/>
+    <line x1="620" y1="300" x2="685" y2="300" marker-end="url(#arr)"/>
+    <line x1="780" y1="340" x2="780" y2="390" marker-end="url(#arr)"/>
+  </g>
+  <path d="M 685 330 C 420 430 120 400 118 268" fill="none"
+        stroke="var(--clay)" stroke-width="2" marker-end="url(#arrclay)"/>
+  <g font-family="'Source Sans 3',sans-serif" font-size="13" fill="currentColor">
+    <text x="120" y="52"  text-anchor="middle" font-weight="600">approved traces</text>
+    <text x="120" y="69"  text-anchor="middle" font-size="11.5">52k plans · volume test, 5% limit</text>
+    <text x="120" y="85"  text-anchor="middle" font-size="11.5">drawing → plan → code</text>
+    <text x="120" y="138" text-anchor="middle" font-weight="600">filtered drawing set</text>
+    <text x="120" y="155" text-anchor="middle" font-size="11.5">500k − code that fails (21%)</text>
+    <text x="120" y="171" text-anchor="middle" font-size="11.5">− sheets with missing dimensions</text>
+    <text x="120" y="224" text-anchor="middle" font-weight="600" fill="var(--clay)">self-made data</text>
+    <text x="120" y="241" text-anchor="middle" font-size="11.5">60k model outputs, kept</text>
+    <text x="120" y="257" text-anchor="middle" font-size="11.5">only if IoU ≥ 0.8</text>
+    <text x="345" y="143" text-anchor="middle" font-weight="600">sampler</text>
+    <text x="345" y="160" text-anchor="middle" font-size="11.5">weighted mix</text>
+    <text x="345" y="175" text-anchor="middle" font-size="11.5">.2 / .2 / .6</text>
+    <text x="545" y="143" text-anchor="middle" font-weight="600">train 27B model</text>
+    <text x="545" y="160" text-anchor="middle" font-size="11.5">FSDP2 · 8×H200 · all weights</text>
+    <text x="545" y="175" text-anchor="middle" font-size="11.5">plan in &lt;think&gt;, loss on answer</text>
+    <text x="545" y="285" text-anchor="middle" font-weight="600">geometry test</text>
+    <text x="545" y="302" text-anchor="middle" font-size="11.5">run code → mesh STEP →</text>
+    <text x="545" y="317" text-anchor="middle" font-size="11.5">measure IoU → 2</text>
+    <text x="545" y="332" text-anchor="middle" font-size="11.5">repair rounds</text>
+    <text x="780" y="285" text-anchor="middle" font-weight="600" fill="var(--pass)">best model by IoU</text>
+    <text x="780" y="302" text-anchor="middle" font-size="11.5">not by loss — the loss</text>
+    <text x="780" y="317" text-anchor="middle" font-size="11.5">decreased after the IoU</text>
+    <text x="780" y="332" text-anchor="middle" font-size="11.5">had its maximum (e22)</text>
+    <text x="780" y="413" text-anchor="middle" font-weight="600">serve: best-of-4 + repair</text>
+    <text x="780" y="430" text-anchor="middle" font-size="11.5">first program that runs</text>
+    <text x="780" y="445" text-anchor="middle" font-size="11.5">0.876 IoU · 99% run</text>
+    <text x="438" y="140" text-anchor="middle" font-size="11" fill="var(--ink-2)" font-family="'IBM Plex Mono',monospace">stream</text>
+    <text x="560" y="225" text-anchor="start" font-size="11" fill="var(--ink-2)" font-family="'IBM Plex Mono',monospace">each ckpt</text>
+    <text x="652" y="292" text-anchor="middle" font-size="11" fill="var(--ink-2)" font-family="'IBM Plex Mono',monospace">rank</text>
+    <text x="400" y="408" text-anchor="middle" font-size="12" fill="var(--clay)" font-family="'IBM Plex Mono',monospace">make outputs at T=0.6 → run → keep IoU≥0.8 (44%)</text>
+  </g>
+</svg>
+<figcaption>The pipeline is a loop. Three approved data sets train the model.
+The geometry test measures each checkpoint. The best model serves requests.
+The best model also makes the next self-made data set (the clay arrow). Each
+model makes the training data for the next model.</figcaption>
+</figure>
+
+<h2><span class="no">1</span>Data: three sets, each approved by a test</h2>
+<ol>
+<li><strong>Approved traces (20%).</strong> This set has 52,000 samples. Each
+sample has a drawing, a plan, and the code. A second model made a part from
+the plan only. The test approved the plan if the part volume was within 5%
+of the reference volume. The plan goes into the model's
+<span class="mono">&lt;think&gt;</span> block during training.</li>
+<li><strong>Filtered drawing set (20%).</strong> This set starts with 500,000
+drawing-and-code pairs. We remove three types of bad samples:
+<ul>
+<li>Code that does not run. This is 21% of the set. This code taught the model
+to write chamfer and fillet commands that fail.</li>
+<li>Drawings from the old renderer.</li>
+<li>Drawings with dimensions that are not shown. This is 33% of the set. The
+model cannot read a dimension that the sheet does not show. These drawings
+taught the model to invent dimensions.</li>
+</ul></li>
+<li><strong>Self-made data (60%).</strong> The best model writes code for the
+training drawings. The pipeline runs each program and measures the IoU
+against the reference part. The pipeline keeps a sample only if the IoU is
+0.8 or more. The pipeline keeps 44% of the samples. Each kept sample also
+keeps the plan that the model wrote.</li>
+</ol>
+
+<h2><span class="no">2</span>Training: one procedure for each model</h2>
+<ul>
+<li>Train all the weights. This method gave 0.05 more IoU than LoRA on the
+same data.</li>
+<li>Use FSDP2 on one node with eight H200 GPUs.</li>
+<li>Keep the vision tower frozen. Training the vision tower did not help.</li>
+<li>Use these values: sequence length 5120, effective batch 64, learning rate
+6e-6 with a cosine schedule, 4,000 to 6,000 steps.</li>
+<li>Keep only one checkpoint. The geometry test selects the checkpoint. The
+loss curve does not select the checkpoint.</li>
+</ul>
+<p class="note"><b>Important:</b> The validation loss does not show the
+geometry quality. In run e22, the loss decreased until the last step. But the
+IoU had its maximum 2,500 steps before the last step. Run the geometry test
+on each checkpoint. Select the checkpoint that makes the most correct
+parts.</p>
+
+<h2><span class="no">3</span>Geometry test: the only measurement of quality</h2>
+<p>The test uses 96 approved parts. The parts do not change between runs. The
+test does these steps for each checkpoint, without an operator:</p>
+<ol>
+<li>Make the code for each drawing.</li>
+<li>Run the code in an isolated process.</li>
+<li>Make a mesh from the STEP file.</li>
+<li>Measure the volume IoU against the reference mesh. This is the same
+measurement as the lab's agentic-mesh-to-cad tool.</li>
+<li>If the code fails, show the error to the model. Let the model write the
+code again. Do this two times at most.</li>
+</ol>
+<p>A failed program gets an IoU of 0. The test does not use opinions.</p>
+
+<h2><span class="no">4</span>Serving: the inference procedure</h2>
+<p>This procedure gives the best results for the least cost. Do these steps
+for each request:</p>
+<ol>
+<li>Make one program with greedy decoding.</li>
+<li>If the program does not run, make a new program with sampling at
+temperature 0.7. Do this three times at most. Use the first program that
+runs.</li>
+<li>If no program runs, show the last error to the model. Let the model
+write the program one more time.</li>
+</ol>
+<p>The procedure does not use the reference part. On the best model, the
+procedure increased the mean IoU from 0.795 to 0.876. The share of programs
+that run increased from 89% to 99%. Greedy decoding solved 85 of the 96
+parts. Sampling solved 10 more parts. One part was not solved.</p>
+
+<h2><span class="no">5</span>Results</h2>
+<div class="tablewrap">
+<table>
+<tr><th>model</th><th>method</th><th>IoU, one try</th><th>IoU, with repair</th><th>IoU ≥ 0.85</th><th>programs that run</th></tr>
+<tr class="champ"><td>e24-rft with best-of-4 serving</td><td>self-made data and sampling</td><td>—</td><td>0.876</td><td>72%</td><td>99%</td></tr>
+<tr><td>e24-rft (checkpoint 3250)</td><td>60% self-made data</td><td>0.786</td><td>0.795</td><td>66%</td><td>89%</td></tr>
+<tr><td>e22-combined (checkpoint 3500)</td><td>filtered set, approved traces, long run</td><td>0.759</td><td>0.792</td><td>64%</td><td>89%</td></tr>
+<tr><td>e20 (1:1 mix)</td><td>mix-ratio test</td><td>0.734</td><td>0.770</td><td>64%</td><td>88%</td></tr>
+<tr><td>e19 (1:4 mix)</td><td>recommended ratio</td><td>0.702</td><td>0.754</td><td>65%</td><td>85%</td></tr>
+<tr><td>e21 (traces only)</td><td>no drawing set</td><td>0.596</td><td>0.723</td><td>57%</td><td>88%</td></tr>
+</table>
+</div>
+<p style="font-size:.85rem;color:var(--ink-2)">All values come from the same
+96 approved parts. A repeated run with a new seed changes the IoU by 0.03 to
+0.05. One quarter of the test sheets do not show all dimensions. Those parts
+cannot get a full score. The scores on the other parts are higher.</p>
+
+<h2><span class="no">6</span>Work in progress</h2>
+<ul>
+<li><strong>e23</strong> trains without the sheets that do not show all
+dimensions.</li>
+<li><strong>Self-made data, round 2:</strong> the best model makes a new data
+set. Run <strong>e27</strong> then trains with all methods together.</li>
+<li><strong>Traces:</strong> the Kimi-K3 process makes more plans. The target
+is 100,000 approved plans. A nightly job copies the new plans.</li>
+<li><strong>Flash-Next (180B):</strong> the full-weight training is ready on
+the new B300 server. It waits for an IT installation. A LoRA run on the
+cluster is ready as a second option.</li>
+</ul>
+</main>
