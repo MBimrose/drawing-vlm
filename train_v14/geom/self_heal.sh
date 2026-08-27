@@ -70,3 +70,22 @@ if [ -s "$WDS/exec_bad_keys_v14.txt" ]; then
     fi
   done
 fi
+
+# --- 4. Prune redundant raw FSDP checkpoints --------------------------------
+# A finished, scored run keeps: final/ (bf16) + geom_eval/consolidated-<best>
+# (bf16). The raw DCP checkpoint-N (weights + optimizer, 300-430 GB) is then
+# pure redundancy. Delete it only when (a) the run is not in the queue,
+# (b) its consolidated copy exists, (c) final/ exists. Saves ~4 TB per 14 runs.
+running=$(squeue -u "$USER" -h -o "%j" 2>/dev/null | tr '\n' ' ')
+for rd in "$ROOT"/runs/*/; do
+  r=$(basename "$rd")
+  case " $running " in *" $r "*) continue;; esac
+  [ -f "$rd/final/model.safetensors.index.json" ] || continue
+  for c in "$rd"/checkpoint-*; do
+    [ -d "$c/pytorch_model_fsdp_0" ] || continue
+    n=$(basename "$c")
+    if [ -f "$rd/geom_eval/consolidated-$n/model.safetensors.index.json" ]; then
+      rm -rf "$c" && log "pruned raw checkpoint $r/$n (consolidated + final exist)"
+    fi
+  done
+done
