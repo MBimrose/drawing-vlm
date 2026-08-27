@@ -27,3 +27,4 @@ bash "$TRAIN/geom/self_heal.sh" || true
 source /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/bin/activate
 source "$TRAIN/env.sh"
 python "$TRAIN/geom/geom_eval_worker.py" --n 96 --batch 8
+bash /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/scripts/snapshot_results.sh || true

@@ -1,0 +1,40 @@
+{
+ "checkpoint-2500": {
+  "step": 2500,
+  "n": 96,
+  "n_scored": 79,
+  "exec_ok_frac": 0.810126582278481,
+  "iou_mean": 0.5494873946961214,
+  "iou_median": 0.6384096229199826,
+  "iou_mean_exec": 0.6782735028280249,
+  "frac_iou50": 0.5949367088607594,
+  "frac_iou85": 0.35443037974683544,
+  "final_exec_ok_frac": 0.9240506329113924,
+  "final_iou_mean": 0.6091407387048705,
+  "final_iou_median": 0.6922199758389901,
+  "final_iou_mean_exec": 0.6592071007902023,
+  "final_frac_iou50": 0.6582278481012658,
+  "final_frac_iou85": 0.379746835443038,
+  "repair_recovered": 9,
+  "v": 2
+ },
+ "final": {
+  "step": 2501,
+  "n": 96,
+  "n_scored": 79,
+  "exec_ok_frac": 0.810126582278481,
+  "iou_mean": 0.5494873946961214,
+  "iou_median": 0.6384096229199826,
+  "iou_mean_exec": 0.6782735028280249,
+  "frac_iou50": 0.5949367088607594,
+  "frac_iou85": 0.35443037974683544,
+  "final_exec_ok_frac": 0.9240506329113924,
+  "final_iou_mean": 0.6091407387048705,
+  "final_iou_median": 0.6922199758389901,
+  "final_iou_mean_exec": 0.6592071007902023,
+  "final_frac_iou50": 0.6582278481012658,
+  "final_frac_iou85": 0.379746835443038,
+  "repair_recovered": 9,
+  "v": 2
+ }
+}
