@@ -177,6 +177,34 @@ class ConfigToWandb(TrainerCallback):
         return control
 
 
+def fsdp_lora_active() -> bool:
+    return os.environ.get("ACCELERATE_USE_FSDP", "").lower() == "true"
+
+
+def save_lora_adapter(model, out_dir: str) -> None:
+    """Gather the trainable (LoRA) params from FSDP2 DTensors on every rank
+    (collective: all ranks must call this) and write a standard PEFT adapter
+    from rank 0. trainer.save_model() writes nothing for PEFT under FSDP2
+    SHARDED_STATE_DICT, and Trainer's own checkpoint would DCP-dump the whole
+    sharded base model (250 GB) at every improvement."""
+    import torch.distributed as dist
+    rank = dist.get_rank() if dist.is_initialized() else 0
+    sd = {}
+    for name, p in model.named_parameters():
+        if not p.requires_grad:
+            continue
+        t = p.full_tensor() if hasattr(p, "full_tensor") else p.detach()
+        if rank == 0:
+            sd[name] = t.detach().to(torch.bfloat16).cpu()
+    if rank == 0:
+        os.makedirs(out_dir, exist_ok=True)
+        model.save_pretrained(out_dir, state_dict=sd)
+        n = sum(v.numel() for v in sd.values())
+        print(f"[lora_save] {len(sd)} tensors / {n/1e6:.1f}M params -> {out_dir}", flush=True)
+    if dist.is_initialized():
+        dist.barrier()
+
+
 class EvalLossCallback(TrainerCallback):
     """Fixed-set eval loss every `every` steps. All ranks forward the same
     batches (safe under FSDP/DDP); rank 0 logs val/loss to wandb.
@@ -187,9 +215,10 @@ class EvalLossCallback(TrainerCallback):
     on disk (only-on-improvement saves mean newest == best)."""
 
     def __init__(self, eval_ds, collator, every: int, n_batches: int, batch_size: int,
-                 save_best: bool = True):
+                 save_best: bool = True, adapter_dir: str | None = None):
         self.every = every
         self.save_best = save_best
+        self.adapter_dir = adapter_dir   # LoRA+FSDP: gather adapter instead of DCP checkpoint
         self.best = float("inf")
         self.batches = []
         for i in range(0, min(len(eval_ds), n_batches * batch_size), batch_size):
@@ -225,7 +254,10 @@ class EvalLossCallback(TrainerCallback):
         if improved:
             self.best = mean
             if self.save_best:
-                control.should_save = True
+                if self.adapter_dir:
+                    save_lora_adapter(model, self.adapter_dir)
+                else:
+                    control.should_save = True
         if state.is_world_process_zero:
             tag = "  (new best -> saving checkpoint)" if improved and self.save_best else ""
             print(f"[eval] step {state.global_step} val/loss={mean:.4f}{tag}", flush=True)
@@ -454,6 +486,8 @@ def main():
             n_batches=cfg.get("eval_n_batches", 16),
             batch_size=cfg.get("per_device_eval_batch_size", 2),
             save_best=bool(cfg.get("save_best", True)),
+            adapter_dir=(os.path.join(output_dir, "best_adapter")
+                         if cfg.get("use_lora", False) and fsdp_lora_active() else None),
         ))
 
     trainer = Trainer(
@@ -475,8 +509,11 @@ def main():
     if cfg.get("save_final", True):
         final_dir = os.path.join(output_dir, "final")
         if cfg.get("use_lora", False):
-            # Adapters are small; every strategy can save them via trainer.
-            trainer.save_model(final_dir)
+            if fsdp_lora_active():
+                save_lora_adapter(model, final_dir)   # trainer.save_model is a no-op here
+            else:
+                # Adapters are small; DDP saves them via trainer.
+                trainer.save_model(final_dir)
             if rank == 0:
                 processor.save_pretrained(final_dir)
                 print(f"[final_save] adapter saved to {final_dir}", flush=True)

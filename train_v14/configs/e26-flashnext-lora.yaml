@@ -44,7 +44,7 @@ per_device_eval_batch_size: 1
 gradient_accumulation_steps: 8
 gradient_checkpointing: false
 
-max_steps: 4000
+max_steps: 3000   # 36 s/step -> ~30 h, inside the 48 h wall
 save_strategy: "no"
 save_total_limit: 1
 save_only_model: false
