@@ -4,7 +4,7 @@ set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
 
 # shellcheck disable=SC1091
-source "$here/../.venv/bin/activate"
+source "${TRAIN_VENV:-$here/../.venv}/bin/activate"   # TRAIN_VENV overrides (e.g. .venv_next for Qwen4Exp)
 # shellcheck disable=SC1091
 source "$here/env.sh"
 

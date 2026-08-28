@@ -1,10 +1,9 @@
-# E27 — full stack: e22 recipe + dims filter + 40% round-2 RFT tier
-# (rft_v2: e22-ckpt3500 generations, iou>=0.8 verified). The everything-
-# combined candidate for the next champion.
-run_name: e27-combined-rft2
-run_name: e27-combined-rft2
+# E28 — champion recipe (e24: 60% RFT / 20% certified / 20% plain) scaled:
+# combined RFT pool v1+v2 (123k verified samples) and 6000 steps.
+run_name: e28-rft-all
+run_name: e28-rft-all
 model_id: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/models/Qwen3.8-27B
-output_dir: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/e27-combined-rft2
+output_dir: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/e28-rft-all
 accel_config: accelerate_fsdp2_8gpu.yaml
 
 use_lora: false
@@ -12,10 +11,9 @@ vision_strategy: frozen
 
 data_version: 2
 reasoning_frac: 0.2
-rft_frac: 0.4
+rft_frac: 0.6
 image_aug: true
 exec_filter: true
-dims_filter: false   # e23 showed the dims filter HURTS (0.770 vs 0.834 determinate)
 system_prompt: detailed
 reasoning_effort: medium
 max_seq_len: 5120

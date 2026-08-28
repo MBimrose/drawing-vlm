@@ -1,0 +1,56 @@
+# E26 — Qwen3.8-Flash-Next (180B-A6B MoE, Qwen4Exp) LoRA on the cluster.
+# Champion data recipe (e24/e28: 60% verified RFT / 20% certified / 20%
+# exec-filtered plain, no dims filter). LoRA r64 on the attention, Gated-
+# DeltaNet and shared-expert projections only (fused routed experts, MTP,
+# indexer and hyper-connections untouched). Needs .venv_next (tf 5.16).
+run_name: e26-flashnext-lora
+model_id: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/models/Qwen3.8-Flash-Next
+output_dir: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/e26-flashnext-lora
+accel_config: accelerate_fsdp2_qwen4exp.yaml
+
+use_lora: true
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.05
+lora_target_modules: 'model\.language_model\.layers\.\d+\.(self_attn\.(q|k|v|o)_proj|linear_attn\.(in_proj_qkv|in_proj_z|in_proj_a|in_proj_b|out_proj)|mlp\.shared_expert\.(gate|up|down)_proj)'
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+dims_filter: false
+system_prompt: detailed
+trace_style: think
+reasoning_effort: medium
+max_seq_len: 5120
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 1.0e-4
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+
+max_steps: 4000
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 42

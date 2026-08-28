@@ -251,12 +251,19 @@ def main():
     arch = (AutoConfig.from_pretrained(model_id).architectures or [""])[0]
     if arch.startswith("Qwen3_5"):
         model_cls = Qwen3_5ForConditionalGeneration
-    else:
+    elif arch.startswith("Qwen3VL"):
         from transformers import Qwen3VLForConditionalGeneration
         model_cls = Qwen3VLForConditionalGeneration
         if "Moe" in arch:
             from transformers import Qwen3VLMoeForConditionalGeneration
             model_cls = Qwen3VLMoeForConditionalGeneration
+    else:
+        # Anything newer (Qwen4Exp / Flash-Next ...): let the auto class
+        # resolve it (transformers >= 5.16 in .venv_next).
+        try:
+            from transformers import AutoModelForMultimodalLM as model_cls
+        except ImportError:
+            from transformers import AutoModelForImageTextToText as model_cls
     print(f"[model] arch={arch} -> {model_cls.__name__}", flush=True)
     model = model_cls.from_pretrained(
         model_id,

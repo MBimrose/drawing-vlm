@@ -1,0 +1,25 @@
+# FSDP2 full-shard for Qwen3.8-Flash-Next (Qwen4Exp, 180B-A6B MoE) LoRA on
+# 8x H200. bf16 base sharded ~42 GB/rank; only LoRA params carry fp32
+# optimizer state. cpu_ram_efficient_loading is REQUIRED here: load-everywhere
+# would need 8 x 336 GB host RAM.
+compute_environment: LOCAL_MACHINE
+distributed_type: FSDP
+mixed_precision: bf16
+num_machines: 1
+num_processes: 8
+machine_rank: 0
+main_training_function: main
+rdzv_backend: static
+same_network: true
+fsdp_config:
+  fsdp_version: 2
+  fsdp_sharding_strategy: FULL_SHARD
+  fsdp_offload_params: false
+  fsdp_state_dict_type: SHARDED_STATE_DICT
+  fsdp_activation_checkpointing: true
+  fsdp_auto_wrap_policy: TRANSFORMER_BASED_WRAP
+  fsdp_transformer_layer_cls_to_wrap: Qwen4ExpTextDecoderLayer,Qwen4ExpVisionBlock
+  fsdp_cpu_ram_efficient_loading: true
+  fsdp_use_orig_params: true
+  fsdp_sync_module_states: true
+  fsdp_reshard_after_forward: true
