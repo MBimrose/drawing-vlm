@@ -29,12 +29,18 @@ class MmapNgramEmbedding(nn.Module):
         pat = re.compile(re.escape(fqn) + r"\.shard_(\d+)\.weight$")
         shards = sorted(((int(m.group(1)), k) for k in index if (m := pat.match(k))))
         assert shards and [s[0] for s in shards] == list(range(len(shards))), fqn
+        # FLASHNEXT_PLE_DIR: node-local copy of the shard files (e.g. /dev/shm,
+        # staged by the sbatch) so gathers never page-fault against Lustre.
+        src_dir = os.environ.get("FLASHNEXT_PLE_DIR") or model_dir
         handles: dict[str, object] = {}
         self._shards = []
         for _, key in shards:
             f = index[key]
             if f not in handles:
-                handles[f] = safe_open(os.path.join(model_dir, f), framework="pt", device="cpu")
+                path = os.path.join(src_dir, f)
+                if not os.path.exists(path):
+                    path = os.path.join(model_dir, f)
+                handles[f] = safe_open(path, framework="pt", device="cpu")
             self._shards.append(handles[f].get_tensor(key))  # zero-copy mmap
         self._handles = handles
         self.rows = self._shards[0].shape[0]

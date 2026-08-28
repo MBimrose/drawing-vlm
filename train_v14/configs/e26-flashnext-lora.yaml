@@ -16,6 +16,7 @@ lora_target_modules: 'model\.language_model\.layers\.\d+\.(self_attn\.(q|k|v|o)_
 vision_strategy: frozen
 demote_persistent_buffers: true   # FSDP2 meta-load needs no plain-tensor state_dict entries
 mmap_ngram_embedding: true         # 102 GB frozen n-gram table served from mmap, kept out of FSDP
+fast_qsa_indexer: true             # vectorised QSA indexer (reference loops over every token)
 
 data_version: 2
 reasoning_frac: 0.2

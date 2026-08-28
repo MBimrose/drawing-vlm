@@ -16,4 +16,6 @@ set -euo pipefail
 DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm
 export TRAIN_VENV=$DV/.venv_next
 export DRAWING_VLM_RFT_SHARDS=$DV/rft_all/shards
+export FLASHNEXT_PLE_DIR=/dev/shm/flashnext_ple
+bash "$DV/train_v14/stage_ple_shm.sh"
 bash "$DV/train_v14/run.sh" "$DV/train_v14/configs/e26-flashnext-lora.yaml" --run_name=smoke-e26 --output_dir=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/_smoke_e26 --max_steps=12 --eval_every=6 --eval_n=8 --eval_n_batches=2 --save_best=false

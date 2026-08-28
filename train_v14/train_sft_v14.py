@@ -306,6 +306,9 @@ def main():
             sub_cfg.use_cache = False
 
     apply_vision_strategy(model, cfg.get("vision_strategy", "frozen"))
+    if cfg.get("fast_qsa_indexer", False):
+        from flashnext_qsa import patch_qsa_indexer
+        patch_qsa_indexer()
     if cfg.get("mmap_ngram_embedding", False):
         from flashnext_ple import replace_ngram_embedding
         assert replace_ngram_embedding(model, model_id) > 0, "no ngram embedding found"
