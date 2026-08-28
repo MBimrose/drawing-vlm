@@ -49,6 +49,7 @@ MODEL_BASE = os.path.join(ROOT, "models", "Qwen3.8-27B")
 GT_DIR = os.path.join(os.path.dirname(EVAL_CACHE), "gt_meshes_v14")
 HARNESS = os.path.join(HERE, "exec_harness.py")
 PYTHON = sys.executable
+PYTHON_NEXT = os.path.join(ROOT, ".venv_next", "bin", "python")   # transformers 5.16 for Qwen4Exp
 
 EVAL_VERSION = 2  # v2: adds repair rounds; bump forces re-eval of all ckpts
 
@@ -89,10 +90,43 @@ def candidates(run_dir: str, max_steps: int) -> list[tuple[str, int, str]]:
     if ckpts:
         best = ckpts[-1]
         out.append((os.path.join(run_dir, best), int(best.split("-")[1]), best))
+    best = os.path.join(run_dir, "best_adapter", "adapter_model.safetensors")
+    if os.path.exists(best):
+        import time as _t
+        stamp = _t.strftime("%m%d-%H%M", _t.localtime(os.path.getmtime(best)))
+        out.append((os.path.dirname(best), max_steps, f"best_adapter-{stamp}"))
     final = os.path.join(run_dir, "final")
     if os.path.isdir(final):
         out.append((final, max_steps + 1, "final"))
     return out
+
+
+def is_qwen4(path: str) -> bool:
+    from transformers import AutoConfig
+    return (AutoConfig.from_pretrained(path).architectures or [""])[0].startswith("Qwen4")
+
+
+def node_gpu_gb() -> float:
+    try:
+        out = subprocess.run(["nvidia-smi", "--query-gpu=memory.total", "--format=csv,noheader,nounits"],
+                             capture_output=True, text=True).stdout.split()
+        return sum(float(x) for x in out) / 1024
+    except Exception:
+        return 0.0
+
+
+def normalize_adapter(ckpt_path: str) -> None:
+    """Strip FSDP's `_checkpoint_wrapped_module` from adapter key names in place
+    (adapters saved by e26 before the saver was fixed)."""
+    f = os.path.join(ckpt_path, "adapter_model.safetensors")
+    from safetensors.torch import load_file, save_file
+    sd = load_file(f)
+    if not any("_checkpoint_wrapped_module" in k for k in sd):
+        return
+    sd = {k.replace("._checkpoint_wrapped_module", ""): v for k, v in sd.items()}
+    save_file(sd, f + ".tmp", metadata={"format": "pt"})
+    os.replace(f + ".tmp", f)
+    print(f"[load] normalized adapter key names in {f}", flush=True)
 
 
 # --------------------------------------------------------------------------
@@ -104,6 +138,11 @@ def _model_cls(path: str):
     arch = (AutoConfig.from_pretrained(path).architectures or [""])[0]
     if arch.startswith("Qwen3_5"):
         return Qwen3_5ForConditionalGeneration
+    if arch.startswith("Qwen4"):
+        from flashnext_qsa import patch_qsa_indexer   # reference indexer loops per token
+        patch_qsa_indexer()
+        from transformers import AutoModelForMultimodalLM
+        return AutoModelForMultimodalLM
     if "Moe" in arch:
         from transformers import Qwen3VLMoeForConditionalGeneration
         return Qwen3VLMoeForConditionalGeneration
@@ -136,6 +175,7 @@ def load_model(ckpt_path: str, kind: str, cfg: dict):
         base = Qwen3_5ForConditionalGeneration.from_pretrained(
             base, dtype=torch.bfloat16, attn_implementation="sdpa",
             device_map="balanced", low_cpu_mem_usage=True)
+        normalize_adapter(ckpt_path)
         model = PeftModel.from_pretrained(base, ckpt_path)
         model = model.merge_and_unload()
     elif kind == "dcp":
@@ -499,6 +539,11 @@ def main():
         if cfg is None:
             print(f"[worker] {run_name}: no config, skipping", flush=True)
             continue
+        big = is_qwen4(cfg.get("model_id", MODEL_BASE))
+        if big and node_gpu_gb() < 500:
+            print(f"[worker] {run_name}: Qwen4Exp needs an H200 node (this node has "
+                  f"{node_gpu_gb():.0f} GB GPU) — skipping", flush=True)
+            continue
         state_path = os.path.join(run_dir, "geom_eval_state.json")
         state = {}
         if os.path.exists(state_path):
@@ -515,7 +560,7 @@ def main():
             print(f"[worker] === {run_name}/{label} ({kind}) -> subprocess ===",
                   flush=True)
             rc = subprocess.run(
-                [PYTHON, os.path.abspath(__file__),
+                [PYTHON_NEXT if big else PYTHON, os.path.abspath(__file__),
                  "--eval-one", run_name, ckpt_path, kind, str(step), label,
                  "--n", str(args.n), "--batch", str(args.batch),
                  "--max-new-tokens", str(args.max_new_tokens),

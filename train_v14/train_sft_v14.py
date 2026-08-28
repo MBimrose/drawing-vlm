@@ -195,7 +195,8 @@ def save_lora_adapter(model, out_dir: str) -> None:
             continue
         t = p.full_tensor() if hasattr(p, "full_tensor") else p.detach()
         if rank == 0:
-            sd[name] = t.detach().to(torch.bfloat16).cpu()
+            # FSDP activation checkpointing leaks its wrapper into the FQN
+            sd[name.replace("._checkpoint_wrapped_module", "")] = t.detach().to(torch.bfloat16).cpu()
     if rank == 0:
         os.makedirs(out_dir, exist_ok=True)
         model.save_pretrained(out_dir, state_dict=sd)
