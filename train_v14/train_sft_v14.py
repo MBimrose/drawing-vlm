@@ -124,6 +124,22 @@ def auto_lora_targets(model) -> list[str]:
     return out
 
 
+def demote_persistent_buffers(model):
+    """Make every persistent buffer non-persistent. FSDP2 only shards
+    parameters; accelerate's cpu_ram_efficient_loading path assumes every
+    state_dict entry is a DTensor and crashes on plain-tensor buffers
+    (Qwen4Exp's ple.ple_embedding.* constants). Non-persistent buffers are
+    captured and re-registered by accelerate itself. Only config-derived
+    constants are affected, so nothing is lost from the adapter checkpoint."""
+    n = 0
+    for mod in model.modules():
+        for name in list(mod._buffers):
+            if name not in mod._non_persistent_buffers_set:
+                mod._non_persistent_buffers_set.add(name)
+                n += 1
+    print(f"[model] demoted {n} persistent buffers to non-persistent", flush=True)
+
+
 def maybe_wrap_lora(model, cfg):
     if not cfg.get("use_lora", False):
         return model
@@ -290,6 +306,12 @@ def main():
             sub_cfg.use_cache = False
 
     apply_vision_strategy(model, cfg.get("vision_strategy", "frozen"))
+    if cfg.get("mmap_ngram_embedding", False):
+        from flashnext_ple import replace_ngram_embedding
+        assert replace_ngram_embedding(model, model_id) > 0, "no ngram embedding found"
+        import gc; gc.collect()
+    if cfg.get("demote_persistent_buffers", False):
+        demote_persistent_buffers(model)
     model = maybe_wrap_lora(model, cfg)
 
     if int(cfg.get("data_version", 1)) == 2:

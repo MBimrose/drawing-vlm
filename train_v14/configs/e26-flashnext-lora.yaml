@@ -14,6 +14,8 @@ lora_alpha: 128
 lora_dropout: 0.05
 lora_target_modules: 'model\.language_model\.layers\.\d+\.(self_attn\.(q|k|v|o)_proj|linear_attn\.(in_proj_qkv|in_proj_z|in_proj_a|in_proj_b|out_proj)|mlp\.shared_expert\.(gate|up|down)_proj)'
 vision_strategy: frozen
+demote_persistent_buffers: true   # FSDP2 meta-load needs no plain-tensor state_dict entries
+mmap_ngram_embedding: true         # 102 GB frozen n-gram table served from mmap, kept out of FSDP
 
 data_version: 2
 reasoning_frac: 0.2
