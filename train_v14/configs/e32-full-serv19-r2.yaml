@@ -4,6 +4,8 @@
 # 70% RFT / 20% certified / 10% plain, half LR, 1500 steps.
 output_dir: /srv/scratch/bimrose2/runs/e32-full-serv19-r2
 accel_config: accelerate_fsdp2_qwen4exp_purebf16.yaml
+run_name: e32-full-serv19-r2
+model_id: /srv/scratch/bimrose2/runs/e26-full-serv19/final
 
 use_lora: false
 vision_strategy: frozen
