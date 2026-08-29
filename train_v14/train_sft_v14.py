@@ -177,6 +177,27 @@ class ConfigToWandb(TrainerCallback):
         return control
 
 
+class TorchaoSRTrainer(Trainer):
+    """torchao AdamW8bit with bf16 stochastic rounding: 8-bit states and
+    bf16 master params (no fp32 copy) — the only way a 126B-param full FT fits
+    8 GPUs; stochastic rounding keeps lr~1e-6 updates from vanishing in bf16.
+    Supports FSDP2 DTensor params; accelerate re-points the param groups."""
+
+    def create_optimizer(self, model=None):
+        if self.optimizer is None:
+            from torchao.optim import AdamW8bit
+            m = model if model is not None else self.model
+            params = [p for p in m.parameters() if p.requires_grad]
+            self.optimizer = AdamW8bit(
+                params, lr=self.args.learning_rate,
+                betas=(self.args.adam_beta1, self.args.adam_beta2),
+                eps=self.args.adam_epsilon, weight_decay=self.args.weight_decay,
+                bf16_stochastic_round=True)
+            n = sum(p.numel() for p in params)
+            print(f"[optim] torchao AdamW8bit(bf16_stochastic_round) over {n/1e9:.2f}B params",
+                  flush=True)
+        return self.optimizer
+
 def fsdp_lora_active() -> bool:
     return os.environ.get("ACCELERATE_USE_FSDP", "").lower() == "true"
 
@@ -405,9 +426,10 @@ def main():
         warmup_steps=int(float(cfg.get("warmup_ratio", 0.03))
                          * int(cfg.get("max_steps", 3000))),
         weight_decay=cfg.get("weight_decay", 0.0),
-        optim=cfg.get("optim", "adamw_torch_fused"),
+        optim=("adamw_torch" if cfg.get("optim") == "torchao_adamw8bit_sr"
+               else cfg.get("optim", "adamw_torch_fused")),
         max_grad_norm=cfg.get("max_grad_norm", 1.0),
-        bf16=True,
+        bf16=bool(cfg.get("bf16", True)),   # False = pure-bf16 params, no fp32 upcast
         gradient_checkpointing=cfg.get("gradient_checkpointing", False),
         gradient_checkpointing_kwargs={"use_reentrant": False}
         if cfg.get("gradient_checkpointing", False) else None,
@@ -503,7 +525,8 @@ def main():
                          if cfg.get("use_lora", False) and fsdp_lora_active() else None),
         ))
 
-    trainer = Trainer(
+    trainer_cls = TorchaoSRTrainer if cfg.get("optim") == "torchao_adamw8bit_sr" else Trainer
+    trainer = trainer_cls(
         model=model,
         processing_class=processor,
         args=sft_cfg,

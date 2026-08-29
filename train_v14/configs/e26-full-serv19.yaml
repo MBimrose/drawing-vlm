@@ -2,19 +2,19 @@
 # (8x B300 275 GB, no SLURM). Champion data recipe (60% verified RFT / 20%
 # certified / 20% exec-filtered plain). Everything trains except the vision
 # tower, the 102 GB frozen n-gram PLE table (mmap) and the unused MTP head.
-# Memory/GPU: fp32 master 63 + fp32 grads 63 + torchao 8-bit AdamW 32 GB +
-# activations -> ~210 GB of 275 GB.
+# Memory/GPU: bf16 params 29 + bf16 grads 29 + 8-bit AdamW 29 GB + activations -> ~100 GB of 275 GB.
 run_name: e26-full-serv19
 model_id: /srv/scratch/bimrose2/models/Qwen3.8-Flash-Next
 output_dir: /srv/scratch/bimrose2/runs/e26-full-serv19
-accel_config: accelerate_fsdp2_qwen4exp.yaml
+accel_config: accelerate_fsdp2_qwen4exp_purebf16.yaml
 
 use_lora: false
 vision_strategy: frozen
 demote_persistent_buffers: true
 mmap_ngram_embedding: true
 fast_qsa_indexer: true
-optim: adamw_torch_8bit
+optim: torchao_adamw8bit_sr   # torchao AdamW8bit + bf16 stochastic rounding (pure-bf16 params)
+bf16: false
 
 data_version: 2
 reasoning_frac: 0.2

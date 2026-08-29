@@ -1,0 +1,25 @@
+# FSDP2 full-shard, PURE bf16 (no mixed precision) for Qwen3.8-Flash-Next FULL
+# fine-tune. accelerate upcasts every trainable param to fp32 on the host when
+# mixed_precision != no (468 GB/rank for 126B params -> host OOM); with the model
+# already bf16 we keep bf16 params + torchao AdamW8bit(bf16_stochastic_round).
+compute_environment: LOCAL_MACHINE
+distributed_type: FSDP
+mixed_precision: "no"   # pure-bf16 params: no fp32 upcast (8 x 468 GB host for full FT), see e26-full-serv19
+num_machines: 1
+num_processes: 8
+machine_rank: 0
+main_training_function: main
+rdzv_backend: static
+same_network: true
+fsdp_config:
+  fsdp_version: 2
+  fsdp_sharding_strategy: FULL_SHARD
+  fsdp_offload_params: false
+  fsdp_state_dict_type: SHARDED_STATE_DICT
+  fsdp_activation_checkpointing: true
+  fsdp_auto_wrap_policy: TRANSFORMER_BASED_WRAP
+  fsdp_transformer_layer_cls_to_wrap: Qwen4ExpTextDecoderLayer,Qwen4ExpVisionBlock
+  fsdp_cpu_ram_efficient_loading: true
+  fsdp_use_orig_params: true
+  fsdp_sync_module_states: true
+  fsdp_reshard_after_forward: true
