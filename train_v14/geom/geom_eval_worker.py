@@ -102,8 +102,12 @@ def candidates(run_dir: str, max_steps: int) -> list[tuple[str, int, str]]:
 
 
 def is_qwen4(path: str) -> bool:
-    from transformers import AutoConfig
-    return (AutoConfig.from_pretrained(path).architectures or [""])[0].startswith("Qwen4")
+    # Read config.json directly: the eval venv's transformers predates qwen4_exp.
+    try:
+        with open(os.path.join(path, "config.json")) as f:
+            return str(json.load(f).get("model_type", "")).startswith("qwen4")
+    except OSError:
+        return False
 
 
 def node_gpu_gb() -> float:
