@@ -159,6 +159,10 @@ def _model_cls(path: str):
             spec.loader.exec_module(mod)
             patch_qsa_indexer = mod.patch_qsa_indexer
         patch_qsa_indexer()
+        # cuDNN fused SDPA fails on the QSA (sparse) attention mask at generation
+        # time: "mha_graph.execute(...) ... got false". Use the flash/efficient kernels.
+        torch.backends.cuda.enable_cudnn_sdp(False)
+        print("[load] cuDNN SDPA backend disabled for Qwen4Exp", flush=True)
         from transformers import AutoModelForMultimodalLM
         return AutoModelForMultimodalLM
     if "Moe" in arch:
