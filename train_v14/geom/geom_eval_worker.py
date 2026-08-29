@@ -26,6 +26,7 @@ import json
 import os
 import pickle
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -97,6 +98,11 @@ def candidates(run_dir: str, max_steps: int) -> list[tuple[str, int, str]]:
         import time as _t
         stamp = _t.strftime("%m%d-%H%M", _t.localtime(os.path.getmtime(best)))
         out.append((os.path.dirname(best), max_steps, f"best_adapter-{stamp}"))
+    bm = os.path.join(run_dir, "best_model", "model.safetensors.index.json")
+    if os.path.exists(bm):   # full-FT gathered best (overwritten on improvement)
+        import time as _t
+        stamp = _t.strftime("%m%d-%H%M", _t.localtime(os.path.getmtime(bm)))
+        out.append((os.path.dirname(bm), max_steps, f"best_model-{stamp}"))
     final = os.path.join(run_dir, "final")
     if os.path.isdir(final):
         out.append((final, max_steps + 1, "final"))
@@ -474,7 +480,8 @@ def eval_one(args):
     # Best-effort compute-side self-heal (idempotent; covers work the
     # login-node session couldn't submit during the 2026-08-24 fork outage).
     try:
-        subprocess.run(["bash", os.path.join(HERE, "self_heal.sh")], timeout=120)
+        if shutil.which("squeue"):   # cluster only (serv-19 has no SLURM)
+            subprocess.run(["bash", os.path.join(HERE, "self_heal.sh")], timeout=120)
     except Exception:
         pass
     run_name, ckpt_path, kind, step, label = (

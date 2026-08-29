@@ -21,18 +21,21 @@ import tarfile
 
 DV = "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm"
 RFT = sys.argv[1] if len(sys.argv) > 1 else f"{DV}/rft_v1"
-TARS = f"{DV}/step_to_drw/wds_dataset/tars_v14"
+TARS = os.environ.get("DRAWING_VLM_TARS", f"{DV}/step_to_drw/wds_dataset/tars_v14")
 OUT = os.path.join(RFT, "shards")
 PER_SHARD = 2000
 
-accepted: dict[str, dict] = {}
+# key -> list of distinct accepted candidates (multi-sample rounds keep several)
+accepted: dict[str, list] = {}
 for p in sorted(glob.glob(os.path.join(RFT, "accepted-*.jsonl"))):
     for line in open(p):
         try:
             r = json.loads(line)
-            accepted[r["key"]] = r
         except Exception:
             continue
+        lst = accepted.setdefault(r["key"], [])
+        if all(x["code"] != r["code"] for x in lst):
+            lst.append(r)
 print(f"[pack] {len(accepted)} unique accepted samples", flush=True)
 
 os.makedirs(OUT, exist_ok=True)
@@ -68,20 +71,21 @@ for sp in sorted(glob.glob(os.path.join(TARS, "shard_*.tar"))):
     hit = [n for n in names if n.endswith(".png") and n[:-4] in todo]
     for png_name in hit:
         key = png_name[:-4]
-        rec = accepted[key]
         try:
             png = tf.extractfile(png_name).read()
         except Exception:
             continue
-        add(f"{key}.png", png)
-        add(f"{key}.code.py", rec["code"].encode())
-        add(f"{key}.think.txt", (rec.get("think") or "").encode())
-        add(f"{key}.meta.json", json.dumps({"iou": rec["iou"]}).encode())
+        for i, rec in enumerate(accepted[key]):
+            name = key if i == 0 else f"{key}-s{i}"   # extra samples get a suffix
+            add(f"{name}.png", png)
+            add(f"{name}.code.py", rec["code"].encode())
+            add(f"{name}.think.txt", (rec.get("think") or "").encode())
+            add(f"{name}.meta.json", json.dumps({"iou": rec["iou"]}).encode())
+            n_in_shard += 1
+            n_written += 1
+            if n_in_shard >= PER_SHARD:
+                next_shard()
         todo.discard(key)
-        n_in_shard += 1
-        n_written += 1
-        if n_in_shard >= PER_SHARD:
-            next_shard()
     tf.close()
     if n_written and n_written % 10000 < PER_SHARD // 2:
         print(f"[pack] {n_written} written, {len(todo)} to find", flush=True)

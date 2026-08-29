@@ -85,6 +85,13 @@ def main():
     ap.add_argument("--min-iou", type=float, default=0.8)
     ap.add_argument("--temperature", type=float, default=0.6)
     ap.add_argument("--max-accepted", type=int, default=4000)
+    ap.add_argument("--n-samples", type=int, default=1,
+                    help="candidates per part (num_return_sequences); every distinct "
+                         "candidate with iou>=min-iou is accepted")
+    ap.add_argument("--log-all", action="store_true",
+                    help="write EVERY scored candidate to scored-<w>.jsonl (verifier data)")
+    ap.add_argument("--only-keys", default="", help="file of keys to restrict to")
+    ap.add_argument("--exclude-keys", default="", help="file of keys to skip")
     args = ap.parse_args()
 
     os.makedirs(args.out, exist_ok=True)
@@ -108,6 +115,10 @@ def main():
                         pass
     print(f"[rft w{args.worker}] resume: {len(seen)} seen, {n_accepted} accepted",
           flush=True)
+    only = set(open(args.only_keys).read().split()) if args.only_keys else None
+    exclude = set(open(args.exclude_keys).read().split()) if args.exclude_keys else set()
+    scored_f = open(os.path.join(args.out, f"scored-{args.worker:03d}.jsonl"), "a") \
+        if args.log_all else None
 
     bad = bad_keys()
     legacy = legacy_keys()
@@ -120,14 +131,16 @@ def main():
     pool = ThreadPoolExecutor(max_workers=4)
 
     def score_one(key: str, think: str, code: str | None, gt_code: str,
-                  td: str) -> dict:
-        rec = {"key": key, "iou": 0.0, "ok": False}
+                  td: str, tag: str = "") -> dict:
+        rec = {"key": key, "iou": 0.0, "ok": False, "exec": False,
+               "think": think, "code": code}
         try:
             if code is None:
                 return rec
-            pred_stl = os.path.join(td, key + ".pred.stl")
-            if not exec_to_stl(code, pred_stl, td, key + ".pred"):
+            pred_stl = os.path.join(td, key + tag + ".pred.stl")
+            if not exec_to_stl(code, pred_stl, td, key + tag + ".pred"):
                 return rec
+            rec["exec"] = True
             gt_stl = os.path.join(gt_cache, key + ".stl")
             if not (os.path.exists(gt_stl) and os.path.getsize(gt_stl) > 0):
                 tmp = os.path.join(td, key + ".gt.stl")
@@ -164,28 +177,45 @@ def main():
                             return_tensors="pt", padding=True)
             enc = {k: (v.to(model.device) if hasattr(v, "to") else v)
                    for k, v in enc.items()}
+            K = max(1, args.n_samples)
             with torch.no_grad():
                 out = model.generate(
                     **enc, max_new_tokens=args.max_new_tokens, do_sample=True,
                     temperature=args.temperature, top_p=0.95,
+                    num_return_sequences=K,
                     pad_token_id=processor.tokenizer.pad_token_id
                     or processor.tokenizer.eos_token_id)
             gen = out[:, enc["input_ids"].shape[1]:]
             decoded = processor.tokenizer.batch_decode(
                 gen, skip_special_tokens=True)
-            futs = []
-            for (key, gt_code), text in zip(batch_meta, decoded):
+            futs = []   # (key, sample_idx, future) — row i belongs to part i // K
+            for i, text in enumerate(decoded):
+                key, gt_code = batch_meta[i // K]
+                j = i % K
                 think, code = extract_think_code(text)
-                futs.append(pool.submit(score_one, key, think, code, gt_code, td))
-            for fut in futs:
+                futs.append((key, j, pool.submit(score_one, key, think, code,
+                                                 gt_code, td, f".s{j}")))
+            by_key: dict[str, list] = {}
+            for key, j, fut in futs:
                 rec = fut.result()
-                seen_f.write(json.dumps(
-                    {"key": rec["key"], "iou": rec["iou"]}) + "\n")
-                if rec["ok"]:
-                    acc_f.write(json.dumps(rec) + "\n")
-                    n_accepted += 1
+                rec["sample"] = j
+                by_key.setdefault(key, []).append(rec)
+            for key, recs in by_key.items():
+                best = max(r["iou"] for r in recs)
+                seen_f.write(json.dumps({"key": key, "iou": best, "n": len(recs)}) + "\n")
+                codes_seen = set()
+                for r in recs:
+                    if scored_f is not None:
+                        scored_f.write(json.dumps(r) + "\n")
+                    if r["ok"] and r["code"] not in codes_seen:
+                        codes_seen.add(r["code"])
+                        acc_f.write(json.dumps({k: v for k, v in r.items()
+                                                if k != "exec"}) + "\n")
+                        n_accepted += 1
             acc_f.flush()
             seen_f.flush()
+            if scored_f is not None:
+                scored_f.flush()
             batch_samples, batch_meta = [], []
 
         for sp in shards:
@@ -205,7 +235,9 @@ def main():
                 g = members[key]
                 if "png" not in g or "py" not in g or key in seen:
                     continue
-                if key in bad or key in legacy:
+                if key in bad or key in legacy or key in exclude:
+                    continue
+                if only is not None and key not in only:
                     continue
                 uuid = uuid_of_key(key)
                 if is_val_uuid(uuid) or is_manifest_eval_uuid(uuid):
