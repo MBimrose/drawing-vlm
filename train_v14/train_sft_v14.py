@@ -183,20 +183,29 @@ class TorchaoSRTrainer(Trainer):
     8 GPUs; stochastic rounding keeps lr~1e-6 updates from vanishing in bf16.
     Supports FSDP2 DTensor params; accelerate re-points the param groups."""
 
+    kind = "torchao"
+
     def create_optimizer(self, model=None):
         if self.optimizer is None:
-            from torchao.optim import AdamW8bit
             m = model if model is not None else self.model
             params = [p for p in m.parameters() if p.requires_grad]
-            self.optimizer = AdamW8bit(
-                params, lr=self.args.learning_rate,
-                betas=(self.args.adam_beta1, self.args.adam_beta2),
-                eps=self.args.adam_epsilon, weight_decay=self.args.weight_decay,
-                bf16_stochastic_round=True)
+            kw = dict(lr=self.args.learning_rate,
+                      betas=(self.args.adam_beta1, self.args.adam_beta2),
+                      eps=self.args.adam_epsilon, weight_decay=self.args.weight_decay)
+            if self.kind == "torchao":
+                from torchao.optim import AdamW8bit
+                self.optimizer = AdamW8bit(params, bf16_stochastic_round=True, **kw)
+            else:
+                from bf16_sr_adamw import Bf16SRAdamW
+                self.optimizer = Bf16SRAdamW(params, **kw)
             n = sum(p.numel() for p in params)
-            print(f"[optim] torchao AdamW8bit(bf16_stochastic_round) over {n/1e9:.2f}B params",
-                  flush=True)
+            print(f"[optim] {type(self.optimizer).__name__} (bf16 stochastic rounding) "
+                  f"over {n/1e9:.2f}B params", flush=True)
         return self.optimizer
+
+
+class Bf16SRTrainer(TorchaoSRTrainer):
+    kind = "bf16_sr"
 
 def fsdp_lora_active() -> bool:
     return os.environ.get("ACCELERATE_USE_FSDP", "").lower() == "true"
@@ -426,7 +435,7 @@ def main():
         warmup_steps=int(float(cfg.get("warmup_ratio", 0.03))
                          * int(cfg.get("max_steps", 3000))),
         weight_decay=cfg.get("weight_decay", 0.0),
-        optim=("adamw_torch" if cfg.get("optim") == "torchao_adamw8bit_sr"
+        optim=("adamw_torch" if cfg.get("optim") in ("torchao_adamw8bit_sr", "bf16_sr_adamw")
                else cfg.get("optim", "adamw_torch_fused")),
         max_grad_norm=cfg.get("max_grad_norm", 1.0),
         bf16=bool(cfg.get("bf16", True)),   # False = pure-bf16 params, no fp32 upcast
@@ -530,7 +539,8 @@ def main():
                          if cfg.get("use_lora", False) and fsdp_lora_active() else None),
         ))
 
-    trainer_cls = TorchaoSRTrainer if cfg.get("optim") == "torchao_adamw8bit_sr" else Trainer
+    trainer_cls = {"torchao_adamw8bit_sr": TorchaoSRTrainer,
+                   "bf16_sr_adamw": Bf16SRTrainer}.get(cfg.get("optim"), Trainer)
     trainer = trainer_cls(
         model=model,
         processing_class=processor,
