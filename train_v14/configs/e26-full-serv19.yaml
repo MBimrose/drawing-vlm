@@ -48,6 +48,7 @@ save_strategy: "no"
 save_total_limit: 1
 save_only_model: false
 save_best: true
+best_save_mode: gather      # best = gathered bf16 HF dir (runs/<run>/best_model), not a 1.2 TB DCP dump
 save_final: true
 logging_steps: 10
 eval_every: 250

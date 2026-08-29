@@ -236,6 +236,28 @@ def save_lora_adapter(model, out_dir: str) -> None:
         dist.barrier()
 
 
+def save_full_model(model, out_dir: str, processor, model_id: str, cfg: dict) -> None:
+    """Gather the sharded bf16 model to rank 0 and write an HF directory
+    (no optimizer states: a DCP checkpoint of a full FT would be model +
+    fp32 Adam moments, ~1.2 TB for Flash-Next). Collective — all ranks call."""
+    import torch.distributed as dist
+    from torch.distributed.checkpoint.state_dict import StateDictOptions, get_model_state_dict
+    rank = dist.get_rank() if dist.is_initialized() else 0
+    full_state = get_model_state_dict(
+        model, options=StateDictOptions(full_state_dict=True, cpu_offload=True))
+    if rank == 0:
+        os.makedirs(out_dir, exist_ok=True)
+        model.save_pretrained(out_dir, state_dict=full_state, safe_serialization=True)
+        processor.save_pretrained(out_dir)
+        if cfg.get("mmap_ngram_embedding", False):
+            from flashnext_ple import reattach_ngram_shards
+            reattach_ngram_shards(model_id, out_dir)
+        print(f"[full_save] model saved to {out_dir}", flush=True)
+    del full_state
+    if dist.is_initialized():
+        dist.barrier()
+
+
 class EvalLossCallback(TrainerCallback):
     """Fixed-set eval loss every `every` steps. All ranks forward the same
     batches (safe under FSDP/DDP); rank 0 logs val/loss to wandb.
@@ -246,10 +268,12 @@ class EvalLossCallback(TrainerCallback):
     on disk (only-on-improvement saves mean newest == best)."""
 
     def __init__(self, eval_ds, collator, every: int, n_batches: int, batch_size: int,
-                 save_best: bool = True, adapter_dir: str | None = None):
+                 save_best: bool = True, adapter_dir: str | None = None,
+                 best_saver=None):
         self.every = every
         self.save_best = save_best
         self.adapter_dir = adapter_dir   # LoRA+FSDP: gather adapter instead of DCP checkpoint
+        self.best_saver = best_saver     # full FT: callable(model) -> gathered HF dir
         self.best = float("inf")
         self.batches = []
         for i in range(0, min(len(eval_ds), n_batches * batch_size), batch_size):
@@ -287,6 +311,8 @@ class EvalLossCallback(TrainerCallback):
             if self.save_best:
                 if self.adapter_dir:
                     save_lora_adapter(model, self.adapter_dir)
+                elif self.best_saver is not None:
+                    self.best_saver(model)
                 else:
                     control.should_save = True
         if state.is_world_process_zero:
@@ -537,6 +563,9 @@ def main():
             save_best=bool(cfg.get("save_best", True)),
             adapter_dir=(os.path.join(output_dir, "best_adapter")
                          if cfg.get("use_lora", False) and fsdp_lora_active() else None),
+            best_saver=((lambda m: save_full_model(
+                            m, os.path.join(output_dir, "best_model"), processor, model_id, cfg))
+                        if cfg.get("best_save_mode") == "gather" else None),
         ))
 
     trainer_cls = {"torchao_adamw8bit_sr": TorchaoSRTrainer,
@@ -570,19 +599,9 @@ def main():
                 print(f"[final_save] adapter saved to {final_dir}", flush=True)
         else:
             try:
-                from torch.distributed.checkpoint.state_dict import (
-                    StateDictOptions, get_model_state_dict)
-                options = StateDictOptions(full_state_dict=True, cpu_offload=True)
-                full_state = get_model_state_dict(model, options=options)
+                save_full_model(trainer.accelerator.unwrap_model(model), final_dir,
+                                processor, model_id, cfg)
                 if rank == 0:
-                    os.makedirs(final_dir, exist_ok=True)
-                    unwrapped = trainer.accelerator.unwrap_model(model)
-                    unwrapped.save_pretrained(
-                        final_dir, state_dict=full_state, safe_serialization=True)
-                    processor.save_pretrained(final_dir)
-                    if cfg.get("mmap_ngram_embedding", False):
-                        from flashnext_ple import reattach_ngram_shards
-                        reattach_ngram_shards(model_id, final_dir)
                     print(f"[final_save] full model saved to {final_dir}", flush=True)
             except Exception as e:
                 if rank == 0:
