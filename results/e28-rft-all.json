@@ -17,5 +17,24 @@
   "final_frac_iou85": 0.7052631578947368,
   "repair_recovered": 0,
   "v": 2
+ },
+ "final": {
+  "step": 6001,
+  "n": 96,
+  "n_scored": 95,
+  "exec_ok_frac": 0.8947368421052632,
+  "iou_mean": 0.8025183016585021,
+  "iou_median": 0.9607093259474931,
+  "iou_mean_exec": 0.8969322195006789,
+  "frac_iou50": 0.8631578947368421,
+  "frac_iou85": 0.6526315789473685,
+  "final_exec_ok_frac": 0.8947368421052632,
+  "final_iou_mean": 0.8025183016585021,
+  "final_iou_median": 0.9607093259474931,
+  "final_iou_mean_exec": 0.8969322195006789,
+  "final_frac_iou50": 0.8631578947368421,
+  "final_frac_iou85": 0.6526315789473685,
+  "repair_recovered": 0,
+  "v": 2
  }
 }
