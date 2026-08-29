@@ -314,12 +314,24 @@ def main():
         except ImportError:
             from transformers import AutoModelForImageTextToText as model_cls
     print(f"[model] arch={arch} -> {model_cls.__name__}", flush=True)
+    # FSDP cpu_ram_efficient_loading: transformers materialises EVERY param on
+    # non-zero ranks with torch.zeros_like(..., device="cpu") before accelerate
+    # moves them to meta and broadcasts rank 0's weights. Zero-fill touches the
+    # pages, so 7 ranks x 336 GB host RAM (2.3 TB) for Flash-Next. Untouched
+    # empty_like costs nothing and the values are never read.
+    _lazy = (os.environ.get("FSDP_CPU_RAM_EFFICIENT_LOADING", "").lower() == "true"
+             and int(os.environ.get("LOCAL_RANK", "0")) != 0)
+    _zeros_like = torch.zeros_like
+    if _lazy:
+        torch.zeros_like = lambda t, *a, **k: torch.empty_like(t, *a, **k)
+        print("[model] non-zero rank: lazy (empty_like) placeholder params", flush=True)
     model = model_cls.from_pretrained(
         model_id,
         dtype=torch.bfloat16,
         attn_implementation=cfg.get("attn_implementation", "sdpa"),
         low_cpu_mem_usage=True,
     )
+    torch.zeros_like = _zeros_like
     if hasattr(model.config, "text_config") and hasattr(model.config.text_config, "attention_dropout"):
         model.config.text_config.attention_dropout = cfg.get("attention_dropout", 0.0)
 
