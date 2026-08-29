@@ -418,6 +418,11 @@ def main():
         num_train_epochs=cfg.get("epochs", 1),
         max_steps=cfg.get("max_steps", 3000),
         per_device_train_batch_size=cfg["per_device_train_batch_size"],
+        # FSDP2 full FT: no_sync() during accumulation keeps UNSHARDED grads on
+        # every rank (126B x 2 B = 252 GB -> OOM). sync_each_batch reduce-scatters
+        # every micro-batch instead.
+        accelerator_config=({"gradient_accumulation_kwargs": {"sync_each_batch": True}}
+                            if cfg.get("sync_each_batch", False) else None),
         gradient_accumulation_steps=cfg.get("gradient_accumulation_steps", 1),
         learning_rate=cfg["lr"],
         lr_scheduler_type=cfg.get("lr_scheduler_type", "cosine_with_min_lr"),
