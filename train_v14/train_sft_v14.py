@@ -530,6 +530,9 @@ def main():
                     unwrapped.save_pretrained(
                         final_dir, state_dict=full_state, safe_serialization=True)
                     processor.save_pretrained(final_dir)
+                    if cfg.get("mmap_ngram_embedding", False):
+                        from flashnext_ple import reattach_ngram_shards
+                        reattach_ngram_shards(model_id, final_dir)
                     print(f"[final_save] full model saved to {final_dir}", flush=True)
             except Exception as e:
                 if rank == 0:

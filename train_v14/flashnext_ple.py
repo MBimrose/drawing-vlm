@@ -82,3 +82,30 @@ def replace_ngram_embedding(model, model_dir: str) -> int:
             print(f"[ple] {fqn}: {new.num_embeddings}x{new.dim} -> mmap "
                   f"({len(new._shards)} shards), 102 GB param dropped", flush=True)
     return n
+
+
+def reattach_ngram_shards(model_dir: str, out_dir: str) -> None:
+    """A full-model save made with the mmap table has no ngram_embedding
+    weights. Hard-link the original shard files into `out_dir` and merge their
+    index entries so the saved model loads standalone (table is frozen, so the
+    original bytes are exact)."""
+    import shutil
+    src_index = json.load(open(os.path.join(model_dir, "model.safetensors.index.json")))
+    idx_path = os.path.join(out_dir, "model.safetensors.index.json")
+    out_index = json.load(open(idx_path))
+    files = sorted({f for k, f in src_index["weight_map"].items() if ".ngram_embedding.shard_" in k})
+    for f in files:
+        dst = os.path.join(out_dir, "ple-" + f)
+        if not os.path.exists(dst):
+            try:
+                os.link(os.path.join(model_dir, f), dst)
+            except OSError:
+                shutil.copy2(os.path.join(model_dir, f), dst)
+    # only the ngram keys from those files; other tensors in them are already saved
+    for k, f in src_index["weight_map"].items():
+        if ".ngram_embedding.shard_" in k:
+            out_index["weight_map"][k] = "ple-" + f
+    with open(idx_path, "w") as fh:
+        json.dump(out_index, fh, indent=2)
+    print(f"[ple] re-attached {len(files)} shard files / "
+          f"{sum('.ngram_embedding.shard_' in k for k in src_index['weight_map'])} keys to {out_dir}", flush=True)
