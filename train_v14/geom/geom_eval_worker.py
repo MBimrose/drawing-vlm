@@ -44,12 +44,14 @@ from data_v14 import EVAL_CACHE, _decode_png  # noqa: E402
 from iou import iou_pair  # noqa: E402
 
 ROOT = "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm"
-RUNS_DIR = os.path.join(ROOT, "runs")
+RUNS_DIR = os.environ.get("DRAWING_VLM_RUNS", os.path.join(ROOT, "runs"))   # serv-19: /srv/scratch/bimrose2/runs
 MODEL_BASE = os.path.join(ROOT, "models", "Qwen3.8-27B")
 GT_DIR = os.path.join(os.path.dirname(EVAL_CACHE), "gt_meshes_v14")
 HARNESS = os.path.join(HERE, "exec_harness.py")
 PYTHON = sys.executable
 PYTHON_NEXT = os.path.join(ROOT, ".venv_next", "bin", "python")   # transformers 5.16 for Qwen4Exp
+if not os.path.exists(PYTHON_NEXT):
+    PYTHON_NEXT = sys.executable   # serv-19: the only venv already has transformers 5.16
 
 EVAL_VERSION = 2  # v2: adds repair rounds; bump forces re-eval of all ckpts
 
