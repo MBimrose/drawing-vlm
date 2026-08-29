@@ -1,0 +1,51 @@
+# V1-VERIFIER — reranker for best-of-N serving: (drawing, candidate build123d
+# script) -> predicted volumetric IoU, trained on every scored candidate from
+# rft_scored_v1 (champion e24, 4 samples/part, T=0.8, failures included at 0).
+# LoRA r64 on the e24 champion (already reads drawings + build123d well).
+run_name: v1-verifier-lora
+model_id: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/e24-rft/final
+output_dir: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/v1-verifier-lora
+accel_config: accelerate_fsdp2_8gpu.yaml
+
+use_lora: true
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.05
+lora_target_modules: auto
+vision_strategy: frozen
+
+data_version: 3
+image_aug: true
+system_prompt: detailed
+trace_style: think
+reasoning_effort: medium
+max_seq_len: 4096
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 1.0e-4
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 2
+per_device_eval_batch_size: 2
+gradient_accumulation_steps: 4
+gradient_checkpointing: false
+
+max_steps: 2000
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 256
+eval_n_batches: 32
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 42

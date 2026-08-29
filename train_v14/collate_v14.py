@@ -77,6 +77,31 @@ def wrap_python(code: str) -> str:
     return f"```python\n{s}\n```"
 
 
+VERIFIER_SYSTEM = (
+    "You are a CAD verification expert. Given an engineering drawing and a "
+    "candidate build123d script, estimate how well the solid the script produces "
+    "matches the part in the drawing, as a volumetric IoU between 0.00 and 1.00. "
+    "A script that fails to run scores 0.00. Answer with the number only."
+)
+VERIFIER_USER = (
+    "Candidate build123d script for this drawing:\n\n{code}\n\n"
+    "Estimate the volumetric IoU of the produced solid against the drawn part."
+)
+
+
+def build_verifier_messages(sample: dict) -> list[dict]:
+    return [
+        {"role": "system", "content": [{"type": "text", "text": VERIFIER_SYSTEM}]},
+        {"role": "user", "content": [
+            {"type": "image", "image": sample["image"]},
+            {"type": "text", "text": VERIFIER_USER.format(
+                code=wrap_python(sample["candidate_code"]))},
+        ]},
+        {"role": "assistant",
+         "content": [{"type": "text", "text": f"{float(sample['iou']):.2f}"}]},
+    ]
+
+
 def build_messages(sample: dict, system_prompt: str,
                    trace_style: str = "think") -> list[dict]:
     """trace_style:
@@ -155,7 +180,8 @@ class VLMCollator:
     def _collate(self, batch: list[dict[str, Any]]) -> dict[str, torch.Tensor]:
         from qwen_vl_utils import process_vision_info
 
-        msgs = [build_messages(b, self.system_prompt, self.trace_style)
+        msgs = [build_verifier_messages(b) if "candidate_code" in b else
+                build_messages(b, self.system_prompt, self.trace_style)
                 for b in batch]
 
         full_text = [

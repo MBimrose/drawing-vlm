@@ -24,6 +24,7 @@ trace_gate (which traces count as usable):
 from __future__ import annotations
 
 import glob
+import tarfile
 import io
 import json
 import os
@@ -481,3 +482,67 @@ class EvalDatasetV2(torch.utils.data.Dataset):
 
     def __getitem__(self, i):
         return self.examples[i]
+
+
+# --------------------------------------------------------------------------
+# v3: verifier / reranker data (pack_scored_shards.py output)
+# --------------------------------------------------------------------------
+SCORED_SHARDS = os.environ.get(
+    "DRAWING_VLM_SCORED_SHARDS",
+    "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/rft_scored_v1/shards",
+)
+
+
+def _pack_scored(t, image_aug):
+    png, code, meta, key = t
+    m = json.loads(meta)
+    img = _decode_png(png)
+    if image_aug:
+        img = augment_image(img)
+    return {"image": img, "candidate_code": _decode_code(code),
+            "iou": float(m.get("iou", 0.0)), "exec": bool(m.get("exec", False)),
+            "uuid": key}
+
+
+def build_verifier_dataset(image_aug: bool = True, shard_shuffle_buffer: int = 16,
+                           sample_shuffle_buffer: int = 2000, initial_buffer: int = 500):
+    """(drawing, candidate code) -> IoU. Every scored candidate incl. failures."""
+    shards = sorted(glob.glob(os.path.join(SCORED_SHARDS, "scored-train-*.tar")))
+    if not shards:
+        raise FileNotFoundError(f"no scored shards under {SCORED_SHARDS}")
+    pipe = wds.WebDataset(
+        shards, resampled=True, shardshuffle=shard_shuffle_buffer,
+        nodesplitter=wds.split_by_node, workersplitter=wds.split_by_worker,
+        handler=wds.warn_and_continue,
+    )
+    pipe = pipe.shuffle(sample_shuffle_buffer, initial=initial_buffer)
+    pipe = pipe.select(lambda x: "png" in x and "code.py" in x and "meta.json" in x)
+    return (pipe.to_tuple("png", "code.py", "meta.json", "__key__")
+            .map(lambda t: _pack_scored(t, image_aug)))
+
+
+class VerifierEvalDataset(torch.utils.data.Dataset):
+    """Fixed held-out scored candidates (scored-eval-*.tar), first max_n."""
+
+    def __init__(self, max_n: int = 128):
+        self.samples = []
+        for sp in sorted(glob.glob(os.path.join(SCORED_SHARDS, "scored-eval-*.tar"))):
+            with tarfile.open(sp) as tf:
+                groups: dict[str, dict] = {}
+                for m in tf.getmembers():
+                    base, _, ext = m.name.partition(".")
+                    groups.setdefault(base, {})[ext] = tf.extractfile(m).read()
+                for base, g in sorted(groups.items()):
+                    if {"png", "code.py", "meta.json"} <= set(g):
+                        self.samples.append(_pack_scored(
+                            (g["png"], g["code.py"], g["meta.json"], base), False))
+                    if len(self.samples) >= max_n:
+                        break
+            if len(self.samples) >= max_n:
+                break
+
+    def __len__(self):
+        return len(self.samples)
+
+    def __getitem__(self, i):
+        return self.samples[i]

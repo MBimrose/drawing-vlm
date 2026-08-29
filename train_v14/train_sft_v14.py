@@ -418,7 +418,11 @@ def main():
         demote_persistent_buffers(model)
     model = maybe_wrap_lora(model, cfg)
 
-    if int(cfg.get("data_version", 1)) == 2:
+    if int(cfg.get("data_version", 1)) == 3:
+        # Verifier / reranker: (drawing, candidate code) -> IoU as text.
+        from data_v14 import build_verifier_dataset
+        train_ds = build_verifier_dataset(image_aug=bool(cfg.get("image_aug", True)))
+    elif int(cfg.get("data_version", 1)) == 2:
         # Certified-manifest era: bundle reasoning tier + filtered plain tier.
         train_ds = build_mixed_v2(
             reasoning_frac=float(cfg.get("reasoning_frac", 0.2)),
@@ -546,7 +550,10 @@ def main():
     ]
 
     if cfg.get("eval_every", 500) > 0:
-        if int(cfg.get("data_version", 1)) == 2:
+        if int(cfg.get("data_version", 1)) == 3:
+            from data_v14 import VerifierEvalDataset
+            eval_ds = VerifierEvalDataset(max_n=cfg.get("eval_n", 128))
+        elif int(cfg.get("data_version", 1)) == 2:
             eval_ds = EvalDatasetV2(max_n=cfg.get("eval_n", 128))
         else:
             eval_ds = EvalDataset(
