@@ -143,7 +143,19 @@ def _model_cls(path: str):
     if arch.startswith("Qwen3_5"):
         return Qwen3_5ForConditionalGeneration
     if arch.startswith("Qwen4"):
-        from flashnext_qsa import patch_qsa_indexer   # reference indexer loops per token
+        try:
+            from flashnext_qsa import patch_qsa_indexer   # reference indexer loops per token
+        except ModuleNotFoundError:
+            # seen once in an eval subprocess (2026-08-29) despite TRAIN on sys.path
+            import importlib.util
+            print(f"[load] flashnext_qsa not importable; sys.path[:3]={sys.path[:3]} "
+                  f"TRAIN={TRAIN} exists={os.path.exists(os.path.join(TRAIN, 'flashnext_qsa.py'))}",
+                  flush=True)
+            spec = importlib.util.spec_from_file_location(
+                "flashnext_qsa", os.path.join(TRAIN, "flashnext_qsa.py"))
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            patch_qsa_indexer = mod.patch_qsa_indexer
         patch_qsa_indexer()
         from transformers import AutoModelForMultimodalLM
         return AutoModelForMultimodalLM
