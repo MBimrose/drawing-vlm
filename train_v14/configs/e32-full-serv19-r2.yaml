@@ -5,7 +5,7 @@
 output_dir: /srv/scratch/bimrose2/runs/e32-full-serv19-r2
 accel_config: accelerate_fsdp2_qwen4exp_purebf16.yaml
 run_name: e32-full-serv19-r2
-model_id: /srv/scratch/bimrose2/runs/e26-full-serv19/final
+model_id: /srv/scratch/bimrose2/runs/e26-full-serv19/best_model
 
 use_lora: false
 vision_strategy: frozen
@@ -42,7 +42,7 @@ per_device_eval_batch_size: 1
 gradient_accumulation_steps: 8
 gradient_checkpointing: false
 
-max_steps: 1500
+max_steps: 3000   # e26 (3000) was undertrained vs the 27B runs (4000-6000); total 6000
 save_strategy: "no"
 save_total_limit: 1
 save_only_model: false
