@@ -247,7 +247,20 @@ def save_full_model(model, out_dir: str, processor, model_id: str, cfg: dict) ->
         model, options=StateDictOptions(full_state_dict=True, cpu_offload=True))
     if rank == 0:
         os.makedirs(out_dir, exist_ok=True)
-        model.save_pretrained(out_dir, state_dict=full_state, safe_serialization=True)
+        # Saved artifacts are for inference: write use_cache=True even though the
+        # live model must keep it off (activation checkpointing). Restored below
+        # so training continues unchanged after a best-model save.
+        flipped = []
+        for c in [model.config, getattr(model.config, "text_config", None),
+                  getattr(model, "generation_config", None)]:
+            if c is not None and getattr(c, "use_cache", None) is False:
+                c.use_cache = True
+                flipped.append(c)
+        try:
+            model.save_pretrained(out_dir, state_dict=full_state, safe_serialization=True)
+        finally:
+            for c in flipped:
+                c.use_cache = False
         processor.save_pretrained(out_dir)
         if cfg.get("mmap_ngram_embedding", False):
             from flashnext_ple import reattach_ngram_shards

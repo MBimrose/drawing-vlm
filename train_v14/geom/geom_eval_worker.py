@@ -236,6 +236,19 @@ def load_model(ckpt_path: str, kind: str, cfg: dict):
     else:
         raise ValueError(f"unknown checkpoint kind for {ckpt_path}")
 
+    # Fine-tuned checkpoints inherit use_cache=False from training (needed there
+    # for activation checkpointing). Left as-is, every decode step recomputes the
+    # whole sequence. Generation always wants the cache.
+    model.config.use_cache = True
+    if hasattr(model.config, "text_config"):
+        model.config.text_config.use_cache = True
+    for m in model.modules():
+        c = getattr(m, "config", None)
+        if c is not None and hasattr(c, "use_cache"):
+            c.use_cache = True
+    if getattr(model, "generation_config", None) is not None:
+        model.generation_config.use_cache = True
+
     model.eval()
     if model.generation_config is not None:
         model.generation_config.use_cache = True
