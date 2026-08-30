@@ -200,7 +200,8 @@ def load_model(ckpt_path: str, kind: str, cfg: dict):
     extra = {}
     if is_qwen4(ckpt_path if kind == "hf" else base):
         n = torch.cuda.device_count()
-        extra["max_memory"] = {i: "80GiB" for i in range(n)}
+        cap = int(torch.cuda.get_device_properties(0).total_memory / 2**30) - 60   # H200: 79, B300: 207
+        extra["max_memory"] = {i: f"{cap}GiB" for i in range(n)}
         extra["max_memory"]["cpu"] = "1000GiB"
 
     if kind == "hf":
