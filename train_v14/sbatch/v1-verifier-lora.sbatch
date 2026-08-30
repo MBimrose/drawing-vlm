@@ -15,6 +15,6 @@ set -euo pipefail
 DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm
 # pack every scored candidate (idempotent) then train
 [ -n "$(ls $DV/rft_scored_v1/shards/scored-train-*.tar 2>/dev/null)" ] || \
-  OPENBLAS_NUM_THREADS=1 $DV/.venv/bin/python $DV/train_v14/geom/pack_scored_shards.py $DV/rft_scored_v1
+  OPENBLAS_NUM_THREADS=1 $DV/.venv/bin/python $DV/train_v14/geom/pack_scored_shards.py $DV/rft_scored_v1 $DV/rft_v3
 export TRAIN_VENV=$DV/.venv_next
 bash "$DV/train_v14/run.sh" "$DV/train_v14/configs/v1-verifier-lora.yaml"
