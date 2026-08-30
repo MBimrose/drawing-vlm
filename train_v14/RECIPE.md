@@ -1,7 +1,7 @@
-# Drawing→build123d fine-tuning recipe (v1, 2026-08-26)
+# Drawing→build123d fine-tuning recipe (v2, 2026-08-30)
 
-The distilled, model-size-agnostic recipe from the e1–e24 sweep on
-Qwen3.8-27B. Every ingredient here was validated in isolation (run in
+The distilled, model-size-agnostic recipe from the e1–e32 sweep on
+Qwen3.8-27B and Qwen3.8-Flash-Next (180B-A6B). Every ingredient here was validated in isolation (run in
 parentheses); noise bar from the seed replicate (e18) is ±0.03–0.05 IoU.
 
 ## Data (the part that transfers unchanged)
@@ -17,8 +17,9 @@ Mixture per sample draw (`build_mixed_v2` in data_v14.py):
 - **20% plain filtered** — tars_v14 minus: exec-bad GT
   (exec_bad_keys_v14.txt, 21%!), legacy renderer (legacy_keys_v14.txt),
   both eval residues (uuid%50 in {0,7}). (e16: exec filter alone was
-  +0.05 IoU, beyond noise.) NEXT: also minus underdetermined sheets
-  (unplaced_keys_v14.txt, 33% — untested, e23 candidate).
+  +0.05 IoU, beyond noise.) Do NOT also drop underdetermined sheets:
+  e23 tested it and it HURT (0.770 vs 0.834 on the determinate slice) —
+  losing 33% of the corpus costs more than the ambiguity it removes.
 - Image augmentation: keep or drop — measured no effect (e14 vs e2).
 - Frozen eval: manifest eval split (1,072 certified) + STEP-derived GT
   meshes; report pooled AND determinate-slice (24% of eval sheets are
@@ -57,11 +58,32 @@ Mixture per sample draw (`build_mixed_v2` in data_v14.py):
 - MoE (e.g. 235B-A22B): full FT infeasible (optimizer states cover ALL
   params); LoRA fine on one node.
 
-## Recommended big-model play
+## Measured leaderboard (certified 96-pool, repair IoU)
 
-1. Prove the recipe fully at 27B (e22/e24 in flight).
-2. Port to the largest ~30–50B-class sibling with vision in the lineage —
-   single-node full FT, same data, LR per table: cheapest capability jump.
-3. Only for the final production model, consider 70B via 3-node (slow) —
-   or better, serve the 27B/50B champion behind best-of-N + repair, which
-   measured cheaper per point of IoU than any size jump.
+| Run | Model | Recipe | Score |
+|-----|-------|--------|-------|
+| e24-rft final | 27B | RFT round 1 (60/20/20), 4000 steps | **0.844** |
+| e28 ckpt-4500 | 27B | RFT v1+v2 (123k), 6000 steps | 0.837 |
+| e29 ckpt-500 | 27B | continue from e28 on same mix | 0.806 |
+| e26-full best | Flash-Next 180B | same recipe, 3000 steps | 0.782 |
+| e22 ckpt-3500 | 27B | no RFT (certified+plain) | 0.792 |
+| e2 final | 27B | all data, no filters | 0.594 |
+
+Best-of-4 execution-gated serving on e24: **0.876 mean IoU, 99% exec,
+72% ≥0.85** — the single largest deployable gain measured.
+
+## Scale is not the lever (measured, 2026-08-30)
+
+A full fine-tune of the 180B-A6B Flash-Next on the identical recipe scored
+0.782 vs the 27B's 0.844, despite better zero-shot drawing reading and a
+competitive val loss (0.4383 vs 0.4355). It was undertrained (24k samples
+vs 32–48k) — e32 retests at matched compute — but the ordering to date is
+unambiguous: **verified self-generated data (RFT) and best-of-N serving
+each bought more IoU than a 6.7× parameter increase.**
+
+Practical consequences:
+1. Spend GPU-hours on RFT rounds and candidate reranking before model size.
+2. Serve the 27B champion behind best-of-N + repair.
+3. Log EVERY scored candidate during RFT (`--log-all`): it is free verifier
+   training data (105k candidates fell out of RFT round 3 alone).
+4. Overlap generation with execution/IoU scoring in RFT workers (1.44×).
