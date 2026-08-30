@@ -16,6 +16,7 @@ import torch
 from transformers.models.qwen4_exp import modeling_qwen4_exp as mq
 
 _ORIG = mq.Qwen4ExpTextQSAIndexer.forward
+_N_FALLBACK = 0
 
 
 def _fast_forward(self, hidden_states, position_embeddings, attention_mask, past_key_values):
@@ -34,6 +35,11 @@ def _fast_forward(self, hidden_states, position_embeddings, attention_mask, past
     contiguous = ((last - first + 1) == cnt) | (cnt == 0)
     same_start = (first == s[:, None]) | (cnt == 0)
     if not bool((contiguous & same_start).all()):
+        global _N_FALLBACK
+        _N_FALLBACK += 1
+        if _N_FALLBACK in (1, 10, 100, 1000):
+            print(f"[qsa] reference-loop fallback #{_N_FALLBACK} "
+                  f"(B={B} S={S} K={K}) — SLOW", flush=True)
         return _ORIG(self, hidden_states, position_embeddings, attention_mask, past_key_values)
 
     full_cos, full_sin = position_embeddings
