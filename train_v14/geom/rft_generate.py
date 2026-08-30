@@ -128,7 +128,7 @@ def main():
     shards = all_shards()[args.worker::args.stride]
     acc_f = open(acc_path, "a")
     seen_f = open(seen_path, "a")
-    pool = ThreadPoolExecutor(max_workers=4)
+    pool = ThreadPoolExecutor(max_workers=8)   # exec+IoU overlap generation
 
     def score_one(key: str, think: str, code: str | None, gt_code: str,
                   td: str, tag: str = "") -> dict:
@@ -160,6 +160,39 @@ def main():
 
     with tempfile.TemporaryDirectory(prefix=f"rft{args.worker}_") as td:
         batch_samples, batch_meta = [], []
+        pending: list[tuple] = []          # (key, sample_idx, future) still scoring
+
+        def drain(block: bool):
+            """Write finished candidates. GPU generation continues while the
+            CPU (build123d exec + IoU) scores earlier batches; without this the
+            worker alternated GPU-idle/CPU-idle at roughly a 50% duty cycle."""
+            nonlocal n_accepted, pending
+            ready, still = [], []
+            for key, j, fut in pending:
+                (ready if (block or fut.done()) else still).append((key, j, fut))
+            pending = still
+            by_key: dict[str, list] = {}
+            for key, j, fut in ready:
+                rec = fut.result()
+                rec["sample"] = j
+                by_key.setdefault(key, []).append(rec)
+            for key, recs in by_key.items():
+                best = max(r["iou"] for r in recs)
+                seen_f.write(json.dumps({"key": key, "iou": best, "n": len(recs)}) + "\n")
+                codes_seen = set()
+                for r in recs:
+                    if scored_f is not None:
+                        scored_f.write(json.dumps(r) + "\n")
+                    if r["ok"] and r["code"] not in codes_seen:
+                        codes_seen.add(r["code"])
+                        acc_f.write(json.dumps({k: v for k, v in r.items()
+                                                if k != "exec"}) + "\n")
+                        n_accepted += 1
+            if by_key:
+                acc_f.flush()
+                seen_f.flush()
+                if scored_f is not None:
+                    scored_f.flush()
 
         def flush():
             nonlocal n_accepted, batch_samples, batch_meta
@@ -188,35 +221,15 @@ def main():
             gen = out[:, enc["input_ids"].shape[1]:]
             decoded = processor.tokenizer.batch_decode(
                 gen, skip_special_tokens=True)
-            futs = []   # (key, sample_idx, future) — row i belongs to part i // K
-            for i, text in enumerate(decoded):
+            for i, text in enumerate(decoded):   # row i belongs to part i // K
                 key, gt_code = batch_meta[i // K]
                 j = i % K
                 think, code = extract_think_code(text)
-                futs.append((key, j, pool.submit(score_one, key, think, code,
-                                                 gt_code, td, f".s{j}")))
-            by_key: dict[str, list] = {}
-            for key, j, fut in futs:
-                rec = fut.result()
-                rec["sample"] = j
-                by_key.setdefault(key, []).append(rec)
-            for key, recs in by_key.items():
-                best = max(r["iou"] for r in recs)
-                seen_f.write(json.dumps({"key": key, "iou": best, "n": len(recs)}) + "\n")
-                codes_seen = set()
-                for r in recs:
-                    if scored_f is not None:
-                        scored_f.write(json.dumps(r) + "\n")
-                    if r["ok"] and r["code"] not in codes_seen:
-                        codes_seen.add(r["code"])
-                        acc_f.write(json.dumps({k: v for k, v in r.items()
-                                                if k != "exec"}) + "\n")
-                        n_accepted += 1
-            acc_f.flush()
-            seen_f.flush()
-            if scored_f is not None:
-                scored_f.flush()
+                pending.append((key, j, pool.submit(score_one, key, think, code,
+                                                    gt_code, td, f".s{j}")))
             batch_samples, batch_meta = [], []
+            # keep the scoring queue bounded; block only when it runs far ahead
+            drain(block=len(pending) > 3 * args.batch * max(1, args.n_samples))
 
         for sp in shards:
             if n_accepted >= args.max_accepted:
@@ -265,6 +278,7 @@ def main():
                               f"accepted={n_accepted}", flush=True)
             tf.close()
         flush()
+        drain(block=True)
     print(f"[rft w{args.worker}] DONE seen={len(seen)} accepted={n_accepted}",
           flush=True)
 
