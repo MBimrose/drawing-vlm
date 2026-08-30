@@ -194,15 +194,24 @@ def load_model(ckpt_path: str, kind: str, cfg: dict):
     )
     processor.tokenizer.padding_side = "left"
 
+    # Qwen4Exp: cap per-GPU memory so the 102 GB n-gram table cannot be placed
+    # on a GPU (accelerate did on 141 GB H200s -> 139 GB on one GPU -> OOM in
+    # generation); transformers then keeps it on CPU (_no_placement_params).
+    extra = {}
+    if is_qwen4(ckpt_path if kind == "hf" else base):
+        n = torch.cuda.device_count()
+        extra["max_memory"] = {i: "80GiB" for i in range(n)}
+        extra["max_memory"]["cpu"] = "1000GiB"
+
     if kind == "hf":
         model = Qwen3_5ForConditionalGeneration.from_pretrained(
             ckpt_path, dtype=torch.bfloat16, attn_implementation="sdpa",
-            device_map="balanced", low_cpu_mem_usage=True)
+            device_map="balanced", low_cpu_mem_usage=True, **extra)
     elif kind == "lora":
         from peft import PeftModel
         base = Qwen3_5ForConditionalGeneration.from_pretrained(
             base, dtype=torch.bfloat16, attn_implementation="sdpa",
-            device_map="balanced", low_cpu_mem_usage=True)
+            device_map="balanced", low_cpu_mem_usage=True, **extra)
         normalize_adapter(ckpt_path)
         model = PeftModel.from_pretrained(base, ckpt_path)
         model = model.merge_and_unload()
