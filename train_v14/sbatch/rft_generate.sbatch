@@ -38,7 +38,7 @@ for g in 0 1 2 3 4 5 6 7; do
   CUDA_VISIBLE_DEVICES=$g python $TRAIN/geom/rft_generate.py \
     --ckpt "$CKPT" --kind hf --run "$RUN" \
     --worker $w --stride 16 --out "$OUT" \
-    --batch 8 --min-iou 0.8 ${RFT_EXTRA:---temperature 0.6} --max-accepted ${RFT_MAX_ACCEPTED:-4000} \
+    --batch 8 --min-iou 0.8 ${RFT_EXTRA:---temperature 0.6 --log-all} --max-accepted ${RFT_MAX_ACCEPTED:-4000} \
     > "$LOGD/rft-w${w}.log" 2>&1 &
   pids+=($!)
 done
