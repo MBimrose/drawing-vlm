@@ -505,11 +505,18 @@ def _pack_scored(t, image_aug):
 
 
 def build_verifier_dataset(image_aug: bool = True, shard_shuffle_buffer: int = 16,
-                           sample_shuffle_buffer: int = 2000, initial_buffer: int = 500):
-    """(drawing, candidate code) -> IoU. Every scored candidate incl. failures."""
+                           sample_shuffle_buffer: int = 2000, initial_buffer: int = 500,
+                           binary_threshold: float | None = None,
+                           pos_keep: float = 1.0, seed: int = 42):
+    """(drawing, candidate code) -> IoU. Every scored candidate incl. failures.
+
+    binary_threshold: if set, adds sample["label"] = iou >= threshold and
+    rejection-samples positives with prob `pos_keep` to balance classes
+    (verifier v1 collapsed to predicting 1.0 on a positives-heavy pool)."""
     shards = sorted(glob.glob(os.path.join(SCORED_SHARDS, "scored-train-*.tar")))
     if not shards:
         raise FileNotFoundError(f"no scored shards under {SCORED_SHARDS}")
+    rng = random.Random(seed)
     pipe = wds.WebDataset(
         shards, resampled=True, shardshuffle=shard_shuffle_buffer,
         nodesplitter=wds.split_by_node, workersplitter=wds.split_by_worker,
@@ -517,8 +524,17 @@ def build_verifier_dataset(image_aug: bool = True, shard_shuffle_buffer: int = 1
     )
     pipe = pipe.shuffle(sample_shuffle_buffer, initial=initial_buffer)
     pipe = pipe.select(lambda x: "png" in x and "code.py" in x and "meta.json" in x)
+    def _mk(t):
+        smp = _pack_scored(t, image_aug)
+        if binary_threshold is not None:
+            smp["label"] = smp["iou"] >= binary_threshold
+        return smp
+    def _keep(smp):
+        if binary_threshold is None or not smp["label"]:
+            return True
+        return rng.random() < pos_keep
     return (pipe.to_tuple("png", "code.py", "meta.json", "__key__")
-            .map(lambda t: _pack_scored(t, image_aug)))
+            .map(_mk).select(_keep))
 
 
 class VerifierEvalDataset(torch.utils.data.Dataset):

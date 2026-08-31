@@ -1,0 +1,53 @@
+# V2-VERIFIER — binary reranker: (drawing, candidate script) -> yes/no at
+# IoU>=0.85, ranked at serving by log-odds of the yes token. Trained on ALL
+# scored pools (270k candidates, 28.5% positive): rft_scored_v1 + rft_v3 +
+# rft_v5_hard. v1 (regression-as-text on the e24 pool alone) collapsed to 1.0.
+run_name: v2-verifier-bin
+model_id: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/e24-rft/final
+output_dir: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/v2-verifier-bin
+accel_config: accelerate_fsdp2_8gpu.yaml
+
+use_lora: true
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.05
+lora_target_modules: auto
+vision_strategy: frozen
+
+data_version: 3
+image_aug: true
+system_prompt: detailed
+trace_style: think
+reasoning_effort: medium
+max_seq_len: 4096
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 1.0e-4
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 2
+per_device_eval_batch_size: 2
+gradient_accumulation_steps: 4
+gradient_checkpointing: false
+
+max_steps: 2500
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 256
+eval_n_batches: 32
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 42
+verifier_binary_threshold: 0.85
+verifier_pos_keep: 1.0

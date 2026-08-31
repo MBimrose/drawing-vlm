@@ -434,7 +434,11 @@ def main():
     if int(cfg.get("data_version", 1)) == 3:
         # Verifier / reranker: (drawing, candidate code) -> IoU as text.
         from data_v14 import build_verifier_dataset
-        train_ds = build_verifier_dataset(image_aug=bool(cfg.get("image_aug", True)))
+        train_ds = build_verifier_dataset(
+            image_aug=bool(cfg.get("image_aug", True)),
+            binary_threshold=cfg.get("verifier_binary_threshold"),
+            pos_keep=float(cfg.get("verifier_pos_keep", 1.0)),
+            seed=int(cfg.get("seed", 42)))
     elif int(cfg.get("data_version", 1)) == 2:
         # Certified-manifest era: bundle reasoning tier + filtered plain tier.
         train_ds = build_mixed_v2(
@@ -566,6 +570,10 @@ def main():
         if int(cfg.get("data_version", 1)) == 3:
             from data_v14 import VerifierEvalDataset
             eval_ds = VerifierEvalDataset(max_n=cfg.get("eval_n", 128))
+            thr = cfg.get("verifier_binary_threshold")
+            if thr is not None:
+                for smp in eval_ds.samples:
+                    smp["label"] = smp["iou"] >= float(thr)
         elif int(cfg.get("data_version", 1)) == 2:
             eval_ds = EvalDatasetV2(max_n=cfg.get("eval_n", 128))
         else:

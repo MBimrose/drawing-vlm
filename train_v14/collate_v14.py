@@ -89,7 +89,25 @@ VERIFIER_USER = (
 )
 
 
+VERIFIER_BIN_USER = (
+    "Candidate build123d script for this drawing:\n\n{code}\n\n"
+    "Does this script produce a solid matching the drawn part with volumetric "
+    "IoU of at least 0.85? Answer yes or no."
+)
+
+
 def build_verifier_messages(sample: dict) -> list[dict]:
+    if "label" in sample:   # binary variant (v2): ranked by yes/no log-odds
+        return [
+            {"role": "system", "content": [{"type": "text", "text": VERIFIER_SYSTEM}]},
+            {"role": "user", "content": [
+                {"type": "image", "image": sample["image"]},
+                {"type": "text", "text": VERIFIER_BIN_USER.format(
+                    code=wrap_python(sample["candidate_code"]))},
+            ]},
+            {"role": "assistant",
+             "content": [{"type": "text", "text": "yes" if sample["label"] else "no"}]},
+        ]
     return [
         {"role": "system", "content": [{"type": "text", "text": VERIFIER_SYSTEM}]},
         {"role": "user", "content": [

@@ -49,6 +49,9 @@ def main():
     ap.add_argument("--run", required=True)
     ap.add_argument("--verifier", required=True)
     ap.add_argument("--verifier-run", default="v1-verifier-lora")
+    ap.add_argument("--verifier-mode", default="regression",
+                    choices=["regression", "binary"],
+                    help="binary: rank by log-odds of the yes token (v2)")
     ap.add_argument("--n", type=int, default=96)
     ap.add_argument("--k", type=int, default=8)
     ap.add_argument("--temperature", type=float, default=0.7)
@@ -138,10 +141,35 @@ def main():
                      {"type": "image", "image": samples[i]["image"]},
                      {"type": "text", "text": VERIFIER_USER.format(code=wrap_python(cands[i][j]["code"]))}]}]
                 for i, j in chunk]
-        outs = gen_batch(msgs, False, vcfg, verifier, vproc, 8)
-        for (i, j), text in zip(chunk, outs):
-            m = re.search(r"\d*\.?\d+", text)
-            cands[i][j]["pred"] = float(m.group(0)) if m else 0.0
+        if args.verifier_mode == "binary":
+            # one forward step; score = logit(yes) - logit(no) on the first token
+            tok = vproc.tokenizer
+            yes_ids = {tok.encode(v, add_special_tokens=False)[0] for v in ("yes", " yes", "Yes")}
+            no_ids = {tok.encode(v, add_special_tokens=False)[0] for v in ("no", " no", "No")}
+            tmpl = dict(enable_thinking=True,
+                        reasoning_effort=vcfg.get("reasoning_effort", "medium"))                 if vcfg.get("trace_style", "think") == "think" else {}
+            texts = [vproc.apply_chat_template(m2, add_generation_prompt=True,
+                                               tokenize=False, **tmpl) for m2 in msgs]
+            images, videos = process_vision_info(msgs)
+            enc = vproc(text=texts, images=images, videos=videos,
+                        return_tensors="pt", padding=True)
+            enc = {k2: (v.to(verifier.device) if hasattr(v, "to") else v)
+                   for k2, v in enc.items()}
+            with torch.no_grad():
+                out = verifier.generate(
+                    **enc, max_new_tokens=1, do_sample=False,
+                    output_scores=True, return_dict_in_generate=True,
+                    pad_token_id=tok.pad_token_id or tok.eos_token_id)
+            logits = out.scores[0].float()
+            for row, (i, j) in enumerate(chunk):
+                ly = max(logits[row, t].item() for t in yes_ids)
+                ln = max(logits[row, t].item() for t in no_ids)
+                cands[i][j]["pred"] = ly - ln
+        else:
+            outs = gen_batch(msgs, False, vcfg, verifier, vproc, 8)
+            for (i, j), text in zip(chunk, outs):
+                m = re.search(r"\d*\.?\d+", text)
+                cands[i][j]["pred"] = float(m.group(0)) if m else 0.0
 
     # ---- 4. selection policies ----
     def pick(cs, key):
@@ -150,7 +178,7 @@ def main():
             return None
         return max(ex, key=key) if key else ex[0]
     pol = {"first_exec": lambda cs: pick(cs, None),
-           "verifier": lambda cs: pick(cs, lambda c: c.get("pred", 0.0)),
+           "verifier": lambda cs: pick(cs, lambda c: c.get("pred", -1e9)),
            "oracle": lambda cs: pick(cs, lambda c: c["iou"]),
            "greedy_only": lambda cs: (cs[0] if cs[0]["exec"] else None)}
     metrics = {}

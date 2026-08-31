@@ -18,7 +18,7 @@ import tarfile
 DV = "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm"
 TARS = os.environ.get("DRAWING_VLM_TARS", f"{DV}/step_to_drw/wds_dataset/tars_v14")
 DIRS = sys.argv[1:] or [f"{DV}/rft_scored_v1"]
-OUT = os.path.join(DIRS[0], "shards")
+OUT = os.environ.get("SCORED_OUT", os.path.join(DIRS[0], "shards"))
 PER_SHARD = 4000
 os.makedirs(OUT, exist_ok=True)
 
