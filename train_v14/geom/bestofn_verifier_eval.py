@@ -47,7 +47,7 @@ def main():
     ap.add_argument("--ckpt", required=True)
     ap.add_argument("--kind", default="hf")
     ap.add_argument("--run", required=True)
-    ap.add_argument("--verifier", required=True)
+    ap.add_argument("--verifier", default="", help="empty: skip verifier scoring (oracle/first-exec K-curve only)")
     ap.add_argument("--verifier-run", default="v1-verifier-lora")
     ap.add_argument("--verifier-mode", default="regression",
                     choices=["regression", "binary"],
@@ -131,9 +131,19 @@ def main():
     # ---- 3. verifier scores every executing candidate ----
     del model
     torch.cuda.empty_cache()
+    if not args.verifier:
+        for cs in cands:
+            for c in cs:
+                c["pred"] = c["iou"] * 0.0   # verifier policy degenerates to first-exec
+        _skip = True
+    else:
+        _skip = False
     vcfg = run_config(args.verifier_run) or cfg
-    verifier, vproc = load_model(args.verifier, classify_ckpt(args.verifier), vcfg)
-    todo = [(i, j) for i in range(len(samples)) for j in range(args.k) if cands[i][j]["exec"]]
+    if _skip:
+        todo = []
+    else:
+        verifier, vproc = load_model(args.verifier, classify_ckpt(args.verifier), vcfg)
+    todo = [] if _skip else [(i, j) for i in range(len(samples)) for j in range(args.k) if cands[i][j]["exec"]]
     for b in range(0, len(todo), args.batch):
         chunk = todo[b:b + args.batch]
         msgs = [[{"role": "system", "content": [{"type": "text", "text": VERIFIER_SYSTEM}]},
@@ -197,6 +207,15 @@ def main():
                and pol["verifier"](cs)["iou"] >= pol["oracle"](cs)["iou"] - 1e-6)
     metrics["verifier_spearman"] = spearman(preds, trues)
     metrics["verifier_oracle_hit_frac"] = hits / len(cands)
+    # oracle mean as a function of k (how the ceiling grows with draws)
+    ocurve = {}
+    for kk in range(1, args.k + 1):
+        vals = []
+        for cs in cands:
+            ex = [c["iou"] for c in cs[:kk] if c["exec"]]
+            vals.append(max(ex) if ex else 0.0)
+        ocurve[str(kk)] = sum(vals) / len(vals)
+    metrics["oracle_by_k"] = ocurve
     metrics.update({"n": len(samples), "k": args.k, "temperature": args.temperature})
     print(json.dumps(metrics, indent=1), flush=True)
     with open(args.out, "w") as f:
