@@ -66,6 +66,8 @@ Mixture per sample draw (`build_mixed_v2` in data_v14.py):
 | e28 ckpt-4500 | 27B | RFT v1+v2 (123k), 6000 steps | 0.837 |
 | e29 ckpt-500 | 27B | continue from e28 on same mix | 0.806 |
 | e26-full best | Flash-Next 180B | same recipe, 3000 steps | 0.782 |
+| e32-r2 best | Flash-Next 180B | matched compute, lr 6e-6→3e-6 restart | 0.832 |
+| e35 best | Flash-Next 180B | continue e32 at lr 8e-7, curated tier, 1500 steps | 0.819 |
 | e22 ckpt-3500 | 27B | no RFT (certified+plain) | 0.792 |
 | e2 final | 27B | all data, no filters | 0.594 |
 
@@ -82,7 +84,9 @@ No trained components, no GT at selection; captures ~62% of the oracle
 A full fine-tune of the 180B-A6B Flash-Next on the identical recipe scored
 0.782 vs the 27B's 0.844, despite better zero-shot drawing reading and a
 competitive val loss (0.4383 vs 0.4355). It was undertrained (24k samples
-vs 32–48k) — e32 retests at matched compute — but the ordering to date is
+vs 32–48k) — e32 retested at matched compute (0.832) and e35 polished it
+further at a properly scaled LR on the curated tier (val 0.4381, the
+lowest Flash-Next val ever, yet 0.819 repair IoU) — but the ordering is
 unambiguous: **verified self-generated data (RFT) and best-of-N serving
 each bought more IoU than a 6.7× parameter increase.**
 
