@@ -58,6 +58,8 @@ def main():
     ap.add_argument("--batch", type=int, default=8)
     ap.add_argument("--max-new-tokens", type=int, default=2400)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--shard", type=int, default=0, help="this worker's index (keys[shard::nshards])")
+    ap.add_argument("--nshards", type=int, default=1, help="run N single-GPU workers and merge with merge_bo_shards.py")
     args = ap.parse_args()
 
     cfg = run_config(args.run)
@@ -71,6 +73,7 @@ def main():
         cache = pickle.load(f)
     keys = [k for k in cache["pools"][pool]
             if os.path.exists(os.path.join(gt_dir, f"{k}.stl"))][: args.n]
+    keys = keys[args.shard::args.nshards]
     samples = [{"uuid": k, "image": _decode_png(cache["samples"][k]["png"])} for k in keys]
     print(f"[bo{args.k}+verifier] {len(samples)} samples, T={args.temperature}", flush=True)
 
