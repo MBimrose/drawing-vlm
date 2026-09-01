@@ -101,7 +101,16 @@ def main():
 
     # ---- 1. draw K candidates for every sample ----
     cands = [[] for _ in samples]   # per sample: list of dicts
-    for draw in range(args.k):
+    # Per-draw checkpoint so a long run (1k parts x K draws) survives a crash.
+    partial = args.out + ".partial.json"
+    keys_list = [s["uuid"] for s in samples]
+    start_draw = 0
+    if os.path.exists(partial):
+        pd = json.load(open(partial))
+        if pd.get("keys") == keys_list and pd.get("k") == args.k and pd["cands"] and pd["cands"][0]:
+            cands, start_draw = pd["cands"], len(pd["cands"][0])
+            print(f"[bo{args.k}] resuming from {partial}: {start_draw} draws done", flush=True)
+    for draw in range(start_draw, args.k):
         outs = []
         for b in range(0, len(samples), args.batch):
             chunk = samples[b:b + args.batch]
@@ -112,6 +121,8 @@ def main():
         for i, text in enumerate(outs):
             cands[i].append({"draw": draw, "code": extract_code(text), "exec": False, "iou": 0.0})
         print(f"[bo{args.k}] draw {draw} done", flush=True)
+        with open(partial, "w") as f:
+            json.dump({"keys": keys_list, "k": args.k, "cands": cands}, f)
 
     # ---- 2. execute + score every candidate ----
     with tempfile.TemporaryDirectory(prefix="bov_") as td:
