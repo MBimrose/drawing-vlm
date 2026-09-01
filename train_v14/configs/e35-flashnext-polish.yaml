@@ -1,0 +1,59 @@
+# E35 — Flash-Next POLISH: continue from e32 best (0.832) with the three fixes
+# the earlier rounds missed: (1) LR scaled for 177B (8e-7, not the 27B's 6e-6 —
+# round-2 val jumped 0.438->0.445 on restart and never recovered = too hot),
+# (2) short warmup so the restart does not perturb, (3) CURATED RFT tier
+# (round-1 + on-policy v4 + hard-part recoveries), not the saturated volume pools.
+output_dir: /srv/scratch/bimrose2/runs/e35-flashnext-polish
+accel_config: accelerate_fsdp2_qwen4exp_purebf16.yaml
+run_name: e35-flashnext-polish
+model_id: /srv/scratch/bimrose2/runs/e35-flashnext-polish/best_model
+
+use_lora: false
+vision_strategy: frozen
+demote_persistent_buffers: true
+mmap_ngram_embedding: true
+fast_qsa_indexer: true
+optim: bf16_sr_adamw          # fp32 Adam states + bf16 params w/ stochastic rounding (bf16_sr_adamw.py)
+bf16: false
+sync_each_batch: true        # reduce-scatter grads every micro-batch (no_sync would hold 252 GB unsharded)
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+dims_filter: false
+system_prompt: detailed
+trace_style: think
+reasoning_effort: medium
+max_seq_len: 5120
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 8.0e-7
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.01
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+
+max_steps: 1500
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+best_save_mode: gather      # best = gathered bf16 HF dir (runs/<run>/best_model), not a 1.2 TB DCP dump
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 42
