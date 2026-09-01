@@ -1,0 +1,21 @@
+{
+ "checkpoint-2000": {
+  "step": 2000,
+  "n": 96,
+  "n_scored": 95,
+  "exec_ok_frac": 0.8526315789473684,
+  "iou_mean": 0.7656702315820135,
+  "iou_median": 0.9407908964294128,
+  "iou_mean_exec": 0.8980082962998924,
+  "frac_iou50": 0.8315789473684211,
+  "frac_iou85": 0.631578947368421,
+  "final_exec_ok_frac": 0.8631578947368421,
+  "final_iou_mean": 0.7668572870893954,
+  "final_iou_median": 0.9407908964294128,
+  "final_iou_mean_exec": 0.8884322228474704,
+  "final_frac_iou50": 0.8315789473684211,
+  "final_frac_iou85": 0.631578947368421,
+  "repair_recovered": 1,
+  "v": 2
+ }
+}
