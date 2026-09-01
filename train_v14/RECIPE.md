@@ -63,6 +63,7 @@ Mixture per sample draw (`build_mixed_v2` in data_v14.py):
 | Run | Model | Recipe | Score |
 |-----|-------|--------|-------|
 | e24-rft final | 27B | RFT round 1 (60/20/20), 4000 steps | **0.844** |
+| e34 final | 27B | e24 recipe, seed 43 (replicate) | 0.803 (73% ≥0.85) |
 | e28 ckpt-4500 | 27B | RFT v1+v2 (123k), 6000 steps | 0.837 |
 | e33 ckpt-3500 | 27B | curated RFT tier (v1+v4+v5hard, 68k), 4000 steps | 0.833 |
 | e29 ckpt-500 | 27B | continue from e28 on same mix | 0.806 |
@@ -79,6 +80,16 @@ judging correctness from (image, code) is as hard as generating);
 whose mesh agrees most (pairwise volumetric IoU) with the other candidates.
 No trained components, no GT at selection; captures ~62% of the oracle
 (0.943) headroom. This is the deployable configuration.
+
+## Noise bar (seed replicate e34, 2026-09-01)
+
+Retraining the champion recipe with a different seed gave 0.803 mean repair
+IoU vs 0.844 (iou85 73% vs 72%; at matched step 3250 the two runs were
+0.801 vs 0.795). Seed-to-seed spread on the 96-part pool is therefore
+≈±0.04 on the mean while the ≥0.85 fraction is stable — every 27B result in
+the 0.80–0.84 band (e28, e32, e33, e34) is one cluster, and single-run
+differences under ~0.05 are not decisions. The 1,030-part full-pool eval
+(running on serv-19) is what separates them.
 
 ## Scale is not the lever (measured, 2026-08-30)
 
