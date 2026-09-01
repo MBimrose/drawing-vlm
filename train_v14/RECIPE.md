@@ -97,3 +97,14 @@ Practical consequences:
 3. Log EVERY scored candidate during RFT (`--log-all`): it is free verifier
    training data (105k candidates fell out of RFT round 3 alone).
 4. Overlap generation with execution/IoU scoring in RFT workers (1.44×).
+
+## DeepSeek-V4-Flash-Vision zero-shot smoke (2026-09-01): do not port
+
+Reference runner on serv-19 (fp4 experts, TP8). Thinking mode never produced
+code on our drawings — with a 16k window and a 12k-token budget both cases
+loop on reconciling dimension lines and never close `</think>`. Chat mode
+(T=0.6) executes but reads the geometry wrong: a 2 mm-wall tray became a solid
+block (centered IoU 0.35), a 80×60×12 plate became 80×80 with a hallucinated
+boss and a 40×40 hole grid instead of 50×30 (IoU 0.46). Full record in
+`results/dsv4-zero-shot-smoke.json`. Hand-porting its vision stack into HF for
+training is not justified; the 27B recipe stays the production path.

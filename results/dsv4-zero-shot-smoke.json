@@ -1,0 +1,35 @@
+{
+ "model": "DeepSeek-V4-Flash-Vision-Exp (fp4 experts, TP8 on serv-19, reference runner)",
+ "date": "2026-09-01",
+ "thinking_mode": {
+  "result": "no code in 3 attempts",
+  "detail": "12k-token budget / 16k seq window: both cases loop on reconciling dimension lines (one line repeated 42x) and never close </think>"
+ },
+ "chat_mode": {
+  "temperature": 0.6,
+  "max_new_tokens": 4000,
+  "cases": [
+   {
+    "uuid": "000bc5ac-ffb4-009a-e213-ec6618d29e54",
+    "exec_ok": true,
+    "iou_raw": 0.058,
+    "iou_centered": 0.351,
+    "vol_pred": 18855,
+    "vol_gt": 6666,
+    "reading": "solid 60x40x8 block + 2x2 corner notch + 2 holes; missed that the part is a 2mm-wall tray and that the notch is 20 wide through the wall",
+    "code": "from build123d import *\n\n# Create the part based on the engineering drawing dimensions\nwith BuildPart() as part:\n    # Main rectangular plate: 60 x 40 x 8\n    with BuildSketch() as sketch:\n        Rectangle(60, 40)\n    extrude(amount=8)\n\n    # Cut the notch on the right side (width 2, height 2)\n    # Positioned at the top right corner\n    with BuildSketch(Plane.XY.offset(8)):\n        with Locations((30, 20)):\n            Rectangle(2, 2, align=(Align.MAX, Align.MAX))\n    extrude(amount=-8, mode=Mode.SUBTRACT)\n\n    # Cut the two holes (diameter 5, through all)\n    # Hole 1: 15mm from left edge, centered vertically\n    with Locations((-30 + 15, 0)):\n        Hole(radius=2.5)\n    # Hole 2: 45mm from left edge, centered vertically\n    with Locations((-30 + 45, 0)):\n        Hole(radius=2.5)\n\n# Export the part to a STEP file\nexport_step(part.part, \"output.step\")\n"
+   },
+   {
+    "uuid": "00199e66-2f80-ae33-2603-60a317088932",
+    "exec_ok": true,
+    "iou_raw": 0.221,
+    "iou_centered": 0.464,
+    "vol_pred": 79362,
+    "vol_gt": 52102,
+    "reading": "80x80x12 plate (true depth 60), hallucinated a D38 boss, D30 through the boss instead of a 6-deep blind pocket, holes on a 40x40 grid (true 50x30), chamfers missed",
+    "code": "from build123d import *\n\n# Create the part within a BuildPart context\nwith BuildPart() as part:\n    # 1. Create the main base plate (80 x 80 x 12)\n    with BuildSketch() as sk:\n        Rectangle(80, 80)\n    extrude(amount=12)\n\n    # 2. Add the central boss (Diameter 38, height 6)\n    # The drawing shows a total height of 18, and a base of 12.\n    # The '6' dimension indicates the boss extends 6mm above the base.\n    with BuildSketch(Plane.XY.offset(12)):\n        Circle(radius=38/2)\n    extrude(amount=6)\n\n    # 3. Drill the central hole (Diameter 30, Through All)\n    with BuildSketch(Plane.XY.offset(12)):\n        Circle(radius=30/2)\n    extrude(amount=6, mode=Mode.SUBTRACT)\n\n    # 4. Drill the 4 corner holes (Diameter 5, Through All)\n    # Positions: 40mm apart horizontally, 40mm apart vertically (from center)\n    # Coordinates: (+/-20, +/-20)\n    hole_positions = [\n        (-20, -20),\n        (-20, 20),\n        (20, -20),\n        (20, 20),\n    ]\n\n    for x, y in hole_positions:\n        with BuildSketch(Plane.XY.offset(12)):\n            with Locations((x, y)):\n                Circle(radius=5/2)\n        extrude(amount=12, mode=Mode.SUBTRACT)\n\n    # 5. Add the 82-degree countersinks to the 4 corner holes\n    # The countersink diameter is 10mm. Depth is calculated based on the angle.\n    # Radius = 5, Angle = 41 (half of 82). Depth = 5 / tan(41).\n    # The drawing shows the countersink starting from the top face (height 18).\n    import math\n    cs_depth = 5 / math.tan(math.radians(41))\n\n    for x, y in hole_positions:\n        with BuildSketch(Plane.XY.offset(18)):\n            with Locations((x, y)):\n                Circle(radius=10/2)\n        extrude(amount=-cs_depth, mode=Mode.SUBTRACT)\n\n# Export the part to a STEP file\nexport_step(part.part, \"output.step\")\n"
+   }
+  ]
+ },
+ "verdict": "zero-shot reading is far below the fine-tuned 27B (0.844 mean, 0.98 median); training port (days of work) not justified"
+}
