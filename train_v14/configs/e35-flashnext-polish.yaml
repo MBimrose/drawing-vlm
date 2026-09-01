@@ -6,7 +6,7 @@
 output_dir: /srv/scratch/bimrose2/runs/e35-flashnext-polish
 accel_config: accelerate_fsdp2_qwen4exp_purebf16.yaml
 run_name: e35-flashnext-polish
-model_id: /srv/scratch/bimrose2/runs/e35-flashnext-polish/best_model
+model_id: /srv/scratch/bimrose2/runs/e32-full-serv19-r2/best_model
 
 use_lora: false
 vision_strategy: frozen
