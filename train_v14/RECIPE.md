@@ -69,8 +69,13 @@ Mixture per sample draw (`build_mixed_v2` in data_v14.py):
 | e22 ckpt-3500 | 27B | no RFT (certified+plain) | 0.792 |
 | e2 final | 27B | all data, no filters | 0.594 |
 
-Best-of-4 execution-gated serving on e24: **0.876 mean IoU, 99% exec,
-72% ≥0.85** — the single largest deployable gain measured.
+Serving policies on identical e24 best-of-8 candidates (2026-08-31):
+first-to-execute 0.879 (74% ≥0.85); learned verifier 0.878 (two attempts —
+judging correctness from (image, code) is as hard as generating);
+**consistency medoid 0.919 (82% ≥0.85, median 0.984)** — pick the candidate
+whose mesh agrees most (pairwise volumetric IoU) with the other candidates.
+No trained components, no GT at selection; captures ~62% of the oracle
+(0.943) headroom. This is the deployable configuration.
 
 ## Scale is not the lever (measured, 2026-08-30)
 
