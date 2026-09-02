@@ -605,6 +605,11 @@ def main():
             if state.get(label, {}).get("v", 1) >= EVAL_VERSION:
                 continue
             kind = classify_ckpt(ckpt_path)
+            if kind == "dcp" and os.environ.get("GEOM_EVAL_SKIP_DCP"):
+                # DCP consolidation reads the full sharded optimizer state off the
+                # parallel FS (2-3 h when it is busy) and the leaderboard uses final/.
+                print(f"[worker] {run_name}/{label}: dcp checkpoint skipped (GEOM_EVAL_SKIP_DCP)", flush=True)
+                continue
             if kind == "unknown":
                 print(f"[worker] {run_name}/{label}: unknown format, skipping",
                       flush=True)

@@ -26,5 +26,6 @@ bash "$TRAIN/geom/self_heal.sh" || true
 
 source /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/bin/activate
 source "$TRAIN/env.sh"
+export GEOM_EVAL_SKIP_DCP=1   # finals only; sharded checkpoints take 2-3 h to consolidate
 python "$TRAIN/geom/geom_eval_worker.py" --n 96 --batch 8
 bash /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/scripts/snapshot_results.sh || true
