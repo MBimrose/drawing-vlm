@@ -177,3 +177,9 @@ buying geometry; e38's lowest-ever 4k-step val loss (0.438) did not transfer.
 The 0.8 threshold on one generator round remains the recipe. Longer training
 (e37, 6000 steps) did not move val after step 4000 and scored 0.846 — equal to
 the champion within noise; 4000 steps is sufficient.
+
+Determinate slice under the deployed policy (e34 replicate, full pool, per-part
+selections): consistency medoid **0.925 (84% ≥0.85)** on the 788 determinate
+sheets vs 0.863 (69%) on the 242 underdetermined ones; oracle 0.949 vs 0.914.
+On fully specified drawings the served system is within 0.024 of its own
+best-of-8 ceiling.
