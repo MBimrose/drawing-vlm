@@ -139,3 +139,8 @@ The 96-part pool was representative to within 0.01 on every policy. Files:
 Seed robustness under serving (96-pool): the e34 replicate, 0.803 single-shot
 vs the champion's 0.844, scores 0.906 (84% ≥0.85) with best-of-8 +
 consistency vs 0.919 (82%) — the serving policy absorbs most of the seed gap.
+
+Determinate slice (uuids with no unplaced dimension in any render, 788/1,030):
+first-to-execute 0.892 (77% ≥0.85), oracle@8 0.951 (91%); the 242
+underdetermined sheets score 0.831 / 0.913 — the ambiguity ceiling is real
+but the policy still recovers 82% of them to ≥0.85 at oracle.
