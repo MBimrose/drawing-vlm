@@ -64,6 +64,7 @@ Mixture per sample draw (`build_mixed_v2` in data_v14.py):
 |-----|-------|--------|-------|
 | e24-rft final | 27B | RFT round 1 (60/20/20), 4000 steps | **0.844** |
 | e34 final | 27B | e24 recipe, seed 43 (replicate) | 0.803 (73% ≥0.85) |
+| e37 final | 27B | e24 recipe + seed, 6000 steps (val flat after 4000) | 0.846 (74% ≥0.85) |
 | e28 ckpt-4500 | 27B | RFT v1+v2 (123k), 6000 steps | 0.837 |
 | e33 ckpt-3500 | 27B | curated RFT tier (v1+v4+v5hard, 68k), 4000 steps | 0.833 |
 | e38 final | 27B | RFT tier v1+v2+v3 at iou≥0.95 (113k), 4000 steps; lowest 4k-step val (0.438) | 0.812 (71% ≥0.85) |
@@ -174,4 +175,5 @@ data alone (e36, 30.7k) and 0.812 across rounds 1-3 (e38, 113k) vs 0.844 for
 the champion's 60k at ≥0.8. Stricter acceptance halves the pool without
 buying geometry; e38's lowest-ever 4k-step val loss (0.438) did not transfer.
 The 0.8 threshold on one generator round remains the recipe. Longer training
-(e37, 6000 steps) also did not move val after step 4000.
+(e37, 6000 steps) did not move val after step 4000 and scored 0.846 — equal to
+the champion within noise; 4000 steps is sufficient.
