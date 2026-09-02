@@ -66,6 +66,7 @@ Mixture per sample draw (`build_mixed_v2` in data_v14.py):
 | e34 final | 27B | e24 recipe, seed 43 (replicate) | 0.803 (73% ≥0.85) |
 | e28 ckpt-4500 | 27B | RFT v1+v2 (123k), 6000 steps | 0.837 |
 | e33 ckpt-3500 | 27B | curated RFT tier (v1+v4+v5hard, 68k), 4000 steps | 0.833 |
+| e38 final | 27B | RFT tier v1+v2+v3 at iou≥0.95 (113k), 4000 steps; lowest 4k-step val (0.438) | 0.812 (71% ≥0.85) |
 | e29 ckpt-500 | 27B | continue from e28 on same mix | 0.806 |
 | e26-full best | Flash-Next 180B | same recipe, 3000 steps | 0.782 |
 | e32-r2 best | Flash-Next 180B | matched compute, lr 6e-6→3e-6 restart | 0.832 |
