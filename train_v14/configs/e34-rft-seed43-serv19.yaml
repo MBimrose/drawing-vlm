@@ -1,4 +1,5 @@
 # e34 seed replicate, serv-19 paths (processor + base resolve locally).
+run_name: e34-rft-seed43-serv19
 model_id: /srv/scratch/bimrose2/runs/e34-rft-seed43/final
 output_dir: /srv/scratch/bimrose2/runs/e34-rft-seed43
 accel_config: accelerate_fsdp2_8gpu.yaml
