@@ -67,6 +67,7 @@ Mixture per sample draw (`build_mixed_v2` in data_v14.py):
 | e28 ckpt-4500 | 27B | RFT v1+v2 (123k), 6000 steps | 0.837 |
 | e33 ckpt-3500 | 27B | curated RFT tier (v1+v4+v5hard, 68k), 4000 steps | 0.833 |
 | e38 final | 27B | RFT tier v1+v2+v3 at iou≥0.95 (113k), 4000 steps; lowest 4k-step val (0.438) | 0.812 (71% ≥0.85) |
+| e36 final | 27B | RFT tier v1 at iou≥0.95 (30.7k), 4000 steps | 0.799 (65% ≥0.85) |
 | e29 ckpt-500 | 27B | continue from e28 on same mix | 0.806 |
 | e26-full best | Flash-Next 180B | same recipe, 3000 steps | 0.782 |
 | e32-r2 best | Flash-Next 180B | matched compute, lr 6e-6→3e-6 restart | 0.832 |
@@ -162,3 +163,12 @@ Cross-seed union (e24 ∪ e34, 16 candidates, 96-pool, 2026-09-02): consistency
 does not improve, while the oracle rises 0.936 → 0.953 (93% ≥0.85). Model
 diversity raises the ceiling, not the vote; two models at 2× cost are not
 worth it for serving. The remaining headroom (0.918 → 0.953) is in selection.
+
+## Acceptance threshold is not the lever either (2026-09-02)
+
+Filtering the RFT tier at iou≥0.95 instead of 0.8 scored 0.799 on round-1
+data alone (e36, 30.7k) and 0.812 across rounds 1-3 (e38, 113k) vs 0.844 for
+the champion's 60k at ≥0.8. Stricter acceptance halves the pool without
+buying geometry; e38's lowest-ever 4k-step val loss (0.438) did not transfer.
+The 0.8 threshold on one generator round remains the recipe. Longer training
+(e37, 6000 steps) also did not move val after step 4000.
