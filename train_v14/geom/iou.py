@@ -79,6 +79,11 @@ def _montecarlo_iou(mesh_a: trimesh.Trimesh, mesh_b: trimesh.Trimesh,
     # took 20-30 min at 150k points on serv-19). Scale the budget down for
     # heavy meshes so the worst case stays in minutes; never below 20k points.
     faces = max(len(mesh_a.faces), len(mesh_b.faces))
+    max_faces = int(_os.environ.get("IOU_MC_MAX_FACES", 300_000))
+    if faces > max_faces:   # a 1.13M-face candidate took 56 min at 20k points (rtree build dominates)
+        print(f"[iou] monte-carlo fallback SKIPPED: {len(mesh_a.faces)}+{len(mesh_b.faces)} faces > {max_faces}",
+              file=_sys.stderr, flush=True)
+        return 0.0
     if faces > 10_000:
         n = max(20_000, int(n * 10_000 / faces))
     try:
