@@ -65,12 +65,16 @@ _MC_CHUNK = 10_000    # bounds trimesh ray-containment memory
 
 
 def _montecarlo_iou(mesh_a: trimesh.Trimesh, mesh_b: trimesh.Trimesh,
-                    n: int = MC_POINTS, seed: int = MC_SEED) -> float:
+                    n: int | None = None, seed: int = MC_SEED) -> float:
     """Last-resort IoU: uniform points in the joint bbox, containment by ray
     parity (trimesh, needs rtree). Independent of both boolean engines, so it
     still scores meshes they cannot build. Deterministic for a fixed seed."""
-    import sys as _sys, time as _time
+    import os as _os, sys as _sys, time as _time
     _t0 = _time.time()
+    if n is None:   # IOU_MC_POINTS=0 disables the fallback (score 0.0), lower values trade accuracy for speed
+        n = int(_os.environ.get("IOU_MC_POINTS", MC_POINTS))
+    if n <= 0:
+        return 0.0
     try:
         lo = np.minimum(mesh_a.bounds[0], mesh_b.bounds[0])
         hi = np.maximum(mesh_a.bounds[1], mesh_b.bounds[1])

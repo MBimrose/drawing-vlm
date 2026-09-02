@@ -10,6 +10,10 @@ candidate sets, plus a consistency+greedy hybrid.
 import json
 import os
 import sys
+# Candidate-vs-candidate agreement only needs a coarse IoU when both boolean
+# engines fail on a non-watertight candidate: 20k points (~±0.01) instead of
+# the 150k used against ground truth (a 7x speed-up on the rare fallback path).
+os.environ.setdefault("IOU_MC_POINTS", "20000")
 import tempfile
 from concurrent.futures import ThreadPoolExecutor
 from itertools import combinations
