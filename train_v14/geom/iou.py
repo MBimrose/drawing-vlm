@@ -75,6 +75,12 @@ def _montecarlo_iou(mesh_a: trimesh.Trimesh, mesh_b: trimesh.Trimesh,
         n = int(_os.environ.get("IOU_MC_POINTS", MC_POINTS))
     if n <= 0:
         return 0.0
+    # Ray-parity containment cost grows with face count (35k-face candidates
+    # took 20-30 min at 150k points on serv-19). Scale the budget down for
+    # heavy meshes so the worst case stays in minutes; never below 20k points.
+    faces = max(len(mesh_a.faces), len(mesh_b.faces))
+    if faces > 10_000:
+        n = max(20_000, int(n * 10_000 / faces))
     try:
         lo = np.minimum(mesh_a.bounds[0], mesh_b.bounds[0])
         hi = np.maximum(mesh_a.bounds[1], mesh_b.bounds[1])
@@ -88,7 +94,7 @@ def _montecarlo_iou(mesh_a: trimesh.Trimesh, mesh_b: trimesh.Trimesh,
         ia, ib = contains(mesh_a), contains(mesh_b)
         uni = int(np.count_nonzero(ia | ib))
         iou = min(int(np.count_nonzero(ia & ib)) / uni, 1.0) if uni else 0.0
-        print(f"[iou] monte-carlo fallback: iou={iou:.3f} ({_time.time() - _t0:.0f}s, "
+        print(f"[iou] monte-carlo fallback: iou={iou:.3f} ({_time.time() - _t0:.0f}s, n={n}, "
               f"{len(mesh_a.faces)}+{len(mesh_b.faces)} faces)", file=_sys.stderr, flush=True)
         return iou
     except Exception as e:
