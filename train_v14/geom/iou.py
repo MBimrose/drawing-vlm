@@ -69,6 +69,8 @@ def _montecarlo_iou(mesh_a: trimesh.Trimesh, mesh_b: trimesh.Trimesh,
     """Last-resort IoU: uniform points in the joint bbox, containment by ray
     parity (trimesh, needs rtree). Independent of both boolean engines, so it
     still scores meshes they cannot build. Deterministic for a fixed seed."""
+    import sys as _sys, time as _time
+    _t0 = _time.time()
     try:
         lo = np.minimum(mesh_a.bounds[0], mesh_b.bounds[0])
         hi = np.maximum(mesh_a.bounds[1], mesh_b.bounds[1])
@@ -81,10 +83,12 @@ def _montecarlo_iou(mesh_a: trimesh.Trimesh, mesh_b: trimesh.Trimesh,
                                    for i in range(0, n, _MC_CHUNK)])
         ia, ib = contains(mesh_a), contains(mesh_b)
         uni = int(np.count_nonzero(ia | ib))
-        if uni == 0:
-            return 0.0
-        return min(int(np.count_nonzero(ia & ib)) / uni, 1.0)
-    except Exception:
+        iou = min(int(np.count_nonzero(ia & ib)) / uni, 1.0) if uni else 0.0
+        print(f"[iou] monte-carlo fallback: iou={iou:.3f} ({_time.time() - _t0:.0f}s, "
+              f"{len(mesh_a.faces)}+{len(mesh_b.faces)} faces)", file=_sys.stderr, flush=True)
+        return iou
+    except Exception as e:
+        print(f"[iou] monte-carlo fallback FAILED: {e!r}", file=_sys.stderr, flush=True)
         return 0.0
 
 
