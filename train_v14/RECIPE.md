@@ -138,9 +138,12 @@ The 96-part pool was representative to within 0.01 on every policy. Files:
 `results/bo8_full_e24.json` (all 8,240 candidates) and
 `results/bo8_full_consistency.json`.
 
-Seed robustness under serving (96-pool): the e34 replicate, 0.803 single-shot
-vs the champion's 0.844, scores 0.906 (84% ≥0.85) with best-of-8 +
-consistency vs 0.919 (82%) — the serving policy absorbs most of the seed gap.
+Seed robustness under serving: the e34 replicate, 0.803 single-shot vs the
+champion's 0.844, scores 0.906 (84% ≥0.85) on the 96-pool and **0.910 (80%,
+median 0.971) on the full 1,030-pool** with best-of-8 + consistency, vs
+0.919 / 0.912 for the champion. The deployed policy is seed-invariant to
+within 0.002 at full scale (first-exec 0.876 vs 0.878, oracle 0.941 vs 0.942);
+the 0.04 single-shot seed gap is noise the vote removes.
 
 Determinate slice (uuids with no unplaced dimension in any render, 788/1,030):
 first-to-execute 0.892 (77% ≥0.85), oracle@8 0.951 (91%); the 242
