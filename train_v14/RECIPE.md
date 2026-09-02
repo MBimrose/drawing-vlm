@@ -68,7 +68,7 @@ Mixture per sample draw (`build_mixed_v2` in data_v14.py):
 | e39 soup | 27B | uniform weight average of e24 + e34 (no training) | 0.815 (67% ≥0.85) |
 | e28 ckpt-4500 | 27B | RFT v1+v2 (123k), 6000 steps | 0.837 |
 | e33 ckpt-3500 | 27B | curated RFT tier (v1+v4+v5hard, 68k), 4000 steps | 0.833 |
-| e38 final | 27B | RFT tier v1+v2+v3 at iou≥0.95 (113k), 4000 steps; lowest 4k-step val (0.438) | 0.812 (71% ≥0.85) |
+| e38 final | 27B | RFT tier v1+v2+v3 at iou≥0.95 (113k), 4000 steps; lowest 4k-step val (0.438) | 0.812 / 0.837 (same weights, serv-19 B300 vs cluster L40S) |
 | e36 final | 27B | RFT tier v1 at iou≥0.95 (30.7k), 4000 steps | 0.799 (65% ≥0.85) |
 | e29 ckpt-500 | 27B | continue from e28 on same mix | 0.806 |
 | e26-full best | Flash-Next 180B | same recipe, 3000 steps | 0.782 |
@@ -90,7 +90,9 @@ No trained components, no GT at selection; captures ~62% of the oracle
 Retraining the champion recipe with a different seed gave 0.803 mean repair
 IoU vs 0.844 (iou85 73% vs 72%; at matched step 3250 the two runs were
 0.801 vs 0.795). Seed-to-seed spread on the 96-part pool is therefore
-≈±0.04 on the mean while the ≥0.85 fraction is stable — every 27B result in
+≈±0.04 on the mean while the ≥0.85 fraction is stable. The same e38 weights
+scored 0.812 on serv-19 and 0.837 on the cluster (hardware-level numerical
+differences change greedy decodes), so even one model re-evaluated is ±0.025 — every 27B result in
 the 0.80–0.84 band (e28, e32, e33, e34) is one cluster, and single-run
 differences under ~0.05 are not decisions. The 1,030-part full-pool eval
 (running on serv-19) is what separates them.
