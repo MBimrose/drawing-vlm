@@ -144,3 +144,14 @@ Determinate slice (uuids with no unplaced dimension in any render, 788/1,030):
 first-to-execute 0.892 (77% ≥0.85), oracle@8 0.951 (91%); the 242
 underdetermined sheets score 0.831 / 0.913 — the ambiguity ceiling is real
 but the policy still recovers 82% of them to ≥0.85 at oracle.
+
+Sampling temperature for best-of-8 + consistency (champion, 96-pool, 2026-09-02):
+
+| T | first-exec | consistency | oracle@8 |
+|---|---|---|---|
+| 0.5 | 0.868 | 0.897 (80% ≥0.85) | 0.936 |
+| 0.7 | 0.879 | **0.919 (82%)** | 0.936 |
+| 1.0 | 0.885 | 0.917 (81%) | 0.945 |
+
+Diversity helps the oracle monotonically but the medoid plateaus from 0.7 up;
+too little diversity (0.5) costs 0.02. Keep T=0.7.
