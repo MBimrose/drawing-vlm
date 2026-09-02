@@ -78,11 +78,11 @@ pols = {
     "oracle": lambda cs, p: max(cs, key=lambda c: c["iou"]),
 }
 res = {name: metrics(fn) for name, fn in pols.items()}
+for name, m in res.items():
+    print(f"{name:12s} mean={m['iou_mean']:.3f} median={m['iou_median']:.3f} "
+          f"iou85={m['frac_iou85']:.3f} iou50={m['frac_iou50']:.3f}", flush=True)
 # per-part chosen IoU under every policy (enables offline slices, e.g. determinate-only)
 res["per_part"] = {p["key"]: {name: (fn([c for c in p["cands"] if c.get("stl")], p)["iou"]
                                      if any(c.get("stl") for c in p["cands"]) else 0.0)
                               for name, fn in pols.items()} for p in parts}
-for name, m in res.items():
-    print(f"{name:12s} mean={m['iou_mean']:.3f} median={m['iou_median']:.3f} "
-          f"iou85={m['frac_iou85']:.3f} iou50={m['frac_iou50']:.3f}", flush=True)
 json.dump(res, open(out_path, "w"), indent=1)
