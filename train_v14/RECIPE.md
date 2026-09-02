@@ -65,6 +65,7 @@ Mixture per sample draw (`build_mixed_v2` in data_v14.py):
 | e24-rft final | 27B | RFT round 1 (60/20/20), 4000 steps | **0.844** |
 | e34 final | 27B | e24 recipe, seed 43 (replicate) | 0.803 (73% ≥0.85) |
 | e37 final | 27B | e24 recipe + seed, 6000 steps (val flat after 4000) | 0.846 (74% ≥0.85) |
+| e39 soup | 27B | uniform weight average of e24 + e34 (no training) | 0.815 (67% ≥0.85) |
 | e28 ckpt-4500 | 27B | RFT v1+v2 (123k), 6000 steps | 0.837 |
 | e33 ckpt-3500 | 27B | curated RFT tier (v1+v4+v5hard, 68k), 4000 steps | 0.833 |
 | e38 final | 27B | RFT tier v1+v2+v3 at iou≥0.95 (113k), 4000 steps; lowest 4k-step val (0.438) | 0.812 (71% ≥0.85) |
