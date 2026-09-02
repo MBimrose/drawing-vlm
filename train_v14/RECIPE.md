@@ -119,3 +119,23 @@ block (centered IoU 0.35), a 80×60×12 plate became 80×80 with a hallucinated
 boss and a 40×40 hole grid instead of 50×30 (IoU 0.46). Full record in
 `results/dsv4-zero-shot-smoke.json`. Hand-porting its vision stack into HF for
 training is not justified; the 27B recipe stays the production path.
+
+## Full-pool result (1,030 certified parts with GT meshes, 2026-09-02)
+
+The deployed policy re-measured on every eval sheet that has a GT mesh (8
+single-GPU workers on serv-19, ~3 h generation + 6 h reranking):
+
+| Policy | 96-pool | 1,030-pool |
+|---|---|---|
+| Greedy single shot (oracle@1) | 0.819 | 0.793 |
+| First-to-execute of 8 | 0.879 (74% ≥0.85) | 0.878 (73% ≥0.85) |
+| **Consistency medoid of 8** | **0.919 (82%)** | **0.912 (81%, median 0.974, 97% ≥0.5)** |
+| Oracle of 8 | 0.936 | 0.942 |
+
+The 96-part pool was representative to within 0.01 on every policy. Files:
+`results/bo8_full_e24.json` (all 8,240 candidates) and
+`results/bo8_full_consistency.json`.
+
+Seed robustness under serving (96-pool): the e34 replicate, 0.803 single-shot
+vs the champion's 0.844, scores 0.906 (84% ≥0.85) with best-of-8 +
+consistency vs 0.919 (82%) — the serving policy absorbs most of the seed gap.
