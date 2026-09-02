@@ -46,6 +46,10 @@ with tempfile.TemporaryDirectory(prefix="cons_") as td:
         cs = [c for c in p["cands"] if c.get("stl")]
         for c in cs:
             c["agree"] = 0.0
+        # full pairwise matrix (indexed by candidate position in p["cands"]) is
+        # persisted so alternative selectors can be evaluated offline for free
+        idx = [j for j, c in enumerate(p["cands"]) if c.get("stl")]
+        k = len(p["cands"]); mat = [[None] * k for _ in range(k)]
         for a, b in combinations(range(len(cs)), 2):
             try:
                 v = iou_pair(cs[a]["stl"], cs[b]["stl"])["iou_centered"]
@@ -53,6 +57,8 @@ with tempfile.TemporaryDirectory(prefix="cons_") as td:
                 v = 0.0
             cs[a]["agree"] += v
             cs[b]["agree"] += v
+            mat[idx[a]][idx[b]] = mat[idx[b]][idx[a]] = round(v, 4)
+        p["pair_iou"] = mat
         for c in cs:
             c["agree"] /= max(1, len(cs) - 1)
     with ThreadPoolExecutor(max_workers=24) as ex:
@@ -85,4 +91,8 @@ for name, m in res.items():
 res["per_part"] = {p["key"]: {name: (fn([c for c in p["cands"] if c.get("stl")], p)["iou"]
                                      if any(c.get("stl") for c in p["cands"]) else 0.0)
                               for name, fn in pols.items()} for p in parts}
+# candidate-level record: per-candidate GT iou / exec / volume agreement matrix (no code)
+res["parts"] = [{"key": p["key"], "iou": [c["iou"] for c in p["cands"]],
+                 "exec": [bool(c.get("stl")) for c in p["cands"]],
+                 "src": [c.get("src") for c in p["cands"]], "pair_iou": p.get("pair_iou")} for p in parts]
 json.dump(res, open(out_path, "w"), indent=1)
