@@ -155,3 +155,9 @@ Sampling temperature for best-of-8 + consistency (champion, 96-pool, 2026-09-02)
 
 Diversity helps the oracle monotonically but the medoid plateaus from 0.7 up;
 too little diversity (0.5) costs 0.02. Keep T=0.7.
+
+Cross-seed union (e24 ∪ e34, 16 candidates, 96-pool, 2026-09-02): consistency
+0.918 (84% ≥0.85, median 0.985) vs 0.919 / 82% for e24's own 8 — the medoid
+does not improve, while the oracle rises 0.936 → 0.953 (93% ≥0.85). Model
+diversity raises the ceiling, not the vote; two models at 2× cost are not
+worth it for serving. The remaining headroom (0.918 → 0.953) is in selection.
