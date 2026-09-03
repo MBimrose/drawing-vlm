@@ -204,6 +204,9 @@ selectors are evaluated offline in seconds (`results/bo8_full_e24_consistency_v2
 
 Every reweighting or clustering variant is within ±0.005 of the plain medoid;
 the remaining 0.03 to the oracle is not recoverable from agreement structure
-alone. Repairing individual failed candidates before the vote is also capped
+alone. A learned selector on serving-time features (agreement, max pair IoU,
+greedy flag, voter count, rank; 5-fold CV by part) ties the medoid exactly
+(logistic 0.912) and boosted trees overfit (0.903-0.909).
+Repairing individual failed candidates before the vote is also capped
 low: only 5/1,030 parts have no executing candidate and 88% already have ≥5
 voters. The 11% of parts with no candidate ≥0.85 are a generation problem.
