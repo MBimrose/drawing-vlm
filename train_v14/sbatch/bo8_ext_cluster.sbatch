@@ -27,4 +27,4 @@ done
 wait
 python $G/merge_bo_shards.py $DV/results/ext/bo8_ext_$R.json $DV/results/ext/bo8_ext_$R.shard?.json > $DV/logs/bo8/bo8_ext_${R}_merge.log 2>&1
 [ -f $DV/results/ext/bo8_ext_$R.json ] && python $G/consistency_rerank.py $DV/results/ext/bo8_ext_$R.json $DV/results/ext/bo8_ext_${R}_consistency.json > $DV/logs/bo8/bo8_ext_${R}_consistency.log 2>&1
-python $DV/train_v14/mech/benchmarks/analyze_ext.py $DV/results/ext/bo8_ext_$R.json $DV/results/ext/bo8_ext_${R}_consistency.json > $DV/results/ext/bo8_ext_${R}_summary.txt 2>&1 || true
+python $DV/train_v14/mech/benchmarks/analyze_ext.py $DV/results/ext/bo8_ext_${R}_consistency.json > $DV/results/ext/bo8_ext_${R}_summary.txt 2>&1 || true
