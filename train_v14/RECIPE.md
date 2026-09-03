@@ -210,3 +210,14 @@ greedy flag, voter count, rank; 5-fold CV by part) ties the medoid exactly
 Repairing individual failed candidates before the vote is also capped
 low: only 5/1,030 parts have no executing candidate and 88% already have ≥5
 voters. The 11% of parts with no candidate ≥0.85 are a generation problem.
+
+Full-pool serving scores, three champion-recipe models (best-of-8 + consistency, 1,030 parts):
+
+| model | single-shot 96 | first-exec | consistency | oracle@8 |
+|---|---|---|---|---|
+| e24 (seed 42, 4000 steps) | 0.844 | 0.878 | 0.912 (81%) | 0.942 |
+| e34 (seed 43) | 0.803 | 0.876 | 0.910 (80%) | 0.941 |
+| e37 (seed 42, 6000 steps) | 0.846 | 0.885 | **0.914 (82%)** | 0.945 |
+
+The served number is 0.910-0.914 regardless of seed or schedule: the recipe
+is reproducible, and the 96-pool single-shot spread (0.80-0.85) is noise.
