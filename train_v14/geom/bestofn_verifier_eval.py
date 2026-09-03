@@ -122,7 +122,9 @@ def main():
             if sum("!!!!!!!!" in t for t in outs) > max(4, len(outs) // 3):
                 raise RuntimeError("degenerate generations — bad GPU?")
         for i, text in enumerate(outs):
-            cands[i].append({"draw": draw, "code": extract_code(text), "exec": False, "iou": 0.0})
+            think = text.split("</think>", 1)[0].replace("<think>", "").strip() if "</think>" in text else ""
+            cands[i].append({"draw": draw, "code": extract_code(text), "exec": False, "iou": 0.0,
+                             "think": think})   # kept so accepted candidates can become an RFT tier
         print(f"[bo{args.k}] draw {draw} done", flush=True)
         with open(partial, "w") as f:
             json.dump({"keys": keys_list, "k": args.k, "cands": cands}, f)
