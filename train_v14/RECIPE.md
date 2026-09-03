@@ -221,3 +221,21 @@ Full-pool serving scores, three champion-recipe models (best-of-8 + consistency,
 
 The served number is 0.910-0.914 regardless of seed or schedule: the recipe
 is reproducible, and the 96-pool single-shot spread (0.80-0.85) is noise.
+
+## Agreement is a confidence signal (full pool, 2026-09-02)
+
+The medoid's mean agreement with the other candidates predicts whether the
+served part is right (AUROC 0.872 for "served IoU < 0.85"). Unsolved parts
+(no candidate ≥0.85, 11%) have mean candidate agreement 0.66 vs 0.89 for
+solved ones; 38% of them are underdetermined sheets (base rate 23%), the rest
+are genuine model failures with a median oracle of 0.74.
+
+Selective serving — flag parts whose medoid agreement is below τ for review:
+
+| τ | flagged | precision (flagged is wrong) | recall of failures | unflagged mean IoU | unflagged ≥0.85 |
+|---|---|---|---|---|---|
+| 0.70 | 8% | 0.74 | 0.33 | 0.936 | 86% |
+| 0.80 | 16% | 0.64 | 0.55 | 0.948 | 90% |
+| 0.90 | 35% | 0.46 | 0.86 | 0.968 | 96% |
+
+No extra compute: the agreement matrix is already computed for the vote.
