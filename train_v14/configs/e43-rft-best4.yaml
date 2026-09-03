@@ -47,3 +47,4 @@ eval_n_batches: 16
 dataloader_num_workers: 6
 dataloader_prefetch_factor: 4
 seed: 42
+resume: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/e43-rft-best4/checkpoint-1500   # quota crash 2026-09-03 06:04 at step 1750
