@@ -341,3 +341,17 @@ and must stay penalised. On the external real-part bench the rotation search
 lifts the ceiling by 0.012 (0.537 → 0.549). Verdict: a rigid-alignment
 scorer would move in-distribution numbers by ≤0.004 and is not adopted for the
 headline; it is useful only as a frame-vs-shape diagnostic.
+
+Rigid ICP alignment (wpklab/meshalign, tuned profile, exact IoU after the
+returned transform; results/align_study_meshalign_96.json): per-part best
+0.953 → 0.963 (94% → 96% ≥0.85); per-candidate +0.017. Decomposition: 90% of
+candidates get a pure translation (median 0, p90 0.25 mm; the 40 shifted by
+>1 mm gain >0.05 in 75% — bbox-centre offsets from a missing/extra feature),
+9% get a ≥90° yaw (38% of those gain >0.05 — orientation errors forgiven),
+1% a small tilt. The gain lands on WRONG reconstructions (centered <0.5:
++0.11; 0.5-0.85: +0.065) while good ones lose slightly (0.85-0.95: −0.012)
+because the aligner optimises surface distance, not volume overlap. Verdict:
+rigid alignment inflates partial reconstructions and forgives flips; the
+centered metric stays the headline. Open question being measured: whether a
+rigid-aligned agreement matrix improves the consistency VOTE (selection only,
+scored with the strict metric).
