@@ -1,0 +1,50 @@
+{
+ "key": "0730e4f2-e958-00df-1708-5486efc8747d",
+ "served": 0,
+ "served_agree": 0.9417833333333333,
+ "agree": [
+  0.9417833333333333,
+  0.9417833333333333,
+  0.9339666666666666,
+  0.7593,
+  0.0,
+  0.8606333333333334,
+  0.9417833333333333,
+  0.93255
+ ],
+ "stored_iou": [
+  0.9872294686320433,
+  0.9872294686320433,
+  0.9769500977193445,
+  0.7658660855590391,
+  0.0,
+  0.8907661684582756,
+  0.9872294686320433,
+  0.9999999991906943
+ ],
+ "stored_exec": [
+  true,
+  true,
+  true,
+  true,
+  false,
+  true,
+  true,
+  true
+ ],
+ "served_iou": 0.9872294686320433,
+ "cand_stl": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0730e4f2-e958-00df-1708-5486efc8747d/cand0.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0730e4f2-e958-00df-1708-5486efc8747d/cand1.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0730e4f2-e958-00df-1708-5486efc8747d/cand2.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0730e4f2-e958-00df-1708-5486efc8747d/cand3.stl",
+  null,
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0730e4f2-e958-00df-1708-5486efc8747d/cand5.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0730e4f2-e958-00df-1708-5486efc8747d/cand6.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0730e4f2-e958-00df-1708-5486efc8747d/cand7.stl"
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0730e4f2-e958-00df-1708-5486efc8747d/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0730e4f2-e958-00df-1708-5486efc8747d/served.step",
+ "render_info": "{'W': 80.0, 'D': 60.0, 'H': 40.0, 'volume': 21609.20355262764, 'callouts': [], 'n_edges': {'top': 68, 'front': 52, 'right': 88, 'iso': 122}}",
+ "render_s": 7.0
+}

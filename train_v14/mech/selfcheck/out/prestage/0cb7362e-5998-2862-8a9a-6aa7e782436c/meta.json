@@ -1,0 +1,50 @@
+{
+ "key": "0cb7362e-5998-2862-8a9a-6aa7e782436c",
+ "served": 4,
+ "served_agree": 0.9543666666666667,
+ "agree": [
+  0.9529333333333333,
+  0.9251,
+  0.9470000000000001,
+  0.0,
+  0.9543666666666667,
+  0.8241,
+  0.9529,
+  0.9288
+ ],
+ "stored_iou": [
+  0.9956654217523038,
+  0.9557047916522867,
+  0.9860745542878548,
+  0.0,
+  1.0,
+  0.8323738367490949,
+  0.9962307672045155,
+  0.960111414495614
+ ],
+ "stored_exec": [
+  true,
+  true,
+  true,
+  false,
+  true,
+  true,
+  true,
+  true
+ ],
+ "served_iou": 1.0,
+ "cand_stl": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0cb7362e-5998-2862-8a9a-6aa7e782436c/cand0.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0cb7362e-5998-2862-8a9a-6aa7e782436c/cand1.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0cb7362e-5998-2862-8a9a-6aa7e782436c/cand2.stl",
+  null,
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0cb7362e-5998-2862-8a9a-6aa7e782436c/cand4.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0cb7362e-5998-2862-8a9a-6aa7e782436c/cand5.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0cb7362e-5998-2862-8a9a-6aa7e782436c/cand6.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0cb7362e-5998-2862-8a9a-6aa7e782436c/cand7.stl"
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0cb7362e-5998-2862-8a9a-6aa7e782436c/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0cb7362e-5998-2862-8a9a-6aa7e782436c/served.step",
+ "render_info": "{'W': 80.0, 'D': 30.0, 'H': 10.0, 'volume': 23802.500015072215, 'callouts': ['top: \u23004'], 'n_edges': {'top': 20, 'front': 32, 'right': 36, 'iso': 40}}",
+ "render_s": 7.0
+}

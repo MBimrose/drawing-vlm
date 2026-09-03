@@ -1,0 +1,50 @@
+{
+ "key": "07832ef6-5dde-b57e-7f3f-37d19b242f35",
+ "served": 6,
+ "served_agree": 0.9614857142857142,
+ "agree": [
+  0.9604714285714285,
+  0.9602142857142857,
+  0.8883,
+  0.9611428571428571,
+  0.9543714285714285,
+  0.9611428571428571,
+  0.9614857142857142,
+  0.9334142857142858
+ ],
+ "stored_iou": [
+  0.9627792334659794,
+  0.9624848688372858,
+  0.9073486696211395,
+  1.0,
+  0.9653822737335114,
+  1.0,
+  0.9983756535215997,
+  0.9316309392905653
+ ],
+ "stored_exec": [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "served_iou": 0.9983756535215997,
+ "cand_stl": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07832ef6-5dde-b57e-7f3f-37d19b242f35/cand0.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07832ef6-5dde-b57e-7f3f-37d19b242f35/cand1.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07832ef6-5dde-b57e-7f3f-37d19b242f35/cand2.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07832ef6-5dde-b57e-7f3f-37d19b242f35/cand3.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07832ef6-5dde-b57e-7f3f-37d19b242f35/cand4.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07832ef6-5dde-b57e-7f3f-37d19b242f35/cand5.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07832ef6-5dde-b57e-7f3f-37d19b242f35/cand6.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07832ef6-5dde-b57e-7f3f-37d19b242f35/cand7.stl"
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07832ef6-5dde-b57e-7f3f-37d19b242f35/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07832ef6-5dde-b57e-7f3f-37d19b242f35/served.step",
+ "render_info": "{'W': 76.0, 'D': 76.0, 'H': 80.0, 'volume': 101841.53265019279, 'callouts': ['top: 4x \u23005', 'top: \u23007', 'top: \u230076'], 'n_edges': {'top': 13, 'front': 40, 'right': 53, 'iso': 57}}",
+ "render_s": 7.0
+}

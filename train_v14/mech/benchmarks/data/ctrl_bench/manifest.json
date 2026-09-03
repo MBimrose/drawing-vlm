@@ -1,0 +1,196 @@
+{
+ "parts": {
+  "000bc5ac-ffb4-009a-e213-ec6618d29e54": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/000bc5ac-ffb4-009a-e213-ec6618d29e54.step",
+   "family": "ctrl"
+  },
+  "00199e66-2f80-ae33-2603-60a317088932": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/00199e66-2f80-ae33-2603-60a317088932.step",
+   "family": "ctrl"
+  },
+  "0024c6d8-aa79-9abd-1584-78ed741bd77f": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/0024c6d8-aa79-9abd-1584-78ed741bd77f.step",
+   "family": "ctrl"
+  },
+  "00874eac-be8c-17f8-ad7b-6a035b6c40ae": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/00874eac-be8c-17f8-ad7b-6a035b6c40ae.step",
+   "family": "ctrl"
+  },
+  "00d1e3d6-db1e-758d-94e6-76e246cf7349": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/00d1e3d6-db1e-758d-94e6-76e246cf7349.step",
+   "family": "ctrl"
+  },
+  "0120e88c-df7c-c3a2-4533-3b9d33302e59": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/0120e88c-df7c-c3a2-4533-3b9d33302e59.step",
+   "family": "ctrl"
+  },
+  "014e0c04-50a5-9b2b-5d15-048cc68be62e": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/014e0c04-50a5-9b2b-5d15-048cc68be62e.step",
+   "family": "ctrl"
+  },
+  "01854fac-2b62-88d1-11ce-99dc34837a7d": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/01854fac-2b62-88d1-11ce-99dc34837a7d.step",
+   "family": "ctrl"
+  },
+  "01bcfa42-0f4d-6549-addf-638a06cce057": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/01bcfa42-0f4d-6549-addf-638a06cce057.step",
+   "family": "ctrl"
+  },
+  "01f125ec-6a23-34bb-4690-90f202c96d13": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/01f125ec-6a23-34bb-4690-90f202c96d13.step",
+   "family": "ctrl"
+  },
+  "02042bd8-55db-513c-2dd6-5a84d5c6e200": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/02042bd8-55db-513c-2dd6-5a84d5c6e200.step",
+   "family": "ctrl"
+  },
+  "02133c18-0277-b899-bfb2-74a860ec2599": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/02133c18-0277-b899-bfb2-74a860ec2599.step",
+   "family": "ctrl"
+  },
+  "024cdfc2-2898-0e12-ab5b-4f9e6bcca175": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/024cdfc2-2898-0e12-ab5b-4f9e6bcca175.step",
+   "family": "ctrl"
+  },
+  "0264f04e-9879-24a1-30c7-74b898c39e5c": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/0264f04e-9879-24a1-30c7-74b898c39e5c.step",
+   "family": "ctrl"
+  },
+  "028bb3be-e823-62d8-0275-93746b20cc5d": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/028bb3be-e823-62d8-0275-93746b20cc5d.step",
+   "family": "ctrl"
+  },
+  "02b4260a-2c89-b076-eed5-bd1a05cc4df7": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/02b4260a-2c89-b076-eed5-bd1a05cc4df7.step",
+   "family": "ctrl"
+  },
+  "02c2c534-fdf5-09f0-a3b9-08fac95e67cc": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/02c2c534-fdf5-09f0-a3b9-08fac95e67cc.step",
+   "family": "ctrl"
+  },
+  "038de502-dae8-4b1f-95d1-74f6139edbf0": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/038de502-dae8-4b1f-95d1-74f6139edbf0.step",
+   "family": "ctrl"
+  },
+  "03b5b65e-5bdd-f566-8c3c-8743018784cb": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/03b5b65e-5bdd-f566-8c3c-8743018784cb.step",
+   "family": "ctrl"
+  },
+  "03dfa680-4b62-4f14-3b39-0b6431faee2a": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/03dfa680-4b62-4f14-3b39-0b6431faee2a.step",
+   "family": "ctrl"
+  },
+  "03fe9cac-6070-1f10-6a88-55b8a3835295": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/03fe9cac-6070-1f10-6a88-55b8a3835295.step",
+   "family": "ctrl"
+  },
+  "042c25e6-40b8-cd02-4c97-d42363f18b45": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/042c25e6-40b8-cd02-4c97-d42363f18b45.step",
+   "family": "ctrl"
+  },
+  "04a4e152-726a-31cb-2707-feccd5f5153e": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/04a4e152-726a-31cb-2707-feccd5f5153e.step",
+   "family": "ctrl"
+  },
+  "04e8b530-8885-7ae9-8ac3-c63db08adcfe": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/04e8b530-8885-7ae9-8ac3-c63db08adcfe.step",
+   "family": "ctrl"
+  },
+  "04e95c60-20cc-55db-11c5-6055a736b51f": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/04e95c60-20cc-55db-11c5-6055a736b51f.step",
+   "family": "ctrl"
+  },
+  "053ba312-3046-9868-7133-6e4e4766e696": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/053ba312-3046-9868-7133-6e4e4766e696.step",
+   "family": "ctrl"
+  },
+  "0580ef4e-edaa-7eaa-0a10-6105fd6d8ad0": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/0580ef4e-edaa-7eaa-0a10-6105fd6d8ad0.step",
+   "family": "ctrl"
+  },
+  "058f2c3a-cfc8-1f2c-9abe-d42ebc007141": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/058f2c3a-cfc8-1f2c-9abe-d42ebc007141.step",
+   "family": "ctrl"
+  },
+  "05d7977c-c029-a5b7-cb4f-49ca736bf726": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/05d7977c-c029-a5b7-cb4f-49ca736bf726.step",
+   "family": "ctrl"
+  },
+  "05ede2e8-984a-61c6-fe6d-daa687e9b92e": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/05ede2e8-984a-61c6-fe6d-daa687e9b92e.step",
+   "family": "ctrl"
+  },
+  "05f14712-467b-1bba-8da4-469495a3d5ef": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/05f14712-467b-1bba-8da4-469495a3d5ef.step",
+   "family": "ctrl"
+  },
+  "061ae590-e223-ad36-4cd6-ac729031aba5": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/061ae590-e223-ad36-4cd6-ac729031aba5.step",
+   "family": "ctrl"
+  },
+  "067e685e-8e0c-760d-264d-b945cf2eb03f": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/067e685e-8e0c-760d-264d-b945cf2eb03f.step",
+   "family": "ctrl"
+  },
+  "06b4e884-8486-df74-36c5-4b3cf685d78e": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/06b4e884-8486-df74-36c5-4b3cf685d78e.step",
+   "family": "ctrl"
+  },
+  "06e3334c-5c6b-66b0-5c44-ea8c43acc4fe": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/06e3334c-5c6b-66b0-5c44-ea8c43acc4fe.step",
+   "family": "ctrl"
+  },
+  "07035802-864d-0091-4bf7-4e785faf1a4f": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/07035802-864d-0091-4bf7-4e785faf1a4f.step",
+   "family": "ctrl"
+  },
+  "0730e4f2-e958-00df-1708-5486efc8747d": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/0730e4f2-e958-00df-1708-5486efc8747d.step",
+   "family": "ctrl"
+  },
+  "07832ef6-5dde-b57e-7f3f-37d19b242f35": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/07832ef6-5dde-b57e-7f3f-37d19b242f35.step",
+   "family": "ctrl"
+  },
+  "07bfb06a-6237-cc97-0a53-45a5be3d01b9": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/07bfb06a-6237-cc97-0a53-45a5be3d01b9.step",
+   "family": "ctrl"
+  },
+  "07d2049a-e04f-788b-343d-5455e5921446": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/07d2049a-e04f-788b-343d-5455e5921446.step",
+   "family": "ctrl"
+  },
+  "080b2e00-c9be-606a-3207-08419028ffd0": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/080b2e00-c9be-606a-3207-08419028ffd0.step",
+   "family": "ctrl"
+  },
+  "082d1e48-2084-f5e6-e02a-5dde5f72e9df": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/082d1e48-2084-f5e6-e02a-5dde5f72e9df.step",
+   "family": "ctrl"
+  },
+  "082dbea2-e3fe-49a1-d631-78cb38b86fd2": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/082dbea2-e3fe-49a1-d631-78cb38b86fd2.step",
+   "family": "ctrl"
+  },
+  "08734382-459c-b322-da4f-0df4b47d6f42": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/08734382-459c-b322-da4f-0df4b47d6f42.step",
+   "family": "ctrl"
+  },
+  "087bbb7a-c871-f9b6-b640-7e8ce9aa5dbf": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/087bbb7a-c871-f9b6-b640-7e8ce9aa5dbf.step",
+   "family": "ctrl"
+  },
+  "08ceb60e-09e1-b2d4-d0e2-af718c90dfc8": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/08ceb60e-09e1-b2d4-d0e2-af718c90dfc8.step",
+   "family": "ctrl"
+  },
+  "090d59fe-be2b-6344-a7b2-210a1b8cceca": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/090d59fe-be2b-6344-a7b2-210a1b8cceca.step",
+   "family": "ctrl"
+  },
+  "092593f2-bbb7-b34d-61e3-4686c86404ac": {
+   "src": "step_to_drw/wds_dataset/gt_meshes_v15/092593f2-bbb7-b34d-61e3-4686c86404ac.step",
+   "family": "ctrl"
+  }
+ }
+}

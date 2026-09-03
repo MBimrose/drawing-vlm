@@ -1,0 +1,50 @@
+{
+ "key": "0ae0be88-1a82-d8a5-8f97-6faea3587e95",
+ "served": 3,
+ "served_agree": 0.9691428571428571,
+ "agree": [
+  0.9655285714285714,
+  0.9541571428571428,
+  0.9539571428571428,
+  0.9691428571428571,
+  0.9614857142857142,
+  0.9492428571428572,
+  0.9614857142857142,
+  0.9689428571428572
+ ],
+ "stored_iou": [
+  0.9950599094355326,
+  0.9469596675317642,
+  0.9462689646982452,
+  1.0,
+  0.9731234485929051,
+  0.9501131318782634,
+  0.9731234493606687,
+  0.9992507544592604
+ ],
+ "stored_exec": [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "served_iou": 1.0,
+ "cand_stl": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0ae0be88-1a82-d8a5-8f97-6faea3587e95/cand0.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0ae0be88-1a82-d8a5-8f97-6faea3587e95/cand1.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0ae0be88-1a82-d8a5-8f97-6faea3587e95/cand2.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0ae0be88-1a82-d8a5-8f97-6faea3587e95/cand3.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0ae0be88-1a82-d8a5-8f97-6faea3587e95/cand4.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0ae0be88-1a82-d8a5-8f97-6faea3587e95/cand5.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0ae0be88-1a82-d8a5-8f97-6faea3587e95/cand6.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0ae0be88-1a82-d8a5-8f97-6faea3587e95/cand7.stl"
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0ae0be88-1a82-d8a5-8f97-6faea3587e95/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0ae0be88-1a82-d8a5-8f97-6faea3587e95/served.step",
+ "render_info": "{'W': 80.0, 'D': 55.0, 'H': 10.0, 'volume': 14375.884991765326, 'callouts': ['top: 2x \u23005'], 'n_edges': {'top': 18, 'front': 27, 'right': 31, 'iso': 42}}",
+ "render_s": 7.1
+}

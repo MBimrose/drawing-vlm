@@ -1,0 +1,50 @@
+{
+ "key": "03b5b65e-5bdd-f566-8c3c-8743018784cb",
+ "served": 4,
+ "served_agree": 0.9140666666666667,
+ "agree": [
+  0.6954833333333333,
+  0.9123666666666667,
+  0.8362833333333333,
+  0.9081333333333333,
+  0.9140666666666667,
+  0.8943833333333333,
+  0.9094166666666667,
+  0.0
+ ],
+ "stored_iou": [
+  0.6971801355905818,
+  0.9894453033749432,
+  0.8653875509433331,
+  0.9792328101906362,
+  0.9933570601693115,
+  0.9436724922598329,
+  0.9770802305004872,
+  0.0
+ ],
+ "stored_exec": [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  false
+ ],
+ "served_iou": 0.9933570601693115,
+ "cand_stl": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/03b5b65e-5bdd-f566-8c3c-8743018784cb/cand0.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/03b5b65e-5bdd-f566-8c3c-8743018784cb/cand1.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/03b5b65e-5bdd-f566-8c3c-8743018784cb/cand2.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/03b5b65e-5bdd-f566-8c3c-8743018784cb/cand3.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/03b5b65e-5bdd-f566-8c3c-8743018784cb/cand4.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/03b5b65e-5bdd-f566-8c3c-8743018784cb/cand5.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/03b5b65e-5bdd-f566-8c3c-8743018784cb/cand6.stl",
+  null
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/03b5b65e-5bdd-f566-8c3c-8743018784cb/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/03b5b65e-5bdd-f566-8c3c-8743018784cb/served.step",
+ "render_info": "{'W': 100.0, 'D': 70.0, 'H': 11.0, 'volume': 58430.54505461976, 'callouts': ['top: 2x \u23006'], 'n_edges': {'top': 88, 'front': 150, 'right': 194, 'iso': 212}}",
+ "render_s": 7.2
+}

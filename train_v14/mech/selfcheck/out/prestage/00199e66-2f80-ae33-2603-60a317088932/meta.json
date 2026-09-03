@@ -1,0 +1,50 @@
+{
+ "key": "00199e66-2f80-ae33-2603-60a317088932",
+ "served": 0,
+ "served_agree": 0.9979285714285714,
+ "agree": [
+  0.9979285714285714,
+  0.9979142857142858,
+  0.9934000000000001,
+  0.9979285714285714,
+  0.9979285714285714,
+  0.9979285714285714,
+  0.9979285714285714,
+  0.9912428571428571
+ ],
+ "stored_iou": [
+  1.0,
+  0.9999842330363431,
+  0.9940317534738048,
+  1.0,
+  1.0,
+  1.0,
+  0.999999999095659,
+  0.9914560645115514
+ ],
+ "stored_exec": [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "served_iou": 1.0,
+ "cand_stl": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/00199e66-2f80-ae33-2603-60a317088932/cand0.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/00199e66-2f80-ae33-2603-60a317088932/cand1.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/00199e66-2f80-ae33-2603-60a317088932/cand2.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/00199e66-2f80-ae33-2603-60a317088932/cand3.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/00199e66-2f80-ae33-2603-60a317088932/cand4.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/00199e66-2f80-ae33-2603-60a317088932/cand5.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/00199e66-2f80-ae33-2603-60a317088932/cand6.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/00199e66-2f80-ae33-2603-60a317088932/cand7.stl"
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/00199e66-2f80-ae33-2603-60a317088932/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/00199e66-2f80-ae33-2603-60a317088932/served.step",
+ "render_info": "{'W': 80.0, 'D': 60.0, 'H': 12.0, 'volume': 52091.20637682304, 'callouts': ['top: 4x \u230010', 'top: 4x \u23005', 'top: \u230030'], 'n_edges': {'top': 30, 'front': 66, 'right': 80, 'iso': 102}}",
+ "render_s": 6.1
+}

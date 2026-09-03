@@ -1,0 +1,50 @@
+{
+ "key": "053ba312-3046-9868-7133-6e4e4766e696",
+ "served": 2,
+ "served_agree": 0.9684285714285714,
+ "agree": [
+  0.9679571428571428,
+  0.9681714285714286,
+  0.9684285714285714,
+  0.8773142857142856,
+  0.9681714285714286,
+  0.8768285714285714,
+  0.9681,
+  0.9665428571428573
+ ],
+ "stored_iou": [
+  1.0,
+  1.0,
+  1.0,
+  0.8943994820330204,
+  1.0,
+  0.8895538125012183,
+  0.9999999996009292,
+  0.9976338564000103
+ ],
+ "stored_exec": [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "served_iou": 1.0,
+ "cand_stl": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/053ba312-3046-9868-7133-6e4e4766e696/cand0.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/053ba312-3046-9868-7133-6e4e4766e696/cand1.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/053ba312-3046-9868-7133-6e4e4766e696/cand2.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/053ba312-3046-9868-7133-6e4e4766e696/cand3.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/053ba312-3046-9868-7133-6e4e4766e696/cand4.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/053ba312-3046-9868-7133-6e4e4766e696/cand5.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/053ba312-3046-9868-7133-6e4e4766e696/cand6.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/053ba312-3046-9868-7133-6e4e4766e696/cand7.stl"
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/053ba312-3046-9868-7133-6e4e4766e696/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/053ba312-3046-9868-7133-6e4e4766e696/served.step",
+ "render_info": "{'W': 80.0, 'D': 80.0000002, 'H': 60.0000002, 'volume': 78429.20940544663, 'callouts': ['top: 2x \u230080', 'top: \u230076', 'top: \u230074'], 'n_edges': {'top': 116, 'front': 170, 'right': 182, 'iso': 207}}",
+ "render_s": 7.6
+}

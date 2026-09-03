@@ -1,0 +1,50 @@
+{
+ "key": "07035802-864d-0091-4bf7-4e785faf1a4f",
+ "served": 0,
+ "served_agree": 0.9989333333333333,
+ "agree": [
+  0.9989333333333333,
+  0.0,
+  0.9968,
+  0.0,
+  0.0,
+  0.0,
+  0.9989333333333333,
+  0.9989333333333333
+ ],
+ "stored_iou": [
+  1.0,
+  0.0,
+  0.9967731031049424,
+  0.0,
+  0.0,
+  0.0,
+  1.0,
+  1.0
+ ],
+ "stored_exec": [
+  true,
+  false,
+  true,
+  false,
+  false,
+  false,
+  true,
+  true
+ ],
+ "served_iou": 1.0,
+ "cand_stl": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07035802-864d-0091-4bf7-4e785faf1a4f/cand0.stl",
+  null,
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07035802-864d-0091-4bf7-4e785faf1a4f/cand2.stl",
+  null,
+  null,
+  null,
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07035802-864d-0091-4bf7-4e785faf1a4f/cand6.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07035802-864d-0091-4bf7-4e785faf1a4f/cand7.stl"
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07035802-864d-0091-4bf7-4e785faf1a4f/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/07035802-864d-0091-4bf7-4e785faf1a4f/served.step",
+ "render_info": "{'W': 80.0, 'D': 60.0, 'H': 17.0, 'volume': 32901.65846445299, 'callouts': ['top: 2x \u23004'], 'n_edges': {'top': 96, 'front': 174, 'right': 188, 'iso': 215}}",
+ "render_s": 7.4
+}

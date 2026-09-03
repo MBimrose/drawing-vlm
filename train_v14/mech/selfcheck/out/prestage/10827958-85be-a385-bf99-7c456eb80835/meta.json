@@ -1,0 +1,50 @@
+{
+ "key": "10827958-85be-a385-bf99-7c456eb80835",
+ "served": 2,
+ "served_agree": 0.6762285714285714,
+ "agree": [
+  0.21721428571428572,
+  0.6220571428571429,
+  0.6762285714285714,
+  0.6201857142857143,
+  0.6629285714285714,
+  0.6619,
+  0.6674,
+  0.4908
+ ],
+ "stored_iou": [
+  0.25969658454444516,
+  0.8692303260483403,
+  0.6282558840573076,
+  0.8452390305942645,
+  0.5948397628951246,
+  0.6056267934398702,
+  0.5979901925211005,
+  0.7393466702441328
+ ],
+ "stored_exec": [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "served_iou": 0.6282558840573076,
+ "cand_stl": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10827958-85be-a385-bf99-7c456eb80835/cand0.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10827958-85be-a385-bf99-7c456eb80835/cand1.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10827958-85be-a385-bf99-7c456eb80835/cand2.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10827958-85be-a385-bf99-7c456eb80835/cand3.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10827958-85be-a385-bf99-7c456eb80835/cand4.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10827958-85be-a385-bf99-7c456eb80835/cand5.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10827958-85be-a385-bf99-7c456eb80835/cand6.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10827958-85be-a385-bf99-7c456eb80835/cand7.stl"
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10827958-85be-a385-bf99-7c456eb80835/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10827958-85be-a385-bf99-7c456eb80835/served.step",
+ "render_info": "{'W': 20.0, 'D': 80.0, 'H': 16.0, 'volume': 14750.243248390074, 'callouts': ['top: 2x \u23005'], 'n_edges': {'top': 43, 'front': 52, 'right': 58, 'iso': 74}}",
+ "render_s": 6.6
+}

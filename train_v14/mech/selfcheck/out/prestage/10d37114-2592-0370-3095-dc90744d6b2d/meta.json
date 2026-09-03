@@ -1,0 +1,50 @@
+{
+ "key": "10d37114-2592-0370-3095-dc90744d6b2d",
+ "served": 2,
+ "served_agree": 0.8840428571428571,
+ "agree": [
+  0.8840285714285715,
+  0.884,
+  0.8840428571428571,
+  0.8533142857142858,
+  0.4309857142857143,
+  0.8840142857142858,
+  0.8840142857142858,
+  0.7721142857142856
+ ],
+ "stored_iou": [
+  0.9999571221158859,
+  0.9999376966180394,
+  0.9999571221459257,
+  0.9457299204478418,
+  0.41460116572201366,
+  1.0,
+  1.0,
+  0.8278836420488541
+ ],
+ "stored_exec": [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "served_iou": 0.9999571221459257,
+ "cand_stl": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10d37114-2592-0370-3095-dc90744d6b2d/cand0.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10d37114-2592-0370-3095-dc90744d6b2d/cand1.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10d37114-2592-0370-3095-dc90744d6b2d/cand2.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10d37114-2592-0370-3095-dc90744d6b2d/cand3.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10d37114-2592-0370-3095-dc90744d6b2d/cand4.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10d37114-2592-0370-3095-dc90744d6b2d/cand5.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10d37114-2592-0370-3095-dc90744d6b2d/cand6.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10d37114-2592-0370-3095-dc90744d6b2d/cand7.stl"
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10d37114-2592-0370-3095-dc90744d6b2d/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/10d37114-2592-0370-3095-dc90744d6b2d/served.step",
+ "render_info": "{'W': 60.0, 'D': 60.0, 'H': 60.0, 'volume': 106127.56379393212, 'callouts': ['top: 2x \u230060', 'top: 2x \u23005', 'top: 2x \u230030'], 'n_edges': {'top': 20, 'front': 54, 'right': 70, 'iso': 64}}",
+ "render_s": 6.6
+}

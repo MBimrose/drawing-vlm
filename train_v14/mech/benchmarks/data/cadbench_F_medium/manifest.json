@@ -1,0 +1,2144 @@
+{
+ "target_mm": 80.0,
+ "max_faces": 80,
+ "parts": {
+  "F_55230_077b4106_0_medium": {
+   "solids": 1,
+   "faces": 12,
+   "kinds": {
+    "TORUS": 3,
+    "CYLINDER": 4,
+    "PLANE": 4,
+    "CONE": 1
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000004,
+    11.313708598984764,
+    11.313708498984763
+   ],
+   "aspect": 1.7677669529663687,
+   "fill": 0.2908702285427721,
+   "volume": 744.6277916511391,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    45.255,
+    45.255
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_55230_077b4106_0_medium.step"
+  },
+  "F_55373_ddd74d2f_0_medium": {
+   "solids": 1,
+   "faces": 33,
+   "kinds": {
+    "PLANE": 31,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    17.14285714285714,
+    20.0,
+    17.142857142857142
+   ],
+   "aspect": 1.166666666666667,
+   "fill": 0.26287891534908264,
+   "volume": 1545.0842371537915,
+   "scale": 4.0,
+   "bbox_mm": [
+    68.571,
+    80.0,
+    68.571
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_55373_ddd74d2f_0_medium.step"
+  },
+  "F_55423_a50f82f4_0_medium": {
+   "solids": 1,
+   "faces": 33,
+   "kinds": {
+    "CYLINDER": 1,
+    "PLANE": 32
+   },
+   "analytic": true,
+   "bbox": [
+    16.36363636363636,
+    10.0,
+    20.0
+   ],
+   "aspect": 2.0,
+   "fill": 0.360971694004063,
+   "volume": 1181.3619076496605,
+   "scale": 4.0,
+   "bbox_mm": [
+    65.455,
+    40.0,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_55423_a50f82f4_0_medium.step"
+  },
+  "F_55460_998dd656_0_medium": {
+   "solids": 1,
+   "faces": 12,
+   "kinds": {
+    "PLANE": 11,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    11.111111111111121,
+    20.0,
+    6.666666666666671
+   ],
+   "aspect": 2.999999999999998,
+   "fill": 0.6301212638100665,
+   "volume": 933.5129834223221,
+   "scale": 4.0,
+   "bbox_mm": [
+    44.444,
+    80.0,
+    26.667
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_55460_998dd656_0_medium.step"
+  },
+  "F_55527_0736d633_0_medium": {
+   "solids": 1,
+   "faces": 16,
+   "kinds": {
+    "CYLINDER": 6,
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    10.714088012530262,
+    8.70519651018084
+   ],
+   "aspect": 2.297478290881744,
+   "fill": 0.7738104176683421,
+   "volume": 1443.438739389274,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    42.856,
+    34.821
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_55527_0736d633_0_medium.step"
+  },
+  "F_55707_c78416ed_35_medium": {
+   "solids": 1,
+   "faces": 22,
+   "kinds": {
+    "CYLINDER": 10,
+    "PLANE": 12
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    15.0,
+    10.00000031914298
+   ],
+   "aspect": 1.999999936171406,
+   "fill": 0.5115113269638476,
+   "volume": 1534.5340298651176,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    60.0,
+    40.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_55707_c78416ed_35_medium.step"
+  },
+  "F_55838_a1513314_0000_medium": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "CYLINDER": 1,
+    "PLANE": 9
+   },
+   "analytic": true,
+   "bbox": [
+    130.0,
+    86.60254037844393,
+    100.00000000000004
+   ],
+   "aspect": 1.5011106998930257,
+   "fill": 0.39631376790574946,
+   "volume": 446183.1281386822,
+   "scale": 0.615,
+   "bbox_mm": [
+    79.95,
+    53.261,
+    61.5
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_55838_a1513314_0000_medium.step"
+  },
+  "F_55927_f8b31711_16_medium": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "CONE": 1,
+    "CYLINDER": 3,
+    "PLANE": 7,
+    "TORUS": 2
+   },
+   "analytic": true,
+   "bbox": [
+    4.137931034482765,
+    20.0,
+    4.13793103448276
+   ],
+   "aspect": 4.833333333333332,
+   "fill": 0.27467683123718695,
+   "volume": 94.06293388384066,
+   "scale": 4.0,
+   "bbox_mm": [
+    16.552,
+    80.0,
+    16.552
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_55927_f8b31711_16_medium.step"
+  },
+  "F_56040_9b1307eb_4_medium": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "PLANE": 14
+   },
+   "analytic": true,
+   "bbox": [
+    2.66666644811632,
+    20.0,
+    15.653616049286873
+   ],
+   "aspect": 7.500000614672901,
+   "fill": 0.29146929177755376,
+   "volume": 243.33589385138373,
+   "scale": 4.0,
+   "bbox_mm": [
+    10.667,
+    80.0,
+    62.614
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_56040_9b1307eb_4_medium.step"
+  },
+  "F_56065_00bbe5da_13_medium": {
+   "solids": 1,
+   "faces": 38,
+   "kinds": {
+    "CONE": 19,
+    "PLANE": 5,
+    "CYLINDER": 14
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    3.6363636363636402
+   ],
+   "aspect": 5.499999999999994,
+   "fill": 0.2909631421394561,
+   "volume": 423.2191158392094,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    14.545
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_56065_00bbe5da_13_medium.step"
+  },
+  "F_56065_00bbe5da_15_medium": {
+   "solids": 1,
+   "faces": 33,
+   "kinds": {
+    "CYLINDER": 5,
+    "CONE": 8,
+    "PLANE": 20
+   },
+   "analytic": true,
+   "bbox": [
+    20.0000002,
+    18.400589018841398,
+    3.2001026032767603
+   ],
+   "aspect": 6.249799671898302,
+   "fill": 0.5104340619497572,
+   "volume": 601.1256728904569,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    73.602,
+    12.8
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_56065_00bbe5da_15_medium.step"
+  },
+  "F_56167_90101372_10_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "TORUS": 4,
+    "CYLINDER": 2,
+    "PLANE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    2.266666666666668
+   ],
+   "aspect": 8.823529411764701,
+   "fill": 0.26801606268950423,
+   "volume": 243.00123017181733,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    9.067
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_56167_90101372_10_medium.step"
+  },
+  "F_56167_90101372_13_medium": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 8,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    1.403508771929824,
+    2.7412563371735246,
+    20.0
+   ],
+   "aspect": 14.250000000000005,
+   "fill": 0.06401648086805505,
+   "volume": 4.925911125981853,
+   "scale": 4.0,
+   "bbox_mm": [
+    5.614,
+    10.965,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_56167_90101372_13_medium.step"
+  },
+  "F_56462_3fcb906f_0_medium": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "CYLINDER": 4,
+    "PLANE": 9
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    7.32307692307692,
+    7.6923076923077005
+   ],
+   "aspect": 2.731092436974791,
+   "fill": 0.2741533464609841,
+   "volume": 308.86862228503793,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    29.292,
+    30.769
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_56462_3fcb906f_0_medium.step"
+  },
+  "F_56468_c18aba85_0_medium": {
+   "solids": 1,
+   "faces": 9,
+   "kinds": {
+    "CYLINDER": 1,
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    8.91258870663034,
+    17.488731188212746,
+    20.0
+   ],
+   "aspect": 2.2440169358562914,
+   "fill": 0.5479871730014994,
+   "volume": 1708.2937673204083,
+   "scale": 4.0,
+   "bbox_mm": [
+    35.65,
+    69.955,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_56468_c18aba85_0_medium.step"
+  },
+  "F_56476_466fc284_3_medium": {
+   "solids": 1,
+   "faces": 17,
+   "kinds": {
+    "CYLINDER": 6,
+    "PLANE": 11
+   },
+   "analytic": true,
+   "bbox": [
+    7.407407407407401,
+    20.0,
+    13.333333333333348
+   ],
+   "aspect": 2.7000000000000024,
+   "fill": 0.34601051787983894,
+   "volume": 683.4775661823982,
+   "scale": 4.0,
+   "bbox_mm": [
+    29.63,
+    80.0,
+    53.333
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_56476_466fc284_3_medium.step"
+  },
+  "F_56489_241ed182_1_medium": {
+   "solids": 1,
+   "faces": 22,
+   "kinds": {
+    "CYLINDER": 13,
+    "PLANE": 8,
+    "SPHERE": 1
+   },
+   "analytic": true,
+   "bbox": [
+    19.97649082445873,
+    18.24093953722604,
+    5.256894890598716
+   ],
+   "aspect": 3.800055211334761,
+   "fill": 0.49075375598250615,
+   "volume": 940.0681302042586,
+   "scale": 4.005,
+   "bbox_mm": [
+    80.006,
+    73.055,
+    21.054
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_56489_241ed182_1_medium.step"
+  },
+  "F_56494_0f3437d4_3_medium": {
+   "solids": 1,
+   "faces": 9,
+   "kinds": {
+    "CYLINDER": 1,
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000007,
+    6.0,
+    17.320508075688743
+   ],
+   "aspect": 3.3333333333333344,
+   "fill": 0.6683790286094593,
+   "volume": 1389.1997235181368,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    24.0,
+    69.282
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_56494_0f3437d4_3_medium.step"
+  },
+  "F_56711_61a0b988_3_medium": {
+   "solids": 1,
+   "faces": 51,
+   "kinds": {
+    "CYLINDER": 27,
+    "PLANE": 13,
+    "TORUS": 2,
+    "SPHERE": 9
+   },
+   "analytic": true,
+   "bbox": [
+    5.979289006439325,
+    14.948222516098308,
+    20.0
+   ],
+   "aspect": 3.3448792955920403,
+   "fill": 0.3235363093214958,
+   "volume": 578.3518406955145,
+   "scale": 4.0,
+   "bbox_mm": [
+    23.917,
+    59.793,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_56711_61a0b988_3_medium.step"
+  },
+  "F_56719_6e59eeff_0_medium": {
+   "solids": 1,
+   "faces": 32,
+   "kinds": {
+    "CYLINDER": 11,
+    "PLANE": 21
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    15.998726475182803,
+    11.52347238068784
+   ],
+   "aspect": 1.7355879668282932,
+   "fill": 0.1578058121612188,
+   "volume": 581.8643763877146,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    63.995,
+    46.094
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_56719_6e59eeff_0_medium.step"
+  },
+  "F_56997_4eaf2100_5_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "TORUS": 2,
+    "CYLINDER": 3,
+    "PLANE": 3
+   },
+   "analytic": true,
+   "bbox": [
+    3.77358490566038,
+    20.0000001,
+    20.0
+   ],
+   "aspect": 5.300000026499997,
+   "fill": 0.5359378099843901,
+   "volume": 808.9627360967239,
+   "scale": 4.0,
+   "bbox_mm": [
+    15.094,
+    80.0,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_56997_4eaf2100_5_medium.step"
+  },
+  "F_57440_ca6af7b9_0_medium": {
+   "solids": 1,
+   "faces": 12,
+   "kinds": {
+    "TORUS": 6,
+    "PLANE": 2,
+    "CONE": 2,
+    "SPHERE": 1,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    9.140555386719967,
+    20.0,
+    9.140555386719967
+   ],
+   "aspect": 2.188050851817756,
+   "fill": 0.19944950870254755,
+   "volume": 333.2791428746131,
+   "scale": 4.0,
+   "bbox_mm": [
+    36.562,
+    80.0,
+    36.562
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_57440_ca6af7b9_0_medium.step"
+  },
+  "F_57736_91b94db5_0_medium": {
+   "solids": 1,
+   "faces": 22,
+   "kinds": {
+    "PLANE": 22
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    8.25,
+    5.0
+   ],
+   "aspect": 4.0,
+   "fill": 0.32727272727272727,
+   "volume": 270.0,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    33.0,
+    20.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_57736_91b94db5_0_medium.step"
+  },
+  "F_60766_fb8715eb_4_medium": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "TORUS": 2,
+    "CYLINDER": 4,
+    "PLANE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    8.333333333333341,
+    8.333333333333341
+   ],
+   "aspect": 2.3999999999999977,
+   "fill": 0.9072466164786177,
+   "volume": 1260.0647451091936,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    33.333,
+    33.333
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_60766_fb8715eb_4_medium.step"
+  },
+  "F_61294_9255796d_2_medium": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "PLANE": 7,
+    "CYLINDER": 6
+   },
+   "analytic": true,
+   "bbox": [
+    14.38015322240972,
+    5.554437687648088,
+    19.9995522975002
+   ],
+   "aspect": 3.6006439215215313,
+   "fill": 0.15058289561737406,
+   "volume": 240.54677043364885,
+   "scale": 4.0,
+   "bbox_mm": [
+    57.521,
+    22.218,
+    79.998
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_61294_9255796d_2_medium.step"
+  },
+  "F_61643_303cdd31_0000_medium": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "CYLINDER": 5,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    100.0,
+    70.0,
+    100.0
+   ],
+   "aspect": 1.4285714285714286,
+   "fill": 0.11893172188589932,
+   "volume": 83252.20532012952,
+   "scale": 0.8,
+   "bbox_mm": [
+    80.0,
+    56.0,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_61643_303cdd31_0000_medium.step"
+  },
+  "F_62065_eddaab34_1_medium": {
+   "solids": 1,
+   "faces": 35,
+   "kinds": {
+    "TORUS": 2,
+    "SPHERE": 2,
+    "CYLINDER": 11,
+    "PLANE": 20
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    18.75,
+    9.375
+   ],
+   "aspect": 2.1333333333333333,
+   "fill": 0.7314318451068901,
+   "volume": 2571.4400804539105,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    75.0,
+    37.5
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_62065_eddaab34_1_medium.step"
+  },
+  "F_63071_3d434a33_15_medium": {
+   "solids": 1,
+   "faces": 29,
+   "kinds": {
+    "CYLINDER": 15,
+    "TORUS": 6,
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    13.77252526311486,
+    19.996811848530605,
+    19.00658374555246
+   ],
+   "aspect": 1.451935027636902,
+   "fill": 0.24669524640266446,
+   "volume": 1291.335774411766,
+   "scale": 4.001,
+   "bbox_mm": [
+    55.104,
+    80.007,
+    76.045
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_63071_3d434a33_15_medium.step"
+  },
+  "F_63172_5ae67bce_0_medium": {
+   "solids": 1,
+   "faces": 33,
+   "kinds": {
+    "CYLINDER": 14,
+    "PLANE": 13,
+    "TORUS": 6
+   },
+   "analytic": true,
+   "bbox": [
+    10.000000100000001,
+    10.94488208976378,
+    20.0
+   ],
+   "aspect": 1.99999998,
+   "fill": 0.28915982248091376,
+   "volume": 632.9640387597658,
+   "scale": 4.0,
+   "bbox_mm": [
+    40.0,
+    43.78,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_63172_5ae67bce_0_medium.step"
+  },
+  "F_65350_b3fa8f4f_47_medium": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    12.5,
+    2.5,
+    20.0
+   ],
+   "aspect": 8.0,
+   "fill": 0.39999999999999997,
+   "volume": 249.99999999999997,
+   "scale": 4.0,
+   "bbox_mm": [
+    50.0,
+    10.0,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_65350_b3fa8f4f_47_medium.step"
+  },
+  "F_65356_aaee1519_1_medium": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "CYLINDER": 8,
+    "SPHERE": 4,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000004,
+    1.999999970197682,
+    11.999999225139657
+   ],
+   "aspect": 10.000000149011594,
+   "fill": 0.9692047477494797,
+   "volume": 465.2182419475263,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    8.0,
+    48.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_65356_aaee1519_1_medium.step"
+  },
+  "F_66061_a0907bb0_1_medium": {
+   "solids": 1,
+   "faces": 21,
+   "kinds": {
+    "PLANE": 12,
+    "CYLINDER": 9
+   },
+   "analytic": true,
+   "bbox": [
+    17.142971530923496,
+    11.42857142857142,
+    20.0
+   ],
+   "aspect": 1.7500000000000013,
+   "fill": 0.5529474731209102,
+   "volume": 2166.6657805275067,
+   "scale": 4.0,
+   "bbox_mm": [
+    68.572,
+    45.714,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_66061_a0907bb0_1_medium.step"
+  },
+  "F_67240_525e92c1_1_medium": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 6,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    3.9351943144789803,
+    10.35766093976634,
+    20.000000000000004
+   ],
+   "aspect": 5.082341150578737,
+   "fill": 0.16138479620506815,
+   "volume": 131.55897649531389,
+   "scale": 4.0,
+   "bbox_mm": [
+    15.741,
+    41.431,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_67240_525e92c1_1_medium.step"
+  },
+  "F_67262_f7710fc0_0_medium": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "CYLINDER": 4,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    8.0,
+    14.0
+   ],
+   "aspect": 2.5,
+   "fill": 0.1979140219380913,
+   "volume": 443.3274091413245,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    32.0,
+    56.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_67262_f7710fc0_0_medium.step"
+  },
+  "F_69235_fe79a369_26_medium": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "CYLINDER": 2,
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    1.5999999999999963,
+    4.0
+   ],
+   "aspect": 12.500000000000028,
+   "fill": 0.5063908881190108,
+   "volume": 64.81803367923322,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    6.4,
+    16.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_69235_fe79a369_26_medium.step"
+  },
+  "F_69253_83adcb0e_3_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    3.0,
+    4.333333333333342
+   ],
+   "aspect": 6.666666666666667,
+   "fill": 0.5923076923076916,
+   "volume": 154.00000000000014,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    12.0,
+    17.333
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_69253_83adcb0e_3_medium.step"
+  },
+  "F_70188_002060a2_0001_medium": {
+   "solids": 1,
+   "faces": 17,
+   "kinds": {
+    "PLANE": 16,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    32.130725572657916,
+    40.146928770474204,
+    8.0
+   ],
+   "aspect": 5.0183660963092755,
+   "fill": 0.13953706380706968,
+   "volume": 1439.966628863493,
+   "scale": 1.993,
+   "bbox_mm": [
+    64.037,
+    80.013,
+    15.944
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_70188_002060a2_0001_medium.step"
+  },
+  "F_70321_eccffc7e_0_medium": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "PLANE": 11
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    12.3076923076923,
+    12.3076923076923
+   ],
+   "aspect": 1.625000000000001,
+   "fill": 0.6749273305990549,
+   "volume": 2044.7502560160688,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    49.231,
+    49.231
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_70321_eccffc7e_0_medium.step"
+  },
+  "F_70441_ca595dbc_1_medium": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    1.519517601903423,
+    13.63636363636364
+   ],
+   "aspect": 13.162071946351269,
+   "fill": 0.18725532264199501,
+   "volume": 77.60120694671349,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    6.078,
+    54.545
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_70441_ca595dbc_1_medium.step"
+  },
+  "F_70639_fceccc4a_2_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "CYLINDER": 3,
+    "TORUS": 2,
+    "PLANE": 3
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    10.000000200000013,
+    3.2592330832278242
+   ],
+   "aspect": 6.136412919628546,
+   "fill": 0.23630105608251448,
+   "volume": 154.032046997802,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    40.0,
+    13.037
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_70639_fceccc4a_2_medium.step"
+  },
+  "F_70814_c3256325_2_medium": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "PLANE": 11,
+    "CONE": 1,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    9.600000000000001,
+    20.0,
+    9.600000000000001
+   ],
+   "aspect": 2.083333333333333,
+   "fill": 0.389183597679949,
+   "volume": 717.3432072436822,
+   "scale": 4.0,
+   "bbox_mm": [
+    38.4,
+    80.0,
+    38.4
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_70814_c3256325_2_medium.step"
+  },
+  "F_73400_e0bb6e48_2_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "TORUS": 3,
+    "PLANE": 3,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    20.0000001,
+    20.0000001,
+    8.0
+   ],
+   "aspect": 2.5000000125,
+   "fill": 0.6722029678066157,
+   "volume": 2151.0495184916654,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    32.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_73400_e0bb6e48_2_medium.step"
+  },
+  "F_73525_7f6b2f67_0_medium": {
+   "solids": 1,
+   "faces": 28,
+   "kinds": {
+    "CYLINDER": 17,
+    "PLANE": 11
+   },
+   "analytic": true,
+   "bbox": [
+    7.0,
+    20.0,
+    20.0
+   ],
+   "aspect": 2.857142857142857,
+   "fill": 0.20087524106602425,
+   "volume": 562.4506749848679,
+   "scale": 4.0,
+   "bbox_mm": [
+    28.0,
+    80.0,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_73525_7f6b2f67_0_medium.step"
+  },
+  "F_73525_7f6b2f67_3_medium": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "PLANE": 7,
+    "CYLINDER": 7
+   },
+   "analytic": true,
+   "bbox": [
+    1.877797153431136,
+    20.0,
+    10.014916808527541
+   ],
+   "aspect": 10.650777675030412,
+   "fill": 0.660098658787193,
+   "volume": 248.2760735367793,
+   "scale": 4.0,
+   "bbox_mm": [
+    7.511,
+    80.0,
+    40.06
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_73525_7f6b2f67_3_medium.step"
+  },
+  "F_74450_043caffc_0_medium": {
+   "solids": 1,
+   "faces": 33,
+   "kinds": {
+    "CONE": 6,
+    "PLANE": 11,
+    "CYLINDER": 12,
+    "SPHERE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000200000006,
+    16.62870179453304,
+    11.799544519134404
+   ],
+   "aspect": 1.6949806975657036,
+   "fill": 0.7727333465389868,
+   "volume": 3032.377338982961,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    66.515,
+    47.198
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_74450_043caffc_0_medium.step"
+  },
+  "F_76546_c17e95aa_0_medium": {
+   "solids": 1,
+   "faces": 28,
+   "kinds": {
+    "CYLINDER": 14,
+    "PLANE": 14
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    8.000000000006704,
+    18.00000000000029
+   ],
+   "aspect": 2.4999999999979052,
+   "fill": 0.19341614919089478,
+   "volume": 557.0385096702528,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    32.0,
+    72.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_76546_c17e95aa_0_medium.step"
+  },
+  "F_76880_9bb28e72_14_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "CYLINDER": 4,
+    "PLANE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    7.199999999999999
+   ],
+   "aspect": 2.777777777777778,
+   "fill": 0.33698817197506525,
+   "volume": 970.5259352881877,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    28.8
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_76880_9bb28e72_14_medium.step"
+  },
+  "F_77687_cbb18594_14_medium": {
+   "solids": 1,
+   "faces": 26,
+   "kinds": {
+    "CYLINDER": 12,
+    "SPHERE": 5,
+    "PLANE": 8,
+    "TORUS": 1
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    5.354989107737028,
+    19.999999829099284
+   ],
+   "aspect": 3.7348348610277244,
+   "fill": 0.5318235924153085,
+   "volume": 1139.1638081144258,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    21.42,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_77687_cbb18594_14_medium.step"
+  },
+  "F_79427_59912769_1_medium": {
+   "solids": 1,
+   "faces": 26,
+   "kinds": {
+    "CYLINDER": 10,
+    "PLANE": 16
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    2.07198504435912,
+    2.4173158850856398
+   ],
+   "aspect": 9.652579324570436,
+   "fill": 0.782938206993132,
+   "volume": 78.42914939791775,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    8.288,
+    9.669
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_79427_59912769_1_medium.step"
+  },
+  "F_79637_fac1d5d3_0000_medium": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "CYLINDER": 8,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    40.0991971876787,
+    30.0,
+    5.5
+   ],
+   "aspect": 7.29076312503249,
+   "fill": 0.9168728162378874,
+   "volume": 6066.367535966981,
+   "scale": 1.995,
+   "bbox_mm": [
+    79.998,
+    59.85,
+    10.973
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_79637_fac1d5d3_0000_medium.step"
+  },
+  "F_79993_6087acd5_16_medium": {
+   "solids": 1,
+   "faces": 23,
+   "kinds": {
+    "PLANE": 16,
+    "CYLINDER": 7
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000007,
+    19.51219823505865,
+    7.3170732934022995
+   ],
+   "aspect": 2.733333287509054,
+   "fill": 0.4289173160602109,
+   "volume": 1224.749244545016,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    78.049,
+    29.268
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_79993_6087acd5_16_medium.step"
+  },
+  "F_80188_c67d0fb1_0_medium": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "CYLINDER": 4,
+    "PLANE": 9
+   },
+   "analytic": true,
+   "bbox": [
+    7.6923076923077005,
+    7.32307692307692,
+    20.0
+   ],
+   "aspect": 2.731092436974791,
+   "fill": 0.3321124927837656,
+   "volume": 374.1669741185149,
+   "scale": 4.0,
+   "bbox_mm": [
+    30.769,
+    29.292,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_80188_c67d0fb1_0_medium.step"
+  },
+  "F_80192_c2f08a97_0000_medium": {
+   "solids": 1,
+   "faces": 16,
+   "kinds": {
+    "CYLINDER": 6,
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    417.343642467439,
+    40.0,
+    108.4040142582702
+   ],
+   "aspect": 10.433591061685975,
+   "fill": 0.12126988575015116,
+   "volume": 219458.35854441742,
+   "scale": 0.192,
+   "bbox_mm": [
+    80.13,
+    7.68,
+    20.814
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_80192_c2f08a97_0000_medium.step"
+  },
+  "F_81024_46f56379_0_medium": {
+   "solids": 1,
+   "faces": 15,
+   "kinds": {
+    "PLANE": 11,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    10.66666666666666,
+    10.66666666666666
+   ],
+   "aspect": 1.875000000000001,
+   "fill": 0.4570816790340176,
+   "volume": 1040.1147540685188,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    42.667,
+    42.667
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_81024_46f56379_0_medium.step"
+  },
+  "F_81145_14516907_3_medium": {
+   "solids": 1,
+   "faces": 29,
+   "kinds": {
+    "CYLINDER": 8,
+    "PLANE": 17,
+    "CONE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0000002,
+    15.71428571428572,
+    20.0000002
+   ],
+   "aspect": 1.2727272854545448,
+   "fill": 0.08677539341744123,
+   "volume": 545.4453409613945,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    62.857,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_81145_14516907_3_medium.step"
+  },
+  "F_81145_bdb0ac6a_114_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 6,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    9.41176485489397,
+    20.0,
+    9.41176484612858
+   ],
+   "aspect": 2.124999968335032,
+   "fill": 0.9932936840656061,
+   "volume": 1759.745265992004,
+   "scale": 4.0,
+   "bbox_mm": [
+    37.647,
+    80.0,
+    37.647
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_81145_bdb0ac6a_114_medium.step"
+  },
+  "F_81326_8c3a1378_9_medium": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "TORUS": 7,
+    "CYLINDER": 4,
+    "CONE": 6,
+    "PLANE": 1
+   },
+   "analytic": true,
+   "bbox": [
+    5.166783457668095,
+    20.0000001,
+    5.166783557668103
+   ],
+   "aspect": 3.870880261164753,
+   "fill": 0.2798160415859528,
+   "volume": 149.3974331162119,
+   "scale": 4.0,
+   "bbox_mm": [
+    20.667,
+    80.0,
+    20.667
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_81326_8c3a1378_9_medium.step"
+  },
+  "F_82203_34a0cdf9_2_medium": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "CYLINDER": 6,
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    18.89170309703827,
+    5.7033405457114394,
+    20.000000000000018
+   ],
+   "aspect": 3.506716781104503,
+   "fill": 0.6817229791326815,
+   "volume": 1469.0559768726594,
+   "scale": 4.0,
+   "bbox_mm": [
+    75.567,
+    22.813,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_82203_34a0cdf9_2_medium.step"
+  },
+  "F_82203_9be68697_1_medium": {
+   "solids": 1,
+   "faces": 12,
+   "kinds": {
+    "PLANE": 12
+   },
+   "analytic": true,
+   "bbox": [
+    8.902864003469869,
+    19.43939412317055,
+    20.000000000000007
+   ],
+   "aspect": 2.246468101973147,
+   "fill": 0.1477336379000084,
+   "volume": 511.35422931055007,
+   "scale": 4.0,
+   "bbox_mm": [
+    35.611,
+    77.758,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_82203_9be68697_1_medium.step"
+  },
+  "F_82996_b8dc67c9_1_medium": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "PLANE": 16,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    14.28571407284056,
+    20.0
+   ],
+   "aspect": 1.4000000208616254,
+   "fill": 0.9015324082502265,
+   "volume": 5151.613684664841,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    57.143,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_82996_b8dc67c9_1_medium.step"
+  },
+  "F_83210_07c13a64_0_medium": {
+   "solids": 1,
+   "faces": 27,
+   "kinds": {
+    "CYLINDER": 11,
+    "PLANE": 16
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    5.0666666666666735,
+    6.66666666666666
+   ],
+   "aspect": 3.947368421052626,
+   "fill": 0.13447150498992366,
+   "volume": 90.84297225985956,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    20.267,
+    26.667
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_83210_07c13a64_0_medium.step"
+  },
+  "F_83435_71fc10f4_2_medium": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    2.07650516667148,
+    15.045591837968459
+   ],
+   "aspect": 9.63156765560033,
+   "fill": 0.9331296584506901,
+   "volume": 583.0613862651387,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    8.306,
+    60.182
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_83435_71fc10f4_2_medium.step"
+  },
+  "F_83938_d6cf9eca_0_medium": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "PLANE": 14
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    3.75,
+    15.0
+   ],
+   "aspect": 5.333333333333333,
+   "fill": 0.7265625,
+   "volume": 817.3828125,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    15.0,
+    60.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_83938_d6cf9eca_0_medium.step"
+  },
+  "F_84025_ec3401ea_1_medium": {
+   "solids": 1,
+   "faces": 16,
+   "kinds": {
+    "TORUS": 1,
+    "CYLINDER": 10,
+    "PLANE": 5
+   },
+   "analytic": true,
+   "bbox": [
+    15.172413793103445,
+    20.0,
+    15.172413793103445
+   ],
+   "aspect": 1.3181818181818186,
+   "fill": 0.3768063824116074,
+   "volume": 1734.8327142660444,
+   "scale": 4.0,
+   "bbox_mm": [
+    60.69,
+    80.0,
+    60.69
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_84025_ec3401ea_1_medium.step"
+  },
+  "F_84487_27f5d323_8_medium": {
+   "solids": 1,
+   "faces": 38,
+   "kinds": {
+    "CYLINDER": 9,
+    "PLANE": 29
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000004,
+    11.292664502843039,
+    1.890213498589188
+   ],
+   "aspect": 10.580815349656293,
+   "fill": 0.3448528557076462,
+   "volume": 147.22145595255256,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    45.171,
+    7.561
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_84487_27f5d323_8_medium.step"
+  },
+  "F_86801_40091568_5_medium": {
+   "solids": 1,
+   "faces": 12,
+   "kinds": {
+    "PLANE": 12
+   },
+   "analytic": true,
+   "bbox": [
+    7.049560546875,
+    20.0,
+    8.94775390625
+   ],
+   "aspect": 2.837056277056277,
+   "fill": 0.4763528876762165,
+   "volume": 600.9452044963837,
+   "scale": 4.0,
+   "bbox_mm": [
+    28.198,
+    80.0,
+    35.791
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_86801_40091568_5_medium.step"
+  },
+  "F_86895_aacc5e37_0_medium": {
+   "solids": 1,
+   "faces": 33,
+   "kinds": {
+    "CYLINDER": 15,
+    "PLANE": 18
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000099999994,
+    9.629629729629631,
+    7.4074076074074
+   ],
+   "aspect": 2.6999999406000037,
+   "fill": 0.2183999007656122,
+   "volume": 311.57188809781087,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    38.519,
+    29.63
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_86895_aacc5e37_0_medium.step"
+  },
+  "F_87488_95f678ce_0_medium": {
+   "solids": 1,
+   "faces": 15,
+   "kinds": {
+    "PLANE": 12,
+    "CYLINDER": 3
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    9.461811575966161,
+    20.0
+   ],
+   "aspect": 2.1137601229347847,
+   "fill": 0.13703221497502666,
+   "volume": 518.6291991723963,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    37.847,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_87488_95f678ce_0_medium.step"
+  },
+  "F_88219_05eb53c9_0000_medium": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "PLANE": 11,
+    "CYLINDER": 7
+   },
+   "analytic": true,
+   "bbox": [
+    113.00000000000001,
+    40.00000000000002,
+    8.000000000000028
+   ],
+   "aspect": 14.124999999999952,
+   "fill": 0.6848427021793757,
+   "volume": 24763.91211080633,
+   "scale": 0.708,
+   "bbox_mm": [
+    80.004,
+    28.32,
+    5.664
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_88219_05eb53c9_0000_medium.step"
+  },
+  "F_88680_0fb9b042_3_medium": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "CONE": 3,
+    "CYLINDER": 5,
+    "PLANE": 5
+   },
+   "analytic": true,
+   "bbox": [
+    2.5,
+    20.0,
+    2.5
+   ],
+   "aspect": 8.0,
+   "fill": 0.48469329217624285,
+   "volume": 60.586661522030354,
+   "scale": 4.0,
+   "bbox_mm": [
+    10.0,
+    80.0,
+    10.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_88680_0fb9b042_3_medium.step"
+  },
+  "F_89044_d66bbf44_5_medium": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "PLANE": 18
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    18.3199229926053,
+    9.014649410849639
+   ],
+   "aspect": 2.2186109618338428,
+   "fill": 0.1432531774690511,
+   "volume": 473.15860686269957,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    73.28,
+    36.059
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_89044_d66bbf44_5_medium.step"
+  },
+  "F_89424_995a070d_3_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 5,
+    "CYLINDER": 3
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    19.99710613084436,
+    2.72727272727272
+   ],
+   "aspect": 7.333333333333353,
+   "fill": 0.07217972454371059,
+   "volume": 78.730124301583,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    79.988,
+    10.909
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_89424_995a070d_3_medium.step"
+  },
+  "F_89527_b3bf425d_0027_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "CYLINDER": 6,
+    "PLANE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    25.0,
+    3.0,
+    25.0
+   ],
+   "aspect": 8.333333333333334,
+   "fill": 0.7074866654386185,
+   "volume": 1326.5374976974097,
+   "scale": 3.2,
+   "bbox_mm": [
+    80.0,
+    9.6,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_89527_b3bf425d_0027_medium.step"
+  },
+  "F_89681_0c77b7fc_7_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "CONE": 3,
+    "CYLINDER": 2,
+    "PLANE": 3
+   },
+   "analytic": true,
+   "bbox": [
+    19.5,
+    20.0,
+    19.5
+   ],
+   "aspect": 1.0256410256410255,
+   "fill": 0.4293032318024957,
+   "volume": 3264.85107785798,
+   "scale": 4.0,
+   "bbox_mm": [
+    78.0,
+    80.0,
+    78.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_89681_0c77b7fc_7_medium.step"
+  },
+  "F_90219_3d3a4450_0_medium": {
+   "solids": 1,
+   "faces": 19,
+   "kinds": {
+    "TORUS": 2,
+    "PLANE": 9,
+    "CYLINDER": 8
+   },
+   "analytic": true,
+   "bbox": [
+    8.18181818181818,
+    20.0,
+    20.0
+   ],
+   "aspect": 2.444444444444445,
+   "fill": 0.12715601355989903,
+   "volume": 416.14695346876033,
+   "scale": 4.0,
+   "bbox_mm": [
+    32.727,
+    80.0,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_90219_3d3a4450_0_medium.step"
+  },
+  "F_91100_df680fe7_1_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 5,
+    "CYLINDER": 3
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    1.818181818181818
+   ],
+   "aspect": 11.000000000000002,
+   "fill": 0.7573593280115085,
+   "volume": 550.8067840083697,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    7.273
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_91100_df680fe7_1_medium.step"
+  },
+  "F_92552_38c9173a_0000_medium": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "CYLINDER": 5,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    48.1840062908208,
+    72.42299807635641,
+    7.0
+   ],
+   "aspect": 10.346142582336629,
+   "fill": 0.2799488271062005,
+   "volume": 6838.425160698522,
+   "scale": 1.105,
+   "bbox_mm": [
+    53.243,
+    80.027,
+    7.735
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_92552_38c9173a_0000_medium.step"
+  },
+  "F_93389_b1801754_0_medium": {
+   "solids": 1,
+   "faces": 30,
+   "kinds": {
+    "PLANE": 18,
+    "CYLINDER": 12
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    5.7971014492753605,
+    9.27536231884058
+   ],
+   "aspect": 3.450000000000001,
+   "fill": 0.19638044227591117,
+   "volume": 211.18837732675172,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    23.188,
+    37.101
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_93389_b1801754_0_medium.step"
+  },
+  "F_94410_d32e7520_9_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    5.882352941178855,
+    20.0,
+    11.76470588235874
+   ],
+   "aspect": 3.399999999998622,
+   "fill": 0.144999999999832,
+   "volume": 200.69204152243913,
+   "scale": 4.0,
+   "bbox_mm": [
+    23.529,
+    80.0,
+    47.059
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_94410_d32e7520_9_medium.step"
+  },
+  "F_94874_1216d8a6_2_medium": {
+   "solids": 1,
+   "faces": 12,
+   "kinds": {
+    "PLANE": 10,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    6.726347411386721,
+    20.0,
+    11.21057885192708
+   ],
+   "aspect": 2.973381952609663,
+   "fill": 0.603716189542245,
+   "volume": 910.4794546974608,
+   "scale": 4.0,
+   "bbox_mm": [
+    26.905,
+    80.0,
+    44.842
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_94874_1216d8a6_2_medium.step"
+  },
+  "F_96271_dbd85c3b_0_medium": {
+   "solids": 1,
+   "faces": 15,
+   "kinds": {
+    "PLANE": 11,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    7.3846156386410335,
+    3.0769230769230798
+   ],
+   "aspect": 6.499999999999994,
+   "fill": 0.5275336803052187,
+   "volume": 239.73129018410964,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    29.538,
+    12.308
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_96271_dbd85c3b_0_medium.step"
+  },
+  "F_96300_74466fc3_6_medium": {
+   "solids": 1,
+   "faces": 9,
+   "kinds": {
+    "CYLINDER": 3,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    19.99999999999998
+   ],
+   "aspect": 1.000000000000001,
+   "fill": 0.7969441517568064,
+   "volume": 6375.553214054445,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_96300_74466fc3_6_medium.step"
+  },
+  "F_97342_27fcca0b_0_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 2,
+    "CYLINDER": 6
+   },
+   "analytic": true,
+   "bbox": [
+    10.859728506787523,
+    2.5339366515836996,
+    19.999999999999993
+   ],
+   "aspect": 7.892857142857173,
+   "fill": 0.3547387902168906,
+   "volume": 195.23307632993067,
+   "scale": 4.0,
+   "bbox_mm": [
+    43.439,
+    10.136,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_97342_27fcca0b_0_medium.step"
+  },
+  "F_98418_4185a7fb_3_medium": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 3,
+    "CONE": 2,
+    "CYLINDER": 3
+   },
+   "analytic": true,
+   "bbox": [
+    20.00000000000001,
+    6.1538461538461595,
+    6.15384615384616
+   ],
+   "aspect": 3.2499999999999987,
+   "fill": 0.6554915916769457,
+   "volume": 496.467004347037,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    24.615,
+    24.615
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_98418_4185a7fb_3_medium.step"
+  },
+  "F_98495_52906369_1_medium": {
+   "solids": 1,
+   "faces": 15,
+   "kinds": {
+    "CYLINDER": 8,
+    "PLANE": 7
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    15.0,
+    1.5
+   ],
+   "aspect": 13.333333333333334,
+   "fill": 0.7049072191131056,
+   "volume": 317.20824860089755,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    60.0,
+    6.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_98495_52906369_1_medium.step"
+  },
+  "F_98511_1b46a85e_30_medium": {
+   "solids": 1,
+   "faces": 16,
+   "kinds": {
+    "PLANE": 16
+   },
+   "analytic": true,
+   "bbox": [
+    14.399265362344238,
+    20.000000000000007,
+    20.000000000000007
+   ],
+   "aspect": 1.3889597487592906,
+   "fill": 0.5154545454545437,
+   "volume": 2968.8667128906045,
+   "scale": 4.0,
+   "bbox_mm": [
+    57.597,
+    80.0,
+    80.0
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_98511_1b46a85e_30_medium.step"
+  },
+  "F_98621_9caba002_3_medium": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    10.260869565217401,
+    20.0,
+    5.043478260869571
+   ],
+   "aspect": 3.965517241379306,
+   "fill": 0.9725560948339388,
+   "volume": 1006.6047505547813,
+   "scale": 4.0,
+   "bbox_mm": [
+    41.043,
+    80.0,
+    20.174
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_98621_9caba002_3_medium.step"
+  },
+  "F_98960_f2639863_0002_medium": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "PLANE": 16,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    19.0,
+    47.500000745322,
+    101.6000005674978
+   ],
+   "aspect": 5.3473684509209365,
+   "fill": 0.5725872739760093,
+   "volume": 52502.81861703753,
+   "scale": 0.787,
+   "bbox_mm": [
+    14.953,
+    37.383,
+    79.959
+   ],
+   "src": "/tmp/claude-1147665/-projects-illinois-eng-ece-wpk-bimrose2-drawing-vlm/6be5ca02-2ca6-4600-b19d-5c6fdf323cd6/scratchpad/srcF/F_98960_f2639863_0002_medium.step"
+  }
+ },
+ "rejected": {
+  "aspect": 30,
+  "freeform": 31,
+  "fill": 1
+ }
+}

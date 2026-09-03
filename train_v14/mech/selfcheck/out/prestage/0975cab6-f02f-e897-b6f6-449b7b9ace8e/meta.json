@@ -1,0 +1,50 @@
+{
+ "key": "0975cab6-f02f-e897-b6f6-449b7b9ace8e",
+ "served": 6,
+ "served_agree": 0.932,
+ "agree": [
+  0.9319714285714286,
+  0.9319571428571428,
+  0.7597714285714285,
+  0.926757142857143,
+  0.7303285714285713,
+  0.9301571428571428,
+  0.932,
+  0.9303428571428572
+ ],
+ "stored_iou": [
+  0.9917651188943328,
+  0.9917491065019263,
+  0.7846457674510326,
+  0.9838015501887536,
+  0.7469152318633111,
+  0.9882308944349819,
+  0.9917222606226406,
+  0.9895502460040972
+ ],
+ "stored_exec": [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "served_iou": 0.9917222606226406,
+ "cand_stl": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0975cab6-f02f-e897-b6f6-449b7b9ace8e/cand0.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0975cab6-f02f-e897-b6f6-449b7b9ace8e/cand1.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0975cab6-f02f-e897-b6f6-449b7b9ace8e/cand2.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0975cab6-f02f-e897-b6f6-449b7b9ace8e/cand3.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0975cab6-f02f-e897-b6f6-449b7b9ace8e/cand4.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0975cab6-f02f-e897-b6f6-449b7b9ace8e/cand5.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0975cab6-f02f-e897-b6f6-449b7b9ace8e/cand6.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0975cab6-f02f-e897-b6f6-449b7b9ace8e/cand7.stl"
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0975cab6-f02f-e897-b6f6-449b7b9ace8e/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0975cab6-f02f-e897-b6f6-449b7b9ace8e/served.step",
+ "render_info": "{'W': 80.0, 'D': 48.0, 'H': 4.0, 'volume': 14408.648459619744, 'callouts': ['top: 2x \u23004'], 'n_edges': {'top': 44, 'front': 64, 'right': 68, 'iso': 95}}",
+ "render_s": 6.9
+}

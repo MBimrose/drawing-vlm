@@ -1,0 +1,50 @@
+{
+ "key": "01f125ec-6a23-34bb-4690-90f202c96d13",
+ "served": 5,
+ "served_agree": 0.9119428571428572,
+ "agree": [
+  0.9079714285714287,
+  0.6826,
+  0.8794000000000001,
+  0.8809142857142858,
+  0.9001571428571429,
+  0.9119428571428572,
+  0.8805857142857143,
+  0.9085714285714286
+ ],
+ "stored_iou": [
+  0.8487366771564838,
+  0.6883182843730273,
+  0.8819252079841892,
+  0.8648268581375832,
+  0.8593209137686343,
+  0.8553522292728377,
+  0.8874946523934683,
+  0.850815743263657
+ ],
+ "stored_exec": [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "served_iou": 0.8553522292728377,
+ "cand_stl": [
+  null,
+  null,
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/01f125ec-6a23-34bb-4690-90f202c96d13/cand2.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/01f125ec-6a23-34bb-4690-90f202c96d13/cand3.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/01f125ec-6a23-34bb-4690-90f202c96d13/cand4.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/01f125ec-6a23-34bb-4690-90f202c96d13/cand5.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/01f125ec-6a23-34bb-4690-90f202c96d13/cand6.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/01f125ec-6a23-34bb-4690-90f202c96d13/cand7.stl"
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/01f125ec-6a23-34bb-4690-90f202c96d13/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/01f125ec-6a23-34bb-4690-90f202c96d13/served.step",
+ "render_info": "{'W': 80.0, 'D': 70.0, 'H': 8.0, 'volume': 26576.302669784814, 'callouts': ['top: 5x \u23006'], 'n_edges': {'top': 36, 'front': 65, 'right': 70, 'iso': 89}}",
+ "render_s": 6.4
+}

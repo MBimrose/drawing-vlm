@@ -1,0 +1,50 @@
+{
+ "key": "042c25e6-40b8-cd02-4c97-d42363f18b45",
+ "served": 0,
+ "served_agree": 0.9631285714285714,
+ "agree": [
+  0.9631285714285714,
+  0.9631285714285714,
+  0.9153714285714285,
+  0.9558428571428571,
+  0.9558428571428571,
+  0.9553428571428572,
+  0.9558428571428571,
+  0.9353571428571429
+ ],
+ "stored_iou": [
+  0.9855123854536747,
+  0.9855125455059105,
+  0.9175254674569516,
+  0.9579411115464976,
+  0.9579411115464976,
+  0.9659991401577541,
+  0.9579411115464976,
+  0.9354302177095133
+ ],
+ "stored_exec": [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "served_iou": 0.9855123854536747,
+ "cand_stl": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/042c25e6-40b8-cd02-4c97-d42363f18b45/cand0.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/042c25e6-40b8-cd02-4c97-d42363f18b45/cand1.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/042c25e6-40b8-cd02-4c97-d42363f18b45/cand2.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/042c25e6-40b8-cd02-4c97-d42363f18b45/cand3.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/042c25e6-40b8-cd02-4c97-d42363f18b45/cand4.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/042c25e6-40b8-cd02-4c97-d42363f18b45/cand5.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/042c25e6-40b8-cd02-4c97-d42363f18b45/cand6.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/042c25e6-40b8-cd02-4c97-d42363f18b45/cand7.stl"
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/042c25e6-40b8-cd02-4c97-d42363f18b45/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/042c25e6-40b8-cd02-4c97-d42363f18b45/served.step",
+ "render_info": "{'W': 60.0, 'D': 40.0, 'H': 20.0, 'volume': 40811.37470027143, 'callouts': ['top: 4x \u23006'], 'n_edges': {'top': 61, 'front': 77, 'right': 82, 'iso': 112}}",
+ "render_s": 7.0
+}

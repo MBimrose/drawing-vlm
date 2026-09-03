@@ -1,0 +1,32 @@
+from build123d import *
+
+leaf_length = 80.0
+leaf_width = 30.0
+leaf_thickness = 4.0
+rib_width = 20.0
+rib_height = 2.0
+pocket_width = 10.0
+pocket_length = 6.0
+pocket_depth = 2.0
+hole_diameter = 5.0
+hole_spacing = 12.0
+hole_count = 8
+chamfer_distance = 1.0
+
+solid_body = Box(leaf_length, leaf_width, leaf_thickness)
+solid_body = chamfer(solid_body.edges().filter_by(Axis.Z), chamfer_distance)
+
+rib = Pos(0, 0, leaf_thickness) * Box(rib_width, rib_width, rib_height)
+solid_body = solid_body + rib
+
+pocket = Pos(0, 0, leaf_thickness + rib_height - pocket_depth / 2) * Box(pocket_width, pocket_length, pocket_depth)
+solid_body = solid_body - pocket
+
+for i in range(hole_count):
+    x = (i - (hole_count - 1) / 2) * hole_spacing
+    hole = Pos(x, 0, (leaf_thickness + rib_height) / 2) * Cylinder(hole_diameter / 2, leaf_thickness + rib_height + 2)
+    solid_body = solid_body - hole
+
+part = solid_body
+part.name = "leaf_with_rib_pocket_holes"
+export_step(part, "output.step")

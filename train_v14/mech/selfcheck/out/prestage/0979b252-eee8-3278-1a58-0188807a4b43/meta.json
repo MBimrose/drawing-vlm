@@ -1,0 +1,50 @@
+{
+ "key": "0979b252-eee8-3278-1a58-0188807a4b43",
+ "served": 0,
+ "served_agree": 0.9964142857142857,
+ "agree": [
+  0.9964142857142857,
+  0.9954857142857143,
+  0.9935,
+  0.994257142857143,
+  0.9964142857142857,
+  0.9964000000000001,
+  0.9934428571428572,
+  0.9964000000000001
+ ],
+ "stored_iou": [
+  0.9961131245424751,
+  0.9979760648729992,
+  0.9970647353376284,
+  0.9930772211016622,
+  0.9961131245424751,
+  0.9995285151737628,
+  0.9925942373865626,
+  0.9995285151737628
+ ],
+ "stored_exec": [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "served_iou": 0.9961131245424751,
+ "cand_stl": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0979b252-eee8-3278-1a58-0188807a4b43/cand0.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0979b252-eee8-3278-1a58-0188807a4b43/cand1.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0979b252-eee8-3278-1a58-0188807a4b43/cand2.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0979b252-eee8-3278-1a58-0188807a4b43/cand3.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0979b252-eee8-3278-1a58-0188807a4b43/cand4.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0979b252-eee8-3278-1a58-0188807a4b43/cand5.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0979b252-eee8-3278-1a58-0188807a4b43/cand6.stl",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0979b252-eee8-3278-1a58-0188807a4b43/cand7.stl"
+ ],
+ "render": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0979b252-eee8-3278-1a58-0188807a4b43/served_render.png",
+ "step": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/selfcheck/out/prestage/0979b252-eee8-3278-1a58-0188807a4b43/served.step",
+ "render_info": "{'W': 80.0, 'D': 30.0, 'H': 8.0, 'volume': 18753.235962179027, 'callouts': ['top: 2x \u23005'], 'n_edges': {'top': 44, 'front': 64, 'right': 68, 'iso': 79}}",
+ "render_s": 6.9
+}
