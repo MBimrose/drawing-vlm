@@ -319,3 +319,25 @@ so the tier alone buys first-exec (+0.011) not the vote; e37 (plain tier, 6000
 steps) votes 0.914; e40 (strict tier + 6000 steps) 0.920. The combination is
 worth ≈+0.008 on the served number — small, but it is the only training-side
 gain measured, and it is invisible to single-shot eval.
+
+## Frame sensitivity of the metric (2026-09-03)
+
+The headline IoU centres both meshes (bbox centre → origin) and applies no
+rotation, reflection or scale, because the drawing dictates orientation and
+size. Measured on the 96-pool's 678 executing candidates
+(train_v14/geom/align_study.py, results/align_study_96.json):
+
+| best candidate per part | mean | ≥0.85 |
+|---|---|---|
+| centered (metric) | 0.953 | 94% |
+| best of 24 proper rotations | 0.955 | 94% |
+| best of 48 (+ reflections) | 0.955 | 94% |
+| rotation + bbox rescale | 0.961 | 95% |
+
+Orientation errors are rare (1.5% of candidates gain >0.05 under rotation;
+0.7% >0.2); reflections never matter; scale/dimension errors are commoner
+(10% of candidates gain >0.05 under rescale) but are genuine reading errors
+and must stay penalised. On the external real-part bench the rotation search
+lifts the ceiling by 0.012 (0.537 → 0.549). Verdict: a rigid-alignment
+scorer would move in-distribution numbers by ≤0.004 and is not adopted for the
+headline; it is useful only as a frame-vs-shape diagnostic.
