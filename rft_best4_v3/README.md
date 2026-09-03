@@ -1,0 +1,1 @@
+RFT tier (misnamed 'best4'): rft_v3 scored has ONE sample per part (105,536), so this is simply the champion-generated round filtered at iou>=0.8 with exec -> 55,585 rows, mean iou 0.938 (built 2026-09-02). Used by e43 (generator-swap ablation).
