@@ -239,3 +239,8 @@ Selective serving — flag parts whose medoid agreement is below τ for review:
 | 0.90 | 35% | 0.46 | 0.86 | 0.968 | 96% |
 
 No extra compute: the agreement matrix is already computed for the vote.
+
+Adaptive K (simulated on the stored K=16 candidates, 96-pool): drawing 8 more
+candidates only when the medoid's agreement is below τ gains ≤0.004 (τ=0.9,
+35% of parts re-drawn) — no better than K=16 for everyone (+0.007). Low
+agreement flags a hard part; more samples of the same model do not fix it.
