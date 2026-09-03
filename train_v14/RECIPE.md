@@ -266,10 +266,16 @@ Details in train_v14/mech/<name>/RESULTS.md.
   determinate/underdetermined deficit is sheet crowding (10.1 vs 6.5 dims).
   Convention prompt: medoid −0.002 at K=4; extent-invariant voting −0.002 to
   −0.009. Upper bound of any ambiguity fix on the full pool: +0.004.
-- **Visual self-check** (render the served part back to a sheet, ask the model
-  to compare and revise): first 20 parts with a fallback renderer showed the
-  model declaring "matches" and one harmful revision; rerun with the real
-  renderer pending.
+- **Visual self-check** (render the served part back through the real
+  draftwright engine, show the model both sheets and its script, ask it to
+  compare and revise): NULL. Same 96 parts: served 0.9231 → 0.9230 under every
+  acceptance policy; 0 parts improved or worsened by >0.05; 10/96 scripts
+  changed, all cosmetic. On 9 of the 15 failing parts the wrong envelope or
+  volume was printed on the rendered sheet and the script came back unchanged.
+  0/96 reasoning traces mention the render: the RFT'd model has collapsed onto
+  drawing → plan → code and ignores a second image. Revisiting it needs
+  training pairs (sheet, sheet-of-wrong-candidate, wrong script → GT) or a
+  numeric dimension diff as text, which the repair loop does act on.
 - **External benchmark — real geometry, our drawings**: 146 human-designed
   single-body parts (CADBench medium tiers of Fusion 360 Gallery + ABC,
   ≤80 analytic faces, rescaled to 80 mm) rendered through the vendored
