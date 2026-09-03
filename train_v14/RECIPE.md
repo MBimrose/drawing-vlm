@@ -186,3 +186,24 @@ selections): consistency medoid **0.925 (84% ≥0.85)** on the 788 determinate
 sheets vs 0.863 (69%) on the 242 underdetermined ones; oracle 0.949 vs 0.914.
 On fully specified drawings the served system is within 0.024 of its own
 best-of-8 ceiling.
+
+## Selector sweep on stored agreement matrices (full pool, 2026-09-02)
+
+`consistency_rerank` now persists every part's 8×8 pairwise-IoU matrix, so
+selectors are evaluated offline in seconds (`results/bo8_full_e24_consistency_v2.json`):
+
+| selector | mean | ≥0.85 |
+|---|---|---|
+| first-to-execute | 0.878 | 73% |
+| **medoid, mean agreement (deployed)** | **0.912** | **82%** |
+| medoid, squared weights | 0.912 | 82% |
+| medoid, ^4 weights | 0.911 | 82% |
+| top-3 / top-2 agreement | 0.911 / 0.908 | 81% / 81% |
+| largest cluster at τ=0.80 / 0.90 / 0.95, then medoid | 0.908 / 0.905 / 0.904 | 81% / 80% / 79% |
+| oracle | 0.942 | 89% |
+
+Every reweighting or clustering variant is within ±0.005 of the plain medoid;
+the remaining 0.03 to the oracle is not recoverable from agreement structure
+alone. Repairing individual failed candidates before the vote is also capped
+low: only 5/1,030 parts have no executing candidate and 88% already have ≥5
+voters. The 11% of parts with no candidate ≥0.85 are a generation problem.
