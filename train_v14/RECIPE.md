@@ -358,3 +358,7 @@ same 96 parts — selection changed on 15 parts, 5 worse / 1 better — because
 aligning wrong candidates onto each other inflates their mutual agreement
 (results/vote_study_meshalign_96.json). meshalign is not adopted anywhere in
 the pipeline; it remains the frame-vs-shape diagnostic.
+Volume-centroid centering (translation-only alternative to the bbox centre,
+results/centroid_study_96.json): per-candidate −0.014, 30% of candidates lose
+>0.02 (0.85-0.95 band: −0.041) — a missing feature moves the mass centre while
+the envelope stays. bbox centering is the correct translation for this task.
