@@ -221,6 +221,7 @@ Full-pool serving scores, three champion-recipe models (best-of-8 + consistency,
 | e37 (seed 42, 6000 steps) | 0.846 | 0.885 | **0.914 (82%)** | 0.945 |
 | e41 (RFT tier v1+v2+v3 at iou≥0.9, 156k) | 0.808 | **0.894 (77%)** | **0.914 (82%)** | **0.946 (91%)** |
 | e42 (40% certified / 40% RFT v1 / 20% plain) | 0.825 | 0.883 (74%) | 0.909 (80%) | 0.942 (89%) |
+| e38 (RFT tier v1+v2+v3 at iou≥0.95, 113k, 4000 steps) | 0.812 / 0.837 | 0.889 (76%) | 0.912 (82%) | 0.943 (90%) |
 | **e40 (RFT tier v1+v2+v3 at iou≥0.95, 113k, 6000 steps)** | 0.817 | **0.899 (79%)** | **0.920 (84%, median 0.981)** | **0.947 (90%)** |
 
 The served number is 0.910-0.914 regardless of seed or schedule: the recipe
@@ -310,8 +311,11 @@ Strict-tier models serve better than they shoot (2026-09-03): e38/e40/e41
 pool — indistinguishable from or below the champion — yet on the full pool
 under best-of-8 + consistency they are the best models measured: e40 0.920
 (84%), e41 0.914 (82%), vs e24 0.912 (81%), e37 0.914, e34 0.910, e42 0.909.
-Their first-to-execute (0.894-0.899 vs 0.878) and oracle (0.946-0.947 vs
+Their first-to-execute (0.889-0.899 vs 0.878) and oracle (0.943-0.947 vs
 0.942) are also higher, i.e. the per-candidate distribution is sharper even
 though the greedy single shot is not. Single-shot eval would have discarded
-all three. e38 (same tier as e40, 4000 steps) full-pool run pending to separate
-tier from schedule.
+all three. Decomposition: e38 (strict tier, 4000 steps) votes 0.912 = champion,
+so the tier alone buys first-exec (+0.011) not the vote; e37 (plain tier, 6000
+steps) votes 0.914; e40 (strict tier + 6000 steps) 0.920. The combination is
+worth ≈+0.008 on the served number — small, but it is the only training-side
+gain measured, and it is invisible to single-shot eval.
