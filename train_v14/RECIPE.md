@@ -362,3 +362,26 @@ Volume-centroid centering (translation-only alternative to the bbox centre,
 results/centroid_study_96.json): per-candidate −0.014, 30% of candidates lose
 >0.02 (0.85-0.95 band: −0.041) — a missing feature moves the mass centre while
 the envelope stays. bbox centering is the correct translation for this task.
+
+## Real-geometry rejection-sampling round 1 (2026-09-03)
+
+Corpus: 1,527 human-designed single-body parts (CADBench medium tiers: 739
+Fusion 360, 562 ABC, 226 ABC sketch-extrude; ≤80 analytic faces, rescaled to
+80 mm, the 146 held-out bench parts excluded), rendered through the vendored
+draftwright engine into our sheet format (48% underdetermined). Generator:
+e40, K=8, T=0.7 on serv-19 (12,195 candidates with code, 2.5 h).
+
+| family | parts | exec | keys ≥0.8 | keys ≥0.9 | ceiling@8 mean / ≥0.85 |
+|---|---|---|---|---|---|
+| Fusion 360 | 739 | 72% | 210 (28%) | 107 | 0.572 / 21% |
+| ABC | 562 | 65% | 76 (14%) | 23 | 0.488 / 9% |
+| ABC sketch-extrude | 226 | 74% | 19 (8%) | 5 | 0.450 / 5% |
+| total | 1,527 | 70% | **305 (20%)** | 135 | 0.530 / 15% |
+
+Tier `rft_real/` (accepted-000.jsonl: 1,022 rows over 305 keys with the
+model's own think text; scored-000.jsonl: all 12,195). Packed with
+pack_rft_shards_dir.py (PNGs from rft_real/png). Mixes by shard repetition
+(build_rft_mix.sh): rft_mix_real_v1 = rft_v1 (31 shards) + real ×6 (≈16% of
+RFT draws), rft_mix_real_strict = rft_strict_all (57) + real ×11. Runs:
+e46 (champion recipe + real), e47 (e40 recipe + real). Judged on the 146
+held-out real parts (bo8_ext_cluster.sbatch) and the in-distribution full pool.

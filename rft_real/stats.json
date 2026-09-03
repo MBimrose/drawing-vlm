@@ -1,0 +1,41 @@
+{
+ "A": {
+  "parts": 562,
+  "cands": 4492,
+  "exec_rate": 0.648,
+  "keys_ge80": 76,
+  "yield80": 0.135,
+  "keys_ge90": 23,
+  "yield90": 0.041,
+  "oracle8_mean": 0.488,
+  "oracle8_ge85": 0.093,
+  "underdetermined": 292
+ },
+ "E": {
+  "parts": 226,
+  "cands": 1801,
+  "exec_rate": 0.737,
+  "keys_ge80": 19,
+  "yield80": 0.084,
+  "keys_ge90": 5,
+  "yield90": 0.022,
+  "oracle8_mean": 0.45,
+  "oracle8_ge85": 0.053,
+  "underdetermined": 139
+ },
+ "F": {
+  "parts": 739,
+  "cands": 5902,
+  "exec_rate": 0.717,
+  "keys_ge80": 210,
+  "yield80": 0.284,
+  "keys_ge90": 107,
+  "yield90": 0.145,
+  "oracle8_mean": 0.572,
+  "oracle8_ge85": 0.212,
+  "underdetermined": 300
+ },
+ "accepted_records": 1022,
+ "scored_records": 12195,
+ "accepted_keys": 305
+}
