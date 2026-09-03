@@ -290,3 +290,10 @@ Details in train_v14/mech/<name>/RESULTS.md.
   data investment is a real-geometry training tier (CADBench medium tiers give
   ~1,600 STEP parts per family; code via CADFit-style mesh→program recovery or
   RFT against the STEP mesh; hold out these 146).
+
+Three-model union at full scale (e24 ∪ e34 ∪ e37, 24 candidates per part,
+1,030 parts): consistency **0.922 (83% ≥0.85, median 0.980)**, oracle 0.960
+(93%), vs 0.914 / 0.946 for the best single model. The cross-model vote is
+worth +0.008 on the full pool (the 96-pool two-model union showed nothing,
+which was noise). At 3× serving cost it is the highest served number measured;
+the single-model best-of-8 remains the cost-efficient deployment.
