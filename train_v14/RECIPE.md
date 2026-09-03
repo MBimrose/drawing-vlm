@@ -385,3 +385,13 @@ pack_rft_shards_dir.py (PNGs from rft_real/png). Mixes by shard repetition
 RFT draws), rft_mix_real_strict = rft_strict_all (57) + real ×11. Runs:
 e46 (champion recipe + real), e47 (e40 recipe + real). Judged on the 146
 held-out real parts (bo8_ext_cluster.sbatch) and the in-distribution full pool.
+
+External bench baselines by model (146 held-out real parts, best-of-8, strict metric):
+
+| model | first-exec | vote | ceiling@8 |
+|---|---|---|---|
+| e24 champion (serv-19) | 0.398 / 10% | 0.452 / 14% | 0.534 / 16% |
+| e40 strict tier, 6000 steps (H200) | 0.440 / 12% | 0.487 / 17% | 0.554 / 20% |
+
+The strict-tier model transfers slightly better (+0.035 vote); e46/e47 are
+judged against these rows.
