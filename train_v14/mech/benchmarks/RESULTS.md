@@ -22,8 +22,13 @@ Research + light prep, 2026-09-03. No GPU used. Nothing in `train_v14/` edited.
   All 146 sidecars say `renderer: draftwright`; **66/146 (45 %) are underdetermined** (`dims_unplaced`
   non-empty) vs 24–33 % in-distribution. Sheets verified visually (our format: third-angle views, ISO
   view, "ISO 2768-m / draftwright" title block, 1920×1280).
-- **Eval submitted:** SLURM job 10321045 `m-benchmarks-bo8` on ccc0442 (4×L40S), best-of-8 K=8 T=0.7 with
-  the unmodified `bestofn_verifier_eval.py` + `consistency_rerank.py` via env overrides; results in §5.
+- **Result (serv-19, 8×B300, best-of-8 K=8 T=0.7, unmodified eval chain):** on the 146 external parts the
+  champion reaches **first-exec 0.398 / consistency vote 0.452 / oracle 0.534** mean IoU (10 / 14 / 16 % ≥ 0.85)
+  vs **0.878 / 0.912 / 0.942** (73 / 81 / 89 %) in-distribution; determinate slice 0.466 / 0.526 / 0.619.
+  Three controls put the cause on the geometry, not the pipeline: 48 in-distribution parts re-rendered
+  through the same renderer score 0.889 / 0.911 / 0.942 (stored: 0.870 / 0.916 / 0.946); projection
+  convention and sheet variant have no effect; a 24-rotation / scale search on the oracle candidates
+  recovers nothing (0.537 → 0.549). Details in §5.
 - **Secondary "real drawings" test:** cadgenbench (49 real Mecado sheets, GT withheld, leaderboard)
   and NIST MBE PMI CTC/FTC (11 machined parts, real PDF drawings + STEP AP242, no restrictions).
   Nothing else found pairs real dimensioned drawings with STEP GT for machined parts.
@@ -212,13 +217,13 @@ Outputs: `data/ext_bench/bo8_ext_e24-rft.json` (all candidates + code + IoU),
 | slice | n | exec/8 | first-exec mean / ≥0.85 | consistency vote | oracle mean / ≥0.85 |
 |---|---|---|---|---|---|
 | **in-distribution, 1,030 pool** | 1030 | ~7.2 | 0.878 / 73 % | 0.912 / 81 % | 0.942 / 89 % |
-| **external, all** | 146 | 5.6 | **0.398 / 10 %** | VOTE_ALL | **0.534 / 16 %** |
-| external, determinate | 80 | 5.9 | 0.466 / 16 % | VOTE_DET | 0.619 / 24 % |
-| external, underdetermined | 66 | 5.3 | 0.317 / 3 % | VOTE_UND | 0.431 / 8 % |
-| Fusion 360 (F) | 88 | 6.1 | 0.416 / 12 % | VOTE_F | 0.566 / 22 % |
-| F determinate | 53 | 6.5 | 0.476 / 19 % | VOTE_FD | 0.632 / 28 % |
-| ABC (A) | 58 | 5.0 | 0.371 / 7 % | VOTE_A | 0.486 / 9 % |
-| A determinate | 27 | 4.9 | 0.447 / 11 % | VOTE_AD | 0.593 / 15 % |
+| **external, all** | 146 | 5.6 | **0.398 / 10 %** | **0.452 / 14 %** | **0.534 / 16 %** |
+| external, determinate | 80 | 5.9 | 0.466 / 16 % | 0.526 / 21 % | 0.619 / 24 % |
+| external, underdetermined | 66 | 5.3 | 0.317 / 3 % | 0.363 / 5 % | 0.431 / 8 % |
+| Fusion 360 (F) | 88 | 6.1 | 0.416 / 12 % | 0.478 / 17 % | 0.566 / 22 % |
+| F determinate | 53 | 6.5 | 0.476 / 19 % | 0.538 / 25 % | 0.632 / 28 % |
+| ABC (A) | 58 | 5.0 | 0.371 / 7 % | 0.413 / 9 % | 0.486 / 9 % |
+| A determinate | 27 | 4.9 | 0.447 / 11 % | 0.503 / 15 % | 0.593 / 15 % |
 
 Oracle IoU is spread uniformly over [0, 1] (histogram by decile: 10/12/14/15/19/11/17/16/14/17):
 not a bimodal "some parts break" pattern but a broad degradation.
@@ -236,7 +241,7 @@ not a bimodal "some parts break" pattern but a broad degradation.
    sidecars have no `projection` key; the old style map sent only `military_spec` to first angle).
    External oracle: third-angle 0.529 (n=107) vs first-angle 0.546 (n=39) — no effect. Sheet variant
    1–5: oracle 0.51 / 0.49 / 0.68 / 0.47 / 0.49 — no systematic effect.
-3. **Frame / scale.** DIAG_SENTENCE
+3. **Frame / scale.** Oracle candidates re-executed and compared to GT under all 24 axis-aligned rotations (`diag_frame.py`, 145/146 parts): best-rotation IoU 0.549 vs as-is 0.537 (only 2/145 parts gain > 0.2), so the model is not building correct shapes in the wrong frame. Pred/GT bbox scale ratio p10/50/90 = 0.90 / 1.00 / 1.11 (12/145 off by > 20 %), volume ratio median 1.15: the sheet's dimensions are read at the right scale; what is wrong is the shape.
 
 ### 5b. What fails
 

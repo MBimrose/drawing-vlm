@@ -273,7 +273,12 @@ Details in train_v14/mech/<name>/RESULTS.md.
   ≤80 analytic faces, rescaled to 80 mm) rendered through the vendored
   draftwright engine into our exact sheet format. Champion, best-of-8:
   **first-exec 0.398 (10% ≥0.85), vote 0.452 (14%), oracle 0.534 (16%)** vs
-  0.878 / 0.912 / 0.942 in-distribution. Determinate slice 0.466 / – / 0.619.
+  0.878 / 0.912 / 0.942 in-distribution. Determinate slice 0.466 / 0.526 / 0.619;
+  Fusion 0.416 / 0.478 / 0.566, ABC 0.371 / 0.413 / 0.486. Frame diagnostic: the
+  best of 24 axis-aligned rotations lifts the oracle only 0.537 → 0.549 and the
+  pred/GT scale ratio is centred on 1.00 — dimensions are read at the right
+  scale, the shapes are wrong (bowed strips, multi-lug brackets, ring/boss
+  stacks: idioms the synthetic families never produce).
   Controls: 48 in-distribution parts re-rendered through the same engine score
   0.889 / 0.911 / 0.942 (renderer and launcher reproduce the stored chain);
   projection angle and sheet variant have no effect. Failure correlates with
