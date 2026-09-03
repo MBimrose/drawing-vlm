@@ -1,0 +1,23 @@
+slice                     n |         first_exec |        consistency |             oracle | exec>=1
+                            |      mean / >=0.85 |      mean / >=0.85 |      mean / >=0.85
+in-dist 1030 pool      1030 | 0.878 /   73% | 0.912 /   81% | 0.942 /   89% |
+ALL external            146 | 0.398 /   10% | 0.452 /   14% | 0.534 /   16% |   99%
+  determinate            80 | 0.466 /   16% | 0.526 /   21% | 0.619 /   24% |   99%
+  underdetermined        66 | 0.317 /    3% | 0.363 /    5% | 0.431 /    8% |  100%
+Fusion360 (F)            88 | 0.416 /   12% | 0.478 /   17% | 0.566 /   22% |  100%
+  F determinate          53 | 0.476 /   19% | 0.538 /   25% | 0.632 /   28% |  100%
+ABC (A)                  58 | 0.371 /    7% | 0.413 /    9% | 0.486 /    9% |   98%
+  A determinate          27 | 0.447 /   11% | 0.503 /   15% | 0.593 /   15% |   96%
+
+worst 10 (consistency):
+  A_00989278_71ae30601d752e5dcbbc00ce_step_000_medium fam=A under=False faces=40 exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  F_56167_90101372_13_medium         fam=F under=False faces=10 exec=5/8 first=0.025 cons=0.011 oracle=0.025
+  F_83210_07c13a64_0_medium          fam=F under=True faces=27 exec=4/8 first=0.029 cons=0.029 oracle=0.091
+  A_00953690_cc92fe00f1c72a7d0b0288c4_step_001_medium fam=A under=True faces=63 exec=8/8 first=0.081 cons=0.031 oracle=0.128
+  F_90219_3d3a4450_0_medium          fam=F under=False faces=19 exec=6/8 first=0.039 cons=0.034 oracle=0.134
+  A_00941230_aa3e051193c04c834325cd87_step_000_medium fam=A under=True faces=51 exec=2/8 first=0.035 cons=0.035 oracle=0.035
+  F_56711_61a0b988_3_medium          fam=F under=False faces=51 exec=5/8 first=0.035 cons=0.035 oracle=0.093
+  A_00941921_f3b16049278a833ae2b34381_step_001_medium fam=A under=True faces=39 exec=4/8 first=0.024 cons=0.050 oracle=0.050
+  F_73525_7f6b2f67_3_medium          fam=F under=True faces=14 exec=4/8 first=0.065 cons=0.060 oracle=0.120
+  A_00922818_611a88896e870be2752739bc_step_000_medium fam=A under=True faces=47 exec=6/8 first=0.038 cons=0.064 oracle=0.465
+

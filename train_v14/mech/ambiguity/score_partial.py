@@ -10,7 +10,8 @@ stored-baseline candidates for the same keys restricted to the same K draws
 import argparse, json, os, sys, tempfile
 from concurrent.futures import ThreadPoolExecutor
 DV = "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm"
-sys.path.insert(0, os.path.join(DV, "train_v14")); sys.path.insert(0, os.path.join(DV, "train_v14", "geom"))
+sys.path.insert(0, os.path.join(DV, "train_v14")); sys.path.insert(0, os.path.join(DV, "train_v14", "geom")); sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import limited_exec  # noqa: E402,F401  (24 GB cap per candidate subprocess)
 from iou import iou_pair  # noqa: E402
 from rft_generate import exec_to_stl  # noqa: E402
 GT_DIR = os.path.join(DV, "step_to_drw/wds_dataset/gt_meshes_v15")
@@ -33,7 +34,11 @@ with tempfile.TemporaryDirectory(prefix="amb_score_") as td:
         stl = os.path.join(td, f"{keys[i]}_{j}.stl")
         if exec_to_stl(c["code"], stl, td, f"{keys[i]}_{j}"):
             c["exec"] = True
-            c["iou"] = iou_pair(stl, os.path.join(GT_DIR, f"{keys[i]}.stl"))["iou_centered"]
+            if os.path.getsize(stl) > 150_000_000:   # pathological mesh (hundreds of MB): OOM risk, score 0
+                print(f"[score] huge STL skipped {keys[i]}_{j} {os.path.getsize(stl)//1_000_000} MB", flush=True)
+                c["iou"] = 0.0
+            else:
+                c["iou"] = iou_pair(stl, os.path.join(GT_DIR, f"{keys[i]}.stl"))["iou_centered"]
     with ThreadPoolExecutor(max_workers=a.workers) as ex:
         list(ex.map(run_one, [(i, j) for i in range(len(keys)) for j in range(a.k)]))
 n_exec = sum(c["exec"] for cs in cands for c in cs)

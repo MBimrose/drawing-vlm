@@ -154,6 +154,7 @@ def main():
 
     pool = ThreadPoolExecutor(max_workers=8)
     td = tempfile.mkdtemp(prefix="selfcheck_")
+    n_skipped_batches = 0
     for b in range(0, len(items), a.batch):
         chunk = items[b:b + a.batch]
         msgs = []
@@ -180,7 +181,10 @@ def main():
         if n_bad:
             print(f"[sc] WARNING degenerate generations in batch: {n_bad}/{len(outs)} (bad GPU?)", flush=True)
             if n_bad >= 2:
-                raise RuntimeError("degenerate generations — bad GPU?")
+                # skip-and-continue: leave the whole batch unrecorded so a resume redoes it
+                print(f"[sc] SKIPPING batch (degenerate {n_bad}/{len(outs)}); parts left for a rerun", flush=True)
+                n_skipped_batches += 1
+                continue
         futs = []
         for (k, meta, rec), text in zip(chunk, outs):
             rec["rev_text_len"] = len(text)
@@ -200,7 +204,7 @@ def main():
         save()
         print(f"[sc] {min(b + a.batch, len(items))}/{len(items)}", flush=True)
     save()
-    print("[sc] done", flush=True)
+    print(f"[sc] done (skipped batches: {n_skipped_batches})", flush=True)
 
 
 if __name__ == "__main__":

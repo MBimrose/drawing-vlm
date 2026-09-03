@@ -246,3 +246,41 @@ Adaptive K (simulated on the stored K=16 candidates, 96-pool): drawing 8 more
 candidates only when the medoid's agreement is below τ gains ≤0.004 (τ=0.9,
 35% of parts re-drawn) — no better than K=16 for everyone (+0.007). Low
 agreement flags a hard part; more samples of the same model do not fix it.
+
+## Mechanism sweep (agents, 2026-09-03) — three closed, one changes the story
+
+Details in train_v14/mech/<name>/RESULTS.md.
+
+- **Constraints before code** (extract a dimension list, generate against it,
+  verify envelope/holes, repair): NEGATIVE. Same 96 parts, same job: base
+  greedy+repair 0.846 (72%) → two-stage 0.785 (64%), repair rounds inert.
+  Stage A emits valid JSON 94/96 but reads no better than the generator builds;
+  a wrong list costs −0.12. Offline, gating the vote on envelope agreement
+  scores 0.908 vs 0.912: the model misreads envelopes by consensus.
+- **Ambiguity-aware handling of underdetermined sheets**: NEGATIVE, with a
+  measured ceiling. The model already resolves the dropped dimension (modal
+  extent = GT in 86% of env-axis parts; vote takes the mode 98%). The
+  oracle−vote gap on those sheets is 85% ordinary feature misreads; half of the
+  determinate/underdetermined deficit is sheet crowding (10.1 vs 6.5 dims).
+  Convention prompt: medoid −0.002 at K=4; extent-invariant voting −0.002 to
+  −0.009. Upper bound of any ambiguity fix on the full pool: +0.004.
+- **Visual self-check** (render the served part back to a sheet, ask the model
+  to compare and revise): first 20 parts with a fallback renderer showed the
+  model declaring "matches" and one harmful revision; rerun with the real
+  renderer pending.
+- **External benchmark — real geometry, our drawings**: 146 human-designed
+  single-body parts (CADBench medium tiers of Fusion 360 Gallery + ABC,
+  ≤80 analytic faces, rescaled to 80 mm) rendered through the vendored
+  draftwright engine into our exact sheet format. Champion, best-of-8:
+  **first-exec 0.398 (10% ≥0.85), vote 0.452 (14%), oracle 0.534 (16%)** vs
+  0.878 / 0.912 / 0.942 in-distribution. Determinate slice 0.466 / – / 0.619.
+  Controls: 48 in-distribution parts re-rendered through the same engine score
+  0.889 / 0.911 / 0.942 (renderer and launcher reproduce the stored chain);
+  projection angle and sheet variant have no effect. Failure correlates with
+  low fill ratio (<0.3: oracle 0.37), many cylindrical faces, fillets, and
+  crowded sheets. The synthetic parts are ADSKAILab/Zero-To-CAD-1m; the model
+  does not generalise from those families to real parts even in our own
+  drawing format. This gap (−0.4) dwarfs every recipe lever (±0.03): the next
+  data investment is a real-geometry training tier (CADBench medium tiers give
+  ~1,600 STEP parts per family; code via CADFit-style mesh→program recovery or
+  RFT against the STEP mesh; hold out these 146).

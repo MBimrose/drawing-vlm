@@ -234,3 +234,104 @@ not a directional effect. Split by what was dropped: env-axis parts 0.735 →
 length was wrong, the greedy draw went 6 up / 4 down / 6 unchanged
 (e.g. `4be3913a` 0.78 → 0.95, `10827958` 0.26 → 0.63, but `1a0c1678` 0.56 →
 0.41 and `998fc804` 0.70 → 0.00): the prompt does not make the model measure.
+
+### Best-of-K + consistency, same 242 parts, same first K draws, same selector
+
+The generation job ran at ~53 min/draw and hit its 5 h limit after draw 4, so
+the comparison is on the K=4 and K=5 checkpoints. Convention candidates were
+executed, IoU-scored and reranked with the unchanged `consistency_rerank.py`
+(jobs 10321923 / 10322190; their trailing baseline reranks were cancelled as redundant once the matrix-derived baseline was validated); the baseline is the stored champion candidates
+restricted to the same draws, selected from the stored 8×8 matrices
+(`baseline_subk.py`; it reproduces the job's K=1 numbers exactly, 0.739/55.8 %).
+`compare_k.py 4`:
+
+| K=4, 242 parts | baseline (stored) | convention prompt | Δ | parts up >0.05 / down >0.05 |
+|---|---|---|---|---|
+| executed candidates | — | 842/968 (87 %) | | |
+| first-to-execute | 0.820 (60 %) | 0.827 (60 %) | +0.007 | 40 / 43 |
+| **consistency medoid** | **0.845 (66 %)** | **0.842 (65 %)** | **−0.002** | 35 / 42 |
+| oracle@4 | 0.877 (76 %) | 0.889 (74 %) | +0.011 | 27 / 25 |
+
+`compare_k.py 5` (adds the fifth, sampled draw):
+
+| K=5, 242 parts | baseline (stored) | convention prompt | Δ | parts up / down >0.05 |
+|---|---|---|---|---|
+| executed candidates | — | 1057/1210 (87 %) | | |
+| first-to-execute | 0.831 (60 %) | 0.827 (60 %) | −0.005 | 38 / 44 |
+| **consistency medoid** | **0.862 (69 %)** | **0.855 (67 %)** | **−0.007** | 33 / 38 |
+| oracle@5 | 0.899 (78 %) | 0.898 (76 %) | −0.001 | 23 / 24 |
+
+K=5 slices (medoid): env-axis-dropped 0.843 → 0.834 (−0.009), other dropped
+0.879 → 0.875 (−0.004), modal-length-wrong 0.647 → 0.639 (oracle 0.672 →
+0.736: the prompt occasionally produces the right length as *one* of the
+candidates, but never as the majority). Convention-run medoid agreement 0.858
+— the same confidence as the baseline on this slice.
+
+By slice (medoid): env-axis-dropped parts 0.825 → 0.818 (−0.007), other
+dropped 0.862 → 0.864 (+0.002); the 16 modal-length-wrong parts 0.623 → 0.646
+(+0.023, i.e. one or two parts) with oracle 0.650 → 0.727. The prompt is
+inert on the served number: it reshuffles which parts win and lose
+(35 up / 42 down, symmetric), nudges the oracle by +0.01 (more diverse
+candidates), and does not touch the vote.
+
+## Verdict
+
+* **Does the model already pick a consistent default for the missing
+  dimension?** Yes: one extent cluster across the 8 draws in 73 % of env-axis
+  parts, modal share 0.92, and the modal value equals the GT in 86 %. The
+  default is "the round stock size that fits the scale / the centred hole
+  pattern", which is also the generator's truth 82–86 % of the time.
+* **Is the vote choosing the majority default, and is it wrong vs GT?** The
+  vote picks the modal extent in 98 % of parts; it is wrong on that axis in 15
+  of 114 parts, and in only 4 of those does the oracle candidate have it right.
+* **Oracle−vote gap on underdetermined parts = 0.038**, of which ≈15 % is
+  "same part, different dropped length" and ≈85 % is other features. The
+  deficit vs determinate sheets (0.048) is half explained by dimension count
+  (crowded sheets), not by the dropped dimension.
+* **Prompt-level convention statement**: no effect on the served number
+  (medoid −0.002 at K=4 and −0.007 at K=5 on the same 242 parts; symmetric
+  per-part reshuffle; oracle +0.011 / −0.001). **Extent-invariant voting**: −0.002 to −0.009. **Post-hoc
+  extent snapping**: −0.009.
+* **Plausible full-pool gain: < +0.005** even in the most optimistic reading
+  (fixing every modal-wrong length at the oracle's IoU ≈ +0.004 on 1,030
+  parts); the realistic gain of any ambiguity-specific mechanism is 0.000.
+  The mechanism does not move the served number by >0.01. What the
+  underdetermined slice actually needs is the same thing the determinate
+  slice needs on crowded sheets — fewer feature misreads when the majority of
+  8 draws agrees on the wrong reading (e.g. `6b79fb4c`: 5/8 identical wrong
+  volumes) — which is a generation problem, consistent with the recipe's
+  "11 % unsolved are a generation problem".
+
+## What did not work / blockers
+
+* The draftwright renderer source is not in this checkout and the GitHub
+  remote is not reachable without credentials from the login node, so the
+  "convention" was inferred from the sidecars + GT rather than read from
+  `draw_generator.py`.
+* ccc0442 was shared with another mechanism's 4-GPU job: weight load took 30
+  min and each 242-part draw 53 min (5× the recipe's rate), so K=8 did not
+  fit in the 5 h allocation; K=4/K=5 checkpoints were scored instead. A K=8
+  rerun needs ~8 h on an idle node (`m-ambiguity-gen.sbatch`, resume works
+  from `out/bo8_underdet_convention.json.partial.json`).
+* Two CPU jobs were OOM-killed by pathological candidate meshes / runaway
+  scripts (167 GB RSS); fixed with `limited_exec.py` (24 GB RLIMIT_AS per
+  candidate subprocess, applied to `consistency_rerank.py` through
+  `run_limited.py` without editing it) and a 60k-face voter cap in
+  `shape_vote.py`.
+* The login node was fork-starved several times during the session
+  (`fork: retry: Resource temporarily unavailable`); all compute ran under
+  SLURM.
+
+## Files
+
+| file | role |
+|---|---|
+| `pool_sidecar.json` | renderer sidecar entries for the 1,030 pool uuids (dims_placed / dims_unplaced / labels) |
+| `keys_underdet.txt`, `keys_det_control.txt`, `keys_exec_all.txt`, `keys_shapevote.txt` | part lists |
+| `exec_cands.py`, `m-ambiguity-exec.sbatch` | execute stored candidates → `out/stl_e24/`, `out/cand_geom_e24.jsonl` |
+| `analyze.py` → `out/analysis_e24.json` | §1 extent / default / gap decomposition |
+| `complexity.py` | §1 dimension-count confound |
+| `shape_vote.py`, `m-ambiguity-shapevote.sbatch` → `out/shape_vote_e24.json` | §3 selectors |
+| `gen_underdet.py`, `m-ambiguity-gen.sbatch` → `out/bo8_underdet_convention.json.partial.json` (5 draws) | §2 generation with the convention prompt |
+| `score_partial.py`, `m-ambiguity-score.sbatch`, `limited_exec.py`, `run_limited.py` → `out/bo{1,4,5}_underdet_convention*.json` | scoring + reranking of checkpoints |
+| `baseline_subk.py` → `out/bo{K}_underdet_baseline_from_matrices.json`; `compare_k.py` | baseline best-of-K from stored matrices; before/after tables |
