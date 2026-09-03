@@ -70,6 +70,7 @@ Mixture per sample draw (`build_mixed_v2` in data_v14.py):
 | e33 ckpt-3500 | 27B | curated RFT tier (v1+v4+v5hard, 68k), 4000 steps | 0.833 |
 | e38 final | 27B | RFT tier v1+v2+v3 at iou≥0.95 (113k), 4000 steps; lowest 4k-step val (0.438) | 0.812 / 0.837 (same weights, serv-19 B300 vs cluster L40S) |
 | e36 final | 27B | RFT tier v1 at iou≥0.95 (30.7k), 4000 steps | 0.799 (65% ≥0.85) |
+| e41 final | 27B | RFT tier v1+v2+v3 at iou≥0.9 (156k), 4000 steps | 0.808 (69%); full-pool served 0.914 / 82%, first-exec 0.894 |
 | e29 ckpt-500 | 27B | continue from e28 on same mix | 0.806 |
 | e26-full best | Flash-Next 180B | same recipe, 3000 steps | 0.782 |
 | e32-r2 best | Flash-Next 180B | matched compute, lr 6e-6→3e-6 restart | 0.832 |
@@ -218,6 +219,7 @@ Full-pool serving scores, three champion-recipe models (best-of-8 + consistency,
 | e24 (seed 42, 4000 steps) | 0.844 | 0.878 | 0.912 (81%) | 0.942 |
 | e34 (seed 43) | 0.803 | 0.876 | 0.910 (80%) | 0.941 |
 | e37 (seed 42, 6000 steps) | 0.846 | 0.885 | **0.914 (82%)** | 0.945 |
+| e41 (RFT tier v1+v2+v3 at iou≥0.9, 156k) | 0.808 | **0.894 (77%)** | **0.914 (82%)** | **0.946 (91%)** |
 
 The served number is 0.910-0.914 regardless of seed or schedule: the recipe
 is reproducible, and the 96-pool single-shot spread (0.80-0.85) is noise.
