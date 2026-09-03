@@ -352,6 +352,9 @@ candidates get a pure translation (median 0, p90 0.25 mm; the 40 shifted by
 +0.11; 0.5-0.85: +0.065) while good ones lose slightly (0.85-0.95: −0.012)
 because the aligner optimises surface distance, not volume overlap. Verdict:
 rigid alignment inflates partial reconstructions and forgives flips; the
-centered metric stays the headline. Open question being measured: whether a
-rigid-aligned agreement matrix improves the consistency VOTE (selection only,
-scored with the strict metric).
+centered metric stays the headline. In the VOTE it is worse: a rigid-aligned
+agreement matrix (strict scoring, selection only) serves 0.914 vs 0.923 on the
+same 96 parts — selection changed on 15 parts, 5 worse / 1 better — because
+aligning wrong candidates onto each other inflates their mutual agreement
+(results/vote_study_meshalign_96.json). meshalign is not adopted anywhere in
+the pipeline; it remains the frame-vs-shape diagnostic.
