@@ -395,6 +395,7 @@ External bench baselines by model (146 held-out real parts, best-of-8, strict me
 | e40 strict tier, 6000 steps (H200) | 0.440 / 12% | 0.487 / 17% | 0.554 / 20% |
 | e41 threshold 0.9, all rounds (H200) | 0.443 / 13% | 0.485 / 16% | 0.563 / 22% |
 | e44 threshold 0.9, round 1 only (H200) | 0.434 / 12% | 0.495 / 16% | 0.550 / 20% |
+| e45 = e41 seed 43 (H200) | 0.438 / 12% | 0.499 / 16% | 0.555 / 21% |
 
 The strict-threshold models transfer slightly better (+0.03-0.04 on the vote,
 consistent across e40/e41/e44); e46/e47 are judged against these rows.
