@@ -388,6 +388,10 @@ pack_rft_shards_dir.py (PNGs from rft_real/png). Mixes by shard repetition
 RFT draws), rft_mix_real_strict = rft_strict_all (57) + real ×11. Runs:
 e46 (champion recipe + real), e47 (e40 recipe + real). Judged on the 146
 held-out real parts (bo8_ext_cluster.sbatch) and the in-distribution full pool.
+Second generator pass with e45 (K=8, T=0.7, 2.5 h): 298 keys at ≥0.8 (1,051
+rows). Union with e40's set: **358 keys** (237 Fusion, 95 ABC, 26 sketch-extrude;
+53 solved only by e45, 60 only by e40). Packed as `rft_real_union/`; mixes
+rft_mix_union_v1 / rft_mix_union_strict for round 2.
 
 External bench baselines by model (146 held-out real parts, best-of-8, strict metric):
 
