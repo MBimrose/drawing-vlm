@@ -343,6 +343,37 @@ the tier's diversity is mostly Fusion; (3) `write_rft_real.py` keys are the corp
 (`<fam>_<file_id>_<label>`), PNGs are `png/<key>.png` (one variant per part) — `pack_rft_shards.py`
 expects tar keys, so a small adapter is needed to pack this tier (PNG from `rft_real/png/`, not tars).
 
+## 7. Second corpus (rft_corpus2), 2026-09-04
+
+Round 1 (e46 = champion recipe + the 305-part real tier) gained only +0.02 vote on the held-out real bench
+(0.473 vs 0.452), so the owner asked for a larger corpus. Built on serv-19 (CPU + download only; a K=16
+run owned the GPUs), `build_corpus2.py` + `run_corpus2_all.sh`; stage 2 (8 × e40, merge, `rft_real2/`)
+self-starts once `pgrep -f "[b]estofn_verifier_eval"` is empty and every GPU is < 5 GB.
+
+Sources: CADBench benchB (DeepCAD) all 18 shards scanned by label — 5 all-easy shards skipped, 2,000
+medium/hard rows pulled; F hard (shards 6–13), A hard (10–20), E hard (10–19). Exclusion by `file_id`:
+146 held-out + 1,527 corpus-1 keys (`data/exclude_ids_corpus2.txt`, 1,673 ids). Filter as before but
+`--max-faces 120`. Download 3.1 GB (`step` column only; the hard-tier STEPs are large). 21 min end-to-end.
+
+| family | rows pulled | **kept** | tiers | median faces | median fill | underdetermined |
+|---|---|---|---|---|---|---|
+| B DeepCAD | 2,000 (medium 1,000 + hard 1,000) | **1,530** | 722 medium + 808 hard | 19 | 0.52 | 710 (46 %) |
+| F Fusion 360 hard | 746 (254 already in corpus 1) | **154** | hard, 81–120 faces | 93 | 0.39 | 88 (57 %) |
+| A ABC hard | 1,000 | 0 | all > 120 faces | | | |
+| E ABC-extrude hard | 1,000 | 0 | all > 120 faces | | | |
+| total | 4,746 | **1,684** | | | | 798 (47 %) |
+
+Rejections: faces > 120 1,868, aspect 613, freeform 520, fill 44, timeout 12, multi-body 5. Note the
+CADBench tiers are per-family quantiles: DeepCAD "hard" is 19 median faces, i.e. simpler than Fusion
+"medium". Corpus 2 is therefore mostly DeepCAD sketch-extrude parts (prismatic, high fill 0.52) —
+closer to our synthetic distribution than corpus 1, which should raise the RFT yield but adds less
+real-world variety. Rendered 1,684/1,684 (1,671 draftwright, 13 legacy); cache 1,684 sheets. Assets on
+serv-19 (`rft_corpus2/`); manifest, download stats and sidecars in `data/rft_corpus2/`.
+
+### 7a. Generation yield (fills in when stage 2 finishes)
+
+GEN2_TABLE
+
 ## Files
 
 - `train_v14/mech/benchmarks/prep_external_parts.py` — filter + rescale + STEP/STL export + manifest (tested: 146/246 kept).
