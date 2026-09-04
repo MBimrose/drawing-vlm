@@ -222,6 +222,7 @@ Full-pool serving scores, three champion-recipe models (best-of-8 + consistency,
 | e41 (RFT tier v1+v2+v3 at iou≥0.9, 156k) | 0.808 | **0.894 (77%)** | **0.914 (82%)** | **0.946 (91%)** |
 | e42 (40% certified / 40% RFT v1 / 20% plain) | 0.825 | 0.883 (74%) | 0.909 (80%) | 0.942 (89%) |
 | e38 (RFT tier v1+v2+v3 at iou≥0.95, 113k, 4000 steps) | 0.812 / 0.837 | 0.889 (76%) | 0.912 (82%) | 0.943 (90%) |
+| e43 (RFT tier = champion-generated rft_v3 at ≥0.8, one sample/part, 55.6k) | 0.816 | 0.881 (74%) | 0.912 (81%) | 0.937 (88%) |
 | **e40 (RFT tier v1+v2+v3 at iou≥0.95, 113k, 6000 steps)** | 0.817 | **0.899 (79%)** | **0.920 (84%, median 0.981)** | **0.947 (90%)** |
 
 The served number is 0.910-0.914 regardless of seed or schedule: the recipe
