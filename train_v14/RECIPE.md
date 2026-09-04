@@ -224,6 +224,7 @@ Full-pool serving scores, three champion-recipe models (best-of-8 + consistency,
 | e38 (RFT tier v1+v2+v3 at iou≥0.95, 113k, 4000 steps) | 0.812 / 0.837 | 0.889 (76%) | 0.912 (82%) | 0.943 (90%) |
 | e43 (RFT tier = champion-generated rft_v3 at ≥0.8, one sample/part, 55.6k) | 0.816 | 0.881 (74%) | 0.912 (81%) | 0.937 (88%) |
 | e44 (RFT tier v1 at iou≥0.9, 42.8k, 4000 steps) | — | 0.886 (76%) | 0.913 (81%) | 0.941 (88%) |
+| e45 = e41 recipe, seed 43 | — | 0.897 (78%) | **0.921 (83%)** | 0.944 (89%) |
 | **e40 (RFT tier v1+v2+v3 at iou≥0.95, 113k, 6000 steps)** | 0.817 | **0.899 (79%)** | **0.920 (84%, median 0.981)** | **0.947 (90%)** |
 
 The served number is 0.910-0.914 regardless of seed or schedule: the recipe
@@ -400,3 +401,10 @@ External bench baselines by model (146 held-out real parts, best-of-8, strict me
 
 The strict-threshold models transfer slightly better (+0.03-0.04 on the vote,
 consistent across e40/e41/e44); e46/e47 are judged against these rows.
+
+Family summary after ten full-pool runs (2026-09-04): champion-recipe models
+(e24, e34, e37, e42, e43) vote 0.909-0.914 (mean 0.911), first-exec
+0.878-0.885; strict-threshold models (e38, e40, e41, e44, e45) vote
+0.912-0.921 (mean 0.916), first-exec 0.886-0.899. Seed spread on the vote is
+≈0.007 (e41 0.914 vs e45 0.921). The strict tier is a real but small lever:
++0.005 on the vote, +0.012 on first-exec, and +0.04 on real-part transfer.
