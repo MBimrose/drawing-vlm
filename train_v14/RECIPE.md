@@ -393,6 +393,12 @@ Second generator pass with e45 (K=8, T=0.7, 2.5 h): 298 keys at ≥0.8 (1,051
 rows). Union with e40's set: **358 keys** (237 Fusion, 95 ABC, 26 sketch-extrude;
 53 solved only by e45, 60 only by e40). Packed as `rft_real_union/`; mixes
 rft_mix_union_v1 / rft_mix_union_strict for round 2.
+K=16 extension of e40 on corpus 1: 355 keys (+50 over K=8). Corpus 2 (CADBench
+DeepCAD medium+hard 1,530 + Fusion hard 154 at ≤120 faces; ABC hard tiers are
+all >120 faces): e40 K=8 solved **586 keys** (DeepCAD 37% yield, ceiling@8
+0.652; Fusion hard 16%). Round-3 tier `rft_real_union3/` = union2 ∪ corpus 2
+(≈968 keys, ≈5,200 rows); mixes rft_mix_u3_strict90 (×5) and rft_mix_u3_v1 (×3)
+give the real tier ≈25% of RFT draws.
 
 External bench baselines by model (146 held-out real parts, best-of-8, strict metric):
 

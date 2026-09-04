@@ -1,0 +1,29 @@
+{
+ "B": {
+  "parts": 1530,
+  "cands": 12233,
+  "exec_rate": 0.816,
+  "keys_ge80": 561,
+  "yield80": 0.367,
+  "keys_ge90": 280,
+  "yield90": 0.183,
+  "oracle8_mean": 0.652,
+  "oracle8_ge85": 0.282,
+  "underdetermined": 710
+ },
+ "F": {
+  "parts": 154,
+  "cands": 1227,
+  "exec_rate": 0.661,
+  "keys_ge80": 25,
+  "yield80": 0.162,
+  "keys_ge90": 8,
+  "yield90": 0.052,
+  "oracle8_mean": 0.472,
+  "oracle8_ge85": 0.11,
+  "underdetermined": 88
+ },
+ "accepted_records": 2149,
+ "scored_records": 13460,
+ "accepted_keys": 586
+}
