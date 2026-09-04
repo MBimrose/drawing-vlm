@@ -1,0 +1,2 @@
+usage: analyze_ext.py [-h] [--split SPLIT] src
+analyze_ext.py: error: unrecognized arguments: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/ext/bo8_ext_e41-rft-strict90-all_consistency.json
