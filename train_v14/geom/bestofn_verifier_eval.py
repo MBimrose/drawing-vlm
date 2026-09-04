@@ -110,7 +110,7 @@ def main():
     start_draw = 0
     if os.path.exists(partial):
         pd = json.load(open(partial))
-        if pd.get("keys") == keys_list and pd.get("k") == args.k and pd["cands"] and pd["cands"][0]:
+        if pd.get("keys") == keys_list and pd.get("k", 0) <= args.k and pd["cands"] and pd["cands"][0]:
             cands, start_draw = pd["cands"], len(pd["cands"][0])
             print(f"[bo{args.k}] resuming from {partial}: {start_draw} draws done", flush=True)
     for draw in range(start_draw, args.k):
