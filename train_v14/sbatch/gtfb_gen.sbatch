@@ -26,8 +26,8 @@ mkdir -p $SHM && echo "$(date) staging weights to $SHM" && cp -r $DV/runs/$RUN/f
 CK=${SHM:+$SHM/final}; CK=${CK:-$DV/runs/$RUN/final}
 COMMON="--ckpt $CK --run $RUN --keys $D/unsolved_keys.json --corpus $CORPUS --seeds $D/unsolved_seeds.json --mode ${MODE:-hint} --k ${K:-4} --temperature 0.7 --batch 8 --nshards 8"
 # smoke: 16 keys x K draws on GPU 0; proceed only if it accepts something or beats the seeds
-rm -rf $OUT/smoke; CUDA_VISIBLE_DEVICES=0 python $G/gt_feedback_gen.py $COMMON --rounds 1 --shard 0 --limit 16 --out $OUT/smoke > $DV/logs/gtfb/smoke_${CORPUS}.log 2>&1 || { echo "SMOKE FAILED"; tail -30 $DV/logs/gtfb/smoke_${CORPUS}.log; exit 1; }
-grep "gtfb\] DONE" $DV/logs/gtfb/smoke_${CORPUS}.log
+rm -rf $OUT/smoke; CUDA_VISIBLE_DEVICES=0 python $G/gt_feedback_gen.py $COMMON --rounds 1 --shard 0 --limit 16 --out $OUT/smoke > $DV/logs/gtfb/smoke_${MODE:-hint}_${CORPUS}.log 2>&1 || { echo "SMOKE FAILED"; tail -30 $DV/logs/gtfb/smoke_${MODE:-hint}_${CORPUS}.log; exit 1; }
+grep "gtfb\] DONE" $DV/logs/gtfb/smoke_${MODE:-hint}_${CORPUS}.log
 python - "$OUT/smoke/summary-000.json" <<'PY' || { echo "SMOKE GATE: no gain over seeds — stopping"; exit 1; }
 import json, sys, statistics as st
 b = json.load(open(sys.argv[1]))["best"]
@@ -38,7 +38,7 @@ import os
 sys.exit(0 if (os.environ.get("GATE", "1") == "0" or acc >= 1 or (new and st.mean(new) > st.mean(seed) + 0.02)) else 1)
 PY
 for i in 0 1 2 3 4 5 6 7; do
-  CUDA_VISIBLE_DEVICES=$i python $G/gt_feedback_gen.py $COMMON --rounds ${ROUNDS:-2} --shard $i --out $OUT > $DV/logs/gtfb/${CORPUS}.shard$i.log 2>&1 &
+  CUDA_VISIBLE_DEVICES=$i python $G/gt_feedback_gen.py $COMMON --rounds ${ROUNDS:-2} --shard $i --out $OUT > $DV/logs/gtfb/${MODE:-hint}_${CORPUS}.shard$i.log 2>&1 &
 done
 wait
 echo "GTFB DONE $CORPUS: $(cat $OUT/accepted-00?.jsonl | wc -l) accepted rows on $(cat $OUT/accepted-00?.jsonl | python -c 'import sys,json; print(len({json.loads(l)["key"] for l in sys.stdin}))') keys"
