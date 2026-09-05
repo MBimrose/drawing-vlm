@@ -30,7 +30,7 @@ warnings.filterwarnings("ignore")
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 sys.path.insert(0, HERE)
-from collate_v14 import wrap_python  # noqa: E402
+from collate_v14 import SYSTEM_PROMPTS, USER_PROMPT, wrap_python  # noqa: E402
 from data_v14 import EVAL_CACHE, _decode_png  # noqa: E402
 from geom_eval_worker import build_gen_messages, build_repair_messages, extract_code, load_model, run_config  # noqa: E402
 from iou import center_mesh, iou_pair, load_mesh  # noqa: E402
@@ -89,6 +89,48 @@ def measure(pred_stl, gt_stl, iou, rng):
     return text, {"vol_ratio": vr, "extent_pred": em.round(1).tolist(), "extent_gt": eg.round(1).tolist(), "solids": [nm, ng]}
 
 
+def gt_hints(gt_stl, rng):
+    """Privileged text about the reference part alone (no previous script): bbox, volume,
+    fill ratio, solids, centroid offset and per-octant material fractions."""
+    g = load_mesh(gt_stl)
+    if g is None:
+        return None
+    g = center_mesh(g)
+    e = g.bounds[1] - g.bounds[0]
+    fill = float(g.volume / max(np.prod(e), 1e-9))
+    try:
+        ns = len(g.split(only_watertight=False))
+    except Exception:  # noqa: BLE001
+        ns = 1
+    cm = g.center_mass if g.is_watertight else g.centroid
+    off = cm / np.maximum(e, 1e-6)
+    lines = [f"- bounding box X x Y x Z: {e[0]:.1f} x {e[1]:.1f} x {e[2]:.1f} mm",
+             f"- volume: {g.volume:.0f} mm^3, i.e. {fill:.0%} of the bounding box",
+             f"- number of separate solids: {ns}",
+             f"- centre of mass offset from the bounding-box centre, as a fraction of each extent: X {off[0]:+.2f}, Y {off[1]:+.2f}, Z {off[2]:+.2f}"]
+    try:
+        pts = g.bounds[0] + rng.random((12000, 3)) * e
+        ins = g.contains(pts)
+        sgn = (pts > 0).astype(int) * 2 - 1
+        fr = []
+        for o in OCT:
+            sel = np.all(sgn == np.array(o), axis=1)
+            if sel.sum() >= 50:
+                fr.append((float(ins[sel].mean()), o))
+        if fr:
+            fr.sort(reverse=True)
+            lines.append("- material fraction by octant (fullest first): " + "; ".join(f"{octant_name(o)} {f:.0%}" for f, o in fr))
+    except Exception:  # noqa: BLE001
+        pass
+    return ("\n\nMeasured properties of the finished part, to check your interpretation of the drawing "
+            "(part centred on its bounding box; axes as in the drawing's front/top/side convention):\n" + "\n".join(lines))
+
+
+def build_hint_messages(image, cfg, hints):
+    return [{"role": "system", "content": [{"type": "text", "text": SYSTEM_PROMPTS[cfg.get("system_prompt", "detailed")]}]},
+            {"role": "user", "content": [{"type": "image", "image": image}, {"type": "text", "text": USER_PROMPT + hints}]}]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ckpt", required=True); ap.add_argument("--run", required=True)
@@ -99,6 +141,7 @@ def main():
     ap.add_argument("--max-new-tokens", type=int, default=2400); ap.add_argument("--accept", type=float, default=0.8)
     ap.add_argument("--shard", type=int, default=0); ap.add_argument("--nshards", type=int, default=1)
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--mode", default="hint", choices=["hint", "feedback"], help="hint: privileged facts in the first user turn, --rounds x --k independent draws; feedback: repair turns (the RFT model copies its script — measured useless)")
     args = ap.parse_args()
 
     cfg = run_config(args.run)
@@ -170,6 +213,36 @@ def main():
             if rec["exec"] and rec["iou"] > st["best_iou"]:
                 st.update(best_iou=rec["iou"], best_code=rec["code"], best_think=rec["think"], stl=stl)
         sc.flush(); acc.flush()
+
+    if args.mode == "hint":
+        hints = {}
+        for k in keys:
+            s0 = seeds.get(k) or {}
+            state[k] = {"best_iou": -1.0, "best_code": None, "best_think": "", "stl": None, "seed_iou": s0.get("iou")}
+            h = gt_hints(os.path.join(gt_dir, f"{k}.stl"), rng)
+            if h:
+                hints[k] = h
+        hk = [k for k in keys if k in hints]
+        print(f"[gtfb] hint mode: {len(hk)} keys with hints, {args.rounds} x {args.k} draws each", flush=True)
+        per = max(1, args.batch // args.k)
+        for rnd in range(args.rounds):
+            for b in range(0, len(hk), per):
+                chunk = hk[b:b + per]
+                msgs = [build_hint_messages(images[k], cfg, hints[k]) for k in chunk for _ in range(args.k)]
+                outs = gen(msgs, True)
+                items = []
+                for i, k in enumerate(chunk):
+                    for s in range(args.k):
+                        th, code = split(outs[i * args.k + s]); items.append((k, rnd, s, th, code))
+                score_batch(items)
+                print(f"[gtfb] hint round {rnd}: {min(b + per, len(hk))}/{len(hk)}; cands {stats['cands']} exec {stats['exec']} accepted {stats['acc_rows']} rows / {len(stats['acc_keys'])} keys", flush=True)
+        with open(done_file, "a") as f:
+            f.write("\n".join(keys) + "\n")
+        json.dump({"best": {k: {"iou": v["best_iou"], "seed_iou": v["seed_iou"]} for k, v in state.items()},
+                   "cands": stats["cands"], "exec": stats["exec"], "acc_rows": stats["acc_rows"], "acc_keys": sorted(stats["acc_keys"])},
+                  open(os.path.join(args.out, f"summary-{tag}.json"), "w"), indent=1)
+        print(f"[gtfb] DONE shard {args.shard}: {stats['cands']} cands, exec {stats['exec']}, accepted {stats['acc_rows']} rows on {len(stats['acc_keys'])}/{len(keys)} keys", flush=True)
+        return
 
     # ---- round 0: seeds or fresh draws ----
     fresh = []
