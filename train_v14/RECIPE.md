@@ -494,3 +494,12 @@ hint-leaking rows dropped). Same 3-shard ×5 mix as e51 (`rft_mix_u4_strict90`,
 78 base + 15 links) → **e52** (e45 recipe, seed 43, 4000 steps, ccc0475);
 shipper set for the 146-part bench + full pool. Question: does +22% more real
 parts (all from the previously-unsolved set) move the ceiling again.
+
+K-scaling on real parts (e45, 146 held-out, 2026-09-05): K=8 → K=32 lifts the
+best-of-K ceiling 0.555 / 21% → **0.612 / 25%** (determinate 0.690 / 38%) but
+the served vote only 0.499 → 0.512 / 17% and first-exec is unchanged (0.451 vs
+0.438, noise). So the generator can reach ~5 points more of the real parts with
+4× the draws, and the medoid vote does not cash it in: on real parts the
+correct candidate is usually an outlier among 32, not the centre. Picking it
+needs a real verifier or an executable check, not more agreement.
+(results/ext/bo32_ext_e45-rft-strict90-all-s43_summary.txt)
