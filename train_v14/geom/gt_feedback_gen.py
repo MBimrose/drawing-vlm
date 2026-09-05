@@ -220,7 +220,7 @@ def main():
             s0 = seeds.get(k) or {}
             state[k] = {"best_iou": -1.0, "best_code": None, "best_think": "", "stl": None, "seed_iou": s0.get("iou")}
             h = gt_hints(os.path.join(gt_dir, f"{k}.stl"), rng) if args.mode == "hint" else ""
-            if h:
+            if h is not None:
                 hints[k] = h
         hk = [k for k in keys if hints.get(k) is not None]
         print(f"[gtfb] hint mode: {len(hk)} keys with hints, {args.rounds} x {args.k} draws each", flush=True)
