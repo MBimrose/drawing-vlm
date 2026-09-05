@@ -478,3 +478,11 @@ keys between 0.6 and 0.8).
   stopped the job. Corpus 2 (DeepCAD): 0.557 vs 0.559, 1 accepted → full run
   (8 draws/key, e51) in progress alongside a no-hint control (`--mode plain`,
   same keys/draws) to separate "hints help" from "more draws help".
+  Result at equal draws (4 per key, all 1,098 corpus-2 keys, e51): hinted 9.2%
+  accepted / best-IoU mean 0.497 vs plain 8.0% / 0.487. Hints are a small lever
+  (+1.2 points absolute); the bigger effect is the generator: e51 solves 8-9% of
+  the parts that e40/e45 never solved in 32 draws (corpus 1: 1.8% — the
+  Fusion/ABC unsolved set is hard for everyone). Both runs yield valid
+  drawing→code pairs; hinted think texts read as normal drawing plans, rows
+  whose think cites hint-only quantities (mm^3, octant, centre of mass, fill
+  fraction) are dropped at packing.
