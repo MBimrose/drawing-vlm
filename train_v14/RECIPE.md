@@ -450,3 +450,30 @@ on ABC determinate (ceiling 0.670 vs ~0.60); the underdetermined slice is flat
 parts with DeepCAD-style topology. The 146-part bench has more seed noise than
 the full pool (±0.02 on the vote), so treat the vote as "at least equal", the
 ceiling as a real shift. Full-pool in-distribution check pending on serv-19.
+
+### Supervision the model cannot self-generate (2026-09-05)
+
+Unsolved set: 2,243 corpus parts (1,145 corpus 1, 1,098 corpus 2) that no
+pass reached at IoU >= 0.8; every one has an executing prior candidate
+(`unsolved_seeds.json`, best of up to 32 draws: mean 0.49, median 0.51, 804
+keys between 0.6 and 0.8).
+
+- **Hub teacher (Kimi-K3 via the lab router).** Only multimodal model on the
+  hub (glm-5.3 rejects images). ~15k output tokens per drawing, the router
+  serialises requests: ~13 answers/hour at concurrency 6 → a 2k-part round
+  would take weeks. Quality on a 60-part pilot: first 19 answers 0 accepted;
+  extents match the reference exactly (it reads dimensions) but volumes are
+  off 30-70% (internal features wrong); rotation search does not rescue them
+  (rescore_rot.py). Dropped as a tier source.
+- **Privileged feedback as a repair turn (gt_feedback_gen.py --mode feedback).**
+  Show the model its best script + measurements against the reference (volume
+  ratio, extents, IoU, solids, octant material diff) and ask for a fix: 6 of 8
+  samples were byte-identical copies of the seed, the rest ±0.01. The RFT'd
+  model treats any second turn as "re-emit the script". Useless.
+- **Privileged hints in the first turn (--mode hint).** Reference bbox, volume
+  / fill ratio, solid count, centre-of-mass offset, per-octant material
+  fractions appended to the user prompt; 4 draws at T=0.7 on 16 keys per
+  corpus. Corpus 1: best-of-4 mean 0.476 (seeds 0.621), 0 accepted → gate
+  stopped the job. Corpus 2 (DeepCAD): 0.557 vs 0.559, 1 accepted → full run
+  (8 draws/key, e51) in progress alongside a no-hint control (`--mode plain`,
+  same keys/draws) to separate "hints help" from "more draws help".
