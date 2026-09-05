@@ -414,6 +414,7 @@ External bench baselines by model (146 held-out real parts, best-of-8, strict me
 | **e46 = champion recipe + real tier ×6 (H200)** | 0.423 / 9% | 0.473 / 14% | 0.549 / 19% |
 | e47 = e40 recipe + real tier ×11 (H200) | 0.446 / 12% | 0.484 / 17% | 0.556 / 21% |
 | e48 = e45 recipe + union2 tier (382 parts) ×11 (H200) | 0.475 / 15% | 0.491 / 16% | 0.560 / 18% |
+| e50 = e45 final + 800 steps on a half-real mix (H200) | 0.457 / 12% | 0.484 / 13% | 0.556 / 19% |
 
 The strict-threshold models transfer slightly better (+0.03-0.04 on the vote,
 consistent across e40/e41/e44/e45). Round-1 real tier in the champion recipe
@@ -428,3 +429,10 @@ Family summary after ten full-pool runs (2026-09-04): champion-recipe models
 0.912-0.921 (mean 0.916), first-exec 0.886-0.899. Seed spread on the vote is
 ≈0.007 (e41 0.914 vs e45 0.921). The strict tier is a real but small lever:
 +0.005 on the vote, +0.012 on first-exec, and +0.04 on real-part transfer.
+
+Real-tier rounds 1-2 verdict (2026-09-05): every variant (champion recipe
++tier, strict recipe +tier, 382-part tier ×11, half-real adaptation stage)
+raises first-exec on real parts by 0.02-0.04 and leaves the vote (0.47-0.49)
+and the ceiling (0.55-0.56) flat. The tier makes the model more consistent on
+parts it could already solve; it does not add solvable parts. Round 3 (e51,
+968 parts incl. DeepCAD) tests whether 2.5× more real data changes that.
