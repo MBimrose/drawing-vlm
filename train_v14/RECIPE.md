@@ -411,11 +411,14 @@ External bench baselines by model (146 held-out real parts, best-of-8, strict me
 | e44 threshold 0.9, round 1 only (H200) | 0.434 / 12% | 0.495 / 16% | 0.550 / 20% |
 | e45 = e41 seed 43 (H200) | 0.438 / 12% | 0.499 / 16% | 0.555 / 21% |
 | **e46 = champion recipe + real tier ×6 (H200)** | 0.423 / 9% | 0.473 / 14% | 0.549 / 19% |
+| e47 = e40 recipe + real tier ×11 (H200) | 0.446 / 12% | 0.484 / 17% | 0.556 / 21% |
 
 The strict-threshold models transfer slightly better (+0.03-0.04 on the vote,
 consistent across e40/e41/e44/e45). Round-1 real tier in the champion recipe
 (e46): +0.02 on the vote, +0.025 first-exec — real but smaller than the
-threshold effect; 305 parts at ~10% of draws is too little signal.
+threshold effect; 305 parts at ~10% of draws is too little signal. On the
+strict recipe (e47) the same tier is inert: 0.484 vs e40's 0.487. Round 1
+verdict: the tier must be an order of magnitude larger (rounds 2/3).
 
 Family summary after ten full-pool runs (2026-09-04): champion-recipe models
 (e24, e34, e37, e42, e43) vote 0.909-0.914 (mean 0.911), first-exec
