@@ -141,7 +141,7 @@ def main():
     ap.add_argument("--max-new-tokens", type=int, default=2400); ap.add_argument("--accept", type=float, default=0.8)
     ap.add_argument("--shard", type=int, default=0); ap.add_argument("--nshards", type=int, default=1)
     ap.add_argument("--limit", type=int, default=0)
-    ap.add_argument("--mode", default="hint", choices=["hint", "feedback"], help="hint: privileged facts in the first user turn, --rounds x --k independent draws; feedback: repair turns (the RFT model copies its script — measured useless)")
+    ap.add_argument("--mode", default="hint", choices=["hint", "plain", "feedback"], help="hint: privileged facts in the first user turn, --rounds x --k independent draws; feedback: repair turns (the RFT model copies its script — measured useless)")
     args = ap.parse_args()
 
     cfg = run_config(args.run)
@@ -214,15 +214,15 @@ def main():
                 st.update(best_iou=rec["iou"], best_code=rec["code"], best_think=rec["think"], stl=stl)
         sc.flush(); acc.flush()
 
-    if args.mode == "hint":
+    if args.mode in ("hint", "plain"):
         hints = {}
         for k in keys:
             s0 = seeds.get(k) or {}
             state[k] = {"best_iou": -1.0, "best_code": None, "best_think": "", "stl": None, "seed_iou": s0.get("iou")}
-            h = gt_hints(os.path.join(gt_dir, f"{k}.stl"), rng)
+            h = gt_hints(os.path.join(gt_dir, f"{k}.stl"), rng) if args.mode == "hint" else ""
             if h:
                 hints[k] = h
-        hk = [k for k in keys if k in hints]
+        hk = [k for k in keys if hints.get(k) is not None]
         print(f"[gtfb] hint mode: {len(hk)} keys with hints, {args.rounds} x {args.k} draws each", flush=True)
         per = max(1, args.batch // args.k)
         for rnd in range(args.rounds):

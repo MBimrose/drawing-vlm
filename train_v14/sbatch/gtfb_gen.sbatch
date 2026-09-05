@@ -12,7 +12,7 @@
 #SBATCH --output=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/logs/slurm/%x-%j.out
 #SBATCH --error=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/logs/slurm/%x-%j.err
 # Privileged-hint generation on the unsolved real parts of one corpus, 8 single-GPU shards.
-#   sbatch --export=ALL,RUN=<run>,CORPUS=corpus1|corpus2,OUT=<tier_dir>[,ROUNDS=2,K=4,MODE=hint] train_v14/sbatch/gtfb_gen.sbatch
+#   sbatch --export=ALL,RUN=<run>,CORPUS=corpus1|corpus2,OUT=<tier_dir>[,ROUNDS=2,K=4,MODE=hint|plain,GATE=0] train_v14/sbatch/gtfb_gen.sbatch
 # Weights are staged once to /dev/shm (the shared FS took ~1 h per load with three jobs reading finals).
 set -uo pipefail
 DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm
@@ -34,7 +34,8 @@ b = json.load(open(sys.argv[1]))["best"]
 new = [v["iou"] for v in b.values() if v["iou"] >= 0]; seed = [v["seed_iou"] or 0 for v in b.values()]
 acc = sum(v["iou"] >= 0.8 for v in b.values())
 print(f"SMOKE: {len(b)} keys, best-of-hinted mean {st.mean(new) if new else 0:.3f} vs seed mean {st.mean(seed):.3f}, accepted keys {acc}")
-sys.exit(0 if (acc >= 1 or (new and st.mean(new) > st.mean(seed) + 0.02)) else 1)
+import os
+sys.exit(0 if (os.environ.get("GATE", "1") == "0" or acc >= 1 or (new and st.mean(new) > st.mean(seed) + 0.02)) else 1)
 PY
 for i in 0 1 2 3 4 5 6 7; do
   CUDA_VISIBLE_DEVICES=$i python $G/gt_feedback_gen.py $COMMON --rounds ${ROUNDS:-2} --shard $i --out $OUT > $DV/logs/gtfb/${CORPUS}.shard$i.log 2>&1 &
