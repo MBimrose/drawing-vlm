@@ -227,6 +227,7 @@ Full-pool serving scores, three champion-recipe models (best-of-8 + consistency,
 | e45 = e41 recipe, seed 43 | — | 0.897 (78%) | **0.921 (83%)** | 0.944 (89%) |
 | e46 = champion recipe + real tier ×6 | 0.841 | 0.878 (73%) | 0.913 (81%) | 0.945 (89%) |
 | e47 = e40 recipe (strict, 6000 steps) + real tier ×11 | 0.795 | **0.901 (79%)** | 0.920 (83%) | **0.950 (91%)** |
+| e50 = e45 final + 800 steps at 2e-6 on a half-real mix | — | 0.894 (77%) | 0.921 (83%) | 0.948 (91%) |
 | **e40 (RFT tier v1+v2+v3 at iou≥0.95, 113k, 6000 steps)** | 0.817 | **0.899 (79%)** | **0.920 (84%, median 0.981)** | **0.947 (90%)** |
 
 The served number is 0.910-0.914 regardless of seed or schedule: the recipe
