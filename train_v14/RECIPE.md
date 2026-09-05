@@ -486,3 +486,11 @@ keys between 0.6 and 0.8).
   drawing→code pairs; hinted think texts read as normal drawing plans, rows
   whose think cites hint-only quantities (mm^3, octant, centre of mass, fill
   fraction) are dropped at packing.
+
+Round 4 tier `rft_real_union4/` (2026-09-05): union3 ∪ e51 passes on the
+unsolved set (corpus 2 hinted 139 keys / plain 121 keys, corpus 1 plain ~25
+keys at 8 draws) = **1,177 keys, 5,521 rows** (+209 keys over union3; 13
+hint-leaking rows dropped). Same 3-shard ×5 mix as e51 (`rft_mix_u4_strict90`,
+78 base + 15 links) → **e52** (e45 recipe, seed 43, 4000 steps, ccc0475);
+shipper set for the 146-part bench + full pool. Question: does +22% more real
+parts (all from the previously-unsolved set) move the ceiling again.
