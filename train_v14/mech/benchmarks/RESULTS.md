@@ -374,6 +374,39 @@ serv-19 (`rft_corpus2/`); manifest, download stats and sidecars in `data/rft_cor
 
 GEN2_TABLE
 
+## 8. Third corpus (rft_corpus3): the CADBench EASY tiers, 2026-09-05
+
+Corpus 3 = the easy tiers of families F (bench0F shards 0-6, Fusion 360), A (bench1B shards 0-10, ABC) and
+E (bench1A shards 0-9, sketch-extrude), built with `build_corpus3.py` + `run_corpus3_stage1.sh` (the
+CPU/download half of the corpus-2 driver, no GPU stage) into `serv-19:/srv/scratch/bimrose2/mech_benchmarks/rft_corpus3/`,
+same layout as corpus 2. Exclusion by `file_id`: `data/exclude_ids_corpus3.txt` = corpus-2 list (1,673) +
+held-out 146 + the 1,684 corpus-2 manifest ids = 3,357 ids; none of the 3,000 easy rows hit it (0 excluded),
+the 117 hard rows in the partial shards F-6 / A-10 were skipped. Download 134 MB in 4.5 min; prep
+(`--max-faces 120`, 40-way) 9 s.
+
+| family | rows pulled | **kept** | rendered | GT mesh | in cache | underdetermined | faces min / median / p90 / max | median fill |
+|---|---|---|---|---|---|---|---|---|
+| F Fusion 360 easy | 1,000 | **269** | 269 | 269 | 269 | 58 (22 %) | 6 / 6 / 7 / 7 | 0.57 |
+| A ABC easy | 1,000 | **679** | 678 | 679 | 678 | 198 (29 %) | 6 / 14 / 27 / 36 | 0.44 |
+| E ABC-extrude easy | 1,000 | **546** | 546 | 546 | 546 | 194 (36 %) | 6 / 10 / 22 / 54 | 0.55 |
+| total | 3,000 | **1,494** | 1,493 | 1,494 | **1,493** | 450 (30 %) | 6 / 10 / 24 / 54 | |
+
+Face-count distribution of the kept parts (20-wide bins): 6-19 faces 1,226, 20-39 faces 257, 40-54 faces 11;
+no part above 54 faces, so the ≤120 cap never binds here. The Fusion easy tier is nearly trivial (every
+kept part has 6 or 7 faces: a box with one hole/boss/fillet); ABC easy is the most varied (cylinders in 93 %
+of parts, tori/cones in ~27 %). Rejections (all families): faces 651 (almost all < 6 faces, i.e. bare
+boxes/cylinders), aspect 539, freeform 301, fill 15, no timeouts / multi-body. Underdetermined sheets are
+kept in the cache as in corpus 2 (no `--sidecar` filter).
+
+Failures: the pool renderer (`render_ext.py`, 96 workers) died twice within ~10 s — one part,
+`A_00139041_43ae289d6af3bec77737ec37_step_000_easy`, segfaults the renderer process (rc=139 in
+`worker_v11._process_one_part`), and a crashed worker turns every queued future into `BrokenProcessPool`
+(310 then 51 PNGs per attempt). The remaining 1,133 parts were rendered one process per part with
+`render_isolated.sh` (32-way, 22 min); only the segfaulting part is missing, so the cache has 1,493 of
+1,494 sheets (all draftwright, 0 legacy). Assets on serv-19 (`rft_corpus3/`, STEP sources in `src/` and
+`step_mm/`); manifest, download stats, sidecar, both eval caches, `failures.json` and `gt_meshes_v15/`
+(257 MB) in `data/rft_corpus3/`. Generation on this corpus is a separate (GPU) step.
+
 ## Files
 
 - `train_v14/mech/benchmarks/prep_external_parts.py` — filter + rescale + STEP/STL export + manifest (tested: 146/246 kept).
@@ -382,3 +415,4 @@ GEN2_TABLE
 - `train_v14/mech/benchmarks/render_ext.py` — serv-19 renderer driver (copy of `/srv/scratch/bimrose2/mech_benchmarks/render_ext.py`).
 - `train_v14/mech/benchmarks/analyze_ext.py`, `m-benchmarks-bo8.sbatch` (cluster fallback, job 10321045 cancelled once serv-19 produced the merged file), serv-19: `run_bo8_ext.sh`, `run_bo8_ctrl.sh`, `diag_frame.py`.
 - Scratch (session-only): CADBench shards `bench0F-{00000,00010,00019}`, `bench1B-00015` (full, 1.8 GB) and the `step` column of `bench1B-00030` (14 MB).
+- `train_v14/mech/benchmarks/build_corpus3.py`, `run_corpus3_stage1.sh` — corpus 3 (easy tiers) download + stage-1 driver; `render_isolated.sh` — per-part renderer processes for corpora whose parts segfault the pool renderer.
