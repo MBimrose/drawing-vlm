@@ -1,0 +1,1462 @@
+[
+ {
+  "key": "A_00917205_6ea2b58c4e07877eb99f90d1_step_001_medium",
+  "family": "A",
+  "under": false,
+  "faces": 38,
+  "n_exec": 6,
+  "first_exec": 0.673044256585384,
+  "consistency": 0.6673602786683221,
+  "oracle": 0.835054530828664
+ },
+ {
+  "key": "A_00918564_cd453a8ef75fa0494eac51cb_step_003_medium",
+  "family": "A",
+  "under": false,
+  "faces": 50,
+  "n_exec": 2,
+  "first_exec": 0.17000451941172748,
+  "consistency": 0.17000451941172748,
+  "oracle": 0.5324327697214821
+ },
+ {
+  "key": "A_00919021_4a063d7bd94d09ffbb129859_step_001_medium",
+  "family": "A",
+  "under": true,
+  "faces": 47,
+  "n_exec": 4,
+  "first_exec": 0.30144694387292137,
+  "consistency": 0.30144694387292137,
+  "oracle": 0.30144694387292137
+ },
+ {
+  "key": "A_00922818_611a88896e870be2752739bc_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 47,
+  "n_exec": 7,
+  "first_exec": 0.1881451126319438,
+  "consistency": 0.20206220285074597,
+  "oracle": 0.4603316905877836
+ },
+ {
+  "key": "A_00923320_fdc86516ce309a8f7594d2e3_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 37,
+  "n_exec": 8,
+  "first_exec": 0.6952679798675953,
+  "consistency": 0.7254868524834437,
+  "oracle": 0.7275854421515723
+ },
+ {
+  "key": "A_00925598_46359bb60d9218838f139bc4_step_015_medium",
+  "family": "A",
+  "under": false,
+  "faces": 57,
+  "n_exec": 6,
+  "first_exec": 0.8289417195487778,
+  "consistency": 0.8289417195458626,
+  "oracle": 0.888430770925825
+ },
+ {
+  "key": "A_00926263_c82ea6c5775353b0405284bd_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 38,
+  "n_exec": 4,
+  "first_exec": 0.6927231406899677,
+  "consistency": 0.6272494292348999,
+  "oracle": 0.7174262469665693
+ },
+ {
+  "key": "A_00926562_e2d47dd89a6f7f3ff1b450f2_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 76,
+  "n_exec": 7,
+  "first_exec": 0.17279098912391935,
+  "consistency": 0.20354311699128005,
+  "oracle": 0.25265818853888455
+ },
+ {
+  "key": "A_00928026_e2d0ba025fc68ac7b9a8def4_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 47,
+  "n_exec": 8,
+  "first_exec": 0.08801468250054564,
+  "consistency": 0.08801468250054564,
+  "oracle": 0.08810622310640982
+ },
+ {
+  "key": "A_00929473_2dfba76b95e344502fba0558_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 38,
+  "n_exec": 6,
+  "first_exec": 0.43871797615925484,
+  "consistency": 0.6799218711794373,
+  "oracle": 0.6799218711794373
+ },
+ {
+  "key": "A_00932976_0c22c60d9ae49bbe678d1d06_step_001_medium",
+  "family": "A",
+  "under": true,
+  "faces": 50,
+  "n_exec": 7,
+  "first_exec": 0.6324721314959902,
+  "consistency": 0.5937284885294936,
+  "oracle": 0.6618991217514131
+ },
+ {
+  "key": "A_00933292_1b2b8dec292401c20f0faa0f_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 73,
+  "n_exec": 7,
+  "first_exec": 0.2874824851368165,
+  "consistency": 0.2874824851368165,
+  "oracle": 0.2889416135392523
+ },
+ {
+  "key": "A_00934633_3f0baf597a30885b191e02a6_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 58,
+  "n_exec": 8,
+  "first_exec": 0.6011705857008168,
+  "consistency": 0.6173577157110959,
+  "oracle": 0.6540581076110712
+ },
+ {
+  "key": "A_00934926_7a86796337813a6e7aa25c2a_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 39,
+  "n_exec": 7,
+  "first_exec": 0.2867414191560387,
+  "consistency": 0.2867414191560387,
+  "oracle": 0.295382506639253
+ },
+ {
+  "key": "A_00935026_da2151d0c12dd27fd4e7e9f3_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 64,
+  "n_exec": 4,
+  "first_exec": 0.28530441776298754,
+  "consistency": 0.28530441776298754,
+  "oracle": 0.5187608985513003
+ },
+ {
+  "key": "A_00940968_9c89eb04704a40162d68dbfc_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 52,
+  "n_exec": 8,
+  "first_exec": 0.9479567425098692,
+  "consistency": 0.9479567425098692,
+  "oracle": 0.9682996590649707
+ },
+ {
+  "key": "A_00940976_909b8b384f22b9964110273a_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 61,
+  "n_exec": 6,
+  "first_exec": 0.21657796155395517,
+  "consistency": 0.2314769217477184,
+  "oracle": 0.2918213856429691
+ },
+ {
+  "key": "A_00941083_06601df4627bf01e18f75d29_step_001_medium",
+  "family": "A",
+  "under": true,
+  "faces": 52,
+  "n_exec": 8,
+  "first_exec": 0.2761139916266388,
+  "consistency": 0.2761139916266388,
+  "oracle": 0.2800087068071994
+ },
+ {
+  "key": "A_00941230_aa3e051193c04c834325cd87_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 51,
+  "n_exec": 4,
+  "first_exec": 0.42176365248261305,
+  "consistency": 0.42176365248261305,
+  "oracle": 0.48832798192208304
+ },
+ {
+  "key": "A_00941607_1783e309c77515c684345652_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 59,
+  "n_exec": 8,
+  "first_exec": 0.17974069068673673,
+  "consistency": 0.4657798909575116,
+  "oracle": 0.7585491988505431
+ },
+ {
+  "key": "A_00941921_f3b16049278a833ae2b34381_step_001_medium",
+  "family": "A",
+  "under": true,
+  "faces": 39,
+  "n_exec": 5,
+  "first_exec": 0.0472066573780207,
+  "consistency": 0.023150690356633523,
+  "oracle": 0.14275554568434495
+ },
+ {
+  "key": "A_00942529_24a98852f79b65f663480cb1_step_005_medium",
+  "family": "A",
+  "under": false,
+  "faces": 41,
+  "n_exec": 8,
+  "first_exec": 0.8558870396714511,
+  "consistency": 0.9054739243025444,
+  "oracle": 0.9532412340236275
+ },
+ {
+  "key": "A_00944651_8ea96dbf12f6974697a2157b_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 37,
+  "n_exec": 8,
+  "first_exec": 0.6606623005222675,
+  "consistency": 0.764800179813159,
+  "oracle": 0.764800179813159
+ },
+ {
+  "key": "A_00946718_2ab1b8c7885fad9c3ea6301c_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 41,
+  "n_exec": 3,
+  "first_exec": 0.5509004143007032,
+  "consistency": 0.4168974144400247,
+  "oracle": 0.5509004143007032
+ },
+ {
+  "key": "A_00947581_f2795149e0f3a829257defc2_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 39,
+  "n_exec": 6,
+  "first_exec": 0.5149462106916735,
+  "consistency": 0.3731013840952325,
+  "oracle": 0.5149462106916735
+ },
+ {
+  "key": "A_00947921_bc304cb790ab59a52d42ed92_step_008_medium",
+  "family": "A",
+  "under": true,
+  "faces": 59,
+  "n_exec": 8,
+  "first_exec": 0.2228451324528673,
+  "consistency": 0.31127957885166857,
+  "oracle": 0.3277489427043665
+ },
+ {
+  "key": "A_00949832_ee12c508734e02e63687e023_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 54,
+  "n_exec": 4,
+  "first_exec": 0.5643620330644977,
+  "consistency": 0.4480729169004964,
+  "oracle": 0.5643620330644977
+ },
+ {
+  "key": "A_00949971_09a37b87df62f15797834132_step_033_medium",
+  "family": "A",
+  "under": true,
+  "faces": 72,
+  "n_exec": 6,
+  "first_exec": 0.1821755874049446,
+  "consistency": 0.3368744154004142,
+  "oracle": 0.37231473440204127
+ },
+ {
+  "key": "A_00951499_a15182ad5467c69bb59cef75_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 59,
+  "n_exec": 4,
+  "first_exec": 0.35660026101054226,
+  "consistency": 0.35660026101054226,
+  "oracle": 0.4234590090863248
+ },
+ {
+  "key": "A_00951586_9d8b2bd51e4e500748ae80c1_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 44,
+  "n_exec": 1,
+  "first_exec": 0.9990268179262046,
+  "consistency": 0.9990268179262046,
+  "oracle": 0.9990268179262046
+ },
+ {
+  "key": "A_00951915_3291e0958463eb2ca57e04d6_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 47,
+  "n_exec": 5,
+  "first_exec": 0.3457132925303411,
+  "consistency": 0.2549057717790802,
+  "oracle": 0.43693475614279087
+ },
+ {
+  "key": "A_00952299_152150456a437ae340d767aa_step_034_medium",
+  "family": "A",
+  "under": false,
+  "faces": 43,
+  "n_exec": 6,
+  "first_exec": 0.46705726994975866,
+  "consistency": 0.42028355617739355,
+  "oracle": 0.5539575170397425
+ },
+ {
+  "key": "A_00952318_152150456a437ae340d767aa_step_053_medium",
+  "family": "A",
+  "under": true,
+  "faces": 44,
+  "n_exec": 8,
+  "first_exec": 0.22187937463544766,
+  "consistency": 0.22187937463544766,
+  "oracle": 0.45622462677295855
+ },
+ {
+  "key": "A_00953690_cc92fe00f1c72a7d0b0288c4_step_001_medium",
+  "family": "A",
+  "under": true,
+  "faces": 63,
+  "n_exec": 5,
+  "first_exec": 0.059593843975400136,
+  "consistency": 0.08445818519009306,
+  "oracle": 0.08904182499717388
+ },
+ {
+  "key": "A_00956397_1b8073281cc8bb8ec1d74fed_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 44,
+  "n_exec": 7,
+  "first_exec": 0.02727758058559292,
+  "consistency": 0.015008532211837245,
+  "oracle": 0.33462384717411403
+ },
+ {
+  "key": "A_00957280_ed537b24d265d3878bb35c09_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 55,
+  "n_exec": 7,
+  "first_exec": 0.8639011541627176,
+  "consistency": 0.8639011541627176,
+  "oracle": 0.8834765121897925
+ },
+ {
+  "key": "A_00957451_e6a0434deb9d48da90e19a8a_step_006_medium",
+  "family": "A",
+  "under": true,
+  "faces": 57,
+  "n_exec": 5,
+  "first_exec": 0.2078420627921055,
+  "consistency": 0.18982578145727996,
+  "oracle": 0.2078420627921055
+ },
+ {
+  "key": "A_00959315_a29d3cef52381bc5e8ab0662_step_004_medium",
+  "family": "A",
+  "under": false,
+  "faces": 38,
+  "n_exec": 8,
+  "first_exec": 0.76807448447011,
+  "consistency": 0.8362681799180307,
+  "oracle": 0.9605363028321994
+ },
+ {
+  "key": "A_00960036_42f2a9a0ba1ae370bb5c2e0f_step_007_medium",
+  "family": "A",
+  "under": false,
+  "faces": 43,
+  "n_exec": 7,
+  "first_exec": 0.7037158198985575,
+  "consistency": 0.836758666649085,
+  "oracle": 0.836758666649085
+ },
+ {
+  "key": "A_00961157_0f44aa794434bd6dac941bb3_step_003_medium",
+  "family": "A",
+  "under": false,
+  "faces": 40,
+  "n_exec": 5,
+  "first_exec": 0.3297447665867939,
+  "consistency": 0.3355259899623703,
+  "oracle": 0.39678905030239797
+ },
+ {
+  "key": "A_00962109_62237fcf610b75e9d2c40d1e_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 42,
+  "n_exec": 5,
+  "first_exec": 0.4168566249853986,
+  "consistency": 0.4168566249853986,
+  "oracle": 0.43376664492558337
+ },
+ {
+  "key": "A_00962112_ae0e47ddecff889c45b4d49e_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 45,
+  "n_exec": 7,
+  "first_exec": 0.3554311220240761,
+  "consistency": 0.48796810397681667,
+  "oracle": 0.5900009694126038
+ },
+ {
+  "key": "A_00965090_43c241ecf79b3b2c3aaac0a2_step_053_medium",
+  "family": "A",
+  "under": true,
+  "faces": 56,
+  "n_exec": 6,
+  "first_exec": 0.13840468813866763,
+  "consistency": 0.3073677121508042,
+  "oracle": 0.3073677121508042
+ },
+ {
+  "key": "A_00969787_307a47a48b766bf804cdd9b2_step_003_medium",
+  "family": "A",
+  "under": true,
+  "faces": 53,
+  "n_exec": 3,
+  "first_exec": 0.1695517645985612,
+  "consistency": 0.3687431399088817,
+  "oracle": 0.3687431399088817
+ },
+ {
+  "key": "A_00969970_c44b46e7d6fc7ac8735442f9_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 51,
+  "n_exec": 3,
+  "first_exec": 0.3048048713011627,
+  "consistency": 0.5818521991654408,
+  "oracle": 0.6748357315741674
+ },
+ {
+  "key": "A_00971032_a6a26280074e58887b469ab4_step_001_medium",
+  "family": "A",
+  "under": true,
+  "faces": 44,
+  "n_exec": 4,
+  "first_exec": 0.3819039899198505,
+  "consistency": 0.3819039899198505,
+  "oracle": 0.3819039899198505
+ },
+ {
+  "key": "A_00973024_f80eaae706856bc382a6c584_step_006_medium",
+  "family": "A",
+  "under": false,
+  "faces": 42,
+  "n_exec": 2,
+  "first_exec": 0.957964426255141,
+  "consistency": 0.957964426255141,
+  "oracle": 0.957964426255141
+ },
+ {
+  "key": "A_00973172_51182abae1fff7e8420fb104_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 43,
+  "n_exec": 6,
+  "first_exec": 0.49721963013496806,
+  "consistency": 0.6071571009973818,
+  "oracle": 0.6071571009973818
+ },
+ {
+  "key": "A_00973906_e1cfc8a544031f882047a100_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 45,
+  "n_exec": 8,
+  "first_exec": 0.45681244014485783,
+  "consistency": 0.45681244014485783,
+  "oracle": 0.4702603604050003
+ },
+ {
+  "key": "A_00981761_3bc776b88856685192385ed6_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 59,
+  "n_exec": 7,
+  "first_exec": 0.22199548324040128,
+  "consistency": 0.4838983120707228,
+  "oracle": 0.6319815715020023
+ },
+ {
+  "key": "A_00982955_6e1f2bf2ca587f43fbb3a085_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 60,
+  "n_exec": 5,
+  "first_exec": 0.16250128243332207,
+  "consistency": 0.16250128243332207,
+  "oracle": 0.25499540867061704
+ },
+ {
+  "key": "A_00984419_bc2675c169d60f821b105e0f_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 62,
+  "n_exec": 6,
+  "first_exec": 0.19634318860529684,
+  "consistency": 0.18697859316197146,
+  "oracle": 0.19634318860529684
+ },
+ {
+  "key": "A_00988305_8f63e83ac6d45f067289e42f_step_000_medium",
+  "family": "A",
+  "under": true,
+  "faces": 49,
+  "n_exec": 5,
+  "first_exec": 0.4279577672303263,
+  "consistency": 0.4553245980122192,
+  "oracle": 0.47140986029558113
+ },
+ {
+  "key": "A_00989184_b889d90b98172941b41bab35_step_001_medium",
+  "family": "A",
+  "under": true,
+  "faces": 48,
+  "n_exec": 7,
+  "first_exec": 0.26165588105698506,
+  "consistency": 0.3213869449184352,
+  "oracle": 0.3651504521565359
+ },
+ {
+  "key": "A_00989278_71ae30601d752e5dcbbc00ce_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 40,
+  "n_exec": 2,
+  "first_exec": 0.7873544866932106,
+  "consistency": 0.7873544866932106,
+  "oracle": 0.7873544866932106
+ },
+ {
+  "key": "A_00993632_eb58d1abb0fc233d8b912460_step_001_medium",
+  "family": "A",
+  "under": false,
+  "faces": 58,
+  "n_exec": 7,
+  "first_exec": 0.6075183688282603,
+  "consistency": 0.6109879168703469,
+  "oracle": 0.6114022072904277
+ },
+ {
+  "key": "A_00996792_98b2cfa2113b43274533865e_step_006_medium",
+  "family": "A",
+  "under": true,
+  "faces": 79,
+  "n_exec": 5,
+  "first_exec": 0.4022405827115235,
+  "consistency": 0.4022405827115235,
+  "oracle": 0.4022405827115235
+ },
+ {
+  "key": "A_00996983_2055f078257e24aefdaf6d5f_step_000_medium",
+  "family": "A",
+  "under": false,
+  "faces": 57,
+  "n_exec": 8,
+  "first_exec": 0.8003319998167374,
+  "consistency": 0.8446578845318613,
+  "oracle": 0.8887543835427839
+ },
+ {
+  "key": "F_55230_077b4106_0_medium",
+  "family": "F",
+  "under": false,
+  "faces": 12,
+  "n_exec": 3,
+  "first_exec": 0.49270939820327875,
+  "consistency": 0.49270939820327875,
+  "oracle": 0.5753285398462737
+ },
+ {
+  "key": "F_55373_ddd74d2f_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 33,
+  "n_exec": 2,
+  "first_exec": 0.7069153522700511,
+  "consistency": 0.7069153522700511,
+  "oracle": 0.7069153522700511
+ },
+ {
+  "key": "F_55423_a50f82f4_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 33,
+  "n_exec": 8,
+  "first_exec": 0.2428247989013034,
+  "consistency": 0.20992457626688155,
+  "oracle": 0.3519015808234037
+ },
+ {
+  "key": "F_55460_998dd656_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 12,
+  "n_exec": 8,
+  "first_exec": 0.6547170292500679,
+  "consistency": 0.6721190555715302,
+  "oracle": 0.6721190555715302
+ },
+ {
+  "key": "F_55527_0736d633_0_medium",
+  "family": "F",
+  "under": false,
+  "faces": 16,
+  "n_exec": 7,
+  "first_exec": 0.7706029284424956,
+  "consistency": 0.7706029284424956,
+  "oracle": 0.8430422606387513
+ },
+ {
+  "key": "F_55707_c78416ed_35_medium",
+  "family": "F",
+  "under": true,
+  "faces": 22,
+  "n_exec": 5,
+  "first_exec": 0.36344665451171265,
+  "consistency": 0.36344665451171265,
+  "oracle": 0.5484300985005998
+ },
+ {
+  "key": "F_55838_a1513314_0000_medium",
+  "family": "F",
+  "under": false,
+  "faces": 10,
+  "n_exec": 6,
+  "first_exec": 0.6114298598101081,
+  "consistency": 0.7378597940051315,
+  "oracle": 0.7378597940051315
+ },
+ {
+  "key": "F_55927_f8b31711_16_medium",
+  "family": "F",
+  "under": true,
+  "faces": 13,
+  "n_exec": 7,
+  "first_exec": 0.6707678121081446,
+  "consistency": 0.5242580711248801,
+  "oracle": 0.6707678121081446
+ },
+ {
+  "key": "F_56040_9b1307eb_4_medium",
+  "family": "F",
+  "under": false,
+  "faces": 14,
+  "n_exec": 8,
+  "first_exec": 0.21832179732821586,
+  "consistency": 0.2107277677437957,
+  "oracle": 0.266683032065434
+ },
+ {
+  "key": "F_56065_00bbe5da_13_medium",
+  "family": "F",
+  "under": true,
+  "faces": 38,
+  "n_exec": 5,
+  "first_exec": 0.5365712376213716,
+  "consistency": 0.6303544643203324,
+  "oracle": 0.7200985154994566
+ },
+ {
+  "key": "F_56065_00bbe5da_15_medium",
+  "family": "F",
+  "under": false,
+  "faces": 33,
+  "n_exec": 6,
+  "first_exec": 0.3384621997028576,
+  "consistency": 0.3492691831639857,
+  "oracle": 0.8095755287148568
+ },
+ {
+  "key": "F_56167_90101372_10_medium",
+  "family": "F",
+  "under": false,
+  "faces": 8,
+  "n_exec": 8,
+  "first_exec": 0.893667797098772,
+  "consistency": 0.8936677994947985,
+  "oracle": 0.9612038488305189
+ },
+ {
+  "key": "F_56167_90101372_13_medium",
+  "family": "F",
+  "under": false,
+  "faces": 10,
+  "n_exec": 7,
+  "first_exec": 0.0027940353487755426,
+  "consistency": 0.017657322429280028,
+  "oracle": 0.022216055525097707
+ },
+ {
+  "key": "F_56462_3fcb906f_0_medium",
+  "family": "F",
+  "under": false,
+  "faces": 13,
+  "n_exec": 7,
+  "first_exec": 0.3166333028556958,
+  "consistency": 0.31363387130209053,
+  "oracle": 0.6553501191719249
+ },
+ {
+  "key": "F_56468_c18aba85_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 9,
+  "n_exec": 8,
+  "first_exec": 0.3629391430328636,
+  "consistency": 0.3673835563177384,
+  "oracle": 0.37702019413881105
+ },
+ {
+  "key": "F_56476_466fc284_3_medium",
+  "family": "F",
+  "under": true,
+  "faces": 17,
+  "n_exec": 5,
+  "first_exec": 0.17209979423990535,
+  "consistency": 0.17209979423990535,
+  "oracle": 0.2520289546257703
+ },
+ {
+  "key": "F_56489_241ed182_1_medium",
+  "family": "F",
+  "under": false,
+  "faces": 22,
+  "n_exec": 6,
+  "first_exec": 0.45739784102122133,
+  "consistency": 0.5209305661878516,
+  "oracle": 0.5209305661878516
+ },
+ {
+  "key": "F_56494_0f3437d4_3_medium",
+  "family": "F",
+  "under": false,
+  "faces": 9,
+  "n_exec": 7,
+  "first_exec": 0.9997811254274521,
+  "consistency": 0.9997811254274521,
+  "oracle": 0.9997811254274521
+ },
+ {
+  "key": "F_56711_61a0b988_3_medium",
+  "family": "F",
+  "under": false,
+  "faces": 51,
+  "n_exec": 6,
+  "first_exec": 0.08469201419185803,
+  "consistency": 0.08094152047418236,
+  "oracle": 0.2931912857122421
+ },
+ {
+  "key": "F_56719_6e59eeff_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 32,
+  "n_exec": 7,
+  "first_exec": 0.04901944399942902,
+  "consistency": 0.08081008670460979,
+  "oracle": 0.09717959092354894
+ },
+ {
+  "key": "F_56997_4eaf2100_5_medium",
+  "family": "F",
+  "under": true,
+  "faces": 8,
+  "n_exec": 7,
+  "first_exec": 0.5564344544473337,
+  "consistency": 0.48143837190193756,
+  "oracle": 0.6501835672777337
+ },
+ {
+  "key": "F_57440_ca6af7b9_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 12,
+  "n_exec": 7,
+  "first_exec": 0.45349847127687143,
+  "consistency": 0.4826289650673337,
+  "oracle": 0.628170909404137
+ },
+ {
+  "key": "F_57736_91b94db5_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 22,
+  "n_exec": 8,
+  "first_exec": 0.22125435540069685,
+  "consistency": 0.2950391644908616,
+  "oracle": 0.4037433155080214
+ },
+ {
+  "key": "F_60766_fb8715eb_4_medium",
+  "family": "F",
+  "under": false,
+  "faces": 10,
+  "n_exec": 7,
+  "first_exec": 0.7098100842450618,
+  "consistency": 0.980467444161049,
+  "oracle": 0.9975429092676263
+ },
+ {
+  "key": "F_61294_9255796d_2_medium",
+  "family": "F",
+  "under": false,
+  "faces": 13,
+  "n_exec": 6,
+  "first_exec": 0.0641214826464275,
+  "consistency": 0.0641214826464275,
+  "oracle": 0.14116654196547548
+ },
+ {
+  "key": "F_61643_303cdd31_0000_medium",
+  "family": "F",
+  "under": true,
+  "faces": 11,
+  "n_exec": 8,
+  "first_exec": 0.7148210514211972,
+  "consistency": 0.00277454499523487,
+  "oracle": 0.9210434769493288
+ },
+ {
+  "key": "F_62065_eddaab34_1_medium",
+  "family": "F",
+  "under": false,
+  "faces": 35,
+  "n_exec": 8,
+  "first_exec": 0.8859604644462391,
+  "consistency": 0.8859604644462391,
+  "oracle": 0.8867348047225684
+ },
+ {
+  "key": "F_63071_3d434a33_15_medium",
+  "family": "F",
+  "under": false,
+  "faces": 29,
+  "n_exec": 4,
+  "first_exec": 0.23686803215494343,
+  "consistency": 0.23686803215494343,
+  "oracle": 0.23686803215494343
+ },
+ {
+  "key": "F_63172_5ae67bce_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 33,
+  "n_exec": 4,
+  "first_exec": 0.3535080229616966,
+  "consistency": 0.23185925848039765,
+  "oracle": 0.3535080229616966
+ },
+ {
+  "key": "F_65350_b3fa8f4f_47_medium",
+  "family": "F",
+  "under": false,
+  "faces": 10,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "F_65356_aaee1519_1_medium",
+  "family": "F",
+  "under": false,
+  "faces": 18,
+  "n_exec": 7,
+  "first_exec": 0.9968787409310766,
+  "consistency": 0.9726403928718402,
+  "oracle": 0.9968787409310766
+ },
+ {
+  "key": "F_66061_a0907bb0_1_medium",
+  "family": "F",
+  "under": false,
+  "faces": 21,
+  "n_exec": 6,
+  "first_exec": 0.6676875027491291,
+  "consistency": 0.5134831158406016,
+  "oracle": 0.7416560338223364
+ },
+ {
+  "key": "F_67240_525e92c1_1_medium",
+  "family": "F",
+  "under": false,
+  "faces": 10,
+  "n_exec": 5,
+  "first_exec": 0.008709357918806298,
+  "consistency": 0.06306014821438254,
+  "oracle": 0.06306014821438254
+ },
+ {
+  "key": "F_67262_f7710fc0_0_medium",
+  "family": "F",
+  "under": false,
+  "faces": 10,
+  "n_exec": 3,
+  "first_exec": 0.7695319728358666,
+  "consistency": 0.7695319728358666,
+  "oracle": 0.9989569038747895
+ },
+ {
+  "key": "F_69235_fe79a369_26_medium",
+  "family": "F",
+  "under": true,
+  "faces": 10,
+  "n_exec": 6,
+  "first_exec": 0.4115885835448127,
+  "consistency": 0.7830847317919918,
+  "oracle": 0.7830847317919918
+ },
+ {
+  "key": "F_69253_83adcb0e_3_medium",
+  "family": "F",
+  "under": false,
+  "faces": 8,
+  "n_exec": 8,
+  "first_exec": 0.9333333729794534,
+  "consistency": 0.9333333729794534,
+  "oracle": 0.9903492904530561
+ },
+ {
+  "key": "F_70188_002060a2_0001_medium",
+  "family": "F",
+  "under": false,
+  "faces": 17,
+  "n_exec": 8,
+  "first_exec": 0.19325005256303873,
+  "consistency": 0.5250254682697352,
+  "oracle": 0.5379135099635661
+ },
+ {
+  "key": "F_70321_eccffc7e_0_medium",
+  "family": "F",
+  "under": false,
+  "faces": 11,
+  "n_exec": 7,
+  "first_exec": 0.6716957806751114,
+  "consistency": 0.6716957806751115,
+  "oracle": 0.8510774344979517
+ },
+ {
+  "key": "F_70441_ca595dbc_1_medium",
+  "family": "F",
+  "under": true,
+  "faces": 10,
+  "n_exec": 8,
+  "first_exec": 0.8412789847008729,
+  "consistency": 0.8412789847008729,
+  "oracle": 0.8412789847008729
+ },
+ {
+  "key": "F_70639_fceccc4a_2_medium",
+  "family": "F",
+  "under": false,
+  "faces": 8,
+  "n_exec": 7,
+  "first_exec": 0.5631288057530527,
+  "consistency": 0.6143331498171425,
+  "oracle": 0.8102411347691758
+ },
+ {
+  "key": "F_70814_c3256325_2_medium",
+  "family": "F",
+  "under": true,
+  "faces": 13,
+  "n_exec": 7,
+  "first_exec": 0.42808156897840716,
+  "consistency": 0.7414418413126526,
+  "oracle": 0.9574899419910333
+ },
+ {
+  "key": "F_73400_e0bb6e48_2_medium",
+  "family": "F",
+  "under": false,
+  "faces": 8,
+  "n_exec": 8,
+  "first_exec": 0.784583394426504,
+  "consistency": 0.8206719105734895,
+  "oracle": 0.9164865975162787
+ },
+ {
+  "key": "F_73525_7f6b2f67_0_medium",
+  "family": "F",
+  "under": false,
+  "faces": 28,
+  "n_exec": 4,
+  "first_exec": 0.5203957545354148,
+  "consistency": 0.5203957545354148,
+  "oracle": 0.5203957545354148
+ },
+ {
+  "key": "F_73525_7f6b2f67_3_medium",
+  "family": "F",
+  "under": true,
+  "faces": 14,
+  "n_exec": 7,
+  "first_exec": 0.0974806303423376,
+  "consistency": 0.0793700745804279,
+  "oracle": 0.8075957793690378
+ },
+ {
+  "key": "F_74450_043caffc_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 33,
+  "n_exec": 3,
+  "first_exec": 0.7440535618712909,
+  "consistency": 0.7889065961114348,
+  "oracle": 0.7889065961114348
+ },
+ {
+  "key": "F_76546_c17e95aa_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 28,
+  "n_exec": 4,
+  "first_exec": 0.3097172004278477,
+  "consistency": 0.14738642131769794,
+  "oracle": 0.3097172004278477
+ },
+ {
+  "key": "F_76880_9bb28e72_14_medium",
+  "family": "F",
+  "under": false,
+  "faces": 8,
+  "n_exec": 5,
+  "first_exec": 0.8159663542214027,
+  "consistency": 0.9156164502097864,
+  "oracle": 0.9156164502097864
+ },
+ {
+  "key": "F_77687_cbb18594_14_medium",
+  "family": "F",
+  "under": false,
+  "faces": 26,
+  "n_exec": 7,
+  "first_exec": 0.8797545670700341,
+  "consistency": 0.8797545670700341,
+  "oracle": 0.8797545670700341
+ },
+ {
+  "key": "F_79427_59912769_1_medium",
+  "family": "F",
+  "under": true,
+  "faces": 26,
+  "n_exec": 4,
+  "first_exec": 0.46086818278824027,
+  "consistency": 0.2772992906525806,
+  "oracle": 0.46086818278824027
+ },
+ {
+  "key": "F_79637_fac1d5d3_0000_medium",
+  "family": "F",
+  "under": false,
+  "faces": 14,
+  "n_exec": 6,
+  "first_exec": 0.6685157165022035,
+  "consistency": 0.9936645490096645,
+  "oracle": 0.9936645490096645
+ },
+ {
+  "key": "F_79993_6087acd5_16_medium",
+  "family": "F",
+  "under": false,
+  "faces": 23,
+  "n_exec": 4,
+  "first_exec": 0.28383004008075907,
+  "consistency": 0.28383004008075907,
+  "oracle": 0.4426090408671535
+ },
+ {
+  "key": "F_80188_c67d0fb1_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 13,
+  "n_exec": 5,
+  "first_exec": 0.028977564657811507,
+  "consistency": 0.1741244101038894,
+  "oracle": 0.1741244101038894
+ },
+ {
+  "key": "F_80192_c2f08a97_0000_medium",
+  "family": "F",
+  "under": true,
+  "faces": 16,
+  "n_exec": 3,
+  "first_exec": 0.1605201863809065,
+  "consistency": 0.1605201863809065,
+  "oracle": 0.1605201863809065
+ },
+ {
+  "key": "F_81024_46f56379_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 15,
+  "n_exec": 8,
+  "first_exec": 0.6763074024087042,
+  "consistency": 0.6742486677660691,
+  "oracle": 0.7158267854531057
+ },
+ {
+  "key": "F_81145_14516907_3_medium",
+  "family": "F",
+  "under": false,
+  "faces": 29,
+  "n_exec": 7,
+  "first_exec": 0.20076976390341106,
+  "consistency": 0.3885835969630413,
+  "oracle": 0.3887199745817917
+ },
+ {
+  "key": "F_81145_bdb0ac6a_114_medium",
+  "family": "F",
+  "under": false,
+  "faces": 8,
+  "n_exec": 8,
+  "first_exec": 0.9605414038222543,
+  "consistency": 0.966691060770445,
+  "oracle": 0.966691060770445
+ },
+ {
+  "key": "F_81326_8c3a1378_9_medium",
+  "family": "F",
+  "under": true,
+  "faces": 18,
+  "n_exec": 8,
+  "first_exec": 0.28305222998368446,
+  "consistency": 0.4971274178990182,
+  "oracle": 0.6000749239437382
+ },
+ {
+  "key": "F_82203_34a0cdf9_2_medium",
+  "family": "F",
+  "under": false,
+  "faces": 14,
+  "n_exec": 5,
+  "first_exec": 0.7832194339615146,
+  "consistency": 0.783202887219973,
+  "oracle": 0.7832194339615146
+ },
+ {
+  "key": "F_82203_9be68697_1_medium",
+  "family": "F",
+  "under": false,
+  "faces": 12,
+  "n_exec": 4,
+  "first_exec": 0.6469918191103371,
+  "consistency": 0.6469918191103371,
+  "oracle": 0.6469918191103371
+ },
+ {
+  "key": "F_82996_b8dc67c9_1_medium",
+  "family": "F",
+  "under": true,
+  "faces": 18,
+  "n_exec": 8,
+  "first_exec": 0.49135977420361204,
+  "consistency": 0.5074550390235937,
+  "oracle": 0.7538598184125269
+ },
+ {
+  "key": "F_83210_07c13a64_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 27,
+  "n_exec": 4,
+  "first_exec": 0.10653801810666341,
+  "consistency": 0.10653801810666341,
+  "oracle": 0.10653801810666341
+ },
+ {
+  "key": "F_83435_71fc10f4_2_medium",
+  "family": "F",
+  "under": true,
+  "faces": 10,
+  "n_exec": 8,
+  "first_exec": 0.9766757997855552,
+  "consistency": 0.9766757997855552,
+  "oracle": 0.9766757997855552
+ },
+ {
+  "key": "F_83938_d6cf9eca_0_medium",
+  "family": "F",
+  "under": false,
+  "faces": 14,
+  "n_exec": 7,
+  "first_exec": 0.6764342235410484,
+  "consistency": 0.7265625,
+  "oracle": 0.7265625
+ },
+ {
+  "key": "F_84025_ec3401ea_1_medium",
+  "family": "F",
+  "under": false,
+  "faces": 16,
+  "n_exec": 7,
+  "first_exec": 0.6667419968506252,
+  "consistency": 0.610762878312034,
+  "oracle": 0.7199001123956424
+ },
+ {
+  "key": "F_84487_27f5d323_8_medium",
+  "family": "F",
+  "under": false,
+  "faces": 38,
+  "n_exec": 7,
+  "first_exec": 0.3551074525893999,
+  "consistency": 0.33718620990372045,
+  "oracle": 0.3551074525893999
+ },
+ {
+  "key": "F_86801_40091568_5_medium",
+  "family": "F",
+  "under": false,
+  "faces": 12,
+  "n_exec": 5,
+  "first_exec": 0.4410228691583941,
+  "consistency": 0.4209119800194684,
+  "oracle": 0.50042147644099
+ },
+ {
+  "key": "F_86895_aacc5e37_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 33,
+  "n_exec": 6,
+  "first_exec": 0.17292965056162912,
+  "consistency": 0.17301102535329407,
+  "oracle": 0.2499592102973205
+ },
+ {
+  "key": "F_87488_95f678ce_0_medium",
+  "family": "F",
+  "under": false,
+  "faces": 15,
+  "n_exec": 7,
+  "first_exec": 0.14612679969261977,
+  "consistency": 0.2557444187336912,
+  "oracle": 0.6519795429376102
+ },
+ {
+  "key": "F_88219_05eb53c9_0000_medium",
+  "family": "F",
+  "under": false,
+  "faces": 18,
+  "n_exec": 7,
+  "first_exec": 0.7759876762813166,
+  "consistency": 0.7695519298782489,
+  "oracle": 0.8224463481645415
+ },
+ {
+  "key": "F_88680_0fb9b042_3_medium",
+  "family": "F",
+  "under": true,
+  "faces": 13,
+  "n_exec": 6,
+  "first_exec": 0.7458338816459491,
+  "consistency": 0.7458338816459491,
+  "oracle": 0.7558215982505027
+ },
+ {
+  "key": "F_89044_d66bbf44_5_medium",
+  "family": "F",
+  "under": false,
+  "faces": 18,
+  "n_exec": 8,
+  "first_exec": 0.6950666373125244,
+  "consistency": 0.6950666373125244,
+  "oracle": 0.6950666373125244
+ },
+ {
+  "key": "F_89424_995a070d_3_medium",
+  "family": "F",
+  "under": false,
+  "faces": 8,
+  "n_exec": 8,
+  "first_exec": 0.8436735673320254,
+  "consistency": 0.8436735673320254,
+  "oracle": 0.8639459318506016
+ },
+ {
+  "key": "F_89527_b3bf425d_0027_medium",
+  "family": "F",
+  "under": true,
+  "faces": 8,
+  "n_exec": 7,
+  "first_exec": 0.8884688725830188,
+  "consistency": 0.8884688725830188,
+  "oracle": 0.8884688725830188
+ },
+ {
+  "key": "F_89681_0c77b7fc_7_medium",
+  "family": "F",
+  "under": true,
+  "faces": 8,
+  "n_exec": 7,
+  "first_exec": 0.8054465738815796,
+  "consistency": 0.9364955087820271,
+  "oracle": 0.9442616580159223
+ },
+ {
+  "key": "F_90219_3d3a4450_0_medium",
+  "family": "F",
+  "under": false,
+  "faces": 19,
+  "n_exec": 6,
+  "first_exec": 0.18984309459653628,
+  "consistency": 0.18984309459653628,
+  "oracle": 0.2686839462550846
+ },
+ {
+  "key": "F_91100_df680fe7_1_medium",
+  "family": "F",
+  "under": false,
+  "faces": 8,
+  "n_exec": 8,
+  "first_exec": 0.9946024562615348,
+  "consistency": 0.9946024562615348,
+  "oracle": 0.9952552685690654
+ },
+ {
+  "key": "F_92552_38c9173a_0000_medium",
+  "family": "F",
+  "under": false,
+  "faces": 11,
+  "n_exec": 8,
+  "first_exec": 0.17415939493185317,
+  "consistency": 0.2431927774492684,
+  "oracle": 0.4327763711127688
+ },
+ {
+  "key": "F_93389_b1801754_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 30,
+  "n_exec": 6,
+  "first_exec": 0.1919141828264286,
+  "consistency": 0.1919141828264286,
+  "oracle": 0.1919141828264286
+ },
+ {
+  "key": "F_94410_d32e7520_9_medium",
+  "family": "F",
+  "under": true,
+  "faces": 8,
+  "n_exec": 7,
+  "first_exec": 0.3958008560695297,
+  "consistency": 0.683099211936967,
+  "oracle": 0.683099211936967
+ },
+ {
+  "key": "F_94874_1216d8a6_2_medium",
+  "family": "F",
+  "under": false,
+  "faces": 12,
+  "n_exec": 4,
+  "first_exec": 0.13623587135775272,
+  "consistency": 0.23769319304084324,
+  "oracle": 0.3484871251398271
+ },
+ {
+  "key": "F_96271_dbd85c3b_0_medium",
+  "family": "F",
+  "under": false,
+  "faces": 15,
+  "n_exec": 4,
+  "first_exec": 0.4968790470234619,
+  "consistency": 0.33373182490746806,
+  "oracle": 0.4968790470234619
+ },
+ {
+  "key": "F_96300_74466fc3_6_medium",
+  "family": "F",
+  "under": false,
+  "faces": 9,
+  "n_exec": 8,
+  "first_exec": 0.3090970358893344,
+  "consistency": 0.3090970358893344,
+  "oracle": 0.8042434927190767
+ },
+ {
+  "key": "F_97342_27fcca0b_0_medium",
+  "family": "F",
+  "under": true,
+  "faces": 8,
+  "n_exec": 2,
+  "first_exec": 0.34811548005826326,
+  "consistency": 0.34811548005826326,
+  "oracle": 0.34811548005826326
+ },
+ {
+  "key": "F_98418_4185a7fb_3_medium",
+  "family": "F",
+  "under": false,
+  "faces": 8,
+  "n_exec": 8,
+  "first_exec": 0.9842496738687696,
+  "consistency": 0.984596414280582,
+  "oracle": 0.984596414280582
+ },
+ {
+  "key": "F_98495_52906369_1_medium",
+  "family": "F",
+  "under": false,
+  "faces": 15,
+  "n_exec": 7,
+  "first_exec": 0.9005310513876228,
+  "consistency": 0.9005310513876228,
+  "oracle": 0.9792326885997912
+ },
+ {
+  "key": "F_98511_1b46a85e_30_medium",
+  "family": "F",
+  "under": false,
+  "faces": 16,
+  "n_exec": 7,
+  "first_exec": 0.4537538387826107,
+  "consistency": 0.5885339429092645,
+  "oracle": 0.5885339429092645
+ },
+ {
+  "key": "F_98621_9caba002_3_medium",
+  "family": "F",
+  "under": false,
+  "faces": 10,
+  "n_exec": 8,
+  "first_exec": 0.9607372161520528,
+  "consistency": 0.9607372161520528,
+  "oracle": 0.9607372161520528
+ },
+ {
+  "key": "F_98960_f2639863_0002_medium",
+  "family": "F",
+  "under": false,
+  "faces": 18,
+  "n_exec": 2,
+  "first_exec": 0.3767647311378873,
+  "consistency": 0.3767647311378873,
+  "oracle": 0.3767647311378873
+ }
+]

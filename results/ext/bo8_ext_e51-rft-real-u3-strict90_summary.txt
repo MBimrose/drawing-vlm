@@ -1,0 +1,24 @@
+slice                     n |         first_exec |        consistency |             oracle | exec>=1
+                            |      mean / >=0.85 |      mean / >=0.85 |      mean / >=0.85
+in-dist 1030 pool      1030 | 0.878 /   73% | 0.912 /   81% | 0.942 /   89% |
+ALL external            146 | 0.483 /   13% | 0.509 /   16% | 0.594 /   22% |  100%
+  determinate            80 | 0.567 /   20% | 0.597 /   24% | 0.676 /   32% |  100%
+  underdetermined        66 | 0.381 /    5% | 0.402 /    6% | 0.494 /    9% |  100%
+Fusion360 (F)            88 | 0.519 /   16% | 0.540 /   20% | 0.634 /   27% |  100%
+  F determinate          53 | 0.566 /   23% | 0.596 /   28% | 0.679 /   36% |  100%
+ABC (A)                  58 | 0.429 /    9% | 0.461 /    9% | 0.532 /   14% |  100%
+  A determinate          27 | 0.568 /   15% | 0.599 /   15% | 0.670 /   26% |  100%
+
+worst 10 (consistency):
+  F_61643_303cdd31_0000_medium       fam=F under=True faces=11 exec=8/8 first=0.715 cons=0.003 oracle=0.921
+  A_00956397_1b8073281cc8bb8ec1d74fed_step_000_medium fam=A under=False faces=44 exec=7/8 first=0.027 cons=0.015 oracle=0.335
+  F_56167_90101372_13_medium         fam=F under=False faces=10 exec=7/8 first=0.003 cons=0.018 oracle=0.022
+  A_00941921_f3b16049278a833ae2b34381_step_001_medium fam=A under=True faces=39 exec=5/8 first=0.047 cons=0.023 oracle=0.143
+  F_67240_525e92c1_1_medium          fam=F under=False faces=10 exec=5/8 first=0.009 cons=0.063 oracle=0.063
+  F_61294_9255796d_2_medium          fam=F under=False faces=13 exec=6/8 first=0.064 cons=0.064 oracle=0.141
+  F_73525_7f6b2f67_3_medium          fam=F under=True faces=14 exec=7/8 first=0.097 cons=0.079 oracle=0.808
+  F_56719_6e59eeff_0_medium          fam=F under=True faces=32 exec=7/8 first=0.049 cons=0.081 oracle=0.097
+  F_56711_61a0b988_3_medium          fam=F under=False faces=51 exec=6/8 first=0.085 cons=0.081 oracle=0.293
+  A_00953690_cc92fe00f1c72a7d0b0288c4_step_001_medium fam=A under=True faces=63 exec=5/8 first=0.060 cons=0.084 oracle=0.089
+
+n parts with no candidate >= 0.85: 114  of which underdetermined: 60

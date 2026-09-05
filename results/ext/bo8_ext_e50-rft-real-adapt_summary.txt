@@ -1,0 +1,24 @@
+slice                     n |         first_exec |        consistency |             oracle | exec>=1
+                            |      mean / >=0.85 |      mean / >=0.85 |      mean / >=0.85
+in-dist 1030 pool      1030 | 0.878 /   73% | 0.912 /   81% | 0.942 /   89% |
+ALL external            146 | 0.457 /   12% | 0.484 /   13% | 0.556 /   18% |   99%
+  determinate            80 | 0.543 /   19% | 0.580 /   21% | 0.639 /   29% |   99%
+  underdetermined        66 | 0.352 /    3% | 0.369 /    3% | 0.455 /    6% |   98%
+Fusion360 (F)            88 | 0.467 /   15% | 0.513 /   18% | 0.595 /   24% |   99%
+  F determinate          53 | 0.518 /   21% | 0.584 /   26% | 0.642 /   32% |   98%
+ABC (A)                  58 | 0.440 /    7% | 0.441 /    5% | 0.496 /   10% |   98%
+  A determinate          27 | 0.591 /   15% | 0.571 /   11% | 0.633 /   22% |  100%
+
+worst 10 (consistency):
+  A_00951586_9d8b2bd51e4e500748ae80c1_step_000_medium fam=A under=True faces=44 exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  F_65356_aaee1519_1_medium          fam=F under=False faces=18 exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  F_67240_525e92c1_1_medium          fam=F under=False faces=10 exec=3/8 first=0.000 cons=0.001 oracle=0.062
+  F_61643_303cdd31_0000_medium       fam=F under=True faces=11 exec=8/8 first=0.015 cons=0.007 oracle=0.301
+  F_73525_7f6b2f67_3_medium          fam=F under=True faces=14 exec=6/8 first=0.099 cons=0.013 oracle=0.435
+  A_00947921_bc304cb790ab59a52d42ed92_step_008_medium fam=A under=True faces=59 exec=4/8 first=0.020 cons=0.020 oracle=0.325
+  F_56167_90101372_13_medium         fam=F under=False faces=10 exec=6/8 first=0.017 cons=0.021 oracle=0.024
+  A_00941921_f3b16049278a833ae2b34381_step_001_medium fam=A under=True faces=39 exec=7/8 first=0.029 cons=0.029 oracle=0.029
+  F_56997_4eaf2100_5_medium          fam=F under=True faces=8 exec=4/8 first=0.067 cons=0.065 oracle=0.495
+  F_83210_07c13a64_0_medium          fam=F under=True faces=27 exec=3/8 first=0.063 cons=0.068 oracle=0.068
+
+n parts with no candidate >= 0.85: 119  of which underdetermined: 62
