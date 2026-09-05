@@ -1,0 +1,1 @@
+Union tier built 2026-09-05: 1177 keys, 5521 rows (max 16/key, iou>=0.8); 209 keys new vs base; 13 hint-leaking rows dropped. Sources: {'rft_real_union3': 5242, 'rft_gtfb_c2': 338, 'rft_plain_c2': 276, 'rft_plain_c1': 51}
