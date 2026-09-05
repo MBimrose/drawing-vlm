@@ -230,6 +230,7 @@ Full-pool serving scores, three champion-recipe models (best-of-8 + consistency,
 | e50 = e45 final + 800 steps at 2e-6 on a half-real mix | — | 0.894 (77%) | 0.921 (83%) | 0.948 (91%) |
 | e48 = e45 recipe + union2 tier ×11 | — | 0.886 (76%) | 0.912 (81%) | 0.944 (90%) |
 | e49 = champion recipe + union2 tier ×15 | — | 0.889 (74%) | 0.911 (81%) | 0.946 (90%) |
+| **e51 = e45 recipe + union3 real tier (968 parts) ×5** | — | 0.894 (76%) | **0.917 (82%)** | 0.947 (90%) |
 | **e40 (RFT tier v1+v2+v3 at iou≥0.95, 113k, 6000 steps)** | 0.817 | **0.899 (79%)** | **0.920 (84%, median 0.981)** | **0.947 (90%)** |
 
 The served number is 0.910-0.914 regardless of seed or schedule: the recipe
@@ -449,7 +450,7 @@ on ABC determinate (ceiling 0.670 vs ~0.60); the underdetermined slice is flat
 (0.40 / 0.49). So real-part data does add solvable parts once the tier is ~1k
 parts with DeepCAD-style topology. The 146-part bench has more seed noise than
 the full pool (±0.02 on the vote), so treat the vote as "at least equal", the
-ceiling as a real shift. Full-pool in-distribution check pending on serv-19.
+ceiling as a real shift. Full pool (1,030): vote 0.917 / 82%, first-exec 0.894, ceiling 0.947 — strict-family parity, no in-distribution cost. **e51 is the serving candidate: best real-part transfer at equal in-distribution accuracy.**
 
 ### Supervision the model cannot self-generate (2026-09-05)
 
