@@ -413,6 +413,7 @@ External bench baselines by model (146 held-out real parts, best-of-8, strict me
 | e45 = e41 seed 43 (H200) | 0.438 / 12% | 0.499 / 16% | 0.555 / 21% |
 | **e46 = champion recipe + real tier ×6 (H200)** | 0.423 / 9% | 0.473 / 14% | 0.549 / 19% |
 | e47 = e40 recipe + real tier ×11 (H200) | 0.446 / 12% | 0.484 / 17% | 0.556 / 21% |
+| e48 = e45 recipe + union2 tier (382 parts) ×11 (H200) | 0.475 / 15% | 0.491 / 16% | 0.560 / 18% |
 
 The strict-threshold models transfer slightly better (+0.03-0.04 on the vote,
 consistent across e40/e41/e44/e45). Round-1 real tier in the champion recipe
