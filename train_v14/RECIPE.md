@@ -418,6 +418,7 @@ External bench baselines by model (146 held-out real parts, best-of-8, strict me
 | e48 = e45 recipe + union2 tier (382 parts) ×11 (H200) | 0.475 / 15% | 0.491 / 16% | 0.560 / 18% |
 | e50 = e45 final + 800 steps on a half-real mix (H200) | 0.457 / 12% | 0.484 / 13% | 0.556 / 19% |
 | e49 = champion recipe + union2 tier ×15 (~33% of RFT draws) (H200) | 0.418 / 14% | 0.470 / 14% | 0.551 / 21% |
+| **e51 = e45 recipe + union3 tier (968 parts incl. DeepCAD) ×5 (H200)** | 0.483 / 13% | **0.509 / 16%** | **0.594 / 22%** |
 
 The strict-threshold models transfer slightly better (+0.03-0.04 on the vote,
 consistent across e40/e41/e44/e45). Round-1 real tier in the champion recipe
@@ -439,3 +440,13 @@ raises first-exec on real parts by 0.02-0.04 and leaves the vote (0.47-0.49)
 and the ceiling (0.55-0.56) flat. The tier makes the model more consistent on
 parts it could already solve; it does not add solvable parts. Round 3 (e51,
 968 parts incl. DeepCAD) tests whether 2.5× more real data changes that.
+
+Round 3 result (2026-09-05): e51 is the first variant that moves the ceiling:
+vote 0.509 (best so far, +0.01 over e45), first-exec 0.483 (+0.045), ceiling
+0.594 / 22% (+0.03-0.04 over every earlier model, whose ceilings sat at
+0.53-0.56). Gains are on the determinate slice (vote 0.597, ceiling 0.676) and
+on ABC determinate (ceiling 0.670 vs ~0.60); the underdetermined slice is flat
+(0.40 / 0.49). So real-part data does add solvable parts once the tier is ~1k
+parts with DeepCAD-style topology. The 146-part bench has more seed noise than
+the full pool (±0.02 on the vote), so treat the vote as "at least equal", the
+ceiling as a real shift. Full-pool in-distribution check pending on serv-19.
