@@ -519,3 +519,5 @@ Round 5 tier `rft_real_union5/`: union4 ∪ corpus 3 ∪ hinted corpus-1 rows =
 strict90 base (`rft_mix_u5_strict90`, real ≈24% of RFT draws vs ≈16% for
 e51/e52) → **e53** (same recipe). Tests whether easy real parts (simple
 topology, high yield) transfer to the medium held-out bench.
+Corpus-1 unsolved set, e51, 8 draws: plain 32 keys (2.8%), hinted 43 keys
+(3.8%) — same +1 point as on corpus 2. Hinting is not worth its own pass.
