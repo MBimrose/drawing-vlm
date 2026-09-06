@@ -503,3 +503,17 @@ the served vote only 0.499 → 0.512 / 17% and first-exec is unchanged (0.451 vs
 correct candidate is usually an outlier among 32, not the centre. Picking it
 needs a real verifier or an executable check, not more agreement.
 (results/ext/bo32_ext_e45-rft-strict90-all-s43_summary.txt)
+
+Corpus 3 (2026-09-05): the CADBench **easy** tiers (F 269 / A 678 / E 546 =
+1,493 parts after the ≤120-face prep; median 10 faces; 30% flagged
+underdetermined; one part segfaults the renderer). e51 K=8 solves **762 keys
+(51%)** at ≥0.8 — A 47%, E 54%, F 54%; ceiling@8 0.71-0.75 — versus 20% on
+corpus 1. Renderer note: a single segfaulting STEP breaks the shared
+ProcessPoolExecutor (1,184 spurious failures); train_v14/mech/benchmarks/
+render_isolated.sh renders one process per part.
+
+Round 5 tier `rft_real_union5/`: union4 ∪ corpus 3 ∪ hinted corpus-1 rows =
+**1,960 keys, 8,961 rows** (+783 keys); 5 shards ×5 = 25 links on the 78-shard
+strict90 base (`rft_mix_u5_strict90`, real ≈24% of RFT draws vs ≈16% for
+e51/e52) → **e53** (same recipe). Tests whether easy real parts (simple
+topology, high yield) transfer to the medium held-out bench.
