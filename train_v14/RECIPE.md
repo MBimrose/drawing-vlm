@@ -420,6 +420,7 @@ External bench baselines by model (146 held-out real parts, best-of-8, strict me
 | e50 = e45 final + 800 steps on a half-real mix (H200) | 0.457 / 12% | 0.484 / 13% | 0.556 / 19% |
 | e49 = champion recipe + union2 tier ×15 (~33% of RFT draws) (H200) | 0.418 / 14% | 0.470 / 14% | 0.551 / 21% |
 | **e51 = e45 recipe + union3 tier (968 parts incl. DeepCAD) ×5 (H200)** | 0.483 / 13% | **0.509 / 16%** | **0.594 / 22%** |
+| e52 = e45 recipe + union4 tier (1,177 parts: union3 + 209 formerly-unsolved) ×5 (H200) | 0.485 / 14% | 0.510 / 17% | 0.587 / 25% |
 
 The strict-threshold models transfer slightly better (+0.03-0.04 on the vote,
 consistent across e40/e41/e44/e45). Round-1 real tier in the champion recipe
@@ -519,6 +520,10 @@ Round 5 tier `rft_real_union5/`: union4 ∪ corpus 3 ∪ hinted corpus-1 rows =
 strict90 base (`rft_mix_u5_strict90`, real ≈24% of RFT draws vs ≈16% for
 e51/e52) → **e53** (same recipe). Tests whether easy real parts (simple
 topology, high yield) transfer to the medium held-out bench.
+
+Round 4 result (e52, 2026-09-06): vote 0.510 / first-exec 0.485 / ceiling 0.587
+— identical to e51. Adding the 209 hardest leftovers of the same corpora (solved
+only at 8-32 draws) adds nothing; the tier needs new parts, not deeper mining.
 Corpus-1 unsolved set, e51, 8 draws: plain 32 keys (2.8%), hinted 43 keys
 (3.8%) — same +1 point as on corpus 2. Hinting is not worth its own pass.
 e51 at K=32 (146 real parts): vote **0.527 / 17%**, first-exec 0.470, ceiling
