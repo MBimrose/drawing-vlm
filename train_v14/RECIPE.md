@@ -462,7 +462,9 @@ keys between 0.6 and 0.8).
 - **Hub teacher (Kimi-K3 via the lab router).** Only multimodal model on the
   hub (glm-5.3 rejects images). ~15k output tokens per drawing, the router
   serialises requests: ~13 answers/hour at concurrency 6 → a 2k-part round
-  would take weeks. Quality on a 60-part pilot: first 19 answers 0 accepted;
+  would take weeks. 60-part pilot (7 h): 79 answers on 47 keys, 41 router
+  errors, 3 keys accepted (6% of keys, mean IoU 0.25) vs 2.8% for e51 plain on
+  the same corpus-1 unsolved set;
   extents match the reference exactly (it reads dimensions) but volumes are
   off 30-70% (internal features wrong); rotation search does not rescue them
   (rescore_rot.py). Dropped as a tier source.
