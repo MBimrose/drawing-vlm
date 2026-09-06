@@ -421,6 +421,7 @@ External bench baselines by model (146 held-out real parts, best-of-8, strict me
 | e49 = champion recipe + union2 tier ×15 (~33% of RFT draws) (H200) | 0.418 / 14% | 0.470 / 14% | 0.551 / 21% |
 | **e51 = e45 recipe + union3 tier (968 parts incl. DeepCAD) ×5 (H200)** | 0.483 / 13% | **0.509 / 16%** | **0.594 / 22%** |
 | e52 = e45 recipe + union4 tier (1,177 parts: union3 + 209 formerly-unsolved) ×5 (H200) | 0.485 / 14% | 0.510 / 17% | 0.587 / 25% |
+| e53 = e45 recipe + union5 tier (1,960 parts incl. 762 easy-tier) ×5, real ≈24% of draws (H200) | 0.472 / 14% | 0.503 / 18% | 0.581 / 22% |
 
 The strict-threshold models transfer slightly better (+0.03-0.04 on the vote,
 consistent across e40/e41/e44/e45). Round-1 real tier in the champion recipe
@@ -532,3 +533,13 @@ round-3 tier's gain (+0.015 vote, +0.027 ceiling) holds at equal draws, so the
 reachable set grew, not just the K=8 sample. Real-part progression of the
 served vote: champion 0.452 → strict tier 0.499 → round-3 tier 0.509 (K=8) →
 0.527 (K=32).
+
+Round 5 result (e53, 2026-09-06): vote 0.503 / first-exec 0.472 / ceiling 0.581
+— flat vs e51/e52 (single-shot 96-pool 0.790, within noise). Rounds 3-5 (968 →
+1,177 → 1,960 real parts, real share 16 → 24% of RFT draws) all land at vote
+0.50-0.51 / ceiling 0.58-0.59 at K=8. **The self-written real tier saturates
+at ~1k parts**; easy-tier parts (median 10 faces) do not teach the medium
+bench's topology. Remaining headroom on real parts is selection: K=32 ceiling
+0.64 vs vote 0.53 (e51). Next: a verifier trained on real-part candidates
+(≈40k scored (drawing, script, IoU) triples from the corpus passes), judged
+offline on the stored K=32 candidates of the 146 held-out parts.
