@@ -21,7 +21,10 @@ the yes/no token — bestofn_verifier_eval.py's binary mode scored v2 with the
 regression prompt and at the "<think>\n" position (--prompt-mode legacy
 reproduces that for comparison). --prompt-mode reg scores a REGRESSION
 verifier (v1/v3b target "0.73"): greedy-decode the number after the same
-assistant prefix; pred = p_yes = the predicted IoU.
+assistant prefix; pred = p_yes = the predicted IoU. --prompt-mode reg_ev
+scores the same regression verifier by the EXPECTED value of its number
+(one forward pass on prefix + "0.": p(first token = "1") and the first-decimal
+digit distribution) — continuous, no ties from the 2-decimal greedy decode.
 
     python verifier_select_offline.py --verifier runs/v3-verifier-real/best_adapter \
         --verifier-run v3-verifier-real \
@@ -79,8 +82,8 @@ def build_prompt(proc, image, code, mode, vcfg):
                 {"role": "user", "content": [{"type": "image", "image": image},
                                              {"type": "text", "text": VERIFIER_USER.format(code=wrap_python(code))}]}]
         return msgs, proc.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False, **tmpl)
-    user = VERIFIER_USER if mode == "reg" else VERIFIER_BIN_USER
-    ans = "0.00" if mode == "reg" else "yes"
+    user = VERIFIER_USER if mode in ("reg", "reg_ev") else VERIFIER_BIN_USER
+    ans = "0.00" if mode in ("reg", "reg_ev") else "yes"
     msgs = [{"role": "system", "content": [{"type": "text", "text": VERIFIER_SYSTEM}]},
             {"role": "user", "content": [{"type": "image", "image": image},
                                          {"type": "text", "text": user.format(code=wrap_python(code))}]},
@@ -90,6 +93,8 @@ def build_prompt(proc, image, code, mode, vcfg):
     assert cut > 0, full[-200:]
     text = full[:cut]
     assert text.endswith("<think>\n\n</think>\n\n"), repr(text[-60:])
+    if mode == "reg_ev":
+        text += "0."
     return msgs[:-1], text
 
 
@@ -122,6 +127,23 @@ def score_all(args, parts, images):
         imgs, vids = process_vision_info(msgs)
         enc = proc(text=texts, images=imgs, videos=vids, return_tensors="pt", padding=True)
         enc = {k: (v.to(model.device) if hasattr(v, "to") else v) for k, v in enc.items()}
+        if args.prompt_mode == "reg_ev":
+            with torch.no_grad():
+                try:
+                    out = model(**enc, use_cache=False, logits_to_keep=3)
+                except TypeError:
+                    out = model(**enc, use_cache=False)
+            lg = out.logits.float()
+            d_ids = [tok.encode(str(d), add_special_tokens=False)[0] for d in range(10)]
+            for row, (pi, j) in enumerate(chunk):
+                first = torch.softmax(lg[row, -3, [d_ids[0], d_ids[1]]], 0)   # after "\n\n": "0" vs "1"
+                dec = torch.softmax(lg[row, -1, d_ids], 0)                     # after "0.": first decimal
+                ev = first[1].item() + first[0].item() * sum(dec[d].item() * (d / 10 + 0.05) for d in range(10))
+                c = parts[pi]["cands"][j]
+                c["pred"], c["pred_maxvar"], c["p_yes"] = ev, ev, ev
+            if (b // args.batch) % 20 == 0:
+                print(f"[vsel] {b + len(chunk)}/{len(todo)} ev e.g. {ev:.3f}", flush=True)
+            continue
         if args.prompt_mode == "reg":
             import re
             with torch.no_grad():
@@ -220,7 +242,7 @@ def main():
     ap.add_argument("--k", type=int, nargs="+", default=[8, 32])
     ap.add_argument("--topk", type=int, nargs="+", default=[4, 8])
     ap.add_argument("--batch", type=int, default=8)
-    ap.add_argument("--prompt-mode", default="bin", choices=["bin", "legacy", "reg"])
+    ap.add_argument("--prompt-mode", default="bin", choices=["bin", "legacy", "reg", "reg_ev"])
     ap.add_argument("--no-model", action="store_true", help="reuse <out>.preds.json")
     ap.add_argument("--n", type=int, default=0, help="first n parts only (0 = all)")
     ap.add_argument("--out", required=True)
