@@ -95,6 +95,8 @@ def score_all(args, parts, images):
 
     vcfg = run_config(args.verifier_run)
     assert vcfg, f"no config for {args.verifier_run}"
+    if args.base:
+        vcfg["model_id"] = args.base
     model, proc = load_model(args.verifier, classify_ckpt(args.verifier), vcfg)
     model.eval()
     tok = proc.tokenizer
@@ -184,6 +186,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--verifier", default="")
     ap.add_argument("--verifier-run", default="v3-verifier-real")
+    ap.add_argument("--base", default="", help="override the base model dir (e.g. weights staged in /dev/shm)")
     ap.add_argument("--cands", required=True)
     ap.add_argument("--consistency", default="", help="consistency_rerank output with parts[].pair_iou")
     ap.add_argument("--cache", required=True, help="eval cache pkl with samples[key].png")

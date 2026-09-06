@@ -21,8 +21,13 @@ DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm
 source $DV/.venv/bin/activate; source $DV/train_v14/env.sh
 export OPENBLAS_NUM_THREADS=1
 B=$DV/train_v14/mech/benchmarks/data/ext_bench
+# Stage the verifier's base weights to /dev/shm (Lustre loads took ~1 h with other jobs reading finals).
+BASE=$(grep -E "^model_id:" $DV/train_v14/configs/${VRUN:-v3-verifier-real}.yaml | awk '{print $2}')
+SHM=/dev/shm/bimrose2_$SLURM_JOB_ID; trap 'rm -rf $SHM' EXIT
+mkdir -p $SHM && echo "$(date) staging $BASE -> $SHM" && cp -r $BASE $SHM/base && echo "$(date) staged" || { echo "staging failed, loading from Lustre"; SHM=""; }
+BASE_ARG=${SHM:+--base $SHM/base}
 python $DV/train_v14/geom/verifier_select_offline.py \
-  --verifier $DV/${VER} --verifier-run ${VRUN:-v3-verifier-real} \
+  --verifier $DV/${VER} --verifier-run ${VRUN:-v3-verifier-real} ${BASE_ARG:-} \
   --cands $DV/${CANDS} --consistency $DV/${CONS:-} \
   --cache ${CACHE:-$B/eval_cache_v14.pkl} --split ${SPLIT:-$B/split.json} \
   --k ${KS:-8 32} --prompt-mode ${MODE:-bin} --batch ${BATCH:-8} \

@@ -231,6 +231,7 @@ Full-pool serving scores, three champion-recipe models (best-of-8 + consistency,
 | e48 = e45 recipe + union2 tier ×11 | — | 0.886 (76%) | 0.912 (81%) | 0.944 (90%) |
 | e49 = champion recipe + union2 tier ×15 | — | 0.889 (74%) | 0.911 (81%) | 0.946 (90%) |
 | **e51 = e45 recipe + union3 real tier (968 parts) ×5** | — | 0.894 (76%) | **0.917 (82%)** | 0.947 (90%) |
+| e52 = e45 recipe + union4 real tier (1,177 parts) ×5 | — | 0.893 (76%) | 0.913 (82%) | 0.942 (89%) |
 | **e40 (RFT tier v1+v2+v3 at iou≥0.95, 113k, 6000 steps)** | 0.817 | **0.899 (79%)** | **0.920 (84%, median 0.981)** | **0.947 (90%)** |
 
 The served number is 0.910-0.914 regardless of seed or schedule: the recipe
