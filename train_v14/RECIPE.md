@@ -521,3 +521,9 @@ e51/e52) → **e53** (same recipe). Tests whether easy real parts (simple
 topology, high yield) transfer to the medium held-out bench.
 Corpus-1 unsolved set, e51, 8 draws: plain 32 keys (2.8%), hinted 43 keys
 (3.8%) — same +1 point as on corpus 2. Hinting is not worth its own pass.
+e51 at K=32 (146 real parts): vote **0.527 / 17%**, first-exec 0.470, ceiling
+**0.639 / 29%** (determinate 0.711 / 40%) vs e45 at K=32 0.512 / 0.612 — the
+round-3 tier's gain (+0.015 vote, +0.027 ceiling) holds at equal draws, so the
+reachable set grew, not just the K=8 sample. Real-part progression of the
+served vote: champion 0.452 → strict tier 0.499 → round-3 tier 0.509 (K=8) →
+0.527 (K=32).
