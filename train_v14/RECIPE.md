@@ -543,3 +543,6 @@ bench's topology. Remaining headroom on real parts is selection: K=32 ceiling
 0.64 vs vote 0.53 (e51). Next: a verifier trained on real-part candidates
 (≈40k scored (drawing, script, IoU) triples from the corpus passes), judged
 offline on the stored K=32 candidates of the 146 held-out parts.
+K=32 on the 146 real parts, by model: e45 0.512 / ceiling 0.612; e51 0.527 /
+0.639; **e52 0.536 / 0.645** (determinate 0.630 / 0.719). The real-tier models
+gain ~0.02-0.03 on both at equal draws; the e51→e52 step is inside noise.
