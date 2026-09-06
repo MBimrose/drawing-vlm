@@ -10,6 +10,8 @@ then compare selection policies on the same candidates at K = first K draws:
   vote_top{k}_ver agreement top-k, then argmax verifier               (k = 4, 8)
   hybrid          argmax of mean rank (verifier rank + agreement rank)
   ver_gate{t}     verifier argmax if its p(yes) >= t, else the vote (t = 0.5, 0.8)
+  agree_gate{t}   the vote if the medoid's mean agreement >= t (confident,
+                  in-distribution-like), else verifier argmax (t = 0.7, 0.85)
   oracle          argmax true IoU (ceiling)
 
 plus the verifier's Spearman with true IoU (pooled and per part) and its
@@ -192,6 +194,7 @@ def medoid(idx, mat, tiebreak):
 
 
 GATES = (0.5, 0.8)
+AGATES = (0.7, 0.85)
 
 
 def select(part, mat, K, topks):
@@ -202,7 +205,7 @@ def select(part, mat, K, topks):
     if not ex:
         return {name: 0.0 for name in ["first_exec", "vote", "verifier", "oracle", "hybrid"]
                 + [f"ver_top{k}_vote" for k in topks] + [f"vote_top{k}_ver" for k in topks]
-                + [f"ver_gate{t}" for t in GATES]}
+                + [f"ver_gate{t}" for t in GATES] + [f"agree_gate{t}" for t in AGATES]}
     pred = {j: cs[j]["pred"] for j in ex}
     agree = {j: (np.mean([(mat[j][i] or 0.0) for i in ex if i != j]) if len(ex) > 1 else 0.0) for j in ex}
     out["first_exec"] = ious[ex[0]]
@@ -220,6 +223,9 @@ def select(part, mat, K, topks):
     jv = max(ex, key=lambda j: pred[j])
     for t in GATES:
         out[f"ver_gate{t}"] = ious[jv] if cs[jv].get("p_yes", 0.0) >= t else out["vote"]
+    amax = max(agree.values())
+    for t in AGATES:
+        out[f"agree_gate{t}"] = out["vote"] if amax >= t else ious[jv]
     return out
 
 
@@ -245,11 +251,18 @@ def main():
     ap.add_argument("--prompt-mode", default="bin", choices=["bin", "legacy", "reg", "reg_ev"])
     ap.add_argument("--no-model", action="store_true", help="reuse <out>.preds.json")
     ap.add_argument("--n", type=int, default=0, help="first n parts only (0 = all)")
+    ap.add_argument("--subset", type=int, default=0, help="random subset of this many parts (seeded)")
+    ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
 
     data = json.load(open(args.cands))
     parts = data["candidates"][: args.n or None]
+    if args.subset and args.subset < len(parts):
+        import random
+        parts = random.Random(args.seed).sample(parts, args.subset)
+        parts.sort(key=lambda p: p["key"])
+        print(f"[vsel] random subset of {len(parts)} parts (seed {args.seed})", flush=True)
     for p in parts:
         p["cands"].sort(key=lambda c: c.get("draw", 0))
     keys = [p["key"] for p in parts]
@@ -286,9 +299,9 @@ def main():
 
     names = ["first_exec", "vote", "verifier"] + [f"ver_top{k}_vote" for k in args.topk] + \
             [f"vote_top{k}_ver" for k in args.topk] + ["hybrid"] + \
-            [f"ver_gate{t}" for t in GATES] + ["oracle"]
+            [f"ver_gate{t}" for t in GATES] + [f"agree_gate{t}" for t in AGATES] + ["oracle"]
     result = {"cands": args.cands, "verifier": args.verifier, "prompt_mode": args.prompt_mode,
-              "n_parts": len(parts), "by_k": {}}
+              "n_parts": len(parts), "subset": args.subset, "seed": args.seed, "keys": keys, "by_k": {}}
     lines = []
     for K in args.k:
         rows = [dict(key=p["key"], **select(p, mats[p["key"]], K, args.topk)) for p in parts]

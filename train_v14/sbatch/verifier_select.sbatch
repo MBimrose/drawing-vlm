@@ -29,6 +29,6 @@ BASE_ARG=${SHM:+--base $SHM/base}
 python $DV/train_v14/geom/verifier_select_offline.py \
   --verifier $DV/${VER} --verifier-run ${VRUN:-v3-verifier-real} ${BASE_ARG:-} \
   --cands $DV/${CANDS} --consistency $DV/${CONS:-} \
-  --cache ${CACHE:-$B/eval_cache_v14.pkl} --split ${SPLIT:-$B/split.json} \
+  --cache ${CACHE:-$B/eval_cache_v14.pkl} $([ "${SPLIT:-$B/split.json}" != none ] && echo --split ${SPLIT:-$B/split.json}) \
   --k ${KS:-8 32} --prompt-mode ${MODE:-bin} --batch ${BATCH:-8} \
   --out $DV/${OUT} ${EXTRA:-}
