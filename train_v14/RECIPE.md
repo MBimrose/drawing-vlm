@@ -547,3 +547,5 @@ offline on the stored K=32 candidates of the 146 held-out parts.
 K=32 on the 146 real parts, by model: e45 0.512 / ceiling 0.612; e51 0.527 /
 0.639; **e52 0.536 / 0.645** (determinate 0.630 / 0.719). The real-tier models
 gain ~0.02-0.03 on both at equal draws; the e51→e52 step is inside noise.
+e53 at K=32: vote 0.531 / 19%, ceiling 0.645 / 26% — e51/e52/e53 are one model
+on real parts at any K (vote 0.527-0.536, ceiling 0.639-0.645).
