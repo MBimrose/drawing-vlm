@@ -9,6 +9,7 @@ then compare selection policies on the same candidates at K = first K draws:
   ver_top{k}_vote verifier top-k, then medoid inside the top-k        (k = 4, 8)
   vote_top{k}_ver agreement top-k, then argmax verifier               (k = 4, 8)
   hybrid          argmax of mean rank (verifier rank + agreement rank)
+  ver_gate{t}     verifier argmax if its p(yes) >= t, else the vote (t = 0.5, 0.8)
   oracle          argmax true IoU (ceiling)
 
 plus the verifier's Spearman with true IoU (pooled and per part) and its
@@ -18,7 +19,9 @@ Prompt: the SAME text the binary verifier was trained on (VERIFIER_BIN_USER,
 assistant prefix "<think>\n\n</think>\n\n") and the logits at the position of
 the yes/no token — bestofn_verifier_eval.py's binary mode scored v2 with the
 regression prompt and at the "<think>\n" position (--prompt-mode legacy
-reproduces that for comparison).
+reproduces that for comparison). --prompt-mode reg scores a REGRESSION
+verifier (v1/v3b target "0.73"): greedy-decode the number after the same
+assistant prefix; pred = p_yes = the predicted IoU.
 
     python verifier_select_offline.py --verifier runs/v3-verifier-real/best_adapter \
         --verifier-run v3-verifier-real \
@@ -76,12 +79,14 @@ def build_prompt(proc, image, code, mode, vcfg):
                 {"role": "user", "content": [{"type": "image", "image": image},
                                              {"type": "text", "text": VERIFIER_USER.format(code=wrap_python(code))}]}]
         return msgs, proc.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False, **tmpl)
+    user = VERIFIER_USER if mode == "reg" else VERIFIER_BIN_USER
+    ans = "0.00" if mode == "reg" else "yes"
     msgs = [{"role": "system", "content": [{"type": "text", "text": VERIFIER_SYSTEM}]},
             {"role": "user", "content": [{"type": "image", "image": image},
-                                         {"type": "text", "text": VERIFIER_BIN_USER.format(code=wrap_python(code))}]},
-            {"role": "assistant", "content": [{"type": "text", "text": "yes"}]}]
+                                         {"type": "text", "text": user.format(code=wrap_python(code))}]},
+            {"role": "assistant", "content": [{"type": "text", "text": ans}]}]
     full = proc.apply_chat_template(msgs, add_generation_prompt=False, tokenize=False, **tmpl)
-    cut = full.rfind("yes<|im_end|>")
+    cut = full.rfind(ans + "<|im_end|>")
     assert cut > 0, full[-200:]
     text = full[:cut]
     assert text.endswith("<think>\n\n</think>\n\n"), repr(text[-60:])
@@ -117,6 +122,20 @@ def score_all(args, parts, images):
         imgs, vids = process_vision_info(msgs)
         enc = proc(text=texts, images=imgs, videos=vids, return_tensors="pt", padding=True)
         enc = {k: (v.to(model.device) if hasattr(v, "to") else v) for k, v in enc.items()}
+        if args.prompt_mode == "reg":
+            import re
+            with torch.no_grad():
+                gen = model.generate(**enc, max_new_tokens=6, do_sample=False,
+                                     pad_token_id=tok.pad_token_id or tok.eos_token_id)
+            texts_out = tok.batch_decode(gen[:, enc["input_ids"].shape[1]:], skip_special_tokens=True)
+            for (pi, j), t in zip(chunk, texts_out):
+                m = re.search(r"\d*\.?\d+", t)
+                v = float(m.group(0)) if m else 0.0
+                c = parts[pi]["cands"][j]
+                c["pred"], c["pred_maxvar"], c["p_yes"] = v, v, v
+            if (b // args.batch) % 20 == 0:
+                print(f"[vsel] {b + len(chunk)}/{len(todo)} e.g. {texts_out[0]!r}", flush=True)
+            continue
         with torch.no_grad():
             try:
                 out = model(**enc, use_cache=False, **kw_keep)
@@ -150,6 +169,9 @@ def medoid(idx, mat, tiebreak):
     return best
 
 
+GATES = (0.5, 0.8)
+
+
 def select(part, mat, K, topks):
     cs = part["cands"][:K]
     ex = [j for j, c in enumerate(cs) if c.get("exec") and "pred" in c]
@@ -157,7 +179,8 @@ def select(part, mat, K, topks):
     out = {}
     if not ex:
         return {name: 0.0 for name in ["first_exec", "vote", "verifier", "oracle", "hybrid"]
-                + [f"ver_top{k}_vote" for k in topks] + [f"vote_top{k}_ver" for k in topks]}
+                + [f"ver_top{k}_vote" for k in topks] + [f"vote_top{k}_ver" for k in topks]
+                + [f"ver_gate{t}" for t in GATES]}
     pred = {j: cs[j]["pred"] for j in ex}
     agree = {j: (np.mean([(mat[j][i] or 0.0) for i in ex if i != j]) if len(ex) > 1 else 0.0) for j in ex}
     out["first_exec"] = ious[ex[0]]
@@ -172,6 +195,9 @@ def select(part, mat, K, topks):
     from scipy.stats import rankdata
     rp = rankdata([pred[j] for j in ex]); ra = rankdata([agree[j] for j in ex])
     out["hybrid"] = ious[ex[int(np.argmax(rp + ra))]]
+    jv = max(ex, key=lambda j: pred[j])
+    for t in GATES:
+        out[f"ver_gate{t}"] = ious[jv] if cs[jv].get("p_yes", 0.0) >= t else out["vote"]
     return out
 
 
@@ -194,7 +220,7 @@ def main():
     ap.add_argument("--k", type=int, nargs="+", default=[8, 32])
     ap.add_argument("--topk", type=int, nargs="+", default=[4, 8])
     ap.add_argument("--batch", type=int, default=8)
-    ap.add_argument("--prompt-mode", default="bin", choices=["bin", "legacy"])
+    ap.add_argument("--prompt-mode", default="bin", choices=["bin", "legacy", "reg"])
     ap.add_argument("--no-model", action="store_true", help="reuse <out>.preds.json")
     ap.add_argument("--n", type=int, default=0, help="first n parts only (0 = all)")
     ap.add_argument("--out", required=True)
@@ -237,7 +263,8 @@ def main():
     split = json.load(open(args.split)) if args.split else {}
 
     names = ["first_exec", "vote", "verifier"] + [f"ver_top{k}_vote" for k in args.topk] + \
-            [f"vote_top{k}_ver" for k in args.topk] + ["hybrid", "oracle"]
+            [f"vote_top{k}_ver" for k in args.topk] + ["hybrid"] + \
+            [f"ver_gate{t}" for t in GATES] + ["oracle"]
     result = {"cands": args.cands, "verifier": args.verifier, "prompt_mode": args.prompt_mode,
               "n_parts": len(parts), "by_k": {}}
     lines = []
