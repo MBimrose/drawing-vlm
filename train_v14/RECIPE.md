@@ -688,3 +688,11 @@ gate < verifier on real parts and verifier < gate ≈ vote in-distribution is
 stable across every checkpoint); no seed replicate of v3b; the verifier is
 not yet wired into the serving chain (`bestofn_verifier_eval.py` still uses
 the mismatched legacy prompt).
+
+Full-pool in-distribution control of the real-part verifier (e51 K=8
+candidates, all 1,030 parts, v3b-final EV, 2026-09-06): first-exec 0.894 /
+76%, vote 0.917 / 81%, verifier-argmax 0.912 / 82%, agreement gate 0.7 → 0.915
+/ 81%, **gate 0.85 → 0.916 / 82%**, ceiling 0.947 / 90%. The gated policy is
+within noise of the vote in-distribution and +0.03-0.05 on real parts:
+serving candidate = e51 + best-of-8 + agreement-gated v3b-EV verifier.
+(results/vsel_v3bfinalev_e51_bo8full_all_summary.txt)
