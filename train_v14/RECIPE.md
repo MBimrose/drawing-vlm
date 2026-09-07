@@ -550,3 +550,141 @@ K=32 on the 146 real parts, by model: e45 0.512 / ceiling 0.612; e51 0.527 /
 gain ~0.02-0.03 on both at equal draws; the e51→e52 step is inside noise.
 e53 at K=32: vote 0.531 / 19%, ceiling 0.645 / 26% — e51/e52/e53 are one model
 on real parts at any K (vote 0.527-0.536, ceiling 0.639-0.645).
+
+## Real-part verifier (v3) — selection is the real-part lever (2026-09-06)
+
+Question: on the 146 held-out real parts the K=32 ceiling of e51 is 0.639 /
+29% while the consistency vote serves 0.527 / 17% and first-to-execute 0.470;
+can a verifier trained on real-part candidates pick the outliers the medoid
+misses? In-distribution verifiers (v1 regression, v2 binary) never beat the
+vote, but there the vote was already at 0.919 vs a 0.943 ceiling.
+
+**Dataset** (`train_v14/geom/pack_scored_real.py`, driver
+`pack_scored_real.sh` → `rft_scored_real/shards`, same member layout as
+`pack_scored_shards.py`): every scored candidate on the real-part corpora —
+corpus-1 best-of-8/16 (e40) and best-of-8 (e45), corpus-2 best-of-8 (e40),
+corpus-3 best-of-8 (e51) (merged JSONs copied from serv-19 to
+`mech/benchmarks/data/<corpus>/results/`), plus the four gt_feedback_gen
+passes (rft_gtfb_c1/c2, rft_plain_c1/c2). PNGs are the corpus sheets
+(rsynced `render/png`, one variant per key). 110,168 rows → 95 without code
+dropped, 13,332 duplicate scripts per part dropped (the K=16 run shares its
+first 8 draws with the K=8 run) → **96,741 candidates over 4,704 parts**;
+0 rows on held-out file_ids (verified). Balance: 75.5% execute, **9.4% ≥ 0.8,
+6.8% ≥ 0.85**, 1,536 parts have at least one positive — positives-light, so
+no subsampling (v1's collapse was on a positives-heavy pool). Split by part
+hash: 94,553 train (4,602 parts) / 2,188 eval (102 parts); 13 GB.
+
+**Models** (LoRA r64 on **e51 final**, the serving generator; v2 optimiser
+settings, 2500 steps, one H200 node ≈ 8.5 h each):
+- `v3-verifier-real` (job 10388737): binary yes/no at IoU ≥ 0.85, ranked by
+  logit(yes) − logit(no). Train loss 0.09 → 0.01-0.02 (over the whole
+  assistant turn); val/loss on the negatives-dominated eval slice saturates
+  at 0.0000 by step 1000 and is useless for checkpoint choice. best_adapter =
+  final (step 2500).
+- `v3b-verifier-real-reg` (job 10389493): same pool, v1 regression target
+  ("0.73" as text). Train loss 0.52 → 0.22-0.28 (0.229 at step 2500);
+  val/loss best 0.2816 at step 750 and 0.29-0.35 afterwards, so best_adapter
+  = step 750 — yet the final adapter selects slightly better (below):
+  val loss does not select verifiers either.
+
+**Scoring** (`train_v14/geom/verifier_select_offline.py`, one GPU, ~10 min
+per 3.5k candidates on an H200): the prompt is the exact training text
+(VERIFIER_BIN_USER / VERIFIER_USER + the `<think>\n\n</think>\n\n` assistant
+prefix the chat template inserts) and the logits are read at the answer
+position. `bestofn_verifier_eval.py`'s binary mode scored v2 with the
+regression prompt at the `<think>\n` position — a train/serve mismatch; the
+`--prompt-mode legacy` switch reproduces it. Regression verifiers are scored
+two ways: greedy decode of the number (`reg`, 2-decimal ties broken by draw
+order — half of the executing candidates decode to 0.00) and the **expected
+value** from one forward pass on prefix + "0." (`reg_ev`: p(first token = 1)
+plus the first-decimal digit distribution), which is continuous. Policies on
+identical stored candidates, K = first K draws; the vote reuses the stored
+pairwise-IoU matrices.
+
+146 held-out real parts, e51 candidates (`results/ext/bo32_ext_e51-…`), mean IoU / share ≥ 0.85:
+
+| selector (K=8 draws) | all | determinate (80) | underdet. (66) |
+|---|---|---|---|
+| first-exec | 0.463 / 12% | 0.542 / 19% | 0.367 / 5% |
+| consistency vote | 0.493 / 14% | 0.569 / 21% | 0.400 / 5% |
+| v2 binary (in-dist verifier, e24 base) argmax | 0.498 / 17% | 0.583 / 26% | 0.394 / 6% |
+| v3 binary final argmax | 0.505 / 18% | 0.590 / 28% | 0.401 / 8% |
+| v3b regression step 750, EV argmax | 0.527 / 18% | 0.611 / 26% | 0.426 / 8% |
+| v3b regression final (step 2500), EV argmax | **0.533 / 17%** | **0.614 / 25%** | **0.435 / 8%** |
+| v3b final EV, agreement gate 0.7 (vote if medoid agreement ≥ 0.7, else verifier) | 0.519 / 15% | 0.595 / 22% | 0.427 / 6% |
+| oracle (ceiling) | 0.573 / 21% | 0.649 / 32% | 0.480 / 8% |
+
+| selector (K=32 draws) | all | determinate (80) | underdet. (66) |
+|---|---|---|---|
+| first-exec | 0.468 / 12% | 0.552 / 19% | 0.367 / 5% |
+| consistency vote | 0.527 / 17% | 0.611 / 26% | 0.424 / 6% |
+| v2 binary argmax | 0.511 / 18% | 0.604 / 28% | 0.399 / 8% |
+| v3 binary final argmax | 0.527 / 21% | 0.605 / 30% | 0.433 / 9% |
+| v3 binary, top-4 then vote | 0.533 / 21% | 0.611 / 28% | — |
+| v3b regression step 250, greedy number | 0.542 / 21% | 0.636 / 31% | 0.429 / 8% |
+| v3b regression step 250, EV | 0.548 / 20% | 0.640 / 30% | 0.436 / 8% |
+| v3b regression step 750, EV argmax | 0.572 / 23% | 0.665 / 35% | 0.458 / 9% |
+| v3b step 750 EV, agreement gate 0.7 | 0.553 / 18% | 0.641 / 29% | 0.446 / 5% |
+| v3b step 750 EV, top-4 then vote | 0.555 / 18% | 0.642 / 26% | 0.449 / 9% |
+| v3b regression final (step 2500), EV argmax | **0.578 / 23%** | **0.669 / 31%** | **0.468 / 12%** |
+| v3b final EV, agreement gate 0.7 | 0.562 / 18% | 0.646 / 26% | 0.461 / 8% |
+| oracle (ceiling) | 0.639 / 29% | 0.711 / 40% | 0.550 / 15% |
+
+Verifier quality on the executing candidates (K=32, 3,537 candidates, 19.7% ≥ 0.8):
+
+| verifier | Spearman pooled | Spearman per part | AUROC ≥0.8 | AUROC ≥0.85 |
+|---|---|---|---|---|
+| v2 binary (synthetic pool, e24 base) | 0.709 | 0.273 | 0.900 | 0.902 |
+| v3 binary step 250 / 1000 / final | 0.736 / 0.730 / 0.785 | 0.271 / 0.262 / 0.313 | 0.934 / 0.933 / **0.956** | 0.948 / 0.943 / 0.965 |
+| v3b regression step 250 greedy / EV | 0.609 / 0.815 | 0.265 / 0.366 | 0.855 / 0.933 | 0.887 / 0.944 |
+| v3b regression step 750 EV | **0.874** | **0.475** | 0.954 | 0.959 |
+| v3b regression final EV | 0.873 | **0.521** | 0.946 | 0.955 |
+
+Reading: the binary verifiers are the better *classifiers* (AUROC 0.96 at
+≥ 0.8, up from 0.90 for the in-distribution v2) but cannot rank the wrong
+candidates among themselves (per-part Spearman ≈ 0.3), and 70% of the real
+parts have no candidate ≥ 0.85, so their argmax only lifts the ≥ 0.85 share
+(17 → 21%) and leaves the mean at the vote. The regression target ranks
+(per-part Spearman 0.52) and its expected-value argmax is the first selector
+that beats the vote on real parts at every K: **K=32 0.578 / 23% vs 0.527 /
+17% (46% of the vote→oracle gap), K=8 0.533 / 17% vs 0.493 / 14% (50%)** — a
+verifier at 8 draws beats the vote at 32. Step 750 → 2500 adds +0.006 at both
+K (same ≥ 0.85 share), so the checkpoint choice is not critical. Every hybrid (top-k then vote,
+vote then verifier, rank average, confidence gates) is worse than the plain
+verifier argmax on real parts. The greedy-decoded number is a weaker score
+than its expected value (0.542 vs 0.548 at step 250) because half the
+candidates decode to exactly 0.00.
+
+**In-distribution control** (300-part seeded random subset of e51's K=8
+full-pool candidates, `results/bo8_full_e51-…`, `--subset 300 --seed 0`;
+the subset's own first-exec / vote / oracle are 0.900 / 75%, 0.926 / 82%,
+0.952 / 90%, i.e. representative of the 1,030-pool 0.894 / 0.917 / 0.947):
+
+| selector (K=8) | v3b regression final, EV | v3b step 750, EV | v3 binary final |
+|---|---|---|---|
+| consistency vote | 0.926 / 82% | 0.926 / 82% | 0.926 / 82% |
+| verifier argmax | 0.911 / 81% | 0.911 / 81% | 0.914 / 81% |
+| verifier top-4 then vote | 0.923 / 82% | 0.922 / 82% | — |
+| vote top-4 then verifier | 0.920 / 83% | 0.923 / 83% | — |
+| agreement gate 0.7 | 0.922 / 82% | 0.921 / 82% | 0.924 / 82% |
+| verifier quality | Spearman 0.685 / per-part 0.271, AUROC 0.85 | 0.658 / 0.280, AUROC 0.83 | 0.586 / 0.284, AUROC 0.85 |
+| oracle | 0.952 / 90% | 0.952 / 90% | 0.952 / 90% |
+
+The real-part verifier does **not** hold the in-distribution vote on its own
+(−0.015 mean, −1 point ≥ 0.85; its AUROC drops to 0.83 on synthetic parts,
+whose candidates are 85% ≥ 0.8). The agreement gate — serve the medoid when
+its mean agreement is ≥ 0.7 (the confident, in-distribution-like case,
+AUROC 0.87 as a confidence signal), otherwise the verifier's argmax — keeps
+0.921-0.924 / 82% in-distribution and takes most of the real-part gain
+(0.519 vs 0.493 at K=8, 0.562 vs 0.527 at K=32). Verdict: **serve
+agreement-gated v3b-EV**: vote on parts the generator agrees on, verifier on
+the rest; or the plain verifier when the input is known to be a real part.
+Cost: one forward pass per executing candidate (~0.1 s on an H200), no
+generation.
+
+Left undone: threshold 0.7 and the top-k were picked on the same 146/300
+parts (a 2-point sweep, both directions reported; the ordering vote <
+gate < verifier on real parts and verifier < gate ≈ vote in-distribution is
+stable across every checkpoint); no seed replicate of v3b; the verifier is
+not yet wired into the serving chain (`bestofn_verifier_eval.py` still uses
+the mismatched legacy prompt).
