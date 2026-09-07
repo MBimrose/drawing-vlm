@@ -1,0 +1,16 @@
+
+K=8  (n=300; verifier: spearman pooled 0.586, per-part 0.284; AUROC iou>=0.8 0.847, >=0.85 0.815; 2088 scored, 85.2% >=0.8)
+policy           |             all
+first_exec       | 0.900 /  75%
+vote             | 0.926 /  82%
+verifier         | 0.914 /  81%
+ver_top4_vote    | 0.918 /  81%
+ver_top8_vote    | 0.926 /  82%
+vote_top4_ver    | 0.922 /  84%
+vote_top8_ver    | 0.915 /  82%
+hybrid           | 0.924 /  84%
+ver_gate0.5      | 0.923 /  82%
+ver_gate0.8      | 0.923 /  82%
+agree_gate0.7    | 0.924 /  82%
+agree_gate0.85   | 0.920 /  82%
+oracle           | 0.952 /  90%
