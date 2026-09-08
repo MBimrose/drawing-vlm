@@ -1,0 +1,187 @@
+{
+ "input": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/serve_test_e51/inputs/F_83938_d6cf9eca_0_medium.png",
+ "run": "e51-rft-real-u3-strict90",
+ "ckpt": "/dev/shm/bimrose2_10411837/base",
+ "verifier": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/v3b-verifier-real-reg/final",
+ "k": 8,
+ "temperature": 0.7,
+ "top_p": 0.95,
+ "gate": 0.85,
+ "n_exec": 7,
+ "pair_iou": [
+  [
+   null,
+   0.6265,
+   null,
+   0.4083,
+   0.5359,
+   0.974,
+   0.5172,
+   0.812
+  ],
+  [
+   0.6265,
+   null,
+   null,
+   0.4083,
+   0.5359,
+   0.6114,
+   0.5529,
+   0.4753
+  ],
+  [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   0.4083,
+   0.4083,
+   null,
+   null,
+   0.2922,
+   0.3977,
+   0.5486,
+   0.3139
+  ],
+  [
+   0.5359,
+   0.5359,
+   null,
+   0.2922,
+   null,
+   0.5174,
+   0.3276,
+   0.4803
+  ],
+  [
+   0.974,
+   0.6114,
+   null,
+   0.3977,
+   0.5174,
+   null,
+   0.5032,
+   0.7994
+  ],
+  [
+   0.5172,
+   0.5529,
+   null,
+   0.5486,
+   0.3276,
+   0.5032,
+   null,
+   0.3891
+  ],
+  [
+   0.812,
+   0.4753,
+   null,
+   0.3139,
+   0.4803,
+   0.7994,
+   0.3891,
+   null
+  ]
+ ],
+ "medoid": 0,
+ "agree_medoid": 0.64565,
+ "verifier_argmax": 0,
+ "policy": "verifier",
+ "chosen": 0,
+ "timing": {
+  "load_s": 78.49576044082642,
+  "gen_s_all": 220.15134835243225,
+  "exec_s_all": 73.4748752117157,
+  "pair_iou_s": 0.18944835662841797,
+  "verifier_s": 23.240098476409912
+ },
+ "candidates": [
+  {
+   "draw": 0,
+   "sampled": false,
+   "code": "from build123d import *\n\noverall_width = 80.0\noverall_height = 60.0\noverall_thickness = 15.0\npocket_width = 50.0\npocket_height = 45.0\npocket_depth = 10.0\nhole_diameter = 5.0\nhole_spacing = 30.0\nchamfer_distance = 1.0\n\nsolid_body = Box(overall_width, overall_thickness, overall_height)\n\npocket = Pos(0, -overall_thickness/2 + pocket_depth/2, 0) * Box(pocket_width, pocket_depth, pocket_height)\nsolid_body = solid_body - pocket\n\nfor x in [-hole_spacing/2, hole_spacing/2]:\n    solid_body = solid_body - Pos(x, 0, 0) * Cylinder(hole_diameter/2, overall_thickness)\n\nvertical_edges = solid_body.edges().filter_by(Axis.Z)\nsolid_body = chamfer(vertical_edges, chamfer_distance)\n\npart = solid_body\npart.name = \"WallMountBracket\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.64565,
+   "verifier": 0.720131129711404
+  },
+  {
+   "draw": 1,
+   "sampled": true,
+   "code": "from build123d import *\n\noverall_width = 80\noverall_height = 60\noverall_thickness = 15\npocket_width = 50\npocket_height = 45\npocket_depth = 10\nhole_diameter = 5\nhole_spacing = 30\nchamfer_distance = 1\n\nsolid_body = Box(overall_width, overall_thickness, overall_height)\n\npocket = Pos(0, overall_thickness/2 - pocket_depth/2, 0) * Box(pocket_width, pocket_depth, pocket_height)\nsolid_body = solid_body - pocket\n\nfor x in [-hole_spacing/2, hole_spacing/2]:\n    hole = Pos(x, 0, 0) * Cylinder(hole_diameter/2, overall_thickness + 1)\n    solid_body = solid_body - hole\n\nvertical_edges = solid_body.edges().filter_by(Axis.Z)\nsolid_body = chamfer(vertical_edges, chamfer_distance)\n\npart = solid_body\npart.name = \"WallMountBracket\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.53505,
+   "verifier": 0.45873840029075075
+  },
+  {
+   "draw": 2,
+   "sampled": true,
+   "code": "from build123d import *\n\noverall_width = 80.0\noverall_height = 60.0\noverall_thickness = 15.0\nflange_width = 10.0\nflange_thickness = 5.0\nweb_width = 50.0\nweb_height = 45.0\nhole_diameter = 5.0\nhole_spacing = 20.0\nchamfer_size = 0.5\n\nbase = Box(overall_width, overall_thickness, overall_height)\n\ntop_flange_cut = Pos(0, -overall_thickness/2 + flange_thickness/2, overall_height/2 - flange_width/2) * Box(overall_width, flange_thickness, flange_width)\nbottom_flange_cut = Pos(0, -overall_thickness/2 + flange_thickness/2, -overall_height/2 + flange_width/2) * Box(overall_width, flange_thickness, flange_width)\nweb_cut = Pos(0, -overall_thickness/2 + flange_thickness/2, 0) * Box(web_width, flange_thickness, web_height)\n\nsolid_body = base - top_flange_cut - bottom_flange_cut - web_cut\n\nfor x, z in [(-hole_spacing, 0), (0, 0), (hole_spacing, 0)]:\n    solid_body = solid_body - Pos(x, 0, z) * Cylinder(hole_diameter/2, overall_thickness + 10)\n\nsolid_body = chamfer(solid_body.edges().filter_by(Axis.Z), chamfer_size)\n\npart = solid_body\npart.name = \"flanged_plate_with_holes\"\nexport_step(part, \"output.step\")",
+   "exec": false,
+   "rc": 2,
+   "stderr_tail": "/drawing_vlm/.venv/lib/python3.12/site-packages/build123d/topology/three_d.py\", line 283, in chamfer\n    new_shape = self._make_3d_result(chamfer_builder.Shape())\n                                     ^^^^^^^^^^^^^^^^^^^^^^^\nOCP.OCP.StdFail.StdFail_NotDone: BRep_API: command not done\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/geom/exec_harness.py\", line 31, in main\n    exec(compile(code, \"<generated>\", \"exec\"), g)  # noqa: S102\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<generated>\", line 25, in <module>\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/build123d/operations_generic.py\", line 331, in chamfer\n    new_part = target.chamfer(length, length2, list(object_list), reference)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/build123d/topology/three_d.py\", line 287, in chamfer\n    raise ValueError(\nValueError: Failed creating a chamfer, try a smaller length value(s)\n",
+   "agree": null,
+   "verifier": null
+  },
+  {
+   "draw": 3,
+   "sampled": true,
+   "code": "from build123d import *\n\noverall_width = 80.0\noverall_height = 60.0\nflange_thickness = 5.0\nweb_thickness = 10.0\npocket_width = 50.0\npocket_height = 30.0\npocket_depth = 5.0\nhole_diameter = 5.0\nhole_spacing = 40.0\nchamfer_size = 1.0\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as sk:\n        with BuildLine() as bl:\n            Polyline(\n                (-overall_width/2, -overall_height/2),\n                (overall_width/2, -overall_height/2),\n                (overall_width/2, overall_height/2),\n                (-overall_width/2, overall_height/2),\n                close=True\n            )\n        make_face()\n    extrude(amount=flange_thickness)\n    with BuildSketch(Plane.XZ) as sk2:\n        with BuildLine() as bl2:\n            Polyline(\n                (-overall_width/2, -overall_height/2 + flange_thickness),\n                (overall_width/2, -overall_height/2 + flange_thickness),\n                (overall_width/2, overall_height/2 - flange_thickness),\n                (-overall_width/2, overall_height/2 - flange_thickness),\n                close=True\n            )\n        make_face()\n    extrude(amount=web_thickness)\n\nsolid_body = p.part\n\npocket = Pos(0, flange_thickness + web_thickness - pocket_depth/2, 0) * Box(pocket_width, pocket_depth, pocket_height)\nsolid_body = solid_body - pocket\n\nfor x in [-hole_spacing/2, hole_spacing/2]:\n    hole = Pos(x, (flange_thickness + web_thickness)/2, 0) * Cylinder(hole_diameter/2, flange_thickness + web_thickness + 10)\n    solid_body = solid_body - hole\n\ntop_face = solid_body.faces().sort_by(Axis.Y)[-1]\ntop_edges = top_face.edges()\nsolid_body = chamfer(top_edges, chamfer_size)\n\npart = solid_body\npart.name = \"flange_web_assembly\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.3948333333333333,
+   "verifier": 0.2916520484896621
+  },
+  {
+   "draw": 4,
+   "sampled": true,
+   "code": "from build123d import *\n\nplate_width = 80.0\nplate_height = 60.0\nplate_thickness = 5.0\nrib_width = 15.0\nrib_height = 10.0\npocket_width = 50.0\npocket_height = 45.0\npocket_depth = 5.0\nhole_diameter = 5.0\nhole_counterbore_diameter = 9.0\nhole_counterbore_depth = 2.5\nhole_spacing = 30.0\nchamfer_size = 0.8\n\nbase = Box(plate_width, plate_thickness, plate_height)\nrib_top = Pos(0, 0, plate_height/2 - rib_height/2) * Box(plate_width, rib_width, rib_height)\nrib_bottom = Pos(0, 0, -plate_height/2 + rib_height/2) * Box(plate_width, rib_width, rib_height)\nsolid_body = base + rib_top + rib_bottom\n\npocket = Pos(0, plate_thickness/2 - pocket_depth/2, 0) * Box(pocket_width, pocket_depth, pocket_height)\nsolid_body = solid_body - pocket\n\nhole_positions = [(-hole_spacing, 0), (0, 0), (hole_spacing, 0)]\nfor x, y in hole_positions:\n    cbore = Pos(x, plate_thickness/2 - hole_counterbore_depth/2, y) * Cylinder(hole_counterbore_diameter/2, hole_counterbore_depth)\n    shaft = Pos(x, plate_thickness/2 - pocket_depth/2, y) * Cylinder(hole_diameter/2, pocket_depth)\n    solid_body = solid_body - cbore - shaft\n\npart = solid_body\npart.name = \"WallMountPlate\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.4482166666666667,
+   "verifier": 0.2324805967454427
+  },
+  {
+   "draw": 5,
+   "sampled": true,
+   "code": "from build123d import *\n\nbracket_width = 80.0\nbracket_height = 60.0\nbracket_thickness = 15.0\nwall_thickness = 5.0\npocket_width = 50.0\npocket_height = 45.0\npocket_depth = 10.0\nhole_diameter = 5.0\nhole_clearance = 6.0\nhole_cbore_diameter = 8.0\nhole_cbore_depth = 3.0\nhole_spacing = 30.0\n\nbase = Box(bracket_width, bracket_thickness, bracket_height)\npocket = Pos(0, -bracket_thickness/2 + pocket_depth/2, 0) * Box(pocket_width, pocket_depth, pocket_height)\nresult = base - pocket\n\nfor x, y in [(-hole_spacing/2, 0), (hole_spacing/2, 0)]:\n    result = result - Pos(x, y, bracket_height/2 - hole_cbore_depth/2) * Cylinder(hole_cbore_diameter/2, hole_cbore_depth)\n    result = result - Pos(x, y, 0) * Cylinder(hole_clearance/2, bracket_height + 10)\n\npart = result\npart.name = \"bracket\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.63385,
+   "verifier": 0.6880360434409255
+  },
+  {
+   "draw": 6,
+   "sampled": true,
+   "code": "from build123d import *\n\noverall_width = 80.0\noverall_height = 60.0\nflange_thickness = 5.0\nweb_thickness = 5.0\ndepth = 15.0\nslot_width = 10.0\nslot_length = 30.0\nslot_offset = 20.0\nmount_hole_diameter = 5.0\nmount_hole_spacing = 30.0\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as sk:\n        with BuildLine() as bl:\n            Polyline(\n                (-overall_width/2, -overall_height/2),\n                (overall_width/2, -overall_height/2),\n                (overall_width/2, -overall_height/2 + flange_thickness),\n                (overall_width/2 - web_thickness, -overall_height/2 + flange_thickness),\n                (overall_width/2 - web_thickness, overall_height/2 - flange_thickness),\n                (overall_width/2, overall_height/2 - flange_thickness),\n                (overall_width/2, overall_height/2),\n                (-overall_width/2, overall_height/2),\n                (-overall_width/2, overall_height/2 - flange_thickness),\n                (-overall_width/2 + web_thickness, overall_height/2 - flange_thickness),\n                (-overall_width/2 + web_thickness, -overall_height/2 + flange_thickness),\n                (-overall_width/2, -overall_height/2 + flange_thickness),\n                close=True\n            )\n        make_face()\n    extrude(amount=depth)\n\nsolid_body = p.part\n\nslot_box = Box(slot_length, slot_width, depth)\nsolid_body = solid_body - Pos(-slot_offset, 0, overall_height/2 - depth/2) * slot_box\nsolid_body = solid_body - Pos(slot_offset, 0, overall_height/2 - depth/2) * slot_box\n\nhole_cyl = Cylinder(mount_hole_diameter/2, depth)\nsolid_body = solid_body - Pos(-mount_hole_spacing/2, 0, -overall_height/2 + depth/2) * hole_cyl\nsolid_body = solid_body - Pos(mount_hole_spacing/2, 0, -overall_height/2 + depth/2) * hole_cyl\n\npart = solid_body\npart.name = \"channel_with_slots_and_holes\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.4731,
+   "verifier": 0.4747737034526239
+  },
+  {
+   "draw": 7,
+   "sampled": true,
+   "code": "from build123d import *\n\noverall_width = 80.0\noverall_height = 60.0\noverall_thickness = 15.0\nwall_thickness = 5.0\nflange_thickness = overall_thickness / 2.0\nchannel_depth = overall_thickness - wall_thickness\nchannel_width = overall_width - 2 * wall_thickness\nchannel_height = overall_height - 2 * flange_thickness\nmount_hole_diameter = 4.0\nmount_hole_spacing = 30.0\nmount_hole_offset_y = overall_height / 2.0 - flange_thickness / 2.0\n\nbase = Box(overall_width, overall_thickness, overall_height)\nchannel_cut = Pos(0, -overall_thickness/2 + channel_depth/2, 0) * Box(channel_width, channel_depth, channel_height)\nresult = base - channel_cut\n\nhole_r = mount_hole_diameter / 2\nhole_h = overall_thickness + 10\nfor x in [-mount_hole_spacing/2, mount_hole_spacing/2]:\n    result = result - Pos(x, 0, overall_height/2) * Cylinder(hole_r, hole_h)\n\npart = result\npart.name = \"channel_block\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.545,
+   "verifier": 0.6823279063755446
+  }
+ ]
+}

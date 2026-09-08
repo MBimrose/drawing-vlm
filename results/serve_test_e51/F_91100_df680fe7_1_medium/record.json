@@ -1,0 +1,187 @@
+{
+ "input": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/serve_test_e51/inputs/F_91100_df680fe7_1_medium.png",
+ "run": "e51-rft-real-u3-strict90",
+ "ckpt": "/dev/shm/bimrose2_10411837/base",
+ "verifier": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/v3b-verifier-real-reg/final",
+ "k": 8,
+ "temperature": 0.7,
+ "top_p": 0.95,
+ "gate": 0.85,
+ "n_exec": 8,
+ "pair_iou": [
+  [
+   null,
+   0.867,
+   0.9986,
+   0.9993,
+   1.0,
+   1.0,
+   1.0,
+   0.9988
+  ],
+  [
+   0.867,
+   null,
+   0.8678,
+   0.8664,
+   0.867,
+   0.867,
+   0.867,
+   0.8659
+  ],
+  [
+   0.9986,
+   0.8678,
+   null,
+   0.9979,
+   0.9986,
+   0.9986,
+   0.9986,
+   0.9974
+  ],
+  [
+   0.9993,
+   0.8664,
+   0.9979,
+   null,
+   0.9993,
+   0.9993,
+   0.9993,
+   0.9991
+  ],
+  [
+   1.0,
+   0.867,
+   0.9986,
+   0.9993,
+   null,
+   1.0,
+   1.0,
+   0.9988
+  ],
+  [
+   1.0,
+   0.867,
+   0.9986,
+   0.9993,
+   1.0,
+   null,
+   1.0,
+   0.9988
+  ],
+  [
+   1.0,
+   0.867,
+   0.9986,
+   0.9993,
+   1.0,
+   1.0,
+   null,
+   0.9988
+  ],
+  [
+   0.9988,
+   0.8659,
+   0.9974,
+   0.9991,
+   0.9988,
+   0.9988,
+   0.9988,
+   null
+  ]
+ ],
+ "medoid": 0,
+ "agree_medoid": 0.9805285714285714,
+ "verifier_argmax": null,
+ "policy": "vote",
+ "chosen": 0,
+ "timing": {
+  "load_s": 78.49576044082642,
+  "gen_s_all": 220.15134835243225,
+  "exec_s_all": 73.4748752117157,
+  "pair_iou_s": 0.33750057220458984,
+  "verifier_s": 0.0
+ },
+ "candidates": [
+  {
+   "draw": 0,
+   "sampled": false,
+   "code": "from build123d import *\n\nouter_diameter = 80.0\nthickness = 7.3\nslot_length = 50.0\nslot_width = 7.3\nslot_depth = 3.6\n\nwith BuildPart() as p:\n    with BuildSketch() as s:\n        Circle(outer_diameter / 2)\n    extrude(amount=thickness)\n\nsolid_body = p.part\n\nwith BuildPart() as slot_p:\n    with BuildSketch() as slot_s:\n        SlotOverall(slot_length, slot_width)\n    extrude(amount=slot_depth)\n\nslot_solid = Pos(0, 0, thickness - slot_depth) * slot_p.part\nsolid_body = solid_body - slot_solid\n\npart = solid_body\npart.name = \"cylinder_with_slot\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9805285714285714,
+   "verifier": null
+  },
+  {
+   "draw": 1,
+   "sampled": true,
+   "code": "from build123d import *\n\nouter_diameter = 80.0\ninner_diameter = 30.0\nthickness = 8.0\nslot_length = 50.0\nslot_width = 6.0\nchamfer_distance = 0.5\npocket_width = 20.0\npocket_length = 30.0\npocket_depth = 2.0\n\nwith BuildPart() as p:\n    with BuildSketch() as s:\n        Circle(outer_diameter / 2)\n        Circle(inner_diameter / 2)\n    extrude(amount=thickness)\n\nsolid_body = p.part\n\nwith BuildPart() as slot_p:\n    with BuildSketch() as slot_s:\n        SlotOverall(slot_length, slot_width)\n    extrude(amount=thickness * 2)\nsolid_body = solid_body - slot_p.part\n\nwith BuildPart() as pocket_p:\n    with BuildSketch() as pocket_s:\n        Rectangle(pocket_width, pocket_length)\n    extrude(amount=pocket_depth)\nsolid_body = solid_body - Pos(0, 0, thickness - pocket_depth) * pocket_p.part\n\nvertical_edges = solid_body.edges().filter_by(Axis.Z)\nsolid_body = chamfer(vertical_edges, chamfer_distance)\n\npart = solid_body\npart.name = \"ring_with_slot_and_pocket\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.8668714285714286,
+   "verifier": null
+  },
+  {
+   "draw": 2,
+   "sampled": true,
+   "code": "from build123d import *\n\nouter_diameter = 80.0\nthickness = 7.3\nslot_length = 50.0\nslot_width = 7.0\nslot_depth = 3.6\n\nwith BuildPart() as p:\n    with BuildSketch() as s:\n        Circle(outer_diameter / 2)\n    extrude(amount=thickness)\n\nsolid_body = p.part\n\nwith BuildPart() as slot_p:\n    with BuildSketch() as slot_s:\n        SlotOverall(slot_length, slot_width)\n    extrude(amount=slot_depth)\n\nslot_solid = Pos(0, 0, thickness - slot_depth) * slot_p.part\nsolid_body = solid_body - slot_solid\n\npart = solid_body\npart.name = \"cylinder_with_slot\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9796428571428571,
+   "verifier": null
+  },
+  {
+   "draw": 3,
+   "sampled": true,
+   "code": "from build123d import *\n\nwith BuildPart() as p:\n    with BuildSketch() as s:\n        Circle(40)\n    extrude(amount=7.3)\n    \n    with BuildSketch(Plane.XY.offset(7.3)) as s2:\n        SlotOverall(50.9, 7.3)\n    extrude(amount=-3.6, mode=Mode.SUBTRACT)\n\npart = p.part\npart.name = \"cylinder_with_slot\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9800857142857142,
+   "verifier": null
+  },
+  {
+   "draw": 4,
+   "sampled": true,
+   "code": "from build123d import *\n\nouter_diameter = 80.0\nthickness = 7.3\nslot_length = 50.0\nslot_width = 7.3\nslot_depth = 3.6\n\nwith BuildPart() as p:\n    with BuildSketch() as s:\n        Circle(outer_diameter / 2)\n    extrude(amount=thickness)\n    \n    with BuildSketch(Plane.XY.offset(thickness)) as s2:\n        SlotOverall(slot_length, slot_width)\n    extrude(amount=-slot_depth, mode=Mode.SUBTRACT)\n\npart = p.part\npart.name = \"cylinder_with_slot\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9805285714285714,
+   "verifier": null
+  },
+  {
+   "draw": 5,
+   "sampled": true,
+   "code": "from build123d import *\n\nouter_diameter = 80.0\nthickness = 7.3\nslot_width = 7.3\nslot_length = 50.0\nslot_depth = 3.6\n\nwith BuildPart() as p:\n    with BuildSketch() as s:\n        Circle(outer_diameter / 2)\n    extrude(amount=thickness)\n\nsolid_body = p.part\n\nwith BuildPart() as slot_p:\n    with BuildSketch() as slot_s:\n        SlotOverall(slot_length, slot_width)\n    extrude(amount=slot_depth)\n\nslot_solid = Pos(0, 0, thickness - slot_depth) * slot_p.part\nsolid_body = solid_body - slot_solid\n\npart = solid_body\npart.name = \"cylinder_with_slot\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9805285714285714,
+   "verifier": null
+  },
+  {
+   "draw": 6,
+   "sampled": true,
+   "code": "from build123d import *\n\nouter_diameter = 80.0\nthickness = 7.3\nslot_length = 50.0\nslot_width = 7.3\nslot_depth = 3.6\ncorner_radius = 2.0\n\nwith BuildPart() as p:\n    with BuildSketch() as s:\n        Circle(outer_diameter / 2)\n    extrude(amount=thickness)\n\nsolid_body = p.part\n\nwith BuildPart() as slot_p:\n    with BuildSketch() as slot_s:\n        SlotOverall(slot_length, slot_width)\n    extrude(amount=slot_depth)\n\nslot_solid = Pos(0, 0, thickness - slot_depth) * slot_p.part\nsolid_body = solid_body - slot_solid\n\npart = solid_body\npart.name = \"cylinder_with_slot\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9805285714285714,
+   "verifier": null
+  },
+  {
+   "draw": 7,
+   "sampled": true,
+   "code": "from build123d import *\n\nouter_diameter = 80.0\nthickness = 7.3\nslot_width = 7.3\nslot_length = 50.0\nslot_depth = 3.6\n\nbase = Cylinder(outer_diameter / 2, thickness)\nslot = Pos(0, 0, thickness / 2 - slot_depth / 2) * Box(slot_length, slot_width, slot_depth)\npart = base - slot\npart.name = \"cylinder_with_slot\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9796571428571428,
+   "verifier": null
+  }
+ ]
+}

@@ -100,6 +100,41 @@ def build_prompt(proc, image, code, mode, vcfg):
     return msgs[:-1], text
 
 
+def reg_ev_scores(model, proc, images, codes, vcfg, batch=8, log=print):
+    """Expected-value score of a REGRESSION verifier for aligned (image, code)
+    pairs: one forward pass on the training prompt + assistant prefix + "0.",
+    p(first token = "1") + p("0") * E[first decimal digit + 0.05]. Shared by
+    the offline study (reg_ev mode) and serve.py; `model` may be a PeftModel
+    with the verifier adapter active. Returns a list of floats."""
+    import torch
+    from qwen_vl_utils import process_vision_info
+    tok = proc.tokenizer
+    d_ids = [tok.encode(str(d), add_special_tokens=False)[0] for d in range(10)]
+    out_scores = []
+    for b in range(0, len(codes), batch):
+        msgs, texts = [], []
+        for image, code in zip(images[b:b + batch], codes[b:b + batch]):
+            m, t = build_prompt(proc, image, code, "reg_ev", vcfg)
+            msgs.append(m); texts.append(t)
+        imgs, vids = process_vision_info(msgs)
+        enc = proc(text=texts, images=imgs, videos=vids, return_tensors="pt", padding=True)
+        enc = {k: (v.to(model.device) if hasattr(v, "to") else v) for k, v in enc.items()}
+        with torch.no_grad():
+            try:
+                out = model(**enc, use_cache=False, logits_to_keep=3)
+            except TypeError:
+                out = model(**enc, use_cache=False)
+        lg = out.logits.float()
+        for row in range(len(texts)):
+            first = torch.softmax(lg[row, -3, [d_ids[0], d_ids[1]]], 0)   # after "\n\n": "0" vs "1"
+            dec = torch.softmax(lg[row, -1, d_ids], 0)                     # after "0.": first decimal
+            ev = first[1].item() + first[0].item() * sum(dec[d].item() * (d / 10 + 0.05) for d in range(10))
+            out_scores.append(ev)
+        if log and (b // batch) % 20 == 0:
+            log(f"[vsel] {b + len(texts)}/{len(codes)} ev e.g. {out_scores[-1]:.3f}")
+    return out_scores
+
+
 def score_all(args, parts, images):
     import torch
     from qwen_vl_utils import process_vision_info
@@ -118,6 +153,14 @@ def score_all(args, parts, images):
     todo = [(pi, j) for pi, p in enumerate(parts) for j, c in enumerate(p["cands"])
             if c.get("exec") and c.get("code")]
     print(f"[vsel] scoring {len(todo)} executing candidates, mode={args.prompt_mode}, batch={args.batch}", flush=True)
+    if args.prompt_mode == "reg_ev":
+        evs = reg_ev_scores(model, proc, [images[parts[pi]["key"]] for pi, _ in todo],
+                            [parts[pi]["cands"][j]["code"] for pi, j in todo], vcfg, batch=args.batch,
+                            log=lambda m: print(m, flush=True))
+        for (pi, j), ev in zip(todo, evs):
+            c = parts[pi]["cands"][j]
+            c["pred"], c["pred_maxvar"], c["p_yes"] = ev, ev, ev
+        todo = []
     kw_keep = {"logits_to_keep": 1}
     for b in range(0, len(todo), args.batch):
         chunk = todo[b:b + args.batch]
@@ -129,23 +172,6 @@ def score_all(args, parts, images):
         imgs, vids = process_vision_info(msgs)
         enc = proc(text=texts, images=imgs, videos=vids, return_tensors="pt", padding=True)
         enc = {k: (v.to(model.device) if hasattr(v, "to") else v) for k, v in enc.items()}
-        if args.prompt_mode == "reg_ev":
-            with torch.no_grad():
-                try:
-                    out = model(**enc, use_cache=False, logits_to_keep=3)
-                except TypeError:
-                    out = model(**enc, use_cache=False)
-            lg = out.logits.float()
-            d_ids = [tok.encode(str(d), add_special_tokens=False)[0] for d in range(10)]
-            for row, (pi, j) in enumerate(chunk):
-                first = torch.softmax(lg[row, -3, [d_ids[0], d_ids[1]]], 0)   # after "\n\n": "0" vs "1"
-                dec = torch.softmax(lg[row, -1, d_ids], 0)                     # after "0.": first decimal
-                ev = first[1].item() + first[0].item() * sum(dec[d].item() * (d / 10 + 0.05) for d in range(10))
-                c = parts[pi]["cands"][j]
-                c["pred"], c["pred_maxvar"], c["p_yes"] = ev, ev, ev
-            if (b // args.batch) % 20 == 0:
-                print(f"[vsel] {b + len(chunk)}/{len(todo)} ev e.g. {ev:.3f}", flush=True)
-            continue
         if args.prompt_mode == "reg":
             import re
             with torch.no_grad():

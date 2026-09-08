@@ -2,15 +2,17 @@
 
 Called as a subprocess by the eval worker / GT builder:
 
-    python exec_harness.py <code.py> <out.stl>
+    python exec_harness.py <code.py> <out.stl> [<out.step>]
 
 Runs the script in a temp cwd (so `export_step(part, "output.step")` lands
-there), then loads output.step with build123d and writes a tessellated STL.
+there), then loads output.step with build123d and writes a tessellated STL;
+with a third argument the STEP file itself is also copied there (serving).
 Exit codes: 0 ok, 2 exec error, 3 no/empty STEP, 4 mesh error.
 """
 from __future__ import annotations
 
 import os
+import shutil
 import sys
 import tempfile
 import traceback
@@ -18,6 +20,7 @@ import traceback
 
 def main() -> int:
     code_path, out_stl = sys.argv[1], sys.argv[2]
+    out_step = sys.argv[3] if len(sys.argv) > 3 else None
     with open(code_path, encoding="utf-8", errors="replace") as f:
         code = f.read()
 
@@ -35,6 +38,8 @@ def main() -> int:
         if not os.path.exists(step) or os.path.getsize(step) == 0:
             print("no output.step produced", file=sys.stderr)
             return 3
+        if out_step:
+            shutil.copyfile(step, out_step)
         try:
             from build123d import Mesher, import_step
             shape = import_step(step)

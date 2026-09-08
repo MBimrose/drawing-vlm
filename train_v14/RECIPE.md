@@ -696,3 +696,72 @@ candidates, all 1,030 parts, v3b-final EV, 2026-09-06): first-exec 0.894 /
 within noise of the vote in-distribution and +0.03-0.05 on real parts:
 serving candidate = e51 + best-of-8 + agreement-gated v3b-EV verifier.
 (results/vsel_v3bfinalev_e51_bo8full_all_summary.txt)
+
+## Serving policy — agreement-gated verifier, wired end to end (2026-09-07)
+
+The served selection is now **e51 best-of-8 + agreement gate 0.85 + v3b-EV
+verifier**: execute the 8 draws, take the consistency medoid if its mean
+pairwise IoU with the other executing candidates is ≥ 0.85, otherwise score
+every executing candidate with `v3b-verifier-real-reg/final` (expected IoU,
+`reg_ev`) and serve the argmax. Every eval chain reports it.
+
+**Files**
+- `train_v14/geom/gated_select.py` — CPU, idempotent: merged candidates +
+  `_consistency.json` (pair_iou) + verifier preds (`<vsel>.preds.json`) →
+  per-part picks for first_exec / vote / verifier / gate0.85 / gate0.7 /
+  oracle, metrics (mean, median, ≥0.85, ≥0.5; determinate / underdetermined /
+  F / A slices with `--split`), branch shares; `<stem>_gated.json` +
+  `_gated_summary.txt`. Same arithmetic as `verifier_select_offline.select()`.
+- `train_v14/geom/gated_step.sh` — the chain step: `verifier_select_offline.py
+  --prompt-mode reg_ev` on one GPU (base staged to /dev/shm with
+  `STAGE_SHM=1`; skipped when `<stem>_vsel.json.preds.json` exists) then
+  `gated_select.py`. Called by `sbatch/bo8_ext_cluster.sbatch`,
+  `sbatch/boK_ext_cluster.sbatch` (after consistency_rerank, GPU 0) and by
+  `serv19/run_bo8_full_generic.sh` (`results/bo8_full_<run>_gated.json`;
+  serv-19 holds the adapter at `runs/v3b-verifier-real-reg/final` and
+  `configs/v3b-verifier-real-reg.yaml` with the serv-19 e51 path).
+  `sbatch/gated_step.sbatch` runs it on an existing candidate file.
+- `mech/benchmarks/analyze_ext.py` — prints a `gated` column (gate0.85)
+  between consistency and oracle when `<stem>_gated.json` exists; the
+  in-distribution reference row is now e51's full pool.
+- `train_v14/geom/serve.py` (+ `sbatch/serve.sbatch`) — single drawing or a
+  directory of PNGs on one GPU: e51 loaded once, the verifier LoRA on top
+  (PEFT adapter disabled for generation, enabled for scoring), K=8 (draw 0
+  greedy, 7 at T=0.7 / top_p 0.95, `run_config('e51-rft-real-u3-strict90')`
+  prompts), execution via `exec_harness.py` (now also emits the STEP), pairwise
+  IoU + medoid, gate, verifier EV only when the gate fails; writes
+  `<out>/<stem>/chosen.py`, `chosen.step`, `record.json` (all candidates,
+  agreement matrix, verifier scores, branch, timings) and
+  `serve_summary.json`.
+- `verifier_select_offline.reg_ev_scores()` is the shared EV scorer (the
+  offline study's `reg_ev` mode delegates to it; numbers unchanged).
+
+**Regression** (`gated_select.py` on the stored e51 candidates + cached
+preds, max |diff| vs `verifier_select_offline` 1e-16, 0 per-part mismatches):
+146 real parts K=8 vote 0.493 / 14%, verifier **0.533 / 17%**, gate0.85
+0.530 / 16%; K=32 vote 0.527 / 17%, verifier **0.578 / 23%**, gate0.85 0.575 /
+21% (`results/ext/bo32_ext_e51-…_gated.json`); full pool K=8 vote 0.917 / 81%,
+**gate0.85 0.916 / 82%**, verifier 0.912 / 82% (`results/bo8_full_e51-…_gated.json`).
+The same step re-run on serv-19 (B300, its own e51 copy) gives gate0.85 0.915
+/ 82%, verifier 0.911 / 81% (`…_gated_serv19_summary.txt`) — bf16 hardware
+noise of 0.001.
+
+**Chain check on other generators** (verifier trained on e51 candidates;
+`gated_step.sbatch`, ~9 min per 146-part K=8 file incl. staging): e53 K=8
+vote 0.503 / 18% → gate0.85 **0.529 / 18%** (verifier 0.531 / 19%, oracle
+0.581); e52 K=8 vote 0.510 / 17% → gate0.85 **0.543 / 21%** (verifier 0.549 /
+23%, oracle 0.587). Verifier AUROC ≥0.8 on their candidates 0.95 — it
+transfers across the real-tier generators.
+
+**serve.py test** (job 10411837, ccc0474, one H200, `results/serve_test_e51/`):
+three held-out real drawings decoded from `ext_bench/eval_cache_v14.pkl`.
+Weights staged to /dev/shm in 2 min, models loaded in 78 s, 24 draws in 220 s,
+execution 73 s, pairwise IoU < 0.5 s per part, verifier scoring 23 s for the
+one part that needed it. Both branches ran: `F_56494_0f3437d4_3_medium`
+(8/8 executed, medoid agreement 0.950 → vote, served IoU 1.000 vs GT) and
+`F_91100_df680fe7_1_medium` (8/8, 0.981 → vote, 0.995); `F_83938_d6cf9eca_0_medium`
+(7/8, 0.646 → verifier argmax, EV 0.72 vs 0.23-0.69 for the rest, served
+0.676 = the oracle of its 7 candidates; the offline gate on the stored e51
+draws also fell to the verifier there, 0.660 vs the vote's 0.413). Served
+picks are the oracle of their own candidate sets on all three; the offline
+picks on the stored candidates took the same branch for every key.

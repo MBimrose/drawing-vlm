@@ -12,7 +12,7 @@
 #SBATCH --output=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/logs/slurm/%x-%j.out
 #SBATCH --error=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/logs/slurm/%x-%j.err
 # External bench at arbitrary K: sbatch --export=ALL,RUN=<run>,K=32 (outputs results/ext/bo<K>_ext_<run>*)
-# consistency for runs/$RUN/final on one H200 node.   sbatch --export=ALL,RUN=<run> ...
+# consistency + gated verifier selection for runs/$RUN/final on one H200 node.   sbatch --export=ALL,RUN=<run> ...
 set -uo pipefail
 DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm
 source $DV/.venv/bin/activate; source $DV/train_v14/env.sh
@@ -27,4 +27,7 @@ done
 wait
 python $G/merge_bo_shards.py $DV/results/ext/bo${K:-8}_ext_$R.json $DV/results/ext/bo${K:-8}_ext_$R.shard?.json > $DV/logs/bo8/bo${K:-8}_ext_${R}_merge.log 2>&1
 [ -f $DV/results/ext/bo${K:-8}_ext_$R.json ] && python $G/consistency_rerank.py $DV/results/ext/bo${K:-8}_ext_$R.json $DV/results/ext/bo${K:-8}_ext_${R}_consistency.json > $DV/logs/bo8/bo${K:-8}_ext_${R}_consistency.log 2>&1
-python $DV/train_v14/mech/benchmarks/analyze_ext.py $DV/results/ext/bo${K:-8}_ext_${R}_consistency.json > $DV/results/ext/bo${K:-8}_ext_${R}_summary.txt 2>&1 || true
+# Served policy: verifier scoring (one GPU, base staged in /dev/shm) + agreement-gated selection.
+STAGE_SHM=1 CUDA_VISIBLE_DEVICES=0 bash $G/gated_step.sh $DV/results/ext/bo${K:-8}_ext_$R.json $DV/results/ext/bo${K:-8}_ext_${R}_consistency.json \
+  $B/eval_cache_v14.pkl ${K:-8} $B/split.json > $DV/logs/bo8/bo${K:-8}_ext_${R}_gated.log 2>&1
+python $DV/train_v14/mech/benchmarks/analyze_ext.py $DV/results/ext/bo${K:-8}_ext_${R}_consistency.json --gated $DV/results/ext/bo${K:-8}_ext_${R}_gated.json > $DV/results/ext/bo${K:-8}_ext_${R}_summary.txt 2>&1 || true

@@ -1,0 +1,187 @@
+{
+ "input": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/serve_test_e51/inputs/F_56494_0f3437d4_3_medium.png",
+ "run": "e51-rft-real-u3-strict90",
+ "ckpt": "/dev/shm/bimrose2_10411837/base",
+ "verifier": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/v3b-verifier-real-reg/final",
+ "k": 8,
+ "temperature": 0.7,
+ "top_p": 0.95,
+ "gate": 0.85,
+ "n_exec": 8,
+ "pair_iou": [
+  [
+   null,
+   1.0,
+   0.9993,
+   0.8914,
+   0.8689,
+   1.0,
+   1.0,
+   0.8902
+  ],
+  [
+   1.0,
+   null,
+   0.9993,
+   0.8914,
+   0.8689,
+   1.0,
+   1.0,
+   0.8902
+  ],
+  [
+   0.9993,
+   0.9993,
+   null,
+   0.8908,
+   0.8682,
+   0.9993,
+   0.9993,
+   0.8896
+  ],
+  [
+   0.8914,
+   0.8914,
+   0.8908,
+   null,
+   0.8914,
+   0.8914,
+   0.8914,
+   0.9988
+  ],
+  [
+   0.8689,
+   0.8689,
+   0.8682,
+   0.8914,
+   null,
+   0.8689,
+   0.8689,
+   0.8902
+  ],
+  [
+   1.0,
+   1.0,
+   0.9993,
+   0.8914,
+   0.8689,
+   null,
+   1.0,
+   0.8902
+  ],
+  [
+   1.0,
+   1.0,
+   0.9993,
+   0.8914,
+   0.8689,
+   1.0,
+   null,
+   0.8902
+  ],
+  [
+   0.8902,
+   0.8902,
+   0.8896,
+   0.9988,
+   0.8902,
+   0.8902,
+   0.8902,
+   null
+  ]
+ ],
+ "medoid": 0,
+ "agree_medoid": 0.9499714285714286,
+ "verifier_argmax": null,
+ "policy": "vote",
+ "chosen": 0,
+ "timing": {
+  "load_s": 78.49576044082642,
+  "gen_s_all": 220.15134835243225,
+  "exec_s_all": 73.4748752117157,
+  "pair_iou_s": 0.4068906307220459,
+  "verifier_s": 0.0
+ },
+ "candidates": [
+  {
+   "draw": 0,
+   "sampled": false,
+   "code": "from build123d import *\n\nhex_radius = 40\nhex_height = 24\nhole_radius = 12\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as s:\n        RegularPolygon(hex_radius, 6)\n    extrude(amount=hex_height)\n\nsolid_body = p.part\nhole = Rot(90, 0, 0) * Cylinder(hole_radius, hex_height * 2)\nsolid_body = solid_body - hole\n\npart = solid_body\npart.name = \"hex_prism_with_hole\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9499714285714286,
+   "verifier": null
+  },
+  {
+   "draw": 1,
+   "sampled": true,
+   "code": "from build123d import *\n\nhex_radius = 40.0\nplate_thickness = 24.0\ncentral_hole_radius = 12.0\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as s:\n        RegularPolygon(hex_radius, 6)\n    extrude(amount=plate_thickness)\n\nsolid_body = p.part\nhole = Rot(90, 0, 0) * Cylinder(central_hole_radius, plate_thickness * 2)\nsolid_body = solid_body - hole\n\npart = solid_body\npart.name = \"hexagonal_plate_with_hole\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9499714285714286,
+   "verifier": null
+  },
+  {
+   "draw": 2,
+   "sampled": true,
+   "code": "from build123d import *\n\nouter_radius = 40.0\nthickness = 24.0\ncentral_hole_radius = 12.0\nchamfer_distance = 1.0\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as sk:\n        RegularPolygon(outer_radius, 6)\n    extrude(amount=thickness)\n\nsolid_body = p.part\nsolid_body = solid_body - Rot(90, 0, 0) * Cylinder(central_hole_radius, thickness * 2)\nvertical_edges = solid_body.edges().filter_by(Axis.Y)\nsolid_body = chamfer(vertical_edges, chamfer_distance)\n\npart = solid_body\npart.name = \"hexagonal_prism_with_hole\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9493999999999999,
+   "verifier": null
+  },
+  {
+   "draw": 3,
+   "sampled": true,
+   "code": "from build123d import *\nimport math\n\nhex_radius = 40\nhex_diameter = hex_radius * 2\nhex_length = 24\nhole_diameter = 12\ncountersink_diameter = 24\ncountersink_angle = 82\ncountersink_depth = (countersink_diameter - hole_diameter) / (2 * math.tan(math.radians(countersink_angle / 2)))\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as s:\n        RegularPolygon(hex_radius, 6)\n    extrude(amount=hex_length)\n\nsolid_body = p.part\nhole = CounterSinkHole(hole_diameter/2, countersink_diameter/2, hex_length, countersink_angle)\nsolid_body = solid_body - Pos(0, hex_length, 0) * Rot(-90, 0, 0) * hole\n\npart = solid_body\npart.name = \"hex_countersink\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9066571428571428,
+   "verifier": null
+  },
+  {
+   "draw": 4,
+   "sampled": true,
+   "code": "from build123d import *\n\nouter_radius = 40.0\nheight = 24.0\ninner_radius = 12.0\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as sk:\n        RegularPolygon(outer_radius, 6)\n    extrude(amount=height)\n\nsolid_body = p.part\nsolid_body = solid_body - Cylinder(inner_radius, height * 2)\n\npart = solid_body\npart.name = \"hexagonal_prism_with_hole\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.8750571428571429,
+   "verifier": null
+  },
+  {
+   "draw": 5,
+   "sampled": true,
+   "code": "from build123d import *\n\nhex_radius = 40\nhex_height = 24\nhole_radius = 12\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as s:\n        RegularPolygon(hex_radius, 6)\n    extrude(amount=hex_height)\n\nsolid_body = p.part\nhole = Rot(90, 0, 0) * Cylinder(hole_radius, hex_height * 2)\nsolid_body = solid_body - hole\n\npart = solid_body\npart.name = \"hex_prism_with_hole\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9499714285714286,
+   "verifier": null
+  },
+  {
+   "draw": 6,
+   "sampled": true,
+   "code": "from build123d import *\n\nhex_radius = 40\nhex_height = 24\nhole_radius = 12\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as s:\n        RegularPolygon(hex_radius, 6)\n    extrude(amount=hex_height)\n\nsolid_body = p.part\nhole = Rot(90, 0, 0) * Cylinder(hole_radius, hex_height * 2)\nsolid_body = solid_body - hole\n\npart = solid_body\npart.name = \"hex_prism_with_hole\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9499714285714286,
+   "verifier": null
+  },
+  {
+   "draw": 7,
+   "sampled": true,
+   "code": "from build123d import *\n\nouter_radius = 40\nheight = 24\nwall_thickness = 4\nchamfer_size = 1\nhole_radius = 12\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as s:\n        RegularPolygon(outer_radius, 6)\n    extrude(amount=height)\n\nsolid_body = p.part\nsolid_body = solid_body - Pos(0, height/2, 0) * Rot(90, 0, 0) * Cylinder(hole_radius, height)\n\ntop_face = solid_body.faces().sort_by(Axis.Y)[-1]\ntop_edges = top_face.edges()\nsolid_body = chamfer(top_edges, chamfer_size)\n\npart = solid_body\npart.name = \"hexagonal_prism_with_hole\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.9056285714285713,
+   "verifier": null
+  }
+ ]
+}

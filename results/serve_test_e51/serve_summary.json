@@ -1,0 +1,51 @@
+{
+ "inputs": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/serve_test_e51/inputs/F_56494_0f3437d4_3_medium.png",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/serve_test_e51/inputs/F_83938_d6cf9eca_0_medium.png",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/serve_test_e51/inputs/F_91100_df680fe7_1_medium.png"
+ ],
+ "ckpt": "/dev/shm/bimrose2_10411837/base",
+ "verifier": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/v3b-verifier-real-reg/final",
+ "k": 8,
+ "gate": 0.85,
+ "results": [
+  {
+   "stem": "F_56494_0f3437d4_3_medium",
+   "policy": "vote",
+   "chosen": 0,
+   "n_exec": 8,
+   "agree_medoid": 0.9499714285714286,
+   "medoid": 0,
+   "verifier_argmax": null,
+   "verifier_scores": {}
+  },
+  {
+   "stem": "F_83938_d6cf9eca_0_medium",
+   "policy": "verifier",
+   "chosen": 0,
+   "n_exec": 7,
+   "agree_medoid": 0.64565,
+   "medoid": 0,
+   "verifier_argmax": 0,
+   "verifier_scores": {
+    "0": 0.720131129711404,
+    "1": 0.45873840029075075,
+    "3": 0.2916520484896621,
+    "4": 0.2324805967454427,
+    "5": 0.6880360434409255,
+    "6": 0.4747737034526239,
+    "7": 0.6823279063755446
+   }
+  },
+  {
+   "stem": "F_91100_df680fe7_1_medium",
+   "policy": "vote",
+   "chosen": 0,
+   "n_exec": 8,
+   "agree_medoid": 0.9805285714285714,
+   "medoid": 0,
+   "verifier_argmax": null,
+   "verifier_scores": {}
+  }
+ ]
+}
