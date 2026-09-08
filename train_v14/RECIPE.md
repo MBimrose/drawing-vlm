@@ -909,9 +909,36 @@ patch file `train_v14/mech/benchmarks/draftwright_compose_scale_policy.patch`, a
 the serv-19 vendored copy, `.orig_dw400` kept). Re-rendering the same 57 parts recovers 47;
 the residual is draftwright-internal (ViewNotPlanned / recognition errors / timeouts).
 `rerender_one.py` also raises the per-view HLR / per-sheet drawing alarms to 60 s / 150 s
-(worker_v11: 25 / 60 s) because a timed-out draftwright attempt also falls back silently,
-and records the dispatcher's fallback reason in the sidecar (`fallback`). All outputs of
-the first pass were discarded and everything re-rendered under the patched dispatcher.
+(worker_v11: 25 / 60 s) because a timed-out draftwright attempt also fell back silently.
+All outputs of the first pass were discarded and everything re-rendered under the patched
+dispatcher.
+
+**Legacy fallback removed (user decision, 13:47 CDT).** "I would rather have a verbose
+error than just falling back": the automatic legacy path in the vendored
+`draw_generator.py` is gone — a draftwright failure now logs the full exception, records
+`renderer="failed"` + `render_error` (+ lint counts, projection, fill scale) on the sidecar
+meta, and raises; `worker_v11._process_one_part` keeps that meta for the failed variant,
+`rerender_one.py` writes it to the meta file and exits 5 with the error as the last stderr
+line, and the driver stores it as `render_fail: <exception>` in `failures/<shard>.json`.
+The remaining `ViewNotPlanned` class turned out to be a draftwright 0.4.23 planner/linter
+mismatch, not a lint failure: `build_drawing` succeeds (planned views `front/plan/iso`),
+but `Drawing.export()` re-runs `lint()` whose `lint_prismatic_coverage` calls
+`dwg.at("side", …)` unconditionally. Repair in `draftwright_compose.render_svg`: the
+pre-export lint is made non-fatal (the sheet keeps the planner's own view set), and a
+planner error raised by `build_drawing` itself is retried once with
+`_views=("front","plan","side")`; both are recorded in the sidecar as `repair`. Probe part
+`14378534-…` (a legacy sheet in `probe_dw423`) now renders as a real 0.4.23 sheet:
+`serv-19:/srv/scratch/bimrose2/mech_benchmarks/probe_dw423_perm/render/png/14378534-e0be-eb12-e1f7-1019e5f62a84_v2.png`.
+All three vendored files are patched on serv-19 (`*.orig_dw400` backups; combined diff
+`train_v14/mech/benchmarks/step_to_drw_dw423.patch`). Because the driver spawns a fresh
+renderer process per part, the bulk run switched to the no-fallback path mid-run without a
+restart; `rerender_tars.py retry` then re-attempts the recorded failures of finished shards
+and appends the recovered members (`failures/<shard>.json` → `"recovered"`), and
+`rerender_finish_serv19.sh` runs that pass once more over every shard before packing. Before
+the removal the bulk run had lost 900 of 40,248 attempted parts (2.24%; 256 shards) to
+`render_legacy`; no legacy sheet was ever written (0 legacy sidecar entries, every failed key
+absent from its tar). Recovery counts and the remaining failure taxonomy: see the table
+below (PENDING until the retry pass finishes).
 
 **Consequence for the drift numbers above.** Slicing e51's paired
 `bo8_ext_dw423` result by the sidecar's renderer: on the 110 genuine 0.4.23 sheets
