@@ -986,12 +986,16 @@ On genuine 0.4.23 sheets e51 is within 0.01 of its 0.4.0 numbers on the vote and
 
 **Rates and counts (permissive policy).** Certified eval sheets rendered from the
 bundle's GT STEPs (`gt_meshes_v15/<uuid>.step`, manifest variant; 228 of these parts do not
-execute under 0.11.1): **1,055/1,072** (17 legacy fallbacks) →
-`step_to_drw/wds_dataset/eval_cache_v15_dw423.pkl` (`train_v14/build_eval_cache_dw423.py`;
-pool `certified` = 1,055, same code/trace/GT meshes; serv-19 copy `data/eval_cache_v15_dw423.pkl`).
-Corpora (`<corpus>/render_dw423/`): rft_corpus 1,490/1,527, rft_corpus2 1,648/1,684,
-rft_corpus3 1,487/1,494 (1.7% fallback) → `rft_real_union5_dw423` = the union5 rows on the
-new sheets: **8,833 of 8,961 rows, 5 shards** (21 keys without a sheet).
+execute under 0.11.1): 1,055/1,072 under the permissive policy, **1,067/1,072 after the
+no-fallback re-attempt** (12 of the 17 were the `ViewNotPlanned` class; the 5 left are
+recognition errors / timeouts) → `step_to_drw/wds_dataset/eval_cache_v15_dw423.pkl`
+(`train_v14/build_eval_cache_dw423.py`; pool `certified` = 1,067, same code/trace/GT meshes;
+serv-19 copy `data/eval_cache_v15_dw423.pkl`). Bench `ext_bench_dw423_perm`: 143 → **144/146**
+sheets (the e51 control above ran on the 143; e55's run sees 144 — compare on common keys).
+Corpora (`<corpus>/render_dw423/`): rft_corpus 1,490 → 1,493/1,527, rft_corpus2 1,648 →
+1,652/1,684, rft_corpus3 1,487 → 1,489/1,494 (1.5% of the real parts fail in 0.4.23; 9 of the
+80 recovered) → `rft_real_union5_dw423` = the union5 rows on the new sheets: **8,887 of 8,961
+rows, 5 shards** (14 keys without a sheet).
 Training tars, first 16 completed shards: 3,193 members, 786 skipped (exec-bad), 2,407
 attempted, **2,362 ok, 45 failed (1.87%, all draftwright-internal legacy fallbacks)**; a
 shard (≈157 attempted parts) takes ~62 min per worker with the box at load 400-530 on 344
