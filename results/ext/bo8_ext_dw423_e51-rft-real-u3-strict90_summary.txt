@@ -1,0 +1,24 @@
+slice                     n |         first_exec |        consistency |             oracle | exec>=1
+                            |      mean / >=0.85 |      mean / >=0.85 |      mean / >=0.85
+in-dist 1030 (e51)     1030 | 0.894 /   76% | 0.917 /   81% | 0.947 /   90% |
+ALL external            145 | 0.415 /   12% | 0.444 /   14% | 0.516 /   19% |   99%
+  determinate            80 | 0.529 /   21% | 0.546 /   22% | 0.619 /   30% |  100%
+  underdetermined        65 | 0.276 /    2% | 0.317 /    5% | 0.388 /    6% |   98%
+Fusion360 (F)            88 | 0.447 /   15% | 0.494 /   19% | 0.570 /   25% |  100%
+  F determinate          53 | 0.530 /   25% | 0.563 /   28% | 0.632 /   36% |  100%
+ABC (A)                  57 | 0.367 /    9% | 0.365 /    7% | 0.432 /   11% |   98%
+  A determinate          27 | 0.526 /   15% | 0.512 /   11% | 0.594 /   19% |  100%
+
+worst 10 (consistency):
+  A_00949971_09a37b87df62f15797834132_step_033_medium fam=A under=True faces=72 exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  F_61643_303cdd31_0000_medium       fam=F under=True faces=11 exec=6/8 first=0.005 cons=0.005 oracle=0.108
+  F_81326_8c3a1378_9_medium          fam=F under=True faces=18 exec=8/8 first=0.008 cons=0.007 oracle=0.404
+  A_00934633_3f0baf597a30885b191e02a6_step_000_medium fam=A under=True faces=58 exec=5/8 first=0.153 cons=0.011 oracle=0.153
+  A_00947921_bc304cb790ab59a52d42ed92_step_008_medium fam=A under=True faces=59 exec=7/8 first=0.012 cons=0.012 oracle=0.012
+  F_56167_90101372_13_medium         fam=F under=False faces=10 exec=5/8 first=0.010 cons=0.013 oracle=0.062
+  A_00957451_e6a0434deb9d48da90e19a8a_step_006_medium fam=A under=True faces=57 exec=8/8 first=0.014 cons=0.014 oracle=0.014
+  F_83210_07c13a64_0_medium          fam=F under=True faces=27 exec=2/8 first=0.015 cons=0.015 oracle=0.114
+  A_00922818_611a88896e870be2752739bc_step_000_medium fam=A under=True faces=47 exec=7/8 first=0.028 cons=0.028 oracle=0.028
+  A_00953690_cc92fe00f1c72a7d0b0288c4_step_001_medium fam=A under=True faces=63 exec=8/8 first=0.036 cons=0.029 oracle=0.042
+
+n parts with no candidate >= 0.85: 117  of which underdetermined: 61

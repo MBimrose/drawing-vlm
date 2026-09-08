@@ -5,7 +5,8 @@ one variant per part, 1920x1280 PNG, same timeouts / precompute / variant specs)
 No tar, no sqlite, no GPU. Output: <out>/png/<key>_v<N>.png + <out>/renderers.json
 (the same sidecar schema as tars_v14/*.renderers.json: dims_placed/dims_unplaced/...).
 
-  SCRIPT_DIR=.../step_to_drw /software/python-3.11.1/bin/python3 render_ext.py \
+  SCRIPT_DIR=.../step_to_drw <python: /software/python-3.11.1/bin/python3 (draftwright 0.4.0+patch)
+      or /srv/scratch/bimrose2/dw_venv/bin/python (0.4.23+patch)> render_ext.py \
       --src <dir of *.step> [--src ...] --out <dir> --workers 32 [--limit N]
 """
 import os, sys, glob, json, time, zlib, hashlib, argparse, concurrent.futures
@@ -17,6 +18,11 @@ for k, v in (("OMP_NUM_THREADS", "2"), ("TBB_NUM_THREADS", "2"), ("MKL_NUM_THREA
 _CWD = os.getcwd()
 sys.path.insert(0, ROOT)
 os.chdir(ROOT)
+try:  # worker_v11 imports sqlite3 for its dataset db; a venv on a python built without _sqlite3
+    import sqlite3  # noqa: F401   (dw_venv on serv-19) only needs the import to succeed
+except ImportError:
+    import types
+    sys.modules["sqlite3"] = types.ModuleType("sqlite3")
 import worker_v11 as w  # noqa: E402  (module import only builds variant specs)
 
 

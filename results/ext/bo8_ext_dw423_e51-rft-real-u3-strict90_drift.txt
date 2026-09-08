@@ -1,0 +1,15 @@
+Renderer-drift control: e51 best-of-8 on the held-out bench, old renderer (draftwright 0.4.0+patch, ext_bench) vs new (0.4.23+patch, ext_bench_dw423); paired over the 145 parts both rendered (A_00935026 fails in 0.4.23: ScaleIncompatibilityError).
+slice                           n |    first_exec old->new |          vote old->new |        oracle old->new
+ALL                           145 | 0.484 -> 0.415 (-0.069) | 0.510 -> 0.444 (-0.067) | 0.594 -> 0.516 (-0.078)
+  det (old sidecar)            80 | 0.567 -> 0.529 (-0.038) | 0.597 -> 0.546 (-0.051) | 0.676 -> 0.619 (-0.056)
+  under (old sidecar)          65 | 0.383 -> 0.276 (-0.107) | 0.403 -> 0.317 (-0.086) | 0.494 -> 0.388 (-0.106)
+  det (new sidecar)            93 | 0.488 -> 0.472 (-0.016) | 0.518 -> 0.491 (-0.027) | 0.607 -> 0.561 (-0.046)
+  under (new sidecar)          52 | 0.478 -> 0.313 (-0.164) | 0.496 -> 0.358 (-0.138) | 0.572 -> 0.434 (-0.137)
+  det in both                  68 | 0.532 -> 0.507 (-0.025) | 0.559 -> 0.516 (-0.043) | 0.646 -> 0.591 (-0.056)
+Fusion (F)                     88 | 0.519 -> 0.447 (-0.072) | 0.540 -> 0.494 (-0.046) | 0.634 -> 0.570 (-0.064)
+ABC (A)                        57 | 0.431 -> 0.367 (-0.065) | 0.464 -> 0.365 (-0.098) | 0.532 -> 0.432 (-0.100)
+
+per-part oracle delta: mean -0.078, median -0.038, parts better under new 22, worse 63, |delta|<=0.05 60
+per-part vote delta:   mean -0.067, median -0.031, better 25, worse 64
+underdetermined sheets: old sidecar 65, new sidecar 52
+solved (oracle>=0.8): old 41, new 32, both 28

@@ -16,3 +16,7 @@ logs/
 *.stl
 *.step
 __pycache__/
+
+# ABC ground-truth-code tiers (data; README + stats committed)
+rft_real_abccode*/png/
+rft_real_abccode*/shards/
