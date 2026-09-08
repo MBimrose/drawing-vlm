@@ -869,3 +869,106 @@ Control for e54 on the ABC-code corpus (e53, 429 parts, first-exec / vote /
 ceiling): 0.4.0 sheets 0.643 / 0.695 / 0.752, 0.4.23 sheets 0.568 / 0.620 /
 0.689 — same as e51 within noise; the 48-part holdout slice of e54 is judged
 against these. (serv-19 mech_benchmarks/rft_corpus_abccode*/results/bo8_*_e53-*)
+
+## Training sheets re-rendered with draftwright 0.4.23 (2026-09-08)
+
+Goal: move the training distribution to the deployment renderer (draftwright 0.4.23 +
+the `_FONT_SIZE = 5.25` patch) so a model can be served on its sheets without the drift
+measured above. The whole tars_v14 set (2,500 shards, 497k `{uuid}_v{N}` members, 59 GB)
+is re-rendered on serv-19 under **identical member names**, so data_v14.py / the RFT
+packers / the eval caches point at it unchanged (`DRAWING_VLM_TARS`).
+
+**Pipeline** (`train_v14/mech/benchmarks/rerender_tars.{py,sh}`, `rerender_one.py`,
+`rerender_exec.py`; serv-19 copies in `/srv/scratch/bimrose2/mech_benchmarks/`):
+one worker process per shard; per member the `.py` is executed to STEP in a fresh
+`.venv` python (build123d 0.11.1, `rerender_exec.py`, 120 s), and the STEP is rendered
+by a fresh `dw_venv` python (`rerender_one.py` = render_ext.py's `worker_v11._process_one_part`
+path, VLM_MODE, 1920×1280, seed crc32(uuid), real uuid in the title block, 400 s) with the
+**variant forced to the member's `_vN`** (the original variant came from Python's
+randomised `hash(uuid)` and is not reproducible otherwise). Output
+`tars_v14_dw423/shard_XXXXXX.tar` (new PNG + unchanged .py) + `.renderers.json` sidecar
+in the tars_v14 schema; parts that fail keep no member and are listed in
+`tars_v14_dw423/failures/<shard>.json`; resumable per shard; one JSON line per shard in
+`logs/rerender_tars_dw423.jsonl`. The 105,351 keys of `exec_bad_keys_v14.txt` (21%,
+excluded from training by `exec_filter` anyway) are skipped, except the 1,072 certified
+eval keys. Thread caps (`OMP/TBB/MKL/OPENBLAS=1`) matter: without them one exec burned
+19 s of CPU for a 3 s wall import. Per part idle: exec ~3 s + render ~6 s.
+
+**Stop-and-investigate (first hour).** The first pass dropped 11% of the certified eval
+sheets and 24% of corpus-1 parts as `render_legacy` — the dispatcher's silent fallback
+to the legacy renderer — and the existing `ext_bench_dw423` sidecar turned out to hold
+**35/145 legacy sheets** (vs 6/1,527 with 0.4.0). Reasons (57 dropped eval parts):
+31 `ScaleIncompatibilityError`, 5 `ViewNotPlanned`, 2 countersink `ValueError`,
+2 `_DrawingTimeout`, 1 `_PocketAttributionError`, 1 `StopIteration`. draftwright 0.4.23
+added `build_drawing(scale_policy=)`: with the default `"fallback"` an explicit `scale`
+(our 0.62 fill scale) is retried over smaller ISO scales and **raises** when none keeps
+every required annotation; `"permissive"` is the pre-0.4.23 best-effort behaviour. Fix:
+`draftwright_compose.render_svg` now passes `scale_policy="permissive"` whenever the
+installed draftwright accepts it (0.4.0 unaffected; `DW_SCALE_POLICY` overrides;
+patch file `train_v14/mech/benchmarks/draftwright_compose_scale_policy.patch`, applied to
+the serv-19 vendored copy, `.orig_dw400` kept). Re-rendering the same 57 parts recovers 47;
+the residual is draftwright-internal (ViewNotPlanned / recognition errors / timeouts).
+`rerender_one.py` also raises the per-view HLR / per-sheet drawing alarms to 60 s / 150 s
+(worker_v11: 25 / 60 s) because a timed-out draftwright attempt also falls back silently,
+and records the dispatcher's fallback reason in the sidecar (`fallback`). All outputs of
+the first pass were discarded and everything re-rendered under the patched dispatcher.
+
+**Consequence for the drift numbers above.** Slicing e51's paired
+`bo8_ext_dw423` result by the sidecar's renderer: on the 110 genuine 0.4.23 sheets
+first-exec 0.486→0.450, vote 0.511→0.484 (−0.028), oracle 0.594→0.555; on the 35 legacy
+sheets vote 0.507→0.318 (−0.19), oracle −0.20. **Most of the measured "renderer drift"
+was legacy-renderer sheets the model never trained on**; the 0.4.23 style itself costs
+e51 ~0.03 on the vote. `ext_bench_dw423` (and the abccode `_dw423` renders / tier rows)
+were produced under the fallback policy; the consistent new-renderer bench is
+`ext_bench_dw423_perm` (146 parts re-rendered under the permissive policy: 143 sheets,
+all draftwright, 53 flagged underdetermined; cluster copy
+`train_v14/mech/benchmarks/data/ext_bench_dw423_perm`). e51 control on it: job 10425867
+(`results/ext/bo8_ext_dw423p_e51-*`).
+
+**Rates and counts (permissive policy).** Certified eval sheets rendered from the
+bundle's GT STEPs (`gt_meshes_v15/<uuid>.step`, manifest variant; 228 of these parts do not
+execute under 0.11.1): **1,055/1,072** (17 legacy fallbacks) →
+`step_to_drw/wds_dataset/eval_cache_v15_dw423.pkl` (`train_v14/build_eval_cache_dw423.py`;
+pool `certified` = 1,055, same code/trace/GT meshes; serv-19 copy `data/eval_cache_v15_dw423.pkl`).
+Corpora (`<corpus>/render_dw423/`): rft_corpus 1,490/1,527, rft_corpus2 1,648/1,684,
+rft_corpus3 1,487/1,494 (1.7% fallback) → `rft_real_union5_dw423` = the union5 rows on the
+new sheets: **8,833 of 8,961 rows, 5 shards** (21 keys without a sheet).
+Training tars, first 16 completed shards: 3,193 members, 786 skipped (exec-bad), 2,407
+attempted, **2,362 ok, 45 failed (1.87%, all draftwright-internal legacy fallbacks)**; a
+shard (≈157 attempted parts) takes ~62 min per worker with the box at load 400-530 on 344
+cores (the user's cadfit jobs run alongside; mean exec 6.8 s, render 18 s under that load,
+vs 3 + 6 s idle) → measured throughput ≈ 3.8 attempted parts/s at 256 workers, **~10 h for
+the set** (started 11:52 CDT, first 100 shards at 1.16 h). Verification after the first 50
+shards: `results/rerender_dw423_verify.txt` (20 random members: identical code, identical
+1920×1280 PNG, same dimension values; 0.4.23 places more dimensions and merges callouts;
+visual review of three pairs). Final failure summary:
+`step_to_drw/wds_dataset/tars_v14_dw423_failures/` (`rerender_tars_dw423_summary.txt`,
+written by the finisher; PENDING at the time of writing).
+
+**Unattended tail.** `train_v14/serv19/rerender_finish_serv19.sh` (serv-19) waits for the
+driver, writes the failure summary, aborts above 5%, packs `rft_strict90_all_dw423` from
+the new tars (`pack_rft_shards.py`, DRAWING_VLM_TARS override) and flags done;
+`train_v14/serv19/rerender_finish_cluster.sh` (login node) then copies
+`step_to_drw/wds_dataset/tars_v14_dw423/` and the base shards back, builds
+`eval_cache_v14_dw423.pkl` (legacy holdout, `build_eval_cache.py` with env overrides),
+builds `rft_mix_u6_gt_dw423` (base + union5_dw423 ×5 + rft_real_abccode_train ×8, the
+rft_mix_u6_gt proportions), submits **e55**, launches `ship_finals.sh e55-…`, and when the
+final exists submits `bo8_ext_cluster.sbatch` on `ext_bench_dw423` (TAG bo8_ext_dw423) and
+`ext_bench_dw423_perm` (TAG bo8_ext_dw423p).
+
+**e55-rft-real-u5-gt-dw423** = the e54 config (configs/e55-…yaml, sbatch/e55-…sbatch) with
+`DRAWING_VLM_TARS=tars_v14_dw423`, `DRAWING_VLM_EVAL_CACHE_V15=eval_cache_v15_dw423.pkl`
+(new env, read by data_v14.EVAL_CACHE_V15 → EvalDatasetV2 / bestofn evals),
+`DRAWING_VLM_RFT_SHARDS=rft_mix_u6_gt_dw423`. `env.sh` now respects a preset
+`DRAWING_VLM_TARS`. The reasoning tier (v14_bundle, 0.4.0 sheets) is unchanged. Judged on:
+(1) the full certified pool on the **new-style cache** — `serv19/run_bo8_full_generic.sh`
+sources `configs/<run>-serv19.env` (ship_finals.sh copies it) which sets the serv-19 cache
+path for the best-of-8 workers and the gated step; reference: e51 0.917 / 82% on the 0.4.0
+cache (not directly comparable: 1,055 vs 1,030 parts and different sheets — the honest
+comparison is e51 vs e55 both on the dw423 cache, or the drift-corrected 0.03); (2) the
+146-part real bench in the new style, `ext_bench_dw423_perm`, against the e51 control
+(job 10425867) and the e53 fallback-policy numbers (vote 0.456 / gated 0.486 on
+`ext_bench_dw423`); (3) the old-style bench via the shipper's own `bo8_ext` submission
+(expected to drop — the model no longer trains on 0.4.0 sheets). The lever question is
+whether training on the deployment renderer's sheets closes the ~0.03 style gap and lifts
+the new-renderer bench above e51's 0.484.

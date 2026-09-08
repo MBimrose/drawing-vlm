@@ -1,0 +1,31 @@
+Re-render verification (2026-09-08, first 50 shards of tars_v14_dw423, 20 random members; train_v14/mech/benchmarks/verify_rerender.py):
+
+015ec3fd-a61a-a161-3e2c-12e02e8b30d4_v4: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 186708->180007, dims placed 9->11, unplaced 0->0, label overlap 0.5
+04fdbf71-ac4e-4b5a-f478-062df753e3d4_v3: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 101903->90436, dims placed 11->13, unplaced 1->0, label overlap 0.545
+06aec5f9-3270-9d6a-9a52-54cd00440b3d_v5: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 129350->148429, dims placed 7->11, unplaced 0->0, label overlap 0.6
+0a4e4b80-ea5a-a289-771b-f7bb5a95e757_v4: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 130149->126781, dims placed 3->3, unplaced 0->0, label overlap 0.6
+0b8713e4-69ed-ce31-cf0e-d15ca9e1b57b_v3: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 102353->74684, dims placed 9->16, unplaced 3->2, label overlap 0.533
+0bfc0b51-0b3d-2c44-b192-6524e45fdb67_v2: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 73179->127244, dims placed 0->0, unplaced 0->0, label overlap 0.4
+0c7b324d-15ce-fff6-d3e1-80ac5cfd19cf_v2: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 136860->123425, dims placed 7->7, unplaced 0->0, label overlap 0.571
+0daac298-e739-0b64-c1e3-866bc0f07d13_v5: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 118271->107778, dims placed 2->2, unplaced 0->0, label overlap 0.833
+0f48be92-87bb-8252-36b3-ceaca1c951de_v1: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 105322->115029, dims placed 2->4, unplaced 0->1, label overlap 0.182
+0f9b2dcb-2b31-93d8-9664-6dff8a388635_v5: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 83048->91396, dims placed 5->7, unplaced 0->2, label overlap 0.625
+0fd6b163-1b20-6864-9518-acb2c741996b_v5: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 103746->97942, dims placed 3->3, unplaced 0->0, label overlap 0.6
+10cfe216-4beb-35ba-46d1-eb0c5cee3fb2_v4: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 215124->163532, dims placed 2->16, unplaced 0->3, label overlap 0.154
+1128c2a5-0490-b76f-6348-9a124697219c_v3: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 72583->71518, dims placed 4->4, unplaced 0->0, label overlap 1.0
+114ffb6b-41dd-bcf1-0ffc-9c8c1845bebe_v1: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 102661->116372, dims placed 6->11, unplaced 0->11, label overlap 0.357
+11d3d0f7-e0fd-baec-4b60-8314c203e8b2_v3: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 133048->129805, dims placed 16->15, unplaced 3->3, label overlap 0.643
+1295a368-9f0f-a807-fb50-2100d1addd5c_v2: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 128641->117847, dims placed 5->5, unplaced 0->0, label overlap 0.556
+12f0fe64-3c4e-5bfd-7e90-aeca50b34602_v4: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 103905->99906, dims placed 6->6, unplaced 0->0, label overlap 0.636
+173bb268-9d67-f134-8bf0-8b2499c3b7f2_v2: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 167400->162036, dims placed 12->12, unplaced 8->2, label overlap 0.55
+178f9134-3b55-87c2-5935-55f99381f190_v1: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 105375->93822, dims placed 7->7, unplaced 0->0, label overlap 0.615
+18d10f36-0821-9fe6-4d0e-8e6d8b9ecc38_v1: code identical True, PNG (1920, 1280)->(1920, 1280), bytes 108910->85713, dims placed 3->7, unplaced 0->0, label overlap 0.143
+
+20 pairs: identical code 20, same PNG size 20, mean label overlap 0.532
+
+Visual review (Read on 3 old/new pairs: 1128c2a5_v3, 10cfe216_v4, 04fdbf71_v3): same part, same third-angle
+layout (top / front / right + ISO), same dimension values (80/50/25/20; 120/40; 88/51/32/21/34/36/50.5/25.5/17),
+same glyph height (the _FONT_SIZE 5.25 patch), same 1920x1280 page and title-block layout. 0.4.23 differences are
+the known ones: more dimensions placed (44.5/46/23/2/3 on 10cfe216), merged callouts ("14x R2" for "4x R2"+"6x R2"),
+DETAIL A views, ISO view moved, and 0.4.0's "-36" (a negative dimension) rendered correctly as "42".
+Label sets differ mainly by 0.4.23's merged/new callouts, never by a different value for the same feature.

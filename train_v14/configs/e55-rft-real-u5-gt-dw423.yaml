@@ -1,0 +1,51 @@
+# E55 — the e54 recipe on training sheets re-rendered with draftwright 0.4.23 (+font patch):
+# plain tier from tars_v14_dw423, RFT mix rft_mix_u6_gt_dw423 (strict90 base re-packed from the
+# new tars + union5 real tier re-rendered with 0.4.23 x5 + ABC GT-code tier x8), certified eval
+# cache eval_cache_v15_dw423.pkl. The reasoning tier (v14_bundle) keeps its 0.4.0 sheets.
+# All paths are set in sbatch/e55-rft-real-u5-gt-dw423.sbatch (DRAWING_VLM_TARS,
+# DRAWING_VLM_EVAL_CACHE_V15, DRAWING_VLM_RFT_SHARDS).
+run_name: e55-rft-real-u5-gt-dw423
+model_id: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/models/Qwen3.8-27B
+output_dir: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/e55-rft-real-u5-gt-dw423
+accel_config: accelerate_fsdp2_8gpu.yaml
+
+use_lora: false
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 5120
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 6.0e-6
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+
+max_steps: 4000
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 43
