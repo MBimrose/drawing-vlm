@@ -18,6 +18,7 @@ for R in "$@"; do
       grep -v "^run_name:\|^model_id:\|^output_dir:\|^#" train_v14/configs/$R.yaml; } > train_v14/configs/$R-serv19.yaml
   fi
   scp -q train_v14/configs/$R-serv19.yaml wpk-serv-19.mechse.illinois.edu:/srv/scratch/bimrose2/train_v14/configs/
+  [ -f train_v14/configs/$R-serv19.env ] && scp -q train_v14/configs/$R-serv19.env wpk-serv-19.mechse.illinois.edu:/srv/scratch/bimrose2/train_v14/configs/
   rsync -a runs/$R/final/ wpk-serv-19.mechse.illinois.edu:/srv/scratch/bimrose2/runs/$R/final/
   until ! ssh -o BatchMode=yes wpk-serv-19.mechse.illinois.edu 'pgrep -u bimrose2 -f "[b]estofn_verifier_eval" >/dev/null'; do sleep 300; done
   ssh -o BatchMode=yes wpk-serv-19.mechse.illinois.edu "cd /srv/scratch/bimrose2; nohup ./run_bo8_full_generic.sh $R > logs/bo8_full_${R}_chain.log 2>&1 &"

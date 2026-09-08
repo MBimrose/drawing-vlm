@@ -20,8 +20,10 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export TRITON_CACHE_DIR=/tmp/$USER/triton-cache
 mkdir -p "$TRITON_CACHE_DIR"
 
-# v14 dataset locations.
-export DRAWING_VLM_TARS=$ROOT/drawing_vlm/step_to_drw/wds_dataset/tars_v14
+# v14 dataset locations. DRAWING_VLM_TARS may be preset by an sbatch script (e.g. the
+# draftwright-0.4.23 re-render tars_v14_dw423 for e55); DRAWING_VLM_EVAL_CACHE_V15 likewise
+# selects the matching certified eval cache (data_v14.EVAL_CACHE_V15).
+export DRAWING_VLM_TARS=${DRAWING_VLM_TARS:-$ROOT/drawing_vlm/step_to_drw/wds_dataset/tars_v14}
 export DRAWING_VLM_TRACES_JSON=$ROOT/drawing_vlm/step_to_drw/wds_dataset/traces_v14.json
 
 mkdir -p "$HF_HUB_CACHE" "$WANDB_DIR" "$TORCH_HOME"

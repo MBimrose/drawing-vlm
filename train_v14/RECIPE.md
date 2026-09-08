@@ -865,3 +865,7 @@ new-renderer bench).
 Control for e54 on the new-renderer bench (`ext_bench_dw423`, 145 parts, e53):
 first-exec 0.411 / vote 0.456 / gated 0.486 / ceiling 0.524 — same drift as e51
 (vote 0.444, ceiling 0.516). (results/ext/bo8_ext_dw423_e53-*_summary.txt)
+Control for e54 on the ABC-code corpus (e53, 429 parts, first-exec / vote /
+ceiling): 0.4.0 sheets 0.643 / 0.695 / 0.752, 0.4.23 sheets 0.568 / 0.620 /
+0.689 — same as e51 within noise; the 48-part holdout slice of e54 is judged
+against these. (serv-19 mech_benchmarks/rft_corpus_abccode*/results/bo8_*_e53-*)

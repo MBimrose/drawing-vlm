@@ -253,7 +253,10 @@ BUNDLE_ROOT = os.environ.get(
     "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/v14_bundle",
 )
 LEGACY_KEYS_FILE = os.path.join(os.path.dirname(TRACES_JSON), "legacy_keys_v14.txt")
-EVAL_CACHE_V15 = os.path.join(os.path.dirname(TRACES_JSON), "eval_cache_v15.pkl")
+EVAL_CACHE_V15 = os.environ.get(
+    "DRAWING_VLM_EVAL_CACHE_V15",  # e.g. eval_cache_v15_dw423.pkl for models trained on 0.4.23 sheets
+    os.path.join(os.path.dirname(TRACES_JSON), "eval_cache_v15.pkl"),
+)
 
 _LEGACY_KEYS: frozenset[str] | None = None
 
