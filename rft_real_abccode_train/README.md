@@ -1,0 +1,1 @@
+ABC ground-truth-code training tier (2026-09-08): all 429 verified parts in both renderer styles (0.4.0+patch keys A_*_code, 0.4.23+patch keys *_dw423) minus a seeded 48-part holdout of the e51-unsolved set (holdout.json) = 762 rows, think empty (choose-not-to-think format).
