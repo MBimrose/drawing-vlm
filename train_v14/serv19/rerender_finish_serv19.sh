@@ -7,6 +7,11 @@ cd /srv/scratch/bimrose2
 L=logs/rerender_tars_dw423.log
 until grep -q "\[rerender\] DONE" $L || ! pgrep -u bimrose2 -f "[r]erender_tars.py tars" >/dev/null; do sleep 300; done
 grep -q "\[rerender\] DONE" $L || { echo "$(date) tars driver exited without DONE"; exit 1; }
+# no-fallback adapter (2026-09-08): re-attempt every recorded render failure once more through the
+# fixed adapter (idempotent; appends recovered members to the finished shards)
+while pgrep -u bimrose2 -f "[r]erun_failed_dw423.sh" >/dev/null; do sleep 120; done
+.venv/bin/python mech_benchmarks/rerender_tars.py retry --tars $PWD/tars_v14 --out $PWD/tars_v14_dw423 --workers 64 \
+  --log logs/rerender_tars_dw423_retry.jsonl > logs/rerender_tars_dw423_retry_final.log 2>&1; tail -1 logs/rerender_tars_dw423_retry_final.log
 python3 - <<'EOF' | tee logs/rerender_tars_dw423_summary.txt
 import json, collections, glob
 rs = [json.loads(l) for l in open("logs/rerender_tars_dw423.jsonl")]
@@ -15,14 +20,19 @@ n_in = sum(r["n_in"] for r in rs); ok = sum(r["n_ok"] for r in rs); f = collecti
 for r in rs: f.update(r["fails"])
 skip = f.pop("skipped_known_bad", 0); att = n_in - skip; fail = att - ok
 el = sum(r["elapsed"] for r in rs)
+rec = 0
+for p in glob.glob("tars_v14_dw423/failures/*.json"):
+    rec += len(json.load(open(p)).get("recovered", []))
+ok += rec; fail -= rec
 print(f"shards {len(rs)} (+{len(err)} shard errors) parts {n_in} skipped_known_bad {skip} attempted {att} ok {ok} "
-      f"failed {fail} ({100 * fail / max(att, 1):.2f}% of attempted) reasons {dict(f)}")
+      f"(incl. {rec} recovered by the retry pass) failed {fail} ({100 * fail / max(att, 1):.2f}% of attempted) first-pass reasons {dict(f)}")
 print(f"mean exec_s {sum(r['exec_s'] for r in rs) / len(rs):.1f} render_s {sum(r['render_s'] for r in rs) / len(rs):.1f} "
       f"shard elapsed {el / len(rs):.0f} s; worker-time {el / 3600:.0f} h")
 c = collections.Counter()
 for p in glob.glob("tars_v14_dw423/failures/*.json"):
-    for k, (reason, msg) in json.load(open(p)).items():
-        if reason != "skipped_known_bad": c[(reason, msg.split(":")[0][:60])] += 1
+    for k, v in json.load(open(p)).items():
+        if k == "recovered" or v[0] == "skipped_known_bad": continue
+        c[(v[0], v[1].split(":")[0][:60] if v[1] else "")] += 1
 for k, v in c.most_common(15): print(v, k)
 open("logs/rerender_tars_dw423_rate.txt", "w").write(f"{100 * fail / max(att, 1):.3f}\n")
 EOF

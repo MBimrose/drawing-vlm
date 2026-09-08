@@ -16,6 +16,8 @@ fully loaded box that happened to several percent of the parts. The dispatcher's
 "draftwright renderer failed ... falling back to legacy" warning is captured into the
 meta as "fallback". Run under the interpreter whose draftwright you want (dw_venv =
 0.4.23+patch).
+There is no legacy fallback (removed 2026-09-08 at the user's request): a draftwright failure
+exits 5 with the full error on stderr and in --out-meta (renderer="failed", render_error).
 Exit codes: 0 ok, 5 no sheet produced, 6 wrong variant produced, 1 other error.
 """
 import argparse
@@ -85,8 +87,7 @@ def main() -> int:
                 msg = rec.getMessage()
             except Exception:
                 return
-            if "falling back" in msg or "failed" in msg:
-                warnings.append(msg[:300])
+            warnings.append(msg[:300])
 
     logging.getLogger().addHandler(_Capture())
     logging.getLogger().setLevel(logging.WARNING)
@@ -95,7 +96,20 @@ def main() -> int:
     t0 = time.time()
     r = w._process_one_part(args)
     if not r.get("examples"):
-        print("no sheet produced", file=sys.stderr)
+        # No legacy fallback: the failure meta (renderer="failed", render_error=...) recorded by
+        # draw_generator / worker_v11 goes to --out-meta, and the error is the last stderr line
+        # (the driver stores it as the failure reason).
+        fm = {}
+        for vi, m in (r.get("render_meta") or {}).items():
+            fm = dict(m, variant=int(vi) + 1)
+        fm.setdefault("renderer", "failed")
+        fm.setdefault("render_error", "no sheet produced (STEP import / HLR / drawing timeout)")
+        if warnings:
+            fm["warnings"] = warnings[-5:]
+        fm["wall_s"] = round(time.time() - t0, 3)
+        with open(a.out_meta, "w") as fh:
+            json.dump(fm, fh)
+        print(fm["render_error"], file=sys.stderr)
         return 5
     (_, png, _, vi) = r["examples"][0]
     if a.variant and vi + 1 != a.variant:
@@ -104,8 +118,11 @@ def main() -> int:
     meta = dict((r.get("render_meta") or {}).get(vi, {}))
     meta["variant"] = vi + 1
     meta["wall_s"] = round(time.time() - t0, 3)
+    rep = [w for w in warnings if "retrying with front/plan/side" in w or "pre-export lint skipped" in w]
+    if rep:  # the ViewNotPlanned repair (planner mismatch) was used for this sheet
+        meta["repair"] = rep[-1]
     if warnings:
-        meta["fallback"] = warnings[-1]
+        meta["warnings"] = warnings[-5:]
     with open(a.out_png, "wb") as fh:
         fh.write(png)
     with open(a.out_meta, "w") as fh:

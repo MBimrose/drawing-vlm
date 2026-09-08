@@ -1,0 +1,155 @@
+--- draftwright_compose.py.orig_dw400	2026-09-08 11:48:50.354408746 -0500
++++ draftwright_compose.py	2026-09-08 13:43:17.700796466 -0500
+@@ -31,10 +31,13 @@
+ 
+ from __future__ import annotations
+ 
++import logging
+ import os
+ import time
+ from typing import Any
+ 
++_log = logging.getLogger(__name__)
++
+ __all__ = ["render_svg", "RenderResult", "DraftwrightUnavailable"]
+ 
+ 
+@@ -238,22 +241,48 @@
+     if scale is None and fill_views:
+         scale = _fit_fill_scale(part, page, target_fill=fill_views)
+     t0 = time.time()
++    # draftwright >= 0.4.23 guards an explicit ``scale`` with ``scale_policy`` (default
++    # "fallback": retry smaller ISO scales, raise ScaleIncompatibilityError when none keeps
++    # every required annotation). Our fill scale trips that on ~10-25% of parts, which then
++    # silently fell back to the legacy renderer; "permissive" is the pre-0.4.23 best-effort
++    # behaviour (drawing at the requested scale, warned when degraded). Older draftwright
++    # builds (0.4.0) have no such argument and are unaffected. DW_SCALE_POLICY overrides.
++    extra = {}
++    try:
++        import inspect as _inspect
++        _bd_params = _inspect.signature(dw.build_drawing).parameters
++        if "scale_policy" in _bd_params:
++            extra["scale_policy"] = os.environ.get("DW_SCALE_POLICY", "permissive")
++    except (TypeError, ValueError):
++        _bd_params = {}
+     try:
+-        dwg = dw.build_drawing(
+-            step_file=part,
+-            title=title or None,
+-            number=number,
+-            material=material,
+-            revision=revision,
+-            scale=scale,
+-            page=page,
+-            projection=projection,
+-            zones=zones,
+-            pmi=pmi,
+-            auto_dims=auto_dims,
+-            repair=repair,
+-            trace=trace,
+-        )
++        kw = dict(step_file=part, title=title or None, number=number, material=material,
++                  revision=revision, scale=scale, page=page, projection=projection, zones=zones,
++                  pmi=pmi, auto_dims=auto_dims, repair=repair, trace=trace, **extra)
++        try:
++            dwg = dw.build_drawing(**kw)
++        except Exception as exc:
++            # draftwright >= 0.4.23 plans the view set itself (a thin part may get no
++            # side view) while some of its stages still address views by name and raise
++            # ViewNotPlanned ("view side is not on this sheet"). Retry ONCE with the
++            # classic three-view set before giving up (legacy stays the last resort).
++            if "not on this sheet" not in str(exc) or "_views" not in _bd_params:
++                raise
++            _log.warning("draftwright planner mismatch (%s); retrying with front/plan/side", exc)
++            dwg = dw.build_drawing(**kw, _views=("front", "plan", "side"))
++        # export() re-runs lint() (_lint_and_log); in 0.4.23 lint_prismatic_coverage assumes a
++        # side view and raises ViewNotPlanned on sheets the planner drew without one. The
++        # drawing is complete at this point, so the pre-export lint must not be fatal.
++        if hasattr(dwg, "_lint_and_log"):
++            _orig_lint_and_log = dwg._lint_and_log
++
++            def _safe_lint_and_log(*a, **k):
++                try:
++                    return _orig_lint_and_log(*a, **k)
++                except Exception as exc:  # planner/linter mismatch, never fatal
++                    _log.warning("draftwright pre-export lint skipped (%s: %s)", type(exc).__name__, exc)
++
++            dwg._lint_and_log = _safe_lint_and_log
+         n_err = n_warn = 0
+         try:
+             issues = dwg.lint()
+--- draw_generator.py.orig_dw400	2026-09-08 13:44:53.209684436 -0500
++++ draw_generator.py	2026-09-08 13:45:42.529633420 -0500
+@@ -1575,8 +1575,7 @@
+         import draftwright_compose as dwx
+         # draft-first attempt: disable hard lint so we catch visual variety,
+         # keep the drawing even when annotation placement is imperfect.
+-        # If this somehow still errors, fall back to legacy *with logs* so
+-        # the worker tar sidecar records which lint class fired.
++        # If this errors the part FAILS (see the except below); there is no legacy fallback.
+         dw_trace_path = str(svg_path) + ".dwtrace.json"
+         res = dwx.render_svg(
+             part, svg_path,
+@@ -1623,29 +1622,23 @@
+         if not res:
+             raise RuntimeError(res.error or "draftwright render failed")
+     except Exception as exc:
+-        logger.warning(
+-            "draftwright renderer failed for %s v%d (%s); falling back to legacy",
+-            uuid_str, variant_idx, exc,
++        # 2026-09-08: the automatic legacy fallback is REMOVED at the user's request ("I would
++        # rather have a verbose error than just falling back"). A draftwright failure is now a
++        # render failure: the full error is logged and recorded on config.renderer_used
++        # (renderer="failed", render_error=...) for the sidecar / failure log, and re-raised.
++        err = f"{type(exc).__name__}: {exc}"
++        logger.error(
++            "draftwright renderer failed for %s v%d (%s); NO legacy fallback (disabled) - "
++            "lint=%s/%s proj=%s scale_fill=%s",
++            uuid_str, variant_idx, err, meta.get("lint_errors"), meta.get("lint_warnings"), proj,
++            os.environ.get("DRAW_FILL_VIEWS") or getattr(config, "draw_fill_views", 0.62),
+         )
+-        meta.update(renderer="legacy", render_error=str(exc))
+-        # Honestly record that this variant fell back: the tar's sidecar will
+-        # show renderer=legacy + the draftwright error that caused it.
++        meta.update(renderer="failed", render_error=err)
+         try:
+             config.renderer_used = dict(meta)
+         except Exception:
+             pass
+-        return _build_drawing_signal_legacy(
+-            part, template_name, page_size, config, variant_idx, uuid_str, output_dir,
+-            style_name=style_name, enable_gdt=enable_gdt, dim_strategy=dim_strategy,
+-            enable_revision_table=enable_revision_table,
+-            enable_tolerance_notes=enable_tolerance_notes,
+-            enable_zone_markings=enable_zone_markings,
+-            enable_centerlines=enable_centerlines,
+-            enable_surface_finish=enable_surface_finish, enable_material=enable_material,
+-            enable_section=enable_section, svg_only=svg_only,
+-            precomputed_views=precomputed_views, tess_edge_pairs=tess_edge_pairs,
+-            part_bbox_diag=part_bbox_diag,
+-        )
++        raise RuntimeError(f"draftwright failed for {uuid_str} v{variant_idx}: {err}") from exc
+ 
+     logger.info(
+         "drew %s v%d via draftwright model=%s render=%.2fs proj=%s lint=%s/%s",
+--- worker_v11.py.orig_dw400	2026-09-08 13:44:53.212684433 -0500
++++ worker_v11.py	2026-09-08 13:45:42.530633420 -0500
+@@ -168,8 +168,17 @@
+                     render_meta[vi] = dict(config.renderer_used)
+             except Exception:
+                 pass
+-        except (_DrawingTimeout, Exception):
++        except (_DrawingTimeout, Exception) as exc:
+             signal.alarm(0)
++            # No legacy fallback any more: keep the failure (draw_generator records
++            # renderer="failed" + render_error before raising; timeouts land here too).
++            try:
++                ru = dict(getattr(config, "renderer_used", None) or {})
++                ru.setdefault("renderer", "failed")
++                ru.setdefault("render_error", f"{type(exc).__name__}: {exc}")
++                render_meta[vi] = ru
++            except Exception:
++                pass
+ 
+     # Phase 4: Parallel PNG conversion
+     examples = []

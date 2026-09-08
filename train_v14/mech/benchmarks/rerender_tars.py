@@ -11,6 +11,10 @@ Two modes (serv-19 paths by default; stdlib only, run with any python3):
           schema. Parts that fail keep NO member. Resumable per shard (an existing
           output tar + sidecar is skipped), one worker process per shard, one
           subprocess per exec / render so a crash or timeout is confined to a part.
+  retry — for every COMPLETED output shard, re-attempt the keys recorded in
+          <out>/failures/<shard>.json with a retryable reason (render_legacy / render_fail /
+          render_timeout by default) after an adapter fix, append recovered members to the
+          existing tar + sidecar, and move them to "recovered" in the failures file.
   dir   — every <src>/*.step rendered into <out>/png/<key>_v<N>.png + <out>/renderers.json
           with render_ext.py's conventions (seed crc32(key), uuid md5(key), variant from
           the seed) — the corpora / benches path, one process per part. With
@@ -24,7 +28,8 @@ Two modes (serv-19 paths by default; stdlib only, run with any python3):
 
 Log: one JSON line per shard (tars) / part (dir): counts, failures by reason
 (exec_error / exec_timeout / exec_nostep / render_fail / render_timeout /
-render_legacy / skipped_known_bad), timings. Failure reasons per key are kept in
+skipped_known_bad; render_legacy only existed before the legacy fallback was removed), timings.
+render_fail carries the draftwright exception text. Failure reasons per key are kept in
 <out>/failures/<shard>.json (tars) or <out>/failures.json (dir).
 """
 from __future__ import annotations
@@ -100,7 +105,12 @@ def render_step(cfg, step_path, uuid, seed, variant, png_path, meta_path, wd):
         return None, "", meta
     if rc == -9:
         return "render_timeout", "", None
-    last = err.strip().splitlines()[-1][:160] if err.strip() else f"rc={rc}"
+    last = err.strip().splitlines()[-1][:300] if err.strip() else f"rc={rc}"
+    if rc == 5 and os.path.exists(meta_path):  # failure meta from rerender_one (renderer="failed")
+        try:
+            last = str(json.load(open(meta_path)).get("render_error", last))[:300]
+        except Exception:
+            pass
     return "render_fail", last, None
 
 
@@ -235,6 +245,84 @@ def do_part(step_path):
     return rec
 
 
+# ----------------------------------------------------------------------------- retry mode
+RETRY_REASONS = ("render_legacy", "render_fail", "render_timeout")
+
+
+def do_retry(shard_path):
+    """Re-attempt the recorded render failures of a COMPLETED shard (after an adapter fix) and
+    append the recovered members to its tar / sidecar; the failures file keeps the losers and
+    lists the winners under "recovered"."""
+    cfg = _CFG
+    name = os.path.basename(shard_path)[:-4]
+    out_tar = os.path.join(cfg["out"], name + ".tar")
+    out_side = os.path.join(cfg["out"], name + ".renderers.json")
+    fail_path = os.path.join(cfg["out"], "failures", name + ".json")
+    if not (os.path.exists(out_tar) and os.path.exists(out_side) and os.path.exists(fail_path)):
+        return {"shard": name, "skipped": True}
+    fails = json.load(open(fail_path))
+    todo = sorted(k for k, v in fails.items() if v[0] in cfg["retry_reasons"])
+    if not todo:
+        return {"shard": name, "skipped": True, "n_todo": 0}
+    t_start = time.time()
+    wd = os.path.join(cfg["tmp"], name + "_retry")
+    shutil.rmtree(wd, ignore_errors=True)
+    os.makedirs(wd)
+    pys = {}
+    with tarfile.open(shard_path) as tf:
+        for m in tf.getmembers():
+            base, _, ext = m.name.partition(".")
+            if ext == "py" and base in todo:
+                pys[base] = tf.extractfile(m).read()
+    recovered, still = [], {}
+    for key in todo:
+        uuid, _, vs = key.rpartition("_v")
+        py_path, step_path = os.path.join(wd, key + ".py"), os.path.join(wd, key + ".step")
+        png_path, meta_path = os.path.join(wd, key + ".png"), os.path.join(wd, key + ".json")
+        with open(py_path, "wb") as f:
+            f.write(pys[key])
+        r = exec_to_step(cfg, py_path, step_path, wd)
+        if r is not None:
+            still[key] = list(r)
+            continue
+        reason, msg, meta = render_step(cfg, step_path, uuid, zlib.crc32(uuid.encode()) % (2 ** 31),
+                                        int(vs), png_path, meta_path, wd)
+        if reason is not None:
+            still[key] = [reason, msg]
+            continue
+        recovered.append((key, open(png_path, "rb").read(), pys[key], meta))
+    if recovered:
+        with tarfile.open(out_tar, "a") as tf:  # uncompressed tar: append in place
+            for key, png, py, _ in recovered:
+                for ext, data in (("png", png), ("py", py)):
+                    info = tarfile.TarInfo(f"{key}.{ext}")
+                    info.size = len(data)
+                    info.mtime = int(time.time())
+                    tf.addfile(info, io.BytesIO(data))
+        side = json.load(open(out_side))
+        for key, _, _, meta in recovered:
+            side[key] = meta
+        with open(out_side + ".tmp", "w") as f:
+            json.dump(side, f, indent=1, sort_keys=True)
+        os.replace(out_side + ".tmp", out_side)
+    for key in todo:
+        if key in still:
+            fails[key] = still[key]
+        else:
+            fails.pop(key)
+    fails.setdefault("recovered", [])
+    fails["recovered"] = sorted(set(fails["recovered"]) | {k for k, *_ in recovered})
+    with open(fail_path + ".tmp", "w") as f:
+        json.dump(fails, f, indent=1, sort_keys=True)
+    os.replace(fail_path + ".tmp", fail_path)
+    shutil.rmtree(wd, ignore_errors=True)
+    by_reason: dict[str, int] = {}
+    for reason, _ in still.values():
+        by_reason[reason] = by_reason.get(reason, 0) + 1
+    return {"shard": name, "retry": True, "n_todo": len(todo), "n_recovered": len(recovered),
+            "still": by_reason, "elapsed": round(time.time() - t_start, 1), "ts": time.strftime("%Y-%m-%d %H:%M:%S")}
+
+
 def _init(cfg):
     global _CFG
     _CFG = cfg
@@ -242,7 +330,7 @@ def _init(cfg):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("mode", choices=["tars", "dir"])
+    ap.add_argument("mode", choices=["tars", "dir", "retry"])
     ap.add_argument("--tars", default="/srv/scratch/bimrose2/tars_v14")
     ap.add_argument("--src", help="dir mode: directory of *.step")
     ap.add_argument("--out", required=True)
@@ -260,6 +348,7 @@ def main():
     ap.add_argument("--keep-keys", default="", help="keys always attempted even if in --skip-keys (certified eval)")
     ap.add_argument("--allow-legacy", action="store_true", help="keep sheets drawn by the legacy fallback renderer")
     ap.add_argument("--variants", default="", help="dir mode: JSON {key: N} forcing variant N and using key as the renderer uuid")
+    ap.add_argument("--retry-reasons", default=",".join(RETRY_REASONS), help="retry mode: failure reasons to re-attempt")
     a = ap.parse_args()
 
     def _keys(p):
@@ -269,11 +358,12 @@ def main():
                script_dir=a.script_dir, tmp=a.tmp, exec_timeout=a.exec_timeout,
                render_timeout=a.render_timeout, skip_keys=_keys(a.skip_keys),
                keep_keys=_keys(a.keep_keys), allow_legacy=a.allow_legacy,
-               variants=json.load(open(a.variants)) if a.variants else {})
+               variants=json.load(open(a.variants)) if a.variants else {},
+               retry_reasons=tuple(a.retry_reasons.split(",")))
     os.makedirs(cfg["out"], exist_ok=True)
     os.makedirs(cfg["tmp"], exist_ok=True)
 
-    if a.mode == "tars":
+    if a.mode in ("tars", "retry"):
         items = sorted(glob.glob(os.path.join(os.path.abspath(a.tars), "shard_*.tar")))
         if a.shards:
             if "-" in a.shards:
@@ -282,7 +372,7 @@ def main():
             else:
                 want = {int(x) for x in a.shards.split(",")}
                 items = [p for p in items if int(os.path.basename(p)[6:12]) in want]
-        fn = do_shard
+        fn = do_retry if a.mode == "retry" else do_shard
         unit = "shards"
     else:
         items = sorted(glob.glob(os.path.join(os.path.abspath(a.src), "*.step")))  # subprocess cwd is the temp dir
@@ -301,6 +391,9 @@ def main():
             log.flush()
             if rec.get("skipped"):
                 skipped += 1
+            elif a.mode == "retry":
+                ok += rec.get("n_recovered", 0)
+                fail += rec.get("n_todo", 0) - rec.get("n_recovered", 0)
             elif a.mode == "tars":
                 ok += rec.get("n_ok", 0)
                 fail += rec.get("n_fail", 0)
