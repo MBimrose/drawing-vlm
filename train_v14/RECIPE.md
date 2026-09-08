@@ -937,8 +937,30 @@ and appends the recovered members (`failures/<shard>.json` → `"recovered"`), a
 `rerender_finish_serv19.sh` runs that pass once more over every shard before packing. Before
 the removal the bulk run had lost 900 of 40,248 attempted parts (2.24%; 256 shards) to
 `render_legacy`; no legacy sheet was ever written (0 legacy sidecar entries, every failed key
-absent from its tar). Recovery counts and the remaining failure taxonomy: see the table
-below (PENDING until the retry pass finishes).
+absent from its tar).
+
+**What actually breaks in draftwright 0.4.23** (no-fallback path; interim over the first 675
+completed shards ≈ 106k attempted parts, 2,472 failures = 2.3% after the retry pass recovered
+444 of 1,942 re-attempted first-pass failures = 22.9%, i.e. the `ViewNotPlanned` class):
+
+| count | stage | exception | example key / message |
+|---|---|---|---|
+| 700 | render | `ValueError` (feature recognition) | `01639c4d-…_v5` "Hole cylindrical evidence does not prove one valid solid"; also "countersink defining face has no unambiguous valid solid" |
+| 441 | exec | script timeout (120 s, build123d 0.11.1 under load) | `13c77b4f-…_v1` |
+| 318 | render | `_DrawingTimeout` (150 s sheet alarm) | `0003880c-…_v5` |
+| 316 | render | `Standard_ConstructionError` (OCCT, inside draftwright) | `019ba58d-…_v3` |
+| 314 | render | `StopIteration` (draftwright internal) | `0044fca5-…_v5` |
+| 173 | exec | script error (parts not on the blocklist; 0.11.1 kernel drift: fillet/chamfer) | `000bc5ac-…_v5` "Failed creating a fillet with radius of 2.0" |
+| 129 | render | process timeout (400 s) | `04182dce-…_v3` |
+| 53 | render | `_SlotAttributionError` "equal Slot record has competing source roles" | `04fe51a9-…_v1` |
+| 14 | render | `AmbiguousTurnedOwnershipError` (groove profile membership) | `140c84f1-…_v1` |
+| 6 | render | `_PocketAttributionError` "Pocket source faces do not prove one valid solid" | `03a6dc09-…_v3` |
+| 4 | render | pre-removal `render_legacy` not yet re-attempted | — |
+| 2 | render | `Standard_TypeMismatch` / `Standard_NullObject` (OCCT) | `0b6f79e9-…_v5` |
+
+Per-key reasons with the full message: `tars_v14_dw423/failures/<shard>.json` (cluster copy
+`step_to_drw/wds_dataset/tars_v14_dw423_failures/`). The final summary over all 2,500 shards is
+written by the finisher to `rerender_tars_dw423_summary.txt` there.
 
 **Consequence for the drift numbers above.** Slicing e51's paired
 `bo8_ext_dw423` result by the sidecar's renderer: on the 110 genuine 0.4.23 sheets
