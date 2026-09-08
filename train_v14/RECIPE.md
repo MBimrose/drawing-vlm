@@ -765,3 +765,88 @@ one part that needed it. Both branches ran: `F_56494_0f3437d4_3_medium`
 draws also fell to the verifier there, 0.660 vs the vote's 0.413). Served
 picks are the oracle of their own candidate sets on all three; the offline
 picks on the stored candidates took the same branch for every key.
+
+## ABC ground-truth-code corpus (2026-09-08)
+
+Question: the self-written real tier saturates at ~1k parts; can real ABC parts with a
+**ground-truth build123d program** supply what the model cannot self-generate? Source: the
+user's mesh→CAD pipeline (MBimrose/agentic-mesh-to-cad, `dataset/{ds0b,v1..v17}`: mesh.stl +
+program.py + model.step per part, banked at IoU ≥ 0.85 vs the mesh, normalised frame with max
+extent 2, emitter dialect `import build123d as b` / `_safe_fuse` / `result`). 523 unique
+8-digit ABC ids (best version per part from cadfit_abc_best.json), 0 overlap with the 146
+held-out bench parts; ds0r (programs only), ds0c (synthetic) and paper300 (CadQuery) skipped.
+
+Conversion (`train_v14/mech/benchmarks/convert_cadfit_program.py`): AST span edits scale every
+length literal by f = 80 / max extent of model.step (≈40, rounded to 4 decimals so the sheet's
+numbers are the code's numbers; direction vectors, angles, counts untouched), rename
+`result → part`, `b.X → X` with `from build123d import *`, append `export_step`, drop the
+`_safe_*` helpers for plain `.fuse/.cut` (kept only where the plain version fails), and
+optionally replace circle-fitting polylines (residual < 1e-3·r) by `Circle` / `ThreePointArc`.
+Every stage is executed in a fresh subprocess and must reach centred IoU ≥ 0.99 against the
+banked STEP scaled by f. Pass counts over 523 parts: original program re-executes in
+build123d 0.11.1 at 517 (493 at ≥ 0.99 — 28 parts are kernel-version drift); scaled + plain
+423 pass; helpers rescue 9; a 6-decimal retry rescues 14 (sub-1e-4 mm features collapsed);
+**432 verified (82.6%)**, mean IoU vs STEP 0.9995, mean IoU vs the raw mesh 0.92. Polyline
+cleaning: attempted on 184 parts, kept on **104** (162 Circle + 831 ThreePointArc
+replacements; the other 80 drop below 0.99 because the reference itself is the polygon).
+The 91 failures: 28 build123d drift, 39 execute at 0.9-0.99 (scale-dependent boolean
+tolerances — 25 of them are *closer* to the raw mesh than the banked STEP), 24 crash.
+
+Corpus `rft_corpus_abccode` (serv-19 mech_benchmarks/, cluster
+train_v14/mech/benchmarks/data/): keys `A_<id>_code`, step_mm/ + gt_meshes_v15/ from the
+converted program's own STEP, gt_code/<key>.py + gt_code.jsonl, manifest with per-part stats
+and the renderer record. Rendered twice: `render_dw400/` (sibling dir
+rft_corpus_abccode_dw400 with its own caches: /software python 3.11 + ~/.local draftwright
+**0.4.0** + `_FONT_SIZE = 5.25`, exactly as corpora 1-3) 432/432, and `render/` (fresh venv
+/srv/scratch/bimrose2/dw_venv: draftwright **0.4.23** + the same font patch, cairosvg added,
+render_isolated.sh `RPY=`) 429/432 (three polyline-heavy parts exceed the 400 s render
+timeout). 0.4.23 merges identical callouts ("14× R2.7"), moves the ISO view and marks fewer
+sheets underdetermined (52 vs 66 on the held-out bench); one bench part fails its new
+`ScaleIncompatibilityError` check. Shape census: median 30 faces, but only 192/432 pass the
+CADBench single-body filter of corpora 1-3 (142 thin profiles with aspect > 15, 92 with > 120
+faces, 50 multi-solid) — `cadbench_filter_pass` is stored per row.
+
+**Renderer-drift control** (`ext_bench_dw423`, the 146 held-out parts re-rendered with 0.4.23,
+e51 best-of-8, paired over the 145 parts both renderers produce;
+results/ext/bo8_ext_dw423_e51-rft-real-u3-strict90_{summary,drift}.txt):
+
+| slice (146-part bench) | n | first-exec old → new | vote old → new | oracle old → new |
+|---|---|---|---|---|
+| ALL | 145 | 0.484 → 0.415 (−0.069) | 0.510 → 0.444 (−0.067) | 0.594 → 0.516 (−0.078) |
+| determinate (old sidecar) | 80 | 0.567 → 0.529 | 0.597 → 0.546 | 0.676 → 0.619 |
+| underdetermined (old sidecar) | 65 | 0.383 → 0.276 | 0.403 → 0.317 | 0.494 → 0.388 |
+| determinate under both | 68 | 0.532 → 0.507 | 0.559 → 0.516 | 0.646 → 0.591 |
+| Fusion (F) | 88 | 0.519 → 0.447 | 0.540 → 0.494 | 0.634 → 0.570 |
+| ABC (A) | 57 | 0.431 → 0.367 | 0.464 → 0.365 | 0.532 → 0.432 |
+
+The renderer alone costs the served vote 0.07 (per-part oracle delta median −0.04; 63 parts
+worse by > 0.05, 22 better; solved ≥ 0.8: 41 → 32). The model was trained on 0.4.0 sheets;
+0.4.23 is a distribution shift, largest on sheets it lays out differently (the 52 it flags
+underdetermined lose 0.14). Consequence: every new tier/bench must be rendered with 0.4.0
+until the training sheets move, and "cannot write" below is judged on the 0.4.0 sheets.
+
+**e51 baseline on the ABC-code corpus** (best-of-8, T=0.7, 429 parts scored under both
+renderings; results/ext/bo8_abccode_e51-rft-real-u3-strict90_summary.txt):
+
+| slice | n | 0.4.0: first-exec / vote / oracle | 0.4.23: first-exec / vote / oracle |
+|---|---|---|---|
+| ALL | 429 | 0.637 (36%) / 0.685 (41%) / 0.741 (46%) | 0.573 (30%) / 0.618 (35%) / 0.687 (42%) |
+| determinate (own sidecar) | 332 / 322 | 0.680 / 0.727 / 0.778 | 0.638 / 0.685 / 0.750 |
+| underdetermined (own sidecar) | 97 / 107 | 0.488 / 0.543 / 0.617 | 0.376 / 0.418 / 0.498 |
+| ds0b (first harvest) | 152 | 0.672 / 0.711 / 0.758 | 0.599 / 0.652 / 0.727 |
+| v5-v17 (re-exec gated) | 274 | 0.614 / 0.668 / 0.729 | 0.557 / 0.596 / 0.662 |
+| GT polyline-cleaned | 104 | 0.587 / 0.659 / 0.721 | 0.546 / 0.608 / 0.684 |
+
+(percentages = share ≥ 0.85.) These parts are easier than the held-out medium tiers (many are
+single-profile extrusions): e51 solves 55% at ≥ 0.8 on the 0.4.0 sheets. Renderer agreement:
+unsolved (best-of-8 < 0.8) **192 on 0.4.0** vs 225 on 0.4.23 — 178 unsolved under both, 14 only
+on 0.4.0, 47 only on 0.4.23; per-part oracle delta mean −0.055 (median 0.000; 126 parts worse
+by > 0.05, 58 better). Per-part numbers: results/abccode_render_deltas_e51-rft-real-u3-strict90.json.
+
+Tier `rft_real_abccode/` (README there): the 192 unsolved parts with the verified GT program as
+target (`src: "gt"`, empty think), 0.4.0 sheets; `rft_real_abccode_dw423/` the same parts on
+0.4.23 sheets (keys suffixed `_dw423`); `rft_real_abccode_all{,_dw423}/` all 429. Packed with
+pack_rft_shards_dir.py (1 shard each). Of the 192 unsolved, 77 pass the CADBench filter.
+Open: train a round with the GT tier (e.g. rft_mix_u3_strict90 + rft_real_abccode ×k) and judge
+on the 146-part bench (0.4.0 sheets) — the first real-part supervision that is not the model's
+own output; whether 192 programs in the emitter's style transfer is the question.

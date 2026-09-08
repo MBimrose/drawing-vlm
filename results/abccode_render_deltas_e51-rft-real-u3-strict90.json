@@ -1,0 +1,7745 @@
+{
+ "threshold": 0.8,
+ "agreement": {
+  "n_scored_both": 429,
+  "unsolved_dw400": 192,
+  "unsolved_dw423": 225,
+  "unsolved_both": 178,
+  "unsolved_only_dw400": 14,
+  "unsolved_only_dw423": 47,
+  "solved_both": 190,
+  "mean_best_dw400": 0.7414359763111746,
+  "mean_best_dw423": 0.6869009207451067,
+  "mean_first_exec_dw400": 0.6369268702809179,
+  "mean_first_exec_dw423": 0.5724712644185953,
+  "mean_delta_best_dw423_minus_dw400": -0.054535055566068004,
+  "parts_better_dw423_by_0.05": 58,
+  "parts_worse_dw423_by_0.05": 126,
+  "cadbench_filter_pass": 192,
+  "unsolved_dw400_cadbench_pass": 77
+ },
+ "parts": {
+  "A_00000005_code": {
+   "best_dw400": 0.9746773893319304,
+   "best_dw423": 0.9746773893319304,
+   "first_exec_dw400": 0.969530024036285,
+   "first_exec_dw423": 0.9669473339048587,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999679957882803,
+   "cadbench_filter_pass": false,
+   "faces": 7,
+   "bbox_mm": [
+    80.0,
+    32.379,
+    4.068
+   ],
+   "source_version": "v1"
+  },
+  "A_00000007_code": {
+   "best_dw400": 0.9959726095295939,
+   "best_dw423": 0.9959726095295939,
+   "first_exec_dw400": 0.9295930598834302,
+   "first_exec_dw423": 0.9295930598834302,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999987180533554,
+   "cadbench_filter_pass": true,
+   "faces": 3,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    11.159
+   ],
+   "source_version": "v1"
+  },
+  "A_00000022_code": {
+   "best_dw400": 0.9556121666411027,
+   "best_dw423": 0.850376510576555,
+   "first_exec_dw400": 0.9556121666411027,
+   "first_exec_dw423": 0.0017808406113537117,
+   "delta_best": -0.10523565606454777,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": false,
+   "faces": 131,
+   "bbox_mm": [
+    80.0,
+    79.604,
+    79.604
+   ],
+   "source_version": "v2"
+  },
+  "A_00001146_code": {
+   "best_dw400": 0.8381490554795878,
+   "best_dw423": 0.8381490554795878,
+   "first_exec_dw400": 0.5246160162376384,
+   "first_exec_dw423": 0.8381490554795878,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9943805921291918,
+   "cadbench_filter_pass": false,
+   "faces": 18,
+   "bbox_mm": [
+    19.0,
+    10.108,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00002570_code": {
+   "best_dw400": 0.9308208624506326,
+   "best_dw423": 0.9104924953451752,
+   "first_exec_dw400": 0.9100952299490592,
+   "first_exec_dw423": 0.9104924953451752,
+   "delta_best": -0.02032836710545738,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999917770784706,
+   "cadbench_filter_pass": false,
+   "faces": 12,
+   "bbox_mm": [
+    59.85,
+    59.85,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00003259_code": {
+   "best_dw400": 0.9648045284137964,
+   "best_dw423": 0.6416247773364784,
+   "first_exec_dw400": 0.9507083582382592,
+   "first_exec_dw423": 0.6173794004253705,
+   "delta_best": -0.323179751077318,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999994079839754,
+   "cadbench_filter_pass": true,
+   "faces": 10,
+   "bbox_mm": [
+    71.156,
+    80.0,
+    56.08
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00003607_code": {
+   "best_dw400": 0.752158165237434,
+   "best_dw423": 0.6640619026501308,
+   "first_exec_dw400": 0.3449468208270944,
+   "first_exec_dw423": 0.4157260621433101,
+   "delta_best": -0.08809626258730319,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9917602529555615,
+   "cadbench_filter_pass": true,
+   "faces": 60,
+   "bbox_mm": [
+    79.834,
+    80.012,
+    25.822
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00003749_code": {
+   "best_dw400": 0.4893368369503303,
+   "best_dw423": 0.23123570355895817,
+   "first_exec_dw400": 0.4893368369503303,
+   "first_exec_dw423": 0.20632631411119484,
+   "delta_best": -0.25810113339137214,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.996200767326494,
+   "cadbench_filter_pass": true,
+   "faces": 73,
+   "bbox_mm": [
+    48.493,
+    80.0,
+    48.493
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00004373_code": {
+   "best_dw400": 0.8380022862891157,
+   "best_dw423": 0.8358881175499416,
+   "first_exec_dw400": 0.8270212898214613,
+   "first_exec_dw423": 0.7752717746230673,
+   "delta_best": -0.002114168739174027,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999958880279326,
+   "cadbench_filter_pass": true,
+   "faces": 13,
+   "bbox_mm": [
+    65.214,
+    9.857,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00004383_code": {
+   "best_dw400": 0.854776784686046,
+   "best_dw423": 0.8590271481309321,
+   "first_exec_dw400": 0.7306140662079785,
+   "first_exec_dw423": 0.7696117040073764,
+   "delta_best": 0.004250363444886052,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999382291025408,
+   "cadbench_filter_pass": true,
+   "faces": 15,
+   "bbox_mm": [
+    70.813,
+    80.0,
+    29.714
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00004717_code": {
+   "best_dw400": 0.4325979328041404,
+   "best_dw423": 0.18552356919617374,
+   "first_exec_dw400": 0.2596623694757941,
+   "first_exec_dw423": 0.08565792652205184,
+   "delta_best": -0.24707436360796664,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999926576855923,
+   "cadbench_filter_pass": true,
+   "faces": 22,
+   "bbox_mm": [
+    80.0,
+    58.947,
+    31.11
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00004829_code": {
+   "best_dw400": 0.3769547299846909,
+   "best_dw423": 0.3650768997141309,
+   "first_exec_dw400": 0.050247093040436314,
+   "first_exec_dw423": 0.34778743697987197,
+   "delta_best": -0.011877830270559997,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999280546383661,
+   "cadbench_filter_pass": false,
+   "faces": 139,
+   "bbox_mm": [
+    1.52,
+    3.04,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00004851_code": {
+   "best_dw400": 0.6901012828881042,
+   "best_dw423": 0.4908740721239088,
+   "first_exec_dw400": 0.6901012828881042,
+   "first_exec_dw423": 0.39033278654417886,
+   "delta_best": -0.19922721076419542,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999841261601524,
+   "cadbench_filter_pass": false,
+   "faces": 337,
+   "bbox_mm": [
+    71.475,
+    76.708,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00005415_code": {
+   "best_dw400": 0.8979345955303704,
+   "best_dw423": 0.9589345944228139,
+   "first_exec_dw400": 0.8979345955303704,
+   "first_exec_dw423": 0.8979345955303704,
+   "delta_best": 0.06099999889244356,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999931050440461,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    3.38,
+    41.69
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00005597_code": {
+   "best_dw400": 0.9220084659114747,
+   "best_dw423": 0.9157135944111855,
+   "first_exec_dw400": 0.9220084659114747,
+   "first_exec_dw423": 0.8484274687928859,
+   "delta_best": -0.006294871500289179,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999938812592392,
+   "cadbench_filter_pass": true,
+   "faces": 15,
+   "bbox_mm": [
+    80.0,
+    42.667,
+    12.089
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00006333_code": {
+   "best_dw400": 0.8436645166483957,
+   "best_dw423": 0.8846850304826461,
+   "first_exec_dw400": 0.8436645166483957,
+   "first_exec_dw423": 0.642060641172845,
+   "delta_best": 0.04102051383425043,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999983291949704,
+   "cadbench_filter_pass": true,
+   "faces": 17,
+   "bbox_mm": [
+    56.051,
+    56.051,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00007078_code": {
+   "best_dw400": 0.8302455020371734,
+   "best_dw423": 0.7665163312541037,
+   "first_exec_dw400": 0.6465786144164382,
+   "first_exec_dw423": 0.6999456609129585,
+   "delta_best": -0.06372917078306972,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999999998642172,
+   "cadbench_filter_pass": true,
+   "faces": 12,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    34.257
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00007310_code": {
+   "best_dw400": 0.0723522595595601,
+   "best_dw423": 0.06049303666532702,
+   "first_exec_dw400": 0.05094369051945686,
+   "first_exec_dw423": 0.011409317344640856,
+   "delta_best": -0.011859222894233072,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9997768729946312,
+   "cadbench_filter_pass": false,
+   "faces": 20,
+   "bbox_mm": [
+    19.927,
+    19.927,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00007697_code": {
+   "best_dw400": 0.9723666075176977,
+   "best_dw423": 0.013854366403121252,
+   "first_exec_dw400": 0.9709440088029349,
+   "first_exec_dw423": 0.013522932144461739,
+   "delta_best": -0.9585122411145764,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999737643498209,
+   "cadbench_filter_pass": false,
+   "faces": 134,
+   "bbox_mm": [
+    80.0,
+    1.333,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00008359_code": {
+   "best_dw400": 0.9990396415156587,
+   "best_dw423": 0.9990396415156587,
+   "first_exec_dw400": 0.9990396415156587,
+   "first_exec_dw423": 0.9778574761441843,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999987260362311,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    80.0,
+    44.013,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00008681_code": {
+   "best_dw400": 0.4635547325523121,
+   "best_dw423": 0.46628673293725714,
+   "first_exec_dw400": 0.08965096123760437,
+   "first_exec_dw423": 0.1316760540624947,
+   "delta_best": 0.0027320003849450325,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999921991128765,
+   "cadbench_filter_pass": false,
+   "faces": 41,
+   "bbox_mm": [
+    66.614,
+    66.614,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00008926_code": {
+   "best_dw400": 0.47311626833483916,
+   "best_dw423": 0.5281863486400479,
+   "first_exec_dw400": 0.13742044781130902,
+   "first_exec_dw423": 0.37371769545933403,
+   "delta_best": 0.05507008030520871,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999899456208903,
+   "cadbench_filter_pass": true,
+   "faces": 16,
+   "bbox_mm": [
+    75.218,
+    5.641,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00008937_code": {
+   "best_dw400": 0.9927959786120856,
+   "best_dw423": 0.9927959786120856,
+   "first_exec_dw400": 0.9927959786120856,
+   "first_exec_dw423": 0.9927959786120856,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999940637995587,
+   "cadbench_filter_pass": true,
+   "faces": 3,
+   "bbox_mm": [
+    11.429,
+    80.0,
+    11.429
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00010955_code": {
+   "best_dw400": 0.5939719981697406,
+   "best_dw423": 0.7101784182244038,
+   "first_exec_dw400": 0.5939719981697406,
+   "first_exec_dw423": 0.6307014133334933,
+   "delta_best": 0.1162064200546632,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9994247391892755,
+   "cadbench_filter_pass": false,
+   "faces": 168,
+   "bbox_mm": [
+    80.0,
+    8.869,
+    8.859
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00011471_code": {
+   "best_dw400": 0.9976704150028551,
+   "best_dw423": 0.9976704150028551,
+   "first_exec_dw400": 0.9976704150028551,
+   "first_exec_dw423": 0.9976704150028551,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999997662926466,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    58.182,
+    4.509
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00011823_code": {
+   "best_dw400": 0.7391639787304083,
+   "best_dw423": 0.6957946586750661,
+   "first_exec_dw400": 0.542264820914553,
+   "first_exec_dw423": 0.19683057117803845,
+   "delta_best": -0.04336932005534222,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999979914612179,
+   "cadbench_filter_pass": false,
+   "faces": 1020,
+   "bbox_mm": [
+    80.0,
+    3.725,
+    11.174
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00011828_code": {
+   "best_dw400": 0.8321326925921261,
+   "best_dw423": 0.6371006928327938,
+   "first_exec_dw400": 0.8285702339389235,
+   "first_exec_dw423": 0.43909119605587765,
+   "delta_best": -0.19503199975933228,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999850272182669,
+   "cadbench_filter_pass": false,
+   "faces": 1527,
+   "bbox_mm": [
+    80.0,
+    4.734,
+    7.101
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00012346_code": {
+   "best_dw400": 0.5775878173211538,
+   "best_dw423": 0.6380812312274626,
+   "first_exec_dw400": 0.16822519556509846,
+   "first_exec_dw423": 0.6380812312274626,
+   "delta_best": 0.0604934139063088,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9990451418374142,
+   "cadbench_filter_pass": true,
+   "faces": 93,
+   "bbox_mm": [
+    76.134,
+    80.0,
+    72.797
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00012455_code": {
+   "best_dw400": 0.9229447419431637,
+   "best_dw423": 0.9148426996873849,
+   "first_exec_dw400": 0.91484269904036,
+   "first_exec_dw423": 0.91484269904036,
+   "delta_best": -0.008102042255778819,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999912873817,
+   "cadbench_filter_pass": false,
+   "faces": 389,
+   "bbox_mm": [
+    80.0,
+    11.111,
+    5.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00013695_code": {
+   "best_dw400": 0.8118092547216973,
+   "best_dw423": 0.816776404985329,
+   "first_exec_dw400": 0.7197251832780659,
+   "first_exec_dw423": 0.2584471393159555,
+   "delta_best": 0.004967150263631703,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999995632440904,
+   "cadbench_filter_pass": true,
+   "faces": 17,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    34.257
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00014437_code": {
+   "best_dw400": 0.4046914530727157,
+   "best_dw423": 0.6452183943239355,
+   "first_exec_dw400": 0.3947245987124442,
+   "first_exec_dw423": 0.45927667786036797,
+   "delta_best": 0.24052694125121976,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999921991128765,
+   "cadbench_filter_pass": false,
+   "faces": 41,
+   "bbox_mm": [
+    66.614,
+    66.614,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00014843_code": {
+   "best_dw400": 0.6991656598096877,
+   "best_dw423": 0.7132146752724264,
+   "first_exec_dw400": 0.6941176812053736,
+   "first_exec_dw423": 0.6485199931271367,
+   "delta_best": 0.014049015462738734,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999890545831499,
+   "cadbench_filter_pass": false,
+   "faces": 536,
+   "bbox_mm": [
+    80.0,
+    41.274,
+    38.307
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00015648_code": {
+   "best_dw400": 0.9719928360651174,
+   "best_dw423": 0.9719928360651174,
+   "first_exec_dw400": 0.9719928360651174,
+   "first_exec_dw423": 0.9719928360651174,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999467161225665,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    10.667,
+    1.333
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00016460_code": {
+   "best_dw400": 0.7548017936675291,
+   "best_dw423": 0.8926537755172975,
+   "first_exec_dw400": 0.5107581312790194,
+   "first_exec_dw423": 0.41174670543892006,
+   "delta_best": 0.13785198184976843,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999539574353788,
+   "cadbench_filter_pass": true,
+   "faces": 32,
+   "bbox_mm": [
+    77.567,
+    77.655,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00017309_code": {
+   "best_dw400": 0.8303668577218628,
+   "best_dw423": 0.8899986244320605,
+   "first_exec_dw400": 0.8258873397229637,
+   "first_exec_dw423": 0.800444137454215,
+   "delta_best": 0.05963176671019765,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999965476705411,
+   "cadbench_filter_pass": false,
+   "faces": 83,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    37.895
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00017701_code": {
+   "best_dw400": 0.8961982755185879,
+   "best_dw423": 0.8791938306333751,
+   "first_exec_dw400": 0.8961982755185879,
+   "first_exec_dw423": 0.7349101091013008,
+   "delta_best": -0.0170044448852128,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9977766192721533,
+   "cadbench_filter_pass": true,
+   "faces": 88,
+   "bbox_mm": [
+    79.999,
+    39.378,
+    79.999
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00017962_code": {
+   "best_dw400": 0.79907902086374,
+   "best_dw423": 0.9337280588155821,
+   "first_exec_dw400": 0.79907902086374,
+   "first_exec_dw423": 0.9240080312928207,
+   "delta_best": 0.13464903795184202,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999742427364516,
+   "cadbench_filter_pass": true,
+   "faces": 34,
+   "bbox_mm": [
+    80.0,
+    10.162,
+    13.251
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00018562_code": {
+   "best_dw400": 1.0,
+   "best_dw423": 1.0,
+   "first_exec_dw400": 1.0,
+   "first_exec_dw423": 1.0,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999999006589293,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    40.0,
+    2.4
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00018923_code": {
+   "best_dw400": 0.6724829764916163,
+   "best_dw423": 0.6169625142283761,
+   "first_exec_dw400": 0.6459687730741424,
+   "first_exec_dw423": 0.5607739838238509,
+   "delta_best": -0.055520462263240145,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999967478307892,
+   "cadbench_filter_pass": false,
+   "faces": 280,
+   "bbox_mm": [
+    80.0,
+    75.998,
+    75.998
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00019444_code": {
+   "best_dw400": 0.6381681298411221,
+   "best_dw423": 0.663179028413652,
+   "first_exec_dw400": 0.5895404728988215,
+   "first_exec_dw423": 0.47085443975604824,
+   "delta_best": 0.025010898572529805,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9992237123538068,
+   "cadbench_filter_pass": true,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    62.222
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00019587_code": {
+   "best_dw400": 0.993516927123038,
+   "best_dw423": 0.993516927123038,
+   "first_exec_dw400": 0.993516927123038,
+   "first_exec_dw423": 0.993516927123038,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999740518255841,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    13.778,
+    13.778,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00020329_code": {
+   "best_dw400": 0.9565785768375209,
+   "best_dw423": 0.9981792656879178,
+   "first_exec_dw400": 0.9185935225051227,
+   "first_exec_dw423": 0.9185935225051227,
+   "delta_best": 0.041600688850396916,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999948173266365,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    29.365,
+    8.706
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00020390_code": {
+   "best_dw400": 0.8656713683757448,
+   "best_dw423": 0.8976668961255915,
+   "first_exec_dw400": 0.8617635490000296,
+   "first_exec_dw423": 0.734731287016595,
+   "delta_best": 0.03199552774984671,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999996116313844,
+   "cadbench_filter_pass": true,
+   "faces": 10,
+   "bbox_mm": [
+    80.0,
+    38.261,
+    20.87
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00020838_code": {
+   "best_dw400": 0.947017737619866,
+   "best_dw423": 0.9003583647983376,
+   "first_exec_dw400": 0.7968801211212136,
+   "first_exec_dw423": 0.7915705127301855,
+   "delta_best": -0.04665937282152832,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999985653274764,
+   "cadbench_filter_pass": true,
+   "faces": 21,
+   "bbox_mm": [
+    32.003,
+    32.003,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00021800_code": {
+   "best_dw400": 0.9920000076293946,
+   "best_dw423": 0.9920000076293946,
+   "first_exec_dw400": 0.9920000076293946,
+   "first_exec_dw423": 0.9920000076293946,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    4.96
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00022014_code": {
+   "best_dw400": 0.9887061986327508,
+   "best_dw423": 0.9887061986327508,
+   "first_exec_dw400": 0.9887061986327508,
+   "first_exec_dw423": 0.9887061986327508,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999822174195763,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    2.822,
+    80.0,
+    9.031
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00022792_code": {
+   "best_dw400": 0.986249866002457,
+   "best_dw423": 0.986249866002457,
+   "first_exec_dw400": 0.986249866002457,
+   "first_exec_dw423": 0.986249866002457,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999991240322631,
+   "cadbench_filter_pass": false,
+   "faces": 3,
+   "bbox_mm": [
+    4.96,
+    80.0,
+    4.96
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00022900_code": {
+   "best_dw400": 0.9023157256218763,
+   "best_dw423": 0.8642109745479659,
+   "first_exec_dw400": 0.5952691487128795,
+   "first_exec_dw423": 0.796913789487359,
+   "delta_best": -0.038104751073910426,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999993291687235,
+   "cadbench_filter_pass": true,
+   "faces": 29,
+   "bbox_mm": [
+    24.0,
+    80.0,
+    56.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00023007_code": {
+   "best_dw400": 0.84375,
+   "best_dw423": 0.7007874015748031,
+   "first_exec_dw400": 0.733198820094432,
+   "first_exec_dw423": 0.3856882499018724,
+   "delta_best": -0.14296259842519687,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999999823393648,
+   "cadbench_filter_pass": false,
+   "faces": 30,
+   "bbox_mm": [
+    80.0,
+    5.0,
+    40.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00023487_code": {
+   "best_dw400": 0.6220334948343915,
+   "best_dw423": 0.8119279188300944,
+   "first_exec_dw400": 0.11770390877563776,
+   "first_exec_dw423": 0.7556793925603454,
+   "delta_best": 0.1898944239957029,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9994149719112382,
+   "cadbench_filter_pass": true,
+   "faces": 18,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    68.067
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00023793_code": {
+   "best_dw400": 0.5866609329851699,
+   "best_dw423": 0.5866609329851699,
+   "first_exec_dw400": 0.5866609329851699,
+   "first_exec_dw423": 0.501040984258475,
+   "delta_best": 0.0,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999996118973146,
+   "cadbench_filter_pass": true,
+   "faces": 10,
+   "bbox_mm": [
+    56.0,
+    30.867,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00024020_code": {
+   "best_dw400": 0.4762215491269643,
+   "best_dw423": 0.30818944500176165,
+   "first_exec_dw400": 0.13145007615596035,
+   "first_exec_dw423": 0.27823231627296546,
+   "delta_best": -0.16803210412520264,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999827179901339,
+   "cadbench_filter_pass": true,
+   "faces": 85,
+   "bbox_mm": [
+    45.346,
+    80.0,
+    8.685
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00025076_code": {
+   "best_dw400": 0.8980648781418887,
+   "best_dw423": 0.46507441065689,
+   "first_exec_dw400": 0.6254606162899347,
+   "first_exec_dw423": 0.2358479160910703,
+   "delta_best": -0.43299046748499875,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999960472857142,
+   "cadbench_filter_pass": true,
+   "faces": 24,
+   "bbox_mm": [
+    32.219,
+    32.222,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00025218_code": {
+   "best_dw400": 0.9708389795735645,
+   "best_dw423": 0.9732830307617698,
+   "first_exec_dw400": 0.9708389795735645,
+   "first_exec_dw423": 0.9708389795735645,
+   "delta_best": 0.002444051188205343,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999093300779944,
+   "cadbench_filter_pass": false,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    1.111,
+    1.111
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00026663_code": {
+   "best_dw400": 0.9397693380971119,
+   "best_dw423": 0.5533768618934414,
+   "first_exec_dw400": 0.9397693380971119,
+   "first_exec_dw423": 0.20781256957301,
+   "delta_best": -0.38639247620367057,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999932166168659,
+   "cadbench_filter_pass": false,
+   "faces": 630,
+   "bbox_mm": [
+    80.0,
+    7.201,
+    24.002
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00026943_code": {
+   "best_dw400": 0.9932653956887508,
+   "best_dw423": 0.989096900214774,
+   "first_exec_dw400": 0.9718640074733467,
+   "first_exec_dw423": 0.9728376955016471,
+   "delta_best": -0.0041684954739767965,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999890132700464,
+   "cadbench_filter_pass": true,
+   "faces": 52,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00026958_code": {
+   "best_dw400": 0.9852047708487629,
+   "best_dw423": 0.899988432615555,
+   "first_exec_dw400": 0.8770527656910964,
+   "first_exec_dw423": 0.8522266105936785,
+   "delta_best": -0.08521633823320796,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999642824064431,
+   "cadbench_filter_pass": true,
+   "faces": 53,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    26.667
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00026984_code": {
+   "best_dw400": 0.8263418333122697,
+   "best_dw423": 0.7939685500327797,
+   "first_exec_dw400": 0.8012630766119395,
+   "first_exec_dw423": 0.526145396088238,
+   "delta_best": -0.03237328327949007,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999888245680696,
+   "cadbench_filter_pass": true,
+   "faces": 71,
+   "bbox_mm": [
+    80.0,
+    17.6,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00027002_code": {
+   "best_dw400": 0.3704511915614773,
+   "best_dw423": 0.6836579589777249,
+   "first_exec_dw400": 0.25385380920813916,
+   "first_exec_dw423": 0.20906314380630583,
+   "delta_best": 0.31320676741624753,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999719303705497,
+   "cadbench_filter_pass": true,
+   "faces": 67,
+   "bbox_mm": [
+    80.0,
+    6.964,
+    69.629
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00028279_code": {
+   "best_dw400": 1.0,
+   "best_dw423": 1.0,
+   "first_exec_dw400": 1.0,
+   "first_exec_dw423": 1.0,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    4.0,
+    4.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00028557_code": {
+   "best_dw400": 0.7517370028878717,
+   "best_dw423": 0.7789432168837551,
+   "first_exec_dw400": 0.7517370028878717,
+   "first_exec_dw423": 0.1581235577570551,
+   "delta_best": 0.02720621399588341,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999204438432676,
+   "cadbench_filter_pass": false,
+   "faces": 377,
+   "bbox_mm": [
+    80.0,
+    28.907,
+    73.755
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00028802_code": {
+   "best_dw400": 0.40569594440681334,
+   "best_dw423": 0.09167163393440582,
+   "first_exec_dw400": 0.40569594440681334,
+   "first_exec_dw423": 0.09167163393440582,
+   "delta_best": -0.31402431047240753,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9970137382005583,
+   "cadbench_filter_pass": true,
+   "faces": 20,
+   "bbox_mm": [
+    80.0,
+    8.0,
+    25.263
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00028879_code": {
+   "best_dw400": 0.8374130135151877,
+   "best_dw423": 0.9616290943770759,
+   "first_exec_dw400": 0.8015238843645368,
+   "first_exec_dw423": 0.8015238843645368,
+   "delta_best": 0.12421608086188818,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999997144416805,
+   "cadbench_filter_pass": false,
+   "faces": 22,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    4.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00028982_code": {
+   "best_dw400": 0.5095878164309566,
+   "best_dw423": 0.06633339733142934,
+   "first_exec_dw400": 0.08373705144717056,
+   "first_exec_dw423": 0.04505484023544384,
+   "delta_best": -0.4432544190995273,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999970809841402,
+   "cadbench_filter_pass": true,
+   "faces": 31,
+   "bbox_mm": [
+    11.358,
+    25.679,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00029403_code": {
+   "best_dw400": 0.8235524564341377,
+   "best_dw423": 0.3953341252323101,
+   "first_exec_dw400": 0.4094286738629317,
+   "first_exec_dw423": 0.07266870562599793,
+   "delta_best": -0.42821833120182756,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999998154338512,
+   "cadbench_filter_pass": true,
+   "faces": 13,
+   "bbox_mm": [
+    80.0,
+    50.0,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00029426_code": {
+   "best_dw400": 0.975721136728588,
+   "best_dw423": 0.975721136728588,
+   "first_exec_dw400": 0.9754175634626854,
+   "first_exec_dw423": 0.9718133282596818,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999959637182859,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    0.816,
+    8.163
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00029445_code": {
+   "best_dw400": 0.9883419219044854,
+   "best_dw423": 0.9892855522794285,
+   "first_exec_dw400": 0.7573909036233978,
+   "first_exec_dw423": 0.9892855522794285,
+   "delta_best": 0.0009436303749430497,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.994372435827615,
+   "cadbench_filter_pass": false,
+   "faces": 53,
+   "bbox_mm": [
+    80.0,
+    32.007,
+    5.333
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00029624_code": {
+   "best_dw400": 0.6746196517590897,
+   "best_dw423": 0.6745275248286602,
+   "first_exec_dw400": 0.6632097475271597,
+   "first_exec_dw423": 0.6624316650166712,
+   "delta_best": -9.212693042948139e-05,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999901299880573,
+   "cadbench_filter_pass": false,
+   "faces": 40,
+   "bbox_mm": [
+    1.582,
+    80.0,
+    1.589
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00029901_code": {
+   "best_dw400": 0.6645644037206299,
+   "best_dw423": 0.7142858969947284,
+   "first_exec_dw400": 0.6272320355709492,
+   "first_exec_dw423": 0.6440149391613695,
+   "delta_best": 0.04972149327409858,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999855533916889,
+   "cadbench_filter_pass": true,
+   "faces": 61,
+   "bbox_mm": [
+    80.0,
+    14.789,
+    12.996
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00029937_code": {
+   "best_dw400": 0.6787711605551371,
+   "best_dw423": 0.5202632268878856,
+   "first_exec_dw400": 0.5353466796157292,
+   "first_exec_dw423": 0.3252084803651728,
+   "delta_best": -0.15850793366725147,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.99999594307245,
+   "cadbench_filter_pass": true,
+   "faces": 36,
+   "bbox_mm": [
+    80.0,
+    38.028,
+    37.989
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00030218_code": {
+   "best_dw400": 0.9859808998514029,
+   "best_dw423": 0.9860080453406596,
+   "first_exec_dw400": 0.9859808998514029,
+   "first_exec_dw423": 0.2269251911448703,
+   "delta_best": 2.7145489256641397e-05,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9985603513826679,
+   "cadbench_filter_pass": true,
+   "faces": 26,
+   "bbox_mm": [
+    78.297,
+    80.0,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00030235_code": {
+   "best_dw400": 0.8360257995799777,
+   "best_dw423": 0.9904937108701889,
+   "first_exec_dw400": 0.6726786547631505,
+   "first_exec_dw423": 0.8360257995799777,
+   "delta_best": 0.1544679112902112,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999863643826248,
+   "cadbench_filter_pass": true,
+   "faces": 8,
+   "bbox_mm": [
+    13.21,
+    80.0,
+    18.164
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00030632_code": {
+   "best_dw400": 0.9862231076337995,
+   "best_dw423": 0.9862231076337995,
+   "first_exec_dw400": 0.9862231076337995,
+   "first_exec_dw423": 0.9777754578110162,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999866457895908,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    25.333,
+    25.333,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00031309_code": {
+   "best_dw400": 0.6639846307983102,
+   "best_dw423": 0.6825484128931408,
+   "first_exec_dw400": 0.6639846307983102,
+   "first_exec_dw423": 0.12355539775929424,
+   "delta_best": 0.018563782094830672,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999885404624785,
+   "cadbench_filter_pass": false,
+   "faces": 126,
+   "bbox_mm": [
+    80.0,
+    72.997,
+    65.434
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00031500_code": {
+   "best_dw400": 0.9987121005831886,
+   "best_dw423": 0.7488986499054409,
+   "first_exec_dw400": 0.9987121005831886,
+   "first_exec_dw423": 0.7488986499054409,
+   "delta_best": -0.24981345067774774,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999997135920681,
+   "cadbench_filter_pass": true,
+   "faces": 14,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    40.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00031957_code": {
+   "best_dw400": 0.058895851899982234,
+   "best_dw423": 0.06126691022757348,
+   "first_exec_dw400": 0.028628936721826086,
+   "first_exec_dw423": 0.028628936721826086,
+   "delta_best": 0.002371058327591248,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999077764496497,
+   "cadbench_filter_pass": false,
+   "faces": 19,
+   "bbox_mm": [
+    80.0,
+    20.06,
+    16.212
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00032111_code": {
+   "best_dw400": 0.8882115728083188,
+   "best_dw423": 0.8992666009559471,
+   "first_exec_dw400": 0.8032325843019668,
+   "first_exec_dw423": 0.8981222109198942,
+   "delta_best": 0.011055028147628376,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999798317521554,
+   "cadbench_filter_pass": false,
+   "faces": 36,
+   "bbox_mm": [
+    80.0,
+    2.353,
+    28.235
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00032141_code": {
+   "best_dw400": 0.7828668715989495,
+   "best_dw423": 0.8911878472427093,
+   "first_exec_dw400": 0.7423208623908916,
+   "first_exec_dw423": 0.7739267521053932,
+   "delta_best": 0.10832097564375975,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999977642566301,
+   "cadbench_filter_pass": true,
+   "faces": 30,
+   "bbox_mm": [
+    80.0,
+    43.608,
+    55.858
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00032412_code": {
+   "best_dw400": 0.9553102257372043,
+   "best_dw423": 0.9553115446924687,
+   "first_exec_dw400": 0.9500197220082187,
+   "first_exec_dw423": 0.9553115446924687,
+   "delta_best": 1.3189552644510272e-06,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999983010006035,
+   "cadbench_filter_pass": true,
+   "faces": 30,
+   "bbox_mm": [
+    58.017,
+    80.0,
+    43.879
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00032495_code": {
+   "best_dw400": 0.6714753451252929,
+   "best_dw423": 0.6792306920089926,
+   "first_exec_dw400": 0.5814820425332896,
+   "first_exec_dw423": 0.6045594347634085,
+   "delta_best": 0.00775534688369961,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999852406054979,
+   "cadbench_filter_pass": false,
+   "faces": 22,
+   "bbox_mm": [
+    80.0,
+    78.637,
+    3.114
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00032698_code": {
+   "best_dw400": 0.9990095770115586,
+   "best_dw423": 0.9990095770115586,
+   "first_exec_dw400": 0.9990095770115586,
+   "first_exec_dw423": 0.9990095770115586,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999988678898686,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    32.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00032966_code": {
+   "best_dw400": 0.7390139315621496,
+   "best_dw423": 0.47929603201465837,
+   "first_exec_dw400": 0.7390139315621496,
+   "first_exec_dw423": 0.47929603201465837,
+   "delta_best": -0.2597178995474912,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999748950032824,
+   "cadbench_filter_pass": false,
+   "faces": 511,
+   "bbox_mm": [
+    8.572,
+    2.857,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00033096_code": {
+   "best_dw400": 0.689957495673983,
+   "best_dw423": 0.8485534114276991,
+   "first_exec_dw400": 0.689957495673983,
+   "first_exec_dw423": 0.6606743085520795,
+   "delta_best": 0.15859591575371612,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999973868359433,
+   "cadbench_filter_pass": true,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    44.337,
+    44.632
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00033515_code": {
+   "best_dw400": 0.8233843855061637,
+   "best_dw423": 0.9199278368564883,
+   "first_exec_dw400": 0.8233155708092486,
+   "first_exec_dw423": 0.32948417997971663,
+   "delta_best": 0.0965434513503246,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999546721664438,
+   "cadbench_filter_pass": true,
+   "faces": 107,
+   "bbox_mm": [
+    28.501,
+    80.0,
+    21.334
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00034310_code": {
+   "best_dw400": 0.4110957709044928,
+   "best_dw423": 0.1087324705018768,
+   "first_exec_dw400": 0.3864643465524051,
+   "first_exec_dw423": 0.05403761891167778,
+   "delta_best": -0.302363300402616,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999756158028724,
+   "cadbench_filter_pass": false,
+   "faces": 15,
+   "bbox_mm": [
+    56.096,
+    0.726,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00034358_code": {
+   "best_dw400": 0.17235357271981436,
+   "best_dw423": 0.13227803263608823,
+   "first_exec_dw400": 0.10256793456523221,
+   "first_exec_dw423": 0.13227803263608823,
+   "delta_best": -0.04007554008372613,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9958492977846622,
+   "cadbench_filter_pass": false,
+   "faces": 31,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    0.2
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00034471_code": {
+   "best_dw400": 4.234357131573717e-07,
+   "best_dw423": 7.224670089893395e-07,
+   "first_exec_dw400": 4.1958609154387813e-07,
+   "first_exec_dw423": 3.9379216301297924e-07,
+   "delta_best": 2.990312958319678e-07,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9910129964180362,
+   "cadbench_filter_pass": false,
+   "faces": 3,
+   "bbox_mm": [
+    80.0,
+    0.019,
+    0.019
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00035199_code": {
+   "best_dw400": 0.8671399329416145,
+   "best_dw423": 0.8888979492774408,
+   "first_exec_dw400": 0.8600022019804694,
+   "first_exec_dw423": 0.8600021888555571,
+   "delta_best": 0.021758016335826302,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999746599529056,
+   "cadbench_filter_pass": false,
+   "faces": 10,
+   "bbox_mm": [
+    72.0,
+    80.0,
+    2.003
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00035201_code": {
+   "best_dw400": 0.9972659131870807,
+   "best_dw423": 0.9972659131870807,
+   "first_exec_dw400": 0.9972659131870807,
+   "first_exec_dw423": 0.9972659131870807,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999747606241242,
+   "cadbench_filter_pass": false,
+   "faces": 10,
+   "bbox_mm": [
+    72.0,
+    80.0,
+    2.003
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00035371_code": {
+   "best_dw400": 0.9307147113653164,
+   "best_dw423": 0.9307147113653164,
+   "first_exec_dw400": 0.9069482068372148,
+   "first_exec_dw423": 0.9069482068372148,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999910333527991,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    0.429,
+    71.914
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00035428_code": {
+   "best_dw400": 0.9996749602415421,
+   "best_dw423": 0.9996809741868274,
+   "first_exec_dw400": 0.9346232469047316,
+   "first_exec_dw423": 0.9025937506271342,
+   "delta_best": 6.013945285321398e-06,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999976393131664,
+   "cadbench_filter_pass": true,
+   "faces": 30,
+   "bbox_mm": [
+    80.0,
+    75.789,
+    42.105
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00035528_code": {
+   "best_dw400": 0.18201528079910892,
+   "best_dw423": 0.18364109243607163,
+   "first_exec_dw400": 0.16916846693268514,
+   "first_exec_dw423": 0.16331566188963184,
+   "delta_best": 0.0016258116369627096,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998774623930676,
+   "cadbench_filter_pass": true,
+   "faces": 16,
+   "bbox_mm": [
+    80.0,
+    12.498,
+    6.453
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00036512_code": {
+   "best_dw400": 0.43841651536814613,
+   "best_dw423": 0.3860766878472979,
+   "first_exec_dw400": 0.40650928078944204,
+   "first_exec_dw423": 0.2882738586311303,
+   "delta_best": -0.05233982752084826,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999990557350964,
+   "cadbench_filter_pass": true,
+   "faces": 71,
+   "bbox_mm": [
+    80.0,
+    17.143,
+    31.429
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00036673_code": {
+   "best_dw400": 0.6118385839641853,
+   "best_dw423": 0.49336201101279514,
+   "first_exec_dw400": 0.43515805514338324,
+   "first_exec_dw423": 0.37208805242498655,
+   "delta_best": -0.11847657295139019,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999894576748781,
+   "cadbench_filter_pass": false,
+   "faces": 24,
+   "bbox_mm": [
+    44.356,
+    4.93,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00037087_code": {
+   "best_dw400": 0.9637011132443569,
+   "best_dw423": 0.9637011132443569,
+   "first_exec_dw400": 0.9637011132443569,
+   "first_exec_dw423": 0.9637011132443569,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999178197042626,
+   "cadbench_filter_pass": false,
+   "faces": 3,
+   "bbox_mm": [
+    1.73,
+    1.73,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00037390_code": {
+   "best_dw400": 0.8880925113546771,
+   "best_dw423": 0.8996326151391192,
+   "first_exec_dw400": 0.4283241197380482,
+   "first_exec_dw423": 0.875878254310797,
+   "delta_best": 0.011540103784442035,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999829546900301,
+   "cadbench_filter_pass": true,
+   "faces": 38,
+   "bbox_mm": [
+    43.946,
+    80.0,
+    44.345
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00037393_code": {
+   "best_dw400": 0.9968697756987425,
+   "best_dw423": 0.9968697756987425,
+   "first_exec_dw400": 0.9968697756987425,
+   "first_exec_dw423": 0.12474350368009188,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999952452427598,
+   "cadbench_filter_pass": true,
+   "faces": 3,
+   "bbox_mm": [
+    22.915,
+    80.0,
+    22.915
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00037825_code": {
+   "best_dw400": 0.3146350304318094,
+   "best_dw423": 0.3671983406048289,
+   "first_exec_dw400": 0.3146350304318094,
+   "first_exec_dw423": 0.04968209033748945,
+   "delta_best": 0.05256331017301952,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999830826782846,
+   "cadbench_filter_pass": true,
+   "faces": 52,
+   "bbox_mm": [
+    15.599,
+    37.813,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00037845_code": {
+   "best_dw400": 0.9358466089609776,
+   "best_dw423": 0.8973043465552965,
+   "first_exec_dw400": 0.804603402069858,
+   "first_exec_dw423": 0.8863672348919339,
+   "delta_best": -0.03854226240568115,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999992607268373,
+   "cadbench_filter_pass": true,
+   "faces": 16,
+   "bbox_mm": [
+    79.983,
+    80.0,
+    10.215
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00037903_code": {
+   "best_dw400": 0.8863010637848139,
+   "best_dw423": 0.8612787760853806,
+   "first_exec_dw400": 0.8863010637848139,
+   "first_exec_dw423": 0.8492778066807412,
+   "delta_best": -0.025022287699433265,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999960620588296,
+   "cadbench_filter_pass": true,
+   "faces": 41,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    32.327
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00038857_code": {
+   "best_dw400": 0.6894220004564868,
+   "best_dw423": 0.6386516583007272,
+   "first_exec_dw400": 0.37383545136957447,
+   "first_exec_dw423": 0.6110018652356222,
+   "delta_best": -0.050770342155759596,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999813238076428,
+   "cadbench_filter_pass": false,
+   "faces": 55,
+   "bbox_mm": [
+    46.784,
+    46.784,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00039277_code": {
+   "best_dw400": 0.8621063167116005,
+   "best_dw423": 0.848603672670156,
+   "first_exec_dw400": 0.7381402970508197,
+   "first_exec_dw423": 0.7381402970508197,
+   "delta_best": -0.013502644041444523,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999882549792536,
+   "cadbench_filter_pass": false,
+   "faces": 28,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    4.569
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00039699_code": {
+   "best_dw400": 0.9039083674461416,
+   "best_dw423": 0.9316820715989074,
+   "first_exec_dw400": 0.8800143244015012,
+   "first_exec_dw423": 0.9314033310392715,
+   "delta_best": 0.02777370415276581,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999924324951845,
+   "cadbench_filter_pass": false,
+   "faces": 172,
+   "bbox_mm": [
+    80.0,
+    19.19,
+    19.19
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00039890_code": {
+   "best_dw400": 0.5117272235025538,
+   "best_dw423": 0.16745996215737147,
+   "first_exec_dw400": 0.33558487168740625,
+   "first_exec_dw423": 0.02185526600222465,
+   "delta_best": -0.3442672613451824,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999803283131731,
+   "cadbench_filter_pass": false,
+   "faces": 27,
+   "bbox_mm": [
+    80.0,
+    4.729,
+    12.525
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00039994_code": {
+   "best_dw400": 0.8224761047500225,
+   "best_dw423": 0.8590338755054558,
+   "first_exec_dw400": 0.8052869072140122,
+   "first_exec_dw423": 0.7420478031103227,
+   "delta_best": 0.036557770755433316,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.993913550020896,
+   "cadbench_filter_pass": true,
+   "faces": 19,
+   "bbox_mm": [
+    80.0,
+    60.866,
+    60.866
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00040012_code": {
+   "best_dw400": 0.8647498824698643,
+   "best_dw423": 0.9018759559561935,
+   "first_exec_dw400": 0.8647498824698643,
+   "first_exec_dw423": 0.8665458144523401,
+   "delta_best": 0.037126073486329236,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999795127947079,
+   "cadbench_filter_pass": false,
+   "faces": 10,
+   "bbox_mm": [
+    80.001,
+    3.704,
+    30.729
+   ],
+   "source_version": "v5"
+  },
+  "A_00040013_code": {
+   "best_dw400": 0.7905350254263359,
+   "best_dw423": 0.8139248925804641,
+   "first_exec_dw400": 0.7905350254263359,
+   "first_exec_dw423": 0.806147748685822,
+   "delta_best": 0.023389867154128163,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999885132886293,
+   "cadbench_filter_pass": false,
+   "faces": 16,
+   "bbox_mm": [
+    80.0,
+    2.875,
+    18.401
+   ],
+   "source_version": "v5"
+  },
+  "A_00040014_code": {
+   "best_dw400": 0.9953058296267162,
+   "best_dw423": 0.9953058296267162,
+   "first_exec_dw400": 0.9180901400700736,
+   "first_exec_dw423": 0.9180901400700736,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999888212721026,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    7.273,
+    46.545
+   ],
+   "source_version": "v5"
+  },
+  "A_00040033_code": {
+   "best_dw400": 0.7573928249304709,
+   "best_dw423": 0.8193602509618825,
+   "first_exec_dw400": 0.530963767744897,
+   "first_exec_dw423": 0.6965385254607274,
+   "delta_best": 0.06196742603141159,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999795432306294,
+   "cadbench_filter_pass": true,
+   "faces": 76,
+   "bbox_mm": [
+    48.686,
+    42.709,
+    80.0
+   ],
+   "source_version": "v5"
+  },
+  "A_00040036_code": {
+   "best_dw400": 0.6029239558567829,
+   "best_dw423": 0.5847788234775517,
+   "first_exec_dw400": 0.6029239558567829,
+   "first_exec_dw423": 0.5413166059014017,
+   "delta_best": -0.01814513237923121,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": false,
+   "faces": 162,
+   "bbox_mm": [
+    80.0,
+    17.807,
+    73.392
+   ],
+   "source_version": "v5"
+  },
+  "A_00040042_code": {
+   "best_dw400": 0.3297836595659666,
+   "best_dw423": 0.2824766541633339,
+   "first_exec_dw400": 0.1786803365056749,
+   "first_exec_dw423": 0.2473106012681749,
+   "delta_best": -0.04730700540263272,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999820246984242,
+   "cadbench_filter_pass": true,
+   "faces": 17,
+   "bbox_mm": [
+    52.742,
+    52.742,
+    80.0
+   ],
+   "source_version": "v5"
+  },
+  "A_00040047_code": {
+   "best_dw400": 0.830850186929966,
+   "best_dw423": 0.8525932588029982,
+   "first_exec_dw400": 0.7887380850152256,
+   "first_exec_dw423": 0.7041676029317487,
+   "delta_best": 0.02174307187303215,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9962087734427048,
+   "cadbench_filter_pass": false,
+   "faces": 151,
+   "bbox_mm": [
+    42.105,
+    80.0,
+    16.439
+   ],
+   "source_version": "v5"
+  },
+  "A_00040050_code": {
+   "best_dw400": 0.40617409985884345,
+   "best_dw423": 0.4565122985803645,
+   "first_exec_dw400": 0.29021753121975663,
+   "first_exec_dw423": 0.02344585822339677,
+   "delta_best": 0.050338198721521066,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999994143903466,
+   "cadbench_filter_pass": false,
+   "faces": 175,
+   "bbox_mm": [
+    56.704,
+    80.0,
+    44.381
+   ],
+   "source_version": "v5"
+  },
+  "A_00040052_code": {
+   "best_dw400": 0.2460914302310711,
+   "best_dw423": 0.16709090472431185,
+   "first_exec_dw400": 0.016873405421326104,
+   "first_exec_dw423": 0.16709090472431185,
+   "delta_best": -0.07900052550675926,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999844720251828,
+   "cadbench_filter_pass": false,
+   "faces": 39,
+   "bbox_mm": [
+    80.0,
+    4.0,
+    30.883
+   ],
+   "source_version": "v5"
+  },
+  "A_00040053_code": {
+   "best_dw400": 0.48626489978696913,
+   "best_dw423": 0.5030834930817261,
+   "first_exec_dw400": 0.4028711033519827,
+   "first_exec_dw423": 0.5030834930817261,
+   "delta_best": 0.016818593294756934,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999988019120603,
+   "cadbench_filter_pass": true,
+   "faces": 40,
+   "bbox_mm": [
+    40.017,
+    80.0,
+    32.585
+   ],
+   "source_version": "v5"
+  },
+  "A_00040056_code": {
+   "best_dw400": 0.6625694889601083,
+   "best_dw423": 0.6913630975689504,
+   "first_exec_dw400": 0.6477306610127985,
+   "first_exec_dw423": 0.6477306610127985,
+   "delta_best": 0.02879360860884217,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999948083621915,
+   "cadbench_filter_pass": true,
+   "faces": 14,
+   "bbox_mm": [
+    53.165,
+    80.0,
+    39.874
+   ],
+   "source_version": "v5"
+  },
+  "A_00040069_code": {
+   "best_dw400": 0.5038400847605423,
+   "best_dw423": 0.10350432180237755,
+   "first_exec_dw400": 0.5037682363732062,
+   "first_exec_dw423": 0.08254833498283698,
+   "delta_best": -0.40033576295816475,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9988940216747819,
+   "cadbench_filter_pass": true,
+   "faces": 74,
+   "bbox_mm": [
+    80.0,
+    59.713,
+    59.637
+   ],
+   "source_version": "v5"
+  },
+  "A_00040070_code": {
+   "best_dw400": 0.925999942382179,
+   "best_dw423": 0.925999942382179,
+   "first_exec_dw400": 0.925999942382179,
+   "first_exec_dw423": 0.925999942382179,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999200765634338,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    20.0,
+    0.278,
+    80.0
+   ],
+   "source_version": "v5"
+  },
+  "A_00040079_code": {
+   "best_dw400": 0.11470356159390875,
+   "best_dw423": 0.1642166748150324,
+   "first_exec_dw400": 0.020691402055470844,
+   "first_exec_dw423": 0.017079848510029645,
+   "delta_best": 0.04951311322112366,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9993131134613091,
+   "cadbench_filter_pass": false,
+   "faces": 122,
+   "bbox_mm": [
+    80.0,
+    1.477,
+    13.944
+   ],
+   "source_version": "v5"
+  },
+  "A_00040412_code": {
+   "best_dw400": 0.988737121856288,
+   "best_dw423": 0.755823986474091,
+   "first_exec_dw400": 0.7869809823193512,
+   "first_exec_dw423": 0.752703247051532,
+   "delta_best": -0.23291313538219705,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999882652872488,
+   "cadbench_filter_pass": false,
+   "faces": 12,
+   "bbox_mm": [
+    80.0,
+    53.333,
+    4.444
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00041215_code": {
+   "best_dw400": 0.7664101562017296,
+   "best_dw423": 0.7758489119434436,
+   "first_exec_dw400": 0.5876697523250605,
+   "first_exec_dw423": 0.7462584415496506,
+   "delta_best": 0.009438755741714044,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999857265875927,
+   "cadbench_filter_pass": true,
+   "faces": 104,
+   "bbox_mm": [
+    39.216,
+    78.431,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00041218_code": {
+   "best_dw400": 0.99832943258486,
+   "best_dw423": 0.99832943258486,
+   "first_exec_dw400": 0.99832943258486,
+   "first_exec_dw423": 0.7295314812933814,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999999084962333,
+   "cadbench_filter_pass": true,
+   "faces": 3,
+   "bbox_mm": [
+    80.0,
+    28.0,
+    28.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00041259_code": {
+   "best_dw400": 0.0,
+   "best_dw423": 0.006406912052038082,
+   "first_exec_dw400": 0.0,
+   "first_exec_dw423": 0.006406912052038082,
+   "delta_best": 0.006406912052038082,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999736082795472,
+   "cadbench_filter_pass": false,
+   "faces": 19,
+   "bbox_mm": [
+    54.868,
+    1.124,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00041370_code": {
+   "best_dw400": 0.42907200920118665,
+   "best_dw423": 0.5122203149676741,
+   "first_exec_dw400": 0.13580458116074745,
+   "first_exec_dw423": 0.13580458116074745,
+   "delta_best": 0.08314830576648741,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999961019204961,
+   "cadbench_filter_pass": true,
+   "faces": 86,
+   "bbox_mm": [
+    80.0,
+    8.152,
+    78.2
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00041950_code": {
+   "best_dw400": 0.5647234327706728,
+   "best_dw423": 0.8115959638926755,
+   "first_exec_dw400": 0.5647234327706728,
+   "first_exec_dw423": 0.7122864051663104,
+   "delta_best": 0.2468725311220027,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999587682001924,
+   "cadbench_filter_pass": false,
+   "faces": 34,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    0.833
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00041981_code": {
+   "best_dw400": 0.997756976205907,
+   "best_dw423": 0.997756976205907,
+   "first_exec_dw400": 0.997756976205907,
+   "first_exec_dw423": 0.997756976205907,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999991115770687,
+   "cadbench_filter_pass": true,
+   "faces": 3,
+   "bbox_mm": [
+    7.5,
+    80.0,
+    7.5
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00042090_code": {
+   "best_dw400": 0.854266625818483,
+   "best_dw423": 0.8609813210690203,
+   "first_exec_dw400": 0.809520572481774,
+   "first_exec_dw423": 0.8609813210690203,
+   "delta_best": 0.00671469525053725,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999631551385714,
+   "cadbench_filter_pass": false,
+   "faces": 23,
+   "bbox_mm": [
+    80.0,
+    1.454,
+    11.636
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00042208_code": {
+   "best_dw400": 0.9258001819577069,
+   "best_dw423": 0.9654760330934973,
+   "first_exec_dw400": 0.8651020610734743,
+   "first_exec_dw423": 0.9031207058231411,
+   "delta_best": 0.03967585113579042,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999991011150508,
+   "cadbench_filter_pass": true,
+   "faces": 15,
+   "bbox_mm": [
+    80.0,
+    5.818,
+    5.818
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00042559_code": {
+   "best_dw400": 0.24309748216204125,
+   "best_dw423": 0.26258055488826954,
+   "first_exec_dw400": 0.07649648205298201,
+   "first_exec_dw423": 0.18473246547323574,
+   "delta_best": 0.01948307272622829,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999972502179598,
+   "cadbench_filter_pass": true,
+   "faces": 12,
+   "bbox_mm": [
+    53.333,
+    80.0,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00042598_code": {
+   "best_dw400": 0.8065025444840148,
+   "best_dw423": 0.7661774172598141,
+   "first_exec_dw400": 0.8065025444840148,
+   "first_exec_dw423": 0.4781866282627724,
+   "delta_best": -0.040325127224200674,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999958839113222,
+   "cadbench_filter_pass": true,
+   "faces": 10,
+   "bbox_mm": [
+    26.667,
+    80.0,
+    53.333
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00044290_code": {
+   "best_dw400": 0.9588503489564751,
+   "best_dw423": 0.762737610945157,
+   "first_exec_dw400": 0.9588503489564751,
+   "first_exec_dw423": 0.7218316613264599,
+   "delta_best": -0.19611273801131812,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999902345679594,
+   "cadbench_filter_pass": true,
+   "faces": 34,
+   "bbox_mm": [
+    80.0,
+    33.304,
+    17.143
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00044372_code": {
+   "best_dw400": 0.7343634250673008,
+   "best_dw423": 0.7463670626451937,
+   "first_exec_dw400": 0.70687482071316,
+   "first_exec_dw423": 0.6039369462583652,
+   "delta_best": 0.012003637577892912,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999903373570466,
+   "cadbench_filter_pass": true,
+   "faces": 21,
+   "bbox_mm": [
+    59.88,
+    5.988,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00044521_code": {
+   "best_dw400": 0.9984074240249875,
+   "best_dw423": 0.9984074240249875,
+   "first_exec_dw400": 0.99735025836679,
+   "first_exec_dw423": 0.010186367952220938,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999040753459079,
+   "cadbench_filter_pass": false,
+   "faces": 3,
+   "bbox_mm": [
+    1.899,
+    80.0,
+    1.899
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00044668_code": {
+   "best_dw400": 0.9994128833759489,
+   "best_dw423": 0.9494713530633941,
+   "first_exec_dw400": 0.9994128833759489,
+   "first_exec_dw423": 0.9218432654111471,
+   "delta_best": -0.04994153031255477,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999991157744645,
+   "cadbench_filter_pass": true,
+   "faces": 3,
+   "bbox_mm": [
+    80.0,
+    56.0,
+    56.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00044685_code": {
+   "best_dw400": 0.4714326729830606,
+   "best_dw423": 0.41192660550458715,
+   "first_exec_dw400": 0.377315517764956,
+   "first_exec_dw423": 0.41192660550458715,
+   "delta_best": -0.05950606747847342,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9922351636161952,
+   "cadbench_filter_pass": true,
+   "faces": 26,
+   "bbox_mm": [
+    62.041,
+    80.0,
+    72.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00045090_code": {
+   "best_dw400": 0.8094586952174487,
+   "best_dw423": 0.8480099571836531,
+   "first_exec_dw400": 0.615003908389244,
+   "first_exec_dw423": 0.7950093230131126,
+   "delta_best": 0.0385512619662044,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999536659249948,
+   "cadbench_filter_pass": false,
+   "faces": 18,
+   "bbox_mm": [
+    80.0,
+    64.589,
+    3.2
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00045424_code": {
+   "best_dw400": 0.9984521704050138,
+   "best_dw423": 0.9984521704050138,
+   "first_exec_dw400": 0.9984521704050138,
+   "first_exec_dw423": 0.9984521704050138,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999990958202947,
+   "cadbench_filter_pass": true,
+   "faces": 3,
+   "bbox_mm": [
+    30.0,
+    80.0,
+    30.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00045605_code": {
+   "best_dw400": 0.9494561988180952,
+   "best_dw423": 0.9296012823403836,
+   "first_exec_dw400": 0.47108348376934134,
+   "first_exec_dw423": 0.900899147465841,
+   "delta_best": -0.019854916477711537,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999794344399487,
+   "cadbench_filter_pass": false,
+   "faces": 383,
+   "bbox_mm": [
+    80.0,
+    8.283,
+    3.987
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00046773_code": {
+   "best_dw400": 0.6190451173916751,
+   "best_dw423": 0.6685826238236859,
+   "first_exec_dw400": 0.5390433678438652,
+   "first_exec_dw423": 0.47085443975604824,
+   "delta_best": 0.049537506432010825,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9992237123538068,
+   "cadbench_filter_pass": true,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    62.222
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00047020_code": {
+   "best_dw400": 0.31988084215044993,
+   "best_dw423": 0.292890109858804,
+   "first_exec_dw400": 0.1959512382570442,
+   "first_exec_dw423": 0.2634437251450111,
+   "delta_best": -0.026990732291645947,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999711712827517,
+   "cadbench_filter_pass": true,
+   "faces": 52,
+   "bbox_mm": [
+    92.632,
+    36.908,
+    13.405
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00047187_code": {
+   "best_dw400": 0.8876061841359421,
+   "best_dw423": 0.8876061841359421,
+   "first_exec_dw400": 0.8876061841359421,
+   "first_exec_dw423": 0.8499698519218045,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9997583182509382,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    6.061,
+    6.061,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00047275_code": {
+   "best_dw400": 0.25220009635111945,
+   "best_dw423": 0.3447122758302345,
+   "first_exec_dw400": 0.12251039002573165,
+   "first_exec_dw423": 0.18961076617041128,
+   "delta_best": 0.09251217947911505,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9995047836506307,
+   "cadbench_filter_pass": true,
+   "faces": 45,
+   "bbox_mm": [
+    80.007,
+    21.82,
+    32.729
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00047667_code": {
+   "best_dw400": 0.866827165832317,
+   "best_dw423": 0.9610214859640116,
+   "first_exec_dw400": 0.8164956799485071,
+   "first_exec_dw423": 0.9245306917151429,
+   "delta_best": 0.0941943201316946,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999992614764873,
+   "cadbench_filter_pass": true,
+   "faces": 30,
+   "bbox_mm": [
+    80.0,
+    43.429,
+    38.857
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00048920_code": {
+   "best_dw400": 0.7356665296599377,
+   "best_dw423": 0.9219418102103887,
+   "first_exec_dw400": 0.712029869563407,
+   "first_exec_dw423": 0.6942843053277522,
+   "delta_best": 0.18627528055045095,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999852081500678,
+   "cadbench_filter_pass": false,
+   "faces": 30,
+   "bbox_mm": [
+    22.535,
+    4.507,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00048975_code": {
+   "best_dw400": 0.846628392908115,
+   "best_dw423": 0.89575603449234,
+   "first_exec_dw400": 0.6884972287713937,
+   "first_exec_dw423": 0.8427096015541492,
+   "delta_best": 0.049127641584225,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999996542975336,
+   "cadbench_filter_pass": true,
+   "faces": 19,
+   "bbox_mm": [
+    80.0,
+    65.746,
+    12.841
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00049019_code": {
+   "best_dw400": 0.9712056623840256,
+   "best_dw423": 0.6563985338342675,
+   "first_exec_dw400": 0.8364755383234609,
+   "first_exec_dw423": 0.6530438152520504,
+   "delta_best": -0.3148071285497581,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999989614248581,
+   "cadbench_filter_pass": false,
+   "faces": 641,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    3.333
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00050008_code": {
+   "best_dw400": 1.0,
+   "best_dw423": 1.0,
+   "first_exec_dw400": 0.81225,
+   "first_exec_dw423": 0.9510417048488718,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    40.0
+   ],
+   "source_version": "v6"
+  },
+  "A_00050009_code": {
+   "best_dw400": 0.9811814947818968,
+   "best_dw423": 0.9810752132344729,
+   "first_exec_dw400": 0.9567130531932503,
+   "first_exec_dw423": 0.9766925636096896,
+   "delta_best": -0.00010628154742386986,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999973370663096,
+   "cadbench_filter_pass": true,
+   "faces": 25,
+   "bbox_mm": [
+    48.953,
+    80.0,
+    49.001
+   ],
+   "source_version": "v6"
+  },
+  "A_00050014_code": {
+   "best_dw400": 0.9973916666893198,
+   "best_dw423": 0.9667616739203019,
+   "first_exec_dw400": 0.8742902454473188,
+   "first_exec_dw423": 0.8742902454473188,
+   "delta_best": -0.0306299927690179,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999974967202284,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    47.811,
+    2.694
+   ],
+   "source_version": "v6"
+  },
+  "A_00050015_code": {
+   "best_dw400": 0.9911619134058182,
+   "best_dw423": 0.8063997355574362,
+   "first_exec_dw400": 0.9903254074151953,
+   "first_exec_dw423": 0.5507920066889741,
+   "delta_best": -0.184762177848382,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999925052622082,
+   "cadbench_filter_pass": false,
+   "faces": 190,
+   "bbox_mm": [
+    80.0,
+    25.333,
+    4.222
+   ],
+   "source_version": "v6"
+  },
+  "A_00050017_code": {
+   "best_dw400": 0.989669327389639,
+   "best_dw423": 0.989669327389639,
+   "first_exec_dw400": 0.9886996749519814,
+   "first_exec_dw423": 0.9012485485852854,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999895468635581,
+   "cadbench_filter_pass": false,
+   "faces": 374,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    4.444
+   ],
+   "source_version": "v6"
+  },
+  "A_00050025_code": {
+   "best_dw400": 0.8463746223564955,
+   "best_dw423": 0.8563425158598656,
+   "first_exec_dw400": 0.8463746223564955,
+   "first_exec_dw423": 0.6320830423997772,
+   "delta_best": 0.009967893503370129,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999939977170564,
+   "cadbench_filter_pass": true,
+   "faces": 39,
+   "bbox_mm": [
+    80.0,
+    57.924,
+    80.0
+   ],
+   "source_version": "v6"
+  },
+  "A_00050027_code": {
+   "best_dw400": 0.9504348272938241,
+   "best_dw423": 0.9470007058291511,
+   "first_exec_dw400": 0.9504348272938241,
+   "first_exec_dw423": 0.3033341451011901,
+   "delta_best": -0.0034341214646730345,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999831392135088,
+   "cadbench_filter_pass": false,
+   "faces": 4,
+   "bbox_mm": [
+    80.0,
+    3.261,
+    3.261
+   ],
+   "source_version": "v6"
+  },
+  "A_00050028_code": {
+   "best_dw400": 0.9946108502256011,
+   "best_dw423": 0.9946108502256011,
+   "first_exec_dw400": 0.0,
+   "first_exec_dw423": 0.11996274478887319,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9986831162081875,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    80.0,
+    53.2,
+    53.2
+   ],
+   "source_version": "v6"
+  },
+  "A_00050030_code": {
+   "best_dw400": 0.6640292944484405,
+   "best_dw423": 0.5168099238132448,
+   "first_exec_dw400": 0.5187737389942881,
+   "first_exec_dw423": 0.42100080064051243,
+   "delta_best": -0.14721937063519575,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9985121261717006,
+   "cadbench_filter_pass": false,
+   "faces": 73,
+   "bbox_mm": [
+    80.0,
+    39.024,
+    3.761
+   ],
+   "source_version": "v6"
+  },
+  "A_00050041_code": {
+   "best_dw400": 0.9797106061989275,
+   "best_dw423": 0.9797106061989275,
+   "first_exec_dw400": 0.9383135246109738,
+   "first_exec_dw423": 0.9383135246109738,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999905157966679,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    20.915,
+    0.98
+   ],
+   "source_version": "v6"
+  },
+  "A_00050042_code": {
+   "best_dw400": 1.0,
+   "best_dw423": 1.0,
+   "first_exec_dw400": 1.0,
+   "first_exec_dw423": 1.0,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    8.0,
+    1.0
+   ],
+   "source_version": "v6"
+  },
+  "A_00050043_code": {
+   "best_dw400": 0.7176922204302248,
+   "best_dw423": 0.8415732856531788,
+   "first_exec_dw400": 0.4732015883418638,
+   "first_exec_dw423": 0.4316835561229615,
+   "delta_best": 0.12388106522295395,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999647239825413,
+   "cadbench_filter_pass": false,
+   "faces": 34,
+   "bbox_mm": [
+    1.667,
+    13.333,
+    80.0
+   ],
+   "source_version": "v6"
+  },
+  "A_00050045_code": {
+   "best_dw400": 0.9553653050353843,
+   "best_dw423": 0.4999505016402413,
+   "first_exec_dw400": 0.8859626545157423,
+   "first_exec_dw423": 0.3281001743129024,
+   "delta_best": -0.455414803395143,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999986019203727,
+   "cadbench_filter_pass": true,
+   "faces": 47,
+   "bbox_mm": [
+    8.649,
+    80.0,
+    8.649
+   ],
+   "source_version": "v6"
+  },
+  "A_00050049_code": {
+   "best_dw400": 0.8128946930688012,
+   "best_dw423": 0.8318078468669237,
+   "first_exec_dw400": 0.7264781440721283,
+   "first_exec_dw423": 0.5555044860044311,
+   "delta_best": 0.018913153798122417,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999974508375863,
+   "cadbench_filter_pass": false,
+   "faces": 615,
+   "bbox_mm": [
+    80.0,
+    79.975,
+    36.316
+   ],
+   "source_version": "v6"
+  },
+  "A_00050053_code": {
+   "best_dw400": 0.9459868060340654,
+   "best_dw423": 0.8236396511093574,
+   "first_exec_dw400": 0.833557583685948,
+   "first_exec_dw423": 0.6646933186824322,
+   "delta_best": -0.12234715492470793,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9996613731932512,
+   "cadbench_filter_pass": true,
+   "faces": 27,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    8.88
+   ],
+   "source_version": "v6"
+  },
+  "A_00050057_code": {
+   "best_dw400": 0.035448514339337385,
+   "best_dw423": 0.0377539803774302,
+   "first_exec_dw400": 0.0,
+   "first_exec_dw423": 0.0,
+   "delta_best": 0.0023054660380928127,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999385439856681,
+   "cadbench_filter_pass": false,
+   "faces": 97,
+   "bbox_mm": [
+    15.447,
+    4.333,
+    80.0
+   ],
+   "source_version": "v6"
+  },
+  "A_00050058_code": {
+   "best_dw400": 0.6928458320531304,
+   "best_dw423": 0.3815759290411378,
+   "first_exec_dw400": 0.5564264530293109,
+   "first_exec_dw423": 0.21023896806571132,
+   "delta_best": -0.31126990301199264,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": false,
+   "faces": 288,
+   "bbox_mm": [
+    68.571,
+    80.0,
+    16.842
+   ],
+   "source_version": "v6"
+  },
+  "A_00050059_code": {
+   "best_dw400": 0.0644061766234725,
+   "best_dw423": 0.039048220808876835,
+   "first_exec_dw400": 0.0,
+   "first_exec_dw423": 0.0,
+   "delta_best": -0.02535795581459567,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999142856191792,
+   "cadbench_filter_pass": false,
+   "faces": 97,
+   "bbox_mm": [
+    15.809,
+    4.435,
+    80.0
+   ],
+   "source_version": "v6"
+  },
+  "A_00050071_code": {
+   "best_dw400": 0.9154415063609755,
+   "best_dw423": 0.9098328341852067,
+   "first_exec_dw400": 0.9036931544787422,
+   "first_exec_dw423": 0.8942086202903685,
+   "delta_best": -0.005608672175768881,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999743184289608,
+   "cadbench_filter_pass": true,
+   "faces": 24,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    8.421
+   ],
+   "source_version": "v6"
+  },
+  "A_00050075_code": {
+   "best_dw400": 0.8572701333252291,
+   "best_dw423": 0.6041797967246988,
+   "first_exec_dw400": 0.11006082426791414,
+   "first_exec_dw423": 0.5809827057479016,
+   "delta_best": -0.25309033660053026,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999906583713576,
+   "cadbench_filter_pass": false,
+   "faces": 60,
+   "bbox_mm": [
+    60.8,
+    80.0,
+    30.4
+   ],
+   "source_version": "v6"
+  },
+  "A_00050076_code": {
+   "best_dw400": 0.17463618038659456,
+   "best_dw423": 0.3013391527082977,
+   "first_exec_dw400": 0.1274081844795039,
+   "first_exec_dw423": 0.16565450514117155,
+   "delta_best": 0.12670297232170313,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998969018872192,
+   "cadbench_filter_pass": false,
+   "faces": 234,
+   "bbox_mm": [
+    6.504,
+    6.504,
+    80.0
+   ],
+   "source_version": "v6"
+  },
+  "A_00050078_code": {
+   "best_dw400": 0.7584314938580139,
+   "best_dw423": 0.7214354802708266,
+   "first_exec_dw400": 0.4896505691820209,
+   "first_exec_dw423": 0.7214354802708266,
+   "delta_best": -0.03699601358718729,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9995626809407607,
+   "cadbench_filter_pass": true,
+   "faces": 114,
+   "bbox_mm": [
+    80.0,
+    68.037,
+    56.529
+   ],
+   "source_version": "v6"
+  },
+  "A_00050550_code": {
+   "best_dw400": 0.9984888477871594,
+   "best_dw423": 0.9984888477871594,
+   "first_exec_dw400": 0.9984888477871594,
+   "first_exec_dw423": 0.9984888477871594,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999982980275965,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    56.0,
+    56.0,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00051234_code": {
+   "best_dw400": 0.7023440315538579,
+   "best_dw423": 0.6409013035344713,
+   "first_exec_dw400": 0.7023440315538579,
+   "first_exec_dw423": 0.6361328458628013,
+   "delta_best": -0.06144272801938666,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999965177211572,
+   "cadbench_filter_pass": true,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    63.443,
+    46.55
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00051570_code": {
+   "best_dw400": 0.9836150507507622,
+   "best_dw423": 0.9836150507507622,
+   "first_exec_dw400": 0.9836150507507622,
+   "first_exec_dw423": 0.9836150507507622,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999893068584916,
+   "cadbench_filter_pass": false,
+   "faces": 3,
+   "bbox_mm": [
+    1.712,
+    1.712,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00051853_code": {
+   "best_dw400": 0.9990044696578392,
+   "best_dw423": 0.9990044696578392,
+   "first_exec_dw400": 0.94107906889805,
+   "first_exec_dw423": 0.94107906889805,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999956530840168,
+   "cadbench_filter_pass": true,
+   "faces": 3,
+   "bbox_mm": [
+    80.0,
+    26.667,
+    26.667
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00052553_code": {
+   "best_dw400": 0.9124142942514268,
+   "best_dw423": 0.7576745522284477,
+   "first_exec_dw400": 0.8949540620042816,
+   "first_exec_dw423": 0.7075647144545776,
+   "delta_best": -0.15473974202297913,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999927268489378,
+   "cadbench_filter_pass": false,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    1.689,
+    2.8
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00053239_code": {
+   "best_dw400": 0.9019434203617235,
+   "best_dw423": 0.8560307535062469,
+   "first_exec_dw400": 0.6988185961578419,
+   "first_exec_dw423": 0.8553848498630219,
+   "delta_best": -0.04591266685547657,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999963929063049,
+   "cadbench_filter_pass": true,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    53.333,
+    53.333
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00053251_code": {
+   "best_dw400": 0.9433040524569392,
+   "best_dw423": 0.9440516878253508,
+   "first_exec_dw400": 0.943304052448922,
+   "first_exec_dw423": 0.9433040384333137,
+   "delta_best": 0.0007476353684116033,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999628139261224,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    17.231,
+    80.0,
+    17.231
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00053851_code": {
+   "best_dw400": 0.274544372102835,
+   "best_dw423": 0.6098894837594884,
+   "first_exec_dw400": 0.18689715416162142,
+   "first_exec_dw423": 0.18689715416162142,
+   "delta_best": 0.33534511165665337,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999295858150232,
+   "cadbench_filter_pass": true,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    6.173,
+    6.173
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00054474_code": {
+   "best_dw400": 0.9995176152790908,
+   "best_dw423": 0.9995520008287425,
+   "first_exec_dw400": 0.9931528955665427,
+   "first_exec_dw423": 0.9951156654064979,
+   "delta_best": 3.438554965173868e-05,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999997495721628,
+   "cadbench_filter_pass": true,
+   "faces": 30,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    16.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00054599_code": {
+   "best_dw400": 0.45628719743153373,
+   "best_dw423": 0.4540943344007831,
+   "first_exec_dw400": 0.40914786308021367,
+   "first_exec_dw423": 0.4377492790826827,
+   "delta_best": -0.0021928630307506136,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999883494250895,
+   "cadbench_filter_pass": false,
+   "faces": 323,
+   "bbox_mm": [
+    80.0,
+    20.042,
+    79.027
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00055222_code": {
+   "best_dw400": 0.8120454818767011,
+   "best_dw423": 0.4425402312439871,
+   "first_exec_dw400": 0.8120454818767011,
+   "first_exec_dw423": 0.4425402312439871,
+   "delta_best": -0.369505250632714,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9987342877091265,
+   "cadbench_filter_pass": true,
+   "faces": 77,
+   "bbox_mm": [
+    79.993,
+    79.993,
+    61.448
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00055803_code": {
+   "best_dw400": 0.8805181698516796,
+   "best_dw423": 0.47316940851083145,
+   "first_exec_dw400": 0.8805181698516796,
+   "first_exec_dw423": 0.003193014149811811,
+   "delta_best": -0.4073487613408482,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999811160342256,
+   "cadbench_filter_pass": false,
+   "faces": 14,
+   "bbox_mm": [
+    80.0,
+    0.828,
+    55.172
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00055974_code": {
+   "best_dw400": 0.9996381595458945,
+   "best_dw423": 0.9996381595458945,
+   "first_exec_dw400": 0.9987500014736032,
+   "first_exec_dw423": 0.9996381595458945,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999986648181606,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    20.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00056825_code": {
+   "best_dw400": 0.400739102325752,
+   "best_dw423": 0.7228837360391995,
+   "first_exec_dw400": 0.400739102325752,
+   "first_exec_dw423": 0.10301637273604071,
+   "delta_best": 0.32214463371344754,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999929495221406,
+   "cadbench_filter_pass": true,
+   "faces": 50,
+   "bbox_mm": [
+    80.0,
+    26.415,
+    26.415
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00057379_code": {
+   "best_dw400": 0.9865529846256349,
+   "best_dw423": 0.9865529827245991,
+   "first_exec_dw400": 0.9865529846256349,
+   "first_exec_dw423": 0.020061960363166684,
+   "delta_best": -1.9010357732440752e-09,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999616578728645,
+   "cadbench_filter_pass": false,
+   "faces": 3,
+   "bbox_mm": [
+    80.0,
+    3.721,
+    3.721
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00057601_code": {
+   "best_dw400": 0.9481630902766375,
+   "best_dw423": 0.9604085364480737,
+   "first_exec_dw400": 0.7285058479623081,
+   "first_exec_dw423": 0.7285058479623081,
+   "delta_best": 0.012245446171436192,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999986615487878,
+   "cadbench_filter_pass": true,
+   "faces": 14,
+   "bbox_mm": [
+    80.0,
+    20.0,
+    50.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00057723_code": {
+   "best_dw400": 0.7709252352899248,
+   "best_dw423": 0.7767462675690427,
+   "first_exec_dw400": 0.6939684656373142,
+   "first_exec_dw423": 0.7450147867949588,
+   "delta_best": 0.005821032279117899,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999900965962051,
+   "cadbench_filter_pass": true,
+   "faces": 21,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    8.143
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00057914_code": {
+   "best_dw400": 0.6334701144892763,
+   "best_dw423": 0.6959640779485217,
+   "first_exec_dw400": 0.2633818900459789,
+   "first_exec_dw423": 0.3064980656342087,
+   "delta_best": 0.062493963459245405,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999275067222088,
+   "cadbench_filter_pass": false,
+   "faces": 59,
+   "bbox_mm": [
+    80.0,
+    22.731,
+    42.804
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00058152_code": {
+   "best_dw400": 0.6671101578282442,
+   "best_dw423": 0.6561329555036363,
+   "first_exec_dw400": 0.6010938518033201,
+   "first_exec_dw423": 0.5600885366428972,
+   "delta_best": -0.01097720232460797,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999926875675382,
+   "cadbench_filter_pass": true,
+   "faces": 11,
+   "bbox_mm": [
+    38.0,
+    80.0,
+    44.333
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00058189_code": {
+   "best_dw400": 0.8226551813492545,
+   "best_dw423": 0.8653330008802634,
+   "first_exec_dw400": 0.28812091966640135,
+   "first_exec_dw423": 0.7638918794968882,
+   "delta_best": 0.04267781953100891,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999985184837353,
+   "cadbench_filter_pass": false,
+   "faces": 125,
+   "bbox_mm": [
+    48.356,
+    80.0,
+    31.163
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00058288_code": {
+   "best_dw400": 0.022276893393302678,
+   "best_dw423": 0.09475857027841998,
+   "first_exec_dw400": 0.019625900331119824,
+   "first_exec_dw423": 0.01953278881072226,
+   "delta_best": 0.07248167688511731,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999056372370972,
+   "cadbench_filter_pass": false,
+   "faces": 127,
+   "bbox_mm": [
+    80.0,
+    26.316,
+    31.159
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00059220_code": {
+   "best_dw400": 0.8258689611002304,
+   "best_dw423": 0.6197752095084378,
+   "first_exec_dw400": 0.694717033889927,
+   "first_exec_dw423": 0.333216725758712,
+   "delta_best": -0.20609375159179266,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999198996597466,
+   "cadbench_filter_pass": true,
+   "faces": 40,
+   "bbox_mm": [
+    80.0,
+    32.0,
+    80.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00059871_code": {
+   "best_dw400": 0.6360402352611113,
+   "best_dw423": 0.581341056687013,
+   "first_exec_dw400": 0.5722584876565553,
+   "first_exec_dw423": 0.5042009894088193,
+   "delta_best": -0.05469917857409834,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999920251131861,
+   "cadbench_filter_pass": true,
+   "faces": 40,
+   "bbox_mm": [
+    80.0,
+    62.035,
+    48.0
+   ],
+   "source_version": "ds0b"
+  },
+  "A_00060004_code": {
+   "best_dw400": 0.7619811455224147,
+   "best_dw423": 0.6227044250641842,
+   "first_exec_dw400": 0.3285004560623956,
+   "first_exec_dw423": 0.33803725425346554,
+   "delta_best": -0.13927672045823047,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999972517348094,
+   "cadbench_filter_pass": false,
+   "faces": 216,
+   "bbox_mm": [
+    80.0,
+    50.526,
+    61.538
+   ],
+   "source_version": "v7"
+  },
+  "A_00060014_code": {
+   "best_dw400": 0.9512468058859427,
+   "best_dw423": 0.9512468058859427,
+   "first_exec_dw400": 0.9512468058859427,
+   "first_exec_dw423": 0.9512468058859427,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999436727845264,
+   "cadbench_filter_pass": false,
+   "faces": 7,
+   "bbox_mm": [
+    2.0,
+    80.0,
+    1.971
+   ],
+   "source_version": "v7"
+  },
+  "A_00060016_code": {
+   "best_dw400": 0.9943547588075471,
+   "best_dw423": 0.9933140475573797,
+   "first_exec_dw400": 0.9929431073659972,
+   "first_exec_dw423": 0.9929431073659972,
+   "delta_best": -0.0010407112501673588,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999743812132759,
+   "cadbench_filter_pass": false,
+   "faces": 8,
+   "bbox_mm": [
+    60.538,
+    2.0,
+    80.0
+   ],
+   "source_version": "v7"
+  },
+  "A_00060017_code": {
+   "best_dw400": 0.46534311840604287,
+   "best_dw423": 0.22483556466292492,
+   "first_exec_dw400": 0.46534311840604287,
+   "first_exec_dw423": 0.20464823949289399,
+   "delta_best": -0.24050755374311794,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999943707283973,
+   "cadbench_filter_pass": false,
+   "faces": 509,
+   "bbox_mm": [
+    20.0,
+    80.0,
+    20.0
+   ],
+   "source_version": "v7"
+  },
+  "A_00060026_code": {
+   "best_dw400": 0.005205206845706179,
+   "best_dw423": 0.049956499507831625,
+   "first_exec_dw400": 0.002206895307543995,
+   "first_exec_dw423": 0.002177042535732165,
+   "delta_best": 0.04475129266212545,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998015171121472,
+   "cadbench_filter_pass": false,
+   "faces": 8,
+   "bbox_mm": [
+    41.475,
+    16.842,
+    80.0
+   ],
+   "source_version": "v7"
+  },
+  "A_00060029_code": {
+   "best_dw400": 0.5034758850259631,
+   "best_dw423": 0.4612763923190033,
+   "first_exec_dw400": 0.0,
+   "first_exec_dw423": 0.43394401991070386,
+   "delta_best": -0.042199492706959774,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999919948971242,
+   "cadbench_filter_pass": false,
+   "faces": 1398,
+   "bbox_mm": [
+    33.949,
+    80.0,
+    18.706
+   ],
+   "source_version": "v7"
+  },
+  "A_00060030_code": {
+   "best_dw400": 0.14030309794102952,
+   "best_dw423": 0.15270027890064397,
+   "first_exec_dw400": 0.14030309794102952,
+   "first_exec_dw423": 0.15270027890064397,
+   "delta_best": 0.012397180959614451,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9911484131827942,
+   "cadbench_filter_pass": true,
+   "faces": 82,
+   "bbox_mm": [
+    31.307,
+    80.0,
+    31.481
+   ],
+   "source_version": "v7"
+  },
+  "A_00060045_code": {
+   "best_dw400": 0.9,
+   "best_dw423": 1.0,
+   "first_exec_dw400": 0.9,
+   "first_exec_dw423": 0.9,
+   "delta_best": 0.09999999999999998,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999999610503518,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    32.0,
+    80.0,
+    32.0
+   ],
+   "source_version": "v7"
+  },
+  "A_00060048_code": {
+   "best_dw400": 0.8735933865593764,
+   "best_dw423": 0.7316563972453788,
+   "first_exec_dw400": 0.8696761347727343,
+   "first_exec_dw423": 0.5049193598605144,
+   "delta_best": -0.14193698931399756,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": false,
+   "faces": 432,
+   "bbox_mm": [
+    80.0,
+    59.463,
+    68.768
+   ],
+   "source_version": "v7"
+  },
+  "A_00060050_code": {
+   "best_dw400": 0.9717643202881678,
+   "best_dw423": 0.9717643202881678,
+   "first_exec_dw400": 0.9717643202881678,
+   "first_exec_dw423": 0.9717643202881678,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.997642857552915,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    16.965,
+    80.0,
+    16.965
+   ],
+   "source_version": "v7"
+  },
+  "A_00060052_code": {
+   "best_dw400": 0.778412898900556,
+   "best_dw423": 0.778412898900556,
+   "first_exec_dw400": 0.617252666936861,
+   "first_exec_dw423": 0.4833668523093158,
+   "delta_best": 0.0,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999211979667254,
+   "cadbench_filter_pass": false,
+   "faces": 15,
+   "bbox_mm": [
+    80.0,
+    56.051,
+    1.245
+   ],
+   "source_version": "v7"
+  },
+  "A_00060056_code": {
+   "best_dw400": 0.4699280826942415,
+   "best_dw423": 0.4736128955207916,
+   "first_exec_dw400": 0.20671381796744331,
+   "first_exec_dw423": 0.34832067494311614,
+   "delta_best": 0.003684812826550088,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9970878254697132,
+   "cadbench_filter_pass": true,
+   "faces": 17,
+   "bbox_mm": [
+    31.004,
+    80.0,
+    20.971
+   ],
+   "source_version": "v7"
+  },
+  "A_00060057_code": {
+   "best_dw400": 0.9519807433842815,
+   "best_dw423": 0.9519807433842815,
+   "first_exec_dw400": 0.9519807433842815,
+   "first_exec_dw423": 0.9519807433842815,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9954906818569289,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    23.622,
+    23.622,
+    80.0
+   ],
+   "source_version": "v7"
+  },
+  "A_00060064_code": {
+   "best_dw400": 0.36991789824703086,
+   "best_dw423": 0.24989475533117964,
+   "first_exec_dw400": 0.36991789824703086,
+   "first_exec_dw423": 0.029713541097448073,
+   "delta_best": -0.12002314291585123,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999882657200266,
+   "cadbench_filter_pass": true,
+   "faces": 57,
+   "bbox_mm": [
+    70.332,
+    80.001,
+    50.526
+   ],
+   "source_version": "v7"
+  },
+  "A_00060074_code": {
+   "best_dw400": 0.1253676613143532,
+   "best_dw423": 0.12462960827823327,
+   "first_exec_dw400": 0.12392960917786858,
+   "first_exec_dw423": 0.12462960827823327,
+   "delta_best": -0.0007380530361199289,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998396983918504,
+   "cadbench_filter_pass": false,
+   "faces": 72,
+   "bbox_mm": [
+    80.0,
+    14.538,
+    2.237
+   ],
+   "source_version": "v7"
+  },
+  "A_00060075_code": {
+   "best_dw400": 0.606937418805664,
+   "best_dw423": 0.5147425337548914,
+   "first_exec_dw400": 0.10260294216556402,
+   "first_exec_dw423": 0.4612567049537795,
+   "delta_best": -0.09219488505077256,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9914480220535145,
+   "cadbench_filter_pass": true,
+   "faces": 53,
+   "bbox_mm": [
+    41.22,
+    80.0,
+    26.163
+   ],
+   "source_version": "v7"
+  },
+  "A_00060077_code": {
+   "best_dw400": 0.5079976007197841,
+   "best_dw423": 0.3890888128013416,
+   "first_exec_dw400": 0.34731879602037113,
+   "first_exec_dw423": 0.28816274503048883,
+   "delta_best": -0.11890878791844245,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9944514679027954,
+   "cadbench_filter_pass": false,
+   "faces": 124,
+   "bbox_mm": [
+    80.0,
+    3.539,
+    67.462
+   ],
+   "source_version": "v7"
+  },
+  "A_00060079_code": {
+   "best_dw400": 0.47024912212790665,
+   "best_dw423": 0.34561683402675675,
+   "first_exec_dw400": 0.4557940777235936,
+   "first_exec_dw423": 0.05816230717639168,
+   "delta_best": -0.1246322881011499,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": false,
+   "faces": 242,
+   "bbox_mm": [
+    40.445,
+    5.182,
+    80.0
+   ],
+   "source_version": "v7"
+  },
+  "A_00070001_code": {
+   "best_dw400": 0.8425643197473242,
+   "best_dw423": 0.852836378182754,
+   "first_exec_dw400": 0.7503616080669846,
+   "first_exec_dw423": 0.7398572192413505,
+   "delta_best": 0.010272058435429887,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999816315641139,
+   "cadbench_filter_pass": true,
+   "faces": 14,
+   "bbox_mm": [
+    21.852,
+    80.0,
+    21.852
+   ],
+   "source_version": "v8"
+  },
+  "A_00070004_code": {
+   "best_dw400": 0.45711139789814237,
+   "best_dw423": 0.488475807272564,
+   "first_exec_dw400": 0.24351716298679374,
+   "first_exec_dw423": 0.46946519004609594,
+   "delta_best": 0.03136440937442164,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999917532683251,
+   "cadbench_filter_pass": false,
+   "faces": 3557,
+   "bbox_mm": [
+    62.216,
+    80.0,
+    8.421
+   ],
+   "source_version": "v8"
+  },
+  "A_00070005_code": {
+   "best_dw400": 0.6918939917127072,
+   "best_dw423": 0.6466365892588595,
+   "first_exec_dw400": 0.4862262817132149,
+   "first_exec_dw423": 0.6466365892588595,
+   "delta_best": -0.045257402453847684,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9927086580913781,
+   "cadbench_filter_pass": true,
+   "faces": 65,
+   "bbox_mm": [
+    63.512,
+    80.377,
+    9.182
+   ],
+   "source_version": "v8"
+  },
+  "A_00070014_code": {
+   "best_dw400": 0.01716497247472841,
+   "best_dw423": 0.03505251687990243,
+   "first_exec_dw400": 0.015965319834692827,
+   "first_exec_dw423": 0.023653745362183162,
+   "delta_best": 0.017887544405174018,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9993559731394254,
+   "cadbench_filter_pass": false,
+   "faces": 35,
+   "bbox_mm": [
+    80.0,
+    24.0,
+    9.744
+   ],
+   "source_version": "v8"
+  },
+  "A_00070015_code": {
+   "best_dw400": 0.8444841447373576,
+   "best_dw423": 0.7928380215215961,
+   "first_exec_dw400": 0.775993922191403,
+   "first_exec_dw423": 0.614722143757271,
+   "delta_best": -0.05164612321576145,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999904348807477,
+   "cadbench_filter_pass": true,
+   "faces": 40,
+   "bbox_mm": [
+    72.78,
+    80.0,
+    15.442
+   ],
+   "source_version": "v8"
+  },
+  "A_00070016_code": {
+   "best_dw400": 0.9689544730608828,
+   "best_dw423": 0.9689544730608828,
+   "first_exec_dw400": 0.9689544730608828,
+   "first_exec_dw423": 0.9689544730608828,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.99993592510347,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    47.467,
+    1.067
+   ],
+   "source_version": "v8"
+  },
+  "A_00070017_code": {
+   "best_dw400": 0.9535587704595524,
+   "best_dw423": 0.9535587704595524,
+   "first_exec_dw400": 0.9535587704595524,
+   "first_exec_dw423": 0.7837293201890834,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999763185276845,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    1.25,
+    2.917
+   ],
+   "source_version": "v8"
+  },
+  "A_00070018_code": {
+   "best_dw400": 0.9872203840424778,
+   "best_dw423": 0.9872203840424778,
+   "first_exec_dw400": 0.9872203840424778,
+   "first_exec_dw423": 0.9872203840424778,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999870794826616,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    2.222,
+    5.185
+   ],
+   "source_version": "v8"
+  },
+  "A_00070019_code": {
+   "best_dw400": 0.9582054091366706,
+   "best_dw423": 0.9560484760981135,
+   "first_exec_dw400": 0.8321646928892393,
+   "first_exec_dw423": 0.8353129413857382,
+   "delta_best": -0.0021569330385571295,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999803204958438,
+   "cadbench_filter_pass": false,
+   "faces": 26,
+   "bbox_mm": [
+    2.747,
+    80.0,
+    6.41
+   ],
+   "source_version": "v8"
+  },
+  "A_00070020_code": {
+   "best_dw400": 0.9597412208501805,
+   "best_dw423": 0.9597412208501805,
+   "first_exec_dw400": 0.8927378332720773,
+   "first_exec_dw423": 0.8927378332720773,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9998382371714196,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    37.083,
+    0.417
+   ],
+   "source_version": "v8"
+  },
+  "A_00070021_code": {
+   "best_dw400": 0.9674670456466832,
+   "best_dw423": 0.9674604486833634,
+   "first_exec_dw400": 0.9674670456466832,
+   "first_exec_dw423": 0.32264475399887554,
+   "delta_best": -6.596963319727145e-06,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9989330186660086,
+   "cadbench_filter_pass": false,
+   "faces": 87,
+   "bbox_mm": [
+    80.0,
+    62.63,
+    0.704
+   ],
+   "source_version": "v8"
+  },
+  "A_00070022_code": {
+   "best_dw400": 0.962795658569523,
+   "best_dw423": 0.962795658569523,
+   "first_exec_dw400": 0.962795658569523,
+   "first_exec_dw423": 0.962795658569523,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9998853514607318,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    34.443,
+    0.622
+   ],
+   "source_version": "v8"
+  },
+  "A_00070023_code": {
+   "best_dw400": 0.9619697984501432,
+   "best_dw423": 0.9619697984501432,
+   "first_exec_dw400": 0.9619697984501432,
+   "first_exec_dw423": 0.9619697984501432,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999484659954394,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    63.238,
+    1.143
+   ],
+   "source_version": "v8"
+  },
+  "A_00070026_code": {
+   "best_dw400": 0.6007473057519263,
+   "best_dw423": 0.539903961669723,
+   "first_exec_dw400": 0.4416926498243226,
+   "first_exec_dw423": 0.45730224861623586,
+   "delta_best": -0.060843344082203266,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9997984006451179,
+   "cadbench_filter_pass": true,
+   "faces": 31,
+   "bbox_mm": [
+    80.0,
+    78.607,
+    77.313
+   ],
+   "source_version": "v8"
+  },
+  "A_00070031_code": {
+   "best_dw400": 0.9951691633731037,
+   "best_dw423": 0.8468364581600175,
+   "first_exec_dw400": 0.0,
+   "first_exec_dw423": 0.0,
+   "delta_best": -0.14833270521308617,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9987817574221828,
+   "cadbench_filter_pass": false,
+   "faces": 4,
+   "bbox_mm": [
+    4.21,
+    80.0,
+    80.0
+   ],
+   "source_version": "v8"
+  },
+  "A_00070035_code": {
+   "best_dw400": 0.8442885235317042,
+   "best_dw423": 0.914026495875897,
+   "first_exec_dw400": 0.8442885235317042,
+   "first_exec_dw423": 0.5661493685485063,
+   "delta_best": 0.06973797234419277,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999995292503616,
+   "cadbench_filter_pass": true,
+   "faces": 10,
+   "bbox_mm": [
+    80.0,
+    75.581,
+    12.0
+   ],
+   "source_version": "v8"
+  },
+  "A_00070037_code": {
+   "best_dw400": 0.6847035794381395,
+   "best_dw423": 0.588007433096492,
+   "first_exec_dw400": 0.6847035794381395,
+   "first_exec_dw423": 0.29330173203421595,
+   "delta_best": -0.09669614634164758,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999880230394297,
+   "cadbench_filter_pass": false,
+   "faces": 42,
+   "bbox_mm": [
+    80.0,
+    70.968,
+    9.014
+   ],
+   "source_version": "v8"
+  },
+  "A_00070049_code": {
+   "best_dw400": 0.47145990338181676,
+   "best_dw423": 0.551687418458201,
+   "first_exec_dw400": 0.46380372175064927,
+   "first_exec_dw423": 0.5287697471488535,
+   "delta_best": 0.08022751507638426,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998466211711887,
+   "cadbench_filter_pass": false,
+   "faces": 156,
+   "bbox_mm": [
+    80.0,
+    33.045,
+    3.405
+   ],
+   "source_version": "v8"
+  },
+  "A_00070050_code": {
+   "best_dw400": 0.7951856828490986,
+   "best_dw423": 0.7967537665306915,
+   "first_exec_dw400": 0.7622751613536339,
+   "first_exec_dw423": 0.7719107708329008,
+   "delta_best": 0.0015680836815928911,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999997083753662,
+   "cadbench_filter_pass": true,
+   "faces": 18,
+   "bbox_mm": [
+    80.0,
+    65.567,
+    20.754
+   ],
+   "source_version": "v8"
+  },
+  "A_00070058_code": {
+   "best_dw400": 0.8416525425311898,
+   "best_dw423": 0.7790824130951838,
+   "first_exec_dw400": 0.7814629319073495,
+   "first_exec_dw423": 0.3596700399357997,
+   "delta_best": -0.06257012943600604,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999708913011985,
+   "cadbench_filter_pass": true,
+   "faces": 52,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    8.889
+   ],
+   "source_version": "v8"
+  },
+  "A_00070059_code": {
+   "best_dw400": 0.8418434776290247,
+   "best_dw423": 0.7763437144054643,
+   "first_exec_dw400": 0.7814629319073495,
+   "first_exec_dw423": 0.7763437144054643,
+   "delta_best": -0.06549976322356033,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999708913011985,
+   "cadbench_filter_pass": true,
+   "faces": 52,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    8.889
+   ],
+   "source_version": "v8"
+  },
+  "A_00070060_code": {
+   "best_dw400": 0.4592040496451359,
+   "best_dw423": 0.9047765366239847,
+   "first_exec_dw400": 0.4482232388775424,
+   "first_exec_dw423": 0.9047765366239847,
+   "delta_best": 0.4455724869788488,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999941427462283,
+   "cadbench_filter_pass": true,
+   "faces": 13,
+   "bbox_mm": [
+    14.625,
+    14.585,
+    80.0
+   ],
+   "source_version": "v8"
+  },
+  "A_00070061_code": {
+   "best_dw400": 0.5773762565211858,
+   "best_dw423": 0.11921340293165951,
+   "first_exec_dw400": 0.0016430171769977594,
+   "first_exec_dw423": 0.11921340293165951,
+   "delta_best": -0.45816285358952635,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9958059737347854,
+   "cadbench_filter_pass": false,
+   "faces": 699,
+   "bbox_mm": [
+    4.579,
+    4.025,
+    80.0
+   ],
+   "source_version": "v8"
+  },
+  "A_00070062_code": {
+   "best_dw400": 0.9968333603826052,
+   "best_dw423": 0.10160375597520503,
+   "first_exec_dw400": 0.9968333603826052,
+   "first_exec_dw423": 0.017873204084424832,
+   "delta_best": -0.8952296044074002,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999999665435509,
+   "cadbench_filter_pass": false,
+   "faces": 14,
+   "bbox_mm": [
+    4.0,
+    3.2,
+    80.0
+   ],
+   "source_version": "v8"
+  },
+  "A_00070063_code": {
+   "best_dw400": 0.5631431258369092,
+   "best_dw423": 0.47796119979212687,
+   "first_exec_dw400": 0.0026720813663870346,
+   "first_exec_dw423": 0.1289796128065924,
+   "delta_best": -0.08518192604478231,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999318901394704,
+   "cadbench_filter_pass": false,
+   "faces": 92,
+   "bbox_mm": [
+    3.369,
+    3.025,
+    80.0
+   ],
+   "source_version": "v8"
+  },
+  "A_00070064_code": {
+   "best_dw400": 0.450490348029912,
+   "best_dw423": 0.0633959711719972,
+   "first_exec_dw400": 0.450490348029912,
+   "first_exec_dw423": 0.0633959711719972,
+   "delta_best": -0.3870943768579148,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998748640265948,
+   "cadbench_filter_pass": true,
+   "faces": 120,
+   "bbox_mm": [
+    22.364,
+    80.0,
+    22.802
+   ],
+   "source_version": "v8"
+  },
+  "A_00070065_code": {
+   "best_dw400": 0.9964444140054696,
+   "best_dw423": 0.9964444140054696,
+   "first_exec_dw400": 0.859952765404824,
+   "first_exec_dw423": 0.859952765404824,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999966962325697,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    42.626,
+    10.23
+   ],
+   "source_version": "v8"
+  },
+  "A_00070067_code": {
+   "best_dw400": 0.9974828663546131,
+   "best_dw423": 0.9974828660976679,
+   "first_exec_dw400": 0.9974828663546131,
+   "first_exec_dw423": 0.014521878047210808,
+   "delta_best": -2.5694524286024034e-10,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9996889705110888,
+   "cadbench_filter_pass": false,
+   "faces": 3,
+   "bbox_mm": [
+    80.0,
+    2.7,
+    2.7
+   ],
+   "source_version": "v8"
+  },
+  "A_00070069_code": {
+   "best_dw400": 0.7020257135043344,
+   "best_dw423": 0.8644040321383571,
+   "first_exec_dw400": 0.0,
+   "first_exec_dw423": 0.8644040321383571,
+   "delta_best": 0.16237831863402274,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999995032141723,
+   "cadbench_filter_pass": false,
+   "faces": 380,
+   "bbox_mm": [
+    21.046,
+    21.04,
+    80.0
+   ],
+   "source_version": "v8"
+  },
+  "A_00070078_code": {
+   "best_dw400": 0.9356369268454816,
+   "best_dw423": 0.9354025903324317,
+   "first_exec_dw400": 0.9343098033260928,
+   "first_exec_dw423": 0.8261633952821312,
+   "delta_best": -0.00023433651304993752,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999942790481124,
+   "cadbench_filter_pass": true,
+   "faces": 95,
+   "bbox_mm": [
+    31.081,
+    80.0,
+    35.69
+   ],
+   "source_version": "v8"
+  },
+  "A_00080003_code": {
+   "best_dw400": 0.9834958492194312,
+   "best_dw423": 0.01658217839080869,
+   "first_exec_dw400": 0.9002728917430944,
+   "first_exec_dw423": 0.00042017604213607287,
+   "delta_best": -0.9669136708286226,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9993121130695649,
+   "cadbench_filter_pass": false,
+   "faces": 4,
+   "bbox_mm": [
+    3.984,
+    80.0,
+    3.984
+   ],
+   "source_version": "v9"
+  },
+  "A_00080008_code": {
+   "best_dw400": 0.8691613405332803,
+   "best_dw423": 0.6818552981718914,
+   "first_exec_dw400": 0.6575155898175385,
+   "first_exec_dw423": 0.6818552981718914,
+   "delta_best": -0.18730604236138892,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999951405995139,
+   "cadbench_filter_pass": true,
+   "faces": 46,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    41.191
+   ],
+   "source_version": "v9"
+  },
+  "A_00080018_code": {
+   "best_dw400": 0.27486707564288465,
+   "best_dw423": 0.3931738138087292,
+   "first_exec_dw400": 0.03139098866542079,
+   "first_exec_dw423": 0.18940958622444884,
+   "delta_best": 0.11830673816584453,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9989213490382126,
+   "cadbench_filter_pass": false,
+   "faces": 73,
+   "bbox_mm": [
+    56.14,
+    58.947,
+    80.0
+   ],
+   "source_version": "v9"
+  },
+  "A_00080019_code": {
+   "best_dw400": 0.9428879581657595,
+   "best_dw423": 0.9279999732971191,
+   "first_exec_dw400": 0.866666639947086,
+   "first_exec_dw423": 0.866666639947086,
+   "delta_best": -0.014887984868640403,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": true,
+   "faces": 9,
+   "bbox_mm": [
+    80.0,
+    37.12,
+    80.0
+   ],
+   "source_version": "v9"
+  },
+  "A_00080020_code": {
+   "best_dw400": 0.9134710235872788,
+   "best_dw423": 0.9134710235872788,
+   "first_exec_dw400": 0.9134710235872788,
+   "first_exec_dw423": 0.9134710235872788,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    60.0,
+    36.96,
+    80.0
+   ],
+   "source_version": "v9"
+  },
+  "A_00080021_code": {
+   "best_dw400": 0.9236054341088347,
+   "best_dw423": 0.9457443280308546,
+   "first_exec_dw400": 0.9236054341088347,
+   "first_exec_dw423": 0.919977517093542,
+   "delta_best": 0.022138893922019953,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999938574448369,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    8.421,
+    51.429
+   ],
+   "source_version": "v9"
+  },
+  "A_00080022_code": {
+   "best_dw400": 0.7732534877301959,
+   "best_dw423": 0.523694051410341,
+   "first_exec_dw400": 0.47322578201923804,
+   "first_exec_dw423": 0.360554516250552,
+   "delta_best": -0.2495594363198549,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999419823967214,
+   "cadbench_filter_pass": false,
+   "faces": 38,
+   "bbox_mm": [
+    20.562,
+    1.276,
+    80.0
+   ],
+   "source_version": "v9"
+  },
+  "A_00080023_code": {
+   "best_dw400": 0.9785083008220267,
+   "best_dw423": 0.9785083008220267,
+   "first_exec_dw400": 0.9785083008220267,
+   "first_exec_dw423": 0.9785083008220267,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999052021178955,
+   "cadbench_filter_pass": false,
+   "faces": 11,
+   "bbox_mm": [
+    80.0,
+    0.999,
+    37.048
+   ],
+   "source_version": "v9"
+  },
+  "A_00080024_code": {
+   "best_dw400": 0.9384372106649256,
+   "best_dw423": 0.9384372106649256,
+   "first_exec_dw400": 0.9357964208818239,
+   "first_exec_dw423": 0.9357964208818239,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999753728285529,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    34.958,
+    0.532,
+    80.0
+   ],
+   "source_version": "v9"
+  },
+  "A_00080025_code": {
+   "best_dw400": 0.9816300244585027,
+   "best_dw423": 0.9816300244585027,
+   "first_exec_dw400": 0.9053840265356293,
+   "first_exec_dw423": 0.9816300244585027,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999881462062442,
+   "cadbench_filter_pass": false,
+   "faces": 9,
+   "bbox_mm": [
+    80.0,
+    2.555,
+    26.218
+   ],
+   "source_version": "v9"
+  },
+  "A_00080026_code": {
+   "best_dw400": 0.9955635209148699,
+   "best_dw423": 0.9955635209148699,
+   "first_exec_dw400": 0.9955635209148699,
+   "first_exec_dw423": 0.9955635209148699,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999794199144327,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    1.697,
+    10.631
+   ],
+   "source_version": "v9"
+  },
+  "A_00080027_code": {
+   "best_dw400": 0.9868126396431229,
+   "best_dw423": 0.9868126396431229,
+   "first_exec_dw400": 0.9868003094950127,
+   "first_exec_dw423": 0.9868003094950127,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999473439139184,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    19.744,
+    1.501
+   ],
+   "source_version": "v9"
+  },
+  "A_00080028_code": {
+   "best_dw400": 0.9417055839756395,
+   "best_dw423": 0.18191522705615207,
+   "first_exec_dw400": 0.9417055839756395,
+   "first_exec_dw423": 0.08339850027892023,
+   "delta_best": -0.7597903569194875,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999901827375517,
+   "cadbench_filter_pass": false,
+   "faces": 85,
+   "bbox_mm": [
+    80.0,
+    5.554,
+    14.615
+   ],
+   "source_version": "v9"
+  },
+  "A_00080029_code": {
+   "best_dw400": 0.8881162585408505,
+   "best_dw423": 0.025577740884124553,
+   "first_exec_dw400": 0.8536977231113276,
+   "first_exec_dw423": 0.02183877937514519,
+   "delta_best": -0.862538517656726,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999443544067832,
+   "cadbench_filter_pass": false,
+   "faces": 89,
+   "bbox_mm": [
+    57.777,
+    3.935,
+    80.0
+   ],
+   "source_version": "v9"
+  },
+  "A_00080030_code": {
+   "best_dw400": 0.9606800212201305,
+   "best_dw423": 0.9606800212201305,
+   "first_exec_dw400": 0.949219270516412,
+   "first_exec_dw423": 0.949219270516412,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999994175775552,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    71.111,
+    62.222
+   ],
+   "source_version": "v9"
+  },
+  "A_00080031_code": {
+   "best_dw400": 0.9662048105516602,
+   "best_dw423": 0.8936922215168429,
+   "first_exec_dw400": 0.8936921360120539,
+   "first_exec_dw423": 0.8936921360120539,
+   "delta_best": -0.07251258903481728,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999544549576093,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    19.561,
+    1.778,
+    80.0
+   ],
+   "source_version": "v9"
+  },
+  "A_00080032_code": {
+   "best_dw400": 0.826640429754365,
+   "best_dw423": 0.8179865703011645,
+   "first_exec_dw400": 0.7968034339508316,
+   "first_exec_dw423": 0.7968034339508316,
+   "delta_best": -0.008653859453200519,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9997049386187882,
+   "cadbench_filter_pass": false,
+   "faces": 40,
+   "bbox_mm": [
+    80.0,
+    31.837,
+    1.551
+   ],
+   "source_version": "v9"
+  },
+  "A_00080033_code": {
+   "best_dw400": 0.8826181551139576,
+   "best_dw423": 0.8771650685695817,
+   "first_exec_dw400": 0.8261053060915502,
+   "first_exec_dw423": 0.819422163924454,
+   "delta_best": -0.005453086544375929,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9994013646557146,
+   "cadbench_filter_pass": false,
+   "faces": 21,
+   "bbox_mm": [
+    80.0,
+    44.322,
+    1.493
+   ],
+   "source_version": "v9"
+  },
+  "A_00080034_code": {
+   "best_dw400": 0.5485891623447151,
+   "best_dw423": 0.04294360704827598,
+   "first_exec_dw400": 0.3546546940532508,
+   "first_exec_dw423": 0.0,
+   "delta_best": -0.5056455552964392,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9997622168546125,
+   "cadbench_filter_pass": false,
+   "faces": 74,
+   "bbox_mm": [
+    1.276,
+    8.8,
+    80.0
+   ],
+   "source_version": "v9"
+  },
+  "A_00080037_code": {
+   "best_dw400": 0.9914452677872161,
+   "best_dw423": 0.9914071074281727,
+   "first_exec_dw400": 0.9914452677872161,
+   "first_exec_dw423": 0.6050650823011943,
+   "delta_best": -3.8160359043359904e-05,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9973372126656799,
+   "cadbench_filter_pass": true,
+   "faces": 13,
+   "bbox_mm": [
+    80.0,
+    39.773,
+    79.995
+   ],
+   "source_version": "v9"
+  },
+  "A_00080039_code": {
+   "best_dw400": 1.0,
+   "best_dw423": 1.0,
+   "first_exec_dw400": 1.0,
+   "first_exec_dw423": 1.0,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    40.0,
+    80.0,
+    24.0
+   ],
+   "source_version": "v9"
+  },
+  "A_00080043_code": {
+   "best_dw400": 0.8305949150543734,
+   "best_dw423": 0.9097449000762231,
+   "first_exec_dw400": 0.4260425585715025,
+   "first_exec_dw423": 0.9092496174256579,
+   "delta_best": 0.07914998502184967,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999994759284679,
+   "cadbench_filter_pass": true,
+   "faces": 21,
+   "bbox_mm": [
+    80.0,
+    29.84,
+    74.496
+   ],
+   "source_version": "v9"
+  },
+  "A_00080045_code": {
+   "best_dw400": 0.62606510169946,
+   "best_dw423": 0.5960518769891747,
+   "first_exec_dw400": 0.5952167944003995,
+   "first_exec_dw423": 0.4563887496739555,
+   "delta_best": -0.030013224710285225,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9922701629460525,
+   "cadbench_filter_pass": false,
+   "faces": 77,
+   "bbox_mm": [
+    80.226,
+    19.426,
+    28.586
+   ],
+   "source_version": "v9"
+  },
+  "A_00080047_code": {
+   "best_dw400": 0.9476179769671094,
+   "best_dw423": 0.9389686407986283,
+   "first_exec_dw400": 0.6539929782798153,
+   "first_exec_dw423": 0.9344965243487493,
+   "delta_best": -0.00864933616848107,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999674794547807,
+   "cadbench_filter_pass": true,
+   "faces": 9,
+   "bbox_mm": [
+    80.0,
+    39.812,
+    38.706
+   ],
+   "source_version": "v9"
+  },
+  "A_00080056_code": {
+   "best_dw400": 0.9804358240451124,
+   "best_dw423": 0.9804358240451124,
+   "first_exec_dw400": 0.9804358240451124,
+   "first_exec_dw423": 0.9804358240451124,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999976024976311,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    12.338,
+    80.0,
+    2.644
+   ],
+   "source_version": "v9"
+  },
+  "A_00080058_code": {
+   "best_dw400": 0.9462346135024057,
+   "best_dw423": 0.30590828336486403,
+   "first_exec_dw400": 0.9303480112006601,
+   "first_exec_dw423": 0.27201598398576454,
+   "delta_best": -0.6403263301375417,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998959850605625,
+   "cadbench_filter_pass": false,
+   "faces": 20,
+   "bbox_mm": [
+    12.091,
+    80.0,
+    2.591
+   ],
+   "source_version": "v9"
+  },
+  "A_00080063_code": {
+   "best_dw400": 0.9324552516368199,
+   "best_dw423": 0.9741176475766558,
+   "first_exec_dw400": 0.9227345259276944,
+   "first_exec_dw423": 0.9101986316720373,
+   "delta_best": 0.041662395939835895,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": true,
+   "faces": 10,
+   "bbox_mm": [
+    28.0,
+    80.0,
+    6.0
+   ],
+   "source_version": "v9"
+  },
+  "A_00080064_code": {
+   "best_dw400": 0.9324552516368199,
+   "best_dw423": 0.9324552516368199,
+   "first_exec_dw400": 0.9324552516368199,
+   "first_exec_dw423": 0.9101986316720373,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": true,
+   "faces": 10,
+   "bbox_mm": [
+    28.0,
+    80.0,
+    6.0
+   ],
+   "source_version": "v9"
+  },
+  "A_00080066_code": {
+   "best_dw400": 0.8911211339095773,
+   "best_dw423": 0.643799332164086,
+   "first_exec_dw400": 0.8360394303153331,
+   "first_exec_dw423": 0.6249756352079803,
+   "delta_best": -0.24732180174549123,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999914519606387,
+   "cadbench_filter_pass": false,
+   "faces": 35,
+   "bbox_mm": [
+    56.0,
+    80.0,
+    12.0
+   ],
+   "source_version": "v9"
+  },
+  "A_00080067_code": {
+   "best_dw400": 0.985528950928075,
+   "best_dw423": 0.985528950928075,
+   "first_exec_dw400": 0.985528950928075,
+   "first_exec_dw423": 0.985528950928075,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999747573858221,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    13.229,
+    80.0,
+    2.835
+   ],
+   "source_version": "v9"
+  },
+  "A_00080071_code": {
+   "best_dw400": 0.7872211773026646,
+   "best_dw423": 0.5873671557605623,
+   "first_exec_dw400": 0.7872211773026646,
+   "first_exec_dw423": 0.01665432965237996,
+   "delta_best": -0.1998540215421023,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999616537629163,
+   "cadbench_filter_pass": false,
+   "faces": 108,
+   "bbox_mm": [
+    4.167,
+    80.0,
+    1.25
+   ],
+   "source_version": "v9"
+  },
+  "A_00080072_code": {
+   "best_dw400": 0.9652114056563248,
+   "best_dw423": 0.9652114056563248,
+   "first_exec_dw400": 0.9652114056563248,
+   "first_exec_dw423": 0.9652114056563248,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999399399071512,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    4.444,
+    80.0,
+    1.333
+   ],
+   "source_version": "v9"
+  },
+  "A_00080073_code": {
+   "best_dw400": 0.9588114675306818,
+   "best_dw423": 0.9588114674824504,
+   "first_exec_dw400": 0.9039430976139637,
+   "first_exec_dw423": 0.8838685688902987,
+   "delta_best": -4.8231418858790676e-11,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9978294914416024,
+   "cadbench_filter_pass": false,
+   "faces": 40,
+   "bbox_mm": [
+    8.708,
+    80.0,
+    1.187
+   ],
+   "source_version": "v9"
+  },
+  "A_00080074_code": {
+   "best_dw400": 0.9416701588881742,
+   "best_dw423": 0.9416701588881742,
+   "first_exec_dw400": 0.9039430976139637,
+   "first_exec_dw423": 0.9416701588881742,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9985507047284117,
+   "cadbench_filter_pass": false,
+   "faces": 40,
+   "bbox_mm": [
+    8.708,
+    80.0,
+    1.187
+   ],
+   "source_version": "v9"
+  },
+  "A_00080079_code": {
+   "best_dw400": 0.8475748246660242,
+   "best_dw423": 0.8639536411769931,
+   "first_exec_dw400": 0.7692217683714083,
+   "first_exec_dw423": 0.7967761645579046,
+   "delta_best": 0.016378816510968952,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999994519625371,
+   "cadbench_filter_pass": false,
+   "faces": 16,
+   "bbox_mm": [
+    80.0,
+    64.891,
+    42.105
+   ],
+   "source_version": "v9"
+  },
+  "A_00090000_code": {
+   "best_dw400": 0.9691483818220644,
+   "best_dw423": 0.9691483818220644,
+   "first_exec_dw400": 0.9691483818220644,
+   "first_exec_dw423": 0.9691483818220644,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    29.12,
+    19.28,
+    80.0
+   ],
+   "source_version": "v10"
+  },
+  "A_00090002_code": {
+   "best_dw400": 0.9414501775423613,
+   "best_dw423": 0.9385451776626682,
+   "first_exec_dw400": 0.0,
+   "first_exec_dw423": 0.0007230541049020899,
+   "delta_best": -0.00290499987969306,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9979663783472811,
+   "cadbench_filter_pass": true,
+   "faces": 60,
+   "bbox_mm": [
+    56.674,
+    60.0,
+    80.0
+   ],
+   "source_version": "v10"
+  },
+  "A_00090016_code": {
+   "best_dw400": 0.8451109051790865,
+   "best_dw423": 0.8173404834071684,
+   "first_exec_dw400": 0.8451109051790865,
+   "first_exec_dw423": 0.7677346906816886,
+   "delta_best": -0.02777042177191813,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999914592870626,
+   "cadbench_filter_pass": false,
+   "faces": 480,
+   "bbox_mm": [
+    80.0,
+    18.944,
+    18.944
+   ],
+   "source_version": "v10"
+  },
+  "A_00090018_code": {
+   "best_dw400": 0.4544507402668616,
+   "best_dw423": 0.6973356083475521,
+   "first_exec_dw400": 0.1725420506674381,
+   "first_exec_dw423": 0.2323608727629321,
+   "delta_best": 0.24288486808069054,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9990222738244371,
+   "cadbench_filter_pass": false,
+   "faces": 618,
+   "bbox_mm": [
+    80.0,
+    48.871,
+    48.871
+   ],
+   "source_version": "v10"
+  },
+  "A_00090021_code": {
+   "best_dw400": 0.7493427400294026,
+   "best_dw423": 0.7852131501300814,
+   "first_exec_dw400": 0.663422932444748,
+   "first_exec_dw423": 0.6607136396578215,
+   "delta_best": 0.03587041010067882,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999953972425117,
+   "cadbench_filter_pass": false,
+   "faces": 759,
+   "bbox_mm": [
+    17.171,
+    80.0,
+    21.044
+   ],
+   "source_version": "v10"
+  },
+  "A_00090024_code": {
+   "best_dw400": 0.9532854374761789,
+   "best_dw423": 0.8317375552078351,
+   "first_exec_dw400": 0.685922591189988,
+   "first_exec_dw423": 0.7670848355903901,
+   "delta_best": -0.12154788226834379,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.99999001945236,
+   "cadbench_filter_pass": true,
+   "faces": 9,
+   "bbox_mm": [
+    80.0,
+    6.255,
+    6.255
+   ],
+   "source_version": "v10"
+  },
+  "A_00090026_code": {
+   "best_dw400": 0.8768775064625562,
+   "best_dw423": 0.7834720250753171,
+   "first_exec_dw400": 0.8181278957539304,
+   "first_exec_dw423": 0.47451515618587753,
+   "delta_best": -0.09340548138723914,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9997635499041063,
+   "cadbench_filter_pass": true,
+   "faces": 48,
+   "bbox_mm": [
+    80.0,
+    21.053,
+    20.389
+   ],
+   "source_version": "v10"
+  },
+  "A_00090027_code": {
+   "best_dw400": 0.9223583432006878,
+   "best_dw423": 0.9951713432823368,
+   "first_exec_dw400": 0.9217243059790545,
+   "first_exec_dw423": 0.9036995111998366,
+   "delta_best": 0.07281300008164904,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999436424075013,
+   "cadbench_filter_pass": false,
+   "faces": 5,
+   "bbox_mm": [
+    79.994,
+    4.615,
+    80.0
+   ],
+   "source_version": "v10"
+  },
+  "A_00090030_code": {
+   "best_dw400": 0.8790072442028464,
+   "best_dw423": 0.4475675487072763,
+   "first_exec_dw400": 0.6319333933203654,
+   "first_exec_dw423": 0.4354007887099,
+   "delta_best": -0.4314396954955701,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9987184288558086,
+   "cadbench_filter_pass": true,
+   "faces": 8,
+   "bbox_mm": [
+    63.838,
+    16.072,
+    80.0
+   ],
+   "source_version": "v10"
+  },
+  "A_00090035_code": {
+   "best_dw400": 0.2719049252356861,
+   "best_dw423": 0.03817352263900374,
+   "first_exec_dw400": 0.019875764522860544,
+   "first_exec_dw423": 0.02011625146620645,
+   "delta_best": -0.23373140259668235,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999100222525986,
+   "cadbench_filter_pass": false,
+   "faces": 15,
+   "bbox_mm": [
+    80.0,
+    3.806,
+    80.0
+   ],
+   "source_version": "v10"
+  },
+  "A_00090036_code": {
+   "best_dw400": 0.018411818399822682,
+   "best_dw423": 0.04156516913493594,
+   "first_exec_dw400": 0.0005871930735463578,
+   "first_exec_dw423": 0.0005488551897128989,
+   "delta_best": 0.02315335073511326,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998616995205868,
+   "cadbench_filter_pass": false,
+   "faces": 73,
+   "bbox_mm": [
+    3.793,
+    50.954,
+    80.0
+   ],
+   "source_version": "v10"
+  },
+  "A_00090041_code": {
+   "best_dw400": 0.9766302968192847,
+   "best_dw423": 0.8174721093567465,
+   "first_exec_dw400": 0.9766302968192847,
+   "first_exec_dw423": 0.6725317989014828,
+   "delta_best": -0.15915818746253818,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9998856843264282,
+   "cadbench_filter_pass": true,
+   "faces": 10,
+   "bbox_mm": [
+    24.671,
+    24.279,
+    80.0
+   ],
+   "source_version": "v10"
+  },
+  "A_00090048_code": {
+   "best_dw400": 0.8474425958404506,
+   "best_dw423": 0.08626368080355021,
+   "first_exec_dw400": 0.7487499552243394,
+   "first_exec_dw423": 0.08048565251182635,
+   "delta_best": -0.7611789150369004,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999991851697775,
+   "cadbench_filter_pass": false,
+   "faces": 29,
+   "bbox_mm": [
+    80.0,
+    0.556,
+    76.0
+   ],
+   "source_version": "v10"
+  },
+  "A_00090049_code": {
+   "best_dw400": 1.0,
+   "best_dw423": 1.0,
+   "first_exec_dw400": 1.0,
+   "first_exec_dw423": 0.926859375,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    80.0
+   ],
+   "source_version": "v10"
+  },
+  "A_00090061_code": {
+   "best_dw400": 0.5531147787846269,
+   "best_dw423": 0.11547363726063917,
+   "first_exec_dw400": 0.11576458060342415,
+   "first_exec_dw423": 0.10861173398937667,
+   "delta_best": -0.4376411415239877,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999387547969087,
+   "cadbench_filter_pass": false,
+   "faces": 26,
+   "bbox_mm": [
+    4.48,
+    4.48,
+    80.0
+   ],
+   "source_version": "v10"
+  },
+  "A_00090065_code": {
+   "best_dw400": 0.9946083740544247,
+   "best_dw423": 0.9921182118288321,
+   "first_exec_dw400": 0.947385612537972,
+   "first_exec_dw423": 0.9921182118288321,
+   "delta_best": -0.002490162225592618,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999911469728553,
+   "cadbench_filter_pass": false,
+   "faces": 172,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    8.032
+   ],
+   "source_version": "v10"
+  },
+  "A_00090067_code": {
+   "best_dw400": 1.0,
+   "best_dw423": 0.9877604263453853,
+   "first_exec_dw400": 0.9877604263453853,
+   "first_exec_dw423": 0.9877604263453853,
+   "delta_best": -0.0122395736546147,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    8.0
+   ],
+   "source_version": "v10"
+  },
+  "A_00090068_code": {
+   "best_dw400": 0.9561159879338895,
+   "best_dw423": 0.793513640816844,
+   "first_exec_dw400": 0.9561159879338895,
+   "first_exec_dw423": 0.7851874870303454,
+   "delta_best": -0.16260234711704558,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999359903050808,
+   "cadbench_filter_pass": false,
+   "faces": 179,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    8.227
+   ],
+   "source_version": "v10"
+  },
+  "A_00090070_code": {
+   "best_dw400": 0.9967529134464832,
+   "best_dw423": 0.9696899651264375,
+   "first_exec_dw400": 0.9967529134464832,
+   "first_exec_dw423": 0.7492620399690253,
+   "delta_best": -0.027062948320045743,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9998857428021307,
+   "cadbench_filter_pass": false,
+   "faces": 344,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    8.227
+   ],
+   "source_version": "v10"
+  },
+  "A_00090075_code": {
+   "best_dw400": 0.5387530836510428,
+   "best_dw423": 0.5825722043939768,
+   "first_exec_dw400": 0.5387530836510428,
+   "first_exec_dw423": 0.46532902567590545,
+   "delta_best": 0.04381912074293404,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999515007813763,
+   "cadbench_filter_pass": true,
+   "faces": 64,
+   "bbox_mm": [
+    80.0,
+    9.739,
+    19.073
+   ],
+   "source_version": "v10"
+  },
+  "A_00090076_code": {
+   "best_dw400": 0.743858046708114,
+   "best_dw423": 0.7106945549156122,
+   "first_exec_dw400": 0.743858046708114,
+   "first_exec_dw423": 0.7106945549156122,
+   "delta_best": -0.033163491792501776,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9997076522345769,
+   "cadbench_filter_pass": true,
+   "faces": 45,
+   "bbox_mm": [
+    80.0,
+    9.458,
+    17.292
+   ],
+   "source_version": "v10"
+  },
+  "A_00100007_code": {
+   "best_dw400": 0.7586320469890762,
+   "best_dw423": 0.7469806763285024,
+   "first_exec_dw400": 0.6358796582889686,
+   "first_exec_dw423": 0.6327306539931811,
+   "delta_best": -0.011651370660573757,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998903099839852,
+   "cadbench_filter_pass": false,
+   "faces": 406,
+   "bbox_mm": [
+    74.229,
+    80.0,
+    1.786
+   ],
+   "source_version": "v11"
+  },
+  "A_00100018_code": {
+   "best_dw400": 0.46042694720184035,
+   "best_dw423": 0.33585514252378906,
+   "first_exec_dw400": 0.27826224155293083,
+   "first_exec_dw423": 0.10318337986052965,
+   "delta_best": -0.12457180467805129,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999290320710535,
+   "cadbench_filter_pass": false,
+   "faces": 1203,
+   "bbox_mm": [
+    5.247,
+    5.247,
+    80.0
+   ],
+   "source_version": "v11"
+  },
+  "A_00100020_code": {
+   "best_dw400": 0.3218984545215997,
+   "best_dw423": 0.3130961272672344,
+   "first_exec_dw400": 0.31558979482237465,
+   "first_exec_dw423": 0.306145436800302,
+   "delta_best": -0.008802327254365305,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9996085174407074,
+   "cadbench_filter_pass": false,
+   "faces": 577,
+   "bbox_mm": [
+    80.0,
+    79.751,
+    74.922
+   ],
+   "source_version": "v11"
+  },
+  "A_00100021_code": {
+   "best_dw400": 0.21099081207341894,
+   "best_dw423": 0.014318046255666461,
+   "first_exec_dw400": 0.12380014265127602,
+   "first_exec_dw423": 0.014318046255666461,
+   "delta_best": -0.19667276581775248,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998337595967157,
+   "cadbench_filter_pass": false,
+   "faces": 1230,
+   "bbox_mm": [
+    2.541,
+    2.541,
+    80.0
+   ],
+   "source_version": "v11"
+  },
+  "A_00100024_code": {
+   "best_dw400": 0.8907698055589904,
+   "best_dw423": 0.952684902958049,
+   "first_exec_dw400": 0.8907698055589904,
+   "first_exec_dw423": 0.8655162697543232,
+   "delta_best": 0.06191509739905854,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999969062280789,
+   "cadbench_filter_pass": true,
+   "faces": 9,
+   "bbox_mm": [
+    59.834,
+    80.0,
+    59.834
+   ],
+   "source_version": "v11"
+  },
+  "A_00100037_code": {
+   "best_dw400": 0.30181981922474355,
+   "best_dw423": 0.3021656439213731,
+   "first_exec_dw400": 0.30181981922474355,
+   "first_exec_dw423": 0.2740986423140729,
+   "delta_best": 0.0003458246966295264,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999792162733206,
+   "cadbench_filter_pass": false,
+   "faces": 157,
+   "bbox_mm": [
+    67.777,
+    80.0,
+    12.835
+   ],
+   "source_version": "v11"
+  },
+  "A_00100038_code": {
+   "best_dw400": 0.6301367395960867,
+   "best_dw423": 0.4845103192794132,
+   "first_exec_dw400": 0.18111489362167368,
+   "first_exec_dw423": 0.38351182753667035,
+   "delta_best": -0.14562642031667355,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999959550354864,
+   "cadbench_filter_pass": false,
+   "faces": 177,
+   "bbox_mm": [
+    57.0,
+    80.0,
+    33.778
+   ],
+   "source_version": "v11"
+  },
+  "A_00100043_code": {
+   "best_dw400": 0.7059335611896091,
+   "best_dw423": 0.7845440561913387,
+   "first_exec_dw400": 0.7059335611896091,
+   "first_exec_dw423": 0.7080352622793444,
+   "delta_best": 0.07861049500172956,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998458979940528,
+   "cadbench_filter_pass": true,
+   "faces": 52,
+   "bbox_mm": [
+    53.416,
+    53.416,
+    80.0
+   ],
+   "source_version": "v11"
+  },
+  "A_00100046_code": {
+   "best_dw400": 0.05201526835394597,
+   "best_dw423": 0.03428607865771631,
+   "first_exec_dw400": 0.022073393061838805,
+   "first_exec_dw423": 0.007811390974899731,
+   "delta_best": -0.017729189696229664,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998029246304451,
+   "cadbench_filter_pass": false,
+   "faces": 814,
+   "bbox_mm": [
+    65.851,
+    37.525,
+    80.0
+   ],
+   "source_version": "v11"
+  },
+  "A_00100052_code": {
+   "best_dw400": 0.8626603942879568,
+   "best_dw423": 0.7096179003919518,
+   "first_exec_dw400": 0.7962021791551868,
+   "first_exec_dw423": 0.7096179003919518,
+   "delta_best": -0.153042493896005,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999954500003942,
+   "cadbench_filter_pass": true,
+   "faces": 17,
+   "bbox_mm": [
+    26.641,
+    80.0,
+    34.182
+   ],
+   "source_version": "v11"
+  },
+  "A_00100064_code": {
+   "best_dw400": 0.3095465886789855,
+   "best_dw423": 0.21054792134076666,
+   "first_exec_dw400": 0.21186783859585218,
+   "first_exec_dw423": 0.21054792134076666,
+   "delta_best": -0.09899866733821883,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998509706349406,
+   "cadbench_filter_pass": false,
+   "faces": 284,
+   "bbox_mm": [
+    80.0,
+    13.3,
+    2.85
+   ],
+   "source_version": "v11"
+  },
+  "A_00100066_code": {
+   "best_dw400": 0.5213237160440377,
+   "best_dw423": 0.4876179428748236,
+   "first_exec_dw400": 0.07321868330471618,
+   "first_exec_dw423": 0.4838241127767385,
+   "delta_best": -0.03370577316921414,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999943004294758,
+   "cadbench_filter_pass": false,
+   "faces": 343,
+   "bbox_mm": [
+    80.0,
+    69.253,
+    63.257
+   ],
+   "source_version": "v11"
+  },
+  "A_00100070_code": {
+   "best_dw400": 0.8682381347845025,
+   "best_dw423": 0.8319061975599976,
+   "first_exec_dw400": 0.8545766351348737,
+   "first_exec_dw423": 0.7702057012660581,
+   "delta_best": -0.036331937224504895,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999822903027042,
+   "cadbench_filter_pass": true,
+   "faces": 53,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    78.4
+   ],
+   "source_version": "v11"
+  },
+  "A_00100071_code": {
+   "best_dw400": 0.8866507028392181,
+   "best_dw423": 0.9129327075561336,
+   "first_exec_dw400": 0.8866507028392181,
+   "first_exec_dw423": 0.8676233033050772,
+   "delta_best": 0.026282004716915552,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999622043881186,
+   "cadbench_filter_pass": true,
+   "faces": 7,
+   "bbox_mm": [
+    80.0,
+    17.884,
+    17.884
+   ],
+   "source_version": "v11"
+  },
+  "A_00100072_code": {
+   "best_dw400": 0.9885204088396475,
+   "best_dw423": 0.9885204088396475,
+   "first_exec_dw400": 0.7839999994635583,
+   "first_exec_dw423": 0.8545454538728002,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999998721743988,
+   "cadbench_filter_pass": true,
+   "faces": 11,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    8.0
+   ],
+   "source_version": "v11"
+  },
+  "A_00100075_code": {
+   "best_dw400": 0.19768170385669573,
+   "best_dw423": 0.18981526898335158,
+   "first_exec_dw400": 0.13934813419946926,
+   "first_exec_dw423": 0.18981526898335158,
+   "delta_best": -0.007866434873344152,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999915647172093,
+   "cadbench_filter_pass": false,
+   "faces": 474,
+   "bbox_mm": [
+    79.857,
+    80.0,
+    23.079
+   ],
+   "source_version": "v11"
+  },
+  "A_00100076_code": {
+   "best_dw400": 0.22899276637701707,
+   "best_dw423": 0.16413377659011757,
+   "first_exec_dw400": 0.11679095301657035,
+   "first_exec_dw423": 0.14255205590503367,
+   "delta_best": -0.0648589897868995,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999915647172093,
+   "cadbench_filter_pass": false,
+   "faces": 474,
+   "bbox_mm": [
+    79.857,
+    80.0,
+    23.079
+   ],
+   "source_version": "v11"
+  },
+  "A_00110003_code": {
+   "best_dw400": 0.36007180049333964,
+   "best_dw423": 0.3083758469429352,
+   "first_exec_dw400": 0.3562876911040057,
+   "first_exec_dw423": 0.07137531842645986,
+   "delta_best": -0.05169595355040446,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999994463645409,
+   "cadbench_filter_pass": false,
+   "faces": 910,
+   "bbox_mm": [
+    80.0,
+    59.259,
+    74.351
+   ],
+   "source_version": "v12"
+  },
+  "A_00110005_code": {
+   "best_dw400": 0.8766009765757742,
+   "best_dw423": 0.6642820554021385,
+   "first_exec_dw400": 0.6658958453641776,
+   "first_exec_dw423": 0.47899718331406166,
+   "delta_best": -0.2123189211736357,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999922988635934,
+   "cadbench_filter_pass": false,
+   "faces": 19,
+   "bbox_mm": [
+    30.963,
+    2.815,
+    80.0
+   ],
+   "source_version": "v12"
+  },
+  "A_00110006_code": {
+   "best_dw400": 0.8429059260209525,
+   "best_dw423": 0.8476616379630667,
+   "first_exec_dw400": 0.8429059260209525,
+   "first_exec_dw423": 0.8067597463140979,
+   "delta_best": 0.004755711942114216,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999968815930128,
+   "cadbench_filter_pass": false,
+   "faces": 48,
+   "bbox_mm": [
+    80.0,
+    50.757,
+    3.339
+   ],
+   "source_version": "v12"
+  },
+  "A_00110007_code": {
+   "best_dw400": 0.9459191168620761,
+   "best_dw423": 0.9459191168620761,
+   "first_exec_dw400": 0.9194999148721963,
+   "first_exec_dw423": 0.9442444430979431,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9996653528567434,
+   "cadbench_filter_pass": false,
+   "faces": 15,
+   "bbox_mm": [
+    80.0,
+    4.661,
+    79.622
+   ],
+   "source_version": "v12"
+  },
+  "A_00110008_code": {
+   "best_dw400": 0.35301304396819216,
+   "best_dw423": 0.4293284281477981,
+   "first_exec_dw400": 0.04397487379685959,
+   "first_exec_dw423": 0.04505381173793073,
+   "delta_best": 0.07631538417960593,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998745953272147,
+   "cadbench_filter_pass": false,
+   "faces": 106,
+   "bbox_mm": [
+    80.0,
+    4.296,
+    57.789
+   ],
+   "source_version": "v12"
+  },
+  "A_00110009_code": {
+   "best_dw400": 0.4424139826952571,
+   "best_dw423": 0.448872327456325,
+   "first_exec_dw400": 0.4424139826952571,
+   "first_exec_dw423": 0.061952921693872724,
+   "delta_best": 0.00645834476106788,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9994965124275469,
+   "cadbench_filter_pass": true,
+   "faces": 73,
+   "bbox_mm": [
+    80.0,
+    9.952,
+    66.663
+   ],
+   "source_version": "v12"
+  },
+  "A_00110010_code": {
+   "best_dw400": 0.7115773939940486,
+   "best_dw423": 0.5044735873751975,
+   "first_exec_dw400": 0.7086417385992616,
+   "first_exec_dw423": 0.5044735873751975,
+   "delta_best": -0.20710380661885108,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998820237159864,
+   "cadbench_filter_pass": false,
+   "faces": 33,
+   "bbox_mm": [
+    46.766,
+    4.694,
+    80.0
+   ],
+   "source_version": "v12"
+  },
+  "A_00110011_code": {
+   "best_dw400": 0.6914621033388709,
+   "best_dw423": 0.7738038705425369,
+   "first_exec_dw400": 0.440462622214194,
+   "first_exec_dw423": 0.2917244282343189,
+   "delta_best": 0.08234176720366593,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999998728710336,
+   "cadbench_filter_pass": false,
+   "faces": 18,
+   "bbox_mm": [
+    80.0,
+    4.364,
+    74.182
+   ],
+   "source_version": "v12"
+  },
+  "A_00110018_code": {
+   "best_dw400": 0.8437726685002243,
+   "best_dw423": 0.8561863775646611,
+   "first_exec_dw400": 0.6836972885114767,
+   "first_exec_dw423": 0.7888972584143178,
+   "delta_best": 0.01241370906443684,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999865783462576,
+   "cadbench_filter_pass": false,
+   "faces": 26,
+   "bbox_mm": [
+    80.0,
+    21.739,
+    0.783
+   ],
+   "source_version": "v12"
+  },
+  "A_00110029_code": {
+   "best_dw400": 1.0,
+   "best_dw423": 1.0,
+   "first_exec_dw400": 1.0,
+   "first_exec_dw423": 1.0,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999999254941951,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    32.0,
+    3.2,
+    80.0
+   ],
+   "source_version": "v12"
+  },
+  "A_00110034_code": {
+   "best_dw400": 0.9876843707639948,
+   "best_dw423": 0.9876843707639948,
+   "first_exec_dw400": 0.9876843707639948,
+   "first_exec_dw423": 0.9876843707639948,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999780630270365,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.01,
+    78.6,
+    4.0
+   ],
+   "source_version": "v12"
+  },
+  "A_00110038_code": {
+   "best_dw400": 0.6778619293702013,
+   "best_dw423": 0.34135630345410467,
+   "first_exec_dw400": 0.6777201830688655,
+   "first_exec_dw423": 0.14641493461537414,
+   "delta_best": -0.3365056259160966,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999871525230203,
+   "cadbench_filter_pass": false,
+   "faces": 59,
+   "bbox_mm": [
+    77.839,
+    77.84,
+    80.0
+   ],
+   "source_version": "v12"
+  },
+  "A_00110040_code": {
+   "best_dw400": 0.5576247101937027,
+   "best_dw423": 0.24483461913629512,
+   "first_exec_dw400": 0.3673839363127611,
+   "first_exec_dw423": 0.13315348299450813,
+   "delta_best": -0.3127900910574076,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9993934492519208,
+   "cadbench_filter_pass": false,
+   "faces": 2233,
+   "bbox_mm": [
+    33.258,
+    80.0,
+    33.258
+   ],
+   "source_version": "v12"
+  },
+  "A_00110042_code": {
+   "best_dw400": 0.24337046160191372,
+   "best_dw423": 0.15992764584796265,
+   "first_exec_dw400": 0.1404170657192226,
+   "first_exec_dw423": 0.15731790130497222,
+   "delta_best": -0.08344281575395107,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9920737507011682,
+   "cadbench_filter_pass": false,
+   "faces": 85,
+   "bbox_mm": [
+    80.0,
+    26.064,
+    6.745
+   ],
+   "source_version": "v12"
+  },
+  "A_00120010_code": {
+   "best_dw400": 0.7912047999341031,
+   "best_dw423": 0.7910404328305995,
+   "first_exec_dw400": 0.7905373285484034,
+   "first_exec_dw423": 0.7910404328305995,
+   "delta_best": -0.00016436710350353767,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999981697085727,
+   "cadbench_filter_pass": false,
+   "faces": 139,
+   "bbox_mm": [
+    49.988,
+    80.0,
+    49.988
+   ],
+   "source_version": "v13"
+  },
+  "A_00120017_code": {
+   "best_dw400": 0.5894317845493071,
+   "best_dw423": 0.5171845781699709,
+   "first_exec_dw400": 0.47037962392899246,
+   "first_exec_dw423": 0.5171845781699709,
+   "delta_best": -0.07224720637933624,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999822532513329,
+   "cadbench_filter_pass": false,
+   "faces": 148,
+   "bbox_mm": [
+    80.0,
+    10.114,
+    7.315
+   ],
+   "source_version": "v13"
+  },
+  "A_00120020_code": {
+   "best_dw400": 0.9996317590349851,
+   "best_dw423": 0.998769738848274,
+   "first_exec_dw400": 0.9990304172032519,
+   "first_exec_dw423": 0.998769738848274,
+   "delta_best": -0.0008620201867111099,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999989283730718,
+   "cadbench_filter_pass": true,
+   "faces": 111,
+   "bbox_mm": [
+    80.0,
+    79.952,
+    79.952
+   ],
+   "source_version": "v13"
+  },
+  "A_00120023_code": {
+   "best_dw400": 0.8851832893253301,
+   "best_dw423": 0.8924013786149763,
+   "first_exec_dw400": 0.5118162453501524,
+   "first_exec_dw423": 0.25660308129035747,
+   "delta_best": 0.007218089289646179,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9992943817913397,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    80.0
+   ],
+   "source_version": "v13"
+  },
+  "A_00120024_code": {
+   "best_dw400": 0.7430495138466109,
+   "best_dw423": 0.7607435958879634,
+   "first_exec_dw400": 0.6460657899824588,
+   "first_exec_dw423": 0.7092153744117787,
+   "delta_best": 0.017694082041352477,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9982388604258869,
+   "cadbench_filter_pass": false,
+   "faces": 211,
+   "bbox_mm": [
+    80.0,
+    72.176,
+    41.981
+   ],
+   "source_version": "v13"
+  },
+  "A_00120025_code": {
+   "best_dw400": 0.7055816235638028,
+   "best_dw423": 0.40973833876938304,
+   "first_exec_dw400": 0.271702654867672,
+   "first_exec_dw423": 0.40973833876938304,
+   "delta_best": -0.2958432847944198,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999995516026944,
+   "cadbench_filter_pass": true,
+   "faces": 62,
+   "bbox_mm": [
+    60.0,
+    80.0,
+    67.368
+   ],
+   "source_version": "v13"
+  },
+  "A_00120026_code": {
+   "best_dw400": 0.5918734308622723,
+   "best_dw423": 0.299704144108632,
+   "first_exec_dw400": 0.44416767668092677,
+   "first_exec_dw423": 0.21661932115454835,
+   "delta_best": -0.2921692867536403,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999998250769412,
+   "cadbench_filter_pass": true,
+   "faces": 58,
+   "bbox_mm": [
+    60.0,
+    80.0,
+    67.368
+   ],
+   "source_version": "v13"
+  },
+  "A_00120035_code": {
+   "best_dw400": 0.6784780518733079,
+   "best_dw423": 0.6519776607390216,
+   "first_exec_dw400": 0.44002677015098035,
+   "first_exec_dw423": 0.5046038628793323,
+   "delta_best": -0.02650039113428626,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999886271286191,
+   "cadbench_filter_pass": true,
+   "faces": 78,
+   "bbox_mm": [
+    80.0,
+    13.818,
+    12.886
+   ],
+   "source_version": "v13"
+  },
+  "A_00120036_code": {
+   "best_dw400": 0.886882562325007,
+   "best_dw423": 0.43349395635365506,
+   "first_exec_dw400": 0.3924058935197616,
+   "first_exec_dw423": 0.36355752273476327,
+   "delta_best": -0.4533886059713519,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999904934385591,
+   "cadbench_filter_pass": false,
+   "faces": 50,
+   "bbox_mm": [
+    60.0,
+    61.053,
+    80.0
+   ],
+   "source_version": "v13"
+  },
+  "A_00120046_code": {
+   "best_dw400": 0.32262622498650634,
+   "best_dw423": 0.282980275676418,
+   "first_exec_dw400": 0.032715848136294544,
+   "first_exec_dw423": 0.23916900109479916,
+   "delta_best": -0.03964594931008836,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999982287952104,
+   "cadbench_filter_pass": true,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    70.301,
+    34.968
+   ],
+   "source_version": "v13"
+  },
+  "A_00120051_code": {
+   "best_dw400": 0.29249853485559946,
+   "best_dw423": 0.20347075422689792,
+   "first_exec_dw400": 0.2707368497889323,
+   "first_exec_dw423": 0.1877524267312844,
+   "delta_best": -0.08902778062870154,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.99997458834207,
+   "cadbench_filter_pass": false,
+   "faces": 761,
+   "bbox_mm": [
+    80.0,
+    24.662,
+    6.0
+   ],
+   "source_version": "v13"
+  },
+  "A_00120061_code": {
+   "best_dw400": 0.005237541796935834,
+   "best_dw423": 0.006919827448619624,
+   "first_exec_dw400": 0.0037647842684678636,
+   "first_exec_dw423": 0.0017028825825543459,
+   "delta_best": 0.0016822856516837898,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9997948356263081,
+   "cadbench_filter_pass": false,
+   "faces": 645,
+   "bbox_mm": [
+    50.477,
+    47.53,
+    80.0
+   ],
+   "source_version": "v13"
+  },
+  "A_00120063_code": {
+   "best_dw400": 0.6868401845502436,
+   "best_dw423": 0.6605443973511951,
+   "first_exec_dw400": 0.4321175792972217,
+   "first_exec_dw423": 0.05425773726192133,
+   "delta_best": -0.02629578719904857,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9994972221485746,
+   "cadbench_filter_pass": false,
+   "faces": 38,
+   "bbox_mm": [
+    80.0,
+    4.151,
+    47.812
+   ],
+   "source_version": "v13"
+  },
+  "A_00120066_code": {
+   "best_dw400": 0.9811601559102894,
+   "best_dw423": 0.9537838604067851,
+   "first_exec_dw400": 0.9529418230627079,
+   "first_exec_dw423": 0.9011378882311006,
+   "delta_best": -0.02737629550350429,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999838399851353,
+   "cadbench_filter_pass": false,
+   "faces": 228,
+   "bbox_mm": [
+    39.615,
+    5.48,
+    80.0
+   ],
+   "source_version": "v13"
+  },
+  "A_00120067_code": {
+   "best_dw400": 0.9049421956615612,
+   "best_dw423": 0.8239419239127886,
+   "first_exec_dw400": 0.9049421956615612,
+   "first_exec_dw423": 0.35332504424339506,
+   "delta_best": -0.08100027174877256,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999318368276693,
+   "cadbench_filter_pass": false,
+   "faces": 181,
+   "bbox_mm": [
+    32.687,
+    32.687,
+    80.0
+   ],
+   "source_version": "v13"
+  },
+  "A_00120069_code": {
+   "best_dw400": 0.8702575347589513,
+   "best_dw423": 0.8872160299903311,
+   "first_exec_dw400": 0.6922542560452448,
+   "first_exec_dw423": 0.8872160299903311,
+   "delta_best": 0.016958495231379822,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999998009154842,
+   "cadbench_filter_pass": false,
+   "faces": 287,
+   "bbox_mm": [
+    23.593,
+    80.0,
+    8.5
+   ],
+   "source_version": "v13"
+  },
+  "A_00120070_code": {
+   "best_dw400": 0.941995139200277,
+   "best_dw423": 0.8113303164018549,
+   "first_exec_dw400": 0.941995139200277,
+   "first_exec_dw423": 0.801795690780332,
+   "delta_best": -0.13066482279842206,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999998151859926,
+   "cadbench_filter_pass": true,
+   "faces": 19,
+   "bbox_mm": [
+    80.0,
+    38.0,
+    7.6
+   ],
+   "source_version": "v13"
+  },
+  "A_00120075_code": {
+   "best_dw400": 0.9072754814598816,
+   "best_dw423": 0.8536331384222179,
+   "first_exec_dw400": 0.6824643851907017,
+   "first_exec_dw423": 0.5618532621587886,
+   "delta_best": -0.05364234303766369,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999962694160814,
+   "cadbench_filter_pass": false,
+   "faces": 2200,
+   "bbox_mm": [
+    42.614,
+    42.613,
+    80.0
+   ],
+   "source_version": "v13"
+  },
+  "A_00120079_code": {
+   "best_dw400": 0.32229683147509236,
+   "best_dw423": 0.25838683460625517,
+   "first_exec_dw400": 0.21121458903355386,
+   "first_exec_dw423": 0.25328157197417134,
+   "delta_best": -0.0639099968688372,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999242025305463,
+   "cadbench_filter_pass": true,
+   "faces": 57,
+   "bbox_mm": [
+    27.317,
+    80.0,
+    10.137
+   ],
+   "source_version": "v13"
+  },
+  "A_00130000_code": {
+   "best_dw400": 0.9982770395438755,
+   "best_dw423": 0.9982770395438755,
+   "first_exec_dw400": 0.9982770395438755,
+   "first_exec_dw423": 0.9982770395438755,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9996891660702816,
+   "cadbench_filter_pass": true,
+   "faces": 3,
+   "bbox_mm": [
+    39.216,
+    39.216,
+    80.0
+   ],
+   "source_version": "v14"
+  },
+  "A_00130001_code": {
+   "best_dw400": 0.9523282516942772,
+   "best_dw423": 0.007016955524331112,
+   "first_exec_dw400": 0.9510134158007008,
+   "first_exec_dw423": 0.0070145752995496476,
+   "delta_best": -0.945311296169946,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9997385694131604,
+   "cadbench_filter_pass": false,
+   "faces": 7,
+   "bbox_mm": [
+    1.331,
+    80.0,
+    1.331
+   ],
+   "source_version": "v14"
+  },
+  "A_00130002_code": {
+   "best_dw400": 0.9956352475145162,
+   "best_dw423": 0.9956352475145162,
+   "first_exec_dw400": 0.9956352475145162,
+   "first_exec_dw423": 0.9906130566163571,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999966754973498,
+   "cadbench_filter_pass": true,
+   "faces": 3,
+   "bbox_mm": [
+    7.874,
+    80.0,
+    7.874
+   ],
+   "source_version": "v14"
+  },
+  "A_00130005_code": {
+   "best_dw400": 0.9483448104612314,
+   "best_dw423": 0.9694449875393089,
+   "first_exec_dw400": 0.8222842534180704,
+   "first_exec_dw423": 0.8290647770640159,
+   "delta_best": 0.02110017707807743,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9995576463382474,
+   "cadbench_filter_pass": false,
+   "faces": 400,
+   "bbox_mm": [
+    80.0,
+    14.545,
+    80.0
+   ],
+   "source_version": "v14"
+  },
+  "A_00130032_code": {
+   "best_dw400": 0.023549664984469247,
+   "best_dw423": 0.15517147717194302,
+   "first_exec_dw400": 0.018817237547119985,
+   "first_exec_dw423": 0.01953815996336515,
+   "delta_best": 0.13162181218747376,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9964388040658356,
+   "cadbench_filter_pass": false,
+   "faces": 143,
+   "bbox_mm": [
+    80.0,
+    15.134,
+    19.117
+   ],
+   "source_version": "v14"
+  },
+  "A_00130033_code": {
+   "best_dw400": 0.38625536256596127,
+   "best_dw423": 0.35157721795355434,
+   "first_exec_dw400": 0.38100509766332913,
+   "first_exec_dw423": 0.2936820545139436,
+   "delta_best": -0.034678144612406925,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9996160564355142,
+   "cadbench_filter_pass": true,
+   "faces": 24,
+   "bbox_mm": [
+    34.259,
+    80.0,
+    34.653
+   ],
+   "source_version": "v14"
+  },
+  "A_00130035_code": {
+   "best_dw400": 0.5266193758203443,
+   "best_dw423": 0.42667568906564224,
+   "first_exec_dw400": 0.403489617766252,
+   "first_exec_dw423": 0.21513198616223944,
+   "delta_best": -0.09994368675470211,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999926679399322,
+   "cadbench_filter_pass": false,
+   "faces": 376,
+   "bbox_mm": [
+    40.049,
+    80.0,
+    40.049
+   ],
+   "source_version": "v14"
+  },
+  "A_00130036_code": {
+   "best_dw400": 0.8744115830094779,
+   "best_dw423": 0.40611837960045793,
+   "first_exec_dw400": 0.8722719071194286,
+   "first_exec_dw423": 0.050528030505875954,
+   "delta_best": -0.4682932034090199,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999269748388795,
+   "cadbench_filter_pass": false,
+   "faces": 33,
+   "bbox_mm": [
+    80.0,
+    4.75,
+    50.667
+   ],
+   "source_version": "v14"
+  },
+  "A_00130062_code": {
+   "best_dw400": 0.7371644723094155,
+   "best_dw423": 0.6500676848082833,
+   "first_exec_dw400": 0.6296357774380384,
+   "first_exec_dw423": 0.5997735583730488,
+   "delta_best": -0.08709678750113226,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999764491005535,
+   "cadbench_filter_pass": true,
+   "faces": 103,
+   "bbox_mm": [
+    69.181,
+    80.0,
+    40.0
+   ],
+   "source_version": "v14"
+  },
+  "A_00130066_code": {
+   "best_dw400": 0.6525078194837549,
+   "best_dw423": 0.8820234064535802,
+   "first_exec_dw400": 0.6525078194837549,
+   "first_exec_dw423": 0.6501235682438257,
+   "delta_best": 0.22951558696982532,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999955975998163,
+   "cadbench_filter_pass": false,
+   "faces": 13,
+   "bbox_mm": [
+    18.381,
+    80.0,
+    0.718
+   ],
+   "source_version": "v14"
+  },
+  "A_00130067_code": {
+   "best_dw400": 0.5270366875411054,
+   "best_dw423": 0.022081201839020917,
+   "first_exec_dw400": 0.5270366875411054,
+   "first_exec_dw423": 0.012205850010996262,
+   "delta_best": -0.5049554857020845,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9997235496228427,
+   "cadbench_filter_pass": false,
+   "faces": 74,
+   "bbox_mm": [
+    72.585,
+    1.473,
+    80.0
+   ],
+   "source_version": "v14"
+  },
+  "A_00130068_code": {
+   "best_dw400": 0.9477100642665407,
+   "best_dw423": 0.015770103601718575,
+   "first_exec_dw400": 0.9440234490819233,
+   "first_exec_dw423": 0.01536937992840749,
+   "delta_best": -0.9319399606648221,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9997785048778988,
+   "cadbench_filter_pass": false,
+   "faces": 4,
+   "bbox_mm": [
+    80.0,
+    1.904,
+    80.0
+   ],
+   "source_version": "v14"
+  },
+  "A_00130069_code": {
+   "best_dw400": 0.8588431465837367,
+   "best_dw423": 0.9453862741696826,
+   "first_exec_dw400": 0.8551801317067292,
+   "first_exec_dw423": 0.9384469317763127,
+   "delta_best": 0.08654312758594584,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999324950333031,
+   "cadbench_filter_pass": false,
+   "faces": 7,
+   "bbox_mm": [
+    79.998,
+    1.143,
+    80.0
+   ],
+   "source_version": "v14"
+  },
+  "A_00140002_code": {
+   "best_dw400": 0.9484123442040582,
+   "best_dw423": 0.764944915629657,
+   "first_exec_dw400": 0.9176716699667762,
+   "first_exec_dw423": 0.55350922397379,
+   "delta_best": -0.18346742857440113,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999939080238477,
+   "cadbench_filter_pass": false,
+   "faces": 12,
+   "bbox_mm": [
+    73.548,
+    80.0,
+    2.452
+   ],
+   "source_version": "v15"
+  },
+  "A_00140009_code": {
+   "best_dw400": 0.798225945105881,
+   "best_dw423": 0.798225945105881,
+   "first_exec_dw400": 0.798225945105881,
+   "first_exec_dw423": 0.798225945105881,
+   "delta_best": 0.0,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999833557267827,
+   "cadbench_filter_pass": false,
+   "faces": 17,
+   "bbox_mm": [
+    80.0,
+    4.103,
+    42.115
+   ],
+   "source_version": "v15"
+  },
+  "A_00140010_code": {
+   "best_dw400": 0.45703610872800304,
+   "best_dw423": 0.4832233409173205,
+   "first_exec_dw400": 0.39341654986534874,
+   "first_exec_dw423": 0.43139899724935593,
+   "delta_best": 0.026187232189317455,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999951491178698,
+   "cadbench_filter_pass": false,
+   "faces": 198,
+   "bbox_mm": [
+    80.0,
+    53.558,
+    55.148
+   ],
+   "source_version": "v15"
+  },
+  "A_00140016_code": {
+   "best_dw400": 0.24532753532682725,
+   "best_dw423": 0.5263096950785454,
+   "first_exec_dw400": 0.24532753532682725,
+   "first_exec_dw423": 0.4364584764607155,
+   "delta_best": 0.28098215975171814,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9976873634608853,
+   "cadbench_filter_pass": false,
+   "faces": 1002,
+   "bbox_mm": [
+    80.0,
+    33.684,
+    31.25
+   ],
+   "source_version": "v15"
+  },
+  "A_00140019_code": {
+   "best_dw400": 0.4619711420885302,
+   "best_dw423": 0.5061213567334925,
+   "first_exec_dw400": 0.05888007690459024,
+   "first_exec_dw423": 0.32446979027822304,
+   "delta_best": 0.04415021464496227,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": false,
+   "faces": 377,
+   "bbox_mm": [
+    14.708,
+    38.846,
+    80.0
+   ],
+   "source_version": "v15"
+  },
+  "A_00140032_code": {
+   "best_dw400": 0.6366519148343033,
+   "best_dw423": 0.5274940015336285,
+   "first_exec_dw400": 0.6319788109012338,
+   "first_exec_dw423": 0.08673517488451023,
+   "delta_best": -0.10915791330067481,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999651385741677,
+   "cadbench_filter_pass": true,
+   "faces": 27,
+   "bbox_mm": [
+    32.0,
+    80.0,
+    32.0
+   ],
+   "source_version": "v15"
+  },
+  "A_00140033_code": {
+   "best_dw400": 0.17552212167199047,
+   "best_dw423": 0.003604148202250161,
+   "first_exec_dw400": 0.17467934667102133,
+   "first_exec_dw423": 0.00034083965965624804,
+   "delta_best": -0.1719179734697403,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9996709737052566,
+   "cadbench_filter_pass": false,
+   "faces": 8,
+   "bbox_mm": [
+    2.133,
+    80.0,
+    2.133
+   ],
+   "source_version": "v15"
+  },
+  "A_00140034_code": {
+   "best_dw400": 0.5587989058986182,
+   "best_dw423": 0.02522964932748995,
+   "first_exec_dw400": 0.18111528276020805,
+   "first_exec_dw423": 0.009665922362468056,
+   "delta_best": -0.5335692565711283,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999975928662923,
+   "cadbench_filter_pass": false,
+   "faces": 25,
+   "bbox_mm": [
+    6.4,
+    80.0,
+    6.4
+   ],
+   "source_version": "v15"
+  },
+  "A_00140038_code": {
+   "best_dw400": 0.5240410251711685,
+   "best_dw423": 0.49684201974401354,
+   "first_exec_dw400": 0.47040871303643367,
+   "first_exec_dw423": 0.3924568606502778,
+   "delta_best": -0.02719900542715492,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999372865305955,
+   "cadbench_filter_pass": true,
+   "faces": 62,
+   "bbox_mm": [
+    80.005,
+    33.66,
+    32.672
+   ],
+   "source_version": "v15"
+  },
+  "A_00140050_code": {
+   "best_dw400": 0.42883586917582334,
+   "best_dw423": 0.5639636412483768,
+   "first_exec_dw400": 0.0,
+   "first_exec_dw423": 0.5639636412483768,
+   "delta_best": 0.1351277720725535,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9991795023792963,
+   "cadbench_filter_pass": false,
+   "faces": 284,
+   "bbox_mm": [
+    80.0,
+    50.526,
+    38.621
+   ],
+   "source_version": "v15"
+  },
+  "A_00140053_code": {
+   "best_dw400": 0.5106176284563226,
+   "best_dw423": 0.5758005351163956,
+   "first_exec_dw400": 0.49856316462229705,
+   "first_exec_dw423": 0.5758005351163956,
+   "delta_best": 0.06518290666007298,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9995726917135063,
+   "cadbench_filter_pass": true,
+   "faces": 74,
+   "bbox_mm": [
+    80.0,
+    32.574,
+    33.751
+   ],
+   "source_version": "v15"
+  },
+  "A_00140054_code": {
+   "best_dw400": 0.676183663840991,
+   "best_dw423": 0.6684103846293892,
+   "first_exec_dw400": 0.580596061590313,
+   "first_exec_dw423": 0.5859520184786603,
+   "delta_best": -0.007773279211601869,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9991081109440033,
+   "cadbench_filter_pass": true,
+   "faces": 30,
+   "bbox_mm": [
+    80.0,
+    37.419,
+    80.0
+   ],
+   "source_version": "v15"
+  },
+  "A_00140059_code": {
+   "best_dw400": 0.5916023382059684,
+   "best_dw423": 0.5403217309557603,
+   "first_exec_dw400": 0.4788487526590099,
+   "first_exec_dw423": 0.5086036305572413,
+   "delta_best": -0.05128060725020811,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999956767337284,
+   "cadbench_filter_pass": true,
+   "faces": 52,
+   "bbox_mm": [
+    52.992,
+    80.0,
+    25.141
+   ],
+   "source_version": "v15"
+  },
+  "A_00140060_code": {
+   "best_dw400": 0.6417577027515238,
+   "best_dw423": 0.4158663774058169,
+   "first_exec_dw400": 0.3386173184357542,
+   "first_exec_dw423": 0.4158663774058169,
+   "delta_best": -0.22589132534570688,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999956371533898,
+   "cadbench_filter_pass": false,
+   "faces": 216,
+   "bbox_mm": [
+    43.252,
+    80.0,
+    38.621
+   ],
+   "source_version": "v15"
+  },
+  "A_00140065_code": {
+   "best_dw400": 0.6029414714602369,
+   "best_dw423": 0.4784485108454688,
+   "first_exec_dw400": 0.38399637301948736,
+   "first_exec_dw423": 0.4075732786480465,
+   "delta_best": -0.12449296061476811,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999442910744075,
+   "cadbench_filter_pass": true,
+   "faces": 56,
+   "bbox_mm": [
+    80.0,
+    33.559,
+    33.088
+   ],
+   "source_version": "v15"
+  },
+  "A_00140066_code": {
+   "best_dw400": 0.8039828556046785,
+   "best_dw423": 0.4830320209332876,
+   "first_exec_dw400": 0.7037733340975801,
+   "first_exec_dw423": 0.44148316759341766,
+   "delta_best": -0.3209508346713909,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9993793918340887,
+   "cadbench_filter_pass": true,
+   "faces": 10,
+   "bbox_mm": [
+    80.0,
+    30.512,
+    80.0
+   ],
+   "source_version": "v15"
+  },
+  "A_00140067_code": {
+   "best_dw400": 0.5929920470467017,
+   "best_dw423": 0.567466817833413,
+   "first_exec_dw400": 0.4620828197821172,
+   "first_exec_dw423": 0.567466817833413,
+   "delta_best": -0.025525229213288703,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999992430148084,
+   "cadbench_filter_pass": true,
+   "faces": 51,
+   "bbox_mm": [
+    80.0,
+    51.233,
+    26.358
+   ],
+   "source_version": "v15"
+  },
+  "A_00140069_code": {
+   "best_dw400": 0.5225906646343217,
+   "best_dw423": 0.6799253215658225,
+   "first_exec_dw400": 0.19661436068765045,
+   "first_exec_dw423": 0.4946765717806953,
+   "delta_best": 0.15733465693150084,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": false,
+   "faces": 97,
+   "bbox_mm": [
+    80.0,
+    42.49,
+    34.286
+   ],
+   "source_version": "v15"
+  },
+  "A_00140071_code": {
+   "best_dw400": 0.6950577066200713,
+   "best_dw423": 0.6189243242450044,
+   "first_exec_dw400": 0.6371257637402583,
+   "first_exec_dw423": 0.6189243242450044,
+   "delta_best": -0.07613338237506684,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999943759741318,
+   "cadbench_filter_pass": true,
+   "faces": 42,
+   "bbox_mm": [
+    35.088,
+    80.0,
+    21.967
+   ],
+   "source_version": "v15"
+  },
+  "A_00150000_code": {
+   "best_dw400": 0.7678355806195953,
+   "best_dw423": 0.44307257829008134,
+   "first_exec_dw400": 0.3807763533137493,
+   "first_exec_dw423": 0.44307257829008134,
+   "delta_best": -0.324763002329514,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999041884008791,
+   "cadbench_filter_pass": false,
+   "faces": 147,
+   "bbox_mm": [
+    80.0,
+    12.639,
+    1.109
+   ],
+   "source_version": "v16"
+  },
+  "A_00150004_code": {
+   "best_dw400": 0.35870679570555697,
+   "best_dw423": 0.48190723264202595,
+   "first_exec_dw400": 0.30765461177778874,
+   "first_exec_dw423": 0.46497678944595694,
+   "delta_best": 0.12320043693646898,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999397896654935,
+   "cadbench_filter_pass": true,
+   "faces": 19,
+   "bbox_mm": [
+    47.233,
+    47.233,
+    80.0
+   ],
+   "source_version": "v16"
+  },
+  "A_00150005_code": {
+   "best_dw400": 0.9432785479673994,
+   "best_dw423": 0.9432785479673994,
+   "first_exec_dw400": 0.9432785479673994,
+   "first_exec_dw423": 0.9432785479673994,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9998627359255016,
+   "cadbench_filter_pass": false,
+   "faces": 13,
+   "bbox_mm": [
+    80.0,
+    8.619,
+    0.714
+   ],
+   "source_version": "v16"
+  },
+  "A_00150006_code": {
+   "best_dw400": 0.8611206311455238,
+   "best_dw423": 0.8681178092398328,
+   "first_exec_dw400": 0.8610512971663238,
+   "first_exec_dw423": 0.8282764630243165,
+   "delta_best": 0.006997178094308998,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9995673203436156,
+   "cadbench_filter_pass": false,
+   "faces": 16,
+   "bbox_mm": [
+    80.0,
+    8.092,
+    0.81
+   ],
+   "source_version": "v16"
+  },
+  "A_00150008_code": {
+   "best_dw400": 0.6731174932704934,
+   "best_dw423": 0.5229862913856022,
+   "first_exec_dw400": 0.31975520693063925,
+   "first_exec_dw423": 0.1237778602917079,
+   "delta_best": -0.15013120188489126,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9960219169856639,
+   "cadbench_filter_pass": false,
+   "faces": 1265,
+   "bbox_mm": [
+    21.053,
+    63.158,
+    80.0
+   ],
+   "source_version": "v16"
+  },
+  "A_00150019_code": {
+   "best_dw400": 1.0,
+   "best_dw423": 1.0,
+   "first_exec_dw400": 1.0,
+   "first_exec_dw423": 0.9990729166666668,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    80.0
+   ],
+   "source_version": "v16"
+  },
+  "A_00150020_code": {
+   "best_dw400": 0.6859998292712515,
+   "best_dw423": 0.5263251115335172,
+   "first_exec_dw400": 0.6698934529118631,
+   "first_exec_dw423": 0.1858259364299232,
+   "delta_best": -0.15967471773773423,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9995045417372806,
+   "cadbench_filter_pass": false,
+   "faces": 89,
+   "bbox_mm": [
+    80.0,
+    55.188,
+    29.964
+   ],
+   "source_version": "v16"
+  },
+  "A_00150022_code": {
+   "best_dw400": 0.5669129137661599,
+   "best_dw423": 0.44255929493729307,
+   "first_exec_dw400": 0.5179424967742454,
+   "first_exec_dw423": 0.44255929493729307,
+   "delta_best": -0.12435361882886686,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999871463296716,
+   "cadbench_filter_pass": true,
+   "faces": 61,
+   "bbox_mm": [
+    57.085,
+    75.923,
+    80.0
+   ],
+   "source_version": "v16"
+  },
+  "A_00150024_code": {
+   "best_dw400": 0.743041313254965,
+   "best_dw423": 0.8021798527895864,
+   "first_exec_dw400": 0.743041313254965,
+   "first_exec_dw423": 0.756060917309038,
+   "delta_best": 0.05913853953462134,
+   "unsolved_dw400": true,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9993224707963336,
+   "cadbench_filter_pass": true,
+   "faces": 40,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    23.105
+   ],
+   "source_version": "v16"
+  },
+  "A_00150033_code": {
+   "best_dw400": 1.0,
+   "best_dw423": 1.0,
+   "first_exec_dw400": 0.926859375,
+   "first_exec_dw423": 0.926859375,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    80.0
+   ],
+   "source_version": "v16"
+  },
+  "A_00150034_code": {
+   "best_dw400": 0.6807275843717353,
+   "best_dw423": 0.6907058894583107,
+   "first_exec_dw400": 0.18839976555072446,
+   "first_exec_dw423": 0.6652417421135807,
+   "delta_best": 0.009978305086575379,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999584696970474,
+   "cadbench_filter_pass": false,
+   "faces": 226,
+   "bbox_mm": [
+    80.0,
+    79.391,
+    18.732
+   ],
+   "source_version": "v16"
+  },
+  "A_00150035_code": {
+   "best_dw400": 0.9049127962763324,
+   "best_dw423": 0.8900695122642993,
+   "first_exec_dw400": 0.8596696382828981,
+   "first_exec_dw423": 0.8560086186753328,
+   "delta_best": -0.014843284012033053,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9995343152933753,
+   "cadbench_filter_pass": true,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    15.2
+   ],
+   "source_version": "v16"
+  },
+  "A_00150037_code": {
+   "best_dw400": 0.6283664565676527,
+   "best_dw423": 0.7351936190275445,
+   "first_exec_dw400": 0.3936777689192609,
+   "first_exec_dw423": 0.6380036589604028,
+   "delta_best": 0.10682716245989188,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998999699407083,
+   "cadbench_filter_pass": true,
+   "faces": 97,
+   "bbox_mm": [
+    79.835,
+    80.0,
+    21.557
+   ],
+   "source_version": "v16"
+  },
+  "A_00150041_code": {
+   "best_dw400": 0.6093826381667846,
+   "best_dw423": 0.6052663477978635,
+   "first_exec_dw400": 0.5004199444939867,
+   "first_exec_dw423": 0.4416931257435206,
+   "delta_best": -0.004116290368921138,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9924701603818137,
+   "cadbench_filter_pass": false,
+   "faces": 50,
+   "bbox_mm": [
+    80.001,
+    56.845,
+    16.842
+   ],
+   "source_version": "v16"
+  },
+  "A_00150045_code": {
+   "best_dw400": 0.6666905599848651,
+   "best_dw423": 0.6971661345475535,
+   "first_exec_dw400": 0.06606079839231573,
+   "first_exec_dw423": 0.5878396607815811,
+   "delta_best": 0.030475574562688346,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999376548274062,
+   "cadbench_filter_pass": true,
+   "faces": 118,
+   "bbox_mm": [
+    80.0,
+    79.589,
+    18.64
+   ],
+   "source_version": "v16"
+  },
+  "A_00150048_code": {
+   "best_dw400": 0.9728521968468293,
+   "best_dw423": 0.9581354957666421,
+   "first_exec_dw400": 0.9456825534356065,
+   "first_exec_dw423": 0.9581354957666421,
+   "delta_best": -0.014716701080187189,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9988816883638241,
+   "cadbench_filter_pass": true,
+   "faces": 9,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    9.897
+   ],
+   "source_version": "v16"
+  },
+  "A_00150049_code": {
+   "best_dw400": 0.6823027140062508,
+   "best_dw423": 0.6825493418742296,
+   "first_exec_dw400": 0.6360256689600606,
+   "first_exec_dw423": 0.6732281134451813,
+   "delta_best": 0.0002466278679787992,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": false,
+   "faces": 484,
+   "bbox_mm": [
+    80.0,
+    79.935,
+    11.382
+   ],
+   "source_version": "v16"
+  },
+  "A_00150050_code": {
+   "best_dw400": 0.7210529060636891,
+   "best_dw423": 0.7340335993903063,
+   "first_exec_dw400": 0.6198497607130865,
+   "first_exec_dw423": 0.6582831259326816,
+   "delta_best": 0.01298069332661722,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999660393404268,
+   "cadbench_filter_pass": false,
+   "faces": 187,
+   "bbox_mm": [
+    80.0,
+    79.935,
+    8.421
+   ],
+   "source_version": "v16"
+  },
+  "A_00150051_code": {
+   "best_dw400": 0.8372006432221917,
+   "best_dw423": 0.8536964015389352,
+   "first_exec_dw400": 0.8368938469995744,
+   "first_exec_dw423": 0.8097036416966615,
+   "delta_best": 0.016495758316743547,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999472126176977,
+   "cadbench_filter_pass": false,
+   "faces": 176,
+   "bbox_mm": [
+    80.0,
+    79.836,
+    8.421
+   ],
+   "source_version": "v16"
+  },
+  "A_00150052_code": {
+   "best_dw400": 0.8951284187336798,
+   "best_dw423": 0.8580908220964156,
+   "first_exec_dw400": 0.8846533563669684,
+   "first_exec_dw423": 0.7998393614321594,
+   "delta_best": -0.037037596637264136,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999278873111344,
+   "cadbench_filter_pass": false,
+   "faces": 192,
+   "bbox_mm": [
+    80.0,
+    79.686,
+    7.475
+   ],
+   "source_version": "v16"
+  },
+  "A_00150058_code": {
+   "best_dw400": 0.9384781427392389,
+   "best_dw423": 0.635846123532373,
+   "first_exec_dw400": 0.9384781427392389,
+   "first_exec_dw423": 0.573167836138502,
+   "delta_best": -0.3026320192068659,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9993625288518473,
+   "cadbench_filter_pass": true,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    5.52
+   ],
+   "source_version": "v16"
+  },
+  "A_00150062_code": {
+   "best_dw400": 0.8702973450636593,
+   "best_dw423": 0.8740219932600204,
+   "first_exec_dw400": 0.8702973450636593,
+   "first_exec_dw423": 0.8675990317280085,
+   "delta_best": 0.003724648196361091,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9994519645055523,
+   "cadbench_filter_pass": true,
+   "faces": 20,
+   "bbox_mm": [
+    79.765,
+    80.0,
+    17.92
+   ],
+   "source_version": "v16"
+  },
+  "A_00150068_code": {
+   "best_dw400": 0.9970401057009806,
+   "best_dw423": 0.9970401057009806,
+   "first_exec_dw400": 0.9970401057009806,
+   "first_exec_dw423": 0.9970401057009806,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9992908386705559,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    40.0,
+    40.0,
+    80.0
+   ],
+   "source_version": "v16"
+  },
+  "A_00150070_code": {
+   "best_dw400": 0.8966252011258516,
+   "best_dw423": 0.9303554425602957,
+   "first_exec_dw400": 0.7627895945188088,
+   "first_exec_dw423": 0.8816254817624627,
+   "delta_best": 0.03373024143444403,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9992041873996957,
+   "cadbench_filter_pass": true,
+   "faces": 13,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    8.655
+   ],
+   "source_version": "v16"
+  },
+  "A_00150071_code": {
+   "best_dw400": 0.9964622303146213,
+   "best_dw423": 0.9964622303146213,
+   "first_exec_dw400": 0.9067583073611896,
+   "first_exec_dw423": 0.9964622303146213,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9991903443342852,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    25.263
+   ],
+   "source_version": "v16"
+  },
+  "A_00150072_code": {
+   "best_dw400": 0.9954281191181829,
+   "best_dw423": 0.9954281191181829,
+   "first_exec_dw400": 0.9954281191181829,
+   "first_exec_dw423": 0.9954281191181829,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999185830008247,
+   "cadbench_filter_pass": true,
+   "faces": 4,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    5.614
+   ],
+   "source_version": "v16"
+  },
+  "A_00150076_code": {
+   "best_dw400": 0.9652085342290566,
+   "best_dw423": 0.9273780843045254,
+   "first_exec_dw400": 0.71730905425131,
+   "first_exec_dw423": 0.9273780843045254,
+   "delta_best": -0.03783044992453122,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9995686800710425,
+   "cadbench_filter_pass": false,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    4.0
+   ],
+   "source_version": "v16"
+  },
+  "A_00150078_code": {
+   "best_dw400": 0.965008352706582,
+   "best_dw423": 0.9971178440275945,
+   "first_exec_dw400": 0.900602838006283,
+   "first_exec_dw423": 0.900602838006283,
+   "delta_best": 0.032109491321012484,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9994490183313521,
+   "cadbench_filter_pass": true,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    8.2
+   ],
+   "source_version": "v16"
+  },
+  "A_00160010_code": {
+   "best_dw400": 0.4689563110117248,
+   "best_dw423": 0.4839236119638691,
+   "first_exec_dw400": 0.4362285897366074,
+   "first_exec_dw423": 0.42163886094163666,
+   "delta_best": 0.014967300952144325,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999957100983718,
+   "cadbench_filter_pass": false,
+   "faces": 135,
+   "bbox_mm": [
+    80.0,
+    61.132,
+    61.132
+   ],
+   "source_version": "v17"
+  },
+  "A_00160012_code": {
+   "best_dw400": 0.4328460917849177,
+   "best_dw423": 0.6031392550554937,
+   "first_exec_dw400": 0.15943032341014737,
+   "first_exec_dw423": 0.2971195992485911,
+   "delta_best": 0.17029316327057603,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9942701537414194,
+   "cadbench_filter_pass": true,
+   "faces": 94,
+   "bbox_mm": [
+    80.0,
+    49.196,
+    49.196
+   ],
+   "source_version": "v17"
+  },
+  "A_00160014_code": {
+   "best_dw400": 0.5514140775006517,
+   "best_dw423": 0.3930346473543499,
+   "first_exec_dw400": 0.2647673760396204,
+   "first_exec_dw423": 0.15810902510744176,
+   "delta_best": -0.15837943014630185,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9939012067470158,
+   "cadbench_filter_pass": true,
+   "faces": 42,
+   "bbox_mm": [
+    80.0,
+    35.569,
+    35.569
+   ],
+   "source_version": "v17"
+  },
+  "A_00160032_code": {
+   "best_dw400": 0.398151308783047,
+   "best_dw423": 0.2541065332294378,
+   "first_exec_dw400": 0.1392628519468172,
+   "first_exec_dw423": 0.10811116483962865,
+   "delta_best": -0.14404477555360917,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999986359901155,
+   "cadbench_filter_pass": false,
+   "faces": 231,
+   "bbox_mm": [
+    75.021,
+    80.0,
+    75.021
+   ],
+   "source_version": "v17"
+  },
+  "A_00160037_code": {
+   "best_dw400": 1.0,
+   "best_dw423": 1.0,
+   "first_exec_dw400": 1.0,
+   "first_exec_dw423": 1.0,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    10.0,
+    1.4
+   ],
+   "source_version": "v17"
+  },
+  "A_00160038_code": {
+   "best_dw400": 0.9654448645834728,
+   "best_dw423": 0.9654448645834728,
+   "first_exec_dw400": 0.9654448645834728,
+   "first_exec_dw423": 0.9654448645834728,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999805591875357,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    7.353,
+    1.029
+   ],
+   "source_version": "v17"
+  },
+  "A_00160039_code": {
+   "best_dw400": 0.9351725795362017,
+   "best_dw423": 0.7819371751015363,
+   "first_exec_dw400": 0.9351725795362017,
+   "first_exec_dw423": 0.5599251618134555,
+   "delta_best": -0.15323540443466543,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999131952431395,
+   "cadbench_filter_pass": false,
+   "faces": 33,
+   "bbox_mm": [
+    80.0,
+    9.892,
+    1.398
+   ],
+   "source_version": "v17"
+  },
+  "A_00160040_code": {
+   "best_dw400": 0.8659715380447754,
+   "best_dw423": 0.9247893869307585,
+   "first_exec_dw400": 0.4597239216086284,
+   "first_exec_dw423": 0.81813872228743,
+   "delta_best": 0.05881784888598307,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999158435914894,
+   "cadbench_filter_pass": false,
+   "faces": 29,
+   "bbox_mm": [
+    80.0,
+    7.462,
+    1.059
+   ],
+   "source_version": "v17"
+  },
+  "A_00160041_code": {
+   "best_dw400": 0.963474399164705,
+   "best_dw423": 0.963474399164705,
+   "first_exec_dw400": 0.963474399164705,
+   "first_exec_dw423": 0.963474399164705,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999277833329652,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    55.556,
+    0.933
+   ],
+   "source_version": "v17"
+  },
+  "A_00160042_code": {
+   "best_dw400": 0.46347444536281407,
+   "best_dw423": 0.7432457933602813,
+   "first_exec_dw400": 0.046081568204198946,
+   "first_exec_dw423": 0.6149108533207017,
+   "delta_best": 0.2797713479974672,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998568561095486,
+   "cadbench_filter_pass": false,
+   "faces": 116,
+   "bbox_mm": [
+    80.0,
+    3.696,
+    33.687
+   ],
+   "source_version": "v17"
+  },
+  "A_00160049_code": {
+   "best_dw400": 0.278044173883033,
+   "best_dw423": 0.1263624466845521,
+   "first_exec_dw400": 0.0006599096589497552,
+   "first_exec_dw423": 0.059761588275328396,
+   "delta_best": -0.1516817271984809,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999344904931017,
+   "cadbench_filter_pass": true,
+   "faces": 71,
+   "bbox_mm": [
+    10.577,
+    80.0,
+    16.0
+   ],
+   "source_version": "v17"
+  },
+  "A_00160053_code": {
+   "best_dw400": 0.6824840131084181,
+   "best_dw423": 0.7842881473771204,
+   "first_exec_dw400": 0.6809876675393766,
+   "first_exec_dw423": 0.43819551187926487,
+   "delta_best": 0.10180413426870227,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9953642937398404,
+   "cadbench_filter_pass": false,
+   "faces": 18,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    61.517
+   ],
+   "source_version": "v17"
+  },
+  "A_00160059_code": {
+   "best_dw400": 0.8368238127580194,
+   "best_dw423": 0.8560241336866299,
+   "first_exec_dw400": 0.5947296987896067,
+   "first_exec_dw423": 0.8514626512026704,
+   "delta_best": 0.01920032092861046,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9920163775305171,
+   "cadbench_filter_pass": false,
+   "faces": 208,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    26.916
+   ],
+   "source_version": "v17"
+  },
+  "A_00160061_code": {
+   "best_dw400": 0.8805716230010208,
+   "best_dw423": 0.7823704871414441,
+   "first_exec_dw400": 0.00884111640135302,
+   "first_exec_dw423": 0.7823704871414441,
+   "delta_best": -0.09820113585957668,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998824507342631,
+   "cadbench_filter_pass": false,
+   "faces": 128,
+   "bbox_mm": [
+    79.206,
+    70.896,
+    80.0
+   ],
+   "source_version": "v17"
+  },
+  "A_00160063_code": {
+   "best_dw400": 0.38469814084988124,
+   "best_dw423": 0.4613324619790678,
+   "first_exec_dw400": 0.38469814084988124,
+   "first_exec_dw423": 0.4613324619790678,
+   "delta_best": 0.07663432112918656,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9960346224363621,
+   "cadbench_filter_pass": false,
+   "faces": 273,
+   "bbox_mm": [
+    46.268,
+    53.597,
+    80.0
+   ],
+   "source_version": "v17"
+  },
+  "A_00160065_code": {
+   "best_dw400": 0.0369025391845453,
+   "best_dw423": 0.6101047407458075,
+   "first_exec_dw400": 0.02147760430814563,
+   "first_exec_dw423": 0.41875348537840995,
+   "delta_best": 0.5732022015612621,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999996637105135,
+   "cadbench_filter_pass": false,
+   "faces": 723,
+   "bbox_mm": [
+    80.0,
+    72.569,
+    14.444
+   ],
+   "source_version": "v17"
+  },
+  "A_00160067_code": {
+   "best_dw400": 0.9622514175702049,
+   "best_dw423": 0.9800143512889006,
+   "first_exec_dw400": 0.9612496802292994,
+   "first_exec_dw423": 0.9612496802292994,
+   "delta_best": 0.01776293371869564,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999907427590432,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    29.412,
+    80.0,
+    1.471
+   ],
+   "source_version": "v17"
+  },
+  "A_00160068_code": {
+   "best_dw400": 0.7519252192053609,
+   "best_dw423": 0.7447895612009933,
+   "first_exec_dw400": 0.7519252192053609,
+   "first_exec_dw423": 0.7398365734994855,
+   "delta_best": -0.007135658004367662,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.999987606710405,
+   "cadbench_filter_pass": false,
+   "faces": 642,
+   "bbox_mm": [
+    80.0,
+    4.21,
+    8.696
+   ],
+   "source_version": "v17"
+  },
+  "A_00160071_code": {
+   "best_dw400": 1.0,
+   "best_dw423": 1.0,
+   "first_exec_dw400": 0.926859375,
+   "first_exec_dw423": 0.926859375,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 1.0,
+   "cadbench_filter_pass": true,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    80.0
+   ],
+   "source_version": "v17"
+  },
+  "A_00160072_code": {
+   "best_dw400": 0.9828178044872748,
+   "best_dw423": 0.9682456188248514,
+   "first_exec_dw400": 0.9637273889766227,
+   "first_exec_dw423": 0.9637967158714307,
+   "delta_best": -0.014572185662423465,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999491430605706,
+   "cadbench_filter_pass": true,
+   "faces": 89,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    40.0
+   ],
+   "source_version": "v17"
+  },
+  "A_00160073_code": {
+   "best_dw400": 0.9893941117430665,
+   "best_dw423": 0.9893941117430665,
+   "first_exec_dw400": 0.9893941117430665,
+   "first_exec_dw423": 0.9893941117430665,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.9999956002023133,
+   "cadbench_filter_pass": true,
+   "faces": 8,
+   "bbox_mm": [
+    80.0,
+    40.0,
+    54.408
+   ],
+   "source_version": "v17"
+  },
+  "A_00160074_code": {
+   "best_dw400": 0.9974950438388785,
+   "best_dw423": 0.9974950438388785,
+   "first_exec_dw400": 0.9974950438388785,
+   "first_exec_dw423": 0.9974950438388785,
+   "delta_best": 0.0,
+   "unsolved_dw400": false,
+   "unsolved_dw423": false,
+   "iou_vs_step": 0.999994933630441,
+   "cadbench_filter_pass": false,
+   "faces": 6,
+   "bbox_mm": [
+    80.0,
+    4.0,
+    13.333
+   ],
+   "source_version": "v17"
+  },
+  "A_00160077_code": {
+   "best_dw400": 0.9114484680649071,
+   "best_dw423": 0.11336800143565681,
+   "first_exec_dw400": 0.39045208876265114,
+   "first_exec_dw423": 0.04794241455963944,
+   "delta_best": -0.7980804666292503,
+   "unsolved_dw400": false,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9999962246414072,
+   "cadbench_filter_pass": false,
+   "faces": 77,
+   "bbox_mm": [
+    52.902,
+    80.0,
+    1.49
+   ],
+   "source_version": "v17"
+  },
+  "A_00160078_code": {
+   "best_dw400": 0.5348912234128882,
+   "best_dw423": 0.5291967437245565,
+   "first_exec_dw400": 0.5348912234128882,
+   "first_exec_dw423": 0.46188886831262127,
+   "delta_best": -0.0056944796883316995,
+   "unsolved_dw400": true,
+   "unsolved_dw423": true,
+   "iou_vs_step": 0.9998396137512555,
+   "cadbench_filter_pass": false,
+   "faces": 79,
+   "bbox_mm": [
+    5.833,
+    6.0,
+    80.0
+   ],
+   "source_version": "v17"
+  }
+ }
+}

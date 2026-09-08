@@ -31,6 +31,13 @@ a = ap.parse_args()
 gt = {}
 for line in open(os.path.join(a.corpus, "gt_code.jsonl")):
     r = json.loads(line); gt[r["key"]] = r
+man = json.load(open(os.path.join(a.corpus, "manifest.json")))["parts"]
+
+
+def cadbench_ok(k):
+    """The CADBench prep filter of corpora 1-3 (prep_external_parts.py): aspect <= 15, fill >= 0.05, <= 120 faces."""
+    p = man.get(k, {}); bb = sorted(p.get("bbox_mm") or [1, 1, 1])
+    return bool(p) and bb[2] / max(bb[0], 1e-9) <= 15 and p.get("fill", 1.0) >= 0.05 and p.get("faces", 0) <= 120 and p.get("solids", 1) == 1
 
 
 def best_of(path):
@@ -55,12 +62,14 @@ agree = {"n_scored_both": len(both), "unsolved_dw400": len(unsolved), "unsolved_
          "mean_first_exec_dw400": st.mean(b400[k]["first_exec"] for k in both) if both else None, "mean_first_exec_dw423": st.mean(b423[k]["first_exec"] for k in both) if both else None,
          "mean_delta_best_dw423_minus_dw400": st.mean(b423[k]["best"] - b400[k]["best"] for k in both) if both else None,
          "parts_better_dw423_by_0.05": sum(1 for k in both if b423[k]["best"] - b400[k]["best"] > 0.05),
-         "parts_worse_dw423_by_0.05": sum(1 for k in both if b423[k]["best"] - b400[k]["best"] < -0.05)}
+         "parts_worse_dw423_by_0.05": sum(1 for k in both if b423[k]["best"] - b400[k]["best"] < -0.05),
+         "cadbench_filter_pass": sum(cadbench_ok(k) for k in both), "unsolved_dw400_cadbench_pass": sum(cadbench_ok(k) for k in unsolved)}
 os.makedirs(os.path.dirname(os.path.abspath(a.deltas)), exist_ok=True)
 json.dump({"threshold": thr, "agreement": agree,
            "parts": {k: {"best_dw400": b400[k]["best"], "best_dw423": b423[k]["best"], "first_exec_dw400": b400[k]["first_exec"],
                          "first_exec_dw423": b423[k]["first_exec"], "delta_best": b423[k]["best"] - b400[k]["best"],
                          "unsolved_dw400": k in unsolved, "unsolved_dw423": k in uns423, "iou_vs_step": gt[k]["iou_vs_step"],
+                         "cadbench_filter_pass": cadbench_ok(k), "faces": man.get(k, {}).get("faces"), "bbox_mm": man.get(k, {}).get("bbox_mm"),
                          "source_version": gt[k]["source_version"]} for k in sorted(both)}},
           open(a.deltas, "w"), indent=1)
 print(json.dumps(agree, indent=1))
@@ -75,13 +84,13 @@ def write(out, keys, label, png_dir, suffix):
             r = gt[k]; kk = k + suffix
             f.write(json.dumps({"key": kk, "iou": r["iou_vs_step"], "ok": True, "think": "", "code": r["code"], "sample": 0, "src": "gt",
                                 "part_id": r["part_id"], "source_version": r["source_version"], "corpus_key": k,
-                                "bo_best_dw400": b400[k]["best"], "bo_best_dw423": b423[k]["best"]}) + "\n")
+                                "bo_best_dw400": b400[k]["best"], "bo_best_dw423": b423[k]["best"], "cadbench_filter_pass": cadbench_ok(k)}) + "\n")
             kf.write(kk + "\n")
             shutil.copy(sorted(glob.glob(os.path.join(png_dir, f"{k}_v*.png")))[0], os.path.join(out, "png", f"{kk}.png"))
     s = {"tier": label, "renderer": "draftwright 0.4.23+patch" if suffix else "draftwright 0.4.0+patch", "rows": len(keys), "keys": len(keys),
          "corpus_parts": len(gt), "rendered_dw400": len(png400), "rendered_dw423": len(png423), "scored_both": len(both),
          "unsolved_threshold": thr, "unsolved_judged_on": "dw400", "per_version": dict(collections.Counter(gt[k]["source_version"] for k in keys)),
-         "cleaned_rows": sum(1 for k in keys if gt[k].get("cleaned")),
+         "cleaned_rows": sum(1 for k in keys if gt[k].get("cleaned")), "cadbench_filter_pass": sum(cadbench_ok(k) for k in keys),
          "mean_bo_best_dw400": st.mean(b400[k]["best"] for k in keys) if keys else None,
          "mean_bo_best_dw423": st.mean(b423[k]["best"] for k in keys) if keys else None}
     json.dump(s, open(os.path.join(out, "stats.json"), "w"), indent=1)

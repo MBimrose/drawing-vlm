@@ -1,0 +1,16 @@
+e51 best-of-8 on rft_corpus_abccode (429 parts scored under both renderings); columns first-exec | vote | oracle, mean / >=0.85
+slice                         n |                dw400 (0.4.0+patch)                 ||                dw423 (0.4.23+patch)               
+ALL                         429 | 0.637 /  36% | 0.685 /  41% | 0.741 /  46% || 0.573 /  30% | 0.618 /  35% | 0.687 /  42%
+  determinate (dw400 sidecar)  332 | 0.680 /  43% | 0.727 /  48% | 0.778 /  54% || 0.615 /  36% | 0.661 /  40% | 0.727 /  48%
+  underdet.   (dw400 sidecar)   97 | 0.488 /  13% | 0.543 /  14% | 0.617 /  22% || 0.429 /  11% | 0.474 /  16% | 0.550 /  22%
+  determinate (dw423 sidecar)  322 | 0.683 /  42% | 0.732 /  47% | 0.779 /  52% || 0.638 /  37% | 0.685 /  43% | 0.750 /  52%
+  underdet.   (dw423 sidecar)  107 | 0.497 /  19% | 0.545 /  21% | 0.627 /  29% || 0.376 /   8% | 0.418 /   9% | 0.498 /  11%
+  ds0b (first harvest)      152 | 0.672 /  36% | 0.711 /  41% | 0.758 /  46% || 0.599 /  30% | 0.652 /  36% | 0.727 /  47%
+  v5-v17 (re-exec gated)    274 | 0.614 /  36% | 0.668 /  39% | 0.729 /  46% || 0.557 /  30% | 0.596 /  34% | 0.662 /  39%
+  GT polyline-cleaned       104 | 0.587 /  29% | 0.659 /  34% | 0.721 /  38% || 0.546 /  25% | 0.608 /  29% | 0.684 /  37%
+  GT not cleaned            325 | 0.653 /  39% | 0.694 /  43% | 0.748 /  49% || 0.581 /  32% | 0.622 /  37% | 0.688 /  44%
+
+unsolved (best-of-8 < 0.8): dw400 192 (45%), dw423 225 (52%), both 178, only dw400 14, only dw423 47, solved under both 190
+per-part oracle delta dw423-dw400: mean -0.055 median +0.000, better>0.05 58, worse<-0.05 126
+underdetermined sheets: dw400 97, dw423 107
+exec>=1 of 8: dw400 100%, dw423 100%
