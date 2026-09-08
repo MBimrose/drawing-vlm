@@ -922,8 +922,18 @@ e51 ~0.03 on the vote. `ext_bench_dw423` (and the abccode `_dw423` renders / tie
 were produced under the fallback policy; the consistent new-renderer bench is
 `ext_bench_dw423_perm` (146 parts re-rendered under the permissive policy: 143 sheets,
 all draftwright, 53 flagged underdetermined; cluster copy
-`train_v14/mech/benchmarks/data/ext_bench_dw423_perm`). e51 control on it: job 10425867
-(`results/ext/bo8_ext_dw423p_e51-*`).
+`train_v14/mech/benchmarks/data/ext_bench_dw423_perm`). **e51 control on it** (job 10425867,
+`results/ext/bo8_ext_dw423p_e51-*_summary.txt`), 143 parts, K=8:
+
+| bench (e51, K=8) | n | first-exec | vote | gated 0.85 | oracle |
+|---|---|---|---|---|---|
+| ext_bench (0.4.0 sheets) | 146 | 0.484 / 14% | 0.510 / 17% | 0.530 / 16% | 0.594 / 22% |
+| ext_bench_dw423 (0.4.23, fallback policy, 35 legacy sheets) | 145 | 0.415 | 0.444 | — | 0.516 |
+| **ext_bench_dw423_perm** (0.4.23, permissive, 0 legacy) | 143 | 0.463 / 13% | 0.499 / 17% | 0.526 / 17% | 0.566 / 22% |
+
+On genuine 0.4.23 sheets e51 is within 0.01 of its 0.4.0 numbers on the vote and the served
+(gated) pick (oracle −0.03; determinate 78 parts: vote 0.579 / gated 0.600); the −0.07
+"drift" was the legacy sheets. This is the baseline e55 has to beat on the new renderer.
 
 **Rates and counts (permissive policy).** Certified eval sheets rendered from the
 bundle's GT STEPs (`gt_meshes_v15/<uuid>.step`, manifest variant; 228 of these parts do not
