@@ -411,13 +411,14 @@ def main():
         side_path = os.path.join(cfg["out"], "renderers.json")
         side = json.load(open(side_path)) if os.path.exists(side_path) else {}
         fails = {}
-        for ln in open(a.log):
+        for ln in open(a.log):  # appended across resumes: the last record of a key wins
             try:
                 r = json.loads(ln)
             except Exception:
                 continue
             if r.get("ok"):
                 side[r["member"]] = r["meta"]
+                fails.pop(r["key"], None)
             elif "reason" in r:
                 fails[r["key"]] = f"{r['reason']}: {r.get('msg', '')}"
         json.dump(side, open(side_path, "w"), indent=1, sort_keys=True)

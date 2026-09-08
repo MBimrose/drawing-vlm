@@ -10,7 +10,9 @@ grep -q "\[rerender\] DONE" $L || { echo "$(date) tars driver exited without DON
 # no-fallback adapter (2026-09-08): re-attempt every recorded render failure once more through the
 # fixed adapter (idempotent; appends recovered members to the finished shards)
 while pgrep -u bimrose2 -f "[r]erun_failed_dw423.sh" >/dev/null; do sleep 120; done
+# (exec_timeout included: the 120 s script timeout was load-induced while 256 workers ran)
 .venv/bin/python mech_benchmarks/rerender_tars.py retry --tars $PWD/tars_v14 --out $PWD/tars_v14_dw423 --workers 64 \
+  --retry-reasons render_legacy,render_fail,render_timeout,exec_timeout \
   --log logs/rerender_tars_dw423_retry.jsonl > logs/rerender_tars_dw423_retry_final.log 2>&1; tail -1 logs/rerender_tars_dw423_retry_final.log
 python3 - <<'EOF' | tee logs/rerender_tars_dw423_summary.txt
 import json, collections, glob
