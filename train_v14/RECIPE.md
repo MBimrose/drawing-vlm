@@ -862,3 +862,6 @@ ABC-code corpus in both renderings with the holdout slice reported
 separately (does ground-truth code for the same distribution transfer to
 parts the model has never seen, and does the new-renderer tier lift the
 new-renderer bench).
+Control for e54 on the new-renderer bench (`ext_bench_dw423`, 145 parts, e53):
+first-exec 0.411 / vote 0.456 / gated 0.486 / ceiling 0.524 — same drift as e51
+(vote 0.444, ceiling 0.516). (results/ext/bo8_ext_dw423_e53-*_summary.txt)
