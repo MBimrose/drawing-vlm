@@ -16,6 +16,13 @@ rsync -a $S19:/srv/scratch/bimrose2/tars_v14_dw423/failures/ $W/tars_v14_dw423_f
 rsync -a $S19:/srv/scratch/bimrose2/logs/rerender_tars_dw423_summary.txt $S19:/srv/scratch/bimrose2/logs/rerender_tars_dw423.jsonl $W/tars_v14_dw423_failures/
 rsync -a $S19:/srv/scratch/bimrose2/rft_strict90_all_dw423/shards/ $DV/rft_strict90_all_dw423/shards/ || { echo rsync shards failed; exit 1; }
 echo "$(date) tars $(ls $W/tars_v14_dw423/shard_*.tar | wc -l), strict90_dw423 shards $(ls $DV/rft_strict90_all_dw423/shards | wc -l)"
+# final state of the small tiers (re-attempted through the no-fallback adapter): union5_dw423 shards, the
+# certified eval sheets (-> eval_cache_v15_dw423.pkl, also copied to serv-19), the permissive bench
+rsync -a --delete $S19:/srv/scratch/bimrose2/rft_real_union5_dw423/shards/ $DV/rft_real_union5_dw423/shards/
+rsync -a $S19:/srv/scratch/bimrose2/data/eval_v15_dw423/render/ $W/eval_v15_dw423_render/
+.venv/bin/python train_v14/build_eval_cache_dw423.py --png-dir $W/eval_v15_dw423_render/png --sidecar $W/eval_v15_dw423_render/renderers.json
+scp -q $W/eval_cache_v15_dw423.pkl $S19:/srv/scratch/bimrose2/data/eval_cache_v15_dw423.pkl
+rsync -a --exclude step_mm --exclude 'render/iso' $S19:/srv/scratch/bimrose2/mech_benchmarks/ext_bench_dw423_perm/ $DV/train_v14/mech/benchmarks/data/ext_bench_dw423_perm/
 # legacy residue-7 holdout cache on the new sheets (data_version 1 evals); v15 was built from the GT-STEP renders earlier
 DRAWING_VLM_TARS=$W/tars_v14_dw423 DRAWING_VLM_EVAL_CACHE=$W/eval_cache_v14_dw423.pkl .venv/bin/python train_v14/build_eval_cache.py > logs/build_eval_cache_v14_dw423.log 2>&1; tail -2 logs/build_eval_cache_v14_dw423.log
 # RFT mix in rft_mix_u6_gt's proportions: base + union5 x5 + ABC GT-code tier x8
