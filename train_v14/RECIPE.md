@@ -850,3 +850,15 @@ pack_rft_shards_dir.py (1 shard each). Of the 192 unsolved, 77 pass the CADBench
 Open: train a round with the GT tier (e.g. rft_mix_u3_strict90 + rft_real_abccode ×k) and judge
 on the 146-part bench (0.4.0 sheets) — the first real-part supervision that is not the model's
 own output; whether 192 programs in the emitter's style transfer is the question.
+
+**e54** (2026-09-08): e45 recipe + union5 ×5 + `rft_real_abccode_train` ×8 —
+the ABC ground-truth-code tier: all 429 verified parts in both renderer
+styles (0.4.0+patch and 0.4.23+patch sheets, 762 rows, empty think) minus a
+seeded 48-part holdout of the 192 e51-unsolved parts
+(`rft_real_abccode_train/holdout.json`). Mix `rft_mix_u6_gt` = 78 base + 25
+union5 links + 8 GT links (GT ≈ 5% of RFT draws). Judged on: the 146-part
+bench (old renderer, primary), `ext_bench_dw423` (new renderer), and the
+ABC-code corpus in both renderings with the holdout slice reported
+separately (does ground-truth code for the same distribution transfer to
+parts the model has never seen, and does the new-renderer tier lift the
+new-renderer bench).
