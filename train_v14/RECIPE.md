@@ -1096,3 +1096,9 @@ old-renderer bench 0.477 / 0.503 / 0.545 / 0.589 (e53 control 0.472 / 0.503 /
 0.580 (e51 control 0.463 / 0.499 / 0.526 / 0.566). The 432-part ground-truth
 ABC tier does not move the medium bench beyond noise (+0.016 gated, +0.014 on
 the new-renderer bench). Full pool and the ABC-code holdout pending.
+
+Verifier seed replicate (v3c, seed 44, 1,000 steps, 2026-09-09; v3b was seed
+42, best at step 750): on the 146 real parts verifier-argmax 0.526 / 17% at
+K=8 and 0.565 / 23% at K=32 (v3b 0.533 / 0.578; vote 0.493 / 0.527), gate0.85
+0.524 / 0.564. The verifier gain replicates to within 0.01; seed spread on the
+146-part bench ≈ 0.01. (results/ext/vsel_v3cs44ev_e51_bo32_summary.txt)
