@@ -1129,3 +1129,11 @@ e51 control on the new-style full pool (`eval_cache_v15_dw423`, 1,027 parts,
 run alias e51-dw423 on serv-19): vote 0.907 / 82%, gated 0.907, ceiling 0.940
 — vs 0.917 / 0.916 / 0.947 on 0.4.0 sheets: −0.010 in-distribution, matching
 the −0.01 on the permissive real-part bench. Baseline for e55.
+
+e55 (e54 recipe trained on draftwright-0.4.23 sheets; 2026-09-09) on the
+OLD-renderer 146-part bench: first-exec 0.500 / 17%, vote 0.526 / 17%, gated
+**0.554 / 20%**, ceiling 0.592 / 23% — vs e51 0.483 / 0.509 / 0.530 / 0.594
+and e54 0.477 / 0.503 / 0.545 / 0.589. Best vote and gated numbers so far on
+the old bench, obtained by a model that never saw an old-style sheet in
+training (the new sheets carry more dimensions). New-renderer benches and the
+new-style full pool pending.
