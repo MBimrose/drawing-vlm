@@ -26,6 +26,7 @@ def main():
     ap.add_argument("--tier", required=True); ap.add_argument("--ckpt", required=True); ap.add_argument("--run", required=True)
     ap.add_argument("--out", required=True); ap.add_argument("--batch", type=int, default=8)
     ap.add_argument("--max-new-tokens", type=int, default=900); ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--max-code-chars", type=int, default=12000, help="skip parts whose script is longer (polyline dumps blow the prompt)")
     a = ap.parse_args()
     cfg = run_config(a.run)
     rows = [json.loads(l) for f in sorted(glob.glob(os.path.join(a.tier, "accepted-*.jsonl"))) for l in open(f)]
@@ -39,7 +40,13 @@ def main():
     from qwen_vl_utils import process_vision_info
     model, processor = load_model(a.ckpt, "hf", cfg)
     sysmsg = SYSTEM_PROMPTS[cfg.get("system_prompt", "detailed")]
-    plans = {}; parts = sorted(base)
+    os.makedirs(a.out, exist_ok=True)
+    ckpt = os.path.join(a.out, "plans.partial.json")
+    plans = json.load(open(ckpt)) if os.path.exists(ckpt) else {}
+    skipped_long = [b for b in base if len(base[b][0]["code"]) > a.max_code_chars]
+    parts = sorted(b for b in base if b not in plans and b not in skipped_long)
+    parts.sort(key=lambda b: len(base[b][0]["code"]))   # short prompts first, longest last
+    print(f"[rat] {len(plans)} plans resumed, {len(skipped_long)} parts skipped (> {a.max_code_chars} chars), {len(parts)} to do", flush=True)
     for i in range(0, len(parts), a.batch):
         chunk = parts[i:i + a.batch]; msgs = []
         for b in chunk:
@@ -59,6 +66,8 @@ def main():
         for b, t in zip(chunk, dec):
             t = t.split("</think>", 1)[-1].strip()
             plans[b] = t
+        json.dump(plans, open(ckpt, "w"))
+        del enc, out; torch.cuda.empty_cache()
         print(f"[rat] {min(i + a.batch, len(parts))}/{len(parts)}", flush=True)
     os.makedirs(os.path.join(a.out, "png"), exist_ok=True)
     kept = dropped = 0
@@ -72,7 +81,7 @@ def main():
                 src = os.path.join(a.tier, "png", r["key"] + ".png"); dst = os.path.join(a.out, "png", r["key"] + ".png")
                 if not os.path.exists(dst): os.link(src, dst) if os.stat(src).st_dev == os.stat(os.path.dirname(dst)).st_dev else __import__("shutil").copy(src, dst)
     json.dump(plans, open(os.path.join(a.out, "plans.json"), "w"), indent=1)
-    print(f"[rat] DONE kept {kept} rows, dropped {dropped}; plans for {len(plans)} parts", flush=True)
+    print(f"[rat] DONE kept {kept} rows, dropped {dropped}; plans for {len(plans)} parts; {len(skipped_long)} parts skipped for length", flush=True)
 
 
 if __name__ == "__main__":

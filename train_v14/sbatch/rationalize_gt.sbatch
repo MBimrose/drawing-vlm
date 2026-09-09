@@ -18,4 +18,4 @@ source $DV/.venv/bin/activate; source $DV/train_v14/env.sh
 R=${RUN:-e51-rft-real-u3-strict90}
 SHM=/dev/shm/bimrose2_$SLURM_JOB_ID; trap 'rm -rf $SHM' EXIT
 mkdir -p $SHM && cp -r $DV/runs/$R/final $SHM/ && CK=$SHM/final || CK=$DV/runs/$R/final
-python $DV/train_v14/geom/rationalize_gt.py --tier $DV/$TIER --ckpt $CK --run $R --out $DV/$OUT --batch 8
+python $DV/train_v14/geom/rationalize_gt.py --tier $DV/$TIER --ckpt $CK --run $R --out $DV/$OUT --batch ${BATCH:-3}
