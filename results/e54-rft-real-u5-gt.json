@@ -1,0 +1,21 @@
+{
+ "final": {
+  "step": 4001,
+  "n": 96,
+  "n_scored": 95,
+  "exec_ok_frac": 0.9157894736842105,
+  "iou_mean": 0.8272116165274844,
+  "iou_median": 0.9593424320878644,
+  "iou_mean_exec": 0.9032770525300117,
+  "frac_iou50": 0.8947368421052632,
+  "frac_iou85": 0.6842105263157895,
+  "final_exec_ok_frac": 0.9263157894736842,
+  "final_iou_mean": 0.8289891787073853,
+  "final_iou_median": 0.9593424320878644,
+  "final_iou_mean_exec": 0.8949314997409273,
+  "final_frac_iou50": 0.8947368421052632,
+  "final_frac_iou85": 0.6842105263157895,
+  "repair_recovered": 1,
+  "v": 2
+ }
+}
