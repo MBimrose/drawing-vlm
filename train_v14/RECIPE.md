@@ -959,8 +959,50 @@ completed shards ≈ 106k attempted parts, 2,472 failures = 2.3% after the retry
 | 2 | render | `Standard_TypeMismatch` / `Standard_NullObject` (OCCT) | `0b6f79e9-…_v5` |
 
 Per-key reasons with the full message: `tars_v14_dw423/failures/<shard>.json` (cluster copy
-`step_to_drw/wds_dataset/tars_v14_dw423_failures/`). The final summary over all 2,500 shards is
-written by the finisher to `rerender_tars_dw423_summary.txt` there.
+`step_to_drw/wds_dataset/tars_v14_dw423_failures/`, with `rerender_tars_dw423_summary.txt`).
+
+**Final numbers (2,500 shards, run 11:52 → 23:15 CDT = 11.4 h wall, 2,785 worker-hours; mean
+exec 6.5 s / render 19.1 s per part under load 300-560; 46 GB).** 498,799 members; 105,123
+skipped (exec-bad blocklist); **393,676 attempted → 384,985 sheets (97.8%), 8,691 failed
+(2.21%)** at the time e55 was submitted. Failure taxonomy over the whole set (no-fallback
+path; the retry pass had recovered 472 of 2,623 re-attempted, 18%, before the finisher's own
+final pass died on a bookkeeping bug — a second final pass over the remaining shards and the
+exec timeouts runs after e55's start, see below):
+
+| count | stage | exception |
+|---|---|---|
+| 2,795 | render | `ValueError` — 0.4.23 feature recognition ("Hole cylindrical evidence does not prove one valid solid", countersink …) |
+| 1,294 | render | `_DrawingTimeout` (150 s sheet alarm under load) |
+| 1,238 | render | `Standard_ConstructionError` (OCCT inside draftwright) |
+| 1,145 | render | `StopIteration` (draftwright internal) |
+| 755 | exec | script timeout (120 s, load-induced) |
+| 625 | exec | script error under build123d 0.11.1 (486 `ValueError` fillet/chamfer, 41 `TypeError`, 23 `AttributeError`, 20 OCCT construction, …) |
+| 559 | render | process timeout (400 s) |
+| 183 / 54 / 25 / 4 / 1 | render | `_SlotAttributionError` / `AmbiguousTurnedOwnershipError` / `_PocketAttributionError` / `_PlateAttributionError` / `_RepeatingRadialAttributionError` |
+| 12 | render | other OCCT / build123d (`Standard_TypeMismatch`, `Geom_UndefinedValue`, segfault rc=-11, …) |
+
+So 0.4.23's own recognisers (hole / slot / pocket / turned / plate "does not prove one valid
+solid") are the largest class (3,060 parts, 0.8%), then time (2,600 parts, load-dependent),
+then OCCT errors inside the new renderer (1,250). `ViewNotPlanned` no longer occurs (repaired).
+
+**Artefacts.** Cluster: `step_to_drw/wds_dataset/tars_v14_dw423/` (2,500 tars + sidecars,
+46 GB; /projects at 12.2 of 15 TB), `eval_cache_v15_dw423.pkl` (1,067 certified),
+`eval_cache_v14_dw423.pkl` (legacy residue-7 holdout, 572 samples, pools 256/256/256),
+`rft_strict90_all_dw423/shards` (**152,780 rows in 77 shards**; 1,065 of the 155,655 rows'
+keys have no new sheet), `rft_real_union5_dw423/shards` (8,887 rows, 5 shards),
+`rft_mix_u6_gt_dw423` = **110 shards = 77 base + 25 union5 links (×5) + 8 GT links** (the
+rft_mix_u6_gt proportions: 78 + 25 + 8). serv-19 keeps the originals under
+`/srv/scratch/bimrose2/{tars_v14_dw423,rft_strict90_all_dw423,rft_real_union5_dw423,data/eval_v15_dw423}`.
+
+**e55-rft-real-u5-gt-dw423 = SLURM job 10433609** (ccc0451, submitted 2026-09-08 23:27 by the
+cluster finisher; e54 config, 4,000 steps). `ship_finals.sh e55-…` is running (PID 975984,
+`logs/ship_finals_e55.log`): when the final exists it submits the old-style external bench
+(`bo8_ext_cluster.sbatch`, 0.4.0 sheets — expected to drop) and the serv-19 full pool on
+`data/eval_cache_v15_dw423.pkl` via `configs/e55-…-serv19.env`; the cluster finisher then
+submits the two new-renderer benches (`ext_bench_dw423`, TAG `bo8_ext_dw423`, and
+`ext_bench_dw423_perm`, TAG `bo8_ext_dw423p`). Judge e55 against e51's 0.499 vote / 0.526
+gated on `ext_bench_dw423_perm` (common keys) and e51 on the dw423 full pool (to be run:
+`ship_finals`-style `run_bo8_full_generic.sh e51-…` with the same `.env`).
 
 **Consequence for the drift numbers above.** Slicing e51's paired
 `bo8_ext_dw423` result by the sidecar's renderer: on the 110 genuine 0.4.23 sheets
