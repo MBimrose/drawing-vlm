@@ -1114,3 +1114,14 @@ the learned no-think → code mapping never fires at serving time (testable with
 no-think generation); (b) the converted dialect (Plane(origin=…) with 4-decimal
 offsets, long polylines) is far from the model's own style; (c) too few
 exposures. Full pool 0.913 / 82% (parity).
+No-think diagnostic (e54, ABC-code corpus 0.4.0 sheets, K=8, `bestofn --no-think`):
+unsolved-in-training parts solved at ≥0.8: **46/144 in no-think mode vs 10/144
+in think mode** (ceiling 49 vs 17); held-out unsolved 4/48 vs 1/48; solved-by-e51
+parts drop 0.873 → 0.785 (no-think is otherwise a worse mode). So the
+ground-truth programs WERE learned, but only under the empty-think format they
+were trained in, which serving never uses (inference always thinks first). Fix:
+give ground-truth rows a reasoning trace in the model's own style
+(rationalization: plan generated from drawing + correct code), then retrain.
+Generalisation from 381 GT parts to the 48 held-out ones is small in either
+mode (4 vs 1 solved) — the tier teaches specific parts more than the skill.
+(results/ext/bo8_abccode_nothink_e54-*_consistency.json)
