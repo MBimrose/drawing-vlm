@@ -1151,3 +1151,9 @@ plans excluded → `rft_real_abccode_rat_train`: 702 rows (both renderers, same
 the think-mode ABC-corpus slices: if the trained-on unsolved parts now solve in
 think mode, format was the blocker; the holdout slice then says whether
 verified real-part code generalises.
+e55 on the new-renderer benches: permissive (144 parts) first-exec 0.482 / vote
+**0.533** / gated 0.539 / ceiling 0.591 (e51 0.463 / 0.499 / 0.526 / 0.566;
+e54 0.490 / 0.513 / 0.539 / 0.580); fallback-policy bench (145, 35 legacy
+sheets) 0.413 / 0.462 / 0.496 / 0.546 (e53 0.411 / 0.456 / 0.486 / 0.524).
+Training on new-style sheets lifts the real-part vote by ≈0.02-0.03 on both
+sheet styles. New-style full pool pending (baseline e51 0.907).
