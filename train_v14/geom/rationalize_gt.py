@@ -14,11 +14,20 @@ from collate_v14 import SYSTEM_PROMPTS, USER_PROMPT, wrap_python  # noqa: E402
 from geom_eval_worker import load_model, run_config  # noqa: E402
 from PIL import Image  # noqa: E402
 
-RAT_USER = (USER_PROMPT + "\n\nThe correct build123d script for this drawing is known and shown below. "
-            "Write the numbered plan you would reason through before writing exactly this script: read every "
-            "dimension and callout off the drawing, derive each feature's size and position from them (show the "
-            "arithmetic where a value is derived), and state the operations in build order. Do not restate or "
-            "include any code; output only the numbered plan.\n\n{code}")
+RAT_USER = (USER_PROMPT + "\n\nFor reference only, the correct build123d script for this drawing is shown below. "
+            "Write the numbered plan a machinist or CAD engineer would reason through from the DRAWING ALONE before "
+            "modelling this part: name every dimension and callout as read off the sheet (with its value), derive "
+            "each feature's size and position from those values (show the arithmetic for derived values), and list "
+            "the operations in build order (stock, profiles, extrusions, holes, cuts, fillets). Strict rules: plain "
+            "numbered lines only, no markdown headings or bold; never mention that a script or code was provided; never "
+            "quote variable names, function names or code; never say 'the script' or 'the code'. Write as if the "
+            "script did not exist and you were deriving the part from the drawing.\n\n{code}")
+SCRUB = re.compile(r"\bscript\b|\bcode\b|\bprovided\b|`[^`]*`|\b_?(sk|plane|part|bl|temp)_\d+\b|build123d|\*\*", re.I)
+
+
+def scrub(plan: str) -> str:
+    keep = [l for l in plan.splitlines() if not SCRUB.search(l)]
+    return "\n".join(keep).strip()
 
 
 def main():
@@ -73,7 +82,7 @@ def main():
     kept = dropped = 0
     with open(os.path.join(a.out, "accepted-000.jsonl"), "w") as f:
         for b, rs in base.items():
-            p = plans.get(b, "")
+            p = scrub(plans.get(b, ""))
             if len(p) < 200 or "```" in p or not re.search(r"^\s*1[.)]", p, re.M):
                 dropped += len(rs); continue
             for r in rs:
