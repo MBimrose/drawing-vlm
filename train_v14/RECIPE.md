@@ -985,6 +985,17 @@ So 0.4.23's own recognisers (hole / slot / pocket / turned / plate "does not pro
 solid") are the largest class (3,060 parts, 0.8%), then time (2,600 parts, load-dependent),
 then OCCT errors inside the new renderer (1,250). `ViewNotPlanned` no longer occurs (repaired).
 
+**After the second final retry pass** (96 workers on the idle box, 1.9 h; `rerender_tars.py
+retry` incl. `exec_timeout`; 10,689 re-attempted, 1,669 recovered in total = 15.6%):
+**386,182 sheets (98.1% of attempted), 7,494 failed (1.90%)** — exec timeouts 755 → 25,
+`_DrawingTimeout` 1,294 → 860, render timeouts 559 → 506; the recogniser / OCCT /
+`StopIteration` classes are unchanged (deterministic). `tars_v14_dw423` on the cluster was
+re-synced in place (rsync renames atomically, so e55's running plain-tier stream is safe); the
+RFT base `rft_strict90_all_dw423` and the mix were NOT re-packed while e55 reads them — they
+reflect the 384,985-sheet snapshot (1,065 unfound keys; ~120 would now be found). Re-pack them
+before the next run if wanted (`rerender_tars.sh pack` on serv-19, then the cluster finisher's
+copy step).
+
 **Artefacts.** Cluster: `step_to_drw/wds_dataset/tars_v14_dw423/` (2,500 tars + sidecars,
 46 GB; /projects at 12.2 of 15 TB), `eval_cache_v15_dw423.pkl` (1,067 certified),
 `eval_cache_v14_dw423.pkl` (legacy residue-7 holdout, 572 samples, pools 256/256/256),
