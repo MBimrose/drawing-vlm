@@ -1137,3 +1137,17 @@ and e54 0.477 / 0.503 / 0.545 / 0.589. Best vote and gated numbers so far on
 the old bench, obtained by a model that never saw an old-style sheet in
 training (the new sheets carry more dimensions). New-renderer benches and the
 new-style full pool pending.
+
+**Rationalized ground-truth tier** (2026-09-09, `train_v14/geom/rationalize_gt.py`):
+e51 ignores a "write the plan" instruction 79% of the time and emits code
+(consistent with earlier mechanism studies), so plans come from the base
+Qwen3.8-27B instruct model given the drawing + the correct script, with a
+drawing-alone prompt and a line scrub (0 of 392 plans mention the script or
+identifiers afterwards; median 2,000 chars, numbered, every plan carries the
+sheet's dimensions). 31 oversized polyline scripts (>12k chars) and 6 unusable
+plans excluded → `rft_real_abccode_rat_train`: 702 rows (both renderers, same
+48-part holdout). **e56** = the e54 mix with this tier swapped in
+(`rft_mix_u6_gtrat`, 111 shards), job 10445918. Judged exactly like e54, plus
+the think-mode ABC-corpus slices: if the trained-on unsolved parts now solve in
+think mode, format was the blocker; the holdout slice then says whether
+verified real-part code generalises.
