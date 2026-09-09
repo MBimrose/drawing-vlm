@@ -1035,3 +1035,10 @@ comparison is e51 vs e55 both on the dw423 cache, or the drift-corrected 0.03); 
 (expected to drop — the model no longer trains on 0.4.0 sheets). The lever question is
 whether training on the deployment renderer's sheets closes the ~0.03 style gap and lifts
 the new-renderer bench above e51's 0.484.
+
+e54 results (2026-09-08), 146 real parts, K=8 (first-exec / vote / gated / ceiling):
+old-renderer bench 0.477 / 0.503 / 0.545 / 0.589 (e53 control 0.472 / 0.503 /
+0.529 / 0.581); permissive new-renderer bench (144) 0.490 / 0.513 / 0.539 /
+0.580 (e51 control 0.463 / 0.499 / 0.526 / 0.566). The 432-part ground-truth
+ABC tier does not move the medium bench beyond noise (+0.016 gated, +0.014 on
+the new-renderer bench). Full pool and the ABC-code holdout pending.
