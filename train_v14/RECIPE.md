@@ -1102,3 +1102,15 @@ Verifier seed replicate (v3c, seed 44, 1,000 steps, 2026-09-09; v3b was seed
 K=8 and 0.565 / 23% at K=32 (v3b 0.533 / 0.578; vote 0.493 / 0.527), gate0.85
 0.524 / 0.564. The verifier gain replicates to within 0.01; seed spread on the
 146-part bench ≈ 0.01. (results/ext/vsel_v3cs44ev_e51_bo32_summary.txt)
+e54 on the ABC-code corpus by slice (0.4.0 sheets, K=8, vote / ceiling, e53 → e54):
+solved-by-e51 (240, in training) 0.885 / 0.923 → 0.873 / 0.919; unsolved but
+IN TRAINING with ground-truth code (144) 0.455 / 0.541 → 0.467 / 0.545 (5 → 10
+parts ≥0.8); unsolved HELD OUT (48) 0.465 / 0.533 → 0.470 / 0.554 (1 → 1).
+0.4.23 sheets: same picture (unsolved-in-training 0.400 → 0.429, holdout 0.402
+→ 0.406). **The model did not learn the ground-truth programs it was trained
+on** — a 762-row tier at ≈5% of RFT draws leaves the trained parts unsolved.
+Suspects: (a) the tier rows have empty think while inference always thinks, so
+the learned no-think → code mapping never fires at serving time (testable with
+no-think generation); (b) the converted dialect (Plane(origin=…) with 4-decimal
+offsets, long polylines) is far from the model's own style; (c) too few
+exposures. Full pool 0.913 / 82% (parity).
