@@ -1125,3 +1125,7 @@ give ground-truth rows a reasoning trace in the model's own style
 Generalisation from 381 GT parts to the 48 held-out ones is small in either
 mode (4 vs 1 solved) — the tier teaches specific parts more than the skill.
 (results/ext/bo8_abccode_nothink_e54-*_consistency.json)
+e51 control on the new-style full pool (`eval_cache_v15_dw423`, 1,027 parts,
+run alias e51-dw423 on serv-19): vote 0.907 / 82%, gated 0.907, ceiling 0.940
+— vs 0.917 / 0.916 / 0.947 on 0.4.0 sheets: −0.010 in-distribution, matching
+the −0.01 on the permissive real-part bench. Baseline for e55.
