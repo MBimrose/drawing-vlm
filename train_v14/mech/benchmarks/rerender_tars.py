@@ -261,7 +261,8 @@ def do_retry(shard_path):
     if not (os.path.exists(out_tar) and os.path.exists(out_side) and os.path.exists(fail_path)):
         return {"shard": name, "skipped": True}
     fails = json.load(open(fail_path))
-    todo = sorted(k for k, v in fails.items() if v[0] in cfg["retry_reasons"])
+    todo = sorted(k for k, v in fails.items()
+                  if k != "recovered" and v and v[0] in cfg["retry_reasons"])
     if not todo:
         return {"shard": name, "skipped": True, "n_todo": 0}
     t_start = time.time()
