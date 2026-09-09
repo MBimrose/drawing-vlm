@@ -1,0 +1,1 @@
+ABC ground-truth-code tier WITH rationalized reasoning (base Qwen3.8-27B plans from drawing + correct script, scrubbed of code references; 2026-09-09): 702 rows in both renderer styles, same 48-part holdout as rft_real_abccode_train; 31 oversized scripts and 6 unusable plans excluded.
