@@ -22,7 +22,7 @@ export OPENBLAS_NUM_THREADS=1 DRAWING_VLM_TRACES_JSON=$B/traces_v14.json DRAWING
 G=$DV/train_v14/geom; R=$RUN; mkdir -p $DV/logs/bo8 $DV/results/ext
 for i in 0 1 2 3 4 5 6 7; do
   CUDA_VISIBLE_DEVICES=$i python $G/bestofn_verifier_eval.py --ckpt $DV/runs/$R/final --kind hf --run $R \
-    --verifier "" --n 146 --k 8 --temperature 0.7 --batch 16 --shard $i --nshards 8 \
+    --verifier "" --n ${N:-146} --k 8 ${EXTRA:-} --temperature 0.7 --batch 16 --shard $i --nshards 8 \
     --out $DV/results/ext/${T}_$R.shard$i.json > $DV/logs/bo8/${T}_$R.shard$i.log 2>&1 &
 done
 wait

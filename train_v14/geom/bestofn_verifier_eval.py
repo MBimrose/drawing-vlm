@@ -60,6 +60,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--shard", type=int, default=0, help="this worker's index (keys[shard::nshards])")
     ap.add_argument("--nshards", type=int, default=1, help="run N single-GPU workers and merge with merge_bo_shards.py")
+    ap.add_argument("--no-think", action="store_true", help="generate with enable_thinking=False (the empty-think format used by ground-truth tiers)")
     args = ap.parse_args()
 
     cfg = run_config(args.run)
@@ -86,6 +87,8 @@ def main():
         tmpl = dict(enable_thinking=True,
                     reasoning_effort=tmpl_cfg.get("reasoning_effort", "medium")) \
             if tmpl_cfg.get("trace_style", "think") == "think" else {}
+        if args.no_think:
+            tmpl = dict(enable_thinking=False)
         texts = [proc.apply_chat_template(m, add_generation_prompt=True, tokenize=False, **tmpl)
                  for m in msgs_list]
         images, videos = process_vision_info(msgs_list)
