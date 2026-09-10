@@ -60,6 +60,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--shard", type=int, default=0, help="this worker's index (keys[shard::nshards])")
     ap.add_argument("--nshards", type=int, default=1, help="run N single-GPU workers and merge with merge_bo_shards.py")
+    ap.add_argument("--keys", default="", help="file with one eval key per line: restrict the run to these (order preserved), applied before --n/--shard")
     ap.add_argument("--no-think", action="store_true", help="generate with enable_thinking=False (the empty-think format used by ground-truth tiers)")
     args = ap.parse_args()
 
@@ -73,7 +74,16 @@ def main():
     with open(cache_path, "rb") as f:
         cache = pickle.load(f)
     keys = [k for k in cache["pools"][pool]
-            if os.path.exists(os.path.join(gt_dir, f"{k}.stl"))][: args.n]
+            if os.path.exists(os.path.join(gt_dir, f"{k}.stl"))]
+    if args.keys:
+        want = [ln.strip() for ln in open(args.keys) if ln.strip()]
+        have = set(keys)
+        missing = [k for k in want if k not in have]
+        keys = [k for k in want if k in have]
+        print(f"[bo] --keys {args.keys}: {len(keys)} of {len(want)} present"
+              + (f" ({len(missing)} missing, e.g. {missing[:3]})" if missing else ""), flush=True)
+        assert keys, "no requested key is in the pool"
+    keys = keys[: args.n] if args.n else keys
     keys = keys[args.shard::args.nshards]
     samples = [{"uuid": k, "image": _decode_png(cache["samples"][k]["png"])} for k in keys]
     print(f"[bo{args.k}+verifier] {len(samples)} samples, T={args.temperature}", flush=True)

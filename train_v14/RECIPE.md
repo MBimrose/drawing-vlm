@@ -1209,3 +1209,54 @@ compute unless the plan format is the model's own (e.g. self-distilled think
 traces from e55 on the parts it does solve) — shelved. **e55 stays the
 serving candidate on draftwright 0.4.23 sheets.** e56 checkpoint deleted;
 `final` kept. (results/ext/bo8_{ext,ext_dw423p,full,abccode_*}_e56-rft-real-u5-gtrat_*)
+
+## Serving switched to draftwright 0.4.23 with e55 (2026-09-10)
+
+**Renderer.** `render_isolated.sh` now defaults to `RPY=/srv/scratch/bimrose2/dw_venv/bin/python`
+(draftwright 0.4.23 + the `_FONT_SIZE = 5.25` patch, no legacy fallback); the retired 0.4.0
+interpreter stays available by setting RPY. Every new corpus, bench and served sheet is 0.4.23
+from here on.
+
+**Generator.** `serve.py` / `serve.sbatch` default to `e55-rft-real-u5-gt-dw423`. On the sheets
+it will actually see (permissive 0.4.23 bench, 144 parts) e55 votes 0.533 and gates 0.539
+against e51's 0.499 / 0.526, and it is at parity in-distribution (new-style full pool 0.909 vs
+0.907).
+
+**Verifier base.** The v3b LoRA was trained on e51's weights but `serve.py` stacks it on the
+generator, so the switch needed a check: scoring e55's own candidates with the adapter on
+**e55's** weights gives verifier 0.543 / gate0.85 0.540, against 0.542 / 0.539 on its e51 base
+(144 parts, identical vote and oracle columns). Within noise, so serving still loads ONE model
+and toggles the adapter. (`results/ext/bo8_ext_dw423p_e55vb55_gated_summary.txt`; re-run with
+`VBASE=<dir>` on `gated_step.sh`.)
+
+## Adaptive draw budget: the gate is a poor cost saver on real parts (2026-09-10)
+
+`train_v14/geom/adaptive_k.py` replays a stored best-of-32 run as a two-stage policy: draw k0,
+serve the medoid if its agreement clears the gate, otherwise escalate to k1 draws and take the
+verifier argmax. Replay is exact — the first k0 candidates in draw order ARE the k0-draw run.
+e55 on the 146-part bench (`bo32_ext_e55-rft-real-u5-gt-dw423_adaptive_summary.txt`):
+
+| policy | mean | >=0.85 | draws/part | escalated |
+|---|---|---|---|---|
+| K=8 gate0.85 (deployed) | 0.535 | 18.5% | 8.0 | — |
+| adaptive 8->16 | 0.563 | 20.5% | 14.6 | 82.9% |
+| adaptive 8->32 | 0.569 | 21.9% | 27.9 | 82.9% |
+| ladder 8->16->32 | 0.569 | 21.9% | 27.5 | 82.9% |
+| K=32 gate0.85 | 0.571 | 23.3% | 32.0 | — |
+
+**83% of real parts miss the gate**, so escalation saves only 13% of the draws of a fixed K=32 —
+the same finding as the agreement scatter (deck sheet 12) seen from the cost side: real parts
+rarely agree. The middle stop is the value: **8->16 buys 78% of the K=8 -> K=32 gain for 46% of
+its cost**, and the three-stage ladder adds nothing over it (4 of 146 parts stop at 16).
+Lowering the escalation gate trades along a smooth frontier (gate 0.65: 0.556 at 21.2 draws;
+0.55: 0.553 at 18.5) — `--gates` sweeps it. In-distribution only 201 of 1,027 parts (19.6%)
+would escalate, so the same policy is nearly free there; K=32 on exactly those parts is running
+(`escalate_keys_e55_fullpool.txt`, TAG=bo32_esc) to see whether escalation pays in-distribution
+at all.
+
+## RFT base re-packed on the recovered sheets (2026-09-10)
+
+`pack_rft_shards.py` re-run on serv-19 against the re-synced `tars_v14_dw423`:
+**153,567 rows in 77 shards, 653 keys unfound** (was 152,780 / 1,065 — the second retry pass
+recovered 787 rows). Packed to `rft_strict90_all_dw423b/` on both hosts so e55's inputs stay
+byte-identical; the next training mix uses `b`.

@@ -1,7 +1,7 @@
 """End-to-end serving: engineering-drawing PNG(s) -> build123d script + STEP
 with the agreement-gated verifier policy (RECIPE.md "Serving policy").
 
-Per drawing, on ONE GPU with the generator (e51 final) and the verifier LoRA
+Per drawing, on ONE GPU with the generator (e55 final) and the verifier LoRA
 (v3b-verifier-real-reg) loaded once (the adapter is toggled off for
 generation, on for scoring):
   1. draw K candidates with the run's prompts/config (draw 0 greedy, draws
@@ -52,7 +52,13 @@ from geom_eval_worker import (  # noqa: E402
 from iou import iou_pair  # noqa: E402
 from verifier_select_offline import reg_ev_scores  # noqa: E402
 
-DEFAULT_RUN = "e51-rft-real-u3-strict90"
+# e55 = the round-5 recipe retrained on draftwright-0.4.23 sheets, the engine every render
+# uses since 2026-09-10 (RECIPE "Training sheets re-rendered with draftwright 0.4.23").
+DEFAULT_RUN = "e55-rft-real-u5-gt-dw423"
+# The verifier LoRA was trained on e51's weights but is stacked on the generator here. Measured
+# 2026-09-10 on the 144-part permissive bench: scored on e55's own weights it gives verifier
+# 0.543 / gate 0.540 against 0.542 / 0.539 on its e51 base -- within noise, so one model is
+# still loaded (results/ext/bo8_ext_dw423p_e55vb55_gated_summary.txt).
 DEFAULT_VERIFIER_RUN = "v3b-verifier-real-reg"
 
 

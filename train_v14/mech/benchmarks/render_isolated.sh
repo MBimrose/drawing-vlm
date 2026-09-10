@@ -2,10 +2,12 @@
 # Render every not-yet-rendered STEP of a corpus in its own renderer process (a segfault in one
 # part cannot break a shared pool), merge the per-part sidecars, build the eval cache.
 #   render_isolated.sh <corpus_dir> [parallel]        (serv-19 paths)
-# RPY selects the renderer interpreter: default /software/python-3.11.1/bin/python3 (draftwright 0.4.0
-# + _FONT_SIZE patch, corpora 1-3 / ext_bench); RPY=/srv/scratch/bimrose2/dw_venv/bin/python renders
-# with draftwright 0.4.23 + the same patch (rft_corpus_abccode, ext_bench_dw423).
-C=$1; P=${2:-32}; M=/srv/scratch/bimrose2/mech_benchmarks; export RPY=${RPY:-/software/python-3.11.1/bin/python3}
+# RPY selects the renderer interpreter: default /srv/scratch/bimrose2/dw_venv/bin/python
+# (draftwright 0.4.23 + _FONT_SIZE 5.25 patch) -- the engine the training sheets, the serving
+# policy and e55 use since 2026-09-10. RPY=/software/python-3.11.1/bin/python3 renders with the
+# retired 0.4.0 + patch (corpora 1-3 / ext_bench were built that way); there is NO legacy SVG
+# fallback in either -- a part that will not draw is recorded as a verbose failure.
+C=$1; P=${2:-32}; M=/srv/scratch/bimrose2/mech_benchmarks; export RPY=${RPY:-/srv/scratch/bimrose2/dw_venv/bin/python}
 mkdir -p $C/render/png $C/render/iso $C/logs
 export SCRIPT_DIR=$M/step_to_drw OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1
 one() { f=$1; k=$(basename $f .step); C=$2; M=$3
