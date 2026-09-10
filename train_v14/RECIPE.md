@@ -1157,3 +1157,10 @@ e54 0.490 / 0.513 / 0.539 / 0.580); fallback-policy bench (145, 35 legacy
 sheets) 0.413 / 0.462 / 0.496 / 0.546 (e53 0.411 / 0.456 / 0.486 / 0.524).
 Training on new-style sheets lifts the real-part vote by ≈0.02-0.03 on both
 sheet styles. New-style full pool pending (baseline e51 0.907).
+e55 on the ABC-code corpus by slice (vote / ceiling): 0.4.0 sheets —
+solved-by-e51 0.871 / 0.918, unsolved-in-training 0.475 / 0.532 (9 of 144
+≥0.8), held-out 0.497 / 0.572 (2 of 48); 0.4.23 sheets — 0.834 / 0.883,
+0.415 / 0.496 (6), 0.461 / 0.501 (2). Same picture as e54 (the empty-think GT
+tier is inert in think mode whatever the sheet style); on new-style sheets
+e55 beats e54 on the solved slice 0.834 vs 0.794. e56 (rationalized tier) is
+the test of the format fix.
