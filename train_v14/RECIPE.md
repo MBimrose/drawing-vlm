@@ -1172,3 +1172,5 @@ first-exec 0.886, ceiling 0.935 — parity with e51 on the same sheets (0.907 /
 bench 0.533 vs 0.499) **e55 is the serving candidate on draftwright 0.4.23
 sheets**; the renderer switch costs ≈0.01 in-distribution relative to the
 0.4.0 world and buys 0.02-0.03 on real parts.
+e55 at K=32 (old bench): first-exec 0.483 / vote 0.539 (20%) / gated 0.571
+(23%) / ceiling 0.646 (29%) — vs e51 0.527 / — / 0.639 and e52 0.536 / 0.645.
