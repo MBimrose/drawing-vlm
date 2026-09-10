@@ -1174,3 +1174,38 @@ sheets**; the renderer switch costs ≈0.01 in-distribution relative to the
 0.4.0 world and buys 0.02-0.03 on real parts.
 e55 at K=32 (old bench): first-exec 0.483 / vote 0.539 (20%) / gated 0.571
 (23%) / ceiling 0.646 (29%) — vs e51 0.527 / — / 0.639 and e52 0.536 / 0.645.
+
+**e56 (rationalized ground-truth tier) — verdict: format was the blocker, but
+the fix trades general skill for memorised parts; rejected** (2026-09-10).
+Old-renderer bench (146): first-exec 0.455 / vote 0.503 / gated 0.538 / ceiling
+0.575, exec≥1 97% (e54 0.477 / 0.503 / 0.545 / 0.589, 99%; e55 0.500 / 0.526 /
+0.554 / 0.592, 100%). Permissive new-renderer bench (144): 0.447 / 0.475 /
+0.495 / 0.534, exec≥1 **90%** (e54 0.490 / 0.513 / 0.539 / 0.580, 99%; e55
+0.482 / 0.533 / 0.539 / 0.591, 99%). Full pool (0.4.0 cache) 0.911 / 81%,
+first-exec 0.890, ceiling 0.942 (e54 0.913 / 82%): in-distribution parity, but
+every real-part number is down and one part in ten on new-style sheets now
+yields no executing draw at all.
+ABC-code slices in THINK mode, 0.4.0 sheets (vote / ceiling, parts ≥0.8):
+solved-by-e51 (240) 0.839 / 0.863 (191 / 199; e54 0.873 / 0.919, 200 / 228);
+unsolved-in-training (144) 0.360 / 0.397 (**27** / 29; e54 0.467 / 0.545,
+10 / 17); held-out (48) 0.248 / 0.271 (2 / 4; e54 0.470 / 0.554, 1 / 4).
+0.4.23 sheets: 0.789 / 0.821 (177), 0.296 / 0.320 (25), 0.215 / 0.241 (3).
+No-think mode: unsolved-in-training 2 / 144 solved (e54 46), held-out 1 / 48.
+Reading: the rationalized plans moved the ground-truth programs into the
+think-mode format the model serves in — trained-on parts solved in think mode
+went 10 → 27 and the no-think route (46 → 2) closed, exactly the format
+hypothesis. But what was learned is the specific programs, not the skill: the
+held-out slice fell to 0.248 (e54 0.470, e55 0.497) with 2 of 48 solved, the
+mean over the trained-on slice fell too (0.360 vs 0.467: the 117 still-unsolved
+parts got worse, with many zero-execution parts), and execution reliability
+on real sheets dropped 99% → 90%. The base-model plans are off-distribution
+for e51's own reasoning style; training on them degrades the general
+drawing → code mapping while installing 17 extra memorised parts.
+Conclusion for the ground-truth-code direction: across e54 (empty think), e55
+and e56 (rationalized think), a 381-part verified tier never generalises to the
+48 held-out parts (1-2 of 48 solved in every variant). Growing the tier via the
+mesh-to-CAD pipeline or DeepCAD / Fusion-Gallery converters is not worth the
+compute unless the plan format is the model's own (e.g. self-distilled think
+traces from e55 on the parts it does solve) — shelved. **e55 stays the
+serving candidate on draftwright 0.4.23 sheets.** e56 checkpoint deleted;
+`final` kept. (results/ext/bo8_{ext,ext_dw423p,full,abccode_*}_e56-rft-real-u5-gtrat_*)
