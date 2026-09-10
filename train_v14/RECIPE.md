@@ -234,6 +234,7 @@ Full-pool serving scores, three champion-recipe models (best-of-8 + consistency,
 | e52 = e45 recipe + union4 real tier (1,177 parts) ×5 | — | 0.893 (76%) | 0.913 (82%) | 0.942 (89%) |
 | e53 = e45 recipe + union5 real tier (1,960 parts, real ≈24% of draws) ×5 | — | 0.891 (77%) | 0.919 (82%) | 0.944 (89%) |
 | e54 = e53 mix + ABC ground-truth-code tier (762 rows, both renderers) ×8 | — | 0.888 (75%) | 0.913 (82%) | 0.943 (90%) |
+| e55 = e54 recipe on draftwright-0.4.23 sheets, judged on the 0.4.23 eval cache (e51 on the same cache: 0.907 / 0.940) | — | 0.886 (76%) | 0.909 (82%) | 0.935 (88%) |
 | **e40 (RFT tier v1+v2+v3 at iou≥0.95, 113k, 6000 steps)** | 0.817 | **0.899 (79%)** | **0.920 (84%, median 0.981)** | **0.947 (90%)** |
 
 The served number is 0.910-0.914 regardless of seed or schedule: the recipe
@@ -1164,3 +1165,10 @@ solved-by-e51 0.871 / 0.918, unsolved-in-training 0.475 / 0.532 (9 of 144
 tier is inert in think mode whatever the sheet style); on new-style sheets
 e55 beats e54 on the solved slice 0.834 vs 0.794. e56 (rationalized tier) is
 the test of the format fix.
+
+e55 full pool on the new-style cache (2026-09-10, cluster): vote 0.909 / 82%,
+first-exec 0.886, ceiling 0.935 — parity with e51 on the same sheets (0.907 /
+0.940). With the real-part gains (old bench 0.526 vs 0.509, permissive new
+bench 0.533 vs 0.499) **e55 is the serving candidate on draftwright 0.4.23
+sheets**; the renderer switch costs ≈0.01 in-distribution relative to the
+0.4.0 world and buys 0.02-0.03 on real parts.
