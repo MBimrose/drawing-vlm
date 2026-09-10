@@ -1,0 +1,18 @@
+slice                     n |         first_exec |        consistency |             oracle | exec>=1
+                            |      mean / >=0.85 |      mean / >=0.85 |      mean / >=0.85
+in-dist 1030 (e51)     1030 | 0.894 /   76% | 0.917 /   81% | 0.947 /   90% |
+ALL external            429 | 0.535 /   42% | 0.560 /   45% | 0.588 /   48% |   78%
+
+worst 10 (consistency):
+  A_00004851_code                    fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  A_00007697_code                    fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  A_00011823_code                    fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  A_00011828_code                    fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  A_00012346_code                    fam=? under=None faces=None exec=1/8 first=0.000 cons=0.000 oracle=0.000
+  A_00014843_code                    fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  A_00018923_code                    fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  A_00022900_code                    fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  A_00026984_code                    fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  A_00028557_code                    fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+
+n parts with no candidate >= 0.85: 224  of which underdetermined: 0
