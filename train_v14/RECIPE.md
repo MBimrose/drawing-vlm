@@ -1222,6 +1222,13 @@ it will actually see (permissive 0.4.23 bench, 144 parts) e55 votes 0.533 and ga
 against e51's 0.499 / 0.526, and it is at parity in-distribution (new-style full pool 0.909 vs
 0.907).
 
+**Smoke test** (`serve.sbatch`, 4 real 0.4.23 sheets, 2026-09-10): 4/4 produced `chosen.py` +
+`chosen.step` (valid BREP solids, 23-54 lines of code), 5-8 of 8 draws executing, model load 86 s
+and the whole batch under 11 min on one H200. Every part took the VERIFIER branch (medoid
+agreement 0.375 / 0.557 / 0.704 / 0.817, all under the 0.85 gate) — the serving-side face of the
+83% escalation rate below. Job inputs must live under /projects: the first attempt pointed at a
+node-local /tmp dir and `serve.py` read the missing directory as a single file ("1 drawing(s)").
+
 **Verifier base.** The v3b LoRA was trained on e51's weights but `serve.py` stacks it on the
 generator, so the switch needed a check: scoring e55's own candidates with the adapter on
 **e55's** weights gives verifier 0.543 / gate0.85 0.540, against 0.542 / 0.539 on its e51 base
