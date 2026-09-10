@@ -22,11 +22,19 @@ KEYS=${KEYS:-$DV/train_v14/mech/benchmarks/data/unsolved_${CN}.txt}
 K=${K:-32}
 C=$DV/train_v14/mech/benchmarks/data/$CN
 source $DV/.venv/bin/activate; source $DV/train_v14/env.sh
-export OPENBLAS_NUM_THREADS=1 DRAWING_VLM_TRACES_JSON=$C/traces_v14.json DRAWING_VLM_EVAL_CACHE=$C/eval_cache_v14.pkl
+# e55's config is data_version 2, so the eval scripts read EVAL_CACHE_V15 (pool "certified")
+# and gt_meshes_v15 next to EVAL_CACHE -- both must point INSIDE the corpus.
+export OPENBLAS_NUM_THREADS=1 DRAWING_VLM_TRACES_JSON=$C/traces_v14.json \
+  DRAWING_VLM_EVAL_CACHE=$C/eval_cache_v14.pkl DRAWING_VLM_EVAL_CACHE_V15=$C/eval_cache_v15.pkl
 mkdir -p $C/results $C/logs
+# Stage the weights once: 8 workers reading runs/$R/final off Lustre took ~1 h under contention.
+SHM=/dev/shm/bimrose2_sd_${SLURM_JOB_ID:-$$}; trap 'rm -rf $SHM' EXIT
+CK=$DV/runs/$R/final
+if mkdir -p $SHM && cp -r $CK $SHM/base; then CK=$SHM/base; echo "$(date) staged weights -> $CK";
+else echo "$(date) staging failed, loading from Lustre"; rm -rf $SHM; SHM=""; fi
 for i in 0 1 2 3 4 5 6 7; do
   CUDA_VISIBLE_DEVICES=$i python $DV/train_v14/geom/bestofn_verifier_eval.py \
-    --ckpt $DV/runs/$R/final --kind hf --run $R --verifier "" --n 0 --k $K --keys $KEYS \
+    --ckpt $CK --kind hf --run $R --verifier "" --n 0 --k $K --keys $KEYS \
     --temperature 0.7 --batch 16 --shard $i --nshards 8 \
     --out $C/results/bo${K}_${CN}_$R.shard$i.json > $C/logs/bo${K}_$R.shard$i.log 2>&1 &
 done
