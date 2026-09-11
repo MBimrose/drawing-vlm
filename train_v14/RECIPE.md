@@ -1255,11 +1255,29 @@ e55 on the 146-part bench (`bo32_ext_e55-rft-real-u5-gt-dw423_adaptive_summary.t
 the same finding as the agreement scatter (deck sheet 12) seen from the cost side: real parts
 rarely agree. The middle stop is the value: **8->16 buys 78% of the K=8 -> K=32 gain for 46% of
 its cost**, and the three-stage ladder adds nothing over it (4 of 146 parts stop at 16).
-Lowering the escalation gate trades along a smooth frontier (gate 0.65: 0.556 at 21.2 draws;
 0.55: 0.553 at 18.5) — `--gates` sweeps it. In-distribution only 201 of 1,027 parts (19.6%)
-would escalate, so the same policy is nearly free there; K=32 on exactly those parts is running
-(`escalate_keys_e55_fullpool.txt`, TAG=bo32_esc) to see whether escalation pays in-distribution
-at all.
+would escalate, and **escalation does pay there**. K=32 was run on exactly those 201 parts
+(`escalate_keys_e55_fullpool.txt`, TAG=bo32_esc); within that single run the budget curve is
+
+| budget | first-exec | vote | >=0.85 | ceiling | still escalating |
+|---|---|---|---|---|---|
+| K=8 | 0.593 | 0.618 | 36% | 0.674 | 73% |
+| K=16 | 0.620 | 0.650 | 39% | 0.725 | 68% |
+| K=32 | 0.632 | 0.673 | 41% | 0.753 | 71% |
+
+so 8 -> 32 buys **+0.055 on the escalated fifth of the pool = +0.011 overall**, at 12.7 draws per
+part on average (1.6x flat K=8). Same shape as the real bench: even at K=32 about 70% of these
+parts still miss the gate, so there is no second stopping point.
+
+**Do not compare draw budgets across separate generation runs.** The first cut of this compared
+the K=32 run with the K=8 full-pool run on the same 201 keys and produced the impossible result
+that 32 draws scored BELOW 8 (vote 0.673 vs 0.717, ceiling 0.753 vs 0.788). They are independent
+generations: the K=32 run's own first-8 ceiling is 0.674 against the full pool's 0.788 on the
+same parts, with execution 64.3% vs 72.7% and 31 vs 15 parts with no executing candidate. Batch
+composition differs (25 hard parts per shard here vs ~134 mixed parts there) and greedy draw 0 is
+deterministic only for a fixed batch. On a hard subset that is a 0.11 swing in the ceiling, far
+above the ±0.04 single-shot noise already in the notebook. Every K-comparison must come from ONE
+candidate file — `adaptive_k.py` enforces that by construction.
 
 ## RFT base re-packed on the recovered sheets (2026-09-10)
 
