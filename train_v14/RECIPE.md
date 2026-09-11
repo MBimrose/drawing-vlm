@@ -1257,17 +1257,24 @@ rarely agree. The middle stop is the value: **8->16 buys 78% of the K=8 -> K=32 
 its cost**, and the three-stage ladder adds nothing over it (4 of 146 parts stop at 16).
 0.55: 0.553 at 18.5) — `--gates` sweeps it. In-distribution only 201 of 1,027 parts (19.6%)
 would escalate, and **escalation does pay there**. K=32 was run on exactly those 201 parts
-(`escalate_keys_e55_fullpool.txt`, TAG=bo32_esc). Policies that read only the candidates file
-(`gated_esc.sbatch` preds; first-exec, verifier, ceiling) on those 201 parts at K=32:
+(`escalate_keys_e55_fullpool.txt`, TAG=bo32_esc), and re-scored after repairing its pairwise
+matrix (see below). Budget curve, every row from that ONE candidate file:
 
-| policy at K=32 | mean | median | >=0.85 | >=0.5 |
-|---|---|---|---|---|
-| first-exec | 0.737 | 0.788 | 38% | 84% |
-| verifier (expected-IoU argmax) | 0.795 | 0.846 | 50% | 92% |
-| ceiling | 0.895 | 0.953 | 76% | 97% |
+| budget | first-exec | vote | verifier | gate0.85 | >=0.85 | ceiling | draws/part |
+|---|---|---|---|---|---|---|---|
+| K=8 | 0.737 | 0.761 | 0.762 | 0.764 | 44% | 0.829 | 8.0 |
+| K=16 | — | 0.788 | 0.787 | 0.791 | 49% | 0.877 | 16.0 |
+| K=32 | 0.737 | 0.798 | 0.795 | 0.799 | 54% | 0.895 | 32.0 |
+| adaptive 8->16 | — | — | — | 0.794 | 49% | — | 13.5 |
+| adaptive 8->32 | — | — | — | **0.801** | 52% | — | 24.5 |
 
-So on the fifth of the pool the gate sends to the verifier, 32 draws leave the verifier 0.10 short
-of the ceiling. The **vote and gate columns of this file are not yet measurable** -- see below.
+8 -> 32 draws is worth **+0.035 on the escalated fifth = +0.007 over the whole pool**, and the
+adaptive policy reaches it in 24.5 draws instead of 32 — beating fixed K=32 outright, because the
+gate stops early on the 31% that resolve by K=16. In production that is 11.1 draws per part over
+the pool, 1.4x the compute of flat K=8, for +0.007 in-distribution, against +0.028 for 8->16 on
+real parts. **Escalation earns its keep on real parts, not here.** Note too that by K=32 vote,
+verifier and gate have converged (0.798 / 0.795 / 0.799): more draws make the vote healthy again,
+the opposite of the real-part picture.
 
 **Never read exec/iou out of a `_consistency.json`, and check its re-execution count before
 trusting its `pair_iou`.** `consistency_rerank.py` RE-EXECUTES every candidate to build the STLs
@@ -1280,16 +1287,18 @@ for the pairwise matrix; it writes `exec` as `bool(c["stl"])` from that second r
 |---|---|---|---|
 | `bo32_ext_e55` (real bench) | 3,587 | 3,586 | 1 |
 | `bo8_full_e55` (full pool) | 7,191 | 7,191 | 0 |
-| `bo32_esc` (ran beside two saturating jobs) | 5,061 | 4,137 | **924 (18%)** |
+| `bo32_esc`, run beside two saturating jobs | 5,061 | 4,137 | **924 (18%)** |
+| `bo32_esc`, repeated on an idle node | 5,061 | **5,061** | 0 |
 
-The real-bench and full-pool files are clean, so the adaptive table above and every published
-vote/gated number stand. `bo32_esc` is not: 18% of its candidates have no agreement row, which
-depresses every medoid score, inflates the escalation rate and makes the vote unreliable — its
-consistency step must be re-run on a quiet node (the verifier preds are cached, so only
-`consistency_rerank.py` + `gated_select.py` need to repeat). Two wrong readings came out of this
-before it was traced: a first cut of this entry computing iou/exec straight from the consistency
-file (vote 0.618 / 0.650 / 0.673 at K=8/16/32, all understated, with a ceiling of 0.753 against
-the true 0.895), and the impossible conclusion that K=32 scored below K=8.
+Contention was the whole story — the same file on an idle node loses nothing
+(`recheck_consistency.sh` + `.sbatch`, which reuse the cached verifier preds and warn if loss
+recurs). The degradation cost the vote 0.016 (0.782 -> 0.798) and 7 points of escalation rate
+(27% -> 34% voting), while the verifier column, the one policy that never touches the matrix,
+came back byte-identical at 0.795 — which is how the diagnosis was confirmed. Three wrong
+readings came out of the degraded file before it was traced: iou/exec taken straight from the
+consistency file (vote 0.618 / 0.650 / 0.673 at K=8/16/32, ceiling 0.753 against the true 0.895),
+the impossible conclusion that K=32 scored below K=8, and a +0.055 escalation gain that is really
++0.035.
 
 ## RFT base re-packed on the recovered sheets (2026-09-10)
 
