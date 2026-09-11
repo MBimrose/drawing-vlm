@@ -1257,30 +1257,39 @@ rarely agree. The middle stop is the value: **8->16 buys 78% of the K=8 -> K=32 
 its cost**, and the three-stage ladder adds nothing over it (4 of 146 parts stop at 16).
 0.55: 0.553 at 18.5) — `--gates` sweeps it. In-distribution only 201 of 1,027 parts (19.6%)
 would escalate, and **escalation does pay there**. K=32 was run on exactly those 201 parts
-(`escalate_keys_e55_fullpool.txt`, TAG=bo32_esc). Scored the deployed way (gated_select on the
-candidates file, verifier preds from `gated_esc.sbatch`):
+(`escalate_keys_e55_fullpool.txt`, TAG=bo32_esc). Policies that read only the candidates file
+(`gated_esc.sbatch` preds; first-exec, verifier, ceiling) on those 201 parts at K=32:
 
 | policy at K=32 | mean | median | >=0.85 | >=0.5 |
 |---|---|---|---|---|
 | first-exec | 0.737 | 0.788 | 38% | 84% |
-| vote | 0.782 | 0.829 | 46% | 91% |
-| verifier | 0.795 | 0.846 | 50% | 92% |
-| gate0.85 | 0.795 | 0.855 | 51% | 91% |
+| verifier (expected-IoU argmax) | 0.795 | 0.846 | 50% | 92% |
 | ceiling | 0.895 | 0.953 | 76% | 97% |
 
-Even at K=32 the gate still votes on only 27% of these parts, so they stay unsure however many
-draws they get -- the in-distribution face of the same picture as the real bench.
+So on the fifth of the pool the gate sends to the verifier, 32 draws leave the verifier 0.10 short
+of the ceiling. The **vote and gate columns of this file are not yet measurable** -- see below.
 
-**Never read exec/iou out of a `_consistency.json`.** `consistency_rerank.py` RE-EXECUTES every
-candidate to build the STLs it needs for the pairwise matrix, and writes `exec` as
-`bool(c["stl"])` from that second run while leaving `iou` at the original value. Under load the
-re-run times out: on this file it recorded 4,137 of 6,432 candidates executing (64.3%) where the
-generation run had far more, which silently drags any ceiling computed from it (0.753 vs the true
-0.895) and makes a bigger budget look worse than a smaller one. `iou` and `exec` are only
-trustworthy in the CANDIDATES file; the consistency file is the source for `pair_iou` and nothing
-else. `gated_select.py` and `adaptive_k.py` are both written that way -- the real-bench adaptive
-table above is unaffected -- but an ad-hoc pass over the consistency file is not, and produced a
-wrong first cut of this entry (vote 0.618 / 0.650 / 0.673 at K=8/16/32, all understated).
+**Never read exec/iou out of a `_consistency.json`, and check its re-execution count before
+trusting its `pair_iou`.** `consistency_rerank.py` RE-EXECUTES every candidate to build the STLs
+for the pairwise matrix; it writes `exec` as `bool(c["stl"])` from that second run while leaving
+`iou` at the original value, and a candidate whose re-run fails gets an all-None row in
+`pair_iou`. Under load the re-run times out en masse. Compare `"n_exec"` in the merge log with
+`[cons] re-executed N` in the consistency log:
+
+| file | executed at generation | re-executed | lost |
+|---|---|---|---|
+| `bo32_ext_e55` (real bench) | 3,587 | 3,586 | 1 |
+| `bo8_full_e55` (full pool) | 7,191 | 7,191 | 0 |
+| `bo32_esc` (ran beside two saturating jobs) | 5,061 | 4,137 | **924 (18%)** |
+
+The real-bench and full-pool files are clean, so the adaptive table above and every published
+vote/gated number stand. `bo32_esc` is not: 18% of its candidates have no agreement row, which
+depresses every medoid score, inflates the escalation rate and makes the vote unreliable — its
+consistency step must be re-run on a quiet node (the verifier preds are cached, so only
+`consistency_rerank.py` + `gated_select.py` need to repeat). Two wrong readings came out of this
+before it was traced: a first cut of this entry computing iou/exec straight from the consistency
+file (vote 0.618 / 0.650 / 0.673 at K=8/16/32, all understated, with a ceiling of 0.753 against
+the true 0.895), and the impossible conclusion that K=32 scored below K=8.
 
 ## RFT base re-packed on the recovered sheets (2026-09-10)
 
