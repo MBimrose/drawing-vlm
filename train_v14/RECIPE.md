@@ -1340,3 +1340,36 @@ tens of minutes and holding a worker thread the entire time. Fix the tail, not t
 Build timeouts also dropped 120 s -> 60 s (`--exec-timeout`); half the budget was going to
 failures sitting at the old limit. Together: **0.05 -> 2.11 candidates/s, 204 h -> 4.6 h.**
 Budget a K=32 real-part pass accordingly: scoring is the expensive half, not generation.
+
+## Self-distilled real-part tier (2026-09-11)
+
+The tiers of rounds 1-5 were built at K=8: a part enters only if one of 8 draws verifies, so they
+teach the parts the model already finds and saturate near 1,000 parts. The ceiling keeps rising
+with K (e55 real bench: vote 0.539 but oracle 0.646 at K=32), so the parts solvable ONLY at 32
+draws are the ones no tier has taught — and the winning draw carries the model's OWN think trace,
+which is exactly what e54 (empty think) and e56 (base-model plans) lacked.
+
+**Pass.** e55, K=32, T=0.7, over the 2,188 corpus keys still unsolved after rounds 1-5, on 0.4.23
+sheets (`selfdistill_k32.sh` / `.sbatch`, `--keys` added to `bestofn_verifier_eval.py`).
+70,016 candidates; generation ~14 h on two nodes, scoring 4.6 h on two more (see the scoring
+entry above — it is the expensive half).
+
+| corpus | parts | newly solved | rate | accepted rows | exec | iou timeouts |
+|---|---|---|---|---|---|---|
+| rft_corpus_dw423 | 1,117 | 115 | 10.3% | 1,049 | 69-77% | 206 (0.58%) |
+| rft_corpus2_dw423 | 1,071 | 251 | 23.4% | 3,653 | 75-84% | 217 (0.63%) |
+
+By family the split is wide: Fusion 360 15.6% and ABC 6.2% in corpus 1, the corpus-2 hard tier
+25.2%. De-duplicating on (key, code) — the model re-emits the same program across draws — leaves
+**2,061 distinct accepted programs over 366 parts, every one with a think trace**
+(`rft_selfdistill_all`, 2 shards; `build_selfdistill_tier.sh` merges, packs and builds the mix).
+
+**e57** = the e55 recipe with the re-packed base (`rft_strict90_all_dw423b`) and this tier in
+place of the shelved ABC ground-truth tier, upweighted x8 — the SAME weighting e56 gave its
+702-row borrowed-reasoning tier, so the two runs differ in the source of the reasoning and not in
+how hard the tier is sampled. Mix `rft_mix_u7_sd_dw423` = 118 shards (77 base, 25 union5 x5,
+16 self-distilled x8). Job 10481274. Judged like e55/e56: old bench, permissive 0.4.23 bench,
+new-style full pool, and the ABC-corpus slices. The question is whether real-part reasoning the
+model produced ITSELF transfers to parts it has never solved — the one form of the
+ground-truth idea e56 did not rule out. Prior expectation is modest: 366 parts is +19% on
+union5's 1,960, so a real-bench gain inside +-0.02 would be within single-run noise.
