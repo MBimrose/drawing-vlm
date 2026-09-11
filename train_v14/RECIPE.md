@@ -1297,3 +1297,32 @@ the true 0.895), and the impossible conclusion that K=32 scored below K=8.
 **153,567 rows in 77 shards, 653 keys unfound** (was 152,780 / 1,065 — the second retry pass
 recovered 787 rows). Packed to `rft_strict90_all_dw423b/` on both hosts so e55's inputs stay
 byte-identical; the next training mix uses `b`.
+
+## Scoring a K=32 real-part pass costs more than generating it (2026-09-11)
+
+The self-distillation pass (below) generated 70,016 candidates over 2,188 real parts in ~14 h on
+two nodes, then its execute-and-score phase ran 7 h and finished 681 of 35,744 on one corpus.
+Three things were wrong, and only the first was obvious:
+
+1. **`bestofn_verifier_eval.py` checkpoints generation but not scoring.** A walltime kill in that
+   phase throws away every draw. `train_v14/geom/score_partials.py` re-runs just that phase from
+   the `.partial.json` checkpoints, appending each result to `<out>.scored.jsonl` so it resumes
+   freely, and writes a candidates file the rest of the chain accepts unchanged.
+2. **The cost is the overlap, not the build.** On real-part geometry both boolean engines fail
+   often and `iou.py` falls back to ray-parity Monte Carlo whose cost scales with face count:
+   measured 143 s and 251 s for single 20k-face pairs (the module's own note records 56 min for
+   a 1.13M-face candidate). Python threads cannot be interrupted, so each overlap now runs in a
+   subprocess (`iou_once.py`) with a wall-clock budget (`--iou-timeout`, default 90 s); a pair
+   that exceeds it scores 0. That is a REJECTION ON COST, not on measured geometry — it is
+   flagged per candidate (`iou_timeout`) and counted at the end, and it is defensible only
+   because a mesh that defeats both engines and the sampler is not one to train on.
+3. **A free exact short-circuit exists but rarely fires.** IoU <= min(vA,vB)/max(vA,vB), so a
+   volume ratio below the acceptance threshold settles the accept/reject decision without any
+   boolean (`--accept`, flagged `iou_bound`). Validated on 40 rebuilt candidates: no violation,
+   0.2 s against 470 s for the true overlaps — but it fired on **none** of them, because volume
+   is only trustworthy for a watertight mesh and the expensive cases are exactly the leaky ones.
+   Keep it (it is free) but do not count on it.
+
+Build timeouts also dropped 120 s -> 60 s (`--exec-timeout`); half the budget was going to
+failures sitting at the old limit. Together: **0.05 -> 2.11 candidates/s, 204 h -> 4.6 h.**
+Budget a K=32 real-part pass accordingly: scoring is the expensive half, not generation.
