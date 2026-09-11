@@ -1,0 +1,83 @@
+{
+ "inputs": [
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/serve_smoke_in/A_00917205_6ea2b58c4e07877eb99f90d1_step_001_medium_v2.png",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/serve_smoke_in/A_00919021_4a063d7bd94d09ffbb129859_step_001_medium_v4.png",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/serve_smoke_in/A_00922818_611a88896e870be2752739bc_step_000_medium_v4.png",
+  "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/serve_smoke_in/A_00923320_fdc86516ce309a8f7594d2e3_step_000_medium_v4.png"
+ ],
+ "ckpt": "/dev/shm/bimrose2_10464665/base",
+ "verifier": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/v3b-verifier-real-reg/final",
+ "k": 8,
+ "gate": 0.85,
+ "results": [
+  {
+   "stem": "A_00917205_6ea2b58c4e07877eb99f90d1_step_001_medium_v2",
+   "policy": "verifier",
+   "chosen": 3,
+   "n_exec": 5,
+   "agree_medoid": 0.37517500000000004,
+   "medoid": 4,
+   "verifier_argmax": 3,
+   "verifier_scores": {
+    "0": 0.09417376305739272,
+    "3": 0.4770456249683885,
+    "4": 0.42935831976223465,
+    "6": 0.23462522967893307,
+    "7": 0.37700994382855096
+   }
+  },
+  {
+   "stem": "A_00919021_4a063d7bd94d09ffbb129859_step_001_medium_v4",
+   "policy": "verifier",
+   "chosen": 6,
+   "n_exec": 5,
+   "agree_medoid": 0.55685,
+   "medoid": 3,
+   "verifier_argmax": 6,
+   "verifier_scores": {
+    "1": 0.3868974391005237,
+    "3": 0.32489791340719104,
+    "4": 0.2918057262830207,
+    "6": 0.5642092556161609,
+    "7": 0.4282803293169923
+   }
+  },
+  {
+   "stem": "A_00922818_611a88896e870be2752739bc_step_000_medium_v4",
+   "policy": "verifier",
+   "chosen": 5,
+   "n_exec": 7,
+   "agree_medoid": 0.7035,
+   "medoid": 0,
+   "verifier_argmax": 5,
+   "verifier_scores": {
+    "0": 0.37219118284643077,
+    "1": 0.39241119965969773,
+    "2": 0.3590640152349997,
+    "3": 0.35039952943100316,
+    "4": 0.27336952785612423,
+    "5": 0.43755475696943813,
+    "7": 0.3497451410479687
+   }
+  },
+  {
+   "stem": "A_00923320_fdc86516ce309a8f7594d2e3_step_000_medium_v4",
+   "policy": "verifier",
+   "chosen": 4,
+   "n_exec": 8,
+   "agree_medoid": 0.8165285714285714,
+   "medoid": 6,
+   "verifier_argmax": 4,
+   "verifier_scores": {
+    "0": 0.7216930064392345,
+    "1": 0.6713638365026429,
+    "2": 0.5945437829926634,
+    "3": 0.6475755424171459,
+    "4": 0.7462711646807978,
+    "5": 0.673900096863004,
+    "6": 0.49813997082736067,
+    "7": 0.48965576060952026
+   }
+  }
+ ]
+}

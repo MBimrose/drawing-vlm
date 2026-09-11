@@ -1,0 +1,187 @@
+{
+ "input": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/serve_smoke_in/A_00922818_611a88896e870be2752739bc_step_000_medium_v4.png",
+ "run": "e55-rft-real-u5-gt-dw423",
+ "ckpt": "/dev/shm/bimrose2_10464665/base",
+ "verifier": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/v3b-verifier-real-reg/final",
+ "k": 8,
+ "temperature": 0.7,
+ "top_p": 0.95,
+ "gate": 0.85,
+ "n_exec": 7,
+ "pair_iou": [
+  [
+   null,
+   0.7693,
+   0.7764,
+   0.9886,
+   0.6969,
+   0.6841,
+   null,
+   0.3057
+  ],
+  [
+   0.7693,
+   null,
+   0.6207,
+   0.7639,
+   0.6328,
+   0.6475,
+   null,
+   0.3449
+  ],
+  [
+   0.7764,
+   0.6207,
+   null,
+   0.7673,
+   0.7005,
+   0.5028,
+   null,
+   0.3458
+  ],
+  [
+   0.9886,
+   0.7639,
+   0.7673,
+   null,
+   0.6979,
+   0.6903,
+   null,
+   0.3085
+  ],
+  [
+   0.6969,
+   0.6328,
+   0.7005,
+   0.6979,
+   null,
+   0.6017,
+   null,
+   0.3772
+  ],
+  [
+   0.6841,
+   0.6475,
+   0.5028,
+   0.6903,
+   0.6017,
+   null,
+   null,
+   0.4065
+  ],
+  [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   0.3057,
+   0.3449,
+   0.3458,
+   0.3085,
+   0.3772,
+   0.4065,
+   null,
+   null
+  ]
+ ],
+ "medoid": 0,
+ "agree_medoid": 0.7035,
+ "verifier_argmax": 5,
+ "policy": "verifier",
+ "chosen": 5,
+ "timing": {
+  "load_s": 86.35412287712097,
+  "gen_s_all": 338.09149980545044,
+  "exec_s_all": 122.7188367843628,
+  "pair_iou_s": 0.3793776035308838,
+  "verifier_s": 2.809502601623535
+ },
+ "candidates": [
+  {
+   "draw": 0,
+   "sampled": false,
+   "code": "from build123d import *\n\nplate_length = 80.0\nplate_width = 35.0\nplate_thickness = 8.0\ncorner_radius = 10.0\ncentral_cutout_width = 30.0\ncentral_cutout_height = 20.0\nhole_diameter = 3.4\nhole_spacing = 6.0\nhole_rows = 2\nhole_cols = 2\nhole_offset_x = -plate_length/2 + 10.0\nhole_offset_y = 0.0\nslot_width = 4.0\nslot_length = 12.0\nslot_offset_x = plate_length/2 - 10.0\nslot_offset_y = 0.0\nchamfer_distance = 0.5\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as sk:\n        RectangleRounded(plate_length, plate_width, corner_radius)\n    extrude(amount=plate_thickness)\n\nsolid_body = p.part\nsolid_body = chamfer(solid_body.edges(), chamfer_distance)\n\ncutout = Pos(0, plate_thickness/2, 0) * Box(central_cutout_width, plate_thickness, central_cutout_height)\nsolid_body = solid_body - cutout\n\nfor i in range(hole_cols):\n    for j in range(hole_rows):\n        x = hole_offset_x + (i - (hole_cols-1)/2) * hole_spacing\n        z = hole_offset_y + (j - (hole_rows-1)/2) * hole_spacing\n        hole = Pos(x, plate_thickness/2, z) * Rot(90, 0, 0) * Cylinder(hole_diameter/2, plate_thickness)\n        solid_body = solid_body - hole\n\nslot1 = Pos(slot_offset_x, plate_thickness/2, slot_offset_y) * Box(slot_width, plate_thickness, slot_length)\nsolid_body = solid_body - slot1\n\nslot2 = Pos(slot_offset_x, plate_thickness/2, slot_offset_y) * Box(slot_length, plate_thickness, slot_width)\nsolid_body = solid_body - slot2\n\npart = solid_body\npart.name = \"plate_with_cutouts\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.7035,
+   "verifier": 0.37219118284643077
+  },
+  {
+   "draw": 1,
+   "sampled": true,
+   "code": "from build123d import *\n\nplate_length = 80.0\nplate_width = 35.0\nplate_thickness = 7.0\ncorner_radius = 10.0\npocket_length = 40.0\npocket_width = 20.0\npocket_depth = 3.0\nhole_diameter = 3.0\nhole_clearance = 0.2\nhole_spacing = 12.0\ncross_slot_width = 4.0\ncross_slot_length = 15.0\nrib_height = 2.0\nrib_width = 5.0\nrib_length = 20.0\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as sk:\n        RectangleRounded(plate_length, plate_width, corner_radius)\n    extrude(amount=plate_thickness)\n\nsolid_body = p.part\n\npocket = Pos(0, plate_thickness/2, 0) * Box(pocket_length, pocket_depth, pocket_width)\nsolid_body = solid_body - pocket\n\nhole_r = (hole_diameter + hole_clearance) / 2\nfor dx in [-hole_spacing/2, hole_spacing/2]:\n    for dz in [-hole_spacing/2, hole_spacing/2]:\n        hole = Pos(-plate_length/2 + hole_spacing, plate_thickness/2, dz) * Rot(90, 0, 0) * Cylinder(hole_r, plate_thickness)\n        solid_body = solid_body - hole\n\nslot1 = Pos(plate_length/2 - cross_slot_length/2, plate_thickness/2, 0) * Box(cross_slot_length, plate_thickness, cross_slot_width)\nsolid_body = solid_body - slot1\nslot2 = Pos(plate_length/2 - cross_slot_length/2, plate_thickness/2, 0) * Box(cross_slot_width, plate_thickness, cross_slot_length)\nsolid_body = solid_body - slot2\n\nrib = Pos(0, rib_height/2, 0) * Box(rib_length, rib_height, rib_width)\nsolid_body = solid_body + rib\n\npart = solid_body\npart.name = \"plate_with_pocket_holes_slots_rib\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.62985,
+   "verifier": 0.39241119965969773
+  },
+  {
+   "draw": 2,
+   "sampled": true,
+   "code": "from build123d import *\n\nwidth = 80.0\nheight = 35.0\nthickness = 8.0\ncorner_radius = 10.0\npocket_width = 30.0\npocket_height = 20.0\npocket_depth = thickness - 1.0\nhole_diameter = 3.4\nhole_spacing_x = 6.5\nhole_spacing_y = 6.5\nhole_rows = 2\nhole_cols = 2\nhole_offset_x = -width/2 + 12.0\nhole_offset_y = -height/2 + 12.0\nchamfer_size = 0.5\nslot_width = 12.0\nslot_thickness = 2.0\nslot_offset_x = width/2 - 10.0\n\nsolid_body = Box(width, thickness, height)\nsolid_body = fillet(solid_body.edges().filter_by(Axis.Y), corner_radius)\nsolid_body = chamfer(solid_body.edges(), chamfer_size)\n\npocket = Pos(0, thickness/2 - pocket_depth/2, 0) * Box(pocket_width, pocket_depth, pocket_height)\nsolid_body = solid_body - pocket\n\nfor i in range(hole_cols):\n    for j in range(hole_rows):\n        x = hole_offset_x + (i - (hole_cols-1)/2) * hole_spacing_x\n        z = hole_offset_y + (j - (hole_rows-1)/2) * hole_spacing_y\n        hole = Pos(x, 0, z) * Rot(90, 0, 0) * Cylinder(hole_diameter/2, thickness + 2)\n        solid_body = solid_body - hole\n\nslot1 = Pos(slot_offset_x, 0, 0) * Box(slot_thickness, thickness, slot_width)\nslot2 = Pos(slot_offset_x, 0, 0) * Box(slot_width, thickness, slot_thickness)\nsolid_body = solid_body - slot1 - slot2\n\npart = solid_body\npart.name = \"plate_with_pocket_holes_slots\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.6189166666666667,
+   "verifier": 0.3590640152349997
+  },
+  {
+   "draw": 3,
+   "sampled": true,
+   "code": "from build123d import *\n\nplate_length = 80.0\nplate_width = 35.0\nplate_thickness = 8.0\ncorner_radius = 10.0\npocket_length = 30.0\npocket_width = 20.0\npocket_depth = 5.0\nhole_diameter = 3.4\nhole_spacing = 6.0\nhole_rows = 2\nhole_cols = 2\nhole_offset_x = -plate_length/2 + 10.0\nhole_offset_y = 0.0\nslot_length = 12.0\nslot_width = 5.0\nslot_offset_x = plate_length/2 - 10.0\nslot_offset_y = 0.0\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as sk:\n        RectangleRounded(plate_length, plate_width, corner_radius)\n    extrude(amount=plate_thickness)\n\nsolid_body = p.part\n\npocket = Pos(0, plate_thickness/2, 0) * Box(pocket_length, pocket_depth, pocket_width)\nsolid_body = solid_body - pocket\n\nfor i in range(hole_cols):\n    for j in range(hole_rows):\n        x = hole_offset_x + (i - (hole_cols-1)/2) * hole_spacing\n        z = hole_offset_y + (j - (hole_rows-1)/2) * hole_spacing\n        hole = Pos(x, plate_thickness/2, z) * Rot(90, 0, 0) * Cylinder(hole_diameter/2, plate_thickness + 1)\n        solid_body = solid_body - hole\n\nslot1 = Pos(slot_offset_x, plate_thickness/2, 0) * Box(slot_width, plate_thickness + 1, slot_length)\nsolid_body = solid_body - slot1\n\nslot2 = Pos(slot_offset_x, plate_thickness/2, 0) * Box(slot_length, plate_thickness + 1, slot_width)\nsolid_body = solid_body - slot2\n\nbottom_face = solid_body.faces().sort_by(Axis.Y)[0]\nbottom_edges = bottom_face.edges()\nsolid_body = fillet(bottom_edges, 2.0)\n\npart = solid_body\npart.name = \"plate_with_pocket_holes_slots\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.70275,
+   "verifier": 0.35039952943100316
+  },
+  {
+   "draw": 4,
+   "sampled": true,
+   "code": "from build123d import *\n\nplate_length = 80.0\nplate_width = 35.0\nplate_thickness = 7.0\ncorner_radius = 10.0\npocket_length = 40.0\npocket_width = 20.0\npocket_depth = 4.0\ncross_slot_width = 5.0\ncross_slot_length = 15.0\nhole_diameter = 3.4\nhole_spacing = 12.0\nhole_rows = 2\nhole_cols = 2\nchamfer_distance = 0.5\nrib_height = 2.0\nrib_width = 5.0\nrib_length = 60.0\n\nsolid_body = Box(plate_length, plate_thickness, plate_width)\nsolid_body = fillet(solid_body.edges().filter_by(Axis.Y), corner_radius)\n\npocket = Pos(0, plate_thickness/2 - pocket_depth/2, 0) * Box(pocket_length, pocket_depth, pocket_width)\nsolid_body = solid_body - pocket\n\ncross_slot = Pos(plate_length/2 - cross_slot_length/2 - 5, 0, 0) * Box(cross_slot_width, plate_thickness, cross_slot_length)\nsolid_body = solid_body - cross_slot\n\nfor i in range(hole_cols):\n    for j in range(hole_rows):\n        x = -plate_length/2 + hole_spacing + (i - (hole_cols-1)/2) * hole_spacing\n        z = -plate_width/2 + hole_spacing + (j - (hole_rows-1)/2) * hole_spacing\n        hole = Pos(x, 0, z) * Rot(90, 0, 0) * Cylinder(hole_diameter/2, plate_thickness)\n        solid_body = solid_body - hole\n\nrib = Pos(0, -plate_thickness/2 + rib_height/2, 0) * Box(rib_length, rib_height, rib_width)\nsolid_body = solid_body + rib\n\nsolid_body = chamfer(solid_body.edges().filter_by(Axis.Y), chamfer_distance)\n\npart = solid_body\npart.name = \"plate_with_pocket_cross_holes_rib\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.6178333333333333,
+   "verifier": 0.27336952785612423
+  },
+  {
+   "draw": 5,
+   "sampled": true,
+   "code": "from build123d import *\n\nbracket_length = 80.0\nbracket_height = 35.0\nbracket_thickness = 8.0\nwall_thickness = 0.8\nfillet_radius = 3.0\nhole_diameter = 3.4\nhole_spacing = 12.0\nhole_rows = 2\nhole_cols = 2\nhole_offset_x = 15.0\nhole_offset_y = 10.0\npocket_width = 30.0\npocket_height = 20.0\npocket_depth = 2.0\nslot_width = 6.0\nslot_length = 20.0\nslot_offset_x = 10.0\n\nwith BuildPart() as p:\n    with BuildSketch(Plane.XZ) as sk:\n        with BuildLine() as bl:\n            l1 = Line((-bracket_length/2 + bracket_height/2, -bracket_height/2),\n                       (bracket_length/2 - bracket_height/2, -bracket_height/2))\n            a1 = ThreePointArc(l1 @ 1, (bracket_length/2, 0),\n                               (bracket_length/2 - bracket_height/2, bracket_height/2))\n            l2 = Line(a1 @ 1, (-bracket_length/2 + bracket_height/2, bracket_height/2))\n            a2 = ThreePointArc(l2 @ 1, (-bracket_length/2, 0),\n                               (-bracket_length/2 + bracket_height/2, -bracket_height/2))\n        make_face()\n    extrude(amount=bracket_thickness)\n\nsolid_body = p.part\nsolid_body = fillet(solid_body.edges(), fillet_radius)\nsolid_body = offset(solid_body, amount=-wall_thickness)\n\npocket = Pos(0, bracket_thickness - pocket_depth/2, 0) * Box(pocket_width, pocket_depth, pocket_height)\nsolid_body = solid_body - pocket\n\nslot = Pos(bracket_length/2 - slot_offset_x, bracket_thickness/2, 0) * Box(slot_width, bracket_thickness, slot_length)\nsolid_body = solid_body - slot\n\nfor i in range(hole_cols):\n    for j in range(hole_rows):\n        hx = -bracket_length/2 + hole_offset_x + (i - (hole_cols-1)/2) * hole_spacing\n        hz = -bracket_height/2 + hole_offset_y + (j - (hole_rows-1)/2) * hole_spacing\n        hole = Pos(hx, bracket_thickness/2, hz) * Rot(90, 0, 0) * Cylinder(hole_diameter/2, bracket_thickness)\n        solid_body = solid_body - hole\n\npart = solid_body\npart.name = \"bracket\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.5888166666666667,
+   "verifier": 0.43755475696943813
+  },
+  {
+   "draw": 6,
+   "sampled": true,
+   "code": "from build123d import *\n\njaw_length = 80.0\njaw_width = 35.0\njaw_thickness = 8.0\nwall_thickness = 1.0\nfillet_radius = 10.0\nchamfer_distance = 1.0\nhole_diameter = 3.4\nhole_spacing_x = 12.0\nhole_spacing_y = 12.0\nhole_rows = 2\nhole_cols = 3\nrib_width = 6.0\nrib_height = 4.0\nrib_offset = 10.0\npocket_width = 30.0\npocket_height = 20.0\npocket_depth = 5.0\n\nsolid_body = Box(jaw_length, jaw_thickness, jaw_width)\nsolid_body = fillet(solid_body.edges().filter_by(Axis.Y), fillet_radius)\nsolid_body = offset(solid_body, amount=-wall_thickness)\n\nrib = Pos(jaw_length/2 - rib_offset, jaw_thickness/2 - rib_height/2, 0) * Box(rib_width, rib_height, rib_height)\nsolid_body = solid_body + rib\n\npocket = Pos(0, jaw_thickness/2 - pocket_depth/2, 0) * Box(pocket_width, pocket_depth, pocket_height)\nsolid_body = solid_body - pocket\n\nfor i in range(hole_cols):\n    for j in range(hole_rows):\n        x = -jaw_length/2 + hole_spacing_x + i * hole_spacing_x\n        z = -jaw_width/2 + hole_spacing_y + j * hole_spacing_y\n        hole = Pos(x, 0, z) * Rot(90, 0, 0) * Cylinder(hole_diameter/2, jaw_thickness + 10)\n        solid_body = solid_body - hole\n\ntop_face = solid_body.faces().sort_by(Axis.Y)[-1]\nsolid_body = chamfer(top_face.edges(), chamfer_distance)\n\npart = solid_body\npart.name = \"jaw_with_rib_pocket_holes\"\nexport_step(part, \"output.step\")",
+   "exec": false,
+   "rc": 2,
+   "stderr_tail": "/drawing_vlm/.venv/lib/python3.12/site-packages/build123d/topology/three_d.py\", line 283, in chamfer\n    new_shape = self._make_3d_result(chamfer_builder.Shape())\n                                     ^^^^^^^^^^^^^^^^^^^^^^^\nOCP.OCP.StdFail.StdFail_NotDone: BRep_API: command not done\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/geom/exec_harness.py\", line 31, in main\n    exec(compile(code, \"<generated>\", \"exec\"), g)  # noqa: S102\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<generated>\", line 39, in <module>\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/build123d/operations_generic.py\", line 331, in chamfer\n    new_part = target.chamfer(length, length2, list(object_list), reference)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/build123d/topology/three_d.py\", line 287, in chamfer\n    raise ValueError(\nValueError: Failed creating a chamfer, try a smaller length value(s)\n",
+   "agree": null,
+   "verifier": null
+  },
+  {
+   "draw": 7,
+   "sampled": true,
+   "code": "from build123d import *\n\njaw_length = 80.0\njaw_width = 35.0\njaw_thickness = 7.0\nwall_thickness = 1.5\npocket_length = 35.0\npocket_width = 22.0\npocket_depth = 5.0\nhole_diameter = 3.0\nhole_clearance = 0.2\nhole_spacing = 12.0\nchamfer_size = 1.0\nfillet_radius = 10.0\n\nsolid_body = Box(jaw_length, jaw_thickness, jaw_width)\nsolid_body = fillet(solid_body.edges().filter_by(Axis.Y), fillet_radius)\nbottom_face = solid_body.faces().sort_by(Axis.Y)[0]\nsolid_body = chamfer(bottom_face.edges(), chamfer_size)\nsolid_body = offset(solid_body, amount=-wall_thickness, openings=[bottom_face])\n\npocket = Pos(0, jaw_thickness/2 - pocket_depth/2, 0) * Box(pocket_length, pocket_depth, pocket_width)\nsolid_body = solid_body - pocket\n\nhole_r = (hole_diameter + hole_clearance) / 2\nhole_h = jaw_thickness + 10\nfor dx in [-hole_spacing/2, hole_spacing/2]:\n    for dz in [-hole_spacing/2, hole_spacing/2]:\n        solid_body = solid_body - Pos(-jaw_length/2 + hole_spacing, 0, dz) * Rot(90, 0, 0) * Cylinder(hole_r, hole_h)\n\nslot = Pos(jaw_length/2 - jaw_thickness/2, 0, 0) * Box(jaw_thickness, jaw_thickness/2, jaw_width/3)\nsolid_body = solid_body - slot\n\npart = solid_body\npart.name = \"jaw_with_pocket_holes_slot\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.3481,
+   "verifier": 0.3497451410479687
+  }
+ ]
+}

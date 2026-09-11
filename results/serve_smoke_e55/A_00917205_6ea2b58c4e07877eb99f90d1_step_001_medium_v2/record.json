@@ -1,0 +1,187 @@
+{
+ "input": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/serve_smoke_in/A_00917205_6ea2b58c4e07877eb99f90d1_step_001_medium_v2.png",
+ "run": "e55-rft-real-u5-gt-dw423",
+ "ckpt": "/dev/shm/bimrose2_10464665/base",
+ "verifier": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/v3b-verifier-real-reg/final",
+ "k": 8,
+ "temperature": 0.7,
+ "top_p": 0.95,
+ "gate": 0.85,
+ "n_exec": 5,
+ "pair_iou": [
+  [
+   null,
+   null,
+   null,
+   0.1075,
+   0.1512,
+   null,
+   0.3489,
+   0.1911
+  ],
+  [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   0.1075,
+   null,
+   null,
+   null,
+   0.5451,
+   null,
+   0.1567,
+   0.3502
+  ],
+  [
+   0.1512,
+   null,
+   null,
+   0.5451,
+   null,
+   null,
+   0.2609,
+   0.5435
+  ],
+  [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   0.3489,
+   null,
+   null,
+   0.1567,
+   0.2609,
+   null,
+   null,
+   0.3011
+  ],
+  [
+   0.1911,
+   null,
+   null,
+   0.3502,
+   0.5435,
+   null,
+   0.3011,
+   null
+  ]
+ ],
+ "medoid": 4,
+ "agree_medoid": 0.37517500000000004,
+ "verifier_argmax": 3,
+ "policy": "verifier",
+ "chosen": 3,
+ "timing": {
+  "load_s": 86.35412287712097,
+  "gen_s_all": 338.09149980545044,
+  "exec_s_all": 122.7188367843628,
+  "pair_iou_s": 1.1289193630218506,
+  "verifier_s": 6.606202125549316
+ },
+ "candidates": [
+  {
+   "draw": 0,
+   "sampled": false,
+   "code": "from build123d import *\n\nbracket_length = 80.0\nbracket_height = 50.0\nbracket_thickness = 8.0\nstep_height = 20.0\nstep_width = 30.0\nslope_angle = 15.0\nfillet_radius = 3.0\nhole_diameter = 6.0\nhole_spacing = 40.0\n\nwith BuildPart() as p:\n    with BuildSketch() as sk:\n        with BuildLine() as bl:\n            l1 = Line((0, 0), (bracket_length, 0))\n            l2 = Line(l1 @ 1, (bracket_length, bracket_height))\n            l3 = Line(l2 @ 1, (bracket_length - step_width, bracket_height))\n            l4 = Line(l3 @ 1, (bracket_length - step_width - step_height * 0.2679, bracket_height - step_height))\n            l5 = Line(l4 @ 1, (bracket_length - step_width - step_height * 0.2679 - step_width, bracket_height - step_height))\n            l6 = Line(l5 @ 1, (0, bracket_height - step_height))\n            l7 = Line(l6 @ 1, (0, 0))\n        make_face()\n    extrude(amount=bracket_thickness)\n\nsolid_body = p.part\nsolid_body = fillet(solid_body.edges(), fillet_radius)\n\nhole_r = hole_diameter / 2\nhole_h = bracket_thickness + 10\nfor x, y in [(bracket_length/2 - hole_spacing/2, bracket_height/2),\n             (bracket_length/2 + hole_spacing/2, bracket_height/2)]:\n    solid_body = solid_body - Pos(x, y, bracket_thickness/2) * Cylinder(hole_r, hole_h)\n\npart = solid_body\npart.name = \"bracket\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.199675,
+   "verifier": 0.09417376305739272
+  },
+  {
+   "draw": 1,
+   "sampled": true,
+   "code": "from build123d import *\n\nbase_length = 80.0\nbase_thickness = 8.0\n upright_height = 50.0\nupright_thickness = 20.0\nbracket_depth = 60.0\nfillet_radius = 3.0\nhole_diameter = 5.0\nhole_spacing = 30.0\n\nwith BuildPart() as p:\n    with BuildSketch() as sk:\n        with BuildLine() as bl:\n            Polyline((0, 0), (base_length, 0), (base_length, upright_height),\n                     (base_length - upright_thickness, upright_height),\n                     (base_length - upright_thickness - 10, base_thickness),\n                     (0, base_thickness), close=True)\n        make_face()\n    extrude(amount=bracket_depth)\n\nsolid_body = p.part\nsolid_body = fillet(solid_body.edges(), fillet_radius)\n\nhole_r = hole_diameter / 2\nhole_h = bracket_depth + 10\n\nfor x, y in [(base_length/2 - hole_spacing/2, base_thickness/2),\n             (base_length/2 + hole_spacing/2, base_thickness/2)]:\n    solid_body = solid_body - Pos(x, y, bracket_depth/2) * Cylinder(hole_r, hole_h)\n\nfor x, y in [(base_length - upright_thickness/2, upright_height/2 - hole_spacing/2),\n             (base_length - upright_thickness/2, upright_height/2 + hole_spacing/2)]:\n    solid_body = solid_body - Pos(x, y, bracket_depth/2) * Cylinder(hole_r, hole_h)\n\npart = solid_body\npart.name = \"L_bracket\"\nexport_step(part, \"output.step\")",
+   "exec": false,
+   "rc": 2,
+   "stderr_tail": "Traceback (most recent call last):\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/geom/exec_harness.py\", line 31, in main\n    exec(compile(code, \"<generated>\", \"exec\"), g)  # noqa: S102\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<generated>\", line 5\n    upright_height = 50.0\nIndentationError: unexpected indent\n",
+   "agree": null,
+   "verifier": null
+  },
+  {
+   "draw": 2,
+   "sampled": true,
+   "code": "from build123d import *\n\nchannel_length = 80.0\nchannel_width = 30.0\nchannel_height = 20.0\nwall_thickness = 3.0\nfillet_radius = 2.7\n\nouter_width = channel_width + 2 * wall_thickness\nouter_height = channel_height + wall_thickness\n\nbase = Box(channel_length, outer_width, outer_height)\nchannel_cut = Pos(0, wall_thickness, wall_thickness) * Box(channel_length, channel_width, channel_height)\nsolid_body = base - channel_cut\nsolid_body = fillet(solid_body.edges(), fillet_radius)\n\npart = solid_body\npart.name = \"channel\"\nexport_step(part, \"output.step\")",
+   "exec": false,
+   "rc": 2,
+   "stderr_tail": "b/python3.12/site-packages/build123d/topology/three_d.py\", line 367, in fillet\n    new_shape = self._make_3d_result(fillet_builder.Shape())\n                                     ^^^^^^^^^^^^^^^^^^^^^^\nOCP.OCP.StdFail.StdFail_NotDone: BRep_API: command not done\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/geom/exec_harness.py\", line 31, in main\n    exec(compile(code, \"<generated>\", \"exec\"), g)  # noqa: S102\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<generated>\", line 15, in <module>\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/build123d/operations_generic.py\", line 432, in fillet\n    new_part = target.fillet(radius, list(object_list))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/build123d/topology/three_d.py\", line 371, in fillet\n    raise ValueError(\nValueError: Failed creating a fillet with radius of 2.7, try a smaller value or use max_fillet() to find the largest valid fillet radius\n",
+   "agree": null,
+   "verifier": null
+  },
+  {
+   "draw": 3,
+   "sampled": true,
+   "code": "from build123d import *\n\nblock_length = 80.0\nblock_width = 50.0\nblock_thickness = 20.0\nstep_height = 10.0\nstep_width = 30.0\nfillet_radius = 3.0\n\nwith BuildPart() as p:\n    with BuildSketch() as s:\n        with BuildLine() as l:\n            Polyline((0,0), (block_length,0), (block_length,block_thickness),\n                     (block_length-step_width,block_thickness),\n                     (block_length-step_width-step_height,block_thickness+step_height),\n                     (0,block_thickness+step_height), close=True)\n        make_face()\n    extrude(amount=block_width)\n\nsolid_body = p.part\nsolid_body = fillet(solid_body.edges(), fillet_radius)\npart = solid_body\npart.name = \"stepped_block\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.289875,
+   "verifier": 0.4770456249683885
+  },
+  {
+   "draw": 4,
+   "sampled": true,
+   "code": "from build123d import *\n\nbase_length = 80.0\nbase_width = 30.0\nbase_height = 10.0\nstep_height = 20.0\nstep_width = 20.0\nstep_offset = 10.0\nfillet_radius = 3.0\nhole_diameter = 5.0\nhole_spacing = 20.0\nhole_count = 3\n\nwith BuildPart() as p:\n    with BuildSketch() as sk:\n        with BuildLine() as bl:\n            Polyline((0, 0), (base_length, 0), (base_length, base_height),\n                     (base_length, base_height + step_height),\n                     (step_offset + step_width, base_height + step_height),\n                     (step_offset, base_height), (0, base_height), close=True)\n        make_face()\n    extrude(amount=base_length / 2)\n\nsolid_body = p.part\nsolid_body = fillet(solid_body.edges(), fillet_radius)\n\nfor i in range(hole_count):\n    x = (i + 1) * hole_spacing\n    y = base_height / 2\n    solid_body = solid_body - Pos(x, y, 0) * Cylinder(hole_diameter / 2, base_length)\n\npart = solid_body\npart.name = \"stepped_base_with_holes\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.37517500000000004,
+   "verifier": 0.42935831976223465
+  },
+  {
+   "draw": 5,
+   "sampled": true,
+   "code": "from build123d import *\n\nbracket_length = 80.0\nbracket_height = 50.0\nbracket_thickness = 5.0\nleg_height = 20.0\nleg_width = 30.0\nslope_angle = 15.0\nhole_diameter = 5.0\nhole_spacing = 20.0\nhole_offset_from_end = 15.0\nfillet_radius = 3.0\n\nwith BuildPart() as p:\n    with BuildSketch() as sk:\n        with BuildLine() as bl:\n            Polyline((0, 0), (bracket_length, 0), (bracket_length, bracket_height),\n                     (leg_width, bracket_height), (leg_width, leg_height),\n                     (0, leg_height), close=True)\n        make_face()\n    extrude(amount=bracket_thickness)\n\nsolid_body = p.part\nsolid_body = fillet(solid_body.edges(), fillet_radius)\n\nfor i in range(3):\n    x = hole_offset_from_end + i * hole_spacing\n    y = leg_height / 2\n    solid_body = solid_body - Pos(x, y, 0) * Cylinder(hole_diameter / 2, bracket_thickness * 2)\n\npart = solid_body\npart.name = \"bracket\"\nexport_step(part, \"output.step\")",
+   "exec": false,
+   "rc": 2,
+   "stderr_tail": "Traceback (most recent call last):\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/build123d/topology/three_d.py\", line 369, in fillet\n    raise Standard_Failure\nOCP.OCP.Standard.Standard_Failure\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/geom/exec_harness.py\", line 31, in main\n    exec(compile(code, \"<generated>\", \"exec\"), g)  # noqa: S102\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<generated>\", line 24, in <module>\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/build123d/operations_generic.py\", line 432, in fillet\n    new_part = target.fillet(radius, list(object_list))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/build123d/topology/three_d.py\", line 371, in fillet\n    raise ValueError(\nValueError: Failed creating a fillet with radius of 3.0, try a smaller value or use max_fillet() to find the largest valid fillet radius\n",
+   "agree": null,
+   "verifier": null
+  },
+  {
+   "draw": 6,
+   "sampled": true,
+   "code": "from build123d import *\n\nbracket_length = 80.0\nbracket_height = 50.0\nbracket_thickness = 20.0\nstep_height = 15.0\nstep_width = 30.0\nfillet_radius = 3.0\nhole_diameter = 5.0\nhole_spacing = 20.0\nhole_offset = 10.0\n\nwith BuildPart() as p:\n    with BuildSketch() as sk:\n        with BuildLine() as bl:\n            Polyline((0, 0), (bracket_length, 0), (bracket_length, bracket_height),\n                     (bracket_length - step_width, bracket_height),\n                     (bracket_length - step_width - step_height, step_height),\n                     (0, step_height), close=True)\n        make_face()\n    extrude(amount=bracket_thickness)\n\nsolid_body = p.part\nsolid_body = fillet(solid_body.edges(), fillet_radius)\n\nhole_r = hole_diameter / 2\nhole_h = bracket_thickness + 10\nfor x, y in [(hole_offset, hole_offset), (bracket_length - hole_offset, hole_offset),\n             (hole_offset, bracket_height - hole_offset), (bracket_length - hole_offset, bracket_height - hole_offset)]:\n    solid_body = solid_body - Pos(x, y, bracket_thickness / 2) * Cylinder(hole_r, hole_h)\n\npart = solid_body\npart.name = \"bracket\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.2669,
+   "verifier": 0.23462522967893307
+  },
+  {
+   "draw": 7,
+   "sampled": true,
+   "code": "from build123d import *\n\nbase_length = 80.0\nbase_width = 30.0\nbase_height = 10.0\nshoulder_length = 50.0\nshoulder_width = 30.0\nshoulder_height = 25.0\nfillet_radius = 3.0\n\nwith BuildPart() as p:\n    with BuildSketch() as s:\n        with BuildLine() as l:\n            Polyline((0,0), (base_length,0), (base_length,shoulder_height),\n                     (base_length-shoulder_length,shoulder_height),\n                     (base_length-shoulder_length,base_height),\n                     (0,base_height), close=True)\n        make_face()\n    extrude(amount=base_width)\n\nsolid_body = p.part\nsolid_body = fillet(solid_body.edges(), fillet_radius)\npart = solid_body\npart.name = \"shoulder_base\"\nexport_step(part, \"output.step\")",
+   "exec": true,
+   "rc": 0,
+   "stderr_tail": "",
+   "agree": 0.346475,
+   "verifier": 0.37700994382855096
+  }
+ ]
+}
