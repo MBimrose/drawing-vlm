@@ -1,0 +1,2550 @@
+{
+ "cands": "results/ext/bo32_esc_e55-rft-real-u5-gt-dw423.json",
+ "k0": 8,
+ "kmax": 32,
+ "n_parts": 201,
+ "rows": {
+  "K=8   vote": {
+   "n": 201,
+   "iou_mean": 0.7611084935617535,
+   "iou_median": 0.8249784314450047,
+   "frac_iou85": 0.44776119402985076,
+   "frac_iou50": 0.8756218905472637,
+   "draws_per_part": 8.0,
+   "escalated": null
+  },
+  "K=8   verifier": {
+   "n": 201,
+   "iou_mean": 0.7620117972361502,
+   "iou_median": 0.8164365421589889,
+   "frac_iou85": 0.42786069651741293,
+   "frac_iou50": 0.8955223880597015,
+   "draws_per_part": 8.0,
+   "escalated": null
+  },
+  "K=8   gate (gate 0.85)": {
+   "n": 201,
+   "iou_mean": 0.7641611744323451,
+   "iou_median": 0.8215671160523477,
+   "frac_iou85": 0.4427860696517413,
+   "frac_iou50": 0.8955223880597015,
+   "draws_per_part": 8.0,
+   "escalated": null
+  },
+  "K=8   oracle": {
+   "n": 201,
+   "iou_mean": 0.8293130310867675,
+   "iou_median": 0.8959587078512383,
+   "frac_iou85": 0.5970149253731343,
+   "frac_iou50": 0.945273631840796,
+   "draws_per_part": 8.0,
+   "escalated": null
+  },
+  "K=16  vote": {
+   "n": 201,
+   "iou_mean": 0.7882307210586006,
+   "iou_median": 0.838544147036836,
+   "frac_iou85": 0.47761194029850745,
+   "frac_iou50": 0.9104477611940298,
+   "draws_per_part": 16.0,
+   "escalated": null
+  },
+  "K=16  verifier": {
+   "n": 201,
+   "iou_mean": 0.7873980009809216,
+   "iou_median": 0.8291515510044433,
+   "frac_iou85": 0.46766169154228854,
+   "frac_iou50": 0.9303482587064676,
+   "draws_per_part": 16.0,
+   "escalated": null
+  },
+  "K=16  gate (gate 0.85)": {
+   "n": 201,
+   "iou_mean": 0.7913660947878339,
+   "iou_median": 0.8381587314900731,
+   "frac_iou85": 0.48756218905472637,
+   "frac_iou50": 0.9253731343283582,
+   "draws_per_part": 16.0,
+   "escalated": null
+  },
+  "K=16  oracle": {
+   "n": 201,
+   "iou_mean": 0.8772177219448067,
+   "iou_median": 0.9360356299539977,
+   "frac_iou85": 0.7064676616915423,
+   "frac_iou50": 0.9651741293532339,
+   "draws_per_part": 16.0,
+   "escalated": null
+  },
+  "K=32  vote": {
+   "n": 201,
+   "iou_mean": 0.7984570830685805,
+   "iou_median": 0.8446748930655408,
+   "frac_iou85": 0.48756218905472637,
+   "frac_iou50": 0.9303482587064676,
+   "draws_per_part": 32.0,
+   "escalated": null
+  },
+  "K=32  verifier": {
+   "n": 201,
+   "iou_mean": 0.7954629250111747,
+   "iou_median": 0.8459785402103553,
+   "frac_iou85": 0.4975124378109453,
+   "frac_iou50": 0.9154228855721394,
+   "draws_per_part": 32.0,
+   "escalated": null
+  },
+  "K=32  gate (gate 0.85)": {
+   "n": 201,
+   "iou_mean": 0.7987919311082397,
+   "iou_median": 0.8705521241973305,
+   "frac_iou85": 0.5373134328358209,
+   "frac_iou50": 0.9104477611940298,
+   "draws_per_part": 32.0,
+   "escalated": null
+  },
+  "K=32  oracle": {
+   "n": 201,
+   "iou_mean": 0.8946409323847802,
+   "iou_median": 0.9526687555988733,
+   "frac_iou85": 0.7611940298507462,
+   "frac_iou50": 0.9701492537313433,
+   "draws_per_part": 32.0,
+   "escalated": null
+  },
+  "adaptive 8->16 verifier (gate 0.85)": {
+   "n": 201,
+   "iou_mean": 0.7936586205353763,
+   "iou_median": 0.847588976935266,
+   "frac_iou85": 0.4925373134328358,
+   "frac_iou50": 0.9353233830845771,
+   "draws_per_part": 13.492537313432836,
+   "escalated": 0.6865671641791045
+  },
+  "adaptive 8->32 verifier (gate 0.85)": {
+   "n": 201,
+   "iou_mean": 0.8005388225258158,
+   "iou_median": 0.8612753209955827,
+   "frac_iou85": 0.5223880597014925,
+   "frac_iou50": 0.9203980099502488,
+   "draws_per_part": 24.47761194029851,
+   "escalated": 0.6865671641791045
+  }
+ },
+ "adaptive_8_16_verifier_gate0.85": {
+  "00874eac-be8c-17f8-ad7b-6a035b6c40ae": {
+   "iou": 0.903104746422338,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9446000000000001
+  },
+  "0120e88c-df7c-c3a2-4533-3b9d33302e59": {
+   "iou": 0.99167236537603,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9867285714285714
+  },
+  "014e0c04-50a5-9b2b-5d15-048cc68be62e": {
+   "iou": 0.9862233630050379,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9512714285714284
+  },
+  "01854fac-2b62-88d1-11ce-99dc34837a7d": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.90925
+  },
+  "02133c18-0277-b899-bfb2-74a860ec2599": {
+   "iou": 0.9453247731493916,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8953500000000001
+  },
+  "02c2c534-fdf5-09f0-a3b9-08fac95e67cc": {
+   "iou": 0.270139623064889,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.23020000000000002
+  },
+  "04a4e152-726a-31cb-2707-feccd5f5153e": {
+   "iou": 0.8255806689029278,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7812285714285714
+  },
+  "058f2c3a-cfc8-1f2c-9abe-d42ebc007141": {
+   "iou": 0.9999720340435336,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.993025
+  },
+  "05f14712-467b-1bba-8da4-469495a3d5ef": {
+   "iou": 0.9641436048368967,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "06e3334c-5c6b-66b0-5c44-ea8c43acc4fe": {
+   "iou": 0.6175132559960937,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6626857142857142
+  },
+  "07832ef6-5dde-b57e-7f3f-37d19b242f35": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9856428571428572
+  },
+  "080b2e00-c9be-606a-3207-08419028ffd0": {
+   "iou": 0.8612753209955827,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8689
+  },
+  "08734382-459c-b322-da4f-0df4b47d6f42": {
+   "iou": 0.6329490767783063,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7802714285714284
+  },
+  "087bbb7a-c871-f9b6-b640-7e8ce9aa5dbf": {
+   "iou": 0.9853109322951299,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8066142857142857
+  },
+  "09a06a3c-9e51-288f-de54-bc99ab136fb3": {
+   "iou": 0.8215671160523477,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.67315
+  },
+  "09dc90de-9efd-73dd-8d21-69172528e129": {
+   "iou": 1.0,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7881833333333333
+  },
+  "0a0a5992-bf73-fde0-95b6-799d65366486": {
+   "iou": 0.8999688206143923,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9505800000000001
+  },
+  "0a3681ac-2be6-0034-c7c3-70e0816f9397": {
+   "iou": 0.5094159895340511,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7763666666666666
+  },
+  "0a559fe2-ac35-2ce1-fc4d-3719cbcd8d3f": {
+   "iou": 0.8277351318420707,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8259285714285713
+  },
+  "0a7b7956-680e-3718-b287-efe844c4da2b": {
+   "iou": 0.9125508931535761,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9166399999999999
+  },
+  "0b611efc-c103-5519-6650-76d8117ad50e": {
+   "iou": 0.6630692287444067,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7990999999999998
+  },
+  "0d838d1e-2f52-96f5-a3d9-dab533013bca": {
+   "iou": 0.9852181069562611,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9833666666666666
+  },
+  "0f48f6f2-1b82-9572-204d-b7e39755e809": {
+   "iou": 0.8167177175208143,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8884
+  },
+  "10827958-85be-a385-bf99-7c456eb80835": {
+   "iou": 0.648590436888243,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8631666666666667
+  },
+  "10a652e2-346b-78e7-a117-6b7a40e58cc4": {
+   "iou": 0.5646768752414341,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6629285714285713
+  },
+  "111ec060-fe26-4940-30cc-d2a5e802466c": {
+   "iou": 0.7115393031204205,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7164999999999999
+  },
+  "11e42468-fb37-6ee3-e499-d0c6d7024528": {
+   "iou": 0.5612538521823949,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.92042
+  },
+  "12a5be84-f001-ac19-2174-a4db800b40bf": {
+   "iou": 0.8354239242464314,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8190799999999999
+  },
+  "12add8ee-ea62-413b-7f2c-a9ea0c76057d": {
+   "iou": 0.9946871610527496,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7834500000000001
+  },
+  "12adf31a-d60c-becf-a724-4ffcbe1c4ee4": {
+   "iou": 0.9285223651208537,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9406666666666667
+  },
+  "12c3af5c-9863-c8d5-2b05-805bab1c8385": {
+   "iou": 0.9927217757131827,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9920142857142856
+  },
+  "137f0cfc-aa20-ae67-7454-0105e9c63d1b": {
+   "iou": 0.9616771757470481,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9818571428571429
+  },
+  "13dcb7b2-2ded-f43e-0e19-76256a088b5d": {
+   "iou": 0.6961296958049441,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6950666666666666
+  },
+  "1408dc7a-abbc-f11e-a6cb-bfd70db01ec8": {
+   "iou": 0.9172320712049791,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9433500000000001
+  },
+  "14378534-e0be-eb12-e1f7-1019e5f62a84": {
+   "iou": 0.7326039862355299,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8054285714285714
+  },
+  "1586c698-21dc-dcee-45b9-a5be4dfb0129": {
+   "iou": 0.1846513636107508,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7120857142857142
+  },
+  "15a40de8-82e7-7b19-42f1-f22d09bf3fe4": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 1.0
+  },
+  "171380b4-75bc-e447-e6fe-37908058ad67": {
+   "iou": 0.9731515176165338,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7767714285714284
+  },
+  "17a516d2-e216-07da-0634-f6dab6bd0edf": {
+   "iou": 0.4885082085295003,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7902714285714285
+  },
+  "17d74f44-cee8-a798-90a9-e27803187e88": {
+   "iou": 0.9713427441217336,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.96928
+  },
+  "181d0ebc-18e0-2a8f-903f-ff2599f495b4": {
+   "iou": 0.7533687579499587,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.71705
+  },
+  "1a32f5d6-d3c7-0ffb-3683-ed3e63ee0f61": {
+   "iou": 0.6206435243260061,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.73728
+  },
+  "1af43458-656c-036d-8780-ec87ca55e9ef": {
+   "iou": 0.8655022284639384,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8783000000000001
+  },
+  "1b36f0ea-ba76-7b5d-2c2e-2675b53dc273": {
+   "iou": 0.738746385000376,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9048428571428572
+  },
+  "1b510354-871f-3778-3b91-7267f615edad": {
+   "iou": 0.8906994356018652,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7996000000000001
+  },
+  "1c82b74a-046d-0b2e-0ae8-8efa1a3b5075": {
+   "iou": 0.8926237340957831,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.52042
+  },
+  "1cec4016-d36c-276d-21ee-aaba47d5370d": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8545714285714286
+  },
+  "1d77e102-b172-79b0-5bed-e4f699e6a9e3": {
+   "iou": 0.9713738500399569,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8885400000000001
+  },
+  "1ea7fa6c-04f7-3796-53fb-4b4c9fd06046": {
+   "iou": 0.998202226996094,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.938742857142857
+  },
+  "20f03550-320e-bfc7-6f68-edce0b31e530": {
+   "iou": 0.5627078933796481,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8015857142857142
+  },
+  "21683e9c-a1c1-5306-975c-636678168aa7": {
+   "iou": 0.6960454175571964,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6808000000000001
+  },
+  "21e76406-9f05-923f-9ec1-b1e4d60ab56f": {
+   "iou": 0.5679864077472396,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.3016
+  },
+  "232ebd96-d8f4-cbb2-9632-80c58ae0bde5": {
+   "iou": 0.9595737249515349,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6770666666666667
+  },
+  "262d9e7c-dbb9-63c1-4aaf-8d0fcd271167": {
+   "iou": 0.9929292969428791,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "277c7ece-cdfa-fea1-a228-7890b5ca8abf": {
+   "iou": 0.5171811610218213,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8214285714285714
+  },
+  "27b61d00-4187-9581-4a40-0249daff1d3e": {
+   "iou": 0.7095104269992383,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7862333333333332
+  },
+  "27c14e3c-b20c-32da-9318-069a70a38736": {
+   "iou": 0.847588976935266,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.5512600000000001
+  },
+  "2a03f49c-55aa-2216-a0f0-193921c0c9dc": {
+   "iou": 0.9044266826330867,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9075999999999999
+  },
+  "2a127616-b122-d044-509e-57d2ad439430": {
+   "iou": 0.693937914326353,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6597571428571429
+  },
+  "2a3f6310-c6a8-001d-1c51-71bfb99dc46b": {
+   "iou": 0.9968615723176941,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9881666666666665
+  },
+  "2a68b01c-40a2-3e3e-406d-82b44e0945fe": {
+   "iou": 0.8187176411965154,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.65645
+  },
+  "2b2abf9a-fa85-4b8c-d5ac-d6c2aebfa219": {
+   "iou": 0.958513291112954,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7808
+  },
+  "2b68ade6-0426-d55e-7d7a-896d929d6c3c": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9532285714285713
+  },
+  "2d946fba-92f4-8747-7b91-d4dca5e9dffa": {
+   "iou": 0.6647518065184702,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.682775
+  },
+  "2e90d6f6-2a2b-d2de-42e3-766ef511d009": {
+   "iou": 0.999634447784763,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8303333333333334
+  },
+  "2f03050a-a013-32d4-120e-5c0e1f830d87": {
+   "iou": 0.8375372173763599,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8563142857142856
+  },
+  "2f914158-9603-003b-d60f-c22327678432": {
+   "iou": 0.996103392932701,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.60302
+  },
+  "2fc346d0-c0d0-bedd-47d6-ca16afdf6cde": {
+   "iou": 0.6062444030065693,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7588833333333334
+  },
+  "3027b0de-d78e-2204-a7dd-b9e736cf50a7": {
+   "iou": 0.9878740859874104,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9022714285714286
+  },
+  "308fcc0a-0ff6-95d2-c180-b090ac5e2251": {
+   "iou": 0.27129765204272016,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.2097
+  },
+  "315420c8-c004-66ab-88f1-c3f37c7c428f": {
+   "iou": 1.0,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.730075
+  },
+  "318308ca-6db7-03d4-1e07-4b457041e85f": {
+   "iou": 0.8664416737618519,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.792275
+  },
+  "31bca440-552c-a4be-f878-d257ab8ad7ab": {
+   "iou": 0.7112532635033028,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7055142857142856
+  },
+  "31d57dc6-d3e4-9315-3cd9-013996a3ba70": {
+   "iou": 0.9960503766920625,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.63418
+  },
+  "33bfe4f0-2195-cd27-511d-1960d3ecd268": {
+   "iou": 0.7022984002511391,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.59562
+  },
+  "33cb1e60-32ce-d80b-534d-f77e9a9a1aa8": {
+   "iou": 0.8972547289216155,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9580166666666665
+  },
+  "34fbe40e-992d-d71c-05df-ddf5b48a283e": {
+   "iou": 0.852533379728368,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.84336
+  },
+  "35578098-7487-1220-320a-3d822a4cb668": {
+   "iou": 0.99687862435075,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9644
+  },
+  "36971806-e2fb-8b7a-c4f2-8e3af9dc5d59": {
+   "iou": 0.8009219784179062,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8029571428571429
+  },
+  "37c0277c-77d0-0f39-04d9-68178d8c22d9": {
+   "iou": 0.9836468935263756,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9665
+  },
+  "380d5326-ebcf-887e-a849-71553f4de331": {
+   "iou": 0.2416487593088024,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.5304000000000001
+  },
+  "396bdc74-d0cd-6545-655f-c2cb51c69f29": {
+   "iou": 0.7730246740277659,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8864285714285715
+  },
+  "3a3c36ee-0e22-6733-bc91-4cec48c907b0": {
+   "iou": 0.8754505485908994,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "3c681abe-4544-d162-df93-dd83c20b4f2f": {
+   "iou": 0.6866441134577045,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7908142857142858
+  },
+  "3dea7ef4-12f4-f863-d9ac-de99eafbe73d": {
+   "iou": 0.6319087475579404,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8183166666666667
+  },
+  "3e0adbea-71c4-7d12-2b02-0f96ae01168c": {
+   "iou": 0.9999999604827614,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8508333333333334
+  },
+  "3faa58c2-aa89-4a16-9c7f-49e28a3b4474": {
+   "iou": 0.5952356387622376,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6119142857142857
+  },
+  "3ff45080-27a7-5297-42eb-a7b298bbbec9": {
+   "iou": 0.8002966356235048,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7867500000000001
+  },
+  "408a083c-2bc6-58e8-9112-e30e88982eb7": {
+   "iou": 0.8291515510044433,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7292714285714286
+  },
+  "40a1be28-d887-8d8c-7e85-1cec9ee0eeb6": {
+   "iou": 0.8197972423458105,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.64925
+  },
+  "42084d2c-a350-75f5-0a7c-0ff29d27396c": {
+   "iou": 1.0,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8254571428571429
+  },
+  "42fdeae8-8913-d949-07c2-20b9ff6646e1": {
+   "iou": 0.8249784314450047,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.48105
+  },
+  "4487b98e-f085-5981-04fe-60b4724cc212": {
+   "iou": 0.5795869487800942,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9458857142857143
+  },
+  "45dd907e-fce7-3a32-c718-3b14d67bf0cd": {
+   "iou": 0.6619678945230728,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6881500000000002
+  },
+  "4794bc6c-d2d2-bf75-2129-ee436a709063": {
+   "iou": 0.6051150979729825,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.5131857142857144
+  },
+  "47adc310-e94b-4f63-6f3f-66e84b834f1a": {
+   "iou": 0.5997484593489175,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6286
+  },
+  "4990526a-2092-652f-d1d5-ab306b3b4201": {
+   "iou": 0.6973088532088945,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7630999999999999
+  },
+  "4997f358-2bdb-cfe6-4123-9fe6676bb677": {
+   "iou": 0.863963043336546,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8636714285714288
+  },
+  "49fa9972-f2cc-7bc0-c8f3-31ef9bcfe713": {
+   "iou": 0.4695757937833982,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8108833333333334
+  },
+  "4a10ebb4-7f62-e957-ff9d-5e9734137b04": {
+   "iou": 0.5453079067564609,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.74595
+  },
+  "4ae3a9b4-9e49-9352-7295-5854d844aabc": {
+   "iou": 0.543371412717321,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.79878
+  },
+  "4ae465ca-2dca-30ef-d26b-ddd501e272bf": {
+   "iou": 0.5799283090778827,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.5841666666666666
+  },
+  "4b36cd1a-59da-0566-9e66-59a0274af2d5": {
+   "iou": 0.8087260572473972,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.5859714285714287
+  },
+  "4c4b7b60-8ccd-bf64-9cc4-22ecb1b9dc83": {
+   "iou": 0.9245151077916697,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9229285714285714
+  },
+  "4ca360f0-9011-dedc-c83c-4484b3efadc2": {
+   "iou": 0.8528224823891583,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8109999999999999
+  },
+  "4caed84a-3934-33d1-ea62-7e7b1d54d2d7": {
+   "iou": 0.9756315073373389,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7363142857142856
+  },
+  "4d32634a-80c1-b5e2-9f75-ed851c468eed": {
+   "iou": 0.9048463356973995,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7677857142857143
+  },
+  "4f1f9e7a-33c5-3171-6386-02f97b46e3e0": {
+   "iou": 0.9116792966013795,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9242
+  },
+  "4fb6f1ee-cc35-47aa-e0f4-a91b19be9cc2": {
+   "iou": 0.7452401015653367,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9489
+  },
+  "501c3752-57bb-eb6d-a576-00d3a4220f2f": {
+   "iou": 0.5413471563534294,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7465999999999999
+  },
+  "5339e8b2-193f-2742-b395-7a678facccf6": {
+   "iou": 0.9388324541134412,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7272333333333334
+  },
+  "533abec2-4fd4-5a40-a13d-b433aa8cab0e": {
+   "iou": 0.768582204837226,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8352833333333334
+  },
+  "5433f5fa-2b5c-97cf-6c43-8e397748fff4": {
+   "iou": 0.8947368421052632,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6636285714285715
+  },
+  "5781cf7a-e660-b005-72da-22678f2fc13c": {
+   "iou": 0.8032443922987711,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9852500000000001
+  },
+  "59c2f6d8-e94a-9f9e-6084-09e204ea07d0": {
+   "iou": 0.752976070991915,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "5a6c2b0e-7a44-c72b-0d7a-115b56ae3902": {
+   "iou": 0.8992322840294941,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8427142857142857
+  },
+  "5ab6e9a0-3288-1b88-b6a7-4000dafa03d1": {
+   "iou": 0.5937760154033067,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9253857142857144
+  },
+  "5acc9002-dbc7-b148-4852-73fd58b0639c": {
+   "iou": 0.7531060573980243,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8199142857142857
+  },
+  "5b408cc8-e72a-87fa-da8f-f2fa2f72a2f8": {
+   "iou": 0.3055920426816795,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.4530428571428572
+  },
+  "5c04c43a-2481-1cd2-8430-3fd500359172": {
+   "iou": 0.0,
+   "draws": 16,
+   "branch": "none",
+   "agree": 0.0
+  },
+  "5cda4768-b959-8b4c-7ebe-ee121d1e3cfb": {
+   "iou": 0.8993701912146784,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8539857142857141
+  },
+  "615006e8-c135-78ba-8b25-3526b9f5f751": {
+   "iou": 0.3708584286246898,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6992285714285714
+  },
+  "6179af5c-dbb0-4ed5-a1cd-82e3e52957e6": {
+   "iou": 0.7281540259892288,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.78976
+  },
+  "621858be-a6ae-6444-a429-5cd2e0e13393": {
+   "iou": 0.7613260363056519,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6650833333333332
+  },
+  "62ed1bbc-3bea-c143-68b3-a8b5c8f05b2f": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9266285714285714
+  },
+  "63205a4a-e4c3-0af3-59db-09cdfd2a8390": {
+   "iou": 0.930676796634624,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8596857142857142
+  },
+  "6443eed2-4c31-b47b-ee17-93f69643bad1": {
+   "iou": 0.9042024128081657,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8639285714285714
+  },
+  "64f6f518-9962-1057-93cf-a4610c62ea48": {
+   "iou": 0.7316886475063634,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.35423333333333334
+  },
+  "6548f2f0-d3fd-1f40-01e1-456abe1e6981": {
+   "iou": 0.3551463119150394,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6260833333333333
+  },
+  "65ab4dd8-4a5d-f990-4753-37ad0d254b11": {
+   "iou": 0.9754800745080426,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.4249
+  },
+  "66f0acc4-04e0-01cc-a62c-dcc835b36e1e": {
+   "iou": 0.9641121757176389,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9455499999999999
+  },
+  "671a85a8-71a6-070d-6ca9-30f9ad64648f": {
+   "iou": 0.8832149446327316,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7336
+  },
+  "671f0312-4773-0ca1-76c9-b62b127bdc4a": {
+   "iou": 0.8782068740127458,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.4521
+  },
+  "6945376a-07e2-34fd-d760-f6c0ef90e07c": {
+   "iou": 0.672397811563123,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7210428571428571
+  },
+  "695359f8-834d-e223-c460-76f8ec97d933": {
+   "iou": 0.8095321638510737,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8827400000000001
+  },
+  "6b79fb4c-4b74-10c7-b573-82b1c8173079": {
+   "iou": 0.26760965335821224,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6738714285714286
+  },
+  "6b85875a-0cbc-d71e-2da5-faa42fbac60f": {
+   "iou": 0.9916047450325881,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9172571428571429
+  },
+  "6bb979fc-37dd-a267-9ba1-391b581d235a": {
+   "iou": 0.9718346087068356,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8327166666666667
+  },
+  "6c2d80ea-5328-34b2-3562-33e35e0851e6": {
+   "iou": 0.7028125844183256,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7136166666666667
+  },
+  "6da41e7a-5e0e-a52d-8b24-c9e2bddbd2e4": {
+   "iou": 0.9916473251754897,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7390166666666667
+  },
+  "6e259284-ba14-1a23-7db8-18144f2a8ccf": {
+   "iou": 0.9996354095508606,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9803428571428573
+  },
+  "6f62d896-8cc2-7cd6-b66b-7c543e9ea286": {
+   "iou": 0.973544576136074,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.83835
+  },
+  "6f8eb09c-e1bb-9446-ee69-835330393c47": {
+   "iou": 0.9422882803679258,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.5907199999999999
+  },
+  "712826e0-127e-3909-2e84-5567be5093d2": {
+   "iou": 0.8241955725744136,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8297571428571427
+  },
+  "71f0f61a-0856-3b0d-8559-10a5a92fde1d": {
+   "iou": 0.9772835630232555,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "7465bd18-da4c-db2c-c98b-e6f48206a94b": {
+   "iou": 0.9736357282550184,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8023714285714286
+  },
+  "75ae55fe-8046-1091-78f3-db48d7e6f923": {
+   "iou": 0.7445511167854163,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6921714285714285
+  },
+  "75e4986c-9f20-17ae-6452-c0331d556274": {
+   "iou": 0.6476130258417232,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6360750000000001
+  },
+  "77084658-eb71-b8f6-5875-68e718f41f6b": {
+   "iou": 0.7913964003454621,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8013499999999999
+  },
+  "7872f1b4-f0c4-9173-7b00-9d3bae9ef902": {
+   "iou": 0.7917753864020145,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7615571428571428
+  },
+  "78f76106-65a5-488a-7e12-9b1c430fb10b": {
+   "iou": 0.5229085188340838,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.66435
+  },
+  "79e4439a-7a3c-e6b2-c935-2d02162da1d2": {
+   "iou": 0.760526756492454,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.884957142857143
+  },
+  "7d410550-dd47-02c9-8e22-70c14deb9640": {
+   "iou": 0.9128108752071852,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.901375
+  },
+  "7dd5f570-b7b7-6cce-a18a-2c85e4e0924c": {
+   "iou": 0.9587809331301926,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8994800000000002
+  },
+  "7ec78480-dd1b-30df-b9d2-284eb588cd7a": {
+   "iou": 0.9946558323629274,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.5894
+  },
+  "7f251604-7d67-b832-8849-5dbfe9a129d3": {
+   "iou": 0.9830052597418595,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "7ff14ee0-70a1-3e88-4187-5b3a78f15350": {
+   "iou": 0.5564078572320721,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7452
+  },
+  "80169da8-2c2a-b680-aadb-97d8c60a32e3": {
+   "iou": 0.5303243987996173,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.3121
+  },
+  "8069ee90-d1fc-09c5-2fd9-126bebd3f373": {
+   "iou": 0.8603078281720095,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8386666666666667
+  },
+  "83791804-e1c1-0940-e9c5-4d762be9f717": {
+   "iou": 0.1762931414231689,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.63688
+  },
+  "83c20172-f4bf-abdf-6e4d-65e290332a54": {
+   "iou": 0.8934864857025842,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8309285714285713
+  },
+  "845d1cac-2490-4ab8-dfd1-bf5d8e2a225d": {
+   "iou": 0.8485381531325695,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7374666666666667
+  },
+  "850f24a6-af39-a62c-95e8-e8f592ca0251": {
+   "iou": 0.5039699030026488,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7172000000000001
+  },
+  "85652f68-d5e5-f803-f2ab-a9c4ff1ce189": {
+   "iou": 0.9255352992599855,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9331799999999999
+  },
+  "865e0976-d02f-e2a5-1f9f-8d8dc2d4c9b5": {
+   "iou": 0.7794397928923887,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.73385
+  },
+  "8717ff84-d108-855f-2e67-4e517363133b": {
+   "iou": 0.8443922514205491,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8475166666666666
+  },
+  "875fa83e-a4b8-8220-b51f-ec88bf1c36b9": {
+   "iou": 0.7013315190980659,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.776
+  },
+  "87e6177a-162f-7080-671a-ee277db9a67d": {
+   "iou": 0.7263925032793959,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8288285714285715
+  },
+  "88bc106e-a986-42b5-4aa3-937b6052cf75": {
+   "iou": 0.7836220288380528,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7914
+  },
+  "88d6d1d8-324e-8c83-f4b7-d0a120b4ba2f": {
+   "iou": 0.5702945858240244,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7926428571428571
+  },
+  "88e88676-262d-ccfa-2d1b-ecc9571e5d09": {
+   "iou": 0.9534386913981231,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6315999999999999
+  },
+  "892f7414-495b-907e-fd39-86c6937ce4b0": {
+   "iou": 0.7409914620588444,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.5102
+  },
+  "8d66bcc2-c2ac-61d1-0ee7-58e9a9fde4e4": {
+   "iou": 0.5889958730435294,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.704075
+  },
+  "8dac88ec-62c9-9624-9d1d-86e8cfc491cf": {
+   "iou": 0.892076448203851,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8712249999999999
+  },
+  "8ea41b0c-d28a-c9ed-210c-b604a66af163": {
+   "iou": 0.9138889161040421,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9019833333333334
+  },
+  "8f04a22e-f06a-be20-44ad-00aed013e095": {
+   "iou": 0.874250452570205,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.75932
+  },
+  "9052e15e-d604-5bbd-0d13-56f5a87d8207": {
+   "iou": 0.7902372512557149,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.5571714285714285
+  },
+  "91804828-3f8a-5574-d8d2-a65f216867e2": {
+   "iou": 0.9404843390684708,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8935285714285716
+  },
+  "9254e66e-1fe7-85b0-c038-084ec937e9af": {
+   "iou": 0.9879083752550027,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8446166666666666
+  },
+  "93255632-eaf9-53ff-9335-618d0ad7af06": {
+   "iou": 0.9790565133515352,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.86772
+  },
+  "938a49c0-9465-9f43-2866-78f160c971b2": {
+   "iou": 0.7520774217286675,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "94ced396-fc40-7175-3a0b-160cbc9aee67": {
+   "iou": 0.5413846754449536,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7394
+  },
+  "94fc0a64-369a-69d1-7444-82d204aee523": {
+   "iou": 0.6666666666666664,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7907714285714286
+  },
+  "96eeb880-9403-c99e-cb27-5bfde5ef12cc": {
+   "iou": 0.9731151890908604,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.72048
+  },
+  "97217a40-0c72-79c7-9104-c3d2b6ebac10": {
+   "iou": 0.9841124566175958,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9176428571428572
+  },
+  "97309890-fed9-ec35-2b95-e0f89b8942d3": {
+   "iou": 0.8507203126169874,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.8141200000000002
+  },
+  "97d69010-3fc4-4f07-273e-62a4632cc74d": {
+   "iou": 0.9369675169472483,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8911
+  },
+  "988623b8-4804-a93f-4584-6a8f4c4e7ba0": {
+   "iou": 0.9329851667699322,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.5813571428571428
+  },
+  "9c78ef00-78fc-4557-cb58-5e98fb940ae6": {
+   "iou": 0.9798062466025788,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6404142857142857
+  },
+  "9ca41004-96fa-563b-1fe4-b56ac79ba901": {
+   "iou": 0.9723979150224616,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6561999999999999
+  },
+  "9f1b4834-084e-9ec5-7d12-74935b8f7e42": {
+   "iou": 0.5373610296479454,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.5341666666666667
+  },
+  "9f24f9a6-cd29-0cfb-e95b-8061119bcf45": {
+   "iou": 0.9339521706484389,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6627333333333333
+  },
+  "9fee95c2-0d73-6d2d-acbc-f5bfacb98daa": {
+   "iou": 0.5697775205638859,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.58992
+  },
+  "a0ffb2f2-f7fc-911c-5f46-e29d607b3064": {
+   "iou": 0.715358684618782,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6842428571428573
+  },
+  "a143d3c4-fe26-a910-b4f3-57ac2e51b01d": {
+   "iou": 0.9933447931941988,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9182599999999999
+  },
+  "a3364eb4-e963-1004-011d-ab45c7c5f897": {
+   "iou": 0.9860265893027372,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "a3bf1780-961e-fc4b-b244-3bde93b1f23b": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9958
+  },
+  "a51e495c-8730-06c0-f3ee-e03d4ff2f1eb": {
+   "iou": 0.3683152671355445,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.7128500000000001
+  },
+  "a5435cf6-b567-5731-8403-2645a9c16b1f": {
+   "iou": 0.8545985853921924,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.6916000000000001
+  },
+  "a61d45ba-b5e8-f591-0fce-0bc335682920": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9978285714285714
+  },
+  "a701e44a-b4e8-3947-e094-08e61f872fbe": {
+   "iou": 0.7173428711131287,
+   "draws": 16,
+   "branch": "verifier@k1",
+   "agree": 0.4117000000000001
+  }
+ },
+ "adaptive_8_32_verifier_gate0.85": {
+  "00874eac-be8c-17f8-ad7b-6a035b6c40ae": {
+   "iou": 0.903104746422338,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9446000000000001
+  },
+  "0120e88c-df7c-c3a2-4533-3b9d33302e59": {
+   "iou": 0.99167236537603,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9867285714285714
+  },
+  "014e0c04-50a5-9b2b-5d15-048cc68be62e": {
+   "iou": 0.9862233630050379,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9512714285714284
+  },
+  "01854fac-2b62-88d1-11ce-99dc34837a7d": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.90925
+  },
+  "02133c18-0277-b899-bfb2-74a860ec2599": {
+   "iou": 0.9453247731493916,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8953500000000001
+  },
+  "02c2c534-fdf5-09f0-a3b9-08fac95e67cc": {
+   "iou": 0.18512306452147737,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.23020000000000002
+  },
+  "04a4e152-726a-31cb-2707-feccd5f5153e": {
+   "iou": 0.9054502275397946,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7812285714285714
+  },
+  "058f2c3a-cfc8-1f2c-9abe-d42ebc007141": {
+   "iou": 0.9999720340435336,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.993025
+  },
+  "05f14712-467b-1bba-8da4-469495a3d5ef": {
+   "iou": 0.96052747539229,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "06e3334c-5c6b-66b0-5c44-ea8c43acc4fe": {
+   "iou": 0.6175132559960937,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6626857142857142
+  },
+  "07832ef6-5dde-b57e-7f3f-37d19b242f35": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9856428571428572
+  },
+  "080b2e00-c9be-606a-3207-08419028ffd0": {
+   "iou": 0.8612753209955827,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8689
+  },
+  "08734382-459c-b322-da4f-0df4b47d6f42": {
+   "iou": 0.6329490767783063,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7802714285714284
+  },
+  "087bbb7a-c871-f9b6-b640-7e8ce9aa5dbf": {
+   "iou": 0.9883560813906298,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8066142857142857
+  },
+  "09a06a3c-9e51-288f-de54-bc99ab136fb3": {
+   "iou": 0.8751184728639725,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.67315
+  },
+  "09dc90de-9efd-73dd-8d21-69172528e129": {
+   "iou": 1.0,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7881833333333333
+  },
+  "0a0a5992-bf73-fde0-95b6-799d65366486": {
+   "iou": 0.8999688206143923,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9505800000000001
+  },
+  "0a3681ac-2be6-0034-c7c3-70e0816f9397": {
+   "iou": 0.5117380597807643,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7763666666666666
+  },
+  "0a559fe2-ac35-2ce1-fc4d-3719cbcd8d3f": {
+   "iou": 0.8277351318420707,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8259285714285713
+  },
+  "0a7b7956-680e-3718-b287-efe844c4da2b": {
+   "iou": 0.9125508931535761,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9166399999999999
+  },
+  "0b611efc-c103-5519-6650-76d8117ad50e": {
+   "iou": 0.9270833333333334,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7990999999999998
+  },
+  "0d838d1e-2f52-96f5-a3d9-dab533013bca": {
+   "iou": 0.9852181069562611,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9833666666666666
+  },
+  "0f48f6f2-1b82-9572-204d-b7e39755e809": {
+   "iou": 0.8167177175208143,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8884
+  },
+  "10827958-85be-a385-bf99-7c456eb80835": {
+   "iou": 0.648590436888243,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8631666666666667
+  },
+  "10a652e2-346b-78e7-a117-6b7a40e58cc4": {
+   "iou": 0.5646768752414341,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6629285714285713
+  },
+  "111ec060-fe26-4940-30cc-d2a5e802466c": {
+   "iou": 0.7115393031204205,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7164999999999999
+  },
+  "11e42468-fb37-6ee3-e499-d0c6d7024528": {
+   "iou": 0.5612538521823949,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.92042
+  },
+  "12a5be84-f001-ac19-2174-a4db800b40bf": {
+   "iou": 0.7370465231429116,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8190799999999999
+  },
+  "12add8ee-ea62-413b-7f2c-a9ea0c76057d": {
+   "iou": 0.9916822912200058,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7834500000000001
+  },
+  "12adf31a-d60c-becf-a724-4ffcbe1c4ee4": {
+   "iou": 0.9285223651208537,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9406666666666667
+  },
+  "12c3af5c-9863-c8d5-2b05-805bab1c8385": {
+   "iou": 0.9927217757131827,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9920142857142856
+  },
+  "137f0cfc-aa20-ae67-7454-0105e9c63d1b": {
+   "iou": 0.9616771757470481,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9818571428571429
+  },
+  "13dcb7b2-2ded-f43e-0e19-76256a088b5d": {
+   "iou": 0.7601984914920108,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6950666666666666
+  },
+  "1408dc7a-abbc-f11e-a6cb-bfd70db01ec8": {
+   "iou": 0.9172320712049791,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9433500000000001
+  },
+  "14378534-e0be-eb12-e1f7-1019e5f62a84": {
+   "iou": 0.7326039862355299,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8054285714285714
+  },
+  "1586c698-21dc-dcee-45b9-a5be4dfb0129": {
+   "iou": 0.15512763098969995,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7120857142857142
+  },
+  "15a40de8-82e7-7b19-42f1-f22d09bf3fe4": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 1.0
+  },
+  "171380b4-75bc-e447-e6fe-37908058ad67": {
+   "iou": 0.9731515176165338,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7767714285714284
+  },
+  "17a516d2-e216-07da-0634-f6dab6bd0edf": {
+   "iou": 0.4885082085295003,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7902714285714285
+  },
+  "17d74f44-cee8-a798-90a9-e27803187e88": {
+   "iou": 0.9713427441217336,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.96928
+  },
+  "181d0ebc-18e0-2a8f-903f-ff2599f495b4": {
+   "iou": 0.6617825156838067,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.71705
+  },
+  "1a32f5d6-d3c7-0ffb-3683-ed3e63ee0f61": {
+   "iou": 0.6896032247903233,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.73728
+  },
+  "1af43458-656c-036d-8780-ec87ca55e9ef": {
+   "iou": 0.8655022284639384,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8783000000000001
+  },
+  "1b36f0ea-ba76-7b5d-2c2e-2675b53dc273": {
+   "iou": 0.738746385000376,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9048428571428572
+  },
+  "1b510354-871f-3778-3b91-7267f615edad": {
+   "iou": 0.8906994356018652,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7996000000000001
+  },
+  "1c82b74a-046d-0b2e-0ae8-8efa1a3b5075": {
+   "iou": 0.8926237340957831,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.52042
+  },
+  "1cec4016-d36c-276d-21ee-aaba47d5370d": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8545714285714286
+  },
+  "1d77e102-b172-79b0-5bed-e4f699e6a9e3": {
+   "iou": 0.9713738500399569,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8885400000000001
+  },
+  "1ea7fa6c-04f7-3796-53fb-4b4c9fd06046": {
+   "iou": 0.998202226996094,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.938742857142857
+  },
+  "20f03550-320e-bfc7-6f68-edce0b31e530": {
+   "iou": 0.6655915486407086,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8015857142857142
+  },
+  "21683e9c-a1c1-5306-975c-636678168aa7": {
+   "iou": 0.6960454175571964,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6808000000000001
+  },
+  "21e76406-9f05-923f-9ec1-b1e4d60ab56f": {
+   "iou": 0.5679864077472396,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.3016
+  },
+  "232ebd96-d8f4-cbb2-9632-80c58ae0bde5": {
+   "iou": 0.9595737249515349,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6770666666666667
+  },
+  "262d9e7c-dbb9-63c1-4aaf-8d0fcd271167": {
+   "iou": 0.9591495113986066,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "277c7ece-cdfa-fea1-a228-7890b5ca8abf": {
+   "iou": 0.5169616239051156,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8214285714285714
+  },
+  "27b61d00-4187-9581-4a40-0249daff1d3e": {
+   "iou": 0.6009581548459827,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7862333333333332
+  },
+  "27c14e3c-b20c-32da-9318-069a70a38736": {
+   "iou": 0.6527794465190804,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.5512600000000001
+  },
+  "2a03f49c-55aa-2216-a0f0-193921c0c9dc": {
+   "iou": 0.9044266826330867,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9075999999999999
+  },
+  "2a127616-b122-d044-509e-57d2ad439430": {
+   "iou": 0.7294926397687915,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6597571428571429
+  },
+  "2a3f6310-c6a8-001d-1c51-71bfb99dc46b": {
+   "iou": 0.9968615723176941,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9881666666666665
+  },
+  "2a68b01c-40a2-3e3e-406d-82b44e0945fe": {
+   "iou": 0.8081501229599912,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.65645
+  },
+  "2b2abf9a-fa85-4b8c-d5ac-d6c2aebfa219": {
+   "iou": 0.9515802140509299,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7808
+  },
+  "2b68ade6-0426-d55e-7d7a-896d929d6c3c": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9532285714285713
+  },
+  "2d946fba-92f4-8747-7b91-d4dca5e9dffa": {
+   "iou": 0.6432511163136291,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.682775
+  },
+  "2e90d6f6-2a2b-d2de-42e3-766ef511d009": {
+   "iou": 0.879753318288446,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8303333333333334
+  },
+  "2f03050a-a013-32d4-120e-5c0e1f830d87": {
+   "iou": 0.8375372173763599,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8563142857142856
+  },
+  "2f914158-9603-003b-d60f-c22327678432": {
+   "iou": 0.996103392932701,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.60302
+  },
+  "2fc346d0-c0d0-bedd-47d6-ca16afdf6cde": {
+   "iou": 0.5994598189117958,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7588833333333334
+  },
+  "3027b0de-d78e-2204-a7dd-b9e736cf50a7": {
+   "iou": 0.9878740859874104,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9022714285714286
+  },
+  "308fcc0a-0ff6-95d2-c180-b090ac5e2251": {
+   "iou": 0.4690035926823678,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.2097
+  },
+  "315420c8-c004-66ab-88f1-c3f37c7c428f": {
+   "iou": 0.9930724716807476,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.730075
+  },
+  "318308ca-6db7-03d4-1e07-4b457041e85f": {
+   "iou": 0.8664416737618519,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.792275
+  },
+  "31bca440-552c-a4be-f878-d257ab8ad7ab": {
+   "iou": 0.7112532635033028,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7055142857142856
+  },
+  "31d57dc6-d3e4-9315-3cd9-013996a3ba70": {
+   "iou": 0.9960503766920625,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.63418
+  },
+  "33bfe4f0-2195-cd27-511d-1960d3ecd268": {
+   "iou": 0.5739223440403517,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.59562
+  },
+  "33cb1e60-32ce-d80b-534d-f77e9a9a1aa8": {
+   "iou": 0.8972547289216155,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9580166666666665
+  },
+  "34fbe40e-992d-d71c-05df-ddf5b48a283e": {
+   "iou": 0.8184462304271051,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.84336
+  },
+  "35578098-7487-1220-320a-3d822a4cb668": {
+   "iou": 0.99687862435075,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9644
+  },
+  "36971806-e2fb-8b7a-c4f2-8e3af9dc5d59": {
+   "iou": 0.8009219784179062,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8029571428571429
+  },
+  "37c0277c-77d0-0f39-04d9-68178d8c22d9": {
+   "iou": 0.9836468935263756,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9665
+  },
+  "380d5326-ebcf-887e-a849-71553f4de331": {
+   "iou": 0.2416487593088024,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.5304000000000001
+  },
+  "396bdc74-d0cd-6545-655f-c2cb51c69f29": {
+   "iou": 0.7730246740277659,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8864285714285715
+  },
+  "3a3c36ee-0e22-6733-bc91-4cec48c907b0": {
+   "iou": 0.8378672503599977,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "3c681abe-4544-d162-df93-dd83c20b4f2f": {
+   "iou": 0.6866441134577045,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7908142857142858
+  },
+  "3dea7ef4-12f4-f863-d9ac-de99eafbe73d": {
+   "iou": 0.9932296080099695,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8183166666666667
+  },
+  "3e0adbea-71c4-7d12-2b02-0f96ae01168c": {
+   "iou": 0.9999999604827614,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8508333333333334
+  },
+  "3faa58c2-aa89-4a16-9c7f-49e28a3b4474": {
+   "iou": 0.9239158009492547,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6119142857142857
+  },
+  "3ff45080-27a7-5297-42eb-a7b298bbbec9": {
+   "iou": 0.8002966356235048,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7867500000000001
+  },
+  "408a083c-2bc6-58e8-9112-e30e88982eb7": {
+   "iou": 0.8291515510044433,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7292714285714286
+  },
+  "40a1be28-d887-8d8c-7e85-1cec9ee0eeb6": {
+   "iou": 0.8197972423458105,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.64925
+  },
+  "42084d2c-a350-75f5-0a7c-0ff29d27396c": {
+   "iou": 1.0,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8254571428571429
+  },
+  "42fdeae8-8913-d949-07c2-20b9ff6646e1": {
+   "iou": 0.8265754307677996,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.48105
+  },
+  "4487b98e-f085-5981-04fe-60b4724cc212": {
+   "iou": 0.5795869487800942,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9458857142857143
+  },
+  "45dd907e-fce7-3a32-c718-3b14d67bf0cd": {
+   "iou": 0.9519911443733984,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6881500000000002
+  },
+  "4794bc6c-d2d2-bf75-2129-ee436a709063": {
+   "iou": 0.5714305102186297,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.5131857142857144
+  },
+  "47adc310-e94b-4f63-6f3f-66e84b834f1a": {
+   "iou": 0.7652543496446162,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6286
+  },
+  "4990526a-2092-652f-d1d5-ab306b3b4201": {
+   "iou": 0.6973088532088945,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7630999999999999
+  },
+  "4997f358-2bdb-cfe6-4123-9fe6676bb677": {
+   "iou": 0.863963043336546,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8636714285714288
+  },
+  "49fa9972-f2cc-7bc0-c8f3-31ef9bcfe713": {
+   "iou": 0.4695757937833982,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8108833333333334
+  },
+  "4a10ebb4-7f62-e957-ff9d-5e9734137b04": {
+   "iou": 0.5453079067564609,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.74595
+  },
+  "4ae3a9b4-9e49-9352-7295-5854d844aabc": {
+   "iou": 0.5149456541127949,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.79878
+  },
+  "4ae465ca-2dca-30ef-d26b-ddd501e272bf": {
+   "iou": 0.6471682352549235,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.5841666666666666
+  },
+  "4b36cd1a-59da-0566-9e66-59a0274af2d5": {
+   "iou": 0.8087260572473972,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.5859714285714287
+  },
+  "4c4b7b60-8ccd-bf64-9cc4-22ecb1b9dc83": {
+   "iou": 0.9245151077916697,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9229285714285714
+  },
+  "4ca360f0-9011-dedc-c83c-4484b3efadc2": {
+   "iou": 0.9526687555988733,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8109999999999999
+  },
+  "4caed84a-3934-33d1-ea62-7e7b1d54d2d7": {
+   "iou": 0.9718276066135002,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7363142857142856
+  },
+  "4d32634a-80c1-b5e2-9f75-ed851c468eed": {
+   "iou": 0.9048463356973995,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7677857142857143
+  },
+  "4f1f9e7a-33c5-3171-6386-02f97b46e3e0": {
+   "iou": 0.9116792966013795,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9242
+  },
+  "4fb6f1ee-cc35-47aa-e0f4-a91b19be9cc2": {
+   "iou": 0.7452401015653367,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9489
+  },
+  "501c3752-57bb-eb6d-a576-00d3a4220f2f": {
+   "iou": 0.793167231483202,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7465999999999999
+  },
+  "5339e8b2-193f-2742-b395-7a678facccf6": {
+   "iou": 0.9388324541134412,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7272333333333334
+  },
+  "533abec2-4fd4-5a40-a13d-b433aa8cab0e": {
+   "iou": 0.768582204837226,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8352833333333334
+  },
+  "5433f5fa-2b5c-97cf-6c43-8e397748fff4": {
+   "iou": 0.8947368421052632,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6636285714285715
+  },
+  "5781cf7a-e660-b005-72da-22678f2fc13c": {
+   "iou": 0.8032443922987711,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9852500000000001
+  },
+  "59c2f6d8-e94a-9f9e-6084-09e204ea07d0": {
+   "iou": 0.752976070991915,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "5a6c2b0e-7a44-c72b-0d7a-115b56ae3902": {
+   "iou": 0.8992322840294941,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8427142857142857
+  },
+  "5ab6e9a0-3288-1b88-b6a7-4000dafa03d1": {
+   "iou": 0.5937760154033067,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9253857142857144
+  },
+  "5acc9002-dbc7-b148-4852-73fd58b0639c": {
+   "iou": 0.8252283634149026,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8199142857142857
+  },
+  "5b408cc8-e72a-87fa-da8f-f2fa2f72a2f8": {
+   "iou": 0.7675488541348071,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.4530428571428572
+  },
+  "5c04c43a-2481-1cd2-8430-3fd500359172": {
+   "iou": 0.0,
+   "draws": 32,
+   "branch": "none",
+   "agree": 0.0
+  },
+  "5cda4768-b959-8b4c-7ebe-ee121d1e3cfb": {
+   "iou": 0.8993701912146784,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8539857142857141
+  },
+  "615006e8-c135-78ba-8b25-3526b9f5f751": {
+   "iou": 0.3708584286246898,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6992285714285714
+  },
+  "6179af5c-dbb0-4ed5-a1cd-82e3e52957e6": {
+   "iou": 0.7281540259892288,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.78976
+  },
+  "621858be-a6ae-6444-a429-5cd2e0e13393": {
+   "iou": 0.7613260363056519,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6650833333333332
+  },
+  "62ed1bbc-3bea-c143-68b3-a8b5c8f05b2f": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9266285714285714
+  },
+  "63205a4a-e4c3-0af3-59db-09cdfd2a8390": {
+   "iou": 0.930676796634624,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8596857142857142
+  },
+  "6443eed2-4c31-b47b-ee17-93f69643bad1": {
+   "iou": 0.9042024128081657,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8639285714285714
+  },
+  "64f6f518-9962-1057-93cf-a4610c62ea48": {
+   "iou": 0.7316886475063634,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.35423333333333334
+  },
+  "6548f2f0-d3fd-1f40-01e1-456abe1e6981": {
+   "iou": 0.3551463119150394,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6260833333333333
+  },
+  "65ab4dd8-4a5d-f990-4753-37ad0d254b11": {
+   "iou": 0.9820520278854522,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.4249
+  },
+  "66f0acc4-04e0-01cc-a62c-dcc835b36e1e": {
+   "iou": 0.9641121757176389,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9455499999999999
+  },
+  "671a85a8-71a6-070d-6ca9-30f9ad64648f": {
+   "iou": 0.8705652308471429,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7336
+  },
+  "671f0312-4773-0ca1-76c9-b62b127bdc4a": {
+   "iou": 0.40739343747763035,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.4521
+  },
+  "6945376a-07e2-34fd-d760-f6c0ef90e07c": {
+   "iou": 0.7603956467362517,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7210428571428571
+  },
+  "695359f8-834d-e223-c460-76f8ec97d933": {
+   "iou": 0.8095321638510737,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8827400000000001
+  },
+  "6b79fb4c-4b74-10c7-b573-82b1c8173079": {
+   "iou": 0.6122144519984504,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6738714285714286
+  },
+  "6b85875a-0cbc-d71e-2da5-faa42fbac60f": {
+   "iou": 0.9916047450325881,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9172571428571429
+  },
+  "6bb979fc-37dd-a267-9ba1-391b581d235a": {
+   "iou": 0.9718346087068356,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8327166666666667
+  },
+  "6c2d80ea-5328-34b2-3562-33e35e0851e6": {
+   "iou": 0.7109746742804126,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7136166666666667
+  },
+  "6da41e7a-5e0e-a52d-8b24-c9e2bddbd2e4": {
+   "iou": 0.9916473251754897,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7390166666666667
+  },
+  "6e259284-ba14-1a23-7db8-18144f2a8ccf": {
+   "iou": 0.9996354095508606,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9803428571428573
+  },
+  "6f62d896-8cc2-7cd6-b66b-7c543e9ea286": {
+   "iou": 0.973544576136074,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.83835
+  },
+  "6f8eb09c-e1bb-9446-ee69-835330393c47": {
+   "iou": 0.9448739489893042,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.5907199999999999
+  },
+  "712826e0-127e-3909-2e84-5567be5093d2": {
+   "iou": 0.8241955725744136,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8297571428571427
+  },
+  "71f0f61a-0856-3b0d-8559-10a5a92fde1d": {
+   "iou": 0.9772835630232555,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "7465bd18-da4c-db2c-c98b-e6f48206a94b": {
+   "iou": 0.9736357282550184,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8023714285714286
+  },
+  "75ae55fe-8046-1091-78f3-db48d7e6f923": {
+   "iou": 0.5925848769998727,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6921714285714285
+  },
+  "75e4986c-9f20-17ae-6452-c0331d556274": {
+   "iou": 0.7623741830169442,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6360750000000001
+  },
+  "77084658-eb71-b8f6-5875-68e718f41f6b": {
+   "iou": 0.6959231417245724,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8013499999999999
+  },
+  "7872f1b4-f0c4-9173-7b00-9d3bae9ef902": {
+   "iou": 0.7486557146502842,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7615571428571428
+  },
+  "78f76106-65a5-488a-7e12-9b1c430fb10b": {
+   "iou": 0.6560407203131728,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.66435
+  },
+  "79e4439a-7a3c-e6b2-c935-2d02162da1d2": {
+   "iou": 0.760526756492454,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.884957142857143
+  },
+  "7d410550-dd47-02c9-8e22-70c14deb9640": {
+   "iou": 0.9128108752071852,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.901375
+  },
+  "7dd5f570-b7b7-6cce-a18a-2c85e4e0924c": {
+   "iou": 0.9587809331301926,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8994800000000002
+  },
+  "7ec78480-dd1b-30df-b9d2-284eb588cd7a": {
+   "iou": 0.995906599898108,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.5894
+  },
+  "7f251604-7d67-b832-8849-5dbfe9a129d3": {
+   "iou": 0.9830052597418595,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "7ff14ee0-70a1-3e88-4187-5b3a78f15350": {
+   "iou": 0.5483505569034449,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7452
+  },
+  "80169da8-2c2a-b680-aadb-97d8c60a32e3": {
+   "iou": 0.42542820081483745,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.3121
+  },
+  "8069ee90-d1fc-09c5-2fd9-126bebd3f373": {
+   "iou": 0.8603078281720095,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8386666666666667
+  },
+  "83791804-e1c1-0940-e9c5-4d762be9f717": {
+   "iou": 0.1762931414231689,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.63688
+  },
+  "83c20172-f4bf-abdf-6e4d-65e290332a54": {
+   "iou": 0.8934864857025842,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8309285714285713
+  },
+  "845d1cac-2490-4ab8-dfd1-bf5d8e2a225d": {
+   "iou": 0.337169838275277,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7374666666666667
+  },
+  "850f24a6-af39-a62c-95e8-e8f592ca0251": {
+   "iou": 0.682447152603744,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7172000000000001
+  },
+  "85652f68-d5e5-f803-f2ab-a9c4ff1ce189": {
+   "iou": 0.9255352992599855,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9331799999999999
+  },
+  "865e0976-d02f-e2a5-1f9f-8d8dc2d4c9b5": {
+   "iou": 0.8122201207046859,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.73385
+  },
+  "8717ff84-d108-855f-2e67-4e517363133b": {
+   "iou": 0.854672543731271,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8475166666666666
+  },
+  "875fa83e-a4b8-8220-b51f-ec88bf1c36b9": {
+   "iou": 0.8896148711872328,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.776
+  },
+  "87e6177a-162f-7080-671a-ee277db9a67d": {
+   "iou": 0.7434001937145622,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8288285714285715
+  },
+  "88bc106e-a986-42b5-4aa3-937b6052cf75": {
+   "iou": 0.7836220288380528,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7914
+  },
+  "88d6d1d8-324e-8c83-f4b7-d0a120b4ba2f": {
+   "iou": 0.5781217242232571,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7926428571428571
+  },
+  "88e88676-262d-ccfa-2d1b-ecc9571e5d09": {
+   "iou": 0.9534386913981231,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6315999999999999
+  },
+  "892f7414-495b-907e-fd39-86c6937ce4b0": {
+   "iou": 0.7285880745417957,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.5102
+  },
+  "8d66bcc2-c2ac-61d1-0ee7-58e9a9fde4e4": {
+   "iou": 0.5889958730435294,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.704075
+  },
+  "8dac88ec-62c9-9624-9d1d-86e8cfc491cf": {
+   "iou": 0.892076448203851,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8712249999999999
+  },
+  "8ea41b0c-d28a-c9ed-210c-b604a66af163": {
+   "iou": 0.9138889161040421,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9019833333333334
+  },
+  "8f04a22e-f06a-be20-44ad-00aed013e095": {
+   "iou": 0.9414375074074247,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.75932
+  },
+  "9052e15e-d604-5bbd-0d13-56f5a87d8207": {
+   "iou": 0.4557124803768292,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.5571714285714285
+  },
+  "91804828-3f8a-5574-d8d2-a65f216867e2": {
+   "iou": 0.9404843390684708,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8935285714285716
+  },
+  "9254e66e-1fe7-85b0-c038-084ec937e9af": {
+   "iou": 0.9879083752550027,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8446166666666666
+  },
+  "93255632-eaf9-53ff-9335-618d0ad7af06": {
+   "iou": 0.9790565133515352,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.86772
+  },
+  "938a49c0-9465-9f43-2866-78f160c971b2": {
+   "iou": 0.7587507559780697,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "94ced396-fc40-7175-3a0b-160cbc9aee67": {
+   "iou": 0.5413846754449536,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7394
+  },
+  "94fc0a64-369a-69d1-7444-82d204aee523": {
+   "iou": 1.0,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7907714285714286
+  },
+  "96eeb880-9403-c99e-cb27-5bfde5ef12cc": {
+   "iou": 0.9519204566589863,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.72048
+  },
+  "97217a40-0c72-79c7-9104-c3d2b6ebac10": {
+   "iou": 0.9841124566175958,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9176428571428572
+  },
+  "97309890-fed9-ec35-2b95-e0f89b8942d3": {
+   "iou": 0.8507203126169874,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.8141200000000002
+  },
+  "97d69010-3fc4-4f07-273e-62a4632cc74d": {
+   "iou": 0.9369675169472483,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.8911
+  },
+  "988623b8-4804-a93f-4584-6a8f4c4e7ba0": {
+   "iou": 0.9329851667699322,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.5813571428571428
+  },
+  "9c78ef00-78fc-4557-cb58-5e98fb940ae6": {
+   "iou": 0.9837537991835903,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6404142857142857
+  },
+  "9ca41004-96fa-563b-1fe4-b56ac79ba901": {
+   "iou": 0.9999999999934063,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6561999999999999
+  },
+  "9f1b4834-084e-9ec5-7d12-74935b8f7e42": {
+   "iou": 0.3939604595128655,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.5341666666666667
+  },
+  "9f24f9a6-cd29-0cfb-e95b-8061119bcf45": {
+   "iou": 0.936050175129743,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6627333333333333
+  },
+  "9fee95c2-0d73-6d2d-acbc-f5bfacb98daa": {
+   "iou": 0.5697775205638859,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.58992
+  },
+  "a0ffb2f2-f7fc-911c-5f46-e29d607b3064": {
+   "iou": 0.6904562733792532,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6842428571428573
+  },
+  "a143d3c4-fe26-a910-b4f3-57ac2e51b01d": {
+   "iou": 0.9933447931941988,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9182599999999999
+  },
+  "a3364eb4-e963-1004-011d-ab45c7c5f897": {
+   "iou": 0.9860265893027372,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.0
+  },
+  "a3bf1780-961e-fc4b-b244-3bde93b1f23b": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9958
+  },
+  "a51e495c-8730-06c0-f3ee-e03d4ff2f1eb": {
+   "iou": 0.3683152671355445,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.7128500000000001
+  },
+  "a5435cf6-b567-5731-8403-2645a9c16b1f": {
+   "iou": 0.8545985853921924,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.6916000000000001
+  },
+  "a61d45ba-b5e8-f591-0fce-0bc335682920": {
+   "iou": 1.0,
+   "draws": 8,
+   "branch": "vote",
+   "agree": 0.9978285714285714
+  },
+  "a701e44a-b4e8-3947-e094-08e61f872fbe": {
+   "iou": 0.5754233163915738,
+   "draws": 32,
+   "branch": "verifier@k1",
+   "agree": 0.4117000000000001
+  }
+ }
+}
