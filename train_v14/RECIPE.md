@@ -1316,12 +1316,17 @@ Three things were wrong, and only the first was obvious:
    that exceeds it scores 0. That is a REJECTION ON COST, not on measured geometry — it is
    flagged per candidate (`iou_timeout`) and counted at the end, and it is defensible only
    because a mesh that defeats both engines and the sampler is not one to train on.
-3. **A free exact short-circuit exists but rarely fires.** IoU <= min(vA,vB)/max(vA,vB), so a
-   volume ratio below the acceptance threshold settles the accept/reject decision without any
-   boolean (`--accept`, flagged `iou_bound`). Validated on 40 rebuilt candidates: no violation,
-   0.2 s against 470 s for the true overlaps — but it fired on **none** of them, because volume
-   is only trustworthy for a watertight mesh and the expensive cases are exactly the leaky ones.
-   Keep it (it is free) but do not count on it.
+3. **A free exact short-circuit exists and is, in practice, dead code.** IoU <=
+   min(vA,vB)/max(vA,vB), so a volume ratio below the acceptance threshold settles the
+   accept/reject decision without any boolean (`--accept`, flagged `iou_bound`). Validated on 40
+   rebuilt candidates: never violated, 0.2 s against 470 s for the true overlaps. But it has now
+   fired on **0 of 14,000** candidates in the real run, because volume is only trustworthy for a
+   watertight mesh and the expensive cases are exactly the leaky ones. It costs nothing, so it
+   stays, but **it is not where the speed came from** — do not reach for it again expecting one.
+
+The whole gain is the TAIL. Only 0.6-0.7% of candidates hit the 90 s overlap cap, and bounding
+that fraction is what turned 204 h into 4.6 h: a few pathological meshes were each consuming
+tens of minutes and holding a worker thread the entire time. Fix the tail, not the average.
 
 Build timeouts also dropped 120 s -> 60 s (`--exec-timeout`); half the budget was going to
 failures sitting at the old limit. Together: **0.05 -> 2.11 candidates/s, 204 h -> 4.6 h.**
