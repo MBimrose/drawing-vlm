@@ -1,0 +1,4322 @@
+[
+ {
+  "key": "A_00000005_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.8940662779143875,
+  "consistency": 0.8904529595148464,
+  "oracle": 0.8955398843108098
+ },
+ {
+  "key": "A_00000007_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9763376495900681,
+  "consistency": 0.8948665900132268,
+  "oracle": 0.9763376495900681
+ },
+ {
+  "key": "A_00000022_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.2547307622400689,
+  "consistency": 0.05072676302273394,
+  "oracle": 0.9134146829900004
+ },
+ {
+  "key": "A_00001146_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.2024562453345537,
+  "consistency": 0.32330374310814886,
+  "oracle": 0.5286633481102274
+ },
+ {
+  "key": "A_00002570_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9089552244997278,
+  "consistency": 0.909670187655734,
+  "oracle": 0.9100672817192516
+ },
+ {
+  "key": "A_00003259_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8799017299133822,
+  "consistency": 0.8799017299133822,
+  "oracle": 0.9204679216069944
+ },
+ {
+  "key": "A_00003607_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.4004177019192683,
+  "consistency": 0.5725258292550299,
+  "oracle": 0.7940149903355443
+ },
+ {
+  "key": "A_00003749_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.14035193411797306,
+  "consistency": 0.2370060150267464,
+  "oracle": 0.2979084094723443
+ },
+ {
+  "key": "A_00004373_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.3753712071530485,
+  "consistency": 0.7646984854523483,
+  "oracle": 0.8286888295327999
+ },
+ {
+  "key": "A_00004383_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8589820431450367,
+  "consistency": 0.8589820431450367,
+  "oracle": 0.8589820431450367
+ },
+ {
+  "key": "A_00004717_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.3851060935508086,
+  "consistency": 0.39013134512076686,
+  "oracle": 0.44079250816878324
+ },
+ {
+  "key": "A_00004829_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.36531184377064035,
+  "consistency": 0.36531184377064035,
+  "oracle": 0.3769547299846909
+ },
+ {
+  "key": "A_00004851_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6306661607343449,
+  "consistency": 0.650111324963748,
+  "oracle": 0.7140469695945424
+ },
+ {
+  "key": "A_00005415_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6710732745714527,
+  "consistency": 0.6710732745714527,
+  "oracle": 0.8979345955303704
+ },
+ {
+  "key": "A_00005597_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8624800031487244,
+  "consistency": 0.8624555096380369,
+  "oracle": 0.914166038587063
+ },
+ {
+  "key": "A_00006333_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5335639358502874,
+  "consistency": 0.5716761542843094,
+  "oracle": 0.7864335200052288
+ },
+ {
+  "key": "A_00007078_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.83103681527057,
+  "consistency": 0.800348895493515,
+  "oracle": 0.8310368152721108
+ },
+ {
+  "key": "A_00007310_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.059794800652216776,
+  "consistency": 0.05887844261626357,
+  "oracle": 0.6466105434837841
+ },
+ {
+  "key": "A_00007697_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.9724829586405732,
+  "consistency": 0.9732819041287364,
+  "oracle": 0.9732819041287364
+ },
+ {
+  "key": "A_00008359_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9957461033661326,
+  "consistency": 0.9781719292939207,
+  "oracle": 0.9990396415156585
+ },
+ {
+  "key": "A_00008681_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5026737315401976,
+  "consistency": 0.5950568658868369,
+  "oracle": 0.6115107084864163
+ },
+ {
+  "key": "A_00008926_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4001080672403294,
+  "consistency": 0.43889537801127376,
+  "oracle": 0.4445957435051202
+ },
+ {
+  "key": "A_00008937_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9927959786120856,
+  "consistency": 0.9927959786120856,
+  "oracle": 0.9927959786120856
+ },
+ {
+  "key": "A_00010955_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.5004478207029163,
+  "consistency": 0.6926171897200515,
+  "oracle": 0.6926171897200515
+ },
+ {
+  "key": "A_00011471_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.693557766330165,
+  "consistency": 0.693557766330165,
+  "oracle": 0.8653460189791995
+ },
+ {
+  "key": "A_00011823_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7536091959362019,
+  "consistency": 0.7719555016901198,
+  "oracle": 0.8188284346993036
+ },
+ {
+  "key": "A_00011828_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6802999168983046,
+  "consistency": 0.8274604870359494,
+  "oracle": 0.8279542350599172
+ },
+ {
+  "key": "A_00012346_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.5661196812647321,
+  "consistency": 0.6221297484240167,
+  "oracle": 0.6264700122433171
+ },
+ {
+  "key": "A_00012455_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9119562896446617,
+  "consistency": 0.9143415798691696,
+  "oracle": 0.9227722060098035
+ },
+ {
+  "key": "A_00013695_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7840711416515888,
+  "consistency": 0.7840711416515888,
+  "oracle": 0.8442392355694517
+ },
+ {
+  "key": "A_00014437_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.02293002615299506,
+  "consistency": 0.042022825624292756,
+  "oracle": 0.1937240087534229
+ },
+ {
+  "key": "A_00014843_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.7177347977841045,
+  "consistency": 0.8444794387365893,
+  "oracle": 0.8444794387365893
+ },
+ {
+  "key": "A_00015648_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9719928360651174,
+  "consistency": 0.9719928360651174,
+  "oracle": 0.9719928360651174
+ },
+ {
+  "key": "A_00016460_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.02704377360018122,
+  "consistency": 0.3877704983033216,
+  "oracle": 0.7541541745164164
+ },
+ {
+  "key": "A_00017309_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7709983076916673,
+  "consistency": 0.8003065053302563,
+  "oracle": 0.8792618503847306
+ },
+ {
+  "key": "A_00017701_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8869360826889534,
+  "consistency": 0.8869360826889534,
+  "oracle": 0.8986459594825514
+ },
+ {
+  "key": "A_00017962_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 1,
+  "first_exec": 0.8998393560347805,
+  "consistency": 0.8998393560347805,
+  "oracle": 0.8998393560347805
+ },
+ {
+  "key": "A_00018562_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9755208526907709,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "A_00018923_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6981472816878965,
+  "consistency": 0.6812223190646117,
+  "oracle": 0.7039155896184957
+ },
+ {
+  "key": "A_00019444_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6119466731315043,
+  "consistency": 0.6119466731315043,
+  "oracle": 0.66860953980932
+ },
+ {
+  "key": "A_00019587_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.993516927123038,
+  "consistency": 0.993516927123038,
+  "oracle": 0.993516927123038
+ },
+ {
+  "key": "A_00020329_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9560225035820398,
+  "consistency": 0.9565785768375209,
+  "oracle": 0.9565785768375209
+ },
+ {
+  "key": "A_00020390_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8656713683757448,
+  "consistency": 0.8656713683757448,
+  "oracle": 0.8976668961255915
+ },
+ {
+  "key": "A_00020838_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.5697293665069294,
+  "consistency": 0.8239785170266772,
+  "oracle": 0.9227665793489019
+ },
+ {
+  "key": "A_00021800_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9799543041621992,
+  "consistency": 0.9799543041621992,
+  "oracle": 0.9799543041621992
+ },
+ {
+  "key": "A_00022014_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.866627830733865,
+  "consistency": 0.933785052027288,
+  "oracle": 0.933785052027288
+ },
+ {
+  "key": "A_00022792_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.986249866002457,
+  "consistency": 0.986249866002457,
+  "oracle": 0.986249866002457
+ },
+ {
+  "key": "A_00022900_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8979613869995724,
+  "consistency": 0.894506938625154,
+  "oracle": 0.8979613869995724
+ },
+ {
+  "key": "A_00023007_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.7081967213114754,
+  "consistency": 0.8319327731092437,
+  "oracle": 0.8319327731092437
+ },
+ {
+  "key": "A_00023487_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.10655640289465436,
+  "consistency": 0.7148708196274587,
+  "oracle": 0.7148708196274587
+ },
+ {
+  "key": "A_00023793_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5866609329851699,
+  "consistency": 0.32181820754816587,
+  "oracle": 0.5866609329851699
+ },
+ {
+  "key": "A_00024020_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 3,
+  "first_exec": 0.1944657257724389,
+  "consistency": 0.4913353565409641,
+  "oracle": 0.4913353565409641
+ },
+ {
+  "key": "A_00025076_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9167373075173797,
+  "consistency": 0.8194445201201258,
+  "oracle": 0.9167373075173797
+ },
+ {
+  "key": "A_00025218_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7738217624728619,
+  "consistency": 0.9732830307617698,
+  "oracle": 0.9732830307617698
+ },
+ {
+  "key": "A_00026663_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.7182965171233727,
+  "consistency": 0.851233013706693,
+  "oracle": 0.9433579930347847
+ },
+ {
+  "key": "A_00026943_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.9634637161153758,
+  "consistency": 0.9634637161153758,
+  "oracle": 0.9634637161153758
+ },
+ {
+  "key": "A_00026958_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8665705349804956,
+  "consistency": 0.8980080726873932,
+  "oracle": 0.9080579452278961
+ },
+ {
+  "key": "A_00026984_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8573472129594727,
+  "consistency": 0.8591449725340339,
+  "oracle": 0.9416575842297303
+ },
+ {
+  "key": "A_00027002_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.3998665794105064,
+  "consistency": 0.40478931817148206,
+  "oracle": 0.7325899305307805
+ },
+ {
+  "key": "A_00028279_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "A_00028557_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6549633251293916,
+  "consistency": 0.7473850919191708,
+  "oracle": 0.837254424232567
+ },
+ {
+  "key": "A_00028802_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 2,
+  "first_exec": 0.38139987690394617,
+  "consistency": 0.38139987690394617,
+  "oracle": 0.38139987690394617
+ },
+ {
+  "key": "A_00028879_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8766667485237122,
+  "consistency": 0.8250981162576114,
+  "oracle": 0.8766667485237122
+ },
+ {
+  "key": "A_00028982_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.8592649835829226,
+  "consistency": 0.8592649835829226,
+  "oracle": 0.8872949282767703
+ },
+ {
+  "key": "A_00029403_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.40854908071048135,
+  "consistency": 0.41099222142262576,
+  "oracle": 0.8191118682515873
+ },
+ {
+  "key": "A_00029426_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9718133282596818,
+  "consistency": 0.9718133282596818,
+  "oracle": 0.975721136728588
+ },
+ {
+  "key": "A_00029445_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9844859965705887,
+  "consistency": 0.9844859965705887,
+  "oracle": 0.9889951371752068
+ },
+ {
+  "key": "A_00029624_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6643869707611311,
+  "consistency": 0.6643869707611311,
+  "oracle": 0.6643869707611311
+ },
+ {
+  "key": "A_00029901_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.5972666942476393,
+  "consistency": 0.6048434958155102,
+  "oracle": 0.6048434958155102
+ },
+ {
+  "key": "A_00029937_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.45070718945972804,
+  "consistency": 0.5972203741272436,
+  "oracle": 0.5972203741272436
+ },
+ {
+  "key": "A_00030218_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.9545394098321002,
+  "consistency": 0.7818007770041542,
+  "oracle": 0.9850438650024541
+ },
+ {
+  "key": "A_00030235_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7526511052597779,
+  "consistency": 0.7526511052597779,
+  "oracle": 0.8773578486341354
+ },
+ {
+  "key": "A_00030632_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9862231076337995,
+  "consistency": 0.9795453533889623,
+  "oracle": 0.9862231076337995
+ },
+ {
+  "key": "A_00031309_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.5651447535382519,
+  "consistency": 0.48206143646628996,
+  "oracle": 0.5651447535382519
+ },
+ {
+  "key": "A_00031500_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9991024969949559,
+  "consistency": 0.9991024969949559,
+  "oracle": 0.9994493682998394
+ },
+ {
+  "key": "A_00031957_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.034054265982552095,
+  "consistency": 0.034054265982552095,
+  "oracle": 0.06690984965171148
+ },
+ {
+  "key": "A_00032111_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8233942529859666,
+  "consistency": 0.861464069826253,
+  "oracle": 0.8902528057072112
+ },
+ {
+  "key": "A_00032141_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8359350160095687,
+  "consistency": 0.7826745418569618,
+  "oracle": 0.8359350160095687
+ },
+ {
+  "key": "A_00032412_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9552607174957126,
+  "consistency": 0.9552607174957126,
+  "oracle": 0.9553115446924687
+ },
+ {
+  "key": "A_00032495_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6348431399194818,
+  "consistency": 0.6556554695426929,
+  "oracle": 0.6556554695426929
+ },
+ {
+  "key": "A_00032698_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9990095770115586,
+  "consistency": 0.9990095770115586,
+  "oracle": 0.9990095770115586
+ },
+ {
+  "key": "A_00032966_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5608863494887572,
+  "consistency": 0.8371210823790864,
+  "oracle": 0.8371210823790864
+ },
+ {
+  "key": "A_00033096_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8312092063934522,
+  "consistency": 0.5186428612785685,
+  "oracle": 0.8793992448539278
+ },
+ {
+  "key": "A_00033515_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.8133296631455803,
+  "consistency": 0.8949680805578899,
+  "oracle": 0.9092526961045282
+ },
+ {
+  "key": "A_00034310_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.22491713183373818,
+  "consistency": 0.2540889982574012,
+  "oracle": 0.3075297927356422
+ },
+ {
+  "key": "A_00034358_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.07207995066634514,
+  "consistency": 0.07207995066634514,
+  "oracle": 0.1353447363262266
+ },
+ {
+  "key": "A_00034471_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 4.2375475861463176e-08,
+  "consistency": 4.2375475861463176e-08,
+  "oracle": 2.5381966071312903e-06
+ },
+ {
+  "key": "A_00035199_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8726762599739872,
+  "consistency": 0.8600022019804694,
+  "oracle": 0.8726762599739872
+ },
+ {
+  "key": "A_00035201_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9972659131870807,
+  "consistency": 0.9972659131870807,
+  "oracle": 0.9972659131870807
+ },
+ {
+  "key": "A_00035371_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9069482068372148,
+  "consistency": 0.9069482068372148,
+  "oracle": 0.9069482068372148
+ },
+ {
+  "key": "A_00035428_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9024329470534959,
+  "consistency": 0.9996809741868274,
+  "oracle": 0.9997011464093764
+ },
+ {
+  "key": "A_00035528_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.2170706385373441,
+  "consistency": 0.11467158542022618,
+  "oracle": 0.2170706385373441
+ },
+ {
+  "key": "A_00036512_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4895595992220845,
+  "consistency": 0.4649190712947762,
+  "oracle": 0.4895595992220845
+ },
+ {
+  "key": "A_00036673_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.415671058831707,
+  "consistency": 0.6194857274710807,
+  "oracle": 0.6194857274710807
+ },
+ {
+  "key": "A_00037087_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9637011132443569,
+  "consistency": 0.9637011132443569,
+  "oracle": 0.9637011132443569
+ },
+ {
+  "key": "A_00037390_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.1456184734194823,
+  "consistency": 0.8838814933563314,
+  "oracle": 0.901327122098744
+ },
+ {
+  "key": "A_00037393_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9968697756987425,
+  "consistency": 0.9968697756987425,
+  "oracle": 0.9968697756987425
+ },
+ {
+  "key": "A_00037825_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.28648875189532813,
+  "consistency": 0.39156789857096497,
+  "oracle": 0.39156789857096497
+ },
+ {
+  "key": "A_00037845_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.8499188259338272,
+  "consistency": 0.9189560084314115,
+  "oracle": 0.9193445924267425
+ },
+ {
+  "key": "A_00037903_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.8199451158150719,
+  "consistency": 0.8034611586562644,
+  "oracle": 0.8199451158150719
+ },
+ {
+  "key": "A_00038857_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5388282926286543,
+  "consistency": 0.5327746898959237,
+  "oracle": 0.5672709816271706
+ },
+ {
+  "key": "A_00039277_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7860429944618696,
+  "consistency": 0.8257687069516835,
+  "oracle": 0.8620311012058529
+ },
+ {
+  "key": "A_00039699_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8757755389912654,
+  "consistency": 0.9077927580819382,
+  "oracle": 0.9337990145243728
+ },
+ {
+  "key": "A_00039890_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.4193070759073826,
+  "consistency": 0.4193070759073826,
+  "oracle": 0.4330879628740276
+ },
+ {
+  "key": "A_00039994_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7819678559000698,
+  "consistency": 0.8559323726591834,
+  "oracle": 0.86731251939407
+ },
+ {
+  "key": "A_00040012_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.8665070821966647,
+  "consistency": 0.8706277963951431,
+  "oracle": 0.8706277963951431
+ },
+ {
+  "key": "A_00040013_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8271437076740341,
+  "consistency": 0.8302198499189819,
+  "oracle": 0.8302198499189819
+ },
+ {
+  "key": "A_00040014_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9180901400700736,
+  "consistency": 0.9180901400700736,
+  "oracle": 0.9953058296267162
+ },
+ {
+  "key": "A_00040033_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.6766815297299964,
+  "consistency": 0.5327400471787996,
+  "oracle": 0.6766815297299964
+ },
+ {
+  "key": "A_00040036_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.46894075984573463,
+  "consistency": 0.3532815437757794,
+  "oracle": 0.46894075984573463
+ },
+ {
+  "key": "A_00040042_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.3308432238323411,
+  "consistency": 0.23126253678620207,
+  "oracle": 0.3308432238323411
+ },
+ {
+  "key": "A_00040047_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7772744810031531,
+  "consistency": 0.8266533415492022,
+  "oracle": 0.8266533415492022
+ },
+ {
+  "key": "A_00040050_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.02444001903748801,
+  "consistency": 0.4256625339759093,
+  "oracle": 0.598432451085451
+ },
+ {
+  "key": "A_00040052_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.017471614932218837,
+  "consistency": 0.22132533046767333,
+  "oracle": 0.2584980730636379
+ },
+ {
+  "key": "A_00040053_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.39848435768333085,
+  "consistency": 0.3737040581879208,
+  "oracle": 0.4903381903278277
+ },
+ {
+  "key": "A_00040056_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.05053670171599404,
+  "consistency": 0.7858809062074134,
+  "oracle": 0.7858809062074134
+ },
+ {
+  "key": "A_00040069_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5152336952818491,
+  "consistency": 0.5160207909724975,
+  "oracle": 0.5403427333609604
+ },
+ {
+  "key": "A_00040070_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.925999942382179,
+  "consistency": 0.925999942382179,
+  "oracle": 0.925999942382179
+ },
+ {
+  "key": "A_00040079_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.1734937630141029,
+  "consistency": 0.18793782011046498,
+  "oracle": 0.29613606850323343
+ },
+ {
+  "key": "A_00040412_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8022541524705797,
+  "consistency": 0.802344220751346,
+  "oracle": 0.988737121856288
+ },
+ {
+  "key": "A_00041215_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7751219534161349,
+  "consistency": 0.775186269532875,
+  "oracle": 0.7759282790456866
+ },
+ {
+  "key": "A_00041218_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.99832943258486,
+  "consistency": 0.99832943258486,
+  "oracle": 0.99832943258486
+ },
+ {
+  "key": "A_00041259_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 2,
+  "first_exec": 0.018226848652401914,
+  "consistency": 0.018226848652401914,
+  "oracle": 0.018226848652401914
+ },
+ {
+  "key": "A_00041370_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.21857499772667416,
+  "consistency": 0.6516711100618086,
+  "oracle": 0.6516711100618086
+ },
+ {
+  "key": "A_00041950_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 2,
+  "first_exec": 0.5433387191935654,
+  "consistency": 0.5433387191935654,
+  "oracle": 0.6840606122351875
+ },
+ {
+  "key": "A_00041981_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9969626219824752,
+  "consistency": 0.997756976205907,
+  "oracle": 0.997756976205907
+ },
+ {
+  "key": "A_00042090_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.8399209203903867,
+  "consistency": 0.8383938109221837,
+  "oracle": 0.8468132660687337
+ },
+ {
+  "key": "A_00042208_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9746552377062634,
+  "consistency": 0.8920489207605254,
+  "oracle": 0.9746552377062634
+ },
+ {
+  "key": "A_00042559_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4837066489894111,
+  "consistency": 0.18547540958678221,
+  "oracle": 0.4837066489894111
+ },
+ {
+  "key": "A_00042598_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.3749399658315952,
+  "consistency": 0.5267469743661222,
+  "oracle": 0.8027850128664707
+ },
+ {
+  "key": "A_00044290_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8772642672693358,
+  "consistency": 0.8772642672693358,
+  "oracle": 0.8975209388638248
+ },
+ {
+  "key": "A_00044372_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.4651250056493166,
+  "consistency": 0.7741185455343125,
+  "oracle": 0.7741185455343125
+ },
+ {
+  "key": "A_00044521_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.032555452297222905,
+  "consistency": 0.9984074240249875,
+  "oracle": 0.9984074240249875
+ },
+ {
+  "key": "A_00044668_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9311772560975827,
+  "consistency": 0.9494713538959915,
+  "oracle": 0.9994128833758084
+ },
+ {
+  "key": "A_00044685_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.0,
+  "consistency": 0.7049926817368678,
+  "oracle": 0.7049926817368678
+ },
+ {
+  "key": "A_00045090_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8094586952174487,
+  "consistency": 0.8094586952174487,
+  "oracle": 0.8094586952174487
+ },
+ {
+  "key": "A_00045424_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9984521704050138,
+  "consistency": 0.9984521704050138,
+  "oracle": 0.9984521704050138
+ },
+ {
+  "key": "A_00045605_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9169790591887105,
+  "consistency": 0.9425179072457952,
+  "oracle": 0.9425179072457952
+ },
+ {
+  "key": "A_00046773_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6119466731315043,
+  "consistency": 0.6205363091509155,
+  "oracle": 0.6762891841241463
+ },
+ {
+  "key": "A_00047020_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.2826460250901521,
+  "consistency": 0.2211910506677377,
+  "oracle": 0.31112921763751994
+ },
+ {
+  "key": "A_00047187_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.8876061841359421,
+  "consistency": 0.8876061841359421,
+  "oracle": 0.8876061841359421
+ },
+ {
+  "key": "A_00047275_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.14659565636516492,
+  "consistency": 0.38523632347417364,
+  "oracle": 0.38523632347417364
+ },
+ {
+  "key": "A_00047667_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8983842426659758,
+  "consistency": 0.8340235213455742,
+  "oracle": 0.8983842426659758
+ },
+ {
+  "key": "A_00048920_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7360809383040638,
+  "consistency": 0.7336350404510666,
+  "oracle": 0.996358323692486
+ },
+ {
+  "key": "A_00048975_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8672562606358014,
+  "consistency": 0.8660715732238914,
+  "oracle": 0.8969941526518239
+ },
+ {
+  "key": "A_00049019_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8627619588037457,
+  "consistency": 0.9466190243141084,
+  "oracle": 0.971754213730465
+ },
+ {
+  "key": "A_00050008_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "A_00050009_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9710743168173974,
+  "consistency": 0.9810917044915248,
+  "oracle": 0.9810917044915248
+ },
+ {
+  "key": "A_00050014_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9214532216456192,
+  "consistency": 0.9214532216456192,
+  "oracle": 0.9363091304611324
+ },
+ {
+  "key": "A_00050015_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9917707698291455,
+  "consistency": 0.9917707698291455,
+  "oracle": 0.9917707698291455
+ },
+ {
+  "key": "A_00050017_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9012002432099192,
+  "consistency": 0.9012002432099192,
+  "oracle": 0.9886996746884366
+ },
+ {
+  "key": "A_00050025_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.0,
+  "consistency": 0.8520279169886849,
+  "oracle": 0.8520279169886849
+ },
+ {
+  "key": "A_00050027_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9461848585246114,
+  "consistency": 0.9461848585246114,
+  "oracle": 0.9498746703698753
+ },
+ {
+  "key": "A_00050028_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9242329869344139,
+  "consistency": 0.9242329869344139,
+  "oracle": 0.9946108502256011
+ },
+ {
+  "key": "A_00050030_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.32093632093632096,
+  "consistency": 0.6375560515971002,
+  "oracle": 0.6715477570318686
+ },
+ {
+  "key": "A_00050041_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.9383135246109738,
+  "consistency": 0.9383135246109738,
+  "oracle": 0.9797106061989275
+ },
+ {
+  "key": "A_00050042_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9804166842713335,
+  "consistency": 0.9804166842713335,
+  "oracle": 1.0
+ },
+ {
+  "key": "A_00050043_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4221718943707205,
+  "consistency": 0.4917461092742678,
+  "oracle": 0.9427695323362442
+ },
+ {
+  "key": "A_00050045_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.4984782085178206,
+  "consistency": 0.6624552097019749,
+  "oracle": 0.9553653050353843
+ },
+ {
+  "key": "A_00050049_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7944925360593625,
+  "consistency": 0.7944925360593625,
+  "oracle": 0.8050240147343725
+ },
+ {
+  "key": "A_00050053_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8178207447996231,
+  "consistency": 0.8178207447996231,
+  "oracle": 0.9023442626862631
+ },
+ {
+  "key": "A_00050057_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.0,
+  "consistency": 0.19602013187701015,
+  "oracle": 0.2170097451584425
+ },
+ {
+  "key": "A_00050058_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.2614142655623682,
+  "consistency": 0.6739794912246105,
+  "oracle": 0.6739794912246105
+ },
+ {
+  "key": "A_00050059_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.0,
+  "consistency": 0.15955351099549328,
+  "oracle": 0.15955351099549328
+ },
+ {
+  "key": "A_00050071_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.9064670043473849,
+  "consistency": 0.9064670043473849,
+  "oracle": 0.9172168386899165
+ },
+ {
+  "key": "A_00050075_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.7632455205634939,
+  "consistency": 0.07480870814670691,
+  "oracle": 0.9192970826258092
+ },
+ {
+  "key": "A_00050076_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.4502909531619279,
+  "consistency": 0.2967957703835656,
+  "oracle": 0.4502909531619279
+ },
+ {
+  "key": "A_00050078_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.4961396025526568,
+  "consistency": 0.4961396025526568,
+  "oracle": 0.6585089211708764
+ },
+ {
+  "key": "A_00050550_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9984888477871594,
+  "consistency": 0.9984888477871594,
+  "oracle": 0.9984888477871594
+ },
+ {
+  "key": "A_00051234_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6064502009245429,
+  "consistency": 0.6064502009245429,
+  "oracle": 0.8253284492876657
+ },
+ {
+  "key": "A_00051570_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9836150507507622,
+  "consistency": 0.9836150507507622,
+  "oracle": 0.9836150507507622
+ },
+ {
+  "key": "A_00051853_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.94107906889805,
+  "consistency": 0.9990044696578392,
+  "oracle": 0.9990044696578392
+ },
+ {
+  "key": "A_00052553_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8621864030616935,
+  "consistency": 0.9111626246532889,
+  "oracle": 0.9114721565584829
+ },
+ {
+  "key": "A_00052890_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.7008670096535367,
+  "consistency": 0.700758837243049,
+  "oracle": 0.7008670096535367
+ },
+ {
+  "key": "A_00053239_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8492813783601288,
+  "consistency": 0.8613413465341219,
+  "oracle": 0.8614488250836176
+ },
+ {
+  "key": "A_00053251_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.9433040384333137,
+  "consistency": 0.9433040384333137,
+  "oracle": 0.9433040384333137
+ },
+ {
+  "key": "A_00053851_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7326824272184588,
+  "consistency": 0.7326824272184588,
+  "oracle": 0.7326824272184588
+ },
+ {
+  "key": "A_00054474_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9961094755928288,
+  "consistency": 0.9975055295652874,
+  "oracle": 0.9975055295652874
+ },
+ {
+  "key": "A_00054599_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.4609364731560869,
+  "consistency": 0.4609364731560869,
+  "oracle": 0.4734364035208524
+ },
+ {
+  "key": "A_00055222_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6706520405636885,
+  "consistency": 0.8014140522874715,
+  "oracle": 0.8019679336743321
+ },
+ {
+  "key": "A_00055803_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8759216566043287,
+  "consistency": 0.9357043632572856,
+  "oracle": 0.9357043632572856
+ },
+ {
+  "key": "A_00055974_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8190084126925348,
+  "consistency": 0.9996381595458945,
+  "oracle": 0.9996381595458945
+ },
+ {
+  "key": "A_00056825_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.0006534587311102576,
+  "consistency": 0.0019714090455300167,
+  "oracle": 0.8688330740984015
+ },
+ {
+  "key": "A_00057379_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.018856502780049536,
+  "consistency": 0.020061959180031542,
+  "oracle": 0.9865529846256349
+ },
+ {
+  "key": "A_00057601_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.08770275063589687,
+  "consistency": 0.9604107634636512,
+  "oracle": 0.9604107634636512
+ },
+ {
+  "key": "A_00057723_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6758188196519818,
+  "consistency": 0.7804792982114951,
+  "oracle": 0.869736338417902
+ },
+ {
+  "key": "A_00057914_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.22575691670950057,
+  "consistency": 0.22575691670950057,
+  "oracle": 0.4009134411577245
+ },
+ {
+  "key": "A_00058152_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.669404403488535,
+  "consistency": 0.659875733500133,
+  "oracle": 0.6694044063050923
+ },
+ {
+  "key": "A_00058189_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9083281032389048,
+  "consistency": 0.9079994310795997,
+  "oracle": 0.9083281032389048
+ },
+ {
+  "key": "A_00058288_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.0061578997096368195,
+  "consistency": 0.02608809988595583,
+  "oracle": 0.03962386872773241
+ },
+ {
+  "key": "A_00059220_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6215283902366151,
+  "consistency": 0.6870513804199273,
+  "oracle": 0.8086630209200241
+ },
+ {
+  "key": "A_00059871_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.5704823791353028,
+  "consistency": 0.5721768626525856,
+  "oracle": 0.5721768626525856
+ },
+ {
+  "key": "A_00060004_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.30081467338054063,
+  "consistency": 0.5490476972926289,
+  "oracle": 0.635378170819869
+ },
+ {
+  "key": "A_00060014_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.9512468058859427,
+  "consistency": 0.9505481107441632,
+  "oracle": 0.9512468058859427
+ },
+ {
+  "key": "A_00060016_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.9929431073659972,
+  "consistency": 0.9943547588075471,
+  "oracle": 0.9943547588075471
+ },
+ {
+  "key": "A_00060017_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.21005520376437614,
+  "consistency": 0.22246481868007179,
+  "oracle": 0.44666563468646114
+ },
+ {
+  "key": "A_00060026_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.019609724888571427,
+  "consistency": 0.006339000924251925,
+  "oracle": 0.04851380510985375
+ },
+ {
+  "key": "A_00060029_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.43377305823081136,
+  "consistency": 0.5052669131933925,
+  "oracle": 0.5076006984123042
+ },
+ {
+  "key": "A_00060030_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 2.3931592846991405e-06,
+  "consistency": 0.1681881783053013,
+  "oracle": 0.1681881783053013
+ },
+ {
+  "key": "A_00060045_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9,
+  "consistency": 0.9,
+  "oracle": 1.0
+ },
+ {
+  "key": "A_00060048_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5200118958537193,
+  "consistency": 0.5200118958537193,
+  "oracle": 0.7311992556240902
+ },
+ {
+  "key": "A_00060050_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9670913056752561,
+  "consistency": 0.9717643202881678,
+  "oracle": 0.9717643202881678
+ },
+ {
+  "key": "A_00060052_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.7528711751969799,
+  "consistency": 0.6445778389517568,
+  "oracle": 0.7528711751969799
+ },
+ {
+  "key": "A_00060056_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.6269573388522703,
+  "consistency": 0.6269573388522703,
+  "oracle": 0.6269573388522703
+ },
+ {
+  "key": "A_00060057_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5928635564930016,
+  "consistency": 0.9519807433842815,
+  "oracle": 0.9519807433842815
+ },
+ {
+  "key": "A_00060064_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.019222169946152463,
+  "consistency": 0.0620197404900725,
+  "oracle": 0.06353683960239462
+ },
+ {
+  "key": "A_00060074_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.12394126087361232,
+  "consistency": 0.12394126087361232,
+  "oracle": 0.12679721714665132
+ },
+ {
+  "key": "A_00060075_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.16395150022096225,
+  "consistency": 0.450191374661659,
+  "oracle": 0.618769186666657
+ },
+ {
+  "key": "A_00060077_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.3515782851197174,
+  "consistency": 0.43937030722913417,
+  "oracle": 0.515649130031916
+ },
+ {
+  "key": "A_00060079_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.44285337994779816,
+  "consistency": 0.46724902424129783,
+  "oracle": 0.5454690030071709
+ },
+ {
+  "key": "A_00070001_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7043395547118008,
+  "consistency": 0.7436765873087657,
+  "oracle": 0.8629392405522959
+ },
+ {
+  "key": "A_00070004_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.5123710877980033,
+  "consistency": 0.5267253976299041,
+  "oracle": 0.7467109124736196
+ },
+ {
+  "key": "A_00070005_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6817221881599564,
+  "consistency": 0.6817221881599564,
+  "oracle": 0.7868227120734993
+ },
+ {
+  "key": "A_00070014_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.01584486042277749,
+  "consistency": 0.014093677289343725,
+  "oracle": 0.01716497247472841
+ },
+ {
+  "key": "A_00070015_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8176108330092275,
+  "consistency": 0.8308343796699215,
+  "oracle": 0.8370051910728444
+ },
+ {
+  "key": "A_00070016_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8989522934266299,
+  "consistency": 0.9274874694112119,
+  "oracle": 0.9274874694112119
+ },
+ {
+  "key": "A_00070017_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.6645450338467925,
+  "consistency": 0.6645450338467925,
+  "oracle": 0.9534512520283598
+ },
+ {
+  "key": "A_00070018_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9872203840424778,
+  "consistency": 0.9872203840424778,
+  "oracle": 0.9872203840424778
+ },
+ {
+  "key": "A_00070019_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9660557084745179,
+  "consistency": 0.957677410183474,
+  "oracle": 0.9660557084745179
+ },
+ {
+  "key": "A_00070020_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 3,
+  "first_exec": 0.7717030253123405,
+  "consistency": 0.8935214726259365,
+  "oracle": 0.8948921857393239
+ },
+ {
+  "key": "A_00070021_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9283804491687803,
+  "consistency": 0.9283804491687803,
+  "oracle": 0.9283804491687803
+ },
+ {
+  "key": "A_00070022_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.962795658569523,
+  "consistency": 0.962795658569523,
+  "oracle": 0.962795658569523
+ },
+ {
+  "key": "A_00070023_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9132624558583011,
+  "consistency": 0.8983585317323385,
+  "oracle": 0.9132624558583011
+ },
+ {
+  "key": "A_00070026_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6972089675010733,
+  "consistency": 0.6972089675010733,
+  "oracle": 0.6972089675010733
+ },
+ {
+  "key": "A_00070031_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.989563132393046,
+  "consistency": 0.9951691633731037,
+  "oracle": 0.9951691633731037
+ },
+ {
+  "key": "A_00070035_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.2888786167298619,
+  "consistency": 0.8851206934895317,
+  "oracle": 0.8851206934895317
+ },
+ {
+  "key": "A_00070037_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.7274466549140348,
+  "consistency": 0.7094245039456818,
+  "oracle": 0.7274466549140348
+ },
+ {
+  "key": "A_00070049_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5699830427742922,
+  "consistency": 0.44844687417040197,
+  "oracle": 0.5699830427742922
+ },
+ {
+  "key": "A_00070050_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7620515782253672,
+  "consistency": 0.771956819032245,
+  "oracle": 0.8005754918797724
+ },
+ {
+  "key": "A_00070058_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7224671541147504,
+  "consistency": 0.7224671541147504,
+  "oracle": 0.7445043980965036
+ },
+ {
+  "key": "A_00070059_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6805472826634089,
+  "consistency": 0.6805472826634089,
+  "oracle": 0.7997909102474527
+ },
+ {
+  "key": "A_00070060_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.14158421980045072,
+  "consistency": 0.45783455675400747,
+  "oracle": 0.5878677713703612
+ },
+ {
+  "key": "A_00070061_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5613912522767535,
+  "consistency": 0.43834581301092257,
+  "oracle": 0.5613912522767535
+ },
+ {
+  "key": "A_00070062_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.9956567732206328,
+  "consistency": 0.9967209231140811,
+  "oracle": 0.9967209231140811
+ },
+ {
+  "key": "A_00070063_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5973136432688897,
+  "consistency": 0.564158537153779,
+  "oracle": 0.6220163820565879
+ },
+ {
+  "key": "A_00070064_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.15124170024353645,
+  "consistency": 0.09349700653145518,
+  "oracle": 0.38604779725696164
+ },
+ {
+  "key": "A_00070065_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8948286453136003,
+  "consistency": 0.8948286453136003,
+  "oracle": 0.9172829497651456
+ },
+ {
+  "key": "A_00070067_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.014521875362453656,
+  "consistency": 0.014521878047210808,
+  "oracle": 0.9959595954602958
+ },
+ {
+  "key": "A_00070069_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.8124396154074486,
+  "consistency": 0.8611559807883108,
+  "oracle": 0.8611559807883108
+ },
+ {
+  "key": "A_00070078_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.9356000885444771,
+  "consistency": 0.9356000885444771,
+  "oracle": 0.9356000885444771
+ },
+ {
+  "key": "A_00080003_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9845197481847516,
+  "consistency": 0.9845197481847516,
+  "oracle": 0.9845197481847516
+ },
+ {
+  "key": "A_00080008_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5765435652207691,
+  "consistency": 0.8845328681541103,
+  "oracle": 0.8845328681541103
+ },
+ {
+  "key": "A_00080018_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.2856114101141619,
+  "consistency": 0.25135719765024767,
+  "oracle": 0.3701831745711491
+ },
+ {
+  "key": "A_00080019_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.923411428779898,
+  "consistency": 0.923411428779898,
+  "oracle": 0.923411428779898
+ },
+ {
+  "key": "A_00080020_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9134710235872788,
+  "consistency": 0.9134710235872788,
+  "oracle": 0.9134710235872788
+ },
+ {
+  "key": "A_00080021_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9546630453149304,
+  "consistency": 0.9546630453149304,
+  "oracle": 0.9775439766630337
+ },
+ {
+  "key": "A_00080022_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7661377152848482,
+  "consistency": 0.7716174258951676,
+  "oracle": 0.7719827391503634
+ },
+ {
+  "key": "A_00080023_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.9800499322735154,
+  "consistency": 0.9800499322735154,
+  "oracle": 0.9800499322735154
+ },
+ {
+  "key": "A_00080024_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9357964208818239,
+  "consistency": 0.9357964208818239,
+  "oracle": 0.9384372106649256
+ },
+ {
+  "key": "A_00080025_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9053840265356293,
+  "consistency": 0.9266034659464796,
+  "oracle": 0.9816300244585027
+ },
+ {
+  "key": "A_00080026_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9955635209148699,
+  "consistency": 0.9955635209148699,
+  "oracle": 0.9955635209148699
+ },
+ {
+  "key": "A_00080027_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7240626369578047,
+  "consistency": 0.9868003094950127,
+  "oracle": 0.9881227398444372
+ },
+ {
+  "key": "A_00080028_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.8535784939365914,
+  "consistency": 0.9600498200691936,
+  "oracle": 0.9600498200691936
+ },
+ {
+  "key": "A_00080029_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6490695233510305,
+  "consistency": 0.7035391568933879,
+  "oracle": 0.7035391568933879
+ },
+ {
+  "key": "A_00080030_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.891467225161976,
+  "consistency": 0.949219270516412,
+  "oracle": 0.949219270516412
+ },
+ {
+  "key": "A_00080031_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9859232568843536,
+  "consistency": 0.9859232568843536,
+  "oracle": 0.9859232568843536
+ },
+ {
+  "key": "A_00080032_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8131267745272835,
+  "consistency": 0.8720138806252936,
+  "oracle": 0.8720138806252936
+ },
+ {
+  "key": "A_00080033_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.6703240672587675,
+  "consistency": 0.899381353721398,
+  "oracle": 0.899381353721398
+ },
+ {
+  "key": "A_00080034_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.30729345721103485,
+  "consistency": 0.7433226478599406,
+  "oracle": 0.8910999499486122
+ },
+ {
+  "key": "A_00080037_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.9914745171445588,
+  "consistency": 0.9914745171445588,
+  "oracle": 0.9918880940214614
+ },
+ {
+  "key": "A_00080039_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9755208526907707,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "A_00080043_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.8671571454842149,
+  "consistency": 0.8671571454842149,
+  "oracle": 0.8671571454842149
+ },
+ {
+  "key": "A_00080045_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.42296563350858346,
+  "consistency": 0.5707847220051225,
+  "oracle": 0.5996178179542082
+ },
+ {
+  "key": "A_00080047_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.950717104180765,
+  "consistency": 0.950717104180765,
+  "oracle": 0.950717104180765
+ },
+ {
+  "key": "A_00080056_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9804358240451124,
+  "consistency": 0.9804358240451124,
+  "oracle": 0.9804358240451124
+ },
+ {
+  "key": "A_00080058_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9656316921501553,
+  "consistency": 0.9652967491698771,
+  "oracle": 0.9656316921501553
+ },
+ {
+  "key": "A_00080063_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7102499096032201,
+  "consistency": 0.7102499096032201,
+  "oracle": 0.9324552516368199
+ },
+ {
+  "key": "A_00080064_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9258188124990582,
+  "consistency": 0.9324552516368199,
+  "oracle": 0.9324552516368199
+ },
+ {
+  "key": "A_00080066_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6404576017868413,
+  "consistency": 0.6380679464703167,
+  "oracle": 0.9055368195302261
+ },
+ {
+  "key": "A_00080067_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9151340078795073,
+  "consistency": 0.985528950928075,
+  "oracle": 0.985528950928075
+ },
+ {
+  "key": "A_00080071_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.49163693575729395,
+  "consistency": 0.938258860088398,
+  "oracle": 0.938258860088398
+ },
+ {
+  "key": "A_00080072_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9652114056563248,
+  "consistency": 0.9652114056563248,
+  "oracle": 0.9652114056563248
+ },
+ {
+  "key": "A_00080073_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9416701588881742,
+  "consistency": 0.9588114675306818,
+  "oracle": 0.9588114675306818
+ },
+ {
+  "key": "A_00080074_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9416701588881742,
+  "consistency": 0.9416701588881742,
+  "oracle": 0.9588114675306818
+ },
+ {
+  "key": "A_00080079_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6539240600424241,
+  "consistency": 0.6985573280233628,
+  "oracle": 0.7227005859683173
+ },
+ {
+  "key": "A_00090000_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9691483818220644,
+  "consistency": 0.9691483818220644,
+  "oracle": 0.9691483818220644
+ },
+ {
+  "key": "A_00090002_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9202524678461133,
+  "consistency": 0.9414188057042401,
+  "oracle": 0.9414188057042401
+ },
+ {
+  "key": "A_00090016_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6461781744611831,
+  "consistency": 0.8935472683300173,
+  "oracle": 0.9352953278915968
+ },
+ {
+  "key": "A_00090018_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4723070463394152,
+  "consistency": 0.4723070463394152,
+  "oracle": 0.48270512525856124
+ },
+ {
+  "key": "A_00090021_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.7746569758499456,
+  "consistency": 0.6978907640000287,
+  "oracle": 0.7746569758499456
+ },
+ {
+  "key": "A_00090024_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.14714689432449235,
+  "consistency": 0.9447471047100695,
+  "oracle": 0.9794769836246126
+ },
+ {
+  "key": "A_00090026_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8428441900000123,
+  "consistency": 0.8607099439409938,
+  "oracle": 0.9024172508703375
+ },
+ {
+  "key": "A_00090027_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.8982662724948206,
+  "consistency": 0.9204659454000331,
+  "oracle": 0.9925935113480882
+ },
+ {
+  "key": "A_00090030_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8614364710544641,
+  "consistency": 0.8614364710544641,
+  "oracle": 0.939213962620784
+ },
+ {
+  "key": "A_00090035_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.03817352263900374,
+  "consistency": 0.019385707203587482,
+  "oracle": 0.2734566334343044
+ },
+ {
+  "key": "A_00090036_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.0006388021258655007,
+  "consistency": 0.003337952163380571,
+  "oracle": 0.030512911916480718
+ },
+ {
+  "key": "A_00090041_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.888107920349293,
+  "consistency": 0.888107920349293,
+  "oracle": 0.9759732755080609
+ },
+ {
+  "key": "A_00090048_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.7902897574044097,
+  "consistency": 0.8154339124669737,
+  "oracle": 0.8154339124669737
+ },
+ {
+  "key": "A_00090049_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "A_00090061_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.3399293833298787,
+  "consistency": 0.3394116687168022,
+  "oracle": 0.3399293833298787
+ },
+ {
+  "key": "A_00090063_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9967397600746623,
+  "consistency": 0.9967397600746623,
+  "oracle": 0.9967397600746623
+ },
+ {
+  "key": "A_00090065_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9902059493895403,
+  "consistency": 0.9946084144878754,
+  "oracle": 0.9946084144878754
+ },
+ {
+  "key": "A_00090067_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9877604263453853,
+  "consistency": 0.9877604263453853,
+  "oracle": 1.0
+ },
+ {
+  "key": "A_00090068_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9358686424545899,
+  "consistency": 0.9209360691450248,
+  "oracle": 0.9398258996617553
+ },
+ {
+  "key": "A_00090070_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9967529134464832,
+  "consistency": 0.9967529134464832,
+  "oracle": 0.9967532187227639
+ },
+ {
+  "key": "A_00090075_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.5602404694488899,
+  "consistency": 0.5246119632253479,
+  "oracle": 0.5602404694488899
+ },
+ {
+  "key": "A_00090076_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5055815978171418,
+  "consistency": 0.7318555466587348,
+  "oracle": 0.7318555466587348
+ },
+ {
+  "key": "A_00100007_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6381028872688331,
+  "consistency": 0.6381028872688331,
+  "oracle": 0.7555163764586136
+ },
+ {
+  "key": "A_00100018_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.09565338040256242,
+  "consistency": 0.1508413056729797,
+  "oracle": 0.1508413056729797
+ },
+ {
+  "key": "A_00100020_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.15663176128130907,
+  "consistency": 0.33504811609344753,
+  "oracle": 0.3857450566183257
+ },
+ {
+  "key": "A_00100021_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.173757139898285,
+  "consistency": 0.12056617924388174,
+  "oracle": 0.21229793242809267
+ },
+ {
+  "key": "A_00100024_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8621548953276762,
+  "consistency": 0.857941641605025,
+  "oracle": 0.9525607332551186
+ },
+ {
+  "key": "A_00100037_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 3,
+  "first_exec": 0.24397525529552097,
+  "consistency": 0.31837876952515975,
+  "oracle": 0.3760914169893058
+ },
+ {
+  "key": "A_00100038_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.20482860101244754,
+  "consistency": 0.5209715337431251,
+  "oracle": 0.6773371475921115
+ },
+ {
+  "key": "A_00100043_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6423717334364066,
+  "consistency": 0.6423717334364066,
+  "oracle": 0.8677630004042464
+ },
+ {
+  "key": "A_00100046_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.01859629280517637,
+  "consistency": 0.03374514787935053,
+  "oracle": 0.059382655815732974
+ },
+ {
+  "key": "A_00100052_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.5667987541876275,
+  "consistency": 0.8078522622074824,
+  "oracle": 0.869421609988081
+ },
+ {
+  "key": "A_00100064_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.12935252851414092,
+  "consistency": 0.12935252851414092,
+  "oracle": 0.25210117317886077
+ },
+ {
+  "key": "A_00100066_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.09008342344148353,
+  "consistency": 0.5150192092642889,
+  "oracle": 0.5150192092642889
+ },
+ {
+  "key": "A_00100070_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8663689227172431,
+  "consistency": 0.8663689227172431,
+  "oracle": 0.8663689227172431
+ },
+ {
+  "key": "A_00100071_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.42612036714637747,
+  "consistency": 0.8828550291093432,
+  "oracle": 0.887788794859176
+ },
+ {
+  "key": "A_00100072_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9885204088396475,
+  "consistency": 0.9885204088396475,
+  "oracle": 0.9885204088396475
+ },
+ {
+  "key": "A_00100075_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.16728515301465907,
+  "consistency": 0.17215722031761085,
+  "oracle": 0.2903517806901097
+ },
+ {
+  "key": "A_00100076_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.1765096581757777,
+  "consistency": 0.1765096581757777,
+  "oracle": 0.196761854842176
+ },
+ {
+  "key": "A_00110003_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.3586676517092938,
+  "consistency": 0.3495587026360391,
+  "oracle": 0.3586676517092938
+ },
+ {
+  "key": "A_00110005_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.9693381256840671,
+  "consistency": 0.8841310315689622,
+  "oracle": 0.9693381256840671
+ },
+ {
+  "key": "A_00110006_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.8250318982632665,
+  "consistency": 0.8250318982632665,
+  "oracle": 0.8486647208397123
+ },
+ {
+  "key": "A_00110007_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.9459191168620761,
+  "consistency": 0.9442444430979431,
+  "oracle": 0.9459191168620761
+ },
+ {
+  "key": "A_00110008_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.02752731508434273,
+  "consistency": 0.10540177203347784,
+  "oracle": 0.5582073175000091
+ },
+ {
+  "key": "A_00110009_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.44958760476842424,
+  "consistency": 0.44958760476842424,
+  "oracle": 0.5131922205733032
+ },
+ {
+  "key": "A_00110010_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.43668571819735325,
+  "consistency": 0.7776666164715195,
+  "oracle": 0.7776666164715195
+ },
+ {
+  "key": "A_00110011_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.484196145295681,
+  "consistency": 0.4342355256076731,
+  "oracle": 0.7223060344805109
+ },
+ {
+  "key": "A_00110018_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7143083603184278,
+  "consistency": 0.8219402380931262,
+  "oracle": 0.8219402380931262
+ },
+ {
+  "key": "A_00110029_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "A_00110034_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9876843707639948,
+  "consistency": 0.9876843707639948,
+  "oracle": 0.9876843707639948
+ },
+ {
+  "key": "A_00110038_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6798412477397717,
+  "consistency": 0.6798412477397717,
+  "oracle": 0.7370952746829363
+ },
+ {
+  "key": "A_00110040_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.48590704647676164,
+  "consistency": 0.608474683946382,
+  "oracle": 0.6982324479115236
+ },
+ {
+  "key": "A_00110042_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.157765318127076,
+  "consistency": 0.15829926485328083,
+  "oracle": 0.15829926485328083
+ },
+ {
+  "key": "A_00120010_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7909042647491561,
+  "consistency": 0.7909042647491561,
+  "oracle": 0.7911639606105014
+ },
+ {
+  "key": "A_00120017_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5527974750190064,
+  "consistency": 0.5179397749599147,
+  "oracle": 0.5772651858200849
+ },
+ {
+  "key": "A_00120020_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9802586466731145,
+  "consistency": 0.9993106180869067,
+  "oracle": 0.9993106180869067
+ },
+ {
+  "key": "A_00120023_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6781215778766567,
+  "consistency": 0.6781215778766567,
+  "oracle": 0.6781215778766567
+ },
+ {
+  "key": "A_00120024_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5239406687516908,
+  "consistency": 0.7535127650290977,
+  "oracle": 0.7645067365906696
+ },
+ {
+  "key": "A_00120025_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.4816824198018483,
+  "consistency": 0.6562465821493774,
+  "oracle": 0.6562465821493774
+ },
+ {
+  "key": "A_00120026_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6640583717825758,
+  "consistency": 0.6640583717825758,
+  "oracle": 0.6640583717825758
+ },
+ {
+  "key": "A_00120035_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6717304216400722,
+  "consistency": 0.6599359822969081,
+  "oracle": 0.6717304216400722
+ },
+ {
+  "key": "A_00120036_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.2702567197882771,
+  "consistency": 0.826828510759416,
+  "oracle": 0.826828510759416
+ },
+ {
+  "key": "A_00120046_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.2972074950407198,
+  "consistency": 0.3362959407346336,
+  "oracle": 0.3362959407346336
+ },
+ {
+  "key": "A_00120051_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.24074700683637978,
+  "consistency": 0.2753322052905838,
+  "oracle": 0.2753322052905838
+ },
+ {
+  "key": "A_00120061_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.0069808455432889245,
+  "consistency": 0.0033025872159592683,
+  "oracle": 0.0069808455432889245
+ },
+ {
+  "key": "A_00120063_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.10523303470532054,
+  "consistency": 0.6374212877792084,
+  "oracle": 0.7717128111970858
+ },
+ {
+  "key": "A_00120066_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9668518055680394,
+  "consistency": 0.9005170566810051,
+  "oracle": 0.982142082507238
+ },
+ {
+  "key": "A_00120067_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.5302598840920126,
+  "consistency": 0.5771488514803302,
+  "oracle": 0.6004545268105964
+ },
+ {
+  "key": "A_00120069_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7918406390857913,
+  "consistency": 0.7892736320077905,
+  "oracle": 0.8017827596814563
+ },
+ {
+  "key": "A_00120070_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9328829664861307,
+  "consistency": 0.9328829664861307,
+  "oracle": 0.9422297272028335
+ },
+ {
+  "key": "A_00120075_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.645005649282743,
+  "consistency": 0.3809366989287386,
+  "oracle": 0.645005649282743
+ },
+ {
+  "key": "A_00120079_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.3883772671166707,
+  "consistency": 0.15402199639477687,
+  "oracle": 0.3883772671166707
+ },
+ {
+  "key": "A_00130000_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9982770395438755,
+  "consistency": 0.9882942310671896,
+  "oracle": 0.9982770395438755
+ },
+ {
+  "key": "A_00130001_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.0,
+  "consistency": 0.9523282516942772,
+  "oracle": 0.9523282516942772
+ },
+ {
+  "key": "A_00130002_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9700771214610695,
+  "consistency": 0.9956352475145162,
+  "oracle": 0.9956352475145162
+ },
+ {
+  "key": "A_00130005_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9671352612299234,
+  "consistency": 0.9671352612299234,
+  "oracle": 0.9696339774715138
+ },
+ {
+  "key": "A_00130032_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.0344318769524564,
+  "consistency": 0.0819489032636123,
+  "oracle": 0.0819489032636123
+ },
+ {
+  "key": "A_00130033_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4039228592870215,
+  "consistency": 0.3910416047725158,
+  "oracle": 0.4039228592870215
+ },
+ {
+  "key": "A_00130035_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.4515352744913579,
+  "consistency": 0.4515352744913579,
+  "oracle": 0.5368242745951267
+ },
+ {
+  "key": "A_00130036_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8723842481990449,
+  "consistency": 0.8723842481990449,
+  "oracle": 0.911788253319217
+ },
+ {
+  "key": "A_00130062_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.7179441912688684,
+  "consistency": 0.7017013016885286,
+  "oracle": 0.7179441912688684
+ },
+ {
+  "key": "A_00130066_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6477680600770106,
+  "consistency": 0.8820234064535802,
+  "oracle": 0.8820234064535802
+ },
+ {
+  "key": "A_00130067_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.28914572344606476,
+  "consistency": 0.28914572344606476,
+  "oracle": 0.41043370171111154
+ },
+ {
+  "key": "A_00130068_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9396753028807109,
+  "consistency": 0.9396753028807109,
+  "oracle": 0.943951143929432
+ },
+ {
+  "key": "A_00130069_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.8141382084109012,
+  "consistency": 0.857152303493728,
+  "oracle": 0.953624950983619
+ },
+ {
+  "key": "A_00140002_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9068328844705824,
+  "consistency": 0.9068328844705824,
+  "oracle": 0.951093271644866
+ },
+ {
+  "key": "A_00140009_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.7083969317139234,
+  "consistency": 0.7027504811671654,
+  "oracle": 0.7083969317139234
+ },
+ {
+  "key": "A_00140010_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.12623748182826344,
+  "consistency": 0.10676771973048456,
+  "oracle": 0.4367693412115585
+ },
+ {
+  "key": "A_00140016_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.575029277355625,
+  "consistency": 0.575029277355625,
+  "oracle": 0.575029277355625
+ },
+ {
+  "key": "A_00140019_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.2734012480665636,
+  "consistency": 0.2734012480665636,
+  "oracle": 0.5063750509421879
+ },
+ {
+  "key": "A_00140032_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.5105524200444672,
+  "consistency": 0.541776126097264,
+  "oracle": 0.8145623899585392
+ },
+ {
+  "key": "A_00140033_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.17547429094969122,
+  "consistency": 0.17547429094969122,
+  "oracle": 0.17547429094969122
+ },
+ {
+  "key": "A_00140034_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9401382213313068,
+  "consistency": 0.19158820099240606,
+  "oracle": 0.9401382213313068
+ },
+ {
+  "key": "A_00140038_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.34883332600860917,
+  "consistency": 0.5109460126392458,
+  "oracle": 0.5570418777457147
+ },
+ {
+  "key": "A_00140050_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.44808008366950547,
+  "consistency": 0.5061507494253074,
+  "oracle": 0.5061507494253074
+ },
+ {
+  "key": "A_00140053_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5365594092665388,
+  "consistency": 0.6138888120391995,
+  "oracle": 0.6138888120391995
+ },
+ {
+  "key": "A_00140054_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8009030024832569,
+  "consistency": 0.4544747478611228,
+  "oracle": 0.8009030024832569
+ },
+ {
+  "key": "A_00140059_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6103319925836918,
+  "consistency": 0.6436809162080607,
+  "oracle": 0.6436809162080607
+ },
+ {
+  "key": "A_00140060_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.24713479965083537,
+  "consistency": 0.5171993255318751,
+  "oracle": 0.6614801412393649
+ },
+ {
+  "key": "A_00140065_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.5185630422961598,
+  "consistency": 0.5445146046803189,
+  "oracle": 0.5447504382108125
+ },
+ {
+  "key": "A_00140066_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7749424459125671,
+  "consistency": 0.7749424459125671,
+  "oracle": 0.7862703543280958
+ },
+ {
+  "key": "A_00140067_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.6206740497773938,
+  "consistency": 0.6206740497773938,
+  "oracle": 0.6206740497773938
+ },
+ {
+  "key": "A_00140069_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.424458966307392,
+  "consistency": 0.4919792821044855,
+  "oracle": 0.5556538417747572
+ },
+ {
+  "key": "A_00140071_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5933721850577364,
+  "consistency": 0.5933721850577364,
+  "oracle": 0.6554524612762579
+ },
+ {
+  "key": "A_00150000_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6242687706468663,
+  "consistency": 0.6242687706468663,
+  "oracle": 0.7143711839784206
+ },
+ {
+  "key": "A_00150004_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.28128142236809744,
+  "consistency": 0.28128142236809744,
+  "oracle": 0.47159448310949864
+ },
+ {
+  "key": "A_00150005_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9033450342422417,
+  "consistency": 0.9432785479673994,
+  "oracle": 0.9652436983456852
+ },
+ {
+  "key": "A_00150006_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8394104644999655,
+  "consistency": 0.8702213501406463,
+  "oracle": 0.8702213501406463
+ },
+ {
+  "key": "A_00150008_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.6168468783269738,
+  "consistency": 0.6168468783269738,
+  "oracle": 0.6168468783269738
+ },
+ {
+  "key": "A_00150009_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4561606777853007,
+  "consistency": 0.5298918499747294,
+  "oracle": 0.6899353749411044
+ },
+ {
+  "key": "A_00150019_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "A_00150020_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7401601735231982,
+  "consistency": 0.6694978455557896,
+  "oracle": 0.7470023498100831
+ },
+ {
+  "key": "A_00150022_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5785379519475355,
+  "consistency": 0.5785379519475355,
+  "oracle": 0.6521725334648484
+ },
+ {
+  "key": "A_00150024_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.6720825759743138,
+  "consistency": 0.7006971755517565,
+  "oracle": 0.7386041763525892
+ },
+ {
+  "key": "A_00150033_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "A_00150034_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.34150580968800814,
+  "consistency": 0.3453375730421195,
+  "oracle": 0.6468805889548365
+ },
+ {
+  "key": "A_00150035_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8955481495888429,
+  "consistency": 0.8955481495888429,
+  "oracle": 0.8955481495888429
+ },
+ {
+  "key": "A_00150037_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.6571275709058685,
+  "consistency": 0.6571275709058685,
+  "oracle": 0.7189033031517735
+ },
+ {
+  "key": "A_00150041_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5623416704850274,
+  "consistency": 0.5623416704850274,
+  "oracle": 0.5803535447628441
+ },
+ {
+  "key": "A_00150045_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.3250369665559286,
+  "consistency": 0.33898806090405464,
+  "oracle": 0.33898806090405464
+ },
+ {
+  "key": "A_00150048_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.9537812434353655,
+  "consistency": 0.9581354957502709,
+  "oracle": 0.9581354957502709
+ },
+ {
+  "key": "A_00150049_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6861359457111447,
+  "consistency": 0.6861359457111447,
+  "oracle": 0.6998862023168498
+ },
+ {
+  "key": "A_00150050_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6811301318948908,
+  "consistency": 0.6278528925146083,
+  "oracle": 0.7327230118210664
+ },
+ {
+  "key": "A_00150051_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8374956889524322,
+  "consistency": 0.8374956889524322,
+  "oracle": 0.8374956889524322
+ },
+ {
+  "key": "A_00150052_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.8821597606548701,
+  "consistency": 0.8468539048996002,
+  "oracle": 0.9122788671549568
+ },
+ {
+  "key": "A_00150058_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8283092793859441,
+  "consistency": 0.7934074485249232,
+  "oracle": 0.8993861883644234
+ },
+ {
+  "key": "A_00150062_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.8702973450636593,
+  "consistency": 0.8702973450636593,
+  "oracle": 0.8713439925410089
+ },
+ {
+  "key": "A_00150068_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9970401057009806,
+  "consistency": 0.9970401057009806,
+  "oracle": 0.9970401057009806
+ },
+ {
+  "key": "A_00150070_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.772641929323128,
+  "consistency": 0.9512960906527442,
+  "oracle": 0.9544102315983208
+ },
+ {
+  "key": "A_00150071_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9861773729931517,
+  "consistency": 0.9964622303146213,
+  "oracle": 0.9964622303146213
+ },
+ {
+  "key": "A_00150072_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9954281191181829,
+  "consistency": 0.9954281191181829,
+  "oracle": 0.9954281191181829
+ },
+ {
+  "key": "A_00150076_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.9287661764158841,
+  "consistency": 0.9287661764158841,
+  "oracle": 0.9287661764158841
+ },
+ {
+  "key": "A_00150078_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9006028382999269,
+  "consistency": 0.9568116059859821,
+  "oracle": 0.9568116059859821
+ },
+ {
+  "key": "A_00160010_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.5256718309811904,
+  "consistency": 0.6219282702651143,
+  "oracle": 0.7795528006762527
+ },
+ {
+  "key": "A_00160012_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6113858853225091,
+  "consistency": 0.5928651855106692,
+  "oracle": 0.6113858853225091
+ },
+ {
+  "key": "A_00160014_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.4169680809079563,
+  "consistency": 0.47362271882089635,
+  "oracle": 0.548081416931098
+ },
+ {
+  "key": "A_00160032_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.1532331243148309,
+  "consistency": 0.320810841414594,
+  "oracle": 0.7090632505791751
+ },
+ {
+  "key": "A_00160037_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "A_00160038_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9654448645834728,
+  "consistency": 0.9654448645834728,
+  "oracle": 0.9654448645834728
+ },
+ {
+  "key": "A_00160039_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8287467456418918,
+  "consistency": 0.9380414639804459,
+  "oracle": 0.9380414639804459
+ },
+ {
+  "key": "A_00160040_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.931537676746064,
+  "consistency": 0.931537676746064,
+  "oracle": 0.9319714679321591
+ },
+ {
+  "key": "A_00160041_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6424812111369368,
+  "consistency": 0.6424812111369368,
+  "oracle": 0.6424812111369368
+ },
+ {
+  "key": "A_00160042_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.0,
+  "consistency": 0.24400788820776864,
+  "oracle": 0.4021431996344054
+ },
+ {
+  "key": "A_00160049_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.13104865412864572,
+  "consistency": 0.2189189138598659,
+  "oracle": 0.45144846032909314
+ },
+ {
+  "key": "A_00160053_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.658483798641379,
+  "consistency": 0.6798806699334173,
+  "oracle": 0.6798806699334173
+ },
+ {
+  "key": "A_00160059_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7689089035371115,
+  "consistency": 0.7689089035371115,
+  "oracle": 0.7689089035371115
+ },
+ {
+  "key": "A_00160061_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.008529820857004005,
+  "consistency": 0.6972411176454646,
+  "oracle": 0.7373912922093332
+ },
+ {
+  "key": "A_00160063_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.3468787326731291,
+  "consistency": 0.37372405835781863,
+  "oracle": 0.37813177752162513
+ },
+ {
+  "key": "A_00160065_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.658778955979229,
+  "consistency": 0.658778955979229,
+  "oracle": 0.658778955979229
+ },
+ {
+  "key": "A_00160067_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9714964151689992,
+  "consistency": 0.9714964151689992,
+  "oracle": 0.9800143512889006
+ },
+ {
+  "key": "A_00160068_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8134820069447617,
+  "consistency": 0.8261972218700319,
+  "oracle": 0.8278799579595918
+ },
+ {
+  "key": "A_00160071_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "A_00160072_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.7760365957053035,
+  "consistency": 0.7778895525154639,
+  "oracle": 0.983458966456606
+ },
+ {
+  "key": "A_00160073_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9893941117430665,
+  "consistency": 0.9893941117430665,
+  "oracle": 0.9893941117430665
+ },
+ {
+  "key": "A_00160074_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9974950438388785,
+  "consistency": 0.9974950438388785,
+  "oracle": 0.9974950438388785
+ },
+ {
+  "key": "A_00160077_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9084457132339808,
+  "consistency": 0.9128120555611211,
+  "oracle": 0.9132349569111149
+ },
+ {
+  "key": "A_00160078_code",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.2579245798459541,
+  "consistency": 0.5306414744779906,
+  "oracle": 0.5425581391399958
+ }
+]
