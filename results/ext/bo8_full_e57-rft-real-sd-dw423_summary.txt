@@ -1,0 +1,18 @@
+slice                     n |         first_exec |        consistency |             oracle | exec>=1
+                            |      mean / >=0.85 |      mean / >=0.85 |      mean / >=0.85
+in-dist 1030 (e51)     1030 | 0.894 /   76% | 0.917 /   81% | 0.947 /   90% |
+ALL external           1027 | 0.891 /   77% | 0.911 /   82% | 0.946 /   90% |  100%
+
+worst 10 (consistency):
+  2b2abf9a-fa85-4b8c-d5ac-d6c2aebfa219 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  4f1f9e7a-33c5-3171-6386-02f97b46e3e0 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  5c04c43a-2481-1cd2-8430-3fd500359172 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  71f0f61a-0856-3b0d-8559-10a5a92fde1d fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  7f251604-7d67-b832-8849-5dbfe9a129d3 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  058f2c3a-cfc8-1f2c-9abe-d42ebc007141 fam=? under=None faces=None exec=7/8 first=0.004 cons=0.004 oracle=1.000
+  83791804-e1c1-0940-e9c5-4d762be9f717 fam=? under=None faces=None exec=6/8 first=0.000 cons=0.019 oracle=0.019
+  17d74f44-cee8-a798-90a9-e27803187e88 fam=? under=None faces=None exec=7/8 first=0.091 cons=0.088 oracle=0.974
+  15a40de8-82e7-7b19-42f1-f22d09bf3fe4 fam=? under=None faces=None exec=6/8 first=0.119 cons=0.119 oracle=1.000
+  21e76406-9f05-923f-9ec1-b1e4d60ab56f fam=? under=None faces=None exec=5/8 first=0.122 cons=0.130 oracle=0.497
+
+n parts with no candidate >= 0.85: 104  of which underdetermined: 0

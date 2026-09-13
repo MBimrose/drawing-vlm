@@ -1373,3 +1373,31 @@ new-style full pool, and the ABC-corpus slices. The question is whether real-par
 model produced ITSELF transfers to parts it has never solved — the one form of the
 ground-truth idea e56 did not rule out. Prior expectation is modest: 366 parts is +19% on
 union5's 1,960, so a real-bench gain inside +-0.02 would be within single-run noise.
+
+**e57 verdict: the tier is free but inert — self-generated reasoning does not transfer either**
+(2026-09-13). Real benches (K=8, first-exec / vote / gated / ceiling), e55 -> e57:
+old 146-part 0.500/0.526/0.554/0.592 -> 0.463/**0.522**/**0.559**/**0.604** (>=0.85 20% -> 25%);
+permissive 0.4.23 144-part 0.482/0.533/0.539/0.591 -> 0.463/0.518/**0.554**/0.584. New-style full
+pool 0.886/0.909/0.935 -> 0.891/**0.911**/**0.946**, exec 100%. ABC-corpus slices (vote, parts
+>=0.8), 0.4.0 sheets: solved-by-e51 0.871 (190) -> **0.876 (202)**; ABC parts unsolved and NOT in
+e57's tier 0.475 (9) -> 0.466 (8); held-out 48 0.497 (2) -> 0.485 (1). Same on 0.4.23 sheets.
+
+Reading: **no transfer.** On ABC parts e57 never trained on it is 0.466 / 0.485 against e55's
+0.475 / 0.497 — indistinguishable. 366 hard real parts carrying the model's OWN verified
+reasoning generalise to other real parts no better than the self-written tiers of rounds 1-5 or
+the ground-truth tiers of e54/e56. That closes the last variant of the idea: **empty reasoning is
+invisible at serving (e54), borrowed reasoning memorises and costs execution reliability (e56),
+self-generated reasoning is neutral (e57)** — the blocker was never the reasoning format.
+
+But unlike e56 it is free, and every selection-side indicator moves slightly the right way: best
+gated number on both real benches, best ceiling on the old bench and the full pool, >=0.85 up
+20% -> 25%, 12 more of the ABC parts e51 already solved (202 vs 190), and no in-distribution cost
+(0.911 vs 0.909). No single gap clears the +-0.02 single-run noise, so **e55 and e57 are
+equivalent and e55 stays the serving candidate**; e57's edge is concentrated in gated/ceiling
+metrics, i.e. in what the verifier can find among its candidates, not in what the vote picks.
+
+Consequence for the roadmap: with self-distillation closed, the remaining levers on real parts
+are all selection-side (the verifier, and more draws where the gate escalates — worth +0.028 at
+8->16 on real parts, RECIPE "Adaptive draw budget") rather than data-side. A real-part data lever
+would now need genuinely new geometry the model cannot already reach at K=32, not more of what it
+can.

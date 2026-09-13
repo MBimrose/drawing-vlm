@@ -1,0 +1,25 @@
+gated = gate0.85 from /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/ext/bo8_ext_e57-rft-real-sd-dw423_gated.json
+slice                     n |         first_exec |        consistency |              gated |             oracle | exec>=1
+                            |      mean / >=0.85 |      mean / >=0.85 |      mean / >=0.85 |      mean / >=0.85
+in-dist 1030 (e51)     1030 | 0.894 /   76% | 0.917 /   81% | 0.916 /   82% | 0.947 /   90% |
+ALL external            146 | 0.463 /   17% | 0.522 /   22% | 0.559 /   25% | 0.604 /   26% |  100%
+  determinate            80 | 0.541 /   25% | 0.598 /   32% | 0.635 /   34% | 0.674 /   36% |  100%
+  underdetermined        66 | 0.370 /    8% | 0.429 /    9% | 0.467 /   14% | 0.520 /   14% |  100%
+Fusion360 (F)            88 | 0.485 /   20% | 0.561 /   28% | 0.607 /   33% | 0.643 /   34% |  100%
+  F determinate          53 | 0.531 /   26% | 0.603 /   38% | 0.649 /   40% | 0.676 /   42% |  100%
+ABC (A)                  58 | 0.430 /   12% | 0.462 /   12% | 0.488 /   12% | 0.546 /   14% |  100%
+  A determinate          27 | 0.559 /   22% | 0.588 /   22% | 0.609 /   22% | 0.669 /   26% |  100%
+
+worst 10 (consistency):
+  F_56167_90101372_13_medium         fam=F under=False faces=10 exec=4/8 first=0.008 cons=0.011 gated=0.008 oracle=0.012
+  A_00941921_f3b16049278a833ae2b34381_step_001_medium fam=A under=True faces=39 exec=6/8 first=0.028 cons=0.030 gated=0.041 oracle=0.041
+  F_67240_525e92c1_1_medium          fam=F under=False faces=10 exec=8/8 first=0.040 cons=0.032 gated=0.111 oracle=0.111
+  F_61294_9255796d_2_medium          fam=F under=False faces=13 exec=5/8 first=0.018 cons=0.041 gated=0.090 oracle=0.117
+  F_56719_6e59eeff_0_medium          fam=F under=True faces=32 exec=8/8 first=0.076 cons=0.051 gated=0.083 oracle=0.239
+  F_97342_27fcca0b_0_medium          fam=F under=True faces=8 exec=5/8 first=0.025 cons=0.058 gated=0.275 oracle=0.275
+  F_73525_7f6b2f67_3_medium          fam=F under=True faces=14 exec=4/8 first=0.064 cons=0.064 gated=0.188 oracle=0.188
+  A_00953690_cc92fe00f1c72a7d0b0288c4_step_001_medium fam=A under=True faces=63 exec=7/8 first=0.078 cons=0.073 gated=0.073 oracle=0.108
+  A_00928026_e2d0ba025fc68ac7b9a8def4_step_000_medium fam=A under=False faces=47 exec=8/8 first=0.078 cons=0.088 gated=0.083 oracle=0.091
+  F_83210_07c13a64_0_medium          fam=F under=True faces=27 exec=4/8 first=0.100 cons=0.100 gated=0.100 oracle=0.100
+
+n parts with no candidate >= 0.85: 108  of which underdetermined: 57
