@@ -1,0 +1,21 @@
+{
+ "best_adapter-0913-2340": {
+  "step": 2500,
+  "n": 96,
+  "n_scored": 79,
+  "exec_ok_frac": 0.810126582278481,
+  "iou_mean": 0.607333603704379,
+  "iou_median": 0.7596181008099764,
+  "iou_mean_exec": 0.7496774170725928,
+  "frac_iou50": 0.6835443037974683,
+  "frac_iou85": 0.3924050632911392,
+  "final_exec_ok_frac": 0.8481012658227848,
+  "final_iou_mean": 0.6350318633385885,
+  "final_iou_median": 0.7986566084609759,
+  "final_iou_mean_exec": 0.7487689134887835,
+  "final_frac_iou50": 0.7088607594936709,
+  "final_frac_iou85": 0.4177215189873418,
+  "repair_recovered": 3,
+  "v": 2
+ }
+}
