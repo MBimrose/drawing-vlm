@@ -17,5 +17,24 @@
   "final_frac_iou85": 0.4177215189873418,
   "repair_recovered": 3,
   "v": 2
+ },
+ "final": {
+  "step": 2501,
+  "n": 96,
+  "n_scored": 79,
+  "exec_ok_frac": 0.0,
+  "iou_mean": 0.0,
+  "iou_median": 0.0,
+  "iou_mean_exec": 0.0,
+  "frac_iou50": 0.0,
+  "frac_iou85": 0.0,
+  "final_exec_ok_frac": 0.0,
+  "final_iou_mean": 0.0,
+  "final_iou_median": 0.0,
+  "final_iou_mean_exec": 0.0,
+  "final_frac_iou50": 0.0,
+  "final_frac_iou85": 0.0,
+  "repair_recovered": 0,
+  "v": 2
  }
 }
