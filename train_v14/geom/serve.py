@@ -4,9 +4,8 @@ with the agreement-gated verifier policy (RECIPE.md "Serving policy").
 Per drawing, on ONE GPU with the generator (e55 final) and the verifier LoRA
 (v3b-verifier-real-reg) loaded once (the adapter is toggled off for
 generation, on for scoring):
-  1. draw K candidates with the run's prompts/config (draw 0 greedy, draws
-     1..K-1 sampled at T with top_p 0.95 -- the same recipe as
-     bestofn_verifier_eval.py);
+  1. draw --k candidates with the run's prompts/config (draw 0 greedy, the rest
+     sampled at T with top_p 0.95 -- the same recipe as bestofn_verifier_eval.py);
   2. execute every candidate in a temp dir (exec_harness.py -> STL + STEP);
   3. pairwise centered IoU among the executing candidates, medoid = the one
      with the highest mean agreement;
@@ -14,6 +13,13 @@ generation, on for scoring):
      ("vote"); otherwise score every executing candidate with the verifier's
      expected IoU (verifier_select_offline.reg_ev_scores) and serve the argmax
      ("verifier"). No executing candidate -> "none" (record only).
+  4b. ESCALATION (--k-max > --k): a drawing whose medoid misses the gate gets the
+     budget raised to --k-max, and the extra draws are executed and re-scored before
+     the verifier picks. Measured on the 146-part real bench (RECIPE "Adaptive draw
+     budget"): 8 -> 16 is worth +0.028 mean IoU for 14.6 draws per part, because 83%
+     of real parts miss the gate but only ~20% of in-distribution ones do, so the
+     extra cost lands where it pays. --k-max equal to --k restores fixed-budget
+     serving.
   5. write <out>/<stem>/chosen.py, chosen.step and record.json (every
      candidate's code / exec status / agreement / verifier score, the pairwise
      matrix, the policy branch and timings); <out>/serve_summary.json lists
@@ -141,7 +147,9 @@ def main():
     ap.add_argument("--ckpt", default="", help="generator weights (default runs/<run>/final; e.g. a /dev/shm copy)")
     ap.add_argument("--verifier", default="", help="verifier LoRA dir (default runs/<verifier-run>/final)")
     ap.add_argument("--verifier-run", default=DEFAULT_VERIFIER_RUN)
-    ap.add_argument("--k", type=int, default=8)
+    ap.add_argument("--k", type=int, default=8, help="first-round draws")
+    ap.add_argument("--k-max", type=int, default=16,
+                    help="budget for drawings whose medoid misses the gate (== --k disables)")
     ap.add_argument("--temperature", type=float, default=0.7)
     ap.add_argument("--top-p", type=float, default=0.95)
     ap.add_argument("--gate", type=float, default=0.85, help="serve the medoid when its mean agreement >= gate")
@@ -158,11 +166,13 @@ def main():
     assert cfg, f"no config for {args.run}"
     vcfg = run_config(args.verifier_run)
     assert vcfg, f"no config for {args.verifier_run}"
+    k_max = max(args.k, args.k_max)
     ckpt = args.ckpt or os.path.join(RUNS_DIR, args.run, "final")
     verifier = args.verifier or os.path.join(RUNS_DIR, args.verifier_run, "final")
     os.makedirs(args.out, exist_ok=True)
     print(f"[serve] {len(inputs)} drawing(s); generator {ckpt}; verifier {verifier}; "
-          f"K={args.k} T={args.temperature} gate={args.gate}", flush=True)
+          f"K={args.k}" + (f"->{k_max} on escalation" if k_max > args.k else "")
+          + f" T={args.temperature} gate={args.gate}", flush=True)
 
     # --- models: generator weights once, verifier LoRA on top (toggled per phase)
     t0 = time.time()
@@ -176,26 +186,37 @@ def main():
     t_load = time.time() - t0
     print(f"[serve] models loaded in {t_load:.0f}s", flush=True)
 
-    # --- 1. generation: greedy draw 0 for every drawing, then sampled draws (batched)
+    # --- 1. generation. `jobs` is an explicit (drawing, draw index) list so the same
+    # code serves the first round and the escalation round.
     t0 = time.time()
     images = [load_image(p) for p in inputs]
-    cands = [[None] * args.k for _ in inputs]
-    jobs = [(i, 0) for i in range(len(inputs))] + [(i, d) for d in range(1, args.k) for i in range(len(inputs))]
-    with model.disable_adapter():
-        for sample in (False, True):
-            todo = [(i, d) for i, d in jobs if (d > 0) == sample]
-            for b in range(0, len(todo), args.batch):
-                chunk = todo[b:b + args.batch]
-                outs = generate(model, proc, cfg, [build_gen_messages(images[i], cfg) for i, _ in chunk],
-                                sample, args.temperature, args.top_p, args.max_new_tokens)
-                if sum("!!!!!!!!" in t for t in outs) > max(1, len(outs) // 3):
-                    print("[serve] WARNING: degenerate generations ('!!!' floods) - bad GPU?", flush=True)
-                for (i, d), text in zip(chunk, outs):
-                    think = text.split("</think>", 1)[0].replace("<think>", "").strip() if "</think>" in text else ""
-                    cands[i][d] = {"draw": d, "sampled": d > 0, "code": extract_code(text), "exec": False,
-                                   "rc": None, "stderr_tail": "", "agree": None, "verifier": None,
-                                   **({"think": think} if args.keep_think else {})}
-                print(f"[serve] {'sampled' if sample else 'greedy'} draws {b + len(chunk)}/{len(todo)}", flush=True)
+    cands = [[None] * k_max for _ in inputs]
+
+    def draw_rounds(jobs, label):
+        if not jobs:
+            return
+        with model.disable_adapter():
+            for sample in (False, True):
+                todo = [(i, d) for i, d in jobs if (d > 0) == sample]
+                for b in range(0, len(todo), args.batch):
+                    chunk = todo[b:b + args.batch]
+                    outs = generate(model, proc, cfg,
+                                    [build_gen_messages(images[i], cfg) for i, _ in chunk],
+                                    sample, args.temperature, args.top_p, args.max_new_tokens)
+                    if sum("!!!!!!!!" in t for t in outs) > max(1, len(outs) // 3):
+                        print("[serve] WARNING: degenerate generations ('!!!' floods) - bad GPU?", flush=True)
+                    for (i, d), text in zip(chunk, outs):
+                        think = text.split("</think>", 1)[0].replace("<think>", "").strip() \
+                            if "</think>" in text else ""
+                        cands[i][d] = {"draw": d, "sampled": d > 0, "code": extract_code(text),
+                                       "exec": False, "rc": None, "stderr_tail": "", "agree": None,
+                                       "verifier": None,
+                                       **({"think": think} if args.keep_think else {})}
+                    print(f"[serve] {label} {'sampled' if sample else 'greedy'} draws "
+                          f"{b + len(chunk)}/{len(todo)}", flush=True)
+
+    draw_rounds([(i, 0) for i in range(len(inputs))]
+                + [(i, d) for d in range(1, args.k) for i in range(len(inputs))], "round 1")
     t_gen = time.time() - t0
 
     summary = []
@@ -205,25 +226,60 @@ def main():
         def run_one(ij):
             i, j = ij
             c = cands[i][j]
+            if c is None or c.get("stl") is not None:
+                return
             if not c["code"]:
                 c["rc"] = "no code"
                 return
             c["exec"], c["rc"], c["stderr_tail"], c["stl"], c["step"] = execute(c["code"], td, f"{i}_{j}")
-        with ThreadPoolExecutor(max_workers=args.threads) as pool:
-            list(pool.map(run_one, [(i, j) for i in range(len(inputs)) for j in range(args.k)]))
+
+        def execute_all(jobs):
+            with ThreadPoolExecutor(max_workers=args.threads) as pool:
+                list(pool.map(run_one, jobs))
+
+        execute_all([(i, j) for i in range(len(inputs)) for j in range(args.k)])
         t_exec = time.time() - t0
+
+        # --- escalation: raise the budget only where the first-round medoid misses the gate
+        n_esc = 0
+        if k_max > args.k:
+            need = []
+            for i in range(len(inputs)):
+                first = cands[i][:args.k]
+                ex = [j for j, c in enumerate(first) if c is not None and c["exec"]]
+                agree = 0.0
+                if len(ex) > 1:
+                    pairwise(first, args.threads)
+                    agree = max(first[j]["agree"] or 0.0 for j in ex)
+                if agree < args.gate:
+                    need.append(i)
+            n_esc = len(need)
+            if need:
+                print(f"[serve] escalating {n_esc}/{len(inputs)} drawing(s) from {args.k} to "
+                      f"{k_max} draws (medoid agreement below {args.gate})", flush=True)
+                t1 = time.time()
+                draw_rounds([(i, d) for d in range(args.k, k_max) for i in need], "escalation")
+                t_gen += time.time() - t1
+                t1 = time.time()
+                execute_all([(i, j) for i in need for j in range(args.k, k_max)])
+                t_exec += time.time() - t1
+            else:
+                print(f"[serve] no drawing needed escalation (all medoids >= {args.gate})", flush=True)
 
         # --- 3./4. per drawing: agreement, gate, verifier when needed
         for i, path in enumerate(inputs):
             stem = os.path.splitext(os.path.basename(path))[0]
             odir = os.path.join(args.out, stem)
             os.makedirs(odir, exist_ok=True)
-            cs = cands[i]
+            budget = k_max if (k_max > args.k and cands[i][args.k] is not None) else args.k
+            cs = cands[i][:budget]
             t0 = time.time()
             mat, ex = pairwise(cs, args.threads)
             t_iou = time.time() - t0
             rec = {"input": os.path.abspath(path), "run": args.run, "ckpt": ckpt, "verifier": verifier,
-                   "k": args.k, "temperature": args.temperature, "top_p": args.top_p, "gate": args.gate,
+                   "k": budget, "k_first_round": args.k, "k_max": k_max,
+                   "escalated": budget > args.k,
+                   "temperature": args.temperature, "top_p": args.top_p, "gate": args.gate,
                    "n_exec": len(ex), "pair_iou": mat, "medoid": None, "agree_medoid": 0.0,
                    "verifier_argmax": None, "policy": "none", "chosen": None,
                    "timing": {"load_s": t_load, "gen_s_all": t_gen, "exec_s_all": t_exec, "pair_iou_s": t_iou,
@@ -259,7 +315,9 @@ def main():
                     "verifier_argmax": rec["verifier_argmax"],
                     "verifier_scores": {j: cs[j]["verifier"] for j in ex if cs[j]["verifier"] is not None}}
             summary.append(line)
-            print(f"[serve] {stem}: {len(ex)}/{args.k} executed, medoid {rec['medoid']} agreement "
+            print(f"[serve] {stem}: {len(ex)}/{budget} executed"
+                  + (" (escalated)" if budget > args.k else "")
+                  + f", medoid {rec['medoid']} agreement "
                   f"{rec['agree_medoid']:.3f} -> policy {rec['policy']}, chosen draw {chosen}"
                   + (f" (verifier argmax {rec['verifier_argmax']}, scores "
                      + ", ".join(f"{j}:{cs[j]['verifier']:.2f}" for j in ex) + ")"
