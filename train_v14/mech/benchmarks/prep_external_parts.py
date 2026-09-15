@@ -66,9 +66,12 @@ def analyse(path: str):
     )
 
 
-def passes(st: dict, max_faces: int) -> bool:
-    return (st["solids"] == 1 and st["analytic"] and 6 <= st["faces"] <= max_faces
-            and st["aspect"] <= 15 and st["fill"] >= 0.05)
+def passes(st: dict, max_faces: int, min_faces: int = 6, max_aspect: float = 15.0) -> bool:
+    # Defaults are the CADBench-corpus filters (rounds 1-5). DeepCAD sequences are simpler and
+    # thinner (plain extruded plates and rods are real Onshape parts): pass --min-faces 3
+    # --max-aspect 40 for that corpus. Multi-body parts stay out -- one sheet, one solid.
+    return (st["solids"] == 1 and st["analytic"] and min_faces <= st["faces"] <= max_faces
+            and st["aspect"] <= max_aspect and st["fill"] >= 0.05)
 
 
 def main():
@@ -77,6 +80,8 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--target-mm", type=float, default=80.0)
     ap.add_argument("--max-faces", type=int, default=80)
+    ap.add_argument("--min-faces", type=int, default=6)
+    ap.add_argument("--max-aspect", type=float, default=15.0)
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--timeout", type=int, default=30, help="per-part seconds")
     ap.add_argument("--stl-tol", type=float, default=0.01)
@@ -98,7 +103,7 @@ def main():
         signal.alarm(args.timeout)
         try:
             shp, st = analyse(f)
-            if not passes(st, args.max_faces):
+            if not passes(st, args.max_faces, args.min_faces, args.max_aspect):
                 why = ("multi_body" if st["solids"] != 1 else "freeform" if not st["analytic"]
                        else "faces" if not (6 <= st["faces"] <= args.max_faces)
                        else "aspect" if st["aspect"] > 15 else "fill")
