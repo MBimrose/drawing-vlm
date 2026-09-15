@@ -1401,3 +1401,41 @@ are all selection-side (the verifier, and more draws where the gate escalates �
 8->16 on real parts, RECIPE "Adaptive draw budget") rather than data-side. A real-part data lever
 would now need genuinely new geometry the model cannot already reach at K=32, not more of what it
 can.
+
+## Verifier retrained on the served distribution (v4) — neutral; escalation deployed (2026-09-15)
+
+**v4-verifier-e55-reg**: v3b's recipe (LoRA r64, regression EV, 2,500 steps) on **e55's weights**
+instead of e51's, trained on the union pool `rft_scored_union_e55` = `rft_scored_real` (94,553
+candidates / 4,602 parts, 9.4% >= 0.8, the e51/e40/e45 pool on 0.4.0 sheets) + `rft_scored_real_e55`
+(64,927 / 2,142 parts, 3.1% >= 0.8 — e55 at K=32 on 0.4.23 sheets from the self-distillation
+pass; too negative to train on alone). Val loss 0.3607. Scored on the SAME stored candidates as
+v3b (`<stem>_e55v4` symlinks, so the published v3b files are untouched):
+
+| candidates (e55) | v3b verifier / gate0.85 | v4 verifier / gate0.85 | delta (gate) |
+|---|---|---|---|
+| old bench, K=8 | 0.556 / 0.554 | 0.547 / 0.546 | -0.008 |
+| permissive 0.4.23 bench, K=8 | 0.542 / 0.539 | 0.550 / 0.547 | +0.008 |
+| old bench, K=32 | 0.573 / 0.571 | 0.580 / 0.577 | +0.006 |
+| in-distribution escalated fifth, K=32 | 0.795 / 0.799 | 0.800 / 0.800 | +0.001 |
+
+Mixed sign, every gap <= 0.009, all inside the +-0.02 band: **retraining the verifier on the
+served generator and renderer does not help.** The verifier was not limited by distribution
+mismatch — v3b on e51's weights already transfers to e55's candidates (RECIPE "Serving switched",
+0.543 vs 0.542), and matching it exactly adds nothing. The remaining gap to the ceiling (0.577
+vs 0.646 at K=32) is what the verifier cannot tell apart, not what it was never shown.
+**v3b stays the deployed verifier**; v4 is kept as an equivalent with an e55 base.
+
+**Draw budget re-verified with v4** on the real bench (one bo32 file, `bo32_ext_e55v4_adaptive`):
+gate0.85 at K=8 / 16 / 32 = 0.536 / 0.565 / 0.577; adaptive 8->16 = 0.564 at 14.6 draws,
+8->32 = 0.576 at 27.9 — within 0.007 of the v3b curve (0.535 / 0.564 / 0.571; 0.563 / 0.569)
+at every point. The +0.028 for 8->16 is verifier-independent.
+
+**Escalation is deployed.** `serve.py` draws `--k` (8), computes the medoid's agreement, and
+raises only the drawings that miss the gate to `--k-max` (16) before the verifier picks;
+`--k-max` equal to `--k` restores fixed-budget serving, and every record.json carries `k`,
+`k_max` and `escalated`. Verified end to end on 4 real 0.4.23 sheets (job 10534414): all four
+escalated (real parts rarely agree), 11-16 of 16 draws executing, valid solids served from the
+enlarged pool. Two bugs caught in the wiring — the banner read the budget before it was defined
+(would have crashed every launch) and the executed count was printed against the first-round
+budget. In-distribution only ~20% of parts escalate (RECIPE "Adaptive draw budget"), so the
+policy costs ~11 draws per part there for +0.007, and 14.6 on real parts for +0.028.
