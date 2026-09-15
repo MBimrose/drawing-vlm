@@ -1488,3 +1488,17 @@ nesting) and the accepted ones match at p90 error 0.0000.
 tier is then real code for every part (161k-scale, memorisation impossible) plus e55's own
 think traces on the solved fraction (the e57 recipe) — the empty-think problem of e54 is the
 open design question for the unsolved fraction.
+
+## Second B300 host: wpk-serv-20 (2026-09-15)
+
+Granted for experiments (serv-19's GPUs stay with the user's own model). 8x B300 SXM6 (275 GB
+each), 344 cores, 2 TB RAM, 24 TB local `/scratch`, driver 615.71.09; apptainer 1.4.5 works,
+rootless docker does not (no subuid). Set up as an exact mirror of serv-19's layout through a
+symlink `/srv/scratch/bimrose2 -> /scratch/bimrose2`, so every serv-19 runner, the render
+scripts and the uv venvs (absolute-path shebangs) work unchanged: `.venv`, `dw_venv`,
+`train_v14`, `mech_benchmarks`, `data` rsynced from serv-19; `runs/e55.../final`, both
+verifier LoRAs and `train_v14/configs` shipped from the cluster; `models/DeepSeek-V4.1-Flash`
+copied; the vLLM V4.1 image pulled natively. Roles: DeepCAD tier generation (best-of-K with
+e55 over ~100k verified real parts — a cluster-sized job that no longer needs the queue), the
+DeepSeek-V4.1-Flash probe on Blackwell (fp4 experts are native there), and rendering on 344
+idle cores.
