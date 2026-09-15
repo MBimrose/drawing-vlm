@@ -1,0 +1,19 @@
+gated = gate0.85 from /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/ext/bo32_esc_e55v4_gated.json
+slice                     n |         first_exec |        consistency |              gated |             oracle | exec>=1
+                            |      mean / >=0.85 |      mean / >=0.85 |      mean / >=0.85 |      mean / >=0.85
+in-dist 1030 (e51)     1030 | 0.894 /   76% | 0.917 /   81% | 0.916 /   82% | 0.947 /   90% |
+ALL external            201 | 0.737 /   38% | 0.798 /   49% | 0.800 /   52% | 0.895 /   76% |  100%
+
+worst 10 (consistency):
+  5c04c43a-2481-1cd2-8430-3fd500359172 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 gated=0.000 oracle=0.000
+  83791804-e1c1-0940-e9c5-4d762be9f717 fam=? under=None faces=None exec=23/8 first=0.609 cons=0.000 gated=0.176 oracle=0.925
+  1586c698-21dc-dcee-45b9-a5be4dfb0129 fam=? under=None faces=None exec=28/8 first=0.135 cons=0.190 gated=0.131 oracle=0.211
+  380d5326-ebcf-887e-a849-71553f4de331 fam=? under=None faces=None exec=9/8 first=0.219 cons=0.242 gated=0.242 oracle=0.259
+  6548f2f0-d3fd-1f40-01e1-456abe1e6981 fam=? under=None faces=None exec=30/8 first=0.251 cons=0.252 gated=0.355 oracle=0.355
+  02c2c534-fdf5-09f0-a3b9-08fac95e67cc fam=? under=None faces=None exec=22/8 first=0.211 cons=0.316 gated=0.185 oracle=0.393
+  09dc90de-9efd-73dd-8d21-69172528e129 fam=? under=None faces=None exec=28/8 first=0.948 cons=0.355 gated=0.355 oracle=1.000
+  06e3334c-5c6b-66b0-5c44-ea8c43acc4fe fam=? under=None faces=None exec=32/8 first=0.759 cons=0.368 gated=0.627 oracle=0.835
+  21e76406-9f05-923f-9ec1-b1e4d60ab56f fam=? under=None faces=None exec=19/8 first=0.529 cons=0.381 gated=0.568 oracle=0.569
+  64f6f518-9962-1057-93cf-a4610c62ea48 fam=? under=None faces=None exec=21/8 first=0.257 cons=0.406 gated=0.732 oracle=0.845
+
+n parts with no candidate >= 0.85: 48  of which underdetermined: 0
