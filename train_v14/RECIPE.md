@@ -1439,3 +1439,52 @@ enlarged pool. Two bugs caught in the wiring — the banner read the budget befo
 (would have crashed every launch) and the executed count was printed against the first-round
 budget. In-distribution only ~20% of parts escalate (RECIPE "Adaptive draw budget"), so the
 policy costs ~11 draws per part there for +0.007, and 14.6 on real parts for +0.028.
+
+## What is left to try: real design idiom at scale, not surface types or model scale (2026-09-15)
+
+**Where the real-part gap is NOT.** A face-type census of 150 solved vs 150 still-unsolved real
+parts (OCCT surface types per STEP, serv-19) and 200 synthetic training parts:
+
+| pool | median faces | plane | cylinder | torus |
+|---|---|---|---|---|
+| real, solved | 14 | 67% | 25% | 4% |
+| real, unsolved | 41 | 67% | 28% | 2% |
+| synthetic training (Zero-To-CAD-1m) | 24 (p90 61) | 67% | 23% | 2% |
+
+Surface types are identical across all three and the synthetic pool already covers the
+unsolved parts' complexity. Fillets, cones and face counts are not the gap; the earlier
+diagnosis stands (bowed strips, multi-lug brackets, ring/boss stacks — idioms the synthetic
+families never compose). Note the synthetic set IS ADSKAILab/Zero-To-CAD-1m, so it, CAD-Recode
+and FllumaOne (all synthetic) are not new geometry.
+
+**Models.** DeepSeek-V4.1-Flash (released 2026-09-10, MIT): 552B MoE, 8B/16B active, native
+DeepSeek-ViT (32 layers, patch 14, <=1024 image tokens), 510 GB FP8 checkpoint (FP4 experts).
+transformers vision support is a DRAFT inference-only PR (#48768, 2026-09-13; engram tables
+~98 GB, training untested); vLLM serves it only from the Docker image
+`vllm/vllm-openai:deepseekv41-flash-0909` (no wheel), stated minimum 614 GB VRAM = one 8xH200
+node. So: zero-shot probe is tractable (`probe_openai_vlm.py` + `probe_dsv41.sbatch`, same
+prompt and scorer as the bench), fine-tuning is a hand-port on a 552B MoE — not this month.
+The 180B Flash-Next full FT already matched the 27B at 12x params, so scale alone is not the
+lever; the probe answers whether V4.1's vision is qualitatively different.
+
+**DeepCAD as a real-sequence tier.** 215,093 Onshape parts (161,240 train) as raw
+sketch-and-extrude sequences in METRES, from ABC links (`/srv/scratch/bimrose2/deepcad`).
+`deepcad_to_b3d.py` emits build123d in our dialect, rescaled to 80 mm, following DeepCAD's own
+OCC reconstruction (sketch-local 2D points on the transform plane; arcs by three points with
+mid = center + R(mid_angle) @ reference_vector * radius; symmetric = extent_one both ways;
+NewBody/Join fuse, Cut, Intersect). Two data facts that matter:
+  * the raw `is_outer` flag is True on EVERY loop (4,477/4,477 multi-loop profiles) — the
+    boundary must be taken as the largest-bbox loop, the rest as holes, else holes vanish
+    silently and the bbox check cannot see it;
+  * 25% of parts have a sketch no extrude consumes: the parser dropped the feature that used
+    it (hole, revolve, fillet), so the recorded part is more than the sequence rebuilds — half
+    of those still pass a bbox check, so they are skipped on the structural signal, not caught.
+`deepcad_verify.py` executes each script and keeps it only if the solid's bbox matches
+Onshape's own bbox within 2% (catches plane/unit/direction/symmetric errors): on 2,000 train
+parts, 1,433 convert (567 skipped: 505 unused sketch, 42 profile-less extrude, 19 ambiguous
+nesting) and the accepted ones match at p90 error 0.0000.
+**Gate**: render the verified parts on 0.4.23 (`deepcad_gate.sh`), score e55 at K=8
+(TAG=bo8_deepcad). If e55 solves them well under half the time they are new geometry; the
+tier is then real code for every part (161k-scale, memorisation impossible) plus e55's own
+think traces on the solved fraction (the e57 recipe) — the empty-think problem of e54 is the
+open design question for the unsolved fraction.
