@@ -67,6 +67,27 @@ def fmt(x):
     return s
 
 
+def loop_bbox(curves):
+    """2D bbox (xmin, ymin, xmax, ymax) of a loop from its control points (arc mid included)."""
+    xs, ys = [], []
+    for c in curves:
+        if c["type"] == "Circle3D":
+            cx, cy = v2(c["center_point"]); r = float(c["radius"])
+            xs += [cx - r, cx + r]; ys += [cy - r, cy + r]
+            continue
+        for k in ("start_point", "end_point"):
+            if k in c:
+                x, y = v2(c[k]); xs.append(x); ys.append(y)
+        if c["type"] == "Arc3D":
+            ctr, r = v2(c["center_point"]), float(c["radius"]); ref = v2(c["reference_vector"])
+            a = (float(c["start_angle"]) + float(c["end_angle"])) / 2.0
+            xs.append(ctr[0] + (math.cos(a) * ref[0] - math.sin(a) * ref[1]) * r)
+            ys.append(ctr[1] + (math.sin(a) * ref[0] + math.cos(a) * ref[1]) * r)
+    if not xs:
+        raise Skip("empty loop")
+    return (min(xs), min(ys), max(xs), max(ys))
+
+
 class Skip(Exception):
     pass
 
@@ -120,11 +141,21 @@ def sketch_block(sketch, profile_ids, scale, var):
     for pid in profile_ids:
         prof = sketch["profiles"][pid]
         loops = prof["loops"]
-        outer = [lp for lp in loops if lp.get("is_outer", True)]
-        inner = [lp for lp in loops if not lp.get("is_outer", True)]
-        if not outer:
-            raise Skip("profile without outer loop")
-        for lp, mode in [(l, "ADD") for l in outer] + [(l, "SUBTRACT") for l in inner]:
+        # The raw "is_outer" flag is True on EVERY loop in the corpus (4,477/4,477 multi-loop
+        # profiles checked), so it carries no information. DeepCAD's own reconstruction takes
+        # the first loop after a positional sort as the boundary; the geometric rule is that
+        # the boundary is the loop with the largest bounding box and every other loop is a
+        # hole nested inside it. Anything that violates the nesting is skipped, not guessed.
+        boxes = [loop_bbox(lp["profile_curves"]) for lp in loops]
+        areas = [(b[2] - b[0]) * (b[3] - b[1]) for b in boxes]
+        oi = max(range(len(loops)), key=lambda i: areas[i])
+        ob = boxes[oi]
+        for i, b in enumerate(boxes):
+            if i != oi and not (b[0] >= ob[0] - 1e-6 and b[1] >= ob[1] - 1e-6 and
+                                b[2] <= ob[2] + 1e-6 and b[3] <= ob[3] + 1e-6):
+                raise Skip("loop nesting ambiguous")
+        ordered = [(loops[oi], "ADD")] + [(lp, "SUBTRACT") for i, lp in enumerate(loops) if i != oi]
+        for lp, mode in ordered:
             curves = lp["profile_curves"]
             for c in curves:
                 for k in ("start_point", "end_point", "center_point"):
@@ -156,6 +187,11 @@ def convert(d, target_mm):
     seq = [s for s in d["sequence"] if s["type"] == "ExtrudeFeature"]
     if not seq:
         raise Skip("no extrude")
+    # A sketch that no extrude consumes means the parser dropped the feature that used it
+    # (a hole, revolve, fillet...): the recorded part is more than this sequence can rebuild.
+    used = {pr["sketch"] for st in seq for pr in ents[st["entity"]].get("profiles", [])}
+    if any(e["type"] == "Sketch" and eid not in used for eid, e in ents.items()):
+        raise Skip("unused sketch (truncated sequence)")
     if len(seq) > 40:
         raise Skip("sequence too long")
     body_lines = ["from build123d import *", "", f"# DeepCAD part, rescaled so the longest edge is {fmt(target_mm)} mm", ""]
