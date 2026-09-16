@@ -1618,3 +1618,10 @@ answer loss **2.678 -> 1.031**; the greedy continuation afterwards is a coherent
 the 3D model ... Length (X): 100 mm"). Resident ~280 GB over 8 GPUs at 1.7k tokens without
 gradient checkpointing. Stage 2 (200 steps on the 2,061-row real tier, greedy eval on 48 bench
 parts) follows on serv-04; the cluster smoke on ccc0451 gates the 3-node run.
+The cluster smoke on ccc0451 (`dsv41_smoke.sbatch`, checkpoint read from Lustre: ~35 min to
+load vs 60 s from local disk) passed identically (2.674 -> 1.007, peak 58 GB per H200). The
+first 3-node submission brought NCCL up across ccc0451/474/475 over the mlx5 link (all three
+ranks reported) and then failed on a missing `prompts.json` next to the union5 tier — the
+trainer now falls back to `spike_dsv41/prompts.json`. Resubmitted as job 10583388: 600 steps,
+accum 4 per node x 3 nodes = 12 samples per step, lr 1e-4, r=16 on the union5 real tier, then
+a 96-part greedy eval on the real bench sharded across the ranks.
