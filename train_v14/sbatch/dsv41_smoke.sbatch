@@ -14,7 +14,7 @@
 # checkpoint pipeline-split over 8 GPUs, LoRA on the attention projections, forward/backward,
 # a six-step one-sample fit (answer loss must fall) and a greedy continuation.
 #   sbatch [--nodelist=ccc0451] train_v14/sbatch/dsv41_smoke.sbatch
-DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm; cd $DV
+DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm; export DV; cd $DV
 export HF_HOME=$DV/.cache/huggingface PYTHONPATH=$DV/train_v14:$DV/train_v14/geom OPENBLAS_NUM_THREADS=1
 # Triton JIT cache: the NFS home dir is slow for the hundreds of specializations this model compiles;
 # seed a node-local copy from it and sync new entries back at the end.

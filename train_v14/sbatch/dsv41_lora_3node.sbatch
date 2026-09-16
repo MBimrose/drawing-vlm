@@ -17,7 +17,7 @@
 # MASTER_ADDR from the first node, a free MASTER_PORT, NCCL over mlx5).
 #   STEPS=600 ACCUM=4 LR=1e-4 RANK_R=16 TIER=rft_real_union5_dw423/shards \
 #     sbatch train_v14/sbatch/dsv41_lora_3node.sbatch
-DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm; cd $DV
+DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm; export DV; cd $DV
 export HF_HOME=$DV/.cache/huggingface PYTHONPATH=$DV/train_v14:$DV/train_v14/geom OPENBLAS_NUM_THREADS=1
 # Triton JIT cache: the NFS home dir is slow for the hundreds of specializations this model compiles;
 # seed a node-local copy from it and sync new entries back at the end.
