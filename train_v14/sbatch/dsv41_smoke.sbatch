@@ -16,6 +16,11 @@
 #   sbatch [--nodelist=ccc0451] train_v14/sbatch/dsv41_smoke.sbatch
 DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm; cd $DV
 export HF_HOME=$DV/.cache/huggingface PYTHONPATH=$DV/train_v14:$DV/train_v14/geom OPENBLAS_NUM_THREADS=1
+# Triton JIT cache: the NFS home dir is slow for the hundreds of specializations this model compiles;
+# seed a node-local copy from it and sync new entries back at the end.
+export TRITON_CACHE_DIR=/dev/shm/bimrose2/triton; mkdir -p $TRITON_CACHE_DIR
+[ -d $HOME/.triton/cache ] && rsync -a $HOME/.triton/cache/ $TRITON_CACHE_DIR/ 2>/dev/null
+trap 'rsync -a $TRITON_CACHE_DIR/ $HOME/.triton/cache/ 2>/dev/null; rm -rf /dev/shm/bimrose2' EXIT
 nvidia-smi --query-gpu=name,memory.total --format=csv,noheader | head -2
 echo "=== stage 1 ($SLURM_JOB_NODELIST, job $SLURM_JOB_ID) ==="
 srun $DV/.venv_dsv41/bin/python $DV/train_v14/geom/dsv41_lora_smoke.py --model $DV/models/DeepSeek-V4.1-Flash \

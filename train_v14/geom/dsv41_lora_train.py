@@ -196,7 +196,7 @@ def main():
     if dist is not None:
         dist.barrier()
 
-    if not args.eval_bench:
+    if not args.eval_bench or args.eval_n <= 0:
         return
     # --- greedy eval, same scorer as the bench
     from iou import iou_pair
