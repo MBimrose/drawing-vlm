@@ -120,7 +120,9 @@ def main():
         rank = int(os.environ.get("SLURM_PROCID", os.environ.get("RANK", "0")))
         world = int(os.environ.get("SLURM_NTASKS", os.environ.get("WORLD_SIZE", "1")))
         os.environ.setdefault("RANK", str(rank)); os.environ.setdefault("WORLD_SIZE", str(world))
-        dist.init_process_group("nccl", rank=rank, world_size=world, device_id=torch.device("cuda:0"))
+        from datetime import timedelta
+        # steps are minutes long and per-rank sample lengths differ, so a rank can wait well past NCCL's 10-min default
+        dist.init_process_group("nccl", rank=rank, world_size=world, device_id=torch.device("cuda:0"), timeout=timedelta(hours=3))
         print(f"[train] rank {rank}/{world} on {socket.gethostname()} ({torch.cuda.device_count()} GPUs)", flush=True)
     log = (lambda *a, **k: print(*a, **k)) if rank == 0 else (lambda *a, **k: None)
     import dsv41_autograd; dsv41_autograd.register()   # backward for the Hub FP8/MXFP4 ops (input grads only)
@@ -162,9 +164,13 @@ def main():
         if enc is None:
             skipped += 1; continue
         enc = {k: (v.to(dev) if hasattr(v, "to") else v) for k, v in enc.items()}
+        ts = time.time()
         with torch.autocast("cuda", dtype=torch.bfloat16):
             out = model(**enc)
+        tf = time.time() - ts
         (out.loss / args.accum).backward()
+        if i <= 4:
+            log(f"[train] sample {i}: {enc['input_ids'].shape[-1]} tokens, forward {tf:.1f}s, backward {time.time()-ts-tf:.1f}s", flush=True)
         acc_loss += out.loss.item(); n_acc += 1
         if n_acc % args.accum == 0:
             if dist is not None:   # average the adapter gradients across replicas (one flat buffer, ~184 MB fp32)
