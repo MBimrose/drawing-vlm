@@ -1598,3 +1598,15 @@ ccc0451/474/475 with InfiniBand for the real run: the trainer gained `--dist` (o
 node, full pipeline-split replica each, adapter gradients averaged over NCCL) and
 `dsv41_lora_3node.sbatch` follows the connector-folder recipe; a one-node cluster smoke
 (`dsv41_smoke.sbatch`, venv at `.venv_dsv41` on /projects) gates it.
+Attempt 8 (serv-04) got through the forward — **answer loss 2.68 nats/token** on the certified
+sample, 109 s for 1,704 tokens without gradient checkpointing — and died in the backward: the
+Hub `finegrained-fp8` ops (`torch.ops._finegrained_fp8_cuda_89d4054.*`) ship no autograd
+formula. Since the quantized weights are frozen, only the input gradient is needed, which is a
+plain matmul against the dequantized weight; `train_v14/geom/dsv41_autograd.py` registers that
+for the 2D, grouped and batched variants of the block-FP8 and MX (UE8M0 group-32, E4M3 or packed
+E2M1) ops via `torch.library.register_autograd`. `dsv41_autograd_test.py` checks it on real
+checkpoint tensors on one H200: kernel forward vs dequantized matmul 2.4% (block FP8 `wq_b`
+32768x1280, UE8M0 32x32 scales) and 2.7% (MXFP4 expert `w1` 2304x2560, the kernel's own fp8
+activation quantization), backward vs reference 0.17% for both and for the grouped op over two
+experts; E2M1 nibbles are low-first (high-first gives 141% error). Attempt 9 / the cluster smoke
+run with the formulas registered.
