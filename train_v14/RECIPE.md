@@ -1516,3 +1516,15 @@ multi-body 89 of 1,325): plain plates, rods and cylinders — real parts, kept f
 bbox (92%; 9,584 mismatches = dropped sketch-less features such as patterns/mirrors, 165 exec
 errors, 144 timeouts). **serv-20** serves e55 end to end (escalating policy, 4/4 real sheets,
 model load 19 s from local NVMe).
+
+**vLLM generation path validated (2026-09-15, serv-20).** e55 served by vLLM (DP=8, one replica
+per B300, `--reasoning-parser qwen3`) and driven by `gen_openai_bo.py` (draw 0 greedy, 7 at
+T=0.7/top_p 0.95, the bestofn recipe) on the SAME 616 DeepCAD gate parts, scored by the same
+`score_partials.py`: first-exec **0.713** (HF path 0.713), ceiling **0.802** (0.808), >=0.85
+58% (59%), 4,585/4,928 executing, 4,928/4,928 with a think trace. On-policy-equivalent within
+noise, and **256 s for 616 x 8** = ~144 parts/min (~70k candidates/h) against ~1.5 h on 8xH200
+with HF generate — ~20x. The 87k-part full pass (K=8, ~700k candidates) is therefore ~10-15 h
+of generation on serv-20 alone; scoring (CPU) is the other half. Drivers:
+`run_vllm_e55_serv20.sh`, `run_vllm_gate_check.sh`, `run_deepcad_gen_serv20.sh`.
+DeepCAD full split after prep with `--min-faces 3 --max-aspect 40`: **87,328 kept** of 110,046
+(rejected: aspect 13,245, multi-body 6,810, faces<3 1,947, fill 714).
