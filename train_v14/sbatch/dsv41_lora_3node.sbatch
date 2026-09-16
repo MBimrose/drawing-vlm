@@ -18,7 +18,7 @@
 #   STEPS=600 ACCUM=4 LR=1e-4 RANK_R=16 TIER=rft_real_union5_dw423/shards \
 #     sbatch train_v14/sbatch/dsv41_lora_3node.sbatch
 DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm; cd $DV
-export HF_HOME=$DV/.cache/huggingface HF_HUB_OFFLINE=1 PYTHONPATH=$DV/train_v14:$DV/train_v14/geom OPENBLAS_NUM_THREADS=1
+export HF_HOME=$DV/.cache/huggingface PYTHONPATH=$DV/train_v14:$DV/train_v14/geom OPENBLAS_NUM_THREADS=1
 export NCCL_IB_DISABLE=0 NCCL_P2P_LEVEL=NVL NCCL_NET_GDR_LEVEL=5
 export MASTER_ADDR=$(scontrol show hostnames "$SLURM_JOB_NODELIST" | head -n 1)
 export MASTER_PORT=$(python3 -c "import socket; s=socket.socket(); s.bind(('', 0)); print(s.getsockname()[1]); s.close()")

@@ -15,7 +15,7 @@
 # a six-step one-sample fit (answer loss must fall) and a greedy continuation.
 #   sbatch [--nodelist=ccc0451] train_v14/sbatch/dsv41_smoke.sbatch
 DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm; cd $DV
-export HF_HOME=$DV/.cache/huggingface HF_HUB_OFFLINE=1 PYTHONPATH=$DV/train_v14:$DV/train_v14/geom OPENBLAS_NUM_THREADS=1
+export HF_HOME=$DV/.cache/huggingface PYTHONPATH=$DV/train_v14:$DV/train_v14/geom OPENBLAS_NUM_THREADS=1
 nvidia-smi --query-gpu=name,memory.total --format=csv,noheader | head -2
 echo "=== stage 1 ($SLURM_JOB_NODELIST, job $SLURM_JOB_ID) ==="
 srun $DV/.venv_dsv41/bin/python $DV/train_v14/geom/dsv41_lora_smoke.py --model $DV/models/DeepSeek-V4.1-Flash \
