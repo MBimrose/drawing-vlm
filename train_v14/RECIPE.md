@@ -1537,7 +1537,8 @@ trace runs 68k-101k characters and hits the 24k-token cap with no answer (a 6k b
 1 answer in 16). The 32 that did answer executed 30 times with a mean of ~0.45 and included
 exact solutions (0.93, 0.80), so the vision reads the sheets; the model cannot finish deciding.
 Not a candidate as a generator, and its 552B/16B-active MoE has no training path anyway. A
-no-think pass (chat_template_kwargs thinking=false, 8k budget) runs next to see whether the
-direct answer is any better; either way DeepSeek stays a probe, not a lever. Engine facts:
+no-think variant was set up (`probe_openai_vlm.py --no-think`) but not run: the engine went
+down while being relaunched and another 25-minute start on all eight B300s is not worth it
+against the full DeepCAD pass waiting for the same GPUs. DeepSeek is closed as a lever. Engine facts:
 25 min to ready (DeepGEMM JIT + 510 GB), needs the host CUDA toolkit bound in, and the box
 must not host a wide CPU job at the same time (froze at ~410 load).
