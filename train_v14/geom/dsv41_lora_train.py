@@ -158,8 +158,9 @@ def main():
                                                   target_modules=names, bias="none"))
     params = [p for p in model.parameters() if p.requires_grad]
     log(f"[train] {len(names)} LoRA targets, {sum(p.numel() for p in params)/1e6:.1f}M trainable", flush=True)
-    opt = torch.optim.AdamW(params, lr=args.lr, weight_decay=0.0, betas=(0.9, 0.95))
-    sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min(1.0, (s + 1) / 20) * max(0.1, 1 - s / max(1, args.steps)))
+    if args.steps > 0:
+        opt = torch.optim.AdamW(params, lr=args.lr, weight_decay=0.0, betas=(0.9, 0.95))
+        sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min(1.0, (s + 1) / 20) * max(0.1, 1 - s / max(1, args.steps)))
 
     rows = load_tier(args.tier, args.limit)
     random.Random(args.seed).shuffle(rows)
