@@ -1528,3 +1528,16 @@ of generation on serv-20 alone; scoring (CPU) is the other half. Drivers:
 `run_vllm_e55_serv20.sh`, `run_vllm_gate_check.sh`, `run_deepcad_gen_serv20.sh`.
 DeepCAD full split after prep with `--min-faces 3 --max-aspect 40`: **87,328 kept** of 110,046
 (rejected: aspect 13,245, multi-body 6,810, faces<3 1,947, fill 714).
+
+**DeepSeek-V4.1-Flash zero-shot on the real bench (2026-09-15, serv-20, vLLM tp=8 on 8x B300):**
+146 parts, the served prompt, greedy, 24,000-token budget (`results/ext/probe_dsv41_ext_24k.json`):
+**mean IoU 0.093, median 0.000, 4.1% >= 0.85, 8.9% >= 0.5** — against e55's 0.554 / 20% gated.
+The failure mode is runaway reasoning: 114 of 146 replies never leave the thinking phase — the
+trace runs 68k-101k characters and hits the 24k-token cap with no answer (a 6k budget yielded
+1 answer in 16). The 32 that did answer executed 30 times with a mean of ~0.45 and included
+exact solutions (0.93, 0.80), so the vision reads the sheets; the model cannot finish deciding.
+Not a candidate as a generator, and its 552B/16B-active MoE has no training path anyway. A
+no-think pass (chat_template_kwargs thinking=false, 8k budget) runs next to see whether the
+direct answer is any better; either way DeepSeek stays a probe, not a lever. Engine facts:
+25 min to ready (DeepGEMM JIT + 510 GB), needs the host CUDA toolkit bound in, and the box
+must not host a wide CPU job at the same time (froze at ~410 load).

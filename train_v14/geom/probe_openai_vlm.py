@@ -42,9 +42,10 @@ def png_b64(png_bytes):
     return base64.b64encode(png_bytes).decode()
 
 
-def ask(base_url, model, png, system, user, temperature, max_tokens, timeout):
+def ask(base_url, model, png, system, user, temperature, max_tokens, timeout, think=True):
     import urllib.request
     body = {"model": model, "temperature": temperature, "max_tokens": max_tokens,
+            "chat_template_kwargs": {"thinking": think, "enable_thinking": think},
             "messages": [{"role": "system", "content": system},
                          {"role": "user", "content": [
                              {"type": "image_url", "image_url": {"url": "data:image/png;base64," + png_b64(png)}},
@@ -70,6 +71,7 @@ def main():
     ap.add_argument("--timeout", type=int, default=900)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--system-prompt", default="detailed")
+    ap.add_argument("--no-think", action="store_true", help="ask the server to disable the reasoning phase")
     args = ap.parse_args()
 
     cache = pickle.load(open(os.path.join(args.bench, "eval_cache_v15.pkl"), "rb"))
@@ -98,7 +100,8 @@ def main():
         temp = args.temperature if (draw > 0 or args.temperature > 0) else 0.0
         rec = {"key": key, "draw": draw, "exec": False, "iou": 0.0}
         try:
-            text, reasoning, usage = ask(args.base_url, args.model, png, system, user, temp, args.max_tokens, args.timeout)
+            text, reasoning, usage = ask(args.base_url, args.model, png, system, user, temp, args.max_tokens,
+                                         args.timeout, think=not args.no_think)
         except Exception as e:
             rec["error"] = f"{type(e).__name__}: {str(e)[:200]}"; return rec
         rec.update({"code": extract_code(text), "reply_chars": len(text), "reasoning_chars": len(reasoning),

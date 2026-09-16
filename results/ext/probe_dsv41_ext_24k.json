@@ -1,0 +1,2774 @@
+{
+ "summary": {
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "bench": "mech_benchmarks/ext_bench",
+  "n": 146,
+  "k": 1,
+  "temperature": 0.0,
+  "first_draw": {
+   "mean": 0.0928061592093141,
+   "median": 0.0,
+   "ge85": 0.0410958904109589,
+   "ge50": 0.08904109589041095
+  },
+  "best_of_k": {
+   "mean": 0.0928061592093141,
+   "median": 0.0,
+   "ge85": 0.0410958904109589,
+   "ge50": 0.08904109589041095
+  },
+  "n_requests": 146,
+  "with_code": 32,
+  "executed": 30,
+  "errors": {
+   "no code block": 114,
+   "exec rc=2": 2
+  }
+ },
+ "records": [
+  {
+   "key": "F_55230_077b4106_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 83393,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_55373_ddd74d2f_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 82324,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_55423_a50f82f4_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 101024,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_55460_998dd656_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 88430,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_55527_0736d633_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 67981,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_55707_c78416ed_35_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 84609,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_55838_a1513314_0000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 85364,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_55927_f8b31711_16_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 91857,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_56040_9b1307eb_4_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 72066,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_56065_00bbe5da_13_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 84151,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_56065_00bbe5da_15_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 86848,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_56167_90101372_10_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.9348230054587318,
+   "code": "from build123d import *\n\n# ---- Key dimensions from the drawing ----\nouter_dia = 80.0      # \u00d880 outer diameter\ninner_dia = 64.0      # \u00d864 bore diameter\nthickness = 9.1       # 9.1 ring thickness\nchamfer_size = 2.0    # edge chamfers (from the double circles in the views)\n\n# ---- Build the ring ----\nwith BuildPart() as part:\n    with BuildSketch(Plane.XY):\n        Circle(radius=outer_dia / 2)\n        Circle(radius=inner_dia / 2, mode=Mode.SUBTRACT)\n    extrude(amount=thickness)\n\n    # Chamfer the top and bottom rims of both the outer and inner diameters\n    rim_edges = part.edges().filter_by(GeomType.CIRCLE)\n    chamfer(rim_edges, length=chamfer_size)\n\n# ---- Export ----\nexport_step(part.part, \"output.step\")",
+   "reply_chars": 1276,
+   "reasoning_chars": 3826,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 2471,
+    "completion_tokens": 1336,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 976
+    }
+   }
+  },
+  {
+   "key": "F_56167_90101372_13_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 92015,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_56462_3fcb906f_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 86014,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_56468_c18aba85_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 96629,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_56476_466fc284_3_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 86318,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_56489_241ed182_1_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 85753,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_56494_0f3437d4_3_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.18900638951097282,
+   "code": "import math\nfrom build123d import *\n\n# ------------------------------------------------------------------\n# Key dimensions taken from the drawing\n# ------------------------------------------------------------------\nacross_corners = 80.0          # hexagon width across opposite vertices (front view)\nacross_flats   = 69.3          # hexagon width across opposite flats  (front view)\nthickness      = 24.0          # prism depth (side view)\nhole_dia       = 24.0          # \u00d824 THRU central hole\n\ncircumradius   = across_corners / 2.0          # = 40 (matches the \"40\" dimension)\nhole_radius    = hole_dia / 2.0\n\n# Sanity check: regular hexagon across-flats = (sqrt(3)/2) * across-corners\nassert abs(across_flats - math.sqrt(3) / 2 * across_corners) < 0.1\n\n# Hexagon vertices: vertex on +X axis -> pointy left/right, flat top/bottom\nhex_vertices = [\n    (circumradius * math.cos(math.radians(60.0 * i)),\n     circumradius * math.sin(math.radians(60.0 * i)))\n    for i in range(6)\n]\n\n# ------------------------------------------------------------------\n# Build the part\n# ------------------------------------------------------------------\nwith BuildPart() as hex_prism:\n    # Hexagonal profile on the XY plane, extruded upward by the thickness\n    with BuildSketch(Plane.XY):\n        Polygon(*hex_vertices)\n    extrude(amount=thickness)\n\n    # Central \u00d824 through hole\n    with BuildSketch(Plane.XY):\n        Circle(radius=hole_radius)\n    extrude(amount=thickness, mode=Mode.SUBTRACT)\n\npart = hex_prism.part\n\n# ------------------------------------------------------------------\n# Export\n# ------------------------------------------------------------------\nexport_step(part, \"output.step\")",
+   "reply_chars": 2259,
+   "reasoning_chars": 6434,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 3472,
+    "completion_tokens": 2337,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 1784
+    }
+   }
+  },
+  {
+   "key": "F_56711_61a0b988_3_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 89788,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_56719_6e59eeff_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 99228,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_56997_4eaf2100_5_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.04678413177430021,
+   "code": "\"\"\"\nReconstruction of part HELIOS-5012 (draftwright)\nCircular flanged disc:\n  - \u00d880 outer diameter, 15.1 mm thick\n  - \u00d864.9 counterbore, 9.1 mm deep on one face\n  - \u00d837.7 through hole\n  - outer edge of the counterbored face rounded\n\"\"\"\n\nfrom build123d import *\n\n# ---------------- dimensions from the drawing (mm) ----------------\nouter_dia   = 80.0    # \u00d880   outer diameter\nthickness   = 15.1    # 15.1  overall thickness\ncbore_dia   = 64.9    # \u00d864.9 counterbore diameter\ncbore_depth = 9.1     # 9.1   counterbore depth\nhole_dia    = 37.7    # \u00d837.7 through hole\nrim_radius  = 3.0     # round-over on the outer edge of the counterbored face\n\n# ---------------- build the part ----------------\nwith BuildPart() as bp:\n    # Base disc \u00d880 x 15.1\n    with BuildSketch(Plane.XY):\n        Circle(radius=outer_dia / 2)\n    extrude(amount=thickness)\n\n    # Counterbore \u00d864.9 x 9.1 deep on the top face\n    with BuildSketch(Plane.XY.offset(thickness)):\n        Circle(radius=cbore_dia / 2)\n    extrude(amount=-cbore_depth, mode=Mode.SUBTRACT)\n\n    # Through hole \u00d837.7\n    with BuildSketch(Plane.XY):\n        Circle(radius=hole_dia / 2)\n    extrude(amount=thickness, mode=Mode.SUBTRACT)\n\n    # Round the outer edge on the counterbored face\n    rim_edges = (\n        bp.edges()\n        .filter_by(GeomType.CIRCLE)\n        .filter_by(\n            lambda e: abs(e.radius - outer_dia / 2) < 1e-6\n            and abs(e.center().Z - thickness) < 1e-6\n        )\n    )\n    fillet(rim_edges, radius=rim_radius)\n\npart = bp.part\n\n# ---------------- export ----------------\nexport_step(part, \"output.step\")",
+   "reply_chars": 2088,
+   "reasoning_chars": 29349,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 9806,
+    "completion_tokens": 8671,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 8046
+    }
+   }
+  },
+  {
+   "key": "F_57440_ca6af7b9_0_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.02159034355257103,
+   "code": "from build123d import *\n\n# ---------------- Parameters (mm) ----------------\nTOTAL_H = 80.0      # overall height\nRIM_D   = 36.6      # bowl rim outer diameter\nFOOT_D  = 23.2      # foot diameter\nWALL    = 1.3       # glass wall thickness\n\nrim_r  = RIM_D  / 2.0   # 18.3\nfoot_r = FOOT_D / 2.0   # 11.6\n\n# ---------------- Outer silhouette (r, z) ----------------\n# foot disc -> concave flare into stem -> slender stem -> trumpet bowl\nouter_pts = [\n    (0.0,      0.0),      # axis, bottom of foot\n    (foot_r,   0.0),      # foot outer bottom edge\n    (foot_r,   2.0),      # foot outer top edge\n    (9.0,      4.0),      # concave transition into stem\n    (6.0,      7.0),\n    (4.5,     11.0),\n    (3.6,     17.0),\n    (3.0,     25.0),      # narrowest stem\n    (3.2,     32.0),\n    (3.8,     38.0),\n    (5.0,     42.0),      # start of bowl flare\n    (7.0,     46.0),\n    (10.0,    50.0),\n    (13.5,    56.0),\n    (16.0,    63.0),\n    (17.5,    70.0),\n    (rim_r,   TOTAL_H),   # bowl rim outer\n]\n\n# ---------------- Inner cavity profile (r, z) ----------------\n# offset inward by WALL from the outer surface, closed with a domed floor\ninner_pts = [\n    (rim_r - WALL, TOTAL_H),   # 17.0  inner rim\n    (17.5  - WALL, 70.0),      # 16.2\n    (16.0  - WALL, 63.0),      # 14.7\n    (13.5  - WALL, 56.0),      # 12.2\n    (10.0  - WALL, 50.0),      #  8.7\n    (7.0   - WALL, 46.0),      #  5.7\n    (3.5,          44.0),      # domed cavity floor\n    (1.5,          43.0),\n    (0.0,          42.5),\n]\n\n# ---------------- Build the solid of revolution ----------------\nwith BuildPart() as goblet:\n    with BuildSketch(Plane.XZ):\n        with BuildLine():\n            # outer silhouette (foot edge is a sharp corner)\n            Polyline(outer_pts[0], outer_pts[1], outer_pts[2])\n            Spline(*outer_pts[2:])\n            # flat rim annulus\n            Line(outer_pts[-1], inner_pts[0])\n            # inner cavity wall + floor\n            Spline(*inner_pts)\n            # close along the axis\n            Line(inner_pts[-1], outer_pts[0])\n        make_face()\n    revolve(axis=Axis.Z)\n\npart = goblet.part\nexport_step(part, \"output.step\")",
+   "reply_chars": 3483,
+   "reasoning_chars": 53974,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 19973,
+    "completion_tokens": 18838,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 17726
+    }
+   }
+  },
+  {
+   "key": "F_57736_91b94db5_0_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.20722408661314612,
+   "code": "from build123d import *\n\n# ---------------- Overall block ----------------\nL = 77.0          # overall length  (X)  = 19 + 58\nW = 33.0          # overall width   (Y)\nH = 29.0          # overall height  (Z)\n\n# ---------------- Top channel ----------------\nch_x0   = 3.0                 # channel start (left end wall = 3)\nch_x1   = 19.0 + 42.0         # channel end   = 61\nch_len  = ch_x1 - ch_x0       # 58\nwall    = 12.0                # side wall thickness (each side)\nch_w    = W - 2.0 * wall      # 9  -> 12 + 9 + 12 = 33\nch_d    = 12.0                # channel depth\n\n# ---------------- Front step ----------------\nstep_x0  = 19.0               # step starts here\nstep_len = L - step_x0        # 58\n\nwith BuildPart() as bp:\n    # base block\n    Box(L, W, H, align=(Align.MIN, Align.MIN, Align.MIN))\n\n    # mill the top channel (closed at both ends)\n    with Locations((ch_x0, wall, H - ch_d)):\n        Box(ch_len, ch_w, ch_d,\n            align=(Align.MIN, Align.MIN, Align.MIN),\n            mode=Mode.SUBTRACT)\n\n    # cut the front wall down to the channel floor level\n    with Locations((step_x0, 0.0, H - ch_d)):\n        Box(step_len, wall, ch_d,\n            align=(Align.MIN, Align.MIN, Align.MIN),\n            mode=Mode.SUBTRACT)\n\npart = bp.part\nexport_step(part, \"output.step\")",
+   "reply_chars": 2376,
+   "reasoning_chars": 67396,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 21146,
+    "completion_tokens": 20011,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 19277
+    }
+   }
+  },
+  {
+   "key": "F_60766_fb8715eb_4_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.993746888930794,
+   "code": "\"\"\"\nObround (stadium) block - drawing IRIS-3789\nOverall 80 x 33.3, height 33.3, top & bottom edge loops filleted R2.7 (2x).\n\"\"\"\nfrom build123d import *\n\n# ---------------- dimensions from the drawing ----------------\noverall_length = 80.0    # obround overall length          (top view)\noverall_width  = 33.3    # obround width / block depth     (top & side views)\nblock_height   = 33.3    # block height                    (front & side views)\nedge_radius    = 2.7     # 2x R2.7 fillet on top/bottom rims\n\n# ---------------- build the solid ----------------\nwith BuildPart() as bp:\n    # obround cross-section in the XY plane\n    with BuildSketch(Plane.XY):\n        SlotOverall(overall_length, overall_width)\n\n    # extrude the profile to the full block height\n    extrude(amount=block_height)\n\n    # select the top (Z = height) and bottom (Z = 0) edge loops\n    rim_edges = bp.edges().filter_by(\n        lambda e: abs(e.center().Z) < 1e-6\n        or abs(e.center().Z - block_height) < 1e-6\n    )\n\n    # 2x R2.7 - round both rims\n    fillet(rim_edges, radius=edge_radius)\n\npart = bp.part\n\n# ---------------- export ----------------\nexport_step(part, \"output.step\")",
+   "reply_chars": 1844,
+   "reasoning_chars": 15738,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 5825,
+    "completion_tokens": 4690,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 4145
+    }
+   }
+  },
+  {
+   "key": "F_61294_9255796d_2_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 97471,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_61643_303cdd31_0000_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.06066233868311883,
+   "code": "from build123d import *\n\n# ---------------- Key dimensions (mm) ----------------\ndisc_dia        = 80.0   # \u00d880 plate\ndisc_thick      = 8.0    # plate thickness (Detail A)\npin_dia         = 4.0    # \u00d84 pins\npin_length      = 48.0   # pin protrusion (56 total - 8 plate, Detail A)\nbolt_circle_dia = 48.0   # pin pattern diameter (scaled from views)\nnum_pins        = 4      # 4 pins at 90\u00b0 spacing\n\nwith BuildPart() as part:\n    # ---- Circular plate ----\n    with BuildSketch(Plane.XY):\n        Circle(radius=disc_dia / 2)\n    extrude(amount=disc_thick)\n\n    # ---- Four pins on the top face ----\n    with BuildSketch(Plane.XY.offset(disc_thick)):\n        with PolarLocations(radius=bolt_circle_dia / 2, count=num_pins):\n            Circle(radius=pin_dia / 2)\n    extrude(amount=pin_length)\n\nexport_step(part.part, \"output.step\")",
+   "reply_chars": 1704,
+   "reasoning_chars": 38099,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 12115,
+    "completion_tokens": 10980,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 10482
+    }
+   }
+  },
+  {
+   "key": "F_62065_eddaab34_1_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 100011,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_63071_3d434a33_15_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 83313,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_63172_5ae67bce_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 87643,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_65350_b3fa8f4f_47_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.03225806451612903,
+   "code": "from build123d import *\n\n# ---- Key dimensions from the drawing ----\nwidth = 50.0          # overall width  (X)\nheight = 80.0         # overall height (Y)\ndepth = 10.0          # extrusion depth / part thickness (Z)\nleg = 10.0            # thickness of top and bottom legs\n\ninner_width = width - 2 * leg     # 30  (opening width)\ninner_height = height - 2 * leg   # 60  (opening height)\n\nwith BuildPart() as part:\n    with BuildSketch(Plane.XY) as sk:\n        with BuildLine():\n            Polyline(\n                (0.0, 0.0),\n                (width, 0.0),\n                (width, leg),\n                (leg, leg),\n                (leg, height - leg),\n                (width, height - leg),\n                (width, height),\n                (0.0, height),\n                close=True,\n            )\n        make_face()\n    extrude(amount=depth)\n\nexport_step(part.part, \"output.step\")",
+   "reply_chars": 1443,
+   "reasoning_chars": 4521,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 2858,
+    "completion_tokens": 1723,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 1331
+    }
+   }
+  },
+  {
+   "key": "F_65356_aaee1519_1_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": "from build123d import *\n\n# ---- Key dimensions from the drawing ----\nlength = 80.0          # overall length (plan view)\nwidth = 48.0           # overall width  (plan view)\nthickness = 8.0        # plate thickness (side / top views)\ncorner_radius = 4.0    # 4x R4  -> vertical corner edges\nedge_radius = 4.0      # 2x R4  -> top & bottom perimeter edges\n\nwith BuildPart() as part:\n    # Base rectangular plate\n    Box(length, width, thickness)\n\n    # 1) Round the four vertical corner edges (4x R4 in plan view)\n    vertical_edges = part.edges().filter_by(Axis.Z)\n    fillet(vertical_edges, radius=corner_radius)\n\n    # 2) Round the top and bottom perimeter edges (2x R4 in side/top views)\n    top_face = part.faces().sort_by(Axis.Z)[-1]\n    bottom_face = part.faces().sort_by(Axis.Z)[0]\n    fillet(top_face.edges() + bottom_face.edges(), radius=edge_radius)\n\n# Export the finished solid\nexport_step(part.part, \"output.step\")",
+   "reply_chars": 1501,
+   "reasoning_chars": 7871,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 3690,
+    "completion_tokens": 2555,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 2116
+    }
+   },
+   "error": "exec rc=2: ValueError: Failed creating a fillet with radius of 4.0, try a smaller value or use max_fillet() to find the largest valid fillet radius"
+  },
+  {
+   "key": "F_66061_a0907bb0_1_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 90515,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_67240_525e92c1_1_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 84494,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_67262_f7710fc0_0_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.4152653047196208,
+   "code": "\"\"\"\nReconstruction of part BRAVO-1065 (draftwright drawing)\n\nFeatures:\n  - Obround link plate, overall 112 x 32 x 8\n  - Two \u00d816 through holes, centers 80 apart (at the slot end centers)\n  - \u00d824 x 24 boss on TOP at the left hole\n  - \u00d824 x 24 boss on BOTTOM at the right hole\n  - Overall height 56\n\"\"\"\n\nfrom build123d import *\n\n# ---------------- dimensions from the drawing ----------------\nHOLE_DIA     = 16.0    # \u00d816 holes\nHOLE_SPACING = 80.0    # center-to-center distance between holes\nPLATE_WIDTH  = 32.0    # link width (side view) -> end radius = 16\nBOSS_DIA     = 24.0    # boss diameter (scaled from front/iso views)\nBOSS_HEIGHT  = 24.0    # each boss height (front view)\nTOTAL_HEIGHT = 56.0    # overall height (front view)\n\n# derived\nPLATE_THICK  = TOTAL_HEIGHT - 2.0 * BOSS_HEIGHT   # = 8\nPLATE_LENGTH = HOLE_SPACING + PLATE_WIDTH         # = 112\n\n# ---------------- build the part ----------------\nwith BuildPart() as link:\n    # --- link plate: slot (obround) 112 x 32, thickness 8 ---\n    with BuildSketch(Plane.XY):\n        SlotCenterToCenter(center_separation=HOLE_SPACING, height=PLATE_WIDTH)\n    extrude(amount=PLATE_THICK)\n\n    # --- top boss at the left hole ---\n    with Locations((-HOLE_SPACING / 2, 0, PLATE_THICK)):\n        Cylinder(BOSS_DIA / 2, BOSS_HEIGHT,\n                 align=(Align.CENTER, Align.CENTER, Align.MIN))\n\n    # --- bottom boss at the right hole ---\n    with Locations((HOLE_SPACING / 2, 0, 0)):\n        Cylinder(BOSS_DIA / 2, BOSS_HEIGHT,\n                 align=(Align.CENTER, Align.CENTER, Align.MAX))\n\n    # --- \u00d816 through holes at both ends (through bosses and plate) ---\n    with Locations((-HOLE_SPACING / 2, 0, 0), (HOLE_SPACING / 2, 0, 0)):\n        Cylinder(HOLE_DIA / 2, TOTAL_HEIGHT + 2 * BOSS_HEIGHT,\n                 mode=Mode.SUBTRACT)\n\n# ---------------- export ----------------\nexport_step(link.part, \"output.step\")",
+   "reply_chars": 2587,
+   "reasoning_chars": 29252,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 9629,
+    "completion_tokens": 8494,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 7720
+    }
+   }
+  },
+  {
+   "key": "F_69235_fe79a369_26_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 79565,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_69253_83adcb0e_3_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.9964285666067707,
+   "code": "\"\"\"\nReconstruction of the part shown in drawing KEPLER-7947 (1:1).\n\nThe part is a stepped rectangular bar:\n  - Main bar section : 70.7 long x 12 wide x 9.3 tall\n  - Raised end block :  9.3 long x 12 wide x 17.3 tall (overall height)\n  - Overall length   : 80\nBoth sections share the same flat bottom face and the same width.\n\"\"\"\n\nfrom build123d import *\n\n# ---------------- Key dimensions (mm) ----------------\nTOTAL_LENGTH = 80.0    # overall length of the part\nMAIN_LENGTH  = 70.7    # length of the low main bar section\nWIDTH        = 12.0    # width of the bar (from side view)\nMAIN_HEIGHT  = 9.3     # height of the main bar (from front view)\nSTEP_HEIGHT  = 17.3    # overall height of the raised end block\n\n# Derived dimension\nSTEP_LENGTH = TOTAL_LENGTH - MAIN_LENGTH   # 9.3\n\n# ---------------- Build the solid ----------------\n# Main low bar, bottom-left corner at the origin\nmain_bar = Box(\n    MAIN_LENGTH, WIDTH, MAIN_HEIGHT,\n    align=(Align.MIN, Align.CENTER, Align.MIN),\n)\n\n# Raised end block, same width, sitting on the same bottom plane\nstep_block = Box(\n    STEP_LENGTH, WIDTH, STEP_HEIGHT,\n    align=(Align.MIN, Align.CENTER, Align.MIN),\n)\n# Move the block to the right end of the bar\nstep_block = Pos(MAIN_LENGTH, 0, 0) * step_block\n\n# Fuse into a single solid\npart = main_bar + step_block\n\n# ---------------- Export ----------------\nexport_step(part, \"output.step\")",
+   "reply_chars": 1890,
+   "reasoning_chars": 6460,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 3531,
+    "completion_tokens": 2396,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 1845
+    }
+   }
+  },
+  {
+   "key": "F_70188_002060a2_0001_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 90730,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_70321_eccffc7e_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 87519,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_70441_ca595dbc_1_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.8158551925072612,
+   "code": "from build123d import *\n\n# ------------------------------------------------------------------\n# Parameters (all dimensions taken from the drawing)\n# ------------------------------------------------------------------\n# Overall outer dimensions\nL = 80.0        # overall length  (X)\nH = 54.5        # overall height  (Z)\nT = 6.1         # overall thickness (Y)\n\n# Front opening (the larger, visible opening)\nfront_left   = 3.3\nfront_right  = 3.8          # 80 - 76.2\nfront_bottom = 1.3\nfront_top    = 1.3\nfront_w = L - front_left - front_right      # 72.9\nfront_h = H - front_bottom - front_top      # 51.9\n\n# Back opening (the smaller, hidden opening / rabbet)\nback_left   = 3.5\nback_right  = 4.0\nback_bottom = 3.0\nback_top    = 3.0\nback_w = L - back_left - back_right         # 72.5\nback_h = H - back_bottom - back_top         # 48.5\n\n# Depth of the step (rabbet) measured from the front face\nstep_depth = 3.0\n\n# ------------------------------------------------------------------\n# Build the frame\n# ------------------------------------------------------------------\nwith BuildPart() as frame:\n    # Outer rectangular block\n    Box(L, T, H, align=(Align.MIN, Align.MIN, Align.MIN))\n\n    # Cut the front opening (through the front half of the thickness)\n    with Locations((front_left, 0, front_bottom)):\n        Box(front_w, step_depth, front_h,\n            align=(Align.MIN, Align.MIN, Align.MIN),\n            mode=Mode.SUBTRACT)\n\n    # Cut the back opening (through the remaining back half)\n    with Locations((back_left, step_depth, back_bottom)):\n        Box(back_w, T - step_depth, back_h,\n            align=(Align.MIN, Align.MIN, Align.MIN),\n            mode=Mode.SUBTRACT)\n\n# ------------------------------------------------------------------\n# Export\n# ------------------------------------------------------------------\nexport_step(frame.part, \"output.step\")",
+   "reply_chars": 1880,
+   "reasoning_chars": 65507,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 21438,
+    "completion_tokens": 20303,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 19832
+    }
+   }
+  },
+  {
+   "key": "F_70639_fceccc4a_2_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 98515,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_70814_c3256325_2_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 89620,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_73400_e0bb6e48_2_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.8453177243430112,
+   "code": "\"\"\"\nBushing / ring \u2014 reconstructed from drawing ORION-9276\nOuter \u00d880, bore \u00d840, height 32, outer edges filleted.\n\"\"\"\n\nfrom build123d import *\n\n# ------------------------------------------------------------------\n# Key dimensions (mm) taken from the drawing\n# ------------------------------------------------------------------\nOUTER_DIA = 80.0          # \u00d880  \u2013 outside diameter\nINNER_DIA = 40.0          # \u00d840  \u2013 bore diameter\nHEIGHT    = 32.0          # 32   \u2013 overall height / thickness\nEDGE_FILLET = 4.0         # rounded outer edges (tangent circle in top view)\n\nOUTER_R = OUTER_DIA / 2.0\nINNER_R = INNER_DIA / 2.0\n\n# ------------------------------------------------------------------\n# Build the solid\n# ------------------------------------------------------------------\nwith BuildPart() as bushing:\n    # Main cylindrical body\n    Cylinder(radius=OUTER_R, height=HEIGHT)\n\n    # Through bore\n    Hole(radius=INNER_R)\n\n    # Round the top and bottom outer edges (the two circles seen in the\n    # top view are the OD and the fillet tangent edge)\n    outer_edges = (\n        bushing.edges()\n        .filter_by(GeomType.CIRCLE)\n        .filter_by(lambda e: abs(e.radius - OUTER_R) < 1e-6)\n    )\n    fillet(outer_edges, radius=EDGE_FILLET)\n\npart = bushing.part\n\n# ------------------------------------------------------------------\n# Export\n# ------------------------------------------------------------------\nexport_step(part, \"output.step\")",
+   "reply_chars": 2071,
+   "reasoning_chars": 4210,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 2699,
+    "completion_tokens": 1564,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 1062
+    }
+   }
+  },
+  {
+   "key": "F_73525_7f6b2f67_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 83947,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_73525_7f6b2f67_3_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 85108,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_74450_043caffc_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 89548,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_76546_c17e95aa_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 81764,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_76880_9bb28e72_14_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 101215,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_77687_cbb18594_14_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 89293,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_79427_59912769_1_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 96921,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_79637_fac1d5d3_0000_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.7762261912905556,
+   "code": "\"\"\"\nReconstruction of part ECHO-6969 (draftwright drawing)\nRectangular plate with rounded corners and 4 through holes.\n\nInterpreted dimensions:\n  - Plate: 80.0 (X) x 70.0 (Y) x 11.0 (Z thick)\n  - Corner radius: R10.0 (4x)\n  - Holes: 4x \u00d810.0 THRU, centers 10.0 from each edge\n           (=> center spacing 60.0 x 50.0, matching 59.9 / 49.9 in side view)\n\"\"\"\n\nfrom build123d import *\n\n# ---------------- Parameters ----------------\nplate_length = 80.0      # overall X dimension\nplate_width = 70.0       # overall Y dimension\nplate_thickness = 11.0   # overall Z dimension\ncorner_radius = 10.0     # 4x R10.0 corner fillets\nhole_diameter = 10.0     # 4x \u00d810.0 THRU\nhole_edge_offset = 10.0  # hole center distance from each edge\n\n# ---------------- Build the part ----------------\nwith BuildPart() as part_builder:\n    # Base plate profile with rounded corners, extruded to thickness\n    with BuildSketch(Plane.XY):\n        RectangleRounded(plate_length, plate_width, corner_radius)\n\n        # Four through holes, 10.0 in from each edge\n        with Locations(\n            (-plate_length / 2 + hole_edge_offset, -plate_width / 2 + hole_edge_offset),\n            ( plate_length / 2 - hole_edge_offset, -plate_width / 2 + hole_edge_offset),\n            (-plate_length / 2 + hole_edge_offset,  plate_width / 2 - hole_edge_offset),\n            ( plate_length / 2 - hole_edge_offset,  plate_width / 2 - hole_edge_offset),\n        ):\n            Circle(radius=hole_diameter / 2, mode=Mode.SUBTRACT)\n\n    extrude(amount=plate_thickness)\n\npart = part_builder.part\n\n# ---------------- Export ----------------\nexport_step(part, \"output.step\")",
+   "reply_chars": 2628,
+   "reasoning_chars": 24994,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 9109,
+    "completion_tokens": 7974,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 7236
+    }
+   }
+  },
+  {
+   "key": "F_79993_6087acd5_16_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 90059,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_80188_c67d0fb1_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 98099,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_80192_c2f08a97_0000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 85225,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_81024_46f56379_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 86953,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_81145_14516907_3_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.06867602970015421,
+   "code": "import math\nfrom build123d import *\n\n# ------------------------------------------------------------------\n# Dimensions from the drawing (all in mm)\n# ------------------------------------------------------------------\nouter_dia       = 80.0      # \u00f880  \u2013 outer diameter of the flange\ncone_small_dia  = 45.7      # \u00f845.7 \u2013 small end of the conical back\nboss_dia        = 31.4      # \u00f831.4 \u2013 diameter of the cylindrical boss\nshaft_dia       = 14.3      # \u00f814.3 \u2013 diameter of the shaft\ntotal_length    = 62.9      # 62.9  \u2013 overall length (front face to shaft end)\n\n# Estimated lengths (not explicitly dimensioned, inferred from the side view)\ncone_length     = 20.0      # axial length of the conical section\nboss_length     = 10.0      # axial length of the boss\nshaft_length    = total_length - cone_length - boss_length   # 32.9\n\n# Front-face features\nrecess_dia      = 45.7      # \u00f845.7 \u2013 outer diameter of the front recess\nhub_dia         = 31.4      # \u00f831.4 \u2013 diameter of the central hub\nrecess_depth    = 3.0       # depth of the cross-shaped recess (estimated)\ncross_width     = 12.0      # width of the cross arms (estimated)\n\n# Hex socket on the front face\nhex_af          = 14.3      # 14.3 A/F \u2013 across-flats of the hex hole\nhex_depth       = 10.0      # depth of the hex hole (estimated)\n\n# ------------------------------------------------------------------\n# Build the part\n# ------------------------------------------------------------------\nwith BuildPart() as part:\n    # ---- main body of revolution ----\n    with BuildSketch(Plane.XZ) as profile:\n        with BuildLine():\n            # front face (flat, at Z = 0)\n            Line((0, 0), (outer_dia / 2, 0))\n            # conical back\n            Line((outer_dia / 2, 0), (cone_small_dia / 2, cone_length))\n            # step to boss\n            Line((cone_small_dia / 2, cone_length), (boss_dia / 2, cone_length))\n            # boss\n            Line((boss_dia / 2, cone_length), (boss_dia / 2, cone_length + boss_length))\n            # step to shaft\n            Line((boss_dia / 2, cone_length + boss_length), (shaft_dia / 2, cone_length + boss_length))\n            # shaft\n            Line((shaft_dia / 2, cone_length + boss_length), (shaft_dia / 2, total_length))\n            # end face\n            Line((shaft_dia / 2, total_length), (0, total_length))\n            # centre line back to start\n            Line((0, total_length), (0, 0))\n        make_face()\n    revolve(axis=Axis.Z)\n\n    # ---- hex socket on the front face ----\n    with BuildSketch(Plane.XY) as hex_sketch:\n        # regular hexagon with across-flats = hex_af\n        # apothem = radius * cos(30\u00b0)  =>  radius = (hex_af/2) / cos(30\u00b0)\n        RegularPolygon(\n            radius=(hex_af / 2) / math.cos(math.pi / 6),\n            side_count=6\n        )\n    extrude(amount=hex_depth, mode=Mode.SUBTRACT)\n\n    # ---- cross-shaped recess on the front face ----\n    with BuildSketch(Plane.XY) as recess_sketch:\n        # outer circle of the recess\n        Circle(radius=recess_dia / 2)\n        # central hub (raised, so subtract it from the recess)\n        Circle(radius=hub_dia / 2, mode=Mode.SUBTRACT)\n        # cross arms (raised, so subtract them from the recess)\n        Rectangle(cross_width, recess_dia, mode=Mode.SUBTRACT)\n        Rectangle(recess_dia, cross_width, mode=Mode.SUBTRACT)\n    extrude(amount=recess_depth, mode=Mode.SUBTRACT)\n\n# ------------------------------------------------------------------\n# Export\n# ------------------------------------------------------------------\nexport_step(part.part, \"output.step\")",
+   "reply_chars": 3578,
+   "reasoning_chars": 83856,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 23021,
+    "completion_tokens": 21886,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 20940
+    }
+   }
+  },
+  {
+   "key": "F_81145_bdb0ac6a_114_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 95430,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_81326_8c3a1378_9_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 79818,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_82203_34a0cdf9_2_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 93643,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_82203_9be68697_1_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 90033,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_82996_b8dc67c9_1_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 90419,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_83210_07c13a64_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 83471,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_83435_71fc10f4_2_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.9550808855119397,
+   "code": "\"\"\"\nORION-2642 - Rectangular plate with a rectangular pocket\nReconstructed from the multi-view drawing (draftwright, G. Schmidt).\n\nFront view : 80 x 60.2 plate, pocket 38.8 x 8.3 located 19.1 from the\n             left edge and 24.9 from the bottom edge.\nTop view   : plate thickness 8.3, hidden lines for the pocket walls.\nSide view  : 8.3 thick, hidden lines for the pocket top/bottom.\nISO view   : pocket is a shallow recess in the front face.\n\"\"\"\n\nfrom build123d import *\n\n# ------------------------------------------------------------------\n# Dimensions taken directly from the drawing (mm)\n# ------------------------------------------------------------------\nplate_width  = 80.0    # overall width  (X)\nplate_height = 60.2    # overall height (Z)\nplate_thick  = 8.3     # overall thickness (Y)\n\npocket_width  = 38.8   # pocket width  (X)\npocket_height = 8.3    # pocket height (Z)\npocket_off_x  = 19.1   # left edge   -> pocket left edge\npocket_off_z  = 24.9   # bottom edge -> pocket bottom edge\n\n# Pocket depth is not dimensioned on the drawing; scaled from the ISO view\n# it is roughly one third of the plate thickness.\npocket_depth = 3.0\n\n# ------------------------------------------------------------------\n# Build (plate centred on the origin: X = width, Y = thickness, Z = height)\n# ------------------------------------------------------------------\nplate = Box(plate_width, plate_thick, plate_height)\n\n# Pocket centre (front face of the plate is at Y = -plate_thick/2)\npcx = -plate_width / 2 + pocket_off_x + pocket_width / 2\npcz = -plate_height / 2 + pocket_off_z + pocket_height / 2\npcy = -plate_thick / 2 + pocket_depth / 2\n\npocket = Pos(pcx, pcy, pcz) * Box(pocket_width, pocket_depth, pocket_height)\n\npart = plate - pocket\n\n# ------------------------------------------------------------------\n# Export\n# ------------------------------------------------------------------\nexport_step(part, \"output.step\")",
+   "reply_chars": 2716,
+   "reasoning_chars": 38379,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 12098,
+    "completion_tokens": 10963,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 10255
+    }
+   }
+  },
+  {
+   "key": "F_83938_d6cf9eca_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 87886,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_84025_ec3401ea_1_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 82374,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_84487_27f5d323_8_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": "from build123d import *\n\n# --- Key Dimensions from Drawing ---\noverall_width = 80.0\noverall_height = 45.2\nthickness = 7.6\n\n# --- Derived/Estimated Dimensions ---\n# The U-shaped cutout is a semi-circle. Its width is roughly 1/3 of the total width.\nu_cutout_radius = 12.5\n# The holes are not explicitly dimensioned, but appear to be standard M5 holes.\nhole_diameter = 5.0\nhole_radius = hole_diameter / 2.0\n\n# --- Coordinate System Setup ---\n# Origin (0,0) is placed at the center of the U-cutout's semi-circle.\n# The bottom of the part is at Y = -u_cutout_radius.\n# The top of the part is at Y = overall_height - u_cutout_radius.\nhalf_width = overall_width / 2.0\nbottom_y = -u_cutout_radius\ntop_y = overall_height - u_cutout_radius\n\n# --- Build the Part ---\nwith BuildPart() as part:\n    # 1. Create the 2D profile in the XY plane\n    with BuildSketch() as sketch:\n        with BuildLine() as line:\n            # Start at the bottom left corner\n            Polyline(\n                (-half_width, bottom_y),\n                (-half_width, -5.0),\n                (-30.0, -5.0),\n                (-30.0, 10.0),\n                (-35.0, 10.0),\n                (-35.0, 25.0),\n                (-25.0, 25.0),\n                (-25.0, top_y),\n                (20.0, top_y),\n                (20.0, 10.0),\n            )\n            # Right side curved profile (approximated with a 3-point arc)\n            ThreePointArc((20.0, 10.0), (25.0, 2.5), (30.0, -5.0))\n            # Continue to the bottom right corner\n            Polyline(\n                (30.0, -5.0),\n                (half_width, -5.0),\n                (half_width, bottom_y),\n                (u_cutout_radius, bottom_y),\n            )\n            # U-shaped cutout (semi-circle)\n            RadiusArc((u_cutout_radius, bottom_y), (-u_cutout_radius, bottom_y), u_cutout_radius)\n            # Close the profile back to the start\n            Polyline(\n                (-u_cutout_radius, bottom_y),\n                (-half_width, bottom_y),\n            )\n        make_face()\n\n    # 2. Extrude the profile to the required thickness\n    extrude(amount=thickness)\n\n    # 3. Cut the holes\n    # The holes are located on the flat sections of the left and right arms.\n    hole_positions = [\n        (-30.0, 0.0),\n        (-30.0, 20.0),\n        (30.0, 0.0),\n        (30.0, 20.0),\n    ]\n    with Locations(*[(x, y, 0) for x, y in hole_positions]):\n        Hole(radius=hole_radius)\n\n# --- Export the final solid ---\nexport_step(part.part, \"output.step\")\nprint(\"Part successfully created and exported to output.step\")",
+   "reply_chars": 2668,
+   "reasoning_chars": 24352,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 9088,
+    "completion_tokens": 7953,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 7185
+    }
+   },
+   "error": "exec rc=2: OCP.OCP.StdFail.StdFail_NotDone: GC_MakeArcOfCircle::Value() - no result"
+  },
+  {
+   "key": "F_86801_40091568_5_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 91852,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_86895_aacc5e37_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 93100,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_87488_95f678ce_0_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.050010005260170735,
+   "code": "from build123d import *\n\n# ------------------------------------------------------------------\n# Parameters (all dimensions in mm)\n# ------------------------------------------------------------------\ndisc_d = 80.0          # Disc outer diameter\ndisc_t = 6.0           # Disc thickness (estimated from side view)\nhub_d = 27.0           # Hub outer diameter\nhub_len_total = 37.8   # Total length from back face of disc to hub end\nhub_len = hub_len_total - disc_t   # Hub length protruding from disc face\n\nbore_d = 21.6          # Central bore diameter\nbore_depth = 32.4      # Bore depth from back face of disc\n\ngroove_w = 3.0         # Groove width (axial)\ngroove_d = 1.5         # Groove depth (radial)\ngroove_pos = 2.0       # Groove start distance from disc face\n\nslot_w = 10.0          # Cross\u2011hole slot width (along hub axis)\nslot_h = 16.0          # Cross\u2011hole slot height (vertical)\n\n# ------------------------------------------------------------------\n# Build the part\n# ------------------------------------------------------------------\nwith BuildPart() as part:\n    # Disc\n    Cylinder(radius=disc_d / 2,\n             height=disc_t,\n             align=(Align.CENTER, Align.CENTER, Align.MIN))\n\n    # Hub\n    with Locations((0, 0, disc_t)):\n        Cylinder(radius=hub_d / 2,\n                 height=hub_len,\n                 align=(Align.CENTER, Align.CENTER, Align.MIN))\n\n    # Central bore (from back face)\n    with Locations((0, 0, 0)):\n        Cylinder(radius=bore_d / 2,\n                 height=bore_depth,\n                 align=(Align.CENTER, Align.CENTER, Align.MIN),\n                 mode=Mode.SUBTRACT)\n\n    # Circumferential groove near hub base\n    with Locations((0, 0, disc_t + groove_pos)):\n        with BuildPart(mode=Mode.PRIVATE) as ring:\n            Cylinder(radius=hub_d / 2 + 1,\n                     height=groove_w,\n                     align=(Align.CENTER, Align.CENTER, Align.MIN))\n            Cylinder(radius=hub_d / 2 - groove_d,\n                     height=groove_w,\n                     align=(Align.CENTER, Align.CENTER, Align.MIN),\n                     mode=Mode.SUBTRACT)\n        add(ring.part, mode=Mode.SUBTRACT)\n\n    # Cross\u2011hole slot (through hub, perpendicular to axis)\n    with Locations((0, 0, disc_t + hub_len / 2)):\n        Box(length=hub_d + 2,\n            width=slot_h,\n            height=slot_w,\n            align=(Align.CENTER, Align.CENTER, Align.CENTER),\n            mode=Mode.SUBTRACT)\n\n# ------------------------------------------------------------------\n# Export\n# ------------------------------------------------------------------\nexport_step(part.part, \"output.step\")",
+   "reply_chars": 2640,
+   "reasoning_chars": 55907,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 16216,
+    "completion_tokens": 15081,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 14444
+    }
+   }
+  },
+  {
+   "key": "F_88219_05eb53c9_0000_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.6744908369106302,
+   "code": "\"\"\"\nVEGA-1345 - flat mounting plate\nReconstructed from the drawing (all dimensions in mm).\n\"\"\"\nfrom build123d import *\n\n# ---------------- key dimensions ----------------\nL = 80.0          # overall length\nW = 28.3          # overall width\nT = 5.7           # plate thickness\n\nTAB_W = 14.2      # width of the narrow tab at the right end\nNOTCH_X = 70.8    # distance from left edge to the tab notch\nFILLET_R = 2.1    # 2x R2.1 notch fillets\n\nHOLE_D = 6.2      # \u00d86.2 THRU hole\nSLOT_L = 46.3     # slot overall length\nSLOT_W = 3.9      # slot width\nSLOT_X0 = 12.3    # slot start from the left edge\n\nCHAMFER_L = 10.0  # horizontal run of the tapered left end\n\nTAB_R = TAB_W / 2.0        # 7.1 - full radius of the tab end\nTAB_CX = L - TAB_R         # 72.9 - centre of tab end radius / hole\n\n# ---------------- top view profile ----------------\nwith BuildSketch() as sk:\n    with BuildLine():\n        Polyline((0, -W / 2), (NOTCH_X, -W / 2),\n                 (NOTCH_X, -TAB_W / 2), (TAB_CX, -TAB_W / 2))\n        ThreePointArc((TAB_CX, -TAB_W / 2), (L, 0), (TAB_CX, TAB_W / 2))\n        Polyline((TAB_CX, TAB_W / 2), (NOTCH_X, TAB_W / 2),\n                 (NOTCH_X, W / 2), (0, W / 2), (0, -W / 2))\n    make_face()\n    # 2x R2.1 fillets where the tab meets the body\n    notch_vertices = [\n        v for v in sk.vertices()\n        if abs(v.X - NOTCH_X) < 1e-6 and abs(abs(v.Y) - W / 2) < 1e-6\n    ]\n    fillet(notch_vertices, radius=FILLET_R)\n\npart = extrude(sk.sketch, amount=T)\n\n# ---------------- tapered left end ----------------\nwedge = extrude(\n    Plane.XZ * Polygon((0, 0), (CHAMFER_L, T), (0, T), align=None),\n    amount=W,\n    both=True,\n)\npart -= wedge\n\n# ---------------- 46.3 x 3.9 through slot ----------------\nslot = extrude(SlotCenterToCenter(SLOT_L - SLOT_W, SLOT_W), amount=T + 2)\npart -= Pos(SLOT_X0 + SLOT_L / 2, 0, -1) * slot\n\n# ---------------- \u00d86.2 through hole ----------------\npart -= Pos(TAB_CX, 0, -1) * Cylinder(\n    HOLE_D / 2, T + 2, align=(Align.CENTER, Align.CENTER, Align.MIN)\n)\n\nexport_step(part, \"output.step\")",
+   "reply_chars": 2646,
+   "reasoning_chars": 65179,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 22080,
+    "completion_tokens": 20945,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 20039
+    }
+   }
+  },
+  {
+   "key": "F_88680_0fb9b042_3_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.035009110486361,
+   "code": "from build123d import *\n\n# ------------------------------------------------------------------\n# Dimensions from the drawing (all in mm)\n# ------------------------------------------------------------------\nd_large  = 10.0      # \u00f810  \u2013 large end diameter\nd_main   = 7.6       # \u00f87.6 \u2013 main body diameter\nd_small  = 6.4       # \u00f86.4 \u2013 small end diameter\nd_groove = 3.6       # \u00f83.6 \u2013 groove diameter\nL_main   = 80.0      # length of the \u00f87.6 section\nL_groove = 3.2       # width of the groove\n\n# Inferred lengths (drawing is 1:1, measured from the views)\nL_large  = 10.0      # length of the \u00f810 section\nL_small  = 10.0      # length of the \u00f86.4 section\n\n# Radii\nr_large  = d_large  / 2\nr_main   = d_main   / 2\nr_small  = d_small  / 2\nr_groove = d_groove / 2\n\n# Total length of the part\ntotal_length = L_large + L_main + L_small + L_groove\n\n# ------------------------------------------------------------------\n# Build the solid by revolving a profile around the Z axis\n# ------------------------------------------------------------------\nwith BuildPart() as part:\n    with BuildSketch(Plane.XZ) as profile:\n        with BuildLine() as line:\n            Polyline(\n                (0, 0),                                   # start on axis\n                (r_large, 0),                             # bottom face\n                (r_large, L_large),                       # \u00f810 section\n                (r_main, L_large),                        # step to \u00f87.6\n                (r_main, L_large + L_main),               # \u00f87.6 section\n                (r_small, L_large + L_main),              # step to \u00f86.4\n                (r_small, L_large + L_main + L_small),    # \u00f86.4 section\n                (r_groove, L_large + L_main + L_small),   # step to groove\n                (r_groove, total_length),                 # groove section\n                (0, total_length),                        # top face\n                close=True\n            )\n        make_face()\n    revolve(axis=Axis.Z)\n\n# ------------------------------------------------------------------\n# Export the final solid\n# ------------------------------------------------------------------\nexport_step(part.part, \"output.step\")",
+   "reply_chars": 2191,
+   "reasoning_chars": 35549,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 11807,
+    "completion_tokens": 10672,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 10122
+    }
+   }
+  },
+  {
+   "key": "F_89044_d66bbf44_5_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.7602400328039426,
+   "code": "from build123d import *\n\n# Parameters\nL = 80.0          # table side length\nT = 4.6           # top thickness (36.1 - 31.5)\nH = 36.1          # overall height\nleg_H = 31.5      # leg height\nleg_span = 73.3   # outer distance across legs\nleg_s = 6.0       # leg cross-section side (estimated from drawing)\n\n# Derived\ninset = (L - leg_span) / 2.0\nleg_center_offset = inset + leg_s / 2.0\nleg_center_dist = L/2 - leg_center_offset  # distance from center to leg center\n\n# Create top\ntop = Box(L, L, T)\ntop = top.translate((0, 0, H - T/2))\n\n# Create legs\nlegs = []\nfor sx in [-1, 1]:\n    for sy in [-1, 1]:\n        leg = Box(leg_s, leg_s, leg_H)\n        leg = leg.translate((sx * leg_center_dist, sy * leg_center_dist, leg_H/2))\n        legs.append(leg)\n\n# Combine\npart = top\nfor leg in legs:\n    part = part + leg\n\n# Export\nexport_step(part, \"output.step\")",
+   "reply_chars": 866,
+   "reasoning_chars": 17197,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 6106,
+    "completion_tokens": 4971,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 4676
+    }
+   }
+  },
+  {
+   "key": "F_89424_995a070d_3_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 101134,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_89527_b3bf425d_0027_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 82650,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_89681_0c77b7fc_7_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.30901681275931336,
+   "code": "from build123d import *\n\n# ---------------------------------------------------------------\n# Dimensions taken from the drawing (mm)\n# ---------------------------------------------------------------\nBIG_DIA   = 78.0   # \u00d878  - main body diameter\nBIG_LEN   = 40.0   # 40   - main body length\nSMALL_DIA = 24.0   # \u00d824  - boss diameter (hidden circle in front view)\nSMALL_LEN = 40.0   # 40   - boss length\n\n# ---------------------------------------------------------------\n# Build the part\n# ---------------------------------------------------------------\nwith BuildPart() as part:\n    # Main cylindrical body: \u00d878 x 40\n    with BuildSketch(Plane.XY):\n        Circle(radius=BIG_DIA / 2)\n    extrude(amount=BIG_LEN)\n\n    # Coaxial boss on the far face: \u00d824 x 40\n    with BuildSketch(Plane.XY.offset(BIG_LEN)):\n        Circle(radius=SMALL_DIA / 2)\n    extrude(amount=SMALL_LEN)\n\n# ---------------------------------------------------------------\n# Export\n# ---------------------------------------------------------------\nexport_step(part.part, \"output.step\")",
+   "reply_chars": 1667,
+   "reasoning_chars": 16432,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 5580,
+    "completion_tokens": 4445,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 4043
+    }
+   }
+  },
+  {
+   "key": "F_90219_3d3a4450_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 81288,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_91100_df680fe7_1_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.9952552685690654,
+   "code": "from build123d import *\n\n# ---- Key dimensions from the drawing ----\ndisc_dia       = 80.0    # \u00f880 disc diameter\ndisc_thickness = 7.3     # disc thickness\nslot_length    = 50.9    # slot overall length (7.3 x 50.9 x 3.6 DEEP)\nslot_width     = 7.3     # slot width\nslot_depth     = 3.6     # slot depth into top face\n\nwith BuildPart() as part:\n    # Circular disc\n    with BuildSketch(Plane.XY):\n        Circle(radius=disc_dia / 2)\n    extrude(amount=disc_thickness)\n\n    # Obround slot cut into the top face, centered on the disc\n    with BuildSketch(Plane.XY.offset(disc_thickness)):\n        SlotOverall(width=slot_length, height=slot_width)\n    extrude(amount=-slot_depth, mode=Mode.SUBTRACT)\n\nexport_step(part.part, \"output.step\")",
+   "reply_chars": 1306,
+   "reasoning_chars": 1876,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 2059,
+    "completion_tokens": 924,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 535
+    }
+   }
+  },
+  {
+   "key": "F_92552_38c9173a_0000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 85723,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_93389_b1801754_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 85652,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_94410_d32e7520_9_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.0634515126605951,
+   "code": "\"\"\"\nL-bracket reconstructed from drawing LYRA-9331 (draftwright, ISO 2768-m).\n\nViews:\n  * Front view (80 wide) : vertical plate 80 long x 47.1 high, legs 2.5 thick\n                           (dashed line = top face of the horizontal leg).\n  * Side view (L-profile): vertical leg 47.1 high x 2.5 thick,\n                           horizontal leg 2.5 thick.\n  * Side view (top left) : overall depth 23.5, horizontal leg projects 21.2\n                           in front of the vertical plate.\n  * ISO view             : L-shaped bracket, vertical plate at the back,\n                           horizontal plate at the bottom, both 80 long.\n\nNote: 21.2 + 2.5 = 23.7 while the drawing calls out 23.5 overall depth.\nThe plate thickness (2.5, called out twice) and the 21.2 leg projection are\nkept exact, so the overall depth becomes 23.7.\n\"\"\"\nfrom build123d import *\n\n# ---------------- parameters (mm) ----------------\nlength = 80.0        # overall length of the bracket (X)\nheight = 47.1        # overall height of the vertical plate (Z)\nthickness = 2.5      # plate thickness (both legs)\nextension = 21.2     # horizontal leg projection in front of the vertical plate\ndepth = extension + thickness   # overall depth (Y) = 23.7 (drawing: 23.5)\n\n# ---------------- construction ----------------\n# Horizontal leg: front edge at Y = 0, bottom face at Z = 0\nhorizontal_leg = Box(length, depth, thickness,\n                     align=(Align.MIN, Align.MIN, Align.MIN))\n\n# Vertical leg: back face flush with the back edge of the horizontal leg\nvertical_leg = Box(length, thickness, height,\n                   align=(Align.MIN, Align.MIN, Align.MIN))\nvertical_leg = Pos(0, depth - thickness, 0) * vertical_leg\n\npart = horizontal_leg + vertical_leg\n\n# ---------------- export ----------------\nexport_step(part, \"output.step\")",
+   "reply_chars": 2511,
+   "reasoning_chars": 60966,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 18822,
+    "completion_tokens": 17687,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 17008
+    }
+   }
+  },
+  {
+   "key": "F_94874_1216d8a6_2_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 94320,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_96271_dbd85c3b_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 82714,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_96300_74466fc3_6_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 95074,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_97342_27fcca0b_0_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 84777,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_98418_4185a7fb_3_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.15493588379197507,
+   "code": "from build123d import *\n\n# ---- Key dimensions from the drawing ----\nlength      = 80.0    # overall length\nouter_dia   = 24.0    # cylinder OD\nhole_dia    = 6.2     # through hole diameter\ncbore_dia   = 18.5    # counterbore diameter\ncbore_depth = 16.4    # counterbore depth\n\nwith BuildPart() as part:\n    # Main cylindrical body\n    Cylinder(\n        radius=outer_dia / 2,\n        height=length,\n        align=(Align.CENTER, Align.CENTER, Align.MIN),\n    )\n\n    # Counterbored through hole entering from the top face (z = length)\n    with Locations((0, 0, length)):\n        CounterBoreHole(\n            radius=hole_dia / 2,\n            counter_bore_radius=cbore_dia / 2,\n            counter_bore_depth=cbore_depth,\n        )\n\nexport_step(part.part, \"output.step\")",
+   "reply_chars": 1173,
+   "reasoning_chars": 2926,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 2369,
+    "completion_tokens": 1234,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 886
+    }
+   }
+  },
+  {
+   "key": "F_98495_52906369_1_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.688470684267475,
+   "code": "from build123d import *\n\n# ---------------- Key dimensions (mm) ----------------\nplate_width  = 80.0    # overall width  (X)\nplate_depth  = 60.0    # overall depth  (Y)\nplate_thick  = 6.0     # thickness      (Z)\ncorner_r     = 3.0     # 4x R3 corner rounds\n\nhole_dia     = 25.0    # \u00d825 THRU\nhole_ctr_x   = 40.0    # hole centre from left edge  (centred in width)\nhole_ctr_y   = 40.0    # hole centre from front edge (20 from bump edge)\n\nbump_r       = 30.0    # boss radius, concentric with hole\n\n# Hole / boss centre in sketch coordinates (origin = plate centre)\ncx = hole_ctr_x - plate_width / 2.0   # = 0.0\ncy = hole_ctr_y - plate_depth / 2.0   # = +10.0\n\n# ---------------- Build the part ----------------\nwith BuildPart() as bp:\n    # Plan profile: rounded plate + concentric boss bump\n    with BuildSketch(Plane.XY) as sk:\n        RectangleRounded(plate_width, plate_depth, corner_r)\n        with Locations((cx, cy)):\n            Circle(bump_r)                      # boss protruding past back edge\n\n    # Extrude to plate thickness\n    extrude(amount=plate_thick)\n\n    # \u00d825 through hole, concentric with the boss\n    with Locations((cx, cy, plate_thick / 2.0)):\n        Cylinder(radius=hole_dia / 2.0,\n                 height=plate_thick * 2.0,\n                 mode=Mode.SUBTRACT)\n\n# ---------------- Export ----------------\nexport_step(bp.part, \"output.step\")",
+   "reply_chars": 2324,
+   "reasoning_chars": 38329,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 12560,
+    "completion_tokens": 11425,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 10757
+    }
+   }
+  },
+  {
+   "key": "F_98511_1b46a85e_30_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 96780,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_98621_9caba002_3_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 100770,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "F_98960_f2639863_0002_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 80431,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00917205_6ea2b58c4e07877eb99f90d1_step_001_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 83679,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00918564_cd453a8ef75fa0494eac51cb_step_003_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 81475,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00919021_4a063d7bd94d09ffbb129859_step_001_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 95380,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00922818_611a88896e870be2752739bc_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 77745,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00923320_fdc86516ce309a8f7594d2e3_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 97065,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00925598_46359bb60d9218838f139bc4_step_015_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.4115296044156922,
+   "code": "from build123d import *\n\n# ---------------- key dimensions (mm) ----------------\nflange_w  = 68.3      # square flange side length\nflange_t  = 11.7      # flange thickness\ncorner_ch = 5.0       # C5 chamfer on the four flange corners\nedge_ch   = 1.2       # C1.2 chamfer on flange top/bottom edges\n\nboss_d    = 52.5      # cylindrical boss outer diameter\nboss_h    = 38.5      # boss height above the flange\n\nbore_d    = 30.0      # central through bore\ncbore_d   = 33.1      # counterbore at the top of the boss\ncbore_h   = 5.0       # counterbore depth\n\npitch     = 40.0      # bolt-hole pattern (square, 40 x 40)\nhole_data = [(-pitch/2,  pitch/2,  9.9),   # top-left\n             ( pitch/2,  pitch/2,  8.4),   # top-right\n             ( pitch/2, -pitch/2, 11.0),   # bottom-right\n             (-pitch/2, -pitch/2,  9.9)]   # bottom-left\n\n# ---------------- build ----------------\nwith BuildPart() as bp:\n    # ---- square flange ----\n    with BuildSketch(Plane.XY):\n        Rectangle(flange_w, flange_w)\n    extrude(amount=flange_t)\n\n    # C5 corner chamfers (vertical edges)\n    chamfer(bp.edges().filter_by(Axis.Z), length=corner_ch)\n\n    # C1.2 chamfers on the top and bottom perimeter\n    chamfer(bp.faces().sort_by(Axis.Z)[-1].edges(), length=edge_ch)\n    chamfer(bp.faces().sort_by(Axis.Z)[0].edges(), length=edge_ch)\n\n    # ---- cylindrical boss ----\n    with BuildSketch(Plane.XY.offset(flange_t)):\n        Circle(boss_d / 2)\n    extrude(amount=boss_h)\n\n    # ---- central through bore ----\n    with BuildSketch(Plane.XY):\n        Circle(bore_d / 2)\n    extrude(amount=flange_t + boss_h, mode=Mode.SUBTRACT)\n\n    # ---- counterbore at the top ----\n    with BuildSketch(Plane.XY.offset(flange_t + boss_h)):\n        Circle(cbore_d / 2)\n    extrude(amount=-cbore_h, mode=Mode.SUBTRACT)\n\n    # ---- four corner holes ----\n    for x, y, d in hole_data:\n        with BuildSketch(Plane.XY):\n            with Locations((x, y)):\n                Circle(d / 2)\n        extrude(amount=flange_t, mode=Mode.SUBTRACT)\n\nexport_step(bp.part, \"output.step\")",
+   "reply_chars": 2663,
+   "reasoning_chars": 60294,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 19605,
+    "completion_tokens": 18470,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 17650
+    }
+   }
+  },
+  {
+   "key": "A_00926263_c82ea6c5775353b0405284bd_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 99168,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00926562_e2d47dd89a6f7f3ff1b450f2_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 91577,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00928026_e2d0ba025fc68ac7b9a8def4_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 94759,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00929473_2dfba76b95e344502fba0558_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 89434,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00932976_0c22c60d9ae49bbe678d1d06_step_001_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 74228,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00933292_1b2b8dec292401c20f0faa0f_step_000_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.13219772484336845,
+   "code": "from build123d import *\nimport math\n\n# ---------------- Parameters ----------------\nouter_dia          = 40.0     # blade tip diameter\nbackplate_dia      = 39.5     # backplate disc diameter\naxial_len          = 34.2     # overall axial length\nbore_dia           = 14.5     # central through bore\nnum_blades         = 12       # number of impeller blades\nhub_dia            = 18.0     # central hub diameter\nblade_thickness    = 1.5      # blade wall thickness\nbackplate_thick    = 3.0      # backplate thickness\nblade_inner_r      = 8.0      # blade root radius (overlaps hub)\nblade_outer_r      = outer_dia / 2.0\nblade_sweep_deg    = 65.0     # angular sweep of each blade\n\n# ---------------- Backplate ----------------\nbackplate = Cylinder(\n    radius=backplate_dia / 2.0,\n    height=backplate_thick,\n    align=(Align.CENTER, Align.CENTER, Align.MIN),\n)\n\n# ---------------- Hub ----------------\nhub = Cylinder(\n    radius=hub_dia / 2.0,\n    height=axial_len,\n    align=(Align.CENTER, Align.CENTER, Align.MIN),\n)\n\n# ---------------- Blades ----------------\nblade_solids = []\nfor i in range(num_blades):\n    base_angle = i * 360.0 / num_blades\n\n    # Centreline of the blade (logarithmic spiral)\n    pts = []\n    n = 24\n    for j in range(n + 1):\n        t = j / n\n        r = blade_inner_r * (blade_outer_r / blade_inner_r) ** t\n        ang = math.radians(-blade_sweep_deg * t)\n        pts.append((r * math.cos(ang), r * math.sin(ang)))\n\n    # Offset the centreline to get the two blade faces\n    inner_pts, outer_pts = [], []\n    for j in range(n + 1):\n        if j == 0:\n            dx = pts[1][0] - pts[0][0]\n            dy = pts[1][1] - pts[0][1]\n        elif j == n:\n            dx = pts[n][0] - pts[n - 1][0]\n            dy = pts[n][1] - pts[n - 1][1]\n        else:\n            dx = pts[j + 1][0] - pts[j - 1][0]\n            dy = pts[j + 1][1] - pts[j - 1][1]\n        length = math.hypot(dx, dy)\n        nx, ny = -dy / length, dx / length\n        inner_pts.append((pts[j][0] - nx * blade_thickness / 2.0,\n                          pts[j][1] - ny * blade_thickness / 2.0))\n        outer_pts.append((pts[j][0] + nx * blade_thickness / 2.0,\n                          pts[j][1] + ny * blade_thickness / 2.0))\n\n    # Build the closed blade profile\n    inner_edge = Edge.make_spline(inner_pts)\n    outer_edge = Edge.make_spline(outer_pts[::-1])\n    start_edge = Edge.make_line(outer_pts[0], inner_pts[0])\n    end_edge   = Edge.make_line(inner_pts[-1], outer_pts[-1])\n\n    face = make_face([inner_edge, end_edge, outer_edge, start_edge])\n    solid = extrude(face, axial_len)\n    solid = Rot(0, 0, base_angle) * solid\n    blade_solids.append(solid)\n\n# ---------------- Combine ----------------\npart = backplate + hub\nfor b in blade_solids:\n    part = part + b\n\n# ---------------- Central bore ----------------\nbore = Cylinder(\n    radius=bore_dia / 2.0,\n    height=axial_len + 10.0,\n    align=(Align.CENTER, Align.CENTER, Align.MIN),\n)\nbore = Pos(0, 0, -5.0) * bore\npart = part - bore\n\n# ---------------- Export ----------------\nexport_step(part, \"output.step\")",
+   "reply_chars": 3493,
+   "reasoning_chars": 57408,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 18764,
+    "completion_tokens": 17629,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 16562
+    }
+   }
+  },
+  {
+   "key": "A_00934633_3f0baf597a30885b191e02a6_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 84646,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00934926_7a86796337813a6e7aa25c2a_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 77829,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00935026_da2151d0c12dd27fd4e7e9f3_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 100753,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00940968_9c89eb04704a40162d68dbfc_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 96938,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00940976_909b8b384f22b9964110273a_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 86894,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00941083_06601df4627bf01e18f75d29_step_001_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 90609,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00941230_aa3e051193c04c834325cd87_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 89762,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00941607_1783e309c77515c684345652_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 77958,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00941921_f3b16049278a833ae2b34381_step_001_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 83995,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00942529_24a98852f79b65f663480cb1_step_005_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 102987,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00944651_8ea96dbf12f6974697a2157b_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 86249,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00946718_2ab1b8c7885fad9c3ea6301c_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 81880,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00947581_f2795149e0f3a829257defc2_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 82247,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00947921_bc304cb790ab59a52d42ed92_step_008_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 94124,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00949832_ee12c508734e02e63687e023_step_000_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.5305507147047768,
+   "code": "\"\"\"\nCOBRA-7631  \u2013  twisted 8-blade impeller\nReconstructed from the multi-view drawing (ISO 2768-m).\n\"\"\"\nimport math\nfrom build123d import *\n\n# ------------------------------------------------------------------\n# Parameters taken from the drawing\n# ------------------------------------------------------------------\nR_TIP   = 80.1 / 2.0      # 40.05  \u2013 overall blade-tip radius  (80.1 dia)\nR_HUB   = 16.8            # blade-root / notch radius  (from 23.2 & 56.8 dims)\nL_AX    = 60.1            # axial length\nN_BLADE = 8               # number of blades\nTWIST   = 90.0            # total twist along the axis (deg)\nSWIRL   = 35.0            # blade sweep from root to tip (deg)\n\nHOLE_D      = 1.9         # 4x \u23001.9 THRU\nCBORE_D     = 4.5         # \u2334\u23004.5\nCBORE_DEPTH = 2.5\nBC_D        = 12.5        # \u230012.5 BC\nN_HOLES     = 4\n\n# ------------------------------------------------------------------\n# 2-D star profile (one closed polyline)\n# ------------------------------------------------------------------\ndef star_pts(rot_deg, n_per_blade=20):\n    n_pts  = N_BLADE * n_per_blade\n    period = 2.0 * math.pi / N_BLADE\n    pts = []\n    for i in range(n_pts):\n        th = 2.0 * math.pi * i / n_pts\n        u  = (th % period) / period\n        # sharp-tipped lobe: 0 at the notch, 1 at the blade tip\n        g  = (1.0 - abs(2.0 * u - 1.0)) ** 0.7\n        r  = R_HUB + (R_TIP - R_HUB) * g\n        # sweep the blade outward (cobra-like curl)\n        swirl = math.radians(SWIRL) * (r - R_HUB) / (R_TIP - R_HUB)\n        th2 = th + swirl + math.radians(rot_deg)\n        pts.append((r * math.cos(th2), r * math.sin(th2)))\n    return pts\n\ndef star_face(rot_deg, z):\n    pts = star_pts(rot_deg)\n    with BuildSketch(Plane.XY.offset(z)) as sk:\n        with BuildLine():\n            Polyline(*pts, close=True)\n        make_face()\n    return sk.sketch.faces()[0]\n\n# ------------------------------------------------------------------\n# Loft the twisted body\n# ------------------------------------------------------------------\nN_SEC = 9\nsections = []\nfor i in range(N_SEC):\n    z   = -L_AX / 2.0 + L_AX * i / (N_SEC - 1)\n    rot = TWIST * (i / (N_SEC - 1) - 0.5)      # centred twist\n    sections.append(star_face(rot, z))\n\npart = loft(sections)\n\n# ------------------------------------------------------------------\n# 4 mounting holes (\u23001.9 thru, \u2334\u23004.5)\n# ------------------------------------------------------------------\nhole_r = BC_D / 2.0\nfor k in range(N_HOLES):\n    a = math.radians(45.0 + 90.0 * k)\n    x = hole_r * math.cos(a)\n    y = hole_r * math.sin(a)\n    # through hole\n    part = part - Pos(x, y, 0.0) * Cylinder(HOLE_D / 2.0, L_AX * 2.0)\n    # counterbore on the top face\n    part = part - Pos(x, y, L_AX / 2.0 - CBORE_DEPTH / 2.0) * Cylinder(CBORE_D / 2.0, CBORE_DEPTH)\n\n# ------------------------------------------------------------------\nexport_step(part, \"output.step\")",
+   "reply_chars": 3460,
+   "reasoning_chars": 67820,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 22383,
+    "completion_tokens": 21248,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 20173
+    }
+   }
+  },
+  {
+   "key": "A_00949971_09a37b87df62f15797834132_step_033_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 82620,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00951499_a15182ad5467c69bb59cef75_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 75868,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00951586_9d8b2bd51e4e500748ae80c1_step_000_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.9990313418526983,
+   "code": "\"\"\"\nPEGASUS-7211  (K. NAKAMURA)  -  reconstructed from drawing\n==========================================================\n80 x 80 x 80 cube\n  * all 12 edges chamfered C8.0\n  * three orthogonal \u00d828 through holes (X, Y, Z axes)\n  * each hole counterbored \u00d840.0 x 10 deep on both ends\n    (the 70.0 dimension = 80 - 10 locates the counterbore floor)\n\"\"\"\n\nfrom build123d import *\n\n# ------------------------------------------------------------------\n# Parameters (all dimensions in mm, taken from the drawing)\n# ------------------------------------------------------------------\nCUBE_SIZE    = 80.0     # overall cube edge  (40.0 + 40.0)\nCHAMFER_SIZE = 8.0      # C8.0 corner chamfers\nHOLE_DIA     = 28.0     # \u00d828 THRU\nCBORE_DIA    = 40.0     # \u2334 \u00d840.0\nCBORE_DEPTH  = 10.0     # \u21a7 10   (80.0 - 70.0 = 10)\n\nhalf = CUBE_SIZE / 2\n\n# ------------------------------------------------------------------\n# Base solid : cube with chamfered edges\n# ------------------------------------------------------------------\npart = Box(CUBE_SIZE, CUBE_SIZE, CUBE_SIZE)\npart = chamfer(part.edges(), length=CHAMFER_SIZE)\n\n# ------------------------------------------------------------------\n# Three orthogonal through holes + counterbores on both ends\n# ------------------------------------------------------------------\n# --- Z axis (top / bottom faces) ---\npart -= Cylinder(HOLE_DIA / 2, CUBE_SIZE * 2)\npart -= Pos(0, 0,  half - CBORE_DEPTH / 2) * Cylinder(CBORE_DIA / 2, CBORE_DEPTH)\npart -= Pos(0, 0, -half + CBORE_DEPTH / 2) * Cylinder(CBORE_DIA / 2, CBORE_DEPTH)\n\n# --- X axis (left / right faces) ---\npart -= Rot(0, 90, 0) * Cylinder(HOLE_DIA / 2, CUBE_SIZE * 2)\npart -= Pos( half - CBORE_DEPTH / 2, 0, 0) * Rot(0, 90, 0) * Cylinder(CBORE_DIA / 2, CBORE_DEPTH)\npart -= Pos(-half + CBORE_DEPTH / 2, 0, 0) * Rot(0, 90, 0) * Cylinder(CBORE_DIA / 2, CBORE_DEPTH)\n\n# --- Y axis (front / back faces) ---\npart -= Rot(90, 0, 0) * Cylinder(HOLE_DIA / 2, CUBE_SIZE * 2)\npart -= Pos(0,  half - CBORE_DEPTH / 2, 0) * Rot(90, 0, 0) * Cylinder(CBORE_DIA / 2, CBORE_DEPTH)\npart -= Pos(0, -half + CBORE_DEPTH / 2, 0) * Rot(90, 0, 0) * Cylinder(CBORE_DIA / 2, CBORE_DEPTH)\n\n# ------------------------------------------------------------------\n# Export\n# ------------------------------------------------------------------\nexport_step(part, \"output.step\")",
+   "reply_chars": 3171,
+   "reasoning_chars": 28955,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 10354,
+    "completion_tokens": 9219,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 8224
+    }
+   }
+  },
+  {
+   "key": "A_00951915_3291e0958463eb2ca57e04d6_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 92867,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00952299_152150456a437ae340d767aa_step_034_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.17200994842958545,
+   "code": "from build123d import *\n\n# ------------------------------------------------------------------\n# Dimensions taken from the drawing (mm)\n# ------------------------------------------------------------------\nplate_dia   = 80.0      # base flange diameter\nplate_thk   = 4.0       # base flange thickness\nboss_dia    = 40.0      # central boss diameter (40.0 dim in top & side views)\nboss_h      = 12.0      # central boss height\nmid_dia     = 23.5      # middle step diameter\nmid_h       = 8.0       # middle step height\ntop_dia     = 21.3      # top step diameter\ntop_h       = 8.0       # top step height\nbc_dia      = 64.0      # bolt circle diameter\nhole_dia    = 8.0       # bolt hole diameter\nn_holes     = 8         # number of bolt holes\ncenter_hole = 10.0      # central through hole (estimated from top view)\n\ntotal_h = plate_thk + boss_h + mid_h + top_h\n\n# ------------------------------------------------------------------\n# Build the part\n# ------------------------------------------------------------------\nwith BuildPart() as bp:\n    # Base flange\n    with BuildSketch(Plane.XY):\n        Circle(plate_dia / 2)\n    extrude(amount=plate_thk)\n\n    # Central boss\n    with BuildSketch(Plane.XY.offset(plate_thk)):\n        Circle(boss_dia / 2)\n    extrude(amount=boss_h)\n\n    # Middle step\n    with BuildSketch(Plane.XY.offset(plate_thk + boss_h)):\n        Circle(mid_dia / 2)\n    extrude(amount=mid_h)\n\n    # Top step\n    with BuildSketch(Plane.XY.offset(plate_thk + boss_h + mid_h)):\n        Circle(top_dia / 2)\n    extrude(amount=top_h)\n\n    # 8x \u00f88 through holes equally spaced on \u00f864 BC\n    with BuildSketch(Plane.XY):\n        with PolarLocations(bc_dia / 2, n_holes):\n            Circle(hole_dia / 2)\n    extrude(amount=plate_thk, mode=Mode.SUBTRACT)\n\n    # Central through hole\n    with BuildSketch(Plane.XY):\n        Circle(center_hole / 2)\n    extrude(amount=total_h, mode=Mode.SUBTRACT)\n\npart = bp.part\nexport_step(part, \"output.step\")",
+   "reply_chars": 1964,
+   "reasoning_chars": 47933,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 15369,
+    "completion_tokens": 14234,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 13686
+    }
+   }
+  },
+  {
+   "key": "A_00952318_152150456a437ae340d767aa_step_053_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 83989,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00953690_cc92fe00f1c72a7d0b0288c4_step_001_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 75500,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00956397_1b8073281cc8bb8ec1d74fed_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 86389,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00957280_ed537b24d265d3878bb35c09_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 84616,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00957451_e6a0434deb9d48da90e19a8a_step_006_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 107537,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00959315_a29d3cef52381bc5e8ab0662_step_004_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 81894,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00960036_42f2a9a0ba1ae370bb5c2e0f_step_007_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 83841,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00961157_0f44aa794434bd6dac941bb3_step_003_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 87922,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00962109_62237fcf610b75e9d2c40d1e_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 84547,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00962112_ae0e47ddecff889c45b4d49e_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 95273,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00965090_43c241ecf79b3b2c3aaac0a2_step_053_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 87995,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00969787_307a47a48b766bf804cdd9b2_step_003_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 84308,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00969970_c44b46e7d6fc7ac8735442f9_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 87704,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00971032_a6a26280074e58887b469ab4_step_001_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 81635,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00973024_f80eaae706856bc382a6c584_step_006_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 87881,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00973172_51182abae1fff7e8420fb104_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 104400,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00973906_e1cfc8a544031f882047a100_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 86865,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00981761_3bc776b88856685192385ed6_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 96666,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00982955_6e1f2bf2ca587f43fbb3a085_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 76894,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00984419_bc2675c169d60f821b105e0f_step_000_medium",
+   "draw": 0,
+   "exec": true,
+   "iou": 0.21455461908513207,
+   "code": "\"\"\"\nAEROSPACE-6822 link bracket - reconstructed from the multi-view drawing.\n\nFront view : Z-shaped flat strip (upper leg left, middle leg offset right,\n             lower leg left again, joined by two short diagonals)\nSide view  : constant 5.8 mm thickness, 79.9 overall height\nTop view   : 19.2 strip width\nISO view   : confirms Z-bend and the two keyhole end slots\n\"\"\"\n\nfrom math import sqrt\nfrom build123d import *\n\n# ------------------------------------------------------------------\n# Key dimensions taken from the drawing\n# ------------------------------------------------------------------\nW = 19.2          # strip width                       (top view)\nT = 5.8           # strip thickness                   (side view)\nH = 79.9          # overall height                    (side view)\n\n# Z-bend geometry (scaled from the front view)\nOFF = W / 2       # lateral offset of the middle leg (half the strip width)\nZ1 = 55.0         # bottom of the upper straight leg\nZ2 = 45.0         # top of the middle straight leg\nZ3 = 25.0         # bottom of the middle straight leg\nZ4 = 15.0         # top of the lower straight leg\n\n# End slots  (2x \u00d86.7 THRU, 5.2 wide opening)\nSLOT_W = 5.2\nSLOT_D = 6.7\nslot_r = SLOT_D / 2\nslot_cd = sqrt(slot_r**2 - (SLOT_W / 2)**2)   # circle centre depth from end face\n\n# Cross holes (2x \u00d81.8 THRU)\nHOLE_D = 1.8\nHOLE1_Z = 47.0\nHOLE2_Z = 33.0\nHOLE_X = OFF + W / 2                          # centred on the middle leg\n\n# ------------------------------------------------------------------\n# Build\n# ------------------------------------------------------------------\nwith BuildPart() as part:\n    with BuildSketch(Plane.XZ) as profile:\n        # Z-shaped outline\n        with BuildLine():\n            Polyline(\n                (0.0, H), (W, H), (W, Z1), (W + OFF, Z2), (W + OFF, Z3),\n                (W, Z4), (W, 0.0), (0.0, 0.0), (0.0, Z4), (OFF, Z3),\n                (OFF, Z2), (0.0, Z1),\n                close=True,\n            )\n        make_face()\n\n        # upper keyhole slot (\u00d86.7 end circle + 5.2 wide opening)\n        with Locations((W / 2, H - slot_cd)):\n            Circle(slot_r, mode=Mode.SUBTRACT)\n            Rectangle(SLOT_W, 2 * slot_cd + 2.0,\n                      align=(Align.CENTER, Align.MIN), mode=Mode.SUBTRACT)\n\n        # lower keyhole slot\n        with Locations((W / 2, slot_cd)):\n            Circle(slot_r, mode=Mode.SUBTRACT)\n            Rectangle(SLOT_W, 2 * slot_cd + 2.0,\n                      align=(Align.CENTER, Align.MAX), mode=Mode.SUBTRACT)\n\n        # 2x \u00d81.8 through holes\n        with Locations((HOLE_X, HOLE1_Z), (HOLE_X, HOLE2_Z)):\n            Circle(HOLE_D / 2, mode=Mode.SUBTRACT)\n\n    extrude(amount=T)\n\nexport_step(part.part, \"output.step\")",
+   "reply_chars": 3541,
+   "reasoning_chars": 62544,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 21239,
+    "completion_tokens": 20104,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 19058
+    }
+   }
+  },
+  {
+   "key": "A_00988305_8f63e83ac6d45f067289e42f_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 98442,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00989184_b889d90b98172941b41bab35_step_001_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 72333,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00989278_71ae30601d752e5dcbbc00ce_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 84900,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00993632_eb58d1abb0fc233d8b912460_step_001_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 92223,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00996792_98b2cfa2113b43274533865e_step_006_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 75061,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  },
+  {
+   "key": "A_00996983_2055f078257e24aefdaf6d5f_step_000_medium",
+   "draw": 0,
+   "exec": false,
+   "iou": 0.0,
+   "code": null,
+   "reply_chars": 0,
+   "reasoning_chars": 94315,
+   "usage": {
+    "prompt_tokens": 1135,
+    "total_tokens": 25135,
+    "completion_tokens": 24000,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+     "reasoning_tokens": 24000
+    }
+   },
+   "error": "no code block"
+  }
+ ]
+}
