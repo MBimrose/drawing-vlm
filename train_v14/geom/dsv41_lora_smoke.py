@@ -44,6 +44,7 @@ def main():
 
     import torch
     from PIL import Image
+    import dsv41_autograd; dsv41_autograd.register()   # backward for the Hub FP8/MXFP4 ops (input grads only)
     from transformers import AutoModelForImageTextToText, AutoProcessor
     try:
         from collate_v14 import SYSTEM_PROMPTS

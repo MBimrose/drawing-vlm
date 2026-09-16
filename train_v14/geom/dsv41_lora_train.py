@@ -122,6 +122,7 @@ def main():
         dist.init_process_group("nccl", rank=rank, world_size=world, device_id=torch.device("cuda:0"))
         print(f"[train] rank {rank}/{world} on {socket.gethostname()} ({torch.cuda.device_count()} GPUs)", flush=True)
     log = (lambda *a, **k: print(*a, **k)) if rank == 0 else (lambda *a, **k: None)
+    import dsv41_autograd; dsv41_autograd.register()   # backward for the Hub FP8/MXFP4 ops (input grads only)
     from transformers import AutoModelForImageTextToText, AutoTokenizer
     from transformers.models.deepseek_v41.image_processing_deepseek_v41 import DeepseekV41ImageProcessor
     from transformers.models.deepseek_v41.processing_deepseek_v41 import DeepseekV41Processor
