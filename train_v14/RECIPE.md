@@ -1625,3 +1625,18 @@ ranks reported) and then failed on a missing `prompts.json` next to the union5 t
 trainer now falls back to `spike_dsv41/prompts.json`. Resubmitted as job 10583388: 600 steps,
 accum 4 per node x 3 nodes = 12 samples per step, lr 1e-4, r=16 on the union5 real tier, then
 a 96-part greedy eval on the real bench sharded across the ranks.
+**Stage 2 on serv-04 (200 steps x 8 samples, lr 1e-4, r=16, 2,061-row real tier): training loss
+2.60 -> 0.32** in 5.1 h (93 s/step, ~12 s per sample forward+backward at 1.2-4k tokens, no
+gradient checkpointing); adapter at `spike_dsv41/lora_r16_s200` (38.0M params over 160
+targets). Its in-job eval crashed: the spike venv has no trimesh, and serv-04 cannot run OCP at
+all (glibc), so the eval is now split — the trainer dumps generations (`eval_gen.rank*.jsonl`)
+and scores only when `--exec-python` names a CAD-capable interpreter; `dsv41_eval_score.py`
+scores dumped generations on the cluster with the usual harness + centered IoU. An eval-only run
+(`--steps 0 --adapter`, 48 parts, greedy, 3,000 new tokens) is generating on serv-04.
+The 3-node run (job 10583388) trained 11 steps at **451 s/step** — 113 s per sample vs 12 s on
+serv-04 — and died at step 12 when rank 1 hit NCCL's 10-min collective timeout waiting for the
+others (timeout now 3 h). The cluster smoke had the same gap (first forward 431 s vs 17 s):
+suspect the Triton JIT/autotune cache living in the NFS home dir; the job scripts now seed a
+node-local `TRITON_CACHE_DIR` and a 1-node profiling job prints per-sample times before the
+long run is relaunched. Until that is understood, serv-04 alone (12 s/sample) out-trains the
+three cluster nodes (3 x 113 s).
