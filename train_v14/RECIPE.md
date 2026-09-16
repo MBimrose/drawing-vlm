@@ -1640,3 +1640,17 @@ suspect the Triton JIT/autotune cache living in the NFS home dir; the job script
 node-local `TRITON_CACHE_DIR` and a 1-node profiling job prints per-sample times before the
 long run is relaunched. Until that is understood, serv-04 alone (12 s/sample) out-trains the
 three cluster nodes (3 x 113 s).
+**Stage 2 eval (serv-04 adapter, 48 real-bench parts, greedy, scored on the cluster):** mean IoU
+**0.051**, median 0.007, 0% >= 0.85, 0% >= 0.5, best part 0.37; 46/48 answered with a build123d
+script and 26/48 executed — against **e55's first draw on the same 48 parts: 0.442 / 18.8%**
+(`runs/dsv41_s04_r16_s200/eval.json`). The model learned the DSL (parameter block, BuildPart,
+export_step) but writes toy geometry (a revolved flange, a box minus a channel) and trips over
+its own undefined names (`wall_thickness`, `outer_depth`, `chamfer_size`: 12 of the 22 exec
+failures), i.e. it neither reads the sheet's features nor keeps a plan straight — the same
+"cannot finish deciding" weakness the zero-shot probe showed, now without the runaway
+reasoning. That is below the 0.3 kill line for the spike; it is also only 1,600 samples through
+a 38M attention-only adapter, so the one experiment the user asked for — the 3-node run — gets
+a properly sized attempt before closing: 600 steps x 12 samples on the union5 tier (8,887
+rows, ~4.5x the data), rank 32, adapter also on the shared-expert MLP linears (`gate/up/down`
+of `mlp.shared_experts`, FP8 like attention; the routed FP4 experts stay frozen). If that lands
+under e55's first draw, DeepSeek is closed as a generator.

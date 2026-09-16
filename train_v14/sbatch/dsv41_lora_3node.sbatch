@@ -29,8 +29,10 @@ export MASTER_ADDR=$(scontrol show hostnames "$SLURM_JOB_NODELIST" | head -n 1)
 export MASTER_PORT=$(python3 -c "import socket; s=socket.socket(); s.bind(('', 0)); print(s.getsockname()[1]); s.close()")
 echo "nodes $SLURM_JOB_NODELIST master $MASTER_ADDR:$MASTER_PORT job $SLURM_JOB_ID"
 STEPS=${STEPS:-600}; ACCUM=${ACCUM:-4}; LR=${LR:-1e-4}; R=${RANK_R:-16}; TIER=${TIER:-rft_real_union5_dw423/shards}
+# adapter targets: attention (minus the grouped o_a_proj) plus the shared-expert MLP linears (FP8, unlike the routed FP4 experts)
+TARGETS=${TARGETS:-'(self_attn\.(q_a_proj|q_b_proj|kv_proj|o_b_proj)|shared_experts\.(gate_proj|up_proj|down_proj))$'}
 OUT=${OUT:-$DV/runs/dsv41_lora_r${R}_s${STEPS}}
 srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 bash -c 'mkdir -p $TRITON_CACHE_DIR; rsync -a $HOME/.triton/cache/ $TRITON_CACHE_DIR/ 2>/dev/null; LV=/dev/shm/bimrose2/venv_dsv41; T0=$(date +%s); rsync -a --copy-links $DV/.venv_dsv41/ $LV/ && echo "$(hostname): venv staged in $(( $(date +%s)-T0 )) s" && PY=$LV/bin/python || PY=$DV/.venv_dsv41/bin/python; exec $PY "$@"' _ $DV/train_v14/geom/dsv41_lora_train.py --dist \
-  --model $DV/models/DeepSeek-V4.1-Flash --tier $DV/$TIER --steps $STEPS --accum $ACCUM --lr $LR --rank $R \
+  --model $DV/models/DeepSeek-V4.1-Flash --tier $DV/$TIER --steps $STEPS --accum $ACCUM --lr $LR --rank $R --targets "$TARGETS" \
   --max-len ${MAX_LEN:-4096} --out $OUT --exec-python $DV/.venv/bin/python --eval-bench ${EVAL_BENCH:-$DV/train_v14/mech/benchmarks/data/ext_bench} --eval-n ${EVAL_N:-96}
 echo "TRAIN EXIT $?"
