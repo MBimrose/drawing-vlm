@@ -40,8 +40,14 @@ def main():
     import torch
     from PIL import Image
     from transformers import AutoModelForImageTextToText, AutoProcessor
-    from collate_v14 import SYSTEM_PROMPTS
-    from geom_eval_worker import USER_PROMPT
+    try:
+        from collate_v14 import SYSTEM_PROMPTS
+        from geom_eval_worker import USER_PROMPT
+        system, user = SYSTEM_PROMPTS["detailed"], USER_PROMPT
+    except Exception:   # the spike venv lacks the training deps; prompts.json is written by the main venv
+        import json
+        pj = json.load(open(os.path.join(os.path.dirname(args.png), "prompts.json")))
+        system, user = pj["system"], pj["user"]
 
     t0 = time.time()
     proc = AutoProcessor.from_pretrained(args.model)
@@ -66,9 +72,9 @@ def main():
 
     # one real sample: served prompt + drawing -> certified answer
     answer = open(args.answer).read()
-    msgs = [{"role": "system", "content": [{"type": "text", "text": SYSTEM_PROMPTS["detailed"]}]},
+    msgs = [{"role": "system", "content": [{"type": "text", "text": system}]},
             {"role": "user", "content": [{"type": "image", "image": Image.open(args.png).convert("RGB")},
-                                         {"type": "text", "text": USER_PROMPT}]},
+                                         {"type": "text", "text": user}]},
             {"role": "assistant", "content": [{"type": "text", "text": "```python\n" + answer + "\n```"}]}]
     enc = proc.apply_chat_template(msgs, tokenize=True, return_dict=True, return_tensors="pt",
                                    truncation=True, max_length=args.max_len)
