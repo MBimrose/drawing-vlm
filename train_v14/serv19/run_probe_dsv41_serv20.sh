@@ -10,7 +10,13 @@ MODEL=$DV/models/DeepSeek-V4.1-Flash; SIF=$DV/containers/vllm-dsv41.sif
 [ -f $MODEL/config.json ] && [ -f $SIF ] || { echo "missing model or image"; exit 1; }
 mkdir -p $DV/results/ext $DV/logs
 export VLLM_ENGINE_READY_TIMEOUT_S=3600
-apptainer exec --nv --bind $DV:$DV --bind /tmp:/tmp $SIF \
+# DeepGEMM JIT-compiles the FP8/FP4 kernels at load and asserts on nvcc's existence; the image
+# ships no toolkit, so bind the host's CUDA 13.0 in and point every name DeepGEMM has used at it.
+CUDA=/software/cuda-13.0
+export CUDA_HOME=$CUDA DG_JIT_NVCC_COMPILER=$CUDA/bin/nvcc DG_NVCC_COMPILER=$CUDA/bin/nvcc \
+       APPTAINERENV_CUDA_HOME=$CUDA APPTAINERENV_DG_JIT_NVCC_COMPILER=$CUDA/bin/nvcc \
+       APPTAINERENV_DG_NVCC_COMPILER=$CUDA/bin/nvcc APPTAINERENV_PREPEND_PATH=$CUDA/bin
+apptainer exec --nv --bind $DV:$DV --bind /tmp:/tmp --bind /software:/software $SIF \
   vllm serve $MODEL --served-model-name deepseek-ai/DeepSeek-V4.1-Flash \
     --host 127.0.0.1 --port 8000 --tensor-parallel-size 8 \
     --tokenizer-mode deepseek_v41 --reasoning-parser deepseek_v41 \
