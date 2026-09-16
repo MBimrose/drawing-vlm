@@ -211,7 +211,13 @@ def main():
     if not args.eval_bench or args.eval_n <= 0:
         return
     # --- greedy eval: generations are always dumped; execution + IoU only with an interpreter that has the CAD stack
-    from geom_eval_worker import extract_code
+    # same extractor as geom_eval_worker (copied: that module imports the training stack)
+    _CODE_RE = re.compile(r"```python\s*\n(.*?)```", re.DOTALL)
+    def extract_code(text):
+        if "</think>" in text:
+            text = text.rsplit("</think>", 1)[1]
+        blocks = _CODE_RE.findall(text)
+        return blocks[-1].strip() if blocks else None
     cache = pickle.load(open(os.path.join(args.eval_bench, "eval_cache_v15.pkl"), "rb"))
     gt_dir = os.path.join(args.eval_bench, "gt_meshes_v15")
     gen_path = args.eval_gen_out or os.path.join(args.out, f"eval_gen.rank{rank}.jsonl")
