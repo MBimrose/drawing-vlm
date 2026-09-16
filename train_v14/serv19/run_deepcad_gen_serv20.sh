@@ -23,11 +23,13 @@ fi
 echo "$(date) [deepcad-gen] vllm up; generating K=$K over $C in $NS shards"
 # --- 2. generate (resumable per key; each shard flushes every 50 parts)
 T0=$(date +%s)
+GEN_PIDS=""
 for i in $(seq 0 $((NS-1))); do
   $DV/.venv/bin/python $G/gen_openai_bo.py --bench $C --base-url http://127.0.0.1:8100/v1 --model e55 --k $K \
     --shard $i --nshards $NS --workers ${WORKERS:-16} --out $OUT > $DV/logs/deepcad_gen_shard$i.log 2>&1 &
+  GEN_PIDS="$GEN_PIDS $!"
 done
-wait
+wait $GEN_PIDS   # only the shards: a bare `wait` also waits on the vLLM server started above and blocks forever
 echo "$(date) [deepcad-gen] generation done in $(( ($(date +%s)-T0)/60 )) min"
 for p in $(pgrep -f "vllm serve.*served-model-name e5[5]"); do kill $p; done; sleep 15
 # --- 3. execute + score on the CPUs (resumable, 90 s overlap cap)
