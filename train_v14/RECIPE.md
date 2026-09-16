@@ -1502,3 +1502,17 @@ copied; the vLLM V4.1 image pulled natively. Roles: DeepCAD tier generation (bes
 e55 over ~100k verified real parts — a cluster-sized job that no longer needs the queue), the
 DeepSeek-V4.1-Flash probe on Blackwell (fp4 experts are native there), and rendering on 344
 idle cores.
+
+**DeepCAD gate result (2026-09-15, job 10571393).** e55 at K=8 on 616 verified DeepCAD parts
+rendered on 0.4.23 (family D, prep filters at the CADBench defaults): first-exec **0.713 / 44%**,
+vote **0.746 / 49%**, ceiling **0.808 / 59%** (>=0.85), every part executing. That sits squarely
+between the synthetic pool (0.91) and CADBench real parts (0.53): real Onshape idiom the model
+half-knows — roughly two parts in five are NOT solved at 8 draws, which is exactly the regime
+where the self-written tiers of rounds 1-3 paid off, and here the pool is 110k parts instead of
+2k so it cannot saturate. Prep rejected half the verified gate parts (aspect 325, faces<6 278,
+multi-body 89 of 1,325): plain plates, rods and cylinders — real parts, kept for the tier via
+`--min-faces 3 --max-aspect 40` (multi-body stays out).
+**Full split verified**: 110,046 of 119,954 converted train parts rebuild to Onshape's own
+bbox (92%; 9,584 mismatches = dropped sketch-less features such as patterns/mirrors, 165 exec
+errors, 144 timeouts). **serv-20** serves e55 end to end (escalating policy, 4/4 real sheets,
+model load 19 s from local NVMe).
