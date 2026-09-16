@@ -82,7 +82,9 @@ def dequant_mx(B: torch.Tensor, Bs: torch.Tensor, out_dtype=torch.bfloat16) -> t
 
 
 def _is_mx(B, Bs):
-    return Bs.dtype in (torch.float8_e8m0fnu, torch.uint8) and Bs.shape[-1] * 32 == (B.shape[-1] * (2 if B.dtype in (torch.int8, torch.uint8) else 1))
+    """MX = UE8M0 scales, one row per output row, group 32 along K (block FP8 with UE8M0 32x32 scales has N//32 rows)."""
+    K = B.shape[-1] * (2 if B.dtype in (torch.int8, torch.uint8) else 1)
+    return (Bs.dtype in (torch.float8_e8m0fnu, torch.uint8) and Bs.shape[-2] == B.shape[-2] and Bs.shape[-1] * 32 == K)
 
 
 def dequant_any(B, Bs, block_size=None, out_dtype=torch.bfloat16):
