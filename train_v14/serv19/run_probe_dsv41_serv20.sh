@@ -34,6 +34,8 @@ cd $DV && source train_v14/env.sh 2>/dev/null || true
 export OPENBLAS_NUM_THREADS=1
 $DV/.venv/bin/python $DV/train_v14/geom/probe_openai_vlm.py --bench $B --base-url http://127.0.0.1:8000/v1 \
   --model deepseek-ai/DeepSeek-V4.1-Flash --out $DV/results/ext/$T.json --n $N --k $K \
-  --temperature ${TEMP:-0} --workers ${WORKERS:-4}
+  --temperature ${TEMP:-0} --workers ${WORKERS:-16} --max-tokens ${MAXTOK:-24000} --timeout 1800
+# MAXTOK: V4.1 thinks for ~22k characters (~6k tokens) before answering; a 6k budget ends inside
+# the reasoning and returns no code (15 of the first 16 requests). 24k leaves room to finish.
 kill $VPID 2>/dev/null; wait $VPID 2>/dev/null
 echo "PROBE DONE $T"
