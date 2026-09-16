@@ -21,9 +21,14 @@ export HF_HOME=$DV/.cache/huggingface PYTHONPATH=$DV/train_v14:$DV/train_v14/geo
 export TRITON_CACHE_DIR=/dev/shm/bimrose2/triton; mkdir -p $TRITON_CACHE_DIR
 [ -d $HOME/.triton/cache ] && rsync -a $HOME/.triton/cache/ $TRITON_CACHE_DIR/ 2>/dev/null
 trap 'rsync -a $TRITON_CACHE_DIR/ $HOME/.triton/cache/ 2>/dev/null; rm -rf /dev/shm/bimrose2' EXIT
+# The Triton compiler (and its bundled ptxas) run for hundreds of kernel variants per new shape; from the
+# Lustre-hosted venv a forward took 150-430 s vs 12 s from local disk. Stage the venv into node RAM.
+stage_venv() { local LV=/dev/shm/bimrose2/venv_dsv41; mkdir -p /dev/shm/bimrose2; local T0=$(date +%s);
+  rsync -a --copy-links $DV/.venv_dsv41/ $LV/ && echo "$(hostname): venv staged in $(( $(date +%s)-T0 )) s" >&2 && echo $LV/bin/python || echo $DV/.venv_dsv41/bin/python; }
+PY=$(stage_venv)
 nvidia-smi --query-gpu=name,memory.total --format=csv,noheader | head -2
 echo "=== stage 1 ($SLURM_JOB_NODELIST, job $SLURM_JOB_ID) ==="
-srun $DV/.venv_dsv41/bin/python $DV/train_v14/geom/dsv41_lora_smoke.py --model $DV/models/DeepSeek-V4.1-Flash \
+srun $PY $DV/train_v14/geom/dsv41_lora_smoke.py --model $DV/models/DeepSeek-V4.1-Flash \
   --png $DV/spike_dsv41/sheet.png --answer $DV/spike_dsv41/answer.py --rank ${RANK_R:-16} --max-len 4096 \
   --fit-steps ${FIT_STEPS:-6} --gen-tokens 48
 echo "STAGE1 EXIT $?"
