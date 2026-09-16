@@ -1542,3 +1542,16 @@ down while being relaunched and another 25-minute start on all eight B300s is no
 against the full DeepCAD pass waiting for the same GPUs. DeepSeek is closed as a lever. Engine facts:
 25 min to ready (DeepGEMM JIT + 510 GB), needs the host CUDA toolkit bound in, and the box
 must not host a wide CPU job at the same time (froze at ~410 load).
+Stage 0 passed (transformers 5.18.0.dev0 from PR #48768 + torch 2.13 cu130 in `.venv_dsv41`;
+`DeepseekV41ForConditionalGeneration` instantiates, 755B params, config FP8 32x32 blocks with
+ue8m0 scales and FP4 experts). Stage 1 needed three plumbing fixes before the GPUs were even
+touched: the checkpoint ships a tokenizer but no processor config or chat template, so the
+processor is built by hand (`DeepseekV41ImageProcessor()` defaults + the shipped tokenizer,
+whose `<｜deepseek_image｜>` is token 129264 as the config expects) and the prompt is rendered
+with the checkpoint's own `encoding/encoding.py` `encode_messages` (the reference format);
+`torchvision` is a hard requirement of the processor; the class has no gradient checkpointing.
+**The checkpoint loads for training in transformers**: 67 s, ~280 GB resident across the 8
+B300s (41-44 GB each) with FP8/FP4 kept quantized — transformers routes the FP8 linears and
+experts through Triton/grouped_mm when the model spans devices in one process (DeepGEMM's
+kernels bind to one CUDA context). PEFT attaches LoRA to the attention projections
+(`q_b_proj` matched first; 22.5M trainable at r=16). Forward/backward is the next kill point.
