@@ -4,10 +4,10 @@
 # Mirrors run_corpus3_stage1.sh; differences: --min-faces 3 --max-aspect 40 (plain plates, rods
 # and cylinders are real Onshape parts), family D / label deepcad, render_isolated.sh (one
 # process per part, no shared pool to poison) at high parallelism on 344 idle cores.
-#   deepcad_full_stage1.sh [corpus_dir=/srv/scratch/bimrose2/deepcad/corpus_full] [parallel_prep=60] [parallel_render=160]
+#   deepcad_full_stage1.sh [corpus_dir] [parallel_prep=40] [parallel_render=32]   (serv-20 froze at 160+: keep the total under ~100 processes while vLLM is up)
 set -u
 DV=/srv/scratch/bimrose2; M=$DV/mech_benchmarks; PY=$DV/.venv/bin/python
-C=${1:-$DV/deepcad/corpus_full}; PP=${2:-60}; PR=${3:-160}
+C=${1:-$DV/deepcad/corpus_full}; PP=${2:-40}; PR=${3:-32}
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 mkdir -p $C/logs $C/prep $C/step_mm $C/gt_meshes_v15 $C/results $C/src_chunks
 echo "STAGE1 START $(date) $(find $C/src/000 -name "*.step" | wc -l) verified STEPs" >> $C/logs/stage.log
