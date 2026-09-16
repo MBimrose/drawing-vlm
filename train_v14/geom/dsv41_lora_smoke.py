@@ -33,7 +33,7 @@ def main():
     ap.add_argument("--answer", required=True, help="a build123d script that solves the sheet")
     ap.add_argument("--rank", type=int, default=16)
     ap.add_argument("--max-len", type=int, default=4096)
-    ap.add_argument("--targets", default=r"(q_proj|q_b_proj|kv_b_proj|kv_a_proj_with_mqa|o_proj)$",
+    ap.add_argument("--targets", default=r"self_attn\.(q_a_proj|q_b_proj|k_proj|kv_proj|o_a_proj|o_b_proj)$",
                     help="regex on module names for LoRA (attention by default; experts never)")
     args = ap.parse_args()
 
@@ -72,12 +72,19 @@ def main():
     from peft import LoraConfig, get_peft_model
     names = [n for n, m in model.named_modules() if isinstance(m, torch.nn.Linear) and re.search(args.targets, n)
              and "expert" not in n and "vision" not in n and "aligner" not in n]
-    print(f"[smoke] {len(names)} target linears, e.g. {names[:3]}", flush=True)
+    import collections
+    print(f"[smoke] {len(names)} target linears by suffix: "
+          f"{dict(collections.Counter(n.rsplit('.', 1)[-1] for n in names))}", flush=True)
+    attn = sorted({n.rsplit('.', 1)[-1] for n, m in model.named_modules() if isinstance(m, torch.nn.Linear) and "self_attn" in n})
+    print(f"[smoke] attention linear names present: {attn}", flush=True)
     lcfg = LoraConfig(r=args.rank, lora_alpha=2 * args.rank, lora_dropout=0.0, target_modules=names, bias="none")
     model = get_peft_model(model, lcfg)
     n_tr = sum(p.numel() for p in model.parameters() if p.requires_grad)
     print(f"[smoke] trainable params {n_tr/1e6:.1f}M", flush=True)
-    model.gradient_checkpointing_enable()
+    try:
+        model.gradient_checkpointing_enable()
+    except ValueError as e:   # the draft class does not implement it; ~230 GB free per B300 makes it optional
+        print(f"[smoke] no gradient checkpointing ({e}); continuing without", flush=True)
     model.train()
 
     # one real sample: served prompt + drawing -> certified answer
@@ -87,9 +94,12 @@ def main():
                                          {"type": "text", "text": user}]},
             {"role": "assistant", "content": "```python\n" + answer + "\n```"}]
     try:
-        prompt, media = dsenc.encode_messages(msgs, thinking_mode="chat")
+        res = dsenc.encode_messages(msgs, thinking_mode="chat")
     except TypeError:
-        prompt, media = dsenc.encode_messages(msgs)
+        res = dsenc.encode_messages(msgs)
+    res = res if isinstance(res, (tuple, list)) else (res,)
+    prompt = res[0]
+    print(f"[smoke] encode_messages returned {len(res)} values; types {[type(x).__name__ for x in res]}", flush=True)
     print(f"[smoke] encoded prompt: {len(prompt)} chars, {prompt.count(proc.image_token)} image placeholder(s); "
           f"tail: {prompt[-120:]!r}", flush=True)
     enc = proc(text=[prompt], images=[Image.open(args.png).convert("RGB")], return_tensors="pt")

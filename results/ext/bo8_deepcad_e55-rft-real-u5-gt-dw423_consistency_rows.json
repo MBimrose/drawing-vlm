@@ -1,0 +1,6162 @@
+[
+ {
+  "key": "D_00002785",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00014615",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.32626757111802535,
+  "consistency": 0.789311491006549,
+  "oracle": 0.789311491006549
+ },
+ {
+  "key": "D_00015769",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 2,
+  "first_exec": 0.08379381534921965,
+  "consistency": 0.08379381534921965,
+  "oracle": 0.19624532140105086
+ },
+ {
+  "key": "D_00016981",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.3476170933239702,
+  "consistency": 0.3322642839326905,
+  "oracle": 0.8247543701453082
+ },
+ {
+  "key": "D_00017335",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8153411407707101,
+  "consistency": 0.8521576272221114,
+  "oracle": 0.9571606179365508
+ },
+ {
+  "key": "D_00017344",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9643960482461231,
+  "consistency": 0.9643960482461231,
+  "oracle": 0.9643960482461231
+ },
+ {
+  "key": "D_00021795",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00022180",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9405602773442063,
+  "consistency": 0.9405602773442063,
+  "oracle": 0.9405602773442063
+ },
+ {
+  "key": "D_00032048",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9100510812674782,
+  "consistency": 0.9100510812674782,
+  "oracle": 0.9100510812674782
+ },
+ {
+  "key": "D_00033477",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9978582012475314,
+  "consistency": 0.9978582012475314,
+  "oracle": 0.9978582012475314
+ },
+ {
+  "key": "D_00033852",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9970688422521047,
+  "consistency": 0.9970688422521047,
+  "oracle": 0.9970688422521047
+ },
+ {
+  "key": "D_00035246",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8495081006145826,
+  "consistency": 0.8495081006145826,
+  "oracle": 0.9956378277929652
+ },
+ {
+  "key": "D_00039187",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7234138943259547,
+  "consistency": 0.8322560110305949,
+  "oracle": 0.8330662725613108
+ },
+ {
+  "key": "D_00042597",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7499999523162841,
+  "consistency": 0.7499999523162841,
+  "oracle": 0.9999998728434285
+ },
+ {
+  "key": "D_00043378",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7742006003842071,
+  "consistency": 0.8696626477224929,
+  "oracle": 0.8696626477224929
+ },
+ {
+  "key": "D_00049336",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7824181542697153,
+  "consistency": 0.7759459848267606,
+  "oracle": 0.88150435612005
+ },
+ {
+  "key": "D_00050341",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9994986174547371,
+  "consistency": 0.9994986174547371,
+  "oracle": 0.9994986174547371
+ },
+ {
+  "key": "D_00050498",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9986345346932849,
+  "consistency": 0.9986345346932849,
+  "oracle": 0.9986345346932849
+ },
+ {
+  "key": "D_00051459",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7167099163192115,
+  "consistency": 0.7381958233937924,
+  "oracle": 0.7393771847047409
+ },
+ {
+  "key": "D_00051585",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.5196692568078619,
+  "consistency": 0.48319740531965666,
+  "oracle": 0.5196692568078619
+ },
+ {
+  "key": "D_00054037",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00054113",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6973784698304544,
+  "consistency": 0.8604440043746512,
+  "oracle": 0.8652468919862205
+ },
+ {
+  "key": "D_00056952",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00059352",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9636183699692461,
+  "consistency": 0.9914251714714737,
+  "oracle": 0.9914284452741994
+ },
+ {
+  "key": "D_00062599",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.04740343267943302,
+  "consistency": 0.04740343267943302,
+  "oracle": 0.15544873402380782
+ },
+ {
+  "key": "D_00068186",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.3758645445404688,
+  "consistency": 0.3758645445404688,
+  "oracle": 0.3855934011297584
+ },
+ {
+  "key": "D_00074494",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.12014239961394993,
+  "consistency": 0.1695178033249825,
+  "oracle": 0.5320557954771286
+ },
+ {
+  "key": "D_00079807",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.11058256023323884,
+  "consistency": 0.11058256023323884,
+  "oracle": 0.28108275820007145
+ },
+ {
+  "key": "D_00080716",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8719836424099755,
+  "consistency": 0.783187660930003,
+  "oracle": 0.9379852889657545
+ },
+ {
+  "key": "D_00080774",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7784738411303777,
+  "consistency": 0.6742766090446567,
+  "oracle": 0.8541329660062806
+ },
+ {
+  "key": "D_00083098",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9714885529093005,
+  "consistency": 0.9714885529093005,
+  "oracle": 0.9787864942383155
+ },
+ {
+  "key": "D_00087698",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.98125,
+  "consistency": 0.9968503937007874,
+  "oracle": 0.9968503937007874
+ },
+ {
+  "key": "D_00088586",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.2778911691548904,
+  "consistency": 0.2778911691548904,
+  "oracle": 0.526407869949511
+ },
+ {
+  "key": "D_00089290",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9185457252372983,
+  "consistency": 0.9185457252372983,
+  "oracle": 0.9185496167486542
+ },
+ {
+  "key": "D_00091620",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8883325546451657,
+  "consistency": 0.9315776583149143,
+  "oracle": 0.9321704136711348
+ },
+ {
+  "key": "D_00092632",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9007457735046341,
+  "consistency": 0.9007457735046341,
+  "oracle": 0.9984287890956044
+ },
+ {
+  "key": "D_00093073",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.780517671023395,
+  "consistency": 0.9475586343594241,
+  "oracle": 0.9505280373990099
+ },
+ {
+  "key": "D_00094260",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6315593816762258,
+  "consistency": 0.622461559278613,
+  "oracle": 0.6315593816762258
+ },
+ {
+  "key": "D_00095628",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.686743371056867,
+  "consistency": 0.8270833834128392,
+  "oracle": 0.8443640087631833
+ },
+ {
+  "key": "D_00095752",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4705882240744198,
+  "consistency": 0.4878048664186059,
+  "oracle": 0.4878048664186059
+ },
+ {
+  "key": "D_00096828",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8322201533525813,
+  "consistency": 0.8316774820032649,
+  "oracle": 0.8322201533525813
+ },
+ {
+  "key": "D_00098441",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.04555147108994046,
+  "consistency": 0.04555147108994046,
+  "oracle": 0.22555098995479306
+ },
+ {
+  "key": "D_00100267",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8569708784225994,
+  "consistency": 0.8569708784225994,
+  "oracle": 0.8569708784225994
+ },
+ {
+  "key": "D_00101490",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6085190355097576,
+  "consistency": 0.5884648437272204,
+  "oracle": 0.6085190355097576
+ },
+ {
+  "key": "D_00101647",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.510607256575253,
+  "consistency": 0.558963435941657,
+  "oracle": 0.7602410707373122
+ },
+ {
+  "key": "D_00104201",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8248091897633862,
+  "consistency": 0.8248091897633862,
+  "oracle": 0.9110625986469069
+ },
+ {
+  "key": "D_00115015",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.08369144067051167,
+  "consistency": 0.1834668558755999,
+  "oracle": 0.33659154345001885
+ },
+ {
+  "key": "D_00118077",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.050165542990505727,
+  "consistency": 0.14871519816027437,
+  "oracle": 0.15123908381122023
+ },
+ {
+  "key": "D_00118905",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9900052207789503,
+  "consistency": 0.9912443518446984,
+  "oracle": 0.9912443518446984
+ },
+ {
+  "key": "D_00119497",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.48107378266066214,
+  "consistency": 0.5039595913200169,
+  "oracle": 0.5355629375579222
+ },
+ {
+  "key": "D_00120875",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6925281921824014,
+  "consistency": 0.6212654224163359,
+  "oracle": 0.6925281921824014
+ },
+ {
+  "key": "D_00121333",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.943684675649405,
+  "consistency": 0.943684675649405,
+  "oracle": 0.9530489582175503
+ },
+ {
+  "key": "D_00122155",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9007457735046341,
+  "consistency": 0.9007457735046341,
+  "oracle": 0.9984287890956044
+ },
+ {
+  "key": "D_00126994",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.011935874318126772,
+  "consistency": 0.011935874318126772,
+  "oracle": 0.619056830501234
+ },
+ {
+  "key": "D_00128703",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9917315740639099,
+  "consistency": 0.9917315740639099,
+  "oracle": 0.9923154040267107
+ },
+ {
+  "key": "D_00129296",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.805921306276449,
+  "consistency": 0.8152926807954564,
+  "oracle": 0.8665520842463896
+ },
+ {
+  "key": "D_00130542",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9662467451719032,
+  "consistency": 0.9724978007136956,
+  "oracle": 0.9749842451831541
+ },
+ {
+  "key": "D_00133051",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9952562210238035,
+  "consistency": 0.9952562210238035,
+  "oracle": 0.9952562210238035
+ },
+ {
+  "key": "D_00137242",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9149268136520624,
+  "consistency": 0.9149268136520624,
+  "oracle": 0.9149268136520624
+ },
+ {
+  "key": "D_00138215",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.013409434864601387,
+  "consistency": 0.15837167474098945,
+  "oracle": 0.1753533121205689
+ },
+ {
+  "key": "D_00138881",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.19413860096542937,
+  "consistency": 0.18938907464317853,
+  "oracle": 0.19413860096542937
+ },
+ {
+  "key": "D_00139377",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.8094269241472701,
+  "consistency": 0.8581923819392014,
+  "oracle": 0.8581923819392014
+ },
+ {
+  "key": "D_00140367",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9396295214695373,
+  "consistency": 0.9396295214695373,
+  "oracle": 0.9396295214695373
+ },
+ {
+  "key": "D_00145131",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8594763088077139,
+  "consistency": 0.8056916187077647,
+  "oracle": 0.8594763088077139
+ },
+ {
+  "key": "D_00155849",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00159234",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8076923076923077,
+  "consistency": 0.8076923076923077,
+  "oracle": 0.8666666666666667
+ },
+ {
+  "key": "D_00162567",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5987892537628293,
+  "consistency": 0.5987892537628293,
+  "oracle": 0.8597212642315331
+ },
+ {
+  "key": "D_00162938",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8728563742906309,
+  "consistency": 0.8728563742906309,
+  "oracle": 0.9172708621507734
+ },
+ {
+  "key": "D_00166918",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.9745708613693335,
+  "consistency": 0.9898235078018505,
+  "oracle": 0.9958478647406566
+ },
+ {
+  "key": "D_00167581",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8722709642966684,
+  "consistency": 0.8722709642966684,
+  "oracle": 0.9998216462035028
+ },
+ {
+  "key": "D_00169016",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8618609110951639,
+  "consistency": 0.8618609110951639,
+  "oracle": 0.8618609110951639
+ },
+ {
+  "key": "D_00169447",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4589092663346949,
+  "consistency": 0.5262224024221408,
+  "oracle": 0.5892911557221455
+ },
+ {
+  "key": "D_00171146",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.3672673392283288,
+  "consistency": 0.3672673392283288,
+  "oracle": 0.5688096070356965
+ },
+ {
+  "key": "D_00174545",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.8177800577070449,
+  "consistency": 0.8177800577070449,
+  "oracle": 0.8321774387502145
+ },
+ {
+  "key": "D_00176637",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9696259250480828,
+  "consistency": 0.9696259250480828,
+  "oracle": 0.9990009298333452
+ },
+ {
+  "key": "D_00180599",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.48179232263288835,
+  "consistency": 0.5151843312708679,
+  "oracle": 0.5151843312708679
+ },
+ {
+  "key": "D_00183249",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5319198089179753,
+  "consistency": 0.5319198089179753,
+  "oracle": 0.7617126645113178
+ },
+ {
+  "key": "D_00185533",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7395743255613731,
+  "consistency": 0.713830265475516,
+  "oracle": 0.8430265922298708
+ },
+ {
+  "key": "D_00189194",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6024560105794753,
+  "consistency": 0.6024560105794753,
+  "oracle": 0.6387649915402809
+ },
+ {
+  "key": "D_00195427",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9264081384624355,
+  "consistency": 0.9264081384624355,
+  "oracle": 0.9980010348109482
+ },
+ {
+  "key": "D_00197791",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8373799118506402,
+  "consistency": 0.841972874456994,
+  "oracle": 0.8805021069953207
+ },
+ {
+  "key": "D_00202010",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 3,
+  "first_exec": 0.9271316899590313,
+  "consistency": 0.9271316899590313,
+  "oracle": 0.9271316899590313
+ },
+ {
+  "key": "D_00202526",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5695808042296091,
+  "consistency": 0.7568964426922357,
+  "oracle": 0.7568964426922357
+ },
+ {
+  "key": "D_00204427",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9553711233140387,
+  "consistency": 0.9553711233140387,
+  "oracle": 0.9554682661744136
+ },
+ {
+  "key": "D_00211422",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7114435015456272,
+  "consistency": 0.6872558373783004,
+  "oracle": 0.7114435015456272
+ },
+ {
+  "key": "D_00213377",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9847005329317318,
+  "consistency": 0.9847005329317318,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00214288",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7468681595909035,
+  "consistency": 0.773835872484443,
+  "oracle": 0.9845776754459384
+ },
+ {
+  "key": "D_00215800",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8911383484240724,
+  "consistency": 0.9961059115528242,
+  "oracle": 0.9981017419114611
+ },
+ {
+  "key": "D_00219042",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.624840830050388,
+  "consistency": 0.624840830050388,
+  "oracle": 0.8008587297352793
+ },
+ {
+  "key": "D_00219863",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.046833117116834494,
+  "consistency": 0.21061696871686778,
+  "oracle": 0.46336394690583843
+ },
+ {
+  "key": "D_00221023",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.0389176529024075,
+  "consistency": 0.24468323433050837,
+  "oracle": 0.2961112305782197
+ },
+ {
+  "key": "D_00222339",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9999999821695505,
+  "consistency": 0.9999999821695505,
+  "oracle": 0.9999999893017304
+ },
+ {
+  "key": "D_00226212",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.27668925840915776,
+  "consistency": 0.17858616134221583,
+  "oracle": 0.5104438104200805
+ },
+ {
+  "key": "D_00227152",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9015150180648788,
+  "consistency": 0.9015150180648788,
+  "oracle": 0.9093972030611107
+ },
+ {
+  "key": "D_00228427",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.21567120228148493,
+  "consistency": 0.3332870333351898,
+  "oracle": 0.5286260134044847
+ },
+ {
+  "key": "D_00229563",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9494891116414629,
+  "consistency": 0.9494891116414629,
+  "oracle": 0.9494891116414629
+ },
+ {
+  "key": "D_00230684",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.5798849370289832,
+  "consistency": 0.5798849370289832,
+  "oracle": 0.5813159217076904
+ },
+ {
+  "key": "D_00231409",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9999999046325775,
+  "consistency": 0.9999999046325775,
+  "oracle": 0.9999999046325775
+ },
+ {
+  "key": "D_00235958",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.08604571449152826,
+  "consistency": 0.25589265190144717,
+  "oracle": 0.28919596723169994
+ },
+ {
+  "key": "D_00236355",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.06431759800382356,
+  "consistency": 0.1886756786499473,
+  "oracle": 0.22597205068303824
+ },
+ {
+  "key": "D_00237216",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9455025408921671,
+  "consistency": 0.9610658879136541,
+  "oracle": 0.9610658879136541
+ },
+ {
+  "key": "D_00237917",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.547214567548869,
+  "consistency": 0.7038061479637128,
+  "oracle": 0.7921586535254834
+ },
+ {
+  "key": "D_00239816",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6517594828101185,
+  "consistency": 0.6517594828101185,
+  "oracle": 0.8326568058582943
+ },
+ {
+  "key": "D_00240619",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.4879997691865835,
+  "consistency": 0.8967497152333389,
+  "oracle": 0.8967497152333389
+ },
+ {
+  "key": "D_00242660",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8212026365451223,
+  "consistency": 0.8320885777423945,
+  "oracle": 0.8722163000567887
+ },
+ {
+  "key": "D_00243161",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9688293884109079,
+  "consistency": 0.9688293884109079,
+  "oracle": 0.9731467107125826
+ },
+ {
+  "key": "D_00244189",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8835089178553248,
+  "consistency": 0.8444159406728294,
+  "oracle": 0.9099658027683416
+ },
+ {
+  "key": "D_00245827",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.8029771652817461,
+  "consistency": 0.8029771652817461,
+  "oracle": 0.8029771652817461
+ },
+ {
+  "key": "D_00246183",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.0,
+  "consistency": 0.2301841640355383,
+  "oracle": 0.857868660391995
+ },
+ {
+  "key": "D_00248285",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9185966628269203,
+  "consistency": 0.9185966628269203,
+  "oracle": 0.9565817306401485
+ },
+ {
+  "key": "D_00254000",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.912102266229391,
+  "consistency": 0.912102266229391,
+  "oracle": 0.9324760357838822
+ },
+ {
+  "key": "D_00255703",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7874906457210721,
+  "consistency": 0.8527867069697023,
+  "oracle": 0.8701364402463887
+ },
+ {
+  "key": "D_00256359",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00256632",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00259610",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.022335452719997144,
+  "consistency": 0.14332047298098224,
+  "oracle": 0.6335766832598373
+ },
+ {
+  "key": "D_00259682",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00259789",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.805842203908656,
+  "consistency": 0.850920108576709,
+  "oracle": 0.850920108576709
+ },
+ {
+  "key": "D_00260134",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9623419375497287,
+  "consistency": 0.8751179113296306,
+  "oracle": 0.9623419375497287
+ },
+ {
+  "key": "D_00260610",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7157207714138815,
+  "consistency": 0.8587504771683988,
+  "oracle": 0.897318989864673
+ },
+ {
+  "key": "D_00263059",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8537424908777842,
+  "consistency": 0.8537424908777842,
+  "oracle": 0.9284952810223491
+ },
+ {
+  "key": "D_00263083",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6933118549858108,
+  "consistency": 0.5682458445260704,
+  "oracle": 0.6933118549858108
+ },
+ {
+  "key": "D_00263991",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9975056087667852,
+  "consistency": 0.9987515320104764,
+  "oracle": 0.9987515320104764
+ },
+ {
+  "key": "D_00264692",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.66262640064283,
+  "consistency": 0.66262640064283,
+  "oracle": 0.66262640064283
+ },
+ {
+  "key": "D_00266073",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.3873277195073581,
+  "consistency": 0.32433881905159995,
+  "oracle": 0.3873277195073581
+ },
+ {
+  "key": "D_00267613",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.3189917924695733,
+  "consistency": 0.25859574550247405,
+  "oracle": 0.3189917924695733
+ },
+ {
+  "key": "D_00270785",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.949560988659184,
+  "consistency": 0.954240215021636,
+  "oracle": 0.999999111040539
+ },
+ {
+  "key": "D_00270849",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9289207788117496,
+  "consistency": 0.9289207788117496,
+  "oracle": 0.9801923802396708
+ },
+ {
+  "key": "D_00271161",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00271350",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8843564356435645,
+  "consistency": 0.8843564356435645,
+  "oracle": 0.8970157987126974
+ },
+ {
+  "key": "D_00272497",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9332949045859404,
+  "consistency": 0.9332949045859404,
+  "oracle": 0.9991188166207527
+ },
+ {
+  "key": "D_00272590",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4836111152296433,
+  "consistency": 0.4836111152296433,
+  "oracle": 0.8112366496006819
+ },
+ {
+  "key": "D_00272753",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5868692691030483,
+  "consistency": 0.5868692691030483,
+  "oracle": 0.9119751747029572
+ },
+ {
+  "key": "D_00272771",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8749042228640325,
+  "consistency": 0.8749042228640325,
+  "oracle": 0.9364978200659703
+ },
+ {
+  "key": "D_00273200",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.25060643926333925,
+  "consistency": 0.39549849128689246,
+  "oracle": 0.5389587237109279
+ },
+ {
+  "key": "D_00274175",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.7340488516776972,
+  "consistency": 0.7722162354054426,
+  "oracle": 0.7725105754164424
+ },
+ {
+  "key": "D_00274545",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.7902702401219553,
+  "consistency": 0.7902702401219553,
+  "oracle": 0.7902702401219553
+ },
+ {
+  "key": "D_00274979",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8611067651389472,
+  "consistency": 0.8611067651389472,
+  "oracle": 0.8611067651389472
+ },
+ {
+  "key": "D_00275089",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.38148658034302046,
+  "consistency": 0.38148658034302046,
+  "oracle": 0.8425008852914851
+ },
+ {
+  "key": "D_00278100",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9998162451373521,
+  "consistency": 0.9998162451373521,
+  "oracle": 0.9998162451373521
+ },
+ {
+  "key": "D_00280118",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8224787525440495,
+  "consistency": 0.8224787525440495,
+  "oracle": 0.8522383814350273
+ },
+ {
+  "key": "D_00280432",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8401504742829752,
+  "consistency": 0.877520366197009,
+  "oracle": 0.9604125387292571
+ },
+ {
+  "key": "D_00280544",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4992509723296698,
+  "consistency": 0.40443635854247767,
+  "oracle": 0.7224625239089753
+ },
+ {
+  "key": "D_00281044",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9218756264079894,
+  "consistency": 0.9218756264079894,
+  "oracle": 0.9861318414861505
+ },
+ {
+  "key": "D_00281170",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9147652835615426,
+  "consistency": 0.9147652835615426,
+  "oracle": 0.9391769313179378
+ },
+ {
+  "key": "D_00281301",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6315428194706105,
+  "consistency": 0.9117439666379525,
+  "oracle": 0.9117439666379525
+ },
+ {
+  "key": "D_00281946",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9733333333333334,
+  "consistency": 0.9733333333333334,
+  "oracle": 0.9733333333333334
+ },
+ {
+  "key": "D_00282015",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9397483201157926,
+  "consistency": 0.9397483201157926,
+  "oracle": 0.9975071436253952
+ },
+ {
+  "key": "D_00282211",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.3336840502153961,
+  "consistency": 0.49746131555577144,
+  "oracle": 0.6214662474049945
+ },
+ {
+  "key": "D_00282663",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9997559908220328,
+  "consistency": 0.9997559908220328,
+  "oracle": 0.9997559908220328
+ },
+ {
+  "key": "D_00283715",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7045365976618148,
+  "consistency": 0.7374670851878613,
+  "oracle": 0.8479994705247268
+ },
+ {
+  "key": "D_00284199",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.26718112933601573,
+  "consistency": 0.26718112933601573,
+  "oracle": 0.7489969789386128
+ },
+ {
+  "key": "D_00284254",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6360070936377898,
+  "consistency": 0.7757947106909147,
+  "oracle": 0.9013947770974292
+ },
+ {
+  "key": "D_00284504",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8802722408658922,
+  "consistency": 0.8802722408658922,
+  "oracle": 0.8802722408658922
+ },
+ {
+  "key": "D_00284580",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9128230754486706,
+  "consistency": 0.9128230754486706,
+  "oracle": 0.9599600141080314
+ },
+ {
+  "key": "D_00284847",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00286452",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.0898503809561407,
+  "consistency": 0.3982067566846347,
+  "oracle": 0.45621617026100264
+ },
+ {
+  "key": "D_00287970",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8774920483471421,
+  "consistency": 0.8774920483471421,
+  "oracle": 0.8774920483471421
+ },
+ {
+  "key": "D_00289379",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8778394986658743,
+  "consistency": 0.877550170482342,
+  "oracle": 0.8798654039725016
+ },
+ {
+  "key": "D_00291259",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6685885981358256,
+  "consistency": 0.7050570340849922,
+  "oracle": 0.7781165390672142
+ },
+ {
+  "key": "D_00292156",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7529653929340041,
+  "consistency": 0.9852342097080055,
+  "oracle": 0.9852342097080055
+ },
+ {
+  "key": "D_00297413",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00301078",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6668718696579582,
+  "consistency": 0.6668718696579582,
+  "oracle": 0.9331580108488475
+ },
+ {
+  "key": "D_00302228",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7474922204330395,
+  "consistency": 0.9203825984094286,
+  "oracle": 0.9203825984094286
+ },
+ {
+  "key": "D_00302542",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6668718696579582,
+  "consistency": 0.855297611550152,
+  "oracle": 0.9808308272650265
+ },
+ {
+  "key": "D_00303265",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.7824718014244566,
+  "consistency": 0.7160593088071868,
+  "oracle": 0.7824718014244566
+ },
+ {
+  "key": "D_00303495",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.8180866056744266,
+  "consistency": 0.8192752320261785,
+  "oracle": 0.8744012719148294
+ },
+ {
+  "key": "D_00304500",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.39077398272080216,
+  "consistency": 0.4518508210409129,
+  "oracle": 0.46042428467766033
+ },
+ {
+  "key": "D_00305066",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.45546266359393944,
+  "consistency": 0.5535906041170225,
+  "oracle": 0.5535906041170225
+ },
+ {
+  "key": "D_00306574",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5516085686373419,
+  "consistency": 0.567685465280853,
+  "oracle": 0.6316725951575559
+ },
+ {
+  "key": "D_00306591",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7659579395412945,
+  "consistency": 0.9093070576374397,
+  "oracle": 0.9093070576374397
+ },
+ {
+  "key": "D_00306867",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.2579409636097379,
+  "consistency": 0.4609899176718264,
+  "oracle": 0.6283027556883828
+ },
+ {
+  "key": "D_00307164",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9114583333333334,
+  "consistency": 0.9114583333333334,
+  "oracle": 0.9722222222222222
+ },
+ {
+  "key": "D_00307250",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.2812614110731883,
+  "consistency": 0.2720614077369911,
+  "oracle": 0.9437694913449215
+ },
+ {
+  "key": "D_00307673",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6604704246592665,
+  "consistency": 0.6604704246592665,
+  "oracle": 0.8069401299035015
+ },
+ {
+  "key": "D_00308354",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8938461541323326,
+  "consistency": 0.8938461541323326,
+  "oracle": 0.8960016552934622
+ },
+ {
+  "key": "D_00308415",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.732180593233541,
+  "consistency": 0.8135702241541135,
+  "oracle": 0.8425742359098576
+ },
+ {
+  "key": "D_00309105",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8547635434178537,
+  "consistency": 0.8582065637733753,
+  "oracle": 0.8684533668654194
+ },
+ {
+  "key": "D_00309952",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8745389583194196,
+  "consistency": 0.8864454800721977,
+  "oracle": 0.8864454800721977
+ },
+ {
+  "key": "D_00309976",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.96104063061196,
+  "consistency": 0.9771899062049767,
+  "oracle": 0.9771899062049767
+ },
+ {
+  "key": "D_00312109",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.9200961409102022,
+  "consistency": 0.8347281878378149,
+  "oracle": 0.9200961409102022
+ },
+ {
+  "key": "D_00313393",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7343749968335033,
+  "consistency": 0.7343749968335033,
+  "oracle": 0.7688807984448387
+ },
+ {
+  "key": "D_00313423",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.16409074482582459,
+  "consistency": 0.28857535645003946,
+  "oracle": 0.32923422015465087
+ },
+ {
+  "key": "D_00316466",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.09690875427907922,
+  "consistency": 0.8569319961277079,
+  "oracle": 0.8862813523808488
+ },
+ {
+  "key": "D_00317071",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6382024551369725,
+  "consistency": 0.5974863315510164,
+  "oracle": 0.6970872616708488
+ },
+ {
+  "key": "D_00317810",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4203453276687759,
+  "consistency": 0.4744749731539182,
+  "oracle": 0.4744749731539182
+ },
+ {
+  "key": "D_00319277",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9975024638832517,
+  "consistency": 0.9975024638832517,
+  "oracle": 0.9975024638832517
+ },
+ {
+  "key": "D_00319312",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9024390172703078,
+  "consistency": 0.9024390172703078,
+  "oracle": 0.9024390172703078
+ },
+ {
+  "key": "D_00319467",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4769802296740979,
+  "consistency": 0.475169507983837,
+  "oracle": 0.5518191448141456
+ },
+ {
+  "key": "D_00319713",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4301552970766473,
+  "consistency": 0.5063596202054185,
+  "oracle": 0.6542191242626046
+ },
+ {
+  "key": "D_00320059",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.1052644041955674,
+  "consistency": 0.10107136248678551,
+  "oracle": 0.1751901651819058
+ },
+ {
+  "key": "D_00320615",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00320750",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00320807",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8906843305970232,
+  "consistency": 0.8526831180422394,
+  "oracle": 0.8906843305970232
+ },
+ {
+  "key": "D_00321299",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6813099828021205,
+  "consistency": 0.6535113943321553,
+  "oracle": 0.8939954588568898
+ },
+ {
+  "key": "D_00323196",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9129732296235166,
+  "consistency": 0.759022065168624,
+  "oracle": 0.9129732296235166
+ },
+ {
+  "key": "D_00323376",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5988274476144421,
+  "consistency": 0.639868709693164,
+  "oracle": 0.7493877045898837
+ },
+ {
+  "key": "D_00323436",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00328624",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.0,
+  "consistency": 0.019867389125334187,
+  "oracle": 0.019867389125334187
+ },
+ {
+  "key": "D_00328923",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.514611548898731,
+  "consistency": 0.5699995380210007,
+  "oracle": 0.6678330767235335
+ },
+ {
+  "key": "D_00330451",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9528251275190149,
+  "consistency": 0.9634760475584,
+  "oracle": 0.9946112866959934
+ },
+ {
+  "key": "D_00330884",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7601709137657486,
+  "consistency": 0.8248761230787054,
+  "oracle": 0.9529634394965727
+ },
+ {
+  "key": "D_00332424",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 3,
+  "first_exec": 0.6295909172895845,
+  "consistency": 0.9740120881041736,
+  "oracle": 0.9740120881041736
+ },
+ {
+  "key": "D_00334047",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8470588235294118,
+  "consistency": 0.8470588235294118,
+  "oracle": 0.8744460856720827
+ },
+ {
+  "key": "D_00336690",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.2146677855360231,
+  "consistency": 0.39186648569507665,
+  "oracle": 0.43602108163384584
+ },
+ {
+  "key": "D_00337989",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9997775479349627,
+  "consistency": 0.9997775479349627,
+  "oracle": 0.9997775479349627
+ },
+ {
+  "key": "D_00339508",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.4785668887952266,
+  "consistency": 0.4785668887952266,
+  "oracle": 0.5984267429752136
+ },
+ {
+  "key": "D_00339804",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9220454828647876,
+  "consistency": 0.9220454828647876,
+  "oracle": 0.9310674634472625
+ },
+ {
+  "key": "D_00340755",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6908593183579156,
+  "consistency": 0.6852726120282545,
+  "oracle": 0.7198038243647886
+ },
+ {
+  "key": "D_00342990",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.7879285331683585,
+  "consistency": 0.7879285331683585,
+  "oracle": 0.7879285331683585
+ },
+ {
+  "key": "D_00343076",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9999593794345856,
+  "consistency": 0.9999593794345856,
+  "oracle": 0.9999593794345856
+ },
+ {
+  "key": "D_00343152",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.907779877754647,
+  "consistency": 0.907779877754647,
+  "oracle": 0.9968286435423842
+ },
+ {
+  "key": "D_00345237",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00347437",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6231411025610673,
+  "consistency": 0.5519241215468791,
+  "oracle": 0.8274019216783088
+ },
+ {
+  "key": "D_00348920",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8919642857142858,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00349708",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.07144033751793444,
+  "consistency": 0.2734933641826013,
+  "oracle": 0.2734933641826013
+ },
+ {
+  "key": "D_00350269",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.38010738144516815,
+  "consistency": 0.4004437106354117,
+  "oracle": 0.4004437106354117
+ },
+ {
+  "key": "D_00351932",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4197116787182559,
+  "consistency": 0.4197116787182559,
+  "oracle": 0.4761189440652439
+ },
+ {
+  "key": "D_00353440",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7238996116168819,
+  "consistency": 0.9667303890985524,
+  "oracle": 0.9667303890985524
+ },
+ {
+  "key": "D_00353606",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6849383136636435,
+  "consistency": 0.6280405710781487,
+  "oracle": 0.6849383136636435
+ },
+ {
+  "key": "D_00355496",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.054830959327269606,
+  "consistency": 0.0505688403226188,
+  "oracle": 0.10773113409495481
+ },
+ {
+  "key": "D_00357271",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.54843986552679,
+  "consistency": 0.5605737925235076,
+  "oracle": 0.6916882288386955
+ },
+ {
+  "key": "D_00357375",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8812604659530613,
+  "consistency": 0.8812604659530613,
+  "oracle": 0.9374013317612592
+ },
+ {
+  "key": "D_00357656",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.06798612591128361,
+  "consistency": 0.07815414590566265,
+  "oracle": 0.07815414590566265
+ },
+ {
+  "key": "D_00358134",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 3,
+  "first_exec": 0.8903187395163819,
+  "consistency": 0.88564537844791,
+  "oracle": 0.9217698398890105
+ },
+ {
+  "key": "D_00358713",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00359146",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.716922307051667,
+  "consistency": 0.716922307051667,
+  "oracle": 0.9954433171831171
+ },
+ {
+  "key": "D_00359480",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6964186281577365,
+  "consistency": 0.7340126620826504,
+  "oracle": 0.7863523278471799
+ },
+ {
+  "key": "D_00359488",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.52962673300736,
+  "consistency": 0.5359405787539614,
+  "oracle": 0.6557039713496889
+ },
+ {
+  "key": "D_00359827",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9953573818348939,
+  "consistency": 0.9953573818348939,
+  "oracle": 0.9953573818348939
+ },
+ {
+  "key": "D_00359833",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8240620231628418,
+  "consistency": 0.9173310423272877,
+  "oracle": 0.9173310423272877
+ },
+ {
+  "key": "D_00360419",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9213260722938357,
+  "consistency": 0.9213260722938357,
+  "oracle": 0.9285834301389903
+ },
+ {
+  "key": "D_00360456",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.0,
+  "consistency": 0.7288950698756023,
+  "oracle": 0.7288950698756023
+ },
+ {
+  "key": "D_00360692",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00361386",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9667535174234658,
+  "consistency": 0.9540189754572476,
+  "oracle": 0.9820533806165094
+ },
+ {
+  "key": "D_00362863",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8669643082812015,
+  "consistency": 0.8901085838725481,
+  "oracle": 0.8901085838725481
+ },
+ {
+  "key": "D_00362956",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8569736972361909,
+  "consistency": 0.8569736972361909,
+  "oracle": 0.8569736972361909
+ },
+ {
+  "key": "D_00366297",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6653422483340166,
+  "consistency": 0.6187595144208371,
+  "oracle": 0.689063127601963
+ },
+ {
+  "key": "D_00366974",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5730337064053401,
+  "consistency": 0.674157294747264,
+  "oracle": 0.674157294747264
+ },
+ {
+  "key": "D_00367341",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9994061227053749,
+  "consistency": 0.9994061227053749,
+  "oracle": 0.9994061227053749
+ },
+ {
+  "key": "D_00371104",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9997629930774868,
+  "consistency": 0.9460141459349765,
+  "oracle": 0.9997629930774868
+ },
+ {
+  "key": "D_00371273",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.0663302625726778,
+  "consistency": 0.0663302625726778,
+  "oracle": 0.15912384901946117
+ },
+ {
+  "key": "D_00371629",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7859945948423122,
+  "consistency": 0.4194915480846684,
+  "oracle": 0.7859945948423122
+ },
+ {
+  "key": "D_00374198",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8045203196970216,
+  "consistency": 0.8065880717571074,
+  "oracle": 0.8065880717571074
+ },
+ {
+  "key": "D_00375923",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.36091110829665507,
+  "consistency": 0.7201728577933633,
+  "oracle": 0.7515055200280925
+ },
+ {
+  "key": "D_00377065",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 3,
+  "first_exec": 0.4601830743089859,
+  "consistency": 0.4601830743089859,
+  "oracle": 0.4721965650935185
+ },
+ {
+  "key": "D_00382416",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.45588352296889273,
+  "consistency": 0.586600721745999,
+  "oracle": 0.689422331913051
+ },
+ {
+  "key": "D_00385966",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8053926891824155,
+  "consistency": 0.8257614756192002,
+  "oracle": 0.8381632245393466
+ },
+ {
+  "key": "D_00386280",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.13112954600187976,
+  "consistency": 0.12795713615087684,
+  "oracle": 0.13112954600187976
+ },
+ {
+  "key": "D_00387313",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.46861695910273893,
+  "consistency": 0.728944577423746,
+  "oracle": 0.728944577423746
+ },
+ {
+  "key": "D_00387870",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6817569672404287,
+  "consistency": 0.6817569672404287,
+  "oracle": 0.7320073215244154
+ },
+ {
+  "key": "D_00389218",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.07163135609535688,
+  "consistency": 0.043163159750211344,
+  "oracle": 0.07163135609535688
+ },
+ {
+  "key": "D_00391401",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.051173140935521624,
+  "consistency": 0.05936200985341983,
+  "oracle": 0.4040668491491848
+ },
+ {
+  "key": "D_00395089",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9900696259375125,
+  "consistency": 0.9900696259375125,
+  "oracle": 0.9900696259375125
+ },
+ {
+  "key": "D_00397226",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7714883333979584,
+  "consistency": 0.9658560232962442,
+  "oracle": 0.966103190363319
+ },
+ {
+  "key": "D_00397629",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.4685291121377646,
+  "consistency": 0.5643746176302995,
+  "oracle": 0.7864581422411775
+ },
+ {
+  "key": "D_00404562",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.014256935024292594,
+  "consistency": 0.46396355165689346,
+  "oracle": 0.47158113375165606
+ },
+ {
+  "key": "D_00406449",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8920052049519323,
+  "consistency": 0.8920052049519323,
+  "oracle": 0.8920052049519323
+ },
+ {
+  "key": "D_00415172",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8226927282027842,
+  "consistency": 0.8393605703727671,
+  "oracle": 0.8393605703727671
+ },
+ {
+  "key": "D_00417391",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8172431004910483,
+  "consistency": 0.8279782467220088,
+  "oracle": 0.8292699804506272
+ },
+ {
+  "key": "D_00418044",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9243100556756659,
+  "consistency": 0.9339462101951223,
+  "oracle": 0.9896817521743981
+ },
+ {
+  "key": "D_00418185",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00418783",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00418802",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5000000019557774,
+  "consistency": 0.9999999874830248,
+  "oracle": 0.9999999874830248
+ },
+ {
+  "key": "D_00418918",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00419281",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9536443842694778,
+  "consistency": 0.9635334576682845,
+  "oracle": 0.9988401048668317
+ },
+ {
+  "key": "D_00419390",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9536453928020321,
+  "consistency": 0.9988411494918704,
+  "oracle": 0.9988411494918704
+ },
+ {
+  "key": "D_00420168",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.26976632661374755,
+  "consistency": 0.26922835514313886,
+  "oracle": 0.2976407153293572
+ },
+ {
+  "key": "D_00421747",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8159328992467737,
+  "consistency": 0.8159328992467737,
+  "oracle": 0.9097429000013315
+ },
+ {
+  "key": "D_00421835",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9688677105659893,
+  "consistency": 0.9688677142463867,
+  "oracle": 0.9688677142463867
+ },
+ {
+  "key": "D_00422362",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.46376367505803545,
+  "consistency": 0.532775178705981,
+  "oracle": 0.5944630972962349
+ },
+ {
+  "key": "D_00422554",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9983629656811336,
+  "consistency": 0.9983629656811336,
+  "oracle": 0.9983629656811336
+ },
+ {
+  "key": "D_00424102",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.0,
+  "consistency": 0.5034832841639313,
+  "oracle": 0.5034832841639313
+ },
+ {
+  "key": "D_00424964",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00425058",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.573313202265495,
+  "consistency": 0.7881424077648279,
+  "oracle": 0.8271729223344585
+ },
+ {
+  "key": "D_00425115",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9828977623556622,
+  "consistency": 0.9828977623556622,
+  "oracle": 0.9828977623556622
+ },
+ {
+  "key": "D_00425500",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8184168071422578,
+  "consistency": 0.7883355771737305,
+  "oracle": 0.8225662381739003
+ },
+ {
+  "key": "D_00433964",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8430161745645887,
+  "consistency": 0.8430161745645887,
+  "oracle": 0.9991950201882928
+ },
+ {
+  "key": "D_00434242",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00434848",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9397483201157926,
+  "consistency": 0.9397483201157926,
+  "oracle": 0.9397483201157926
+ },
+ {
+  "key": "D_00435100",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4790002027165665,
+  "consistency": 0.527591982471871,
+  "oracle": 0.7933901256281592
+ },
+ {
+  "key": "D_00436966",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9025,
+  "consistency": 0.9025,
+  "oracle": 0.9025
+ },
+ {
+  "key": "D_00437475",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9716529501612887,
+  "consistency": 0.9999537878903558,
+  "oracle": 0.9999537878903558
+ },
+ {
+  "key": "D_00437598",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9102646962189489,
+  "consistency": 0.9102646962189489,
+  "oracle": 0.9885629375596832
+ },
+ {
+  "key": "D_00439553",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9996571856292105,
+  "consistency": 0.9996571856292105,
+  "oracle": 0.9996571856292105
+ },
+ {
+  "key": "D_00440434",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9975896952617213,
+  "consistency": 0.9975896952617213,
+  "oracle": 0.9975896952617213
+ },
+ {
+  "key": "D_00443324",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8869983741993983,
+  "consistency": 0.8869983741993983,
+  "oracle": 0.987049780633497
+ },
+ {
+  "key": "D_00444087",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9520807061790668,
+  "consistency": 0.9520807061790668,
+  "oracle": 0.9794871794871794
+ },
+ {
+  "key": "D_00444295",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9624642400042867,
+  "consistency": 0.9914195328764527,
+  "oracle": 0.9914195328764527
+ },
+ {
+  "key": "D_00447543",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8168716199805316,
+  "consistency": 0.8168716199805316,
+  "oracle": 0.816871620123584
+ },
+ {
+  "key": "D_00447810",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7642821258203817,
+  "consistency": 0.8077025119012853,
+  "oracle": 0.8172786508656776
+ },
+ {
+  "key": "D_00453923",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8178012531770035,
+  "consistency": 0.8178012531770035,
+  "oracle": 0.8178012531770035
+ },
+ {
+  "key": "D_00453963",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5726770668587788,
+  "consistency": 0.7038888917993585,
+  "oracle": 0.7038888917993585
+ },
+ {
+  "key": "D_00455466",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9881041495314159,
+  "consistency": 0.9881041495314159,
+  "oracle": 0.9881041495314159
+ },
+ {
+  "key": "D_00455717",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8952115552181346,
+  "consistency": 0.8952115552181346,
+  "oracle": 0.9224800721923035
+ },
+ {
+  "key": "D_00455945",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.07443879483955092,
+  "consistency": 0.07443879483955092,
+  "oracle": 0.3482885431082844
+ },
+ {
+  "key": "D_00457606",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6947692903279405,
+  "consistency": 0.7364605347877176,
+  "oracle": 0.8986747710626505
+ },
+ {
+  "key": "D_00458495",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00458515",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00459949",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6873255905872816,
+  "consistency": 0.6873255905872816,
+  "oracle": 0.7524316160133638
+ },
+ {
+  "key": "D_00461584",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9645019129773428,
+  "consistency": 0.9645019129773428,
+  "oracle": 0.98898650545569
+ },
+ {
+  "key": "D_00462007",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9007457735046341,
+  "consistency": 0.9024303047329841,
+  "oracle": 0.9984287890956044
+ },
+ {
+  "key": "D_00462057",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9185966628269203,
+  "consistency": 0.9185966628269203,
+  "oracle": 0.9565817306401485
+ },
+ {
+  "key": "D_00463780",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9084445611738846,
+  "consistency": 0.9084445611738846,
+  "oracle": 0.9588525245942239
+ },
+ {
+  "key": "D_00469189",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9193858190919428,
+  "consistency": 0.9193858190919428,
+  "oracle": 0.9952119979101841
+ },
+ {
+  "key": "D_00471202",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7325505734235807,
+  "consistency": 0.7325505734235807,
+  "oracle": 0.7403252555500267
+ },
+ {
+  "key": "D_00473257",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.08252010692267234,
+  "consistency": 0.08252010692267234,
+  "oracle": 0.5758866291567218
+ },
+ {
+  "key": "D_00474316",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.4046014119339005,
+  "consistency": 0.5787026457473287,
+  "oracle": 0.6011668447295176
+ },
+ {
+  "key": "D_00475163",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.3187590513974694,
+  "consistency": 0.20113916592672942,
+  "oracle": 0.4333307368783035
+ },
+ {
+  "key": "D_00477224",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8919673641518574,
+  "consistency": 0.8919673641518574,
+  "oracle": 0.9657884544723279
+ },
+ {
+  "key": "D_00480349",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9911653744938672,
+  "consistency": 0.9917781155885989,
+  "oracle": 0.9917781155885989
+ },
+ {
+  "key": "D_00480982",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.3946445180576941,
+  "consistency": 0.709754263974287,
+  "oracle": 0.7740225521199461
+ },
+ {
+  "key": "D_00482336",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5379695387542927,
+  "consistency": 0.5455234435578925,
+  "oracle": 0.5455234435578925
+ },
+ {
+  "key": "D_00484393",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.349809452087942,
+  "consistency": 0.349809452087942,
+  "oracle": 0.40033726074480697
+ },
+ {
+  "key": "D_00485016",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9357068282825083,
+  "consistency": 0.9357068282825083,
+  "oracle": 0.9991404219249852
+ },
+ {
+  "key": "D_00485237",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00485316",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 0.926859375,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00486632",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.38435097069558966,
+  "consistency": 0.0720381934177118,
+  "oracle": 0.38435097069558966
+ },
+ {
+  "key": "D_00487035",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.44969184729732037,
+  "consistency": 0.4577004010043415,
+  "oracle": 0.5113249718751862
+ },
+ {
+  "key": "D_00489733",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.1553212647357748,
+  "consistency": 0.9658655176130361,
+  "oracle": 0.9658655176130361
+ },
+ {
+  "key": "D_00492492",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9886376411318597,
+  "consistency": 0.9886376411318597,
+  "oracle": 0.9886376411318597
+ },
+ {
+  "key": "D_00493675",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9724046784928747,
+  "consistency": 0.9724046784928747,
+  "oracle": 0.97265344117548
+ },
+ {
+  "key": "D_00496177",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7591814324563637,
+  "consistency": 0.7591814324563637,
+  "oracle": 0.7591814324563637
+ },
+ {
+  "key": "D_00496188",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00496269",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4474244851412576,
+  "consistency": 0.4474244851412576,
+  "oracle": 0.4705111319710187
+ },
+ {
+  "key": "D_00496632",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.11475409836065574,
+  "consistency": 0.8333333333333334,
+  "oracle": 0.8333333333333334
+ },
+ {
+  "key": "D_00499940",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7826729958691816,
+  "consistency": 0.7826729958691816,
+  "oracle": 0.7826729958691816
+ },
+ {
+  "key": "D_00501672",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9712438626444235,
+  "consistency": 0.9712438626444235,
+  "oracle": 0.9712438626444235
+ },
+ {
+  "key": "D_00502189",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8226927282027842,
+  "consistency": 0.8393605703727671,
+  "oracle": 0.8770044008545187
+ },
+ {
+  "key": "D_00504609",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.0627808941762807,
+  "consistency": 0.4694898216148387,
+  "oracle": 0.5718756032521388
+ },
+ {
+  "key": "D_00506128",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9855958991900795,
+  "consistency": 0.9855958991900795,
+  "oracle": 0.9931928520147923
+ },
+ {
+  "key": "D_00507086",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9587317502770383,
+  "consistency": 0.9587317502770383,
+  "oracle": 0.9587317502770383
+ },
+ {
+  "key": "D_00507154",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8461538461538461,
+  "consistency": 0.9166666666666666,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00511032",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.871885006160666,
+  "consistency": 0.871885006160666,
+  "oracle": 0.9368963459637479
+ },
+ {
+  "key": "D_00512053",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7467945860173388,
+  "consistency": 0.8719589831555928,
+  "oracle": 0.8782688547567469
+ },
+ {
+  "key": "D_00512489",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.970858156641783,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00512565",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9016000775903683,
+  "consistency": 0.9598231363970934,
+  "oracle": 0.9598231363970934
+ },
+ {
+  "key": "D_00512642",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8295560013960995,
+  "consistency": 0.8756960005445719,
+  "oracle": 0.9232177770682
+ },
+ {
+  "key": "D_00512752",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00514520",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.0391524509763023,
+  "consistency": 0.04195641853272834,
+  "oracle": 0.07326638122418805
+ },
+ {
+  "key": "D_00517807",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6283634866505878,
+  "consistency": 0.6182876615323265,
+  "oracle": 0.8743323549733261
+ },
+ {
+  "key": "D_00519082",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.44812806158868723,
+  "consistency": 0.20935811938429993,
+  "oracle": 0.5604028871042682
+ },
+ {
+  "key": "D_00519528",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.06814034240786562,
+  "consistency": 0.06814034240786562,
+  "oracle": 0.2165322926557035
+ },
+ {
+  "key": "D_00520087",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00525857",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6692236657743817,
+  "consistency": 0.6735489078797239,
+  "oracle": 0.7344122507575381
+ },
+ {
+  "key": "D_00528941",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8744460856720827,
+  "consistency": 0.8744460856720827,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00530759",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00531260",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.4216819552813353,
+  "consistency": 0.6994069815852064,
+  "oracle": 0.8608691127639675
+ },
+ {
+  "key": "D_00531762",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8605483602700867,
+  "consistency": 0.8628823085032996,
+  "oracle": 0.9101235390561242
+ },
+ {
+  "key": "D_00532944",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8336812241247881,
+  "consistency": 0.8336812241247881,
+  "oracle": 0.9626699762193507
+ },
+ {
+  "key": "D_00534637",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7407144747105502,
+  "consistency": 0.8096768141455496,
+  "oracle": 0.9500338931492692
+ },
+ {
+  "key": "D_00540535",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.8482966575340841,
+  "consistency": 0.8482966575340841,
+  "oracle": 0.8482966575340841
+ },
+ {
+  "key": "D_00541174",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.4742617950257825,
+  "consistency": 0.6749145908627285,
+  "oracle": 0.6749145908627285
+ },
+ {
+  "key": "D_00545266",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9617942479133398,
+  "consistency": 0.9632652542108652,
+  "oracle": 0.9720673917315916
+ },
+ {
+  "key": "D_00546277",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8875304088612116,
+  "consistency": 0.8875304088612116,
+  "oracle": 0.9977948711180328
+ },
+ {
+  "key": "D_00546875",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9996046758011882,
+  "consistency": 0.999927284049929,
+  "oracle": 0.999927284049929
+ },
+ {
+  "key": "D_00546936",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9939208729120544,
+  "consistency": 0.9939208729120544,
+  "oracle": 0.9939208729120544
+ },
+ {
+  "key": "D_00550673",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8001841671369776,
+  "consistency": 0.8279782467220088,
+  "oracle": 0.8793671053658473
+ },
+ {
+  "key": "D_00551572",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8481173072112774,
+  "consistency": 0.8481173072112774,
+  "oracle": 0.8481173072112774
+ },
+ {
+  "key": "D_00552291",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8821458278070846,
+  "consistency": 0.8821458278070846,
+  "oracle": 0.9972658850699124
+ },
+ {
+  "key": "D_00554037",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.0643377988176857,
+  "consistency": 0.0643377988176857,
+  "oracle": 0.15665068277867805
+ },
+ {
+  "key": "D_00554585",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7756658285810312,
+  "consistency": 0.7756658285810312,
+  "oracle": 0.7756658285810312
+ },
+ {
+  "key": "D_00557467",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7954589232673401,
+  "consistency": 0.7954589232673401,
+  "oracle": 0.9998637348408057
+ },
+ {
+  "key": "D_00558161",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.2689761246547039,
+  "consistency": 0.2689761246547039,
+  "oracle": 0.7039669157611266
+ },
+ {
+  "key": "D_00558897",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6028853512321661,
+  "consistency": 0.5221557919508534,
+  "oracle": 0.707106711347401
+ },
+ {
+  "key": "D_00563843",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.31087208689233364,
+  "consistency": 0.29722389189429865,
+  "oracle": 0.37106867536655413
+ },
+ {
+  "key": "D_00570960",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8988907741001246,
+  "consistency": 0.9985580419617875,
+  "oracle": 0.9985580419617875
+ },
+ {
+  "key": "D_00572441",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 3,
+  "first_exec": 0.01574072827763584,
+  "consistency": 0.13517155205967313,
+  "oracle": 0.28051937586830755
+ },
+ {
+  "key": "D_00572815",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9987555377956047,
+  "consistency": 0.9987555377956047,
+  "oracle": 0.9987555377956047
+ },
+ {
+  "key": "D_00574174",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7940787136117284,
+  "consistency": 0.7940787136117284,
+  "oracle": 0.9073081683813595
+ },
+ {
+  "key": "D_00575740",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9981299315214012,
+  "consistency": 0.9981299315214012,
+  "oracle": 0.9981299315214012
+ },
+ {
+  "key": "D_00577427",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00579598",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.1556250923238479,
+  "consistency": 0.1556250923238479,
+  "oracle": 0.2903778674993798
+ },
+ {
+  "key": "D_00579845",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7567709771420645,
+  "consistency": 0.7453492637741076,
+  "oracle": 0.7567709771420645
+ },
+ {
+  "key": "D_00580034",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7437980395610125,
+  "consistency": 0.9154400673662626,
+  "oracle": 0.9154400673662626
+ },
+ {
+  "key": "D_00581183",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.7968515025077326,
+  "consistency": 0.7968515025077326,
+  "oracle": 0.7968515025077326
+ },
+ {
+  "key": "D_00584764",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9703163980037068,
+  "consistency": 0.9703163980037068,
+  "oracle": 0.9709682594522105
+ },
+ {
+  "key": "D_00585195",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9744749326348501,
+  "consistency": 0.9262144070276694,
+  "oracle": 0.9744749326348501
+ },
+ {
+  "key": "D_00585893",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8393605703727671,
+  "consistency": 0.7672879032200978,
+  "oracle": 0.8393605703727671
+ },
+ {
+  "key": "D_00588976",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.46152198835302655,
+  "consistency": 0.7370720963563738,
+  "oracle": 0.7574080729227829
+ },
+ {
+  "key": "D_00590009",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8507456319942159,
+  "consistency": 0.8481201622708873,
+  "oracle": 0.8507456319942159
+ },
+ {
+  "key": "D_00592225",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.4670950051078015,
+  "consistency": 0.4703068592057762,
+  "oracle": 0.531627696230809
+ },
+ {
+  "key": "D_00596095",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00596203",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.0807422348241994,
+  "consistency": 0.10721154872855587,
+  "oracle": 0.18229726790948042
+ },
+ {
+  "key": "D_00596504",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9973302035680938,
+  "consistency": 0.9973302035680938,
+  "oracle": 0.9973302035680938
+ },
+ {
+  "key": "D_00598160",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00600571",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 3,
+  "first_exec": 0.24936366019215842,
+  "consistency": 0.7459133234382501,
+  "oracle": 0.7459133234382501
+ },
+ {
+  "key": "D_00601190",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8486039346147243,
+  "consistency": 0.9403714723084426,
+  "oracle": 0.9403714723084426
+ },
+ {
+  "key": "D_00601204",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5473460195042597,
+  "consistency": 0.6370579684250627,
+  "oracle": 0.6370579684250627
+ },
+ {
+  "key": "D_00602705",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9894537534169179,
+  "consistency": 0.9894537534169179,
+  "oracle": 0.9981861090625164
+ },
+ {
+  "key": "D_00606021",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9996213400995494,
+  "consistency": 0.9996213400995494,
+  "oracle": 0.9996213400995494
+ },
+ {
+  "key": "D_00606126",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7305931835480461,
+  "consistency": 0.7419038103570536,
+  "oracle": 0.7600859155479998
+ },
+ {
+  "key": "D_00607115",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8762934652420961,
+  "consistency": 0.9114496930300947,
+  "oracle": 0.997387153635243
+ },
+ {
+  "key": "D_00607354",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9985843460703865,
+  "consistency": 0.9985843460703865,
+  "oracle": 0.9985843460703865
+ },
+ {
+  "key": "D_00608286",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00608664",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.3898305084745763,
+  "consistency": 0.3898305084745763,
+  "oracle": 0.7406749555950266
+ },
+ {
+  "key": "D_00608823",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9958947148026361,
+  "consistency": 0.9958947148026361,
+  "oracle": 0.9983894067979174
+ },
+ {
+  "key": "D_00608839",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.09559871097164546,
+  "consistency": 0.09396412478421372,
+  "oracle": 0.335848954987067
+ },
+ {
+  "key": "D_00610262",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.32480631621782835,
+  "consistency": 0.32480631621782835,
+  "oracle": 0.32480631621782835
+ },
+ {
+  "key": "D_00613731",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.809576674601501,
+  "consistency": 0.7129150115987223,
+  "oracle": 0.809576674601501
+ },
+ {
+  "key": "D_00613926",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9397483201157926,
+  "consistency": 0.9397483201157926,
+  "oracle": 0.9397483201157926
+ },
+ {
+  "key": "D_00622280",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.22805030715212204,
+  "consistency": 0.22805030715212204,
+  "oracle": 0.32823096794613216
+ },
+ {
+  "key": "D_00623413",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9612708358290677,
+  "consistency": 0.9612708358290677,
+  "oracle": 0.9612708358290677
+ },
+ {
+  "key": "D_00623896",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.512798810396936,
+  "consistency": 0.5295554025793842,
+  "oracle": 0.5295554025793842
+ },
+ {
+  "key": "D_00624689",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9997022609384303,
+  "consistency": 0.9997022609384303,
+  "oracle": 0.9997022609384303
+ },
+ {
+  "key": "D_00626987",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9559120788811645,
+  "consistency": 0.9559120788811645,
+  "oracle": 0.9785191597940927
+ },
+ {
+  "key": "D_00627278",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.4630841936937736,
+  "consistency": 0.4630841936937736,
+  "oracle": 0.9726921882093154
+ },
+ {
+  "key": "D_00629307",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5538147780925397,
+  "consistency": 0.5809237249411306,
+  "oracle": 0.6947231536696992
+ },
+ {
+  "key": "D_00629439",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.31645109440025093,
+  "consistency": 0.34220517086249114,
+  "oracle": 0.45031712336119617
+ },
+ {
+  "key": "D_00632008",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6050239700947467,
+  "consistency": 0.641924306348284,
+  "oracle": 0.8333805259085003
+ },
+ {
+  "key": "D_00632016",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.22653404071718503,
+  "consistency": 0.20868280193064176,
+  "oracle": 0.39138531424483713
+ },
+ {
+  "key": "D_00632245",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.4612216872302754,
+  "consistency": 0.8390969796998101,
+  "oracle": 0.8390969796998101
+ },
+ {
+  "key": "D_00632283",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9758144988036049,
+  "consistency": 0.9758144988036049,
+  "oracle": 0.9924903809358142
+ },
+ {
+  "key": "D_00633394",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9991518180841291,
+  "consistency": 0.9991518180841291,
+  "oracle": 0.9991518180841291
+ },
+ {
+  "key": "D_00635011",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.036197428797411356,
+  "consistency": 0.04289667598867812,
+  "oracle": 0.197932196550082
+ },
+ {
+  "key": "D_00636442",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8845631512203396,
+  "consistency": 0.8845631512203396,
+  "oracle": 0.9105943280154546
+ },
+ {
+  "key": "D_00637615",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.2687224669603524,
+  "consistency": 0.3287671232876712,
+  "oracle": 0.4224652018104897
+ },
+ {
+  "key": "D_00637920",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.3813855372334639,
+  "consistency": 0.3813855372334639,
+  "oracle": 0.5546494037228181
+ },
+ {
+  "key": "D_00638475",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.9060805464888522,
+  "consistency": 0.764700358429335,
+  "oracle": 0.9060805464888522
+ },
+ {
+  "key": "D_00639019",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7881178327291526,
+  "consistency": 0.7721553201599952,
+  "oracle": 0.7909248444167936
+ },
+ {
+  "key": "D_00639361",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6585802950656853,
+  "consistency": 0.5727898397296904,
+  "oracle": 0.6585802950656853
+ },
+ {
+  "key": "D_00639828",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9025,
+  "consistency": 0.9025,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00640907",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.43956899392106574,
+  "consistency": 0.6746711943412209,
+  "oracle": 0.6746711943412209
+ },
+ {
+  "key": "D_00643236",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8784999593899332,
+  "consistency": 0.8784999593899332,
+  "oracle": 0.9982190228176668
+ },
+ {
+  "key": "D_00643682",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8533992045059757,
+  "consistency": 0.8770981087232963,
+  "oracle": 0.8804386538064195
+ },
+ {
+  "key": "D_00651364",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9890081322056361,
+  "consistency": 0.9890081322056361,
+  "oracle": 0.9890081322056361
+ },
+ {
+  "key": "D_00653184",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.993864485729526,
+  "consistency": 0.993864485729526,
+  "oracle": 0.993864485729526
+ },
+ {
+  "key": "D_00653476",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8226927282027842,
+  "consistency": 0.8393605703727671,
+  "oracle": 0.893726677947609
+ },
+ {
+  "key": "D_00654127",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9118112400486528,
+  "consistency": 0.9118112400486528,
+  "oracle": 0.9118112400486528
+ },
+ {
+  "key": "D_00654292",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.16926833503614303,
+  "consistency": 0.40164616695908273,
+  "oracle": 0.4300683102442662
+ },
+ {
+  "key": "D_00654347",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7902862965473159,
+  "consistency": 0.7892404128241207,
+  "oracle": 0.8418192046115887
+ },
+ {
+  "key": "D_00654924",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8916126671336744,
+  "consistency": 0.9993283888032795,
+  "oracle": 0.9993283888032795
+ },
+ {
+  "key": "D_00656012",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8027916383412448,
+  "consistency": 0.8027916383412448,
+  "oracle": 0.9258959572056404
+ },
+ {
+  "key": "D_00656207",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.650628604805933,
+  "consistency": 0.7495483084884595,
+  "oracle": 0.7495483084884595
+ },
+ {
+  "key": "D_00656856",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9053486657726366,
+  "consistency": 0.9741145166700405,
+  "oracle": 0.9982961895572537
+ },
+ {
+  "key": "D_00656936",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8402784118230743,
+  "consistency": 0.8390297543892097,
+  "oracle": 0.9729600449911195
+ },
+ {
+  "key": "D_00657124",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8612739874929829,
+  "consistency": 0.9996878181300912,
+  "oracle": 0.9996878181300912
+ },
+ {
+  "key": "D_00657553",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9985819125433891,
+  "consistency": 0.9985819125433891,
+  "oracle": 0.9985819125433891
+ },
+ {
+  "key": "D_00658043",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9987508888052953,
+  "consistency": 0.9739699279350673,
+  "oracle": 0.9987508888052953
+ },
+ {
+  "key": "D_00658488",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5953728768064882,
+  "consistency": 0.6328224262601166,
+  "oracle": 0.8476912652699128
+ },
+ {
+  "key": "D_00660231",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8416081519656329,
+  "consistency": 0.8424008628984889,
+  "oracle": 0.8424008628984889
+ },
+ {
+  "key": "D_00662413",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8226927282027842,
+  "consistency": 0.7644840501035536,
+  "oracle": 0.8393605703727671
+ },
+ {
+  "key": "D_00663201",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5867593081386532,
+  "consistency": 0.7645919869421305,
+  "oracle": 0.7645919869421305
+ },
+ {
+  "key": "D_00674720",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00675128",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9743465331172472,
+  "consistency": 0.9986921747415508,
+  "oracle": 0.999457037406492
+ },
+ {
+  "key": "D_00675482",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.2844660191883426,
+  "consistency": 0.2989970005294955,
+  "oracle": 0.9053352771583275
+ },
+ {
+  "key": "D_00675865",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6929998857376877,
+  "consistency": 0.6956636649240835,
+  "oracle": 0.7879886778722224
+ },
+ {
+  "key": "D_00679789",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.989643393049664,
+  "consistency": 0.989643393049664,
+  "oracle": 0.989643393049664
+ },
+ {
+  "key": "D_00680514",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.9626920591373705,
+  "consistency": 0.9626920591373705,
+  "oracle": 0.9626920591373705
+ },
+ {
+  "key": "D_00681891",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.44605895897986536,
+  "consistency": 0.4210940664384466,
+  "oracle": 0.532941484002822
+ },
+ {
+  "key": "D_00685586",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.999047607714126,
+  "consistency": 0.9990476052318031,
+  "oracle": 0.999047607714126
+ },
+ {
+  "key": "D_00685637",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00685825",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9983791242374283,
+  "consistency": 0.9983791242374283,
+  "oracle": 0.9983791242374283
+ },
+ {
+  "key": "D_00686966",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9718077291352674,
+  "consistency": 0.9964478572930856,
+  "oracle": 0.9964478572930856
+ },
+ {
+  "key": "D_00689124",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00690703",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9007457735046341,
+  "consistency": 0.9986240914410812,
+  "oracle": 0.9986240914410812
+ },
+ {
+  "key": "D_00691050",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.33517281046459957,
+  "consistency": 0.7462849571869353,
+  "oracle": 0.7462849571869353
+ },
+ {
+  "key": "D_00693325",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.975,
+  "consistency": 0.975,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00695235",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.040759620729595665,
+  "consistency": 0.039784379313399704,
+  "oracle": 0.17939831688578045
+ },
+ {
+  "key": "D_00696948",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9913981630776869,
+  "consistency": 0.9913981630776869,
+  "oracle": 0.9916661636222102
+ },
+ {
+  "key": "D_00698561",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00703251",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8901512633289287,
+  "consistency": 0.8902055811579068,
+  "oracle": 0.9498457285467495
+ },
+ {
+  "key": "D_00703268",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.994385638600697,
+  "consistency": 0.8563648537530969,
+  "oracle": 0.994385638600697
+ },
+ {
+  "key": "D_00703492",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.43223061298319115,
+  "consistency": 0.6192390439501531,
+  "oracle": 0.6208982661072732
+ },
+ {
+  "key": "D_00705249",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6237328400423475,
+  "consistency": 0.6237328400423475,
+  "oracle": 0.6237328400423475
+ },
+ {
+  "key": "D_00708697",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.992183008245209,
+  "consistency": 0.992183008245209,
+  "oracle": 0.992183008245209
+ },
+ {
+  "key": "D_00709448",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8258730192698694,
+  "consistency": 0.7988218983260241,
+  "oracle": 0.883411083030399
+ },
+ {
+  "key": "D_00710628",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00714737",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8100403789682094,
+  "consistency": 0.7634629757904684,
+  "oracle": 0.8100623975236467
+ },
+ {
+  "key": "D_00715598",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9281417090732333,
+  "consistency": 0.8476758968097206,
+  "oracle": 0.9379663980965085
+ },
+ {
+  "key": "D_00715911",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8827377176781404,
+  "consistency": 0.987189754289194,
+  "oracle": 0.987189754289194
+ },
+ {
+  "key": "D_00717101",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9982499075725763,
+  "consistency": 0.9982499075725763,
+  "oracle": 0.9982499075725763
+ },
+ {
+  "key": "D_00717830",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5262069214534214,
+  "consistency": 0.5262069214534214,
+  "oracle": 0.8234500543064184
+ },
+ {
+  "key": "D_00718979",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9404595475719971,
+  "consistency": 0.9404595475719971,
+  "oracle": 0.9404595475719971
+ },
+ {
+  "key": "D_00719587",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8334671723506266,
+  "consistency": 0.8334671723506266,
+  "oracle": 0.9576006001496667
+ },
+ {
+  "key": "D_00727821",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.830234936582985,
+  "consistency": 0.895554692009672,
+  "oracle": 0.9600044756220532
+ },
+ {
+  "key": "D_00728619",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9998842759480483,
+  "consistency": 0.9998842759480483,
+  "oracle": 0.9998842759480483
+ },
+ {
+  "key": "D_00729266",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8226927282027842,
+  "consistency": 0.7663259143438803,
+  "oracle": 0.8393605703727671
+ },
+ {
+  "key": "D_00741340",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.902533049660285,
+  "consistency": 0.7934827466096462,
+  "oracle": 0.902533049660285
+ },
+ {
+  "key": "D_00747304",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.19000633538912232,
+  "consistency": 0.19208879046805397,
+  "oracle": 0.24255572010486695
+ },
+ {
+  "key": "D_00748645",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.24766970325940313,
+  "consistency": 0.35315741153754365,
+  "oracle": 0.7215223936746349
+ },
+ {
+  "key": "D_00749113",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9993755813691505,
+  "consistency": 0.9993755813691505,
+  "oracle": 0.9993755813691505
+ },
+ {
+  "key": "D_00749974",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.43961655091460433,
+  "consistency": 0.44958952306489447,
+  "oracle": 0.44958952306489447
+ },
+ {
+  "key": "D_00754065",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6988078697068193,
+  "consistency": 0.6988078697068193,
+  "oracle": 0.7995652862886217
+ },
+ {
+  "key": "D_00755385",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7486338797814208,
+  "consistency": 0.7486338797814208,
+  "oracle": 0.7857142857142857
+ },
+ {
+  "key": "D_00756587",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00757008",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7395743255613731,
+  "consistency": 0.7403252555500267,
+  "oracle": 0.8625804989183627
+ },
+ {
+  "key": "D_00757867",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.9272793048765441,
+  "consistency": 0.9272793048765441,
+  "oracle": 0.9343549659052317
+ },
+ {
+  "key": "D_00758026",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6018983034355064,
+  "consistency": 0.6018983034355064,
+  "oracle": 0.6468874682402054
+ },
+ {
+  "key": "D_00758518",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7436577317359354,
+  "consistency": 0.8643480918208044,
+  "oracle": 0.8643480918208044
+ },
+ {
+  "key": "D_00759111",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8226927282027842,
+  "consistency": 0.7632752333216857,
+  "oracle": 0.8335210828144307
+ },
+ {
+  "key": "D_00761416",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9698657141230274,
+  "consistency": 0.9698657141230274,
+  "oracle": 0.9988312455772377
+ },
+ {
+  "key": "D_00762907",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8499283965662972,
+  "consistency": 0.9022697438102358,
+  "oracle": 0.9022697438102358
+ },
+ {
+  "key": "D_00764637",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7792490982191923,
+  "consistency": 0.7792490982191923,
+  "oracle": 0.7797951824412258
+ },
+ {
+  "key": "D_00765581",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9953573818348939,
+  "consistency": 0.9953573818348939,
+  "oracle": 0.9953573818348939
+ },
+ {
+  "key": "D_00768323",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9863935129279393,
+  "consistency": 0.9863935129279393,
+  "oracle": 0.993891428190306
+ },
+ {
+  "key": "D_00769288",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7777771355189934,
+  "consistency": 0.8658089325529955,
+  "oracle": 0.8658089325529955
+ },
+ {
+  "key": "D_00771174",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8341007228921378,
+  "consistency": 0.8341007228921378,
+  "oracle": 0.8341007228921378
+ },
+ {
+  "key": "D_00773371",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8072103987166488,
+  "consistency": 0.8072103987166488,
+  "oracle": 0.9982994299469471
+ },
+ {
+  "key": "D_00775449",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9882498883731661,
+  "consistency": 0.9882498883731661,
+  "oracle": 0.9982322489421257
+ },
+ {
+  "key": "D_00778353",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6061805655516481,
+  "consistency": 0.803600115794549,
+  "oracle": 0.9989946429707671
+ },
+ {
+  "key": "D_00781340",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9925617680801374,
+  "consistency": 0.9925617680801374,
+  "oracle": 0.9925617680801374
+ },
+ {
+  "key": "D_00783538",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.48151640799023226,
+  "consistency": 0.5988540655793063,
+  "oracle": 0.7626383479188061
+ },
+ {
+  "key": "D_00785817",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8588307442607728,
+  "consistency": 0.8588307442607728,
+  "oracle": 0.8702448221948534
+ },
+ {
+  "key": "D_00788287",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6546786749585564,
+  "consistency": 0.6551163926072658,
+  "oracle": 0.7148801183776223
+ },
+ {
+  "key": "D_00789488",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.44537622618788764,
+  "consistency": 0.44537622618788764,
+  "oracle": 0.6875318009291375
+ },
+ {
+  "key": "D_00791340",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9536443842694778,
+  "consistency": 0.9635334576682845,
+  "oracle": 0.9988401048668317
+ },
+ {
+  "key": "D_00793535",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8905513547058241,
+  "consistency": 0.917396251919449,
+  "oracle": 0.926730135878111
+ },
+ {
+  "key": "D_00793979",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5356023241955312,
+  "consistency": 0.6005748371680856,
+  "oracle": 0.8684509317457597
+ },
+ {
+  "key": "D_00794076",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.3628491150821982,
+  "consistency": 0.30483503763790337,
+  "oracle": 0.3628491150821982
+ },
+ {
+  "key": "D_00794198",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.4566570762500492,
+  "consistency": 0.43902601825374993,
+  "oracle": 0.4566570762500492
+ },
+ {
+  "key": "D_00794686",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9618733142976349,
+  "consistency": 0.9618733142976349,
+  "oracle": 0.9696410210562757
+ },
+ {
+  "key": "D_00800949",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00803456",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9800361900891688,
+  "consistency": 0.9800361900891688,
+  "oracle": 0.9983772207891339
+ },
+ {
+  "key": "D_00804620",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.632882742620844,
+  "consistency": 0.658591136937247,
+  "oracle": 0.8254895362688414
+ },
+ {
+  "key": "D_00805845",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7742504679066413,
+  "consistency": 0.8385815726093708,
+  "oracle": 0.8385815726093708
+ },
+ {
+  "key": "D_00806261",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.886170354358649,
+  "consistency": 0.8831498222619012,
+  "oracle": 0.931423854951824
+ },
+ {
+  "key": "D_00807956",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.7629304383829586,
+  "consistency": 0.8608839580671275,
+  "oracle": 0.86503291966619
+ },
+ {
+  "key": "D_00809056",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6962940403061924,
+  "consistency": 0.9449704832726895,
+  "oracle": 0.9999410853731857
+ },
+ {
+  "key": "D_00810610",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7576705782874783,
+  "consistency": 0.8336805453277336,
+  "oracle": 0.8336805453277336
+ },
+ {
+  "key": "D_00811644",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9953573818348939,
+  "consistency": 0.9953573818348939,
+  "oracle": 0.9953573818348939
+ },
+ {
+  "key": "D_00811874",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.5297487685598365,
+  "consistency": 0.5215624421342694,
+  "oracle": 0.5832843117381055
+ },
+ {
+  "key": "D_00812795",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8756277061929225,
+  "consistency": 0.9108675709140865,
+  "oracle": 0.9128321773768604
+ },
+ {
+  "key": "D_00815780",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.21444351597617717,
+  "consistency": 0.45289634388951666,
+  "oracle": 0.45289634388951666
+ },
+ {
+  "key": "D_00816460",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5726795432162736,
+  "consistency": 0.573618725720198,
+  "oracle": 0.6734726669147737
+ },
+ {
+  "key": "D_00816768",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.3331953439466797,
+  "consistency": 0.3331953439466797,
+  "oracle": 0.440853111371815
+ },
+ {
+  "key": "D_00821799",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8240262140139278,
+  "consistency": 0.8556860741195701,
+  "oracle": 0.9284633102444809
+ },
+ {
+  "key": "D_00822068",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.7035485177515833,
+  "consistency": 0.7035485177515833,
+  "oracle": 0.7035485177515833
+ },
+ {
+  "key": "D_00824051",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.27969038292795456,
+  "consistency": 0.26436441948107814,
+  "oracle": 0.42971357394989784
+ },
+ {
+  "key": "D_00826373",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9980039844045653,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00826462",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 3,
+  "first_exec": 0.46838138687715053,
+  "consistency": 0.18316006666137608,
+  "oracle": 0.46838138687715053
+ },
+ {
+  "key": "D_00826876",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00830942",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8765285617907632,
+  "consistency": 0.8765285617907632,
+  "oracle": 0.8765285617907632
+ },
+ {
+  "key": "D_00831430",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.31688243171721414,
+  "consistency": 0.26263041277923815,
+  "oracle": 0.31792901448141775
+ },
+ {
+  "key": "D_00833396",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9603534291125483,
+  "consistency": 0.9603534291125483,
+  "oracle": 0.9886614174194828
+ },
+ {
+  "key": "D_00835531",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.10858886555238821,
+  "consistency": 0.10858886555238821,
+  "oracle": 0.3201620979537152
+ },
+ {
+  "key": "D_00835596",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7873395638524494,
+  "consistency": 0.7392986666009476,
+  "oracle": 0.8669557517784998
+ },
+ {
+  "key": "D_00835950",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9940398286220166,
+  "consistency": 0.9940398286220166,
+  "oracle": 0.9940398286220166
+ },
+ {
+  "key": "D_00839722",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.4632545100727488,
+  "consistency": 0.47206968378411085,
+  "oracle": 0.8104065930699007
+ },
+ {
+  "key": "D_00841272",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.11146472978840549,
+  "consistency": 0.11146472978840549,
+  "oracle": 0.12259755546397393
+ },
+ {
+  "key": "D_00842118",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.773741564562239,
+  "consistency": 0.773741564562239,
+  "oracle": 0.8494657863248644
+ },
+ {
+  "key": "D_00845066",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9955792493034006,
+  "consistency": 0.9955792493034006,
+  "oracle": 0.9955792493034006
+ },
+ {
+  "key": "D_00851232",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.5865737480269348,
+  "consistency": 0.8899931136625436,
+  "oracle": 0.8899931136625436
+ },
+ {
+  "key": "D_00851900",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.23599926372670785,
+  "consistency": 0.4021012902700702,
+  "oracle": 0.42601014759518857
+ },
+ {
+  "key": "D_00854417",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9851141916611086,
+  "consistency": 0.9851141916611086,
+  "oracle": 0.9851141916611086
+ },
+ {
+  "key": "D_00856283",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00859240",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6149146665144353,
+  "consistency": 0.7505221342189545,
+  "oracle": 0.7505221342189545
+ },
+ {
+  "key": "D_00860750",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9563063427080948,
+  "consistency": 0.9563063427080948,
+  "oracle": 0.9563063427080948
+ },
+ {
+  "key": "D_00862072",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9877604263453853,
+  "consistency": 0.951041704848872,
+  "oracle": 0.9877604263453853
+ },
+ {
+  "key": "D_00863801",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9939547367024889,
+  "consistency": 0.9939547367024889,
+  "oracle": 0.9939547367024889
+ },
+ {
+  "key": "D_00865544",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9503400010969387,
+  "consistency": 0.987031630548478,
+  "oracle": 0.9992621735215654
+ },
+ {
+  "key": "D_00867129",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8765129857053491,
+  "consistency": 0.8765129857053491,
+  "oracle": 0.9915003000698793
+ },
+ {
+  "key": "D_00870540",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.8697278833746998,
+  "consistency": 0.8469668348285296,
+  "oracle": 0.8697278833746998
+ },
+ {
+  "key": "D_00870898",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7665342975498374,
+  "consistency": 0.7665342975498374,
+  "oracle": 0.857127035699306
+ },
+ {
+  "key": "D_00872184",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9972054760504068,
+  "consistency": 0.9972054760504068,
+  "oracle": 0.9999627035838796
+ },
+ {
+  "key": "D_00874397",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8322006816705717,
+  "consistency": 0.8322006816705717,
+  "oracle": 0.9213176448068674
+ },
+ {
+  "key": "D_00874527",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8848143834382785,
+  "consistency": 0.8848143834382785,
+  "oracle": 0.8848143834382785
+ },
+ {
+  "key": "D_00874542",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9474133355755273,
+  "consistency": 0.9502005202694916,
+  "oracle": 0.9502005202694916
+ },
+ {
+  "key": "D_00874602",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6521912168090701,
+  "consistency": 0.8465796744059605,
+  "oracle": 0.9100204531693618
+ },
+ {
+  "key": "D_00882528",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 3,
+  "first_exec": 0.09614573640871477,
+  "consistency": 0.5222566731444205,
+  "oracle": 0.5332456760813415
+ },
+ {
+  "key": "D_00883750",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9999998509884069,
+  "consistency": 0.9999998509884069,
+  "oracle": 0.9999998509884069
+ },
+ {
+  "key": "D_00886686",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.6172477028606039,
+  "consistency": 0.4984295794089607,
+  "oracle": 0.6172477028606039
+ },
+ {
+  "key": "D_00888581",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9999895669729955,
+  "consistency": 0.9999895669729955,
+  "oracle": 0.9999895669729955
+ },
+ {
+  "key": "D_00889632",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00892191",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.16132572397184164,
+  "consistency": 0.16132572397184164,
+  "oracle": 0.31585699792317035
+ },
+ {
+  "key": "D_00893382",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9279241037404059,
+  "consistency": 0.9279241037404059,
+  "oracle": 0.9279241037404059
+ },
+ {
+  "key": "D_00893698",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.7606426254219847,
+  "consistency": 0.7286393657108781,
+  "oracle": 0.7606426254219847
+ },
+ {
+  "key": "D_00893746",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.09458104887825673,
+  "consistency": 0.09186598200292788,
+  "oracle": 0.31165039108829484
+ },
+ {
+  "key": "D_00896961",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8272256451845116,
+  "consistency": 0.8272256451845116,
+  "oracle": 0.9462617640678381
+ },
+ {
+  "key": "D_00897190",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6506287601131127,
+  "consistency": 0.6982818306266388,
+  "oracle": 0.7469857326764533
+ },
+ {
+  "key": "D_00897229",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.6366043698287198,
+  "consistency": 0.7493219127291654,
+  "oracle": 0.7493219127291654
+ },
+ {
+  "key": "D_00897818",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.742168687945815,
+  "consistency": 0.742168687945815,
+  "oracle": 0.742168687945815
+ },
+ {
+  "key": "D_00900244",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.08974853980587555,
+  "consistency": 0.1863959022447424,
+  "oracle": 0.19489694472213676
+ },
+ {
+  "key": "D_00904571",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.02651447692664429,
+  "consistency": 0.27330734534653767,
+  "oracle": 0.3048013557835425
+ },
+ {
+  "key": "D_00909103",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8375887715833226,
+  "consistency": 0.8375529205499049,
+  "oracle": 0.8378989099704599
+ },
+ {
+  "key": "D_00910145",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8722792072673451,
+  "consistency": 0.8722792072673451,
+  "oracle": 0.966421577547537
+ },
+ {
+  "key": "D_00910936",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9399804083882008,
+  "consistency": 0.9399804083882008,
+  "oracle": 0.9399804083882008
+ },
+ {
+  "key": "D_00913050",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.64,
+  "consistency": 0.64,
+  "oracle": 0.64
+ },
+ {
+  "key": "D_00918221",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9185966628269203,
+  "consistency": 0.9185966628269203,
+  "oracle": 0.9565817306401485
+ },
+ {
+  "key": "D_00919132",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.896730031720319,
+  "consistency": 0.896730031720319,
+  "oracle": 0.896730031720319
+ },
+ {
+  "key": "D_00920318",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.0360936507460015,
+  "consistency": 0.05955142307136127,
+  "oracle": 0.05955142307136127
+ },
+ {
+  "key": "D_00920474",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9446756428601307,
+  "consistency": 0.9446756428601307,
+  "oracle": 0.9446756428601307
+ },
+ {
+  "key": "D_00922917",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.6462576594347914,
+  "consistency": 0.4902661769727018,
+  "oracle": 0.6462576594347914
+ },
+ {
+  "key": "D_00924691",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.5980978021518516,
+  "consistency": 0.5980978021518516,
+  "oracle": 0.7458263074779353
+ },
+ {
+  "key": "D_00924808",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.319499202449433,
+  "consistency": 0.364756186098056,
+  "oracle": 0.5177109231117302
+ },
+ {
+  "key": "D_00927333",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8226927282027842,
+  "consistency": 0.8226927282027842,
+  "oracle": 0.8674622940501764
+ },
+ {
+  "key": "D_00930147",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 3,
+  "first_exec": 0.8015511107291704,
+  "consistency": 0.8015511107291704,
+  "oracle": 0.8015511107291704
+ },
+ {
+  "key": "D_00932071",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9296270561783815,
+  "consistency": 0.9474330637116858,
+  "oracle": 0.9474330637116858
+ },
+ {
+  "key": "D_00932115",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.806646361380432,
+  "consistency": 0.806646361380432,
+  "oracle": 0.8606489070202631
+ },
+ {
+  "key": "D_00932694",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9046877535717445,
+  "consistency": 0.9376828036654961,
+  "oracle": 0.9376828036654961
+ },
+ {
+  "key": "D_00935248",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.747791953205938,
+  "consistency": 0.9621365729819243,
+  "oracle": 0.9621365729819243
+ },
+ {
+  "key": "D_00936677",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9950011541959956,
+  "consistency": 0.9950011541959956,
+  "oracle": 0.9950011541959956
+ },
+ {
+  "key": "D_00942231",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.48321624987540035,
+  "consistency": 0.6896673964822662,
+  "oracle": 0.7730699537752084
+ },
+ {
+  "key": "D_00942556",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.48782866935799535,
+  "consistency": 0.48782866935799535,
+  "oracle": 0.5211826935224679
+ },
+ {
+  "key": "D_00943254",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7744387015234876,
+  "consistency": 0.8309399085026316,
+  "oracle": 0.8309399085026316
+ },
+ {
+  "key": "D_00946783",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9040741940458819,
+  "consistency": 0.9040741940458819,
+  "oracle": 0.9040741940458819
+ },
+ {
+  "key": "D_00948131",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9157092513284173,
+  "consistency": 0.9012922106914408,
+  "oracle": 0.9157092513284173
+ },
+ {
+  "key": "D_00949325",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8226927282027842,
+  "consistency": 0.8226927282027842,
+  "oracle": 0.8867095760689142
+ },
+ {
+  "key": "D_00951543",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.959650283653828,
+  "consistency": 0.959650283653828,
+  "oracle": 0.9649483284794991
+ },
+ {
+  "key": "D_00953379",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 6,
+  "first_exec": 0.7429466653661961,
+  "consistency": 0.7429466653661961,
+  "oracle": 0.757060397657179
+ },
+ {
+  "key": "D_00954287",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.6467437352206062,
+  "consistency": 0.7978399071050479,
+  "oracle": 0.8972608710033294
+ },
+ {
+  "key": "D_00954849",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9157900053327405,
+  "consistency": 0.9157900053327405,
+  "oracle": 0.9157900053327405
+ },
+ {
+  "key": "D_00955640",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9585547550087671,
+  "consistency": 0.9585547550087671,
+  "oracle": 0.9585547550087671
+ },
+ {
+  "key": "D_00956493",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.8226927282027842,
+  "consistency": 0.7644840501035536,
+  "oracle": 0.8281868591614315
+ },
+ {
+  "key": "D_00958581",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.36931636957228653,
+  "consistency": 0.3665259366333661,
+  "oracle": 0.44077928900613245
+ },
+ {
+  "key": "D_00959163",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 5,
+  "first_exec": 0.9682749110091067,
+  "consistency": 0.9647960536119067,
+  "oracle": 0.9938325704561345
+ },
+ {
+  "key": "D_00967549",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.35438414388317985,
+  "consistency": 0.2703527649811346,
+  "oracle": 0.35438414388317985
+ },
+ {
+  "key": "D_00970956",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.45668589071481025,
+  "consistency": 0.395545891431494,
+  "oracle": 0.48514733029600954
+ },
+ {
+  "key": "D_00972573",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9511212192885024,
+  "consistency": 0.9997284248471736,
+  "oracle": 0.9997284248471736
+ },
+ {
+  "key": "D_00973683",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.7467945860173388,
+  "consistency": 0.7467945860173388,
+  "oracle": 0.8719589831555928
+ },
+ {
+  "key": "D_00982937",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.8863660298713254,
+  "consistency": 0.8863660298713254,
+  "oracle": 0.8863660298713254
+ },
+ {
+  "key": "D_00982982",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 4,
+  "first_exec": 0.012529841243331147,
+  "consistency": 0.1626160672569429,
+  "oracle": 0.1626160672569429
+ },
+ {
+  "key": "D_00984476",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.9377410215984004,
+  "consistency": 0.9377410215984004,
+  "oracle": 0.9993011217751108
+ },
+ {
+  "key": "D_00989491",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 1.0,
+  "consistency": 1.0,
+  "oracle": 1.0
+ },
+ {
+  "key": "D_00993184",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.014902631105166536,
+  "consistency": 0.022419008679422467,
+  "oracle": 0.16415720513195994
+ },
+ {
+  "key": "D_00995088",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 7,
+  "first_exec": 0.482882306839484,
+  "consistency": 0.4433693816316254,
+  "oracle": 0.5278290761161366
+ },
+ {
+  "key": "D_00995102",
+  "family": "?",
+  "under": null,
+  "faces": null,
+  "n_exec": 8,
+  "first_exec": 0.3909650385048248,
+  "consistency": 0.4007782566086656,
+  "oracle": 0.4007782566086656
+ }
+]
