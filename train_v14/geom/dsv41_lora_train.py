@@ -106,9 +106,22 @@ def main():
     ap.add_argument("--eval-n", type=int, default=48)
     ap.add_argument("--eval-max-new", type=int, default=3000)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--dist", action="store_true",
+                    help="one process per node (SLURM_PROCID/SLURM_NTASKS, MASTER_ADDR/PORT); each node holds a full "
+                         "pipeline-split replica, LoRA gradients are averaged across nodes over NCCL")
     args = ap.parse_args()
 
+    import socket
     import torch
+    rank, world, dist = 0, 1, None
+    if args.dist:
+        import torch.distributed as dist
+        rank = int(os.environ.get("SLURM_PROCID", os.environ.get("RANK", "0")))
+        world = int(os.environ.get("SLURM_NTASKS", os.environ.get("WORLD_SIZE", "1")))
+        os.environ.setdefault("RANK", str(rank)); os.environ.setdefault("WORLD_SIZE", str(world))
+        dist.init_process_group("nccl", rank=rank, world_size=world, device_id=torch.device("cuda:0"))
+        print(f"[train] rank {rank}/{world} on {socket.gethostname()} ({torch.cuda.device_count()} GPUs)", flush=True)
+    log = (lambda *a, **k: print(*a, **k)) if rank == 0 else (lambda *a, **k: None)
     from transformers import AutoModelForImageTextToText, AutoTokenizer
     from transformers.models.deepseek_v41.image_processing_deepseek_v41 import DeepseekV41ImageProcessor
     from transformers.models.deepseek_v41.processing_deepseek_v41 import DeepseekV41Processor
@@ -127,13 +140,14 @@ def main():
     model = get_peft_model(model, LoraConfig(r=args.rank, lora_alpha=2 * args.rank, lora_dropout=0.0,
                                               target_modules=names, bias="none"))
     params = [p for p in model.parameters() if p.requires_grad]
-    print(f"[train] {len(names)} LoRA targets, {sum(p.numel() for p in params)/1e6:.1f}M trainable", flush=True)
+    log(f"[train] {len(names)} LoRA targets, {sum(p.numel() for p in params)/1e6:.1f}M trainable", flush=True)
     opt = torch.optim.AdamW(params, lr=args.lr, weight_decay=0.0, betas=(0.9, 0.95))
     sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min(1.0, (s + 1) / 20) * max(0.1, 1 - s / max(1, args.steps)))
 
     rows = load_tier(args.tier, args.limit)
     random.Random(args.seed).shuffle(rows)
-    print(f"[train] {len(rows)} tier rows", flush=True)
+    rows = rows[rank::world]
+    log(f"[train] {len(rows) * world} tier rows ({len(rows)} per rank), {args.accum * world} samples per optimizer step", flush=True)
     model.train()
     t0 = time.time(); step = 0; i = 0; acc_loss = 0.0; n_acc = 0; skipped = 0
     dev = model.device
@@ -148,15 +162,28 @@ def main():
         (out.loss / args.accum).backward()
         acc_loss += out.loss.item(); n_acc += 1
         if n_acc % args.accum == 0:
+            if dist is not None:   # average the adapter gradients across replicas (one flat buffer, ~184 MB fp32)
+                flat = torch.cat([(p.grad if p.grad is not None else torch.zeros_like(p)).reshape(-1).float().to("cuda:0") for p in params])
+                dist.all_reduce(flat, op=dist.ReduceOp.AVG)
+                off = 0
+                for p in params:
+                    n = p.numel()
+                    if p.grad is None:
+                        p.grad = torch.zeros_like(p)
+                    p.grad.copy_(flat[off:off + n].view_as(p).to(p.device, p.dtype)); off += n
+                del flat
             torch.nn.utils.clip_grad_norm_(params, 1.0)
             opt.step(); sched.step(); opt.zero_grad(set_to_none=True); step += 1
             if step % 5 == 0 or step == 1:
-                print(f"[train] step {step}/{args.steps} loss {acc_loss/n_acc:.4f} lr {sched.get_last_lr()[0]:.2e} "
+                log(f"[train] step {step}/{args.steps} loss {acc_loss/n_acc:.4f} lr {sched.get_last_lr()[0]:.2e} "
                       f"{(time.time()-t0)/step:.0f} s/step skipped {skipped}", flush=True)
                 acc_loss = 0.0; n_acc = 0
-    os.makedirs(args.out, exist_ok=True)
-    model.save_pretrained(args.out)
-    print(f"[train] adapter saved -> {args.out} ({time.time()-t0:.0f}s)", flush=True)
+    if rank == 0:
+        os.makedirs(args.out, exist_ok=True)
+        model.save_pretrained(args.out)
+        print(f"[train] adapter saved -> {args.out} ({time.time()-t0:.0f}s)", flush=True)
+    if dist is not None:
+        dist.barrier()
 
     if not args.eval_bench:
         return
@@ -166,6 +193,7 @@ def main():
     cache = pickle.load(open(os.path.join(args.eval_bench, "eval_cache_v15.pkl"), "rb"))
     gt_dir = os.path.join(args.eval_bench, "gt_meshes_v15")
     keys = [k for k in cache["pools"]["certified"] if os.path.exists(os.path.join(gt_dir, k + ".stl"))][: args.eval_n]
+    keys = keys[rank::world]   # the eval is sharded across replicas and merged by rank 0
     model.eval(); harness = os.path.join(HERE, "exec_harness.py"); recs = []
     from PIL import Image
     for k in keys:
@@ -196,7 +224,13 @@ def main():
                 except Exception:
                     pass
         recs.append(rec)
-        print(f"[eval] {len(recs)}/{len(keys)} {k[:24]} exec={rec['exec']} iou={rec['iou']:.3f} chars={rec['chars']}", flush=True)
+        print(f"[eval r{rank}] {len(recs)}/{len(keys)} {k[:24]} exec={rec['exec']} iou={rec['iou']:.3f} chars={rec['chars']}", flush=True)
+    if dist is not None:
+        gathered = [None] * world
+        dist.all_gather_object(gathered, recs)
+        if rank != 0:
+            return
+        recs = [r for part in gathered for r in part]
     ious = [r["iou"] for r in recs]
     summ = {"n": len(recs), "first_exec_mean": sum(ious) / len(ious), "ge85": sum(x >= 0.85 for x in ious) / len(ious),
             "executed": sum(r["exec"] for r in recs), "with_code": sum(1 for r in recs if r["chars"] and r["exec"] or r["iou"] > 0)}
