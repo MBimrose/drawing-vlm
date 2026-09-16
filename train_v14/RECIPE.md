@@ -1610,3 +1610,11 @@ checkpoint tensors on one H200: kernel forward vs dequantized matmul 2.4% (block
 activation quantization), backward vs reference 0.17% for both and for the grouped op over two
 experts; E2M1 nibbles are low-first (high-first gives 141% error). Attempt 9 / the cluster smoke
 run with the formulas registered.
+**Attempt 9 (serv-04, 8x H200): STAGE1 OK — the released checkpoint trains.** Forward 17 s
+(Triton kernels warm), backward 11 s through the registered formulas, 320/320 LoRA tensors
+received gradients (grad norm 0.48), and six AdamW steps (lr 1e-4) on the one sample drove the
+answer loss **2.678 -> 1.031**; the greedy continuation afterwards is a coherent answer
+("Based on the provided technical drawing, here is the step-by-step information to construct
+the 3D model ... Length (X): 100 mm"). Resident ~280 GB over 8 GPUs at 1.7k tokens without
+gradient checkpointing. Stage 2 (200 steps on the 2,061-row real tier, greedy eval on 48 bench
+parts) follows on serv-04; the cluster smoke on ccc0451 gates the 3-node run.
