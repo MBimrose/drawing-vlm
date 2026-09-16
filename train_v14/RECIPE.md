@@ -1572,3 +1572,16 @@ Reinstalling `torch==2.13.0 torchvision` from the cu130 index restored Triton 3.
 Hub kernel's `matmul_2d` now compiles and runs on one B300 (6.8 s JIT, 64x5120x1536 bf16 x
 fp8 block-32). Attempt 7 is queued for when the DeepCAD generation releases the GPUs; the CPU
 scoring that follows the generation does not block it.
+
+### 2026-09-16 — DeepCAD full pass generated (4 h); work moves from serv-20 to serv-04
+The full DeepCAD best-of-8 generation finished at 03:56: 86,904 parts x 8 draws through e55
+on vLLM (DP=8) in 4 h 1 min — ~360 parts/min, 695k candidates with code (8 x ~104 MB
+`results_vllm/bo8_full_e55_vllm.shard*.json.partial.json`). The driver then sat idle for six
+hours: its bare `wait` also waited on the vLLM server it had started as a background child, so
+scoring never began (fixed: `wait $GEN_PIDS`). The user asked for serv-20 to be cleared for
+other people and offered **wpk-serv-04** (8x H200 143 GB, 128 cores, 1 TB RAM, 56 TB scratch)
+instead; everything of mine on serv-20 was stopped and the layout is being pulled into the
+same `/srv/scratch/bimrose2` path on serv-04 (code, venvs, benches, the DeepCAD corpus and
+partials, then the 476 GB DeepSeek checkpoint and the e55 weights). Next: score the partials on
+serv-04's CPUs, write `rft_deepcad_e55`, build the e58 mix on the cluster; DeepSeek stage 1
+attempt 7 on the H200s once the checkpoint lands (Hopper is DeepGEMM's native target).
