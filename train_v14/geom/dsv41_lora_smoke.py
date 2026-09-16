@@ -49,8 +49,18 @@ def main():
         pj = json.load(open(os.path.join(os.path.dirname(args.png), "prompts.json")))
         system, user = pj["system"], pj["user"]
 
+    # The released checkpoint ships a tokenizer but no processor config or chat template: the
+    # image processor comes from the PR's class defaults, and the prompt format from the
+    # checkpoint's own encoding/encoding.py (the reference the model was trained against).
+    from transformers import AutoTokenizer
+    from transformers.models.deepseek_v41.image_processing_deepseek_v41 import DeepseekV41ImageProcessor
+    from transformers.models.deepseek_v41.processing_deepseek_v41 import DeepseekV41Processor
+    sys.path.insert(0, os.path.join(args.model, "encoding"))
+    import encoding as dsenc
+    tok = AutoTokenizer.from_pretrained(args.model)
+    proc = DeepseekV41Processor(image_processor=DeepseekV41ImageProcessor(), tokenizer=tok)
+    print(f"[smoke] processor built by hand; image token id {proc.image_token_id}", flush=True)
     t0 = time.time()
-    proc = AutoProcessor.from_pretrained(args.model)
     model = AutoModelForImageTextToText.from_pretrained(args.model, device_map="auto", torch_dtype=torch.bfloat16)
     print(f"[smoke] loaded {type(model).__name__} in {time.time()-t0:.0f}s", flush=True)
     for i in range(torch.cuda.device_count()):
@@ -72,12 +82,19 @@ def main():
 
     # one real sample: served prompt + drawing -> certified answer
     answer = open(args.answer).read()
-    msgs = [{"role": "system", "content": [{"type": "text", "text": system}]},
-            {"role": "user", "content": [{"type": "image", "image": Image.open(args.png).convert("RGB")},
+    msgs = [{"role": "system", "content": system},
+            {"role": "user", "content": [{"type": "image_url", "image_url": {"url": os.path.abspath(args.png)}},
                                          {"type": "text", "text": user}]},
-            {"role": "assistant", "content": [{"type": "text", "text": "```python\n" + answer + "\n```"}]}]
-    enc = proc.apply_chat_template(msgs, tokenize=True, return_dict=True, return_tensors="pt",
-                                   truncation=True, max_length=args.max_len)
+            {"role": "assistant", "content": "```python\n" + answer + "\n```"}]
+    try:
+        prompt, media = dsenc.encode_messages(msgs, thinking_mode="chat")
+    except TypeError:
+        prompt, media = dsenc.encode_messages(msgs)
+    print(f"[smoke] encoded prompt: {len(prompt)} chars, {prompt.count(proc.image_token)} image placeholder(s); "
+          f"tail: {prompt[-120:]!r}", flush=True)
+    enc = proc(text=[prompt], images=[Image.open(args.png).convert("RGB")], return_tensors="pt")
+    if enc["input_ids"].shape[-1] > args.max_len:
+        print(f"[smoke] WARNING sample is {enc['input_ids'].shape[-1]} tokens > max-len {args.max_len}", flush=True)
     enc = {k: (v.to(model.device) if hasattr(v, "to") else v) for k, v in enc.items()}
     labels = enc["input_ids"].clone()
     print(f"[smoke] sample tokens {labels.shape[-1]}", flush=True)
