@@ -1555,3 +1555,12 @@ B300s (41-44 GB each) with FP8/FP4 kept quantized — transformers routes the FP
 experts through Triton/grouped_mm when the model spans devices in one process (DeepGEMM's
 kernels bind to one CUDA context). PEFT attaches LoRA to the attention projections
 (`q_b_proj` matched first; 22.5M trainable at r=16). Forward/backward is the next kill point.
+Two more plumbing steps followed: the LoRA target regex had to name all five attention
+projections the draft class actually uses (`q_a_proj q_b_proj kv_proj o_a_proj o_b_proj`; there
+is no `k_proj`/`v_proj`) — 200 targets, 45.9M trainable at r=16; and the first forward raised
+`finegrained-fp8 kernel unavailable`: the multi-GPU FP8 path in this transformers build does
+not ship its matmul, it fetches `kernels-community/finegrained-fp8` from the Hub through the
+`kernels` package (0.16.x, not a dependency of the PR) — `uv pip install kernels==0.16.0` plus
+`HF_HOME` on scratch fixed it (11 files cached under `.cache/huggingface/hub`). Attempt 6 is the
+first that reaches the forward pass with the released encoder prompt (2,598 chars, one image
+placeholder, 1,704 tokens with the answer).
