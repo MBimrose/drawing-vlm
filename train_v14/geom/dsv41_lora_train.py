@@ -106,6 +106,7 @@ def main():
     ap.add_argument("--eval-n", type=int, default=48)
     ap.add_argument("--eval-max-new", type=int, default=3000)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--prompts", default="", help="prompts.json (system/user); default: next to the tier, else spike_dsv41/prompts.json")
     ap.add_argument("--dist", action="store_true",
                     help="one process per node (SLURM_PROCID/SLURM_NTASKS, MASTER_ADDR/PORT); each node holds a full "
                          "pipeline-split replica, LoRA gradients are averaged across nodes over NCCL")
@@ -128,7 +129,10 @@ def main():
     from transformers.models.deepseek_v41.processing_deepseek_v41 import DeepseekV41Processor
     sys.path.insert(0, os.path.join(args.model, "encoding"))
     import encoding as dsenc
-    pj = json.load(open(os.path.join(os.path.dirname(args.tier.rstrip("/")), "prompts.json")))
+    pp = args.prompts or os.path.join(os.path.dirname(args.tier.rstrip("/")), "prompts.json")
+    if not os.path.exists(pp):   # tiers other than the spike's carry no prompts.json; the served prompt is the same
+        pp = os.path.join(os.path.dirname(HERE), "..", "spike_dsv41", "prompts.json")
+    pj = json.load(open(os.path.abspath(pp)))
     system, user = pj["system"], pj["user"]
 
     tok = AutoTokenizer.from_pretrained(args.model)
