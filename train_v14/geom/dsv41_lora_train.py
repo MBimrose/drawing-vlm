@@ -105,6 +105,11 @@ def main():
     ap.add_argument("--eval-bench", default="")
     ap.add_argument("--eval-n", type=int, default=48)
     ap.add_argument("--eval-max-new", type=int, default=3000)
+    ap.add_argument("--adapter", default="", help="load this saved LoRA instead of creating one (with --steps 0: eval only)")
+    ap.add_argument("--eval-gen-out", default="", help="write generations (key, text, code) as jsonl; default <out>/eval_gen.jsonl")
+    ap.add_argument("--exec-python", default=os.environ.get("EXEC_PYTHON", ""),
+                    help="interpreter with build123d/trimesh for exec_harness + iou_once; empty -> dump generations only "
+                         "(score later with dsv41_eval_score.py)")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--prompts", default="", help="prompts.json (system/user); default: next to the tier, else spike_dsv41/prompts.json")
     ap.add_argument("--dist", action="store_true",
@@ -142,10 +147,15 @@ def main():
     model = AutoModelForImageTextToText.from_pretrained(args.model, device_map="auto", dtype=torch.bfloat16)
     for p in model.parameters():
         p.requires_grad_(False)
-    from peft import LoraConfig, get_peft_model
-    names = [n for n, m in model.named_modules() if isinstance(m, torch.nn.Linear) and re.search(args.targets, n)]
-    model = get_peft_model(model, LoraConfig(r=args.rank, lora_alpha=2 * args.rank, lora_dropout=0.0,
-                                              target_modules=names, bias="none"))
+    from peft import LoraConfig, get_peft_model, PeftModel
+    if args.adapter:
+        model = PeftModel.from_pretrained(model, args.adapter, is_trainable=args.steps > 0)
+        names = [n for n, m in model.named_modules() if hasattr(m, "lora_A")]
+        log(f"[train] loaded adapter {args.adapter}", flush=True)
+    else:
+        names = [n for n, m in model.named_modules() if isinstance(m, torch.nn.Linear) and re.search(args.targets, n)]
+        model = get_peft_model(model, LoraConfig(r=args.rank, lora_alpha=2 * args.rank, lora_dropout=0.0,
+                                                  target_modules=names, bias="none"))
     params = [p for p in model.parameters() if p.requires_grad]
     log(f"[train] {len(names)} LoRA targets, {sum(p.numel() for p in params)/1e6:.1f}M trainable", flush=True)
     opt = torch.optim.AdamW(params, lr=args.lr, weight_decay=0.0, betas=(0.9, 0.95))
@@ -191,18 +201,25 @@ def main():
                 acc_loss = 0.0; n_acc = 0
     if rank == 0:
         os.makedirs(args.out, exist_ok=True)
-        model.save_pretrained(args.out)
-        print(f"[train] adapter saved -> {args.out} ({time.time()-t0:.0f}s)", flush=True)
+        if args.steps > 0:
+            model.save_pretrained(args.out)
+            print(f"[train] adapter saved -> {args.out} ({time.time()-t0:.0f}s)", flush=True)
     if dist is not None:
         dist.barrier()
 
     if not args.eval_bench or args.eval_n <= 0:
         return
-    # --- greedy eval, same scorer as the bench
-    from iou import iou_pair
+    # --- greedy eval: generations are always dumped; execution + IoU only with an interpreter that has the CAD stack
     from geom_eval_worker import extract_code
     cache = pickle.load(open(os.path.join(args.eval_bench, "eval_cache_v15.pkl"), "rb"))
     gt_dir = os.path.join(args.eval_bench, "gt_meshes_v15")
+    gen_path = args.eval_gen_out or os.path.join(args.out, f"eval_gen.rank{rank}.jsonl")
+    os.makedirs(os.path.dirname(os.path.abspath(gen_path)), exist_ok=True)
+    gen_f = open(gen_path, "a")
+    exec_py = args.exec_python
+    if exec_py and subprocess.run([exec_py, "-c", "import build123d, trimesh"], capture_output=True).returncode != 0:
+        log(f"[eval] {exec_py} lacks build123d/trimesh; dumping generations only", flush=True); exec_py = ""
+    iou_once = os.path.join(HERE, "iou_once.py")
     keys = [k for k in cache["pools"]["certified"] if os.path.exists(os.path.join(gt_dir, k + ".stl"))][: args.eval_n]
     keys = keys[rank::world]   # the eval is sharded across replicas and merged by rank 0
     model.eval(); harness = os.path.join(HERE, "exec_harness.py"); recs = []
@@ -223,15 +240,17 @@ def main():
         with torch.no_grad(), torch.autocast("cuda", dtype=torch.bfloat16):
             out = model.generate(**enc, max_new_tokens=args.eval_max_new, do_sample=False)
         text = tok.decode(out[0, enc["input_ids"].shape[-1]:], skip_special_tokens=True)
-        code = extract_code(text); rec = {"key": k, "exec": False, "iou": 0.0, "chars": len(text)}
-        if code:
+        code = extract_code(text); rec = {"key": k, "exec": False, "iou": 0.0, "chars": len(text), "scored": bool(exec_py)}
+        gen_f.write(json.dumps({"key": k, "text": text, "code": code or ""}) + "\n"); gen_f.flush()
+        if code and exec_py:
             with tempfile.TemporaryDirectory() as td:
                 cp, stl = os.path.join(td, "c.py"), os.path.join(td, "c.stl")
                 open(cp, "w").write(code)
                 try:
-                    p = subprocess.run([sys.executable, harness, cp, stl], capture_output=True, text=True, timeout=120)
+                    p = subprocess.run([exec_py, harness, cp, stl], capture_output=True, text=True, timeout=120)
                     if p.returncode == 0 and os.path.exists(stl):
-                        rec["exec"] = True; rec["iou"] = float(iou_pair(stl, os.path.join(gt_dir, k + ".stl"))["iou_centered"])
+                        q = subprocess.run([exec_py, iou_once, stl, os.path.join(gt_dir, k + ".stl")], capture_output=True, text=True, timeout=120)
+                        rec["exec"] = True; rec["iou"] = float(json.loads(q.stdout.strip().splitlines()[-1])["iou_centered"]) if q.returncode == 0 else 0.0
                 except Exception:
                     pass
         recs.append(rec)
@@ -246,7 +265,7 @@ def main():
     summ = {"n": len(recs), "first_exec_mean": sum(ious) / len(ious), "ge85": sum(x >= 0.85 for x in ious) / len(ious),
             "executed": sum(r["exec"] for r in recs), "with_code": sum(1 for r in recs if r["chars"] and r["exec"] or r["iou"] > 0)}
     json.dump({"summary": summ, "records": recs}, open(os.path.join(args.out, "eval.json"), "w"), indent=1)
-    print("[eval] " + json.dumps(summ), flush=True)
+    print("[eval] " + json.dumps(summ) + ("" if exec_py else "  (generations only -> score with dsv41_eval_score.py)"), flush=True)
 
 
 if __name__ == "__main__":
