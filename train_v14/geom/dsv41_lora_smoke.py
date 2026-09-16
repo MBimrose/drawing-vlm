@@ -37,8 +37,9 @@ def main():
     ap.add_argument("--lr", type=float, default=1e-4)
     ap.add_argument("--fit-steps", type=int, default=6, help="AdamW steps on the one sample; the loss must fall")
     ap.add_argument("--gen-tokens", type=int, default=48)
-    ap.add_argument("--targets", default=r"self_attn\.(q_a_proj|q_b_proj|k_proj|kv_proj|o_a_proj|o_b_proj)$",
-                    help="regex on module names for LoRA (attention by default; experts never)")
+    ap.add_argument("--targets", default=r"self_attn\.(q_a_proj|q_b_proj|kv_proj|o_b_proj)$",
+                    help="regex on module names for LoRA (attention by default; experts never; o_a_proj is a grouped "
+                         "block-diagonal DeepseekV41GroupedLinear that PEFT cannot wrap as a plain Linear)")
     args = ap.parse_args()
 
     import torch

@@ -100,7 +100,7 @@ def main():
     ap.add_argument("--lr", type=float, default=1e-4)
     ap.add_argument("--rank", type=int, default=16)
     ap.add_argument("--max-len", type=int, default=4096)
-    ap.add_argument("--targets", default=r"self_attn\.(q_a_proj|q_b_proj|k_proj|kv_proj|o_a_proj|o_b_proj)$")
+    ap.add_argument("--targets", default=r"self_attn\.(q_a_proj|q_b_proj|kv_proj|o_b_proj)$")
     ap.add_argument("--out", required=True)
     ap.add_argument("--eval-bench", default="")
     ap.add_argument("--eval-n", type=int, default=48)
