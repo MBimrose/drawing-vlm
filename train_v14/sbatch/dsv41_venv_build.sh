@@ -7,8 +7,8 @@
 set -uo pipefail
 DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm; cd $DV
 export UV_CACHE_DIR=$DV/.uv_cache HF_HOME=$DV/.cache/huggingface; mkdir -p $UV_CACHE_DIR $HF_HOME
-UV=/home/bimrose2/.local/bin/uv; VP=$DV/.venv_dsv41/bin/python
-[ -x $VP ] || UV_PYTHON=/home/bimrose2/.local/bin/python3.12 $UV venv .venv_dsv41 --python 3.12
+UV=$(command -v uv || echo $HOME/.local/bin/uv); VP=$DV/.venv_dsv41/bin/python
+[ -x $VP ] || $UV venv .venv_dsv41 --python 3.12
 unset UV_PYTHON
 $UV pip install --python $VP --quiet "torch==2.13.0" torchvision --index-url https://download.pytorch.org/whl/cu130 || echo "torch install rc=$?"
 $UV pip install --python $VP --quiet "git+https://github.com/huggingface/transformers.git@refs/pull/48768/head" peft accelerate safetensors pillow tiktoken "kernels==0.16.0" trimesh numpy || echo "deps install rc=$?"
