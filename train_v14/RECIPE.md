@@ -1654,3 +1654,12 @@ a properly sized attempt before closing: 600 steps x 12 samples on the union5 ti
 rows, ~4.5x the data), rank 32, adapter also on the shared-expert MLP linears (`gate/up/down`
 of `mlp.shared_experts`, FP8 like attention; the routed FP4 experts stay frozen). If that lands
 under e55's first draw, DeepSeek is closed as a generator.
+Profiling settles the cluster question: with the venv and Triton cache in node RAM the cluster
+forward is still 90-190 s per sample while the backward is 11 s — and serv-04 on the very same
+four rows does forward **1.1 s** (16.7 s for the first) and backward 10.8 s. The backward is
+plain torch (my dequant matmuls) and is identical on both; only the Triton FP8 forward path
+differs, by 100x, so it is kernel compilation/autotuning that never gets cached on the cluster,
+not GPU speed (a diagnostic run with `FINEGRAINED_AUTOTUNE_TRIALS=1` and the autotune log is
+queued). The scaled run therefore runs on serv-04: union5 tier, 600 steps x 8, lr 1e-4, r=32,
+attention + shared-expert MLP targets (`spike_dsv41/lora_u5_r32_s600`, ~16 h), eval generations
+scored on the cluster.
