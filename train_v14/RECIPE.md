@@ -1564,3 +1564,11 @@ not ship its matmul, it fetches `kernels-community/finegrained-fp8` from the Hub
 `HF_HOME` on scratch fixed it (11 files cached under `.cache/huggingface/hub`). Attempt 6 is the
 first that reaches the forward pass with the released encoder prompt (2,598 chars, one image
 placeholder, 1,704 tokens with the answer).
+Attempt 6 then aborted inside Triton on the first FP8 matmul (`LLVM ERROR: Cannot select:
+intrinsic %llvm.nvvm.tcgen05.wait.ld`, target sm_103a): the venv was no longer the stack stage 0
+had reported — installing `torchvision` from PyPI had silently replaced torch 2.13+cu130 with
+torch 2.9.0 and Triton 3.5, which cannot lower Blackwell tcgen05 instructions for the B300.
+Reinstalling `torch==2.13.0 torchvision` from the cu130 index restored Triton 3.7.1, and the
+Hub kernel's `matmul_2d` now compiles and runs on one B300 (6.8 s JIT, 64x5120x1536 bf16 x
+fp8 block-32). Attempt 7 is queued for when the DeepCAD generation releases the GPUs; the CPU
+scoring that follows the generation does not block it.
