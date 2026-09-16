@@ -1585,3 +1585,16 @@ same `/srv/scratch/bimrose2` path on serv-04 (code, venvs, benches, the DeepCAD 
 partials, then the 476 GB DeepSeek checkpoint and the e55 weights). Next: score the partials on
 serv-04's CPUs, write `rft_deepcad_e55`, build the e58 mix on the cluster; DeepSeek stage 1
 attempt 7 on the H200s once the checkpoint lands (Hopper is DeepGEMM's native target).
+serv-04 turned out unusable for geometry: its glibc is 2.28 and the OCP wheel needs 2.29, so
+`import build123d` fails and `score_partials` "finished" 695k candidates in 14 min with every
+exec false and an empty tier (deleted; the resume file would have poisoned a rescore). The
+partials, meshes and sheets were pulled to the cluster and scoring runs there as two shard
+slices (`score_deepcad.sbatch`, merged by `merge_scored.py`). The H200s on serv-04 do work for
+the spike: torch 2.13 cu130 loads the checkpoint in 60 s. Attempt 7 there found the last model-
+side trap: `o_a_proj` is a `DeepseekV41GroupedLinear` (block-diagonal over `o_groups`,
+subclassing nn.Linear), so PEFT's plain LoRA on it mis-shapes (1024 vs 8192 at dim 3); the
+adapter now targets `q_a_proj q_b_proj kv_proj o_b_proj` only. The user also offered
+ccc0451/474/475 with InfiniBand for the real run: the trainer gained `--dist` (one process per
+node, full pipeline-split replica each, adapter gradients averaged over NCCL) and
+`dsv41_lora_3node.sbatch` follows the connector-folder recipe; a one-node cluster smoke
+(`dsv41_smoke.sbatch`, venv at `.venv_dsv41` on /projects) gates it.
