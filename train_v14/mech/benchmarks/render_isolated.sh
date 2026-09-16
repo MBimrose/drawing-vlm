@@ -17,7 +17,8 @@ one() { f=$1; k=$(basename $f .step); C=$2; M=$3
   if ls $d/out/png/${k}_v*.png >/dev/null 2>&1; then mv $d/out/png/${k}_v*.png $C/render/png/; echo "$k ok" >> $C/logs/iso.log
   else echo "$k FAIL rc=$rc $(grep -m1 -i "error\|fault\|timeout\|brokenprocess" $d/log | cut -c1-100)" >> $C/logs/iso.log; fi; }
 export -f one
-ls $C/step_mm/*.step | xargs -P $P -I{} bash -c "one {} $C $M"
+# find, not a glob: a corpus of ~100k STEPs overflows the argument list and a failed ls renders nothing
+find $C/step_mm -maxdepth 1 -name "*.step" | xargs -P $P -I{} bash -c "one {} $C $M"
 /srv/scratch/bimrose2/.venv/bin/python - "$C" <<'PY'
 import json, glob, os, sys
 C = sys.argv[1]; side = os.path.join(C, "render", "renderers.json")
