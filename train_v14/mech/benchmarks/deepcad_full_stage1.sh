@@ -10,7 +10,7 @@ DV=/srv/scratch/bimrose2; M=$DV/mech_benchmarks; PY=$DV/.venv/bin/python
 C=${1:-$DV/deepcad/corpus_full}; PP=${2:-60}; PR=${3:-160}
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 mkdir -p $C/logs $C/prep $C/step_mm $C/gt_meshes_v15 $C/results $C/src_chunks
-echo "STAGE1 START $(date) $(ls $C/src/000/*.step | wc -l) verified STEPs" >> $C/logs/stage.log
+echo "STAGE1 START $(date) $(find $C/src/000 -name "*.step" | wc -l) verified STEPs" >> $C/logs/stage.log
 # chunk the flat src/000 into src_chunks/NNN of 1,000 symlinks (prep takes one dir at a time)
 $PY - "$C" <<'PY'
 import os, sys, glob
