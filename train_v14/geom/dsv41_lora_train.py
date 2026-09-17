@@ -147,6 +147,9 @@ def main():
     model = AutoModelForImageTextToText.from_pretrained(args.model, device_map="auto", dtype=torch.bfloat16)
     for p in model.parameters():
         p.requires_grad_(False)
+    import collections
+    dm = getattr(model, "hf_device_map", {}) or {}
+    log(f"[train] device map: {dict(collections.Counter(str(v) for v in dm.values()))}", flush=True)
     from peft import LoraConfig, get_peft_model, PeftModel
     if args.adapter:
         model = PeftModel.from_pretrained(model, args.adapter, is_trainable=args.steps > 0)
@@ -176,8 +179,20 @@ def main():
             skipped += 1; continue
         enc = {k: (v.to(dev) if hasattr(v, "to") else v) for k, v in enc.items()}
         ts = time.time()
-        with torch.autocast("cuda", dtype=torch.bfloat16):
-            out = model(**enc)
+        if os.environ.get("DSV41_PROFILE") and i == 2 and rank == 0:   # torch profiler on the second forward: where do the seconds go?
+            from torch.profiler import profile, ProfilerActivity
+            with profile(activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA]) as prof:
+                with torch.autocast("cuda", dtype=torch.bfloat16):
+                    out = model(**enc)
+                torch.cuda.synchronize()
+            ka = prof.key_averages()
+            print("[profile] top self-CPU:", flush=True)
+            print(ka.table(sort_by="self_cpu_time_total", row_limit=18, max_name_column_width=70), flush=True)
+            print("[profile] top CUDA:", flush=True)
+            print(ka.table(sort_by="cuda_time_total", row_limit=18, max_name_column_width=70), flush=True)
+        else:
+            with torch.autocast("cuda", dtype=torch.bfloat16):
+                out = model(**enc)
         tf = time.time() - ts
         (out.loss / args.accum).backward()
         if i <= 4:
