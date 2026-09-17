@@ -1676,3 +1676,11 @@ backward 10.8 s** per sample on ccc0451 — the cluster now matches serv-04. The
 is submitted: 600 steps x (4 per node x 3 nodes) = 7,200 samples of the union5 tier, lr 1e-4,
 r=32, attention + shared-expert MLP targets, ~48 s/step -> ~8 h plus 1.6 h startup, then the
 96-part greedy eval sharded across the ranks and scored in-job with the main venv.
+
+### 2026-09-17 — DeepCAD full pass scored: e55 solves 70% of 86,904 Onshape parts at K=8
+Both cluster slices finished (venv in node RAM: 13-16 candidates/s per 120-worker node, ~6 h
+each; 651,106 of 695,232 candidates executed, 2,226 IoU overlaps timed out at 90 s). Merged
+(`deepcad/corpus_full/results_vllm/bo8_full_e55_vllm.json`, 86,904 parts): **first draw 0.739
+mean / 55.8% >= 0.85; best-of-8 ceiling 0.854 mean / 70.3% >= 0.85 / 75.8% >= 0.80** — the
+2,000-part gate (0.713 / 0.808) generalised. So roughly 61-66k DeepCAD parts have at least one
+certified-quality solution to distil, ~30x the union5 real tier.
