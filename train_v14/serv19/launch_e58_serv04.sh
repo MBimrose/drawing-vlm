@@ -19,6 +19,10 @@ export DRAWING_VLM_ROOT=$DV
 export DRAWING_VLM_TARS=$DV/step_to_drw/wds_dataset/tars_v14_dw423
 export DRAWING_VLM_EVAL_CACHE_V15=$DV/step_to_drw/wds_dataset/eval_cache_v15_dw423.pkl
 export DRAWING_VLM_RFT_SHARDS=$DV/rft_mix_u8_deepcad_dw423
+# data_v14 defaults that env.sh does not derive from ROOT
+export DRAWING_VLM_BUNDLE=$DV/v14_bundle
+export DRAWING_VLM_EVAL_CACHE=$DV/step_to_drw/wds_dataset/eval_cache_v14.pkl
+export DRAWING_VLM_BAD_KEYS=$DV/step_to_drw/wds_dataset/exec_bad_keys_v14.txt
 export TRAIN_VENV=$DV/.venv
 : > logs/${CFG}_serv04.log
 setsid nohup bash -c "cd $DV && bash train_v14/run.sh train_v14/configs/$CFG.yaml \
