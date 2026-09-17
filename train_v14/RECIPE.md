@@ -1684,3 +1684,11 @@ each; 651,106 of 695,232 candidates executed, 2,226 IoU overlaps timed out at 90
 mean / 55.8% >= 0.85; best-of-8 ceiling 0.854 mean / 70.3% >= 0.85 / 75.8% >= 0.80** — the
 2,000-part gate (0.713 / 0.808) generalised. So roughly 61-66k DeepCAD parts have at least one
 certified-quality solution to distil, ~30x the union5 real tier.
+`write_rft_real` accepted **419,249 rows over 65,891 parts** (IoU >= 0.8; 277,004 distinct
+samples after dedup) but timed out in its PNG loop — a per-key glob over the 87k-file render
+dir on Lustre — so the last 12,939 sheets and `stats.json` were written by hand (one listing).
+Packed: `rft_deepcad_e55/shards` = 139 shards. At R=1 that is 58% of the RFT draws, well past
+the 35% the mix was designed for, so `build_deepcad_mix.sh` now takes an evenly spaced subset
+of shards when the tier is oversized: `rft_mix_u8_deepcad_dw423` = 77 base + 25 union5 + 55
+DeepCAD shards (~110k samples, 35%). **e58** submitted (`e58-rft-deepcad-dw423.sbatch`, one
+H200 node, 4,000 steps); it queues behind the 3-node DeepSeek run.
