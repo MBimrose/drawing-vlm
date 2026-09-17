@@ -1671,3 +1671,8 @@ the same mmap is on local NVMe (forward 1.1 s). The Hub-kernel autotuner was inn
 stayed empty with `FINEGRAINED_AUTOTUNE_TRIALS=1`). Fix: after loading, clone the engram
 parameters off the mmap into RAM (~196 GB; the nodes have 1.5 TB) in both the smoke and the
 trainer; profile job 5 verifies.
+Profile job 5 confirms it: engram copy 189 GiB in 50 min (once per job), then **forward 1.2 s,
+backward 10.8 s** per sample on ccc0451 — the cluster now matches serv-04. The 3-node scaled run
+is submitted: 600 steps x (4 per node x 3 nodes) = 7,200 samples of the union5 tier, lr 1e-4,
+r=32, attention + shared-expert MLP targets, ~48 s/step -> ~8 h plus 1.6 h startup, then the
+96-part greedy eval sharded across the ranks and scored in-job with the main venv.
