@@ -1,7 +1,7 @@
 # shellcheck shell=bash
 # Sourced by run.sh / sbatch scripts. Idempotent. Campus Cluster (ccc) edition.
 
-ROOT=/projects/illinois/eng/ece/wpk/bimrose2
+ROOT=${DRAWING_VLM_ROOT:-/projects/illinois/eng/ece/wpk/bimrose2}   # serv-04/19: DRAWING_VLM_ROOT=/srv/scratch/bimrose2 with a drawing_vlm -> . symlink
 
 export HF_HOME=$ROOT/.cache/huggingface
 export HF_HUB_CACHE=$HF_HOME/hub

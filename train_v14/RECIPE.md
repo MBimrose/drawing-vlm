@@ -1709,3 +1709,17 @@ reusable: the checkpoint trains in transformers (`dsv41_autograd.py` for the Hub
 LoRA on `q_a/q_b/kv/o_b` + shared experts), the 3-node one-replica-per-node recipe with the
 engram/venv/Triton staging, and the split generate-then-score eval. The serv-04 run (4,800
 samples, same recipe) finishes next as a third point on the same curve.
+The serv-04 run (4,800 samples, same r=32 recipe) scored **0.133 / 0% >= 0.85** on 48 parts
+(36/48 executed) — the same as the 3-node run's 0.136 at 7,200 samples: the curve is flat
+between 4.8k and 7.2k samples. Verdict unchanged.
+
+### 2026-09-17 — cluster GPUs released: e58 moves to serv-04
+The user asked for no more GPU work on the cluster (CPU work on the L40S nodes stays fine):
+e58 (job 10595888, 2 h in) and the pending geom-eval were cancelled and the e58 eval chain
+watcher stopped. e58 now trains on serv-04's 8x H200 with the same `run.sh` / FSDP2 path:
+`env.sh` takes `DRAWING_VLM_ROOT` (serv-04: `/srv/scratch/bimrose2` with a `drawing_vlm -> .`
+self-link), `serv19/launch_e58_serv04.sh` relinks the mix and disables the in-training geometry
+eval (`--eval_every=0`; serv-04 cannot load OCP), and the venv there is pinned to the cluster's
+transformers 5.15.1 / trl 1.10 / peft 0.20. Data pushed: the 137 mix shards (31 GiB), the two
+eval caches, the 47 GB tars_v14_dw423 set and the 52 GB Qwen3.8-27B base. Post-training evals
+will be split: generate on serv-04 (vLLM), execute/score/consistency on cluster CPUs.
