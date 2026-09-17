@@ -1692,3 +1692,20 @@ the 35% the mix was designed for, so `build_deepcad_mix.sh` now takes an evenly 
 of shards when the tier is oversized: `rft_mix_u8_deepcad_dw423` = 77 base + 25 union5 + 55
 DeepCAD shards (~110k samples, 35%). **e58** submitted (`e58-rft-deepcad-dw423.sbatch`, one
 H200 node, 4,000 steps); it queues behind the 3-node DeepSeek run.
+
+### 2026-09-17 — DeepSeek-V4.1-Flash LoRA at scale on three H200 nodes: 0.136 vs e55's 0.435
+The 3-node run (job 10593793, ccc0451/474/475, one pipeline-split replica per node, adapter
+gradients averaged over NCCL/IB) trained cleanly: 600 steps x 12 samples = 7,200 union5 rows in
+8.0 h at 48 s/step (startup 1.6 h: Lustre load + engram copy), loss 2.4 -> 0.26, r=32 on
+attention + shared-expert MLPs (52.3M params). **96-part real-bench eval, greedy, scored
+in-job: mean IoU 0.136, median 0.059, 0% >= 0.85, 5/96 >= 0.5 (best 0.82), 72/96 executed,
+mean reply 634 chars** — against e55's first draw on the same 96 parts, **0.435 / 17.7%**
+(`runs/dsv41_lora_r32_s600/eval.json`). Scaling from the 200-step adapter (1,600 samples,
+0.051) to 4.5x the data and a wider adapter moved it to 0.136: a real slope, but the line would
+need another ~10x to reach e55's first draw, i.e. the full RFT corpus for a 552B model at 48 s
+per 12 samples, for a generator that then still has to beat the 27B's best-of-8 + verifier
+serving stack. **DeepSeek-V4.1-Flash is closed as a generator.** What the spike leaves behind is
+reusable: the checkpoint trains in transformers (`dsv41_autograd.py` for the Hub FP8/MXFP4 ops,
+LoRA on `q_a/q_b/kv/o_b` + shared experts), the 3-node one-replica-per-node recipe with the
+engram/venv/Triton staging, and the split generate-then-score eval. The serv-04 run (4,800
+samples, same recipe) finishes next as a third point on the same curve.
