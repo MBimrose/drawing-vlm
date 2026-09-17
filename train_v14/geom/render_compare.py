@@ -93,9 +93,12 @@ def main():
     ap.add_argument("--n", type=int, default=0)
     ap.add_argument("--exec-timeout", type=int, default=90)
     ap.add_argument("--render-timeout", type=int, default=420)
+    ap.add_argument("--save-png-dir", default="", help="keep every candidate sheet as <dir>/<key>__<cand index>.png (metric development)")
     ap.add_argument("--gt-check", type=int, default=0, help="also re-render N ground-truth STEPs (bench step_mm) as a fidelity check")
     a = ap.parse_args()
 
+    if a.save_png_dir:
+        os.makedirs(a.save_png_dir, exist_ok=True)
     cache = pickle.load(open(os.path.join(a.bench, "eval_cache_v15.pkl"), "rb"))
     parts = json.load(open(a.bo))["candidates"]
     parts = [p for p in parts if p["key"] in cache["samples"]]
@@ -143,6 +146,8 @@ def main():
         png, info = render_candidate(code, key, a.py, a.rpy, a.script_dir, a.exec_timeout, a.render_timeout)
         if png is None:
             return key, i, {"score": 0.0, **info}
+        if a.save_png_dir:
+            open(os.path.join(a.save_png_dir, f"{key}__{i}.png"), "wb").write(png)
         if key not in masks:
             masks[key] = ink_mask(cache["samples"][key]["png"])
         return key, i, {"score": ink_f1(masks[key], ink_mask(png), a.tol)["f1"], **info}

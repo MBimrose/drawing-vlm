@@ -24,5 +24,5 @@ echo "staged venvs in $(( $(date +%s)-T0 )) s"
 PY=$S/venv/bin/python; RPY=$S/dw_venv/bin/python
 $PY -c "import build123d, scipy, PIL" && $RPY -c "import draftwright, OCP" || { echo "staged env broken"; exit 1; }
 $PY $DV/train_v14/geom/render_compare.py --bo $BO --bench $BENCH --out $OUT --py $PY --rpy $RPY \
-  --script-dir $S/step_to_drw --workers ${WORKERS:-90} --tol ${TOL:-3} --gt-check ${GT:-5}
+  --script-dir $S/step_to_drw --workers ${WORKERS:-90} --tol ${TOL:-3} --gt-check ${GT:-5} ${PNGDIR:+--save-png-dir $PNGDIR}
 echo "RENDER COMPARE DONE $OUT $(date)"

@@ -7,9 +7,10 @@
 # policy and e55 use since 2026-09-10. RPY=/software/python-3.11.1/bin/python3 renders with the
 # retired 0.4.0 + patch (corpora 1-3 / ext_bench were built that way); there is NO legacy SVG
 # fallback in either -- a part that will not draw is recorded as a verbose failure.
-C=$1; P=${2:-32}; M=/srv/scratch/bimrose2/mech_benchmarks; export RPY=${RPY:-/srv/scratch/bimrose2/dw_venv/bin/python}
+C=$1; P=${2:-32}; M=${M:-/srv/scratch/bimrose2/mech_benchmarks}; export RPY=${RPY:-/srv/scratch/bimrose2/dw_venv/bin/python}
+PYV=${PYV:-/srv/scratch/bimrose2/.venv/bin/python}   # cluster: M=<repo>/train_v14/mech/benchmarks PYV/RPY=<staged venvs> SCRIPT_DIR=<staged step_to_drw>
 mkdir -p $C/render/png $C/render/iso $C/logs
-export SCRIPT_DIR=$M/step_to_drw OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1
+export SCRIPT_DIR=${SCRIPT_DIR:-$M/step_to_drw} OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1
 one() { f=$1; k=$(basename $f .step); C=$2; M=$3
   ls $C/render/png/${k}_v*.png >/dev/null 2>&1 && return 0
   d=$C/render/iso/$k; rm -rf $d; mkdir -p $d/src; ln -s $f $d/src/$k.step
@@ -19,7 +20,7 @@ one() { f=$1; k=$(basename $f .step); C=$2; M=$3
 export -f one
 # find, not a glob: a corpus of ~100k STEPs overflows the argument list and a failed ls renders nothing
 find $C/step_mm -maxdepth 1 -name "*.step" | xargs -P $P -I{} bash -c "one {} $C $M"
-/srv/scratch/bimrose2/.venv/bin/python - "$C" <<'PY'
+$PYV - "$C" <<'PY'
 import json, glob, os, sys
 C = sys.argv[1]; side = os.path.join(C, "render", "renderers.json")
 s = json.load(open(side)) if os.path.exists(side) else {}
@@ -40,5 +41,5 @@ if os.path.exists(mp) and len(info) == 2:
     json.dump(man, open(mp, "w"), indent=1); print("manifest renderer", man["renderer"])
 PY
 echo "ISO RENDER DONE $(date) ok=$(grep -c " ok" $C/logs/iso.log) fail=$(grep -c FAIL $C/logs/iso.log)" >> $C/logs/stage.log
-/srv/scratch/bimrose2/.venv/bin/python $M/build_ext_eval_cache.py --bench $C --png-dir $C/render/png > $C/logs/cache.log 2>&1; tail -3 $C/logs/cache.log >> $C/logs/stage.log
+$PYV $M/build_ext_eval_cache.py --bench $C --png-dir $C/render/png > $C/logs/cache.log 2>&1; tail -3 $C/logs/cache.log >> $C/logs/stage.log
 echo "STAGE1 DONE $(date)" >> $C/logs/stage.log
