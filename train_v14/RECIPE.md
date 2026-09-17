@@ -1751,3 +1751,21 @@ is only ~0.05. 41 of 892 executed candidates failed to render (mean true IoU 0.4
 handicap. Its value is elsewhere: a 0.67-correlated GT-free reward, and above all the material
 for a **visual repair turn** (input sheet with the candidate's views overlaid in red, per matched
 view) — new information at test time, which is what raising the ceiling on hard parts needs.
+
+**Repair turn — plan (2026-09-17).** Selection cannot pass the K=8 ceiling (0.591 on the real
+bench); a repair turn adds information. Prototype: `geom/rc_overlay.py` paints the candidate's
+linework in red on the input sheet, per matched view (example: a 0.83-IoU candidate's wrong pin
+positions and spurious pockets are obvious at a glance). Matching views between two full sheets
+is fragile because the candidate's own sheet carries different auxiliary views and zoom, so the
+next version projects the candidate solid directly (build123d `project_to_viewport`, 0.3 s for
+7 views vs ~8 s per sheet) into the input's standard views; the axis-to-view convention of the
+sheet renderer gets calibrated once on ground-truth parts. Then: (1) repair tier = (overlay of a
+wrong candidate + its code) -> a certified candidate of the same part, mined from the 695k
+scored DeepCAD candidates and the real corpora; (2) train it into the RFT mix after e58;
+(3) serving: when the gate fails, overlay the medoid and draw K repair candidates; judge by
+gated / ceiling gains on the real benches.
+**Real corpus 4.** CADBench holds 18,000 parts (DeepCAD, Fusion 360, ABC, a fourth STEP family,
+MCB, Objaverse); 13,135 were never used here and 7,148 of those carry a STEP body
+(`build_corpus4.py`, exclusion = every file_id in an existing manifest, so the held-out benches
+stay held out). Stage 1 (prep at max 120 faces + 0.4.23 sheets) runs as a CPU job on ccc0442
+(`sbatch/corpus_stage1.sbatch`); the K=8 solving pass waits for serv-04's GPUs after e58.
