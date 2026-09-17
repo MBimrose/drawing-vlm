@@ -73,6 +73,16 @@ def main():
         print(f"  gpu{i} allocated {torch.cuda.memory_allocated(i)/2**30:.0f} GiB", flush=True)
     for p in model.parameters():
         p.requires_grad_(False)
+    # The two ~98 GB engram tables stay in host RAM, memory-mapped from the safetensors files; on a network
+    # filesystem every gather page-faults from Lustre (15 s per lookup on the cluster). Copy them into RAM once.
+    t_e = time.time(); n_bytes = 0
+    for m in model.modules():
+        if type(m).__name__ == "DeepseekV41EngramEmbedding":
+            for _, p in m.named_parameters(recurse=False):
+                if p.device.type == "cpu":
+                    p.data = p.data.clone(); n_bytes += p.numel() * p.element_size()
+    if n_bytes:
+        print(f"[smoke] engram tables copied off the mmap into host RAM: {n_bytes/2**30:.0f} GiB in {time.time()-t_e:.0f}s", flush=True)
 
     # LoRA on attention / dense projections only, never on the 384 experts
     from peft import LoraConfig, get_peft_model

@@ -147,6 +147,16 @@ def main():
     model = AutoModelForImageTextToText.from_pretrained(args.model, device_map="auto", dtype=torch.bfloat16)
     for p in model.parameters():
         p.requires_grad_(False)
+    # The two ~98 GB engram tables stay in host RAM, memory-mapped from the safetensors files; on a network
+    # filesystem every gather page-faults from Lustre (15 s per lookup on the cluster). Copy them into RAM once.
+    t_e = time.time(); n_bytes = 0
+    for m in model.modules():
+        if type(m).__name__ == "DeepseekV41EngramEmbedding":
+            for _, p in m.named_parameters(recurse=False):
+                if p.device.type == "cpu":
+                    p.data = p.data.clone(); n_bytes += p.numel() * p.element_size()
+    if n_bytes:
+        log(f"[train] engram tables copied off the mmap into host RAM: {n_bytes/2**30:.0f} GiB in {time.time()-t_e:.0f}s", flush=True)
     import collections
     dm = getattr(model, "hf_device_map", {}) or {}
     log(f"[train] device map: {dict(collections.Counter(str(v) for v in dm.values()))}", flush=True)

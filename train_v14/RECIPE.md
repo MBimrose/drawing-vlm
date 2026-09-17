@@ -1663,3 +1663,11 @@ not GPU speed (a diagnostic run with `FINEGRAINED_AUTOTUNE_TRIALS=1` and the aut
 queued). The scaled run therefore runs on serv-04: union5 tier, 600 steps x 8, lr 1e-4, r=32,
 attention + shared-expert MLP targets (`spike_dsv41/lora_u5_r32_s600`, ~16 h), eval generations
 scored on the cluster.
+Root cause of the cluster slowness (torch profiler on one forward, job 10592288): GPU time
+0.98 s total; **six CPU `index_select` calls of 15.4 s each = 92.6 s** — the two ~98 GB engram
+n-gram tables, which transformers keeps in host RAM (`_no_placement_params`) and which stay
+memory-mapped from the safetensors files, so every gather page-faults across Lustre; on serv-04
+the same mmap is on local NVMe (forward 1.1 s). The Hub-kernel autotuner was innocent (its log
+stayed empty with `FINEGRAINED_AUTOTUNE_TRIALS=1`). Fix: after loading, clone the engram
+parameters off the mmap into RAM (~196 GB; the nodes have 1.5 TB) in both the smoke and the
+trainer; profile job 5 verifies.
