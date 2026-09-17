@@ -86,6 +86,25 @@ def _norm(a: np.ndarray, size: int = 96) -> np.ndarray:
     return zoom(a.astype(np.uint8), (f, f), order=0).astype(bool) if min(h, w) * f >= 1 else np.zeros((1, 1), bool)
 
 
+def match_views(A, B, shape_in, shape_cand, min_sim: float = 0.12, pos_weight: float = 1.5, max_dist: float = 0.22):
+    """Pair input views with candidate views: shape similarity at a normalised size plus a position
+    prior (orthographic views keep their place on the sheet; section / detail views come and go).
+    Returns (pairs, sims); pairs below `min_sim` stay unmatched rather than being forced together."""
+    from scipy.optimize import linear_sum_assignment
+    S0 = np.zeros((len(A), len(B))); D = np.zeros_like(S0)
+    for i, va in enumerate(A):
+        na = _norm(va["sil"]); ya, xa, ha, wa_ = va["bbox"]; ca_ = ((ya + ha / 2) / shape_in[0], (xa + wa_ / 2) / shape_in[1])
+        for j, vb in enumerate(B):
+            nb = _norm(vb["sil"]); H = max(na.shape[0], nb.shape[0]); W = max(na.shape[1], nb.shape[1])
+            ca, cb = _centered(na, H, W), _centered(nb, H, W); u = (ca | cb).sum()
+            S0[i, j] = (ca & cb).sum() / u if u else 0.0
+            yb, xb, hb, wb_ = vb["bbox"]; cb_ = ((yb + hb / 2) / shape_cand[0], (xb + wb_ / 2) / shape_cand[1])
+            D[i, j] = np.hypot(ca_[0] - cb_[0], ca_[1] - cb_[1])
+    ri, cj = linear_sum_assignment(-(S0 - pos_weight * D))
+    pairs = [(i, j) for i, j in zip(ri, cj) if S0[i, j] >= min_sim and D[i, j] <= max_dist]   # thin views (pins, plates) have low shape IoU: trust position
+    return pairs, S0
+
+
 def _rescale(v: dict, f: float) -> dict:
     from scipy.ndimage import zoom
     if abs(f - 1.0) < 0.02:
@@ -104,27 +123,19 @@ def sheet_score_v3(png_in: bytes, png_cand: bytes, tol: float = 2.0) -> dict:
     A, B = views(geometry_mask(png_in)), views(geometry_mask(png_cand))
     if not A or not B:
         return {"sil3": 0.0, "edge3": 0.0, "v3": 0.0, "scale": 1.0}
-    S0 = np.zeros((len(A), len(B)))
-    for i, va in enumerate(A):
-        na = _norm(va["sil"])
-        for j, vb in enumerate(B):
-            nb = _norm(vb["sil"]); H = max(na.shape[0], nb.shape[0]); W = max(na.shape[1], nb.shape[1])
-            ca, cb = _centered(na, H, W), _centered(nb, H, W); u = (ca | cb).sum()
-            S0[i, j] = (ca & cb).sum() / u if u else 0.0
-    ri, cj = linear_sum_assignment(-S0)
-    ratios = [np.sqrt(A[i]["area"] / max(1, B[j]["area"])) for i, j in zip(ri, cj) if S0[i, j] > 0.5]
+    ma, mb = geometry_mask(png_in), geometry_mask(png_cand)
+    pairs, S0 = match_views(A, B, ma.shape, mb.shape)
+    ratios = [np.sqrt(A[i]["area"] / max(1, B[j]["area"])) for i, j in pairs if S0[i, j] > 0.5]
     f = float(np.clip(np.median(ratios), 0.4, 2.5)) if ratios else 1.0
-    B2 = [_rescale(v, f) for v in B]
-    S = np.zeros((len(A), len(B2))); E = np.zeros_like(S)
-    for i, va in enumerate(A):
-        for j, vb in enumerate(B2):
-            S[i, j], E[i, j] = _pair(va, vb, tol)
-    ri, cj = linear_sum_assignment(-(S + E))
-    wa = np.array([v["area"] for v in A], float); wb = np.array([v["area"] for v in B2], float)
-    denom = max(wa.sum(), wb.sum(), 1.0)
-    sil = float(sum(min(wa[i], wb[j]) * S[i, j] for i, j in zip(ri, cj)) / denom)
-    edge = float(sum(min(wa[i], wb[j]) * E[i, j] for i, j in zip(ri, cj)) / denom)
-    return {"sil3": sil, "edge3": edge, "v3": 0.5 * sil + 0.5 * edge, "scale": f}
+    wa = np.array([v["area"] for v in A], float)
+    sil = edge = 0.0; wb_sum = 0.0
+    for i, j in pairs:
+        vb = _rescale(B[j], f); s_, e_ = _pair(A[i], vb, tol); w = min(wa[i], vb["area"])
+        sil += w * s_; edge += w * e_; wb_sum += vb["area"]
+    # unmatched candidate views count against it only through the orthographic set: denominator = input area
+    denom = max(wa.sum(), wb_sum, 1.0)
+    sil, edge = float(sil / denom), float(edge / denom)
+    return {"sil3": sil, "edge3": edge, "v3": 0.5 * sil + 0.5 * edge, "scale": f, "matched": len(pairs)}
 
 
 def sheet_score(png_in: bytes, png_cand: bytes, tol: float = 2.0) -> dict:
