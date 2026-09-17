@@ -79,6 +79,54 @@ def _pair(va, vb, tol: float):
     return sil, edge
 
 
+def _norm(a: np.ndarray, size: int = 96) -> np.ndarray:
+    """Aspect-preserving resize of a boolean crop so its longer side is `size` (nearest neighbour)."""
+    from scipy.ndimage import zoom
+    h, w = a.shape; f = size / max(h, w)
+    return zoom(a.astype(np.uint8), (f, f), order=0).astype(bool) if min(h, w) * f >= 1 else np.zeros((1, 1), bool)
+
+
+def _rescale(v: dict, f: float) -> dict:
+    from scipy.ndimage import zoom
+    if abs(f - 1.0) < 0.02:
+        return v
+    line = zoom(v["line"].astype(np.uint8), (f, f), order=0).astype(bool)
+    sil = zoom(v["sil"].astype(np.uint8), (f, f), order=0).astype(bool)
+    return {"bbox": v["bbox"], "line": line, "sil": sil, "area": int(sil.sum())}
+
+
+def sheet_score_v3(png_in: bytes, png_cand: bytes, tol: float = 2.0) -> dict:
+    """Scale-normalised variant: the renderer zooms the page by content, so two sheets of the same
+    part can differ in px/mm. Match views by shape at a normalised size, estimate ONE global scale
+    (median sqrt silhouette-area ratio over the matched views), rescale the candidate's views by it
+    and then compare as in v2 -- a single scale keeps cross-view proportions honest."""
+    from scipy.optimize import linear_sum_assignment
+    A, B = views(geometry_mask(png_in)), views(geometry_mask(png_cand))
+    if not A or not B:
+        return {"sil3": 0.0, "edge3": 0.0, "v3": 0.0, "scale": 1.0}
+    S0 = np.zeros((len(A), len(B)))
+    for i, va in enumerate(A):
+        na = _norm(va["sil"])
+        for j, vb in enumerate(B):
+            nb = _norm(vb["sil"]); H = max(na.shape[0], nb.shape[0]); W = max(na.shape[1], nb.shape[1])
+            ca, cb = _centered(na, H, W), _centered(nb, H, W); u = (ca | cb).sum()
+            S0[i, j] = (ca & cb).sum() / u if u else 0.0
+    ri, cj = linear_sum_assignment(-S0)
+    ratios = [np.sqrt(A[i]["area"] / max(1, B[j]["area"])) for i, j in zip(ri, cj) if S0[i, j] > 0.5]
+    f = float(np.clip(np.median(ratios), 0.4, 2.5)) if ratios else 1.0
+    B2 = [_rescale(v, f) for v in B]
+    S = np.zeros((len(A), len(B2))); E = np.zeros_like(S)
+    for i, va in enumerate(A):
+        for j, vb in enumerate(B2):
+            S[i, j], E[i, j] = _pair(va, vb, tol)
+    ri, cj = linear_sum_assignment(-(S + E))
+    wa = np.array([v["area"] for v in A], float); wb = np.array([v["area"] for v in B2], float)
+    denom = max(wa.sum(), wb.sum(), 1.0)
+    sil = float(sum(min(wa[i], wb[j]) * S[i, j] for i, j in zip(ri, cj)) / denom)
+    edge = float(sum(min(wa[i], wb[j]) * E[i, j] for i, j in zip(ri, cj)) / denom)
+    return {"sil3": sil, "edge3": edge, "v3": 0.5 * sil + 0.5 * edge, "scale": f}
+
+
 def sheet_score(png_in: bytes, png_cand: bytes, tol: float = 2.0) -> dict:
     from scipy.optimize import linear_sum_assignment
     A, B = views(geometry_mask(png_in)), views(geometry_mask(png_cand))
@@ -105,9 +153,10 @@ def _work(job):
     if bench not in _CACHE:
         _CACHE[bench] = pickle.load(open(os.path.join(bench, "eval_cache_v15.pkl"), "rb"))["samples"]
     try:
-        return key, idx, sheet_score(_CACHE[bench][key]["png"], open(path, "rb").read(), tol)
+        cand = open(path, "rb").read()
+        return key, idx, {**sheet_score(_CACHE[bench][key]["png"], cand, tol), **sheet_score_v3(_CACHE[bench][key]["png"], cand, tol)}
     except Exception as e:   # a malformed sheet must not kill the run
-        return key, idx, {"sil": 0.0, "edge": 0.0, "v2": 0.0, "error": f"{type(e).__name__}: {e}"[:120]}
+        return key, idx, {"sil": 0.0, "edge": 0.0, "v2": 0.0, "sil3": 0.0, "edge3": 0.0, "v3": 0.0, "error": f"{type(e).__name__}: {e}"[:120]}
 
 
 def main():
@@ -138,10 +187,10 @@ def main():
                 best_by_score[round(c.get("score", -1), 9)] = r
         for i, c in enumerate(p["cands"]):
             r = res.get((p["key"], i)) or (best_by_score.get(round(c.get("score", -1), 9)) if c.get("variant") else None) or {"sil": 0.0, "edge": 0.0, "v2": 0.0}
-            c.update({k: r[k] for k in ("sil", "edge", "v2")})
+            c.update({k: r.get(k, 0.0) for k in ("sil", "edge", "v2", "sil3", "edge3", "v3", "scale")})
     n = max(1, len(d["parts"]))
     summ = {"n_parts": len(d["parts"])}
-    for f in ("score", "sil", "edge", "v2"):
+    for f in ("score", "sil", "edge", "v2", "sil3", "edge3", "v3"):
         summ[f"select_{f}"] = sum(max(p["cands"], key=lambda x: x.get(f, 0.0))["iou"] for p in d["parts"]) / n
         xs = np.array([(c.get(f, 0.0), c["iou"]) for p in d["parts"] for c in p["cands"] if c.get("variant")])
         summ[f"pearson_{f}"] = float(np.corrcoef(xs[:, 0], xs[:, 1])[0, 1]) if len(xs) > 2 else 0.0

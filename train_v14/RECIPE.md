@@ -1723,3 +1723,31 @@ eval (`--eval_every=0`; serv-04 cannot load OCP), and the venv there is pinned t
 transformers 5.15.1 / trl 1.10 / peft 0.20. Data pushed: the 137 mix shards (31 GiB), the two
 eval caches, the 47 GB tars_v14_dw423 set and the 52 GB Qwen3.8-27B base. Post-training evals
 will be split: generate on serv-04 (vLLM), execute/score/consistency on cluster CPUs.
+
+### 2026-09-17 — render-and-compare (the user's idea): a label-free candidate score from the drawing itself
+Draw every candidate with the sheet renderer and compare it with the INPUT drawing — no ground
+truth needed, so it is usable at serving. Set-up on the cluster (CPU only, L40S node): `dw_venv`
+(draftwright 0.4.23 + font patch, `sbatch/dw_venv_build.sh`), the renderer scripts copied to
+`mech_step_to_drw/`, `geom/render_compare.py` + `sbatch/render_compare.sbatch` (venvs staged in
+/dev/shm: 1,152 candidates in 14 min). Fidelity: ground-truth STEPs re-rendered under the part key
+reproduce the bench sheets at **ink F1 0.998**, so the comparison is sound.
+Result on the permissive 0.4.23 real bench (144 parts, e55 K=8; vote 0.533, verifier 0.542,
+vote+verifier 0.547, ceiling 0.591):
+
+| sheet score | Pearson vs true IoU | select by it | + vote + verifier |
+|---|---|---|---|
+| whole-sheet ink F1 (tol 3 px) | 0.46 | 0.514 | 0.540 |
+| black geometry only, views matched (v2) | 0.59 | 0.519 | 0.543 |
+| + one global scale per sheet pair (v3) | **0.67** | **0.529** | 0.542 |
+
+Why the naive score is blunt: geometry is black but every annotation is blue, and the renderer
+picks page zoom, title block and auxiliary views (section vs detail) along a geometry-dependent
+random path — two candidates of one part get different px/mm and different extra views (same
+`_vN`, different style). `geom/rc_metric2.py` therefore keeps black ink only, splits it into
+views, matches them (Hungarian), fits one scale and compares silhouettes + linework.
+Reading: as a **selector** it ties the agreement vote and does not add to vote+verifier — all three
+label-free signals pick the same "typical" candidate and the K=8 selection headroom on this bench
+is only ~0.05. 41 of 892 executed candidates failed to render (mean true IoU 0.47), a small
+handicap. Its value is elsewhere: a 0.67-correlated GT-free reward, and above all the material
+for a **visual repair turn** (input sheet with the candidate's views overlaid in red, per matched
+view) — new information at test time, which is what raising the ceiling on hard parts needs.
