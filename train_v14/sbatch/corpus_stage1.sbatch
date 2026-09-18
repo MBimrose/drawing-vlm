@@ -22,7 +22,7 @@ rsync -a --copy-links $DV/.venv/ $S/venv/ & rsync -a --copy-links $DV/dw_venv/ $
 PY=$S/venv/bin/python; $PY -c "import build123d, OCP" || { echo "staged venv broken"; exit 1; }
 mkdir -p $C/logs $C/prep $C/step_mm $C/gt_meshes_v15 $C/results
 echo "STAGE1 START $(date) $(find $C/src -name '*.step' | wc -l) STEPs in $(ls -d $C/src/*/ | wc -l) chunks" >> $C/logs/stage.log
-ls -d $C/src/*/ | xargs -P ${PP:-50} -I{} bash -c 'd={}; n=$(basename $d); [ -f '"$C"'/prep/$n/manifest.json ] || '"$PY $MB"'/prep_external_parts.py --src $d --out '"$C"'/prep/$n --max-faces '"${MAXFACES:-120}"' > '"$C"'/logs/prep_$n.log 2>&1'
+ls -d $C/src/*/ | xargs -P ${PP:-50} -I{} bash -c 'd={}; n=$(basename $d); [ -f '"$C"'/prep/$n/manifest.json ] || '"$PY $MB"'/prep_external_parts.py --src $d --out '"$C"'/prep/$n --max-faces '"${MAXFACES:-120}"' --max-aspect '"${MAXASPECT:-15}"' > '"$C"'/logs/prep_$n.log 2>&1'
 echo "PREP DONE $(date)" >> $C/logs/stage.log
 $PY - "$C" "${MAXFACES:-120}" <<'PY'
 import json, glob, os, shutil, collections, sys, re
