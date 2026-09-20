@@ -1,0 +1,54 @@
+# E58 - real design idiom at scale: the DeepCAD tier (RECIPE "DeepCAD as a real-sequence tier").
+# Same recipe as e55/e57 (0.4.23 sheets, data_version 2, re-packed base rft_strict90_all_dw423b,
+# union5 x5) with the self-distilled CADBench tier replaced by rft_deepcad_e55: e55's own
+# verified best-of-8 solutions (IoU >= 0.8, think trace kept) over the ~87k real Onshape parts
+# of DeepCAD's train split, rendered on 0.4.23. The gate showed e55 solves ~60% of these at
+# K=8 with failures concentrated on the complex ones, so the tier is real idiom the model
+# half-knows -- the regime where rounds 1-3 paid off, on a pool 40x larger that cannot
+# saturate. Repeat weight R set in build_deepcad_mix.sh from the tier's row count (target:
+# the DeepCAD tier ~= 30-40% of RFT draws). Paths in sbatch/e59-rft-c4-repair-dw423.sbatch.
+run_name: e59-rft-c4-repair-dw423
+model_id: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/models/Qwen3.8-27B
+output_dir: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/e59-rft-c4-repair-dw423
+accel_config: accelerate_fsdp2_8gpu.yaml
+
+use_lora: false
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 5120
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 6.0e-6
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+
+max_steps: 4000
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 43
