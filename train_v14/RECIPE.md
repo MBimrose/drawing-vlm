@@ -1794,3 +1794,35 @@ the pattern is now explicit: **distilling what the model can already do adds not
 source or the volume.** The remaining levers are a genuinely harder supervised signal (real parts
 with ground-truth code the model cannot yet reproduce) and test-time mechanisms that add
 information rather than data — the repair turn.
+
+### 2026-09-19 — zero-shot repair fails; the corpus-4 hard-real tier; e59
+**Zero-shot repair probe (e55, 140 permissive-bench parts).** `make_repair_bench.py` overlays the
+candidate the gate actually served onto its drawing and asks for a correction
+(`repair_probe_split.sh`; generation on serv-04, scoring on the L40S CPUs):
+
+| | mean | >=0.85 |
+|---|---|---|
+| served pick (baseline) | 0.540 | 19.3% |
+| repair, first draw | **0.515** | 18.6% |
+| repair, best of 8 | 0.553 | 19.3% |
+| original best-of-8 ceiling | 0.594 | 24.3% |
+
+Net **-0.025**: 7 parts improved, 21 got worse. **e55 cannot read the overlay untrained** — as
+expected, since nothing in its training looks like one. So the repair turn is only worth anything
+with supervision, which makes the repair tier the decisive test rather than a guess.
+**Repair tier** (`build_repair_tier.py`, `sbatch/build_repair.sbatch`): every failed candidate is
+executed, drawn under its part key and painted over the drawing in red; the member carries the
+overlay as its image, the failed code in a per-member `user.txt` prompt (new: `data_v14` reads it,
+`collate_v14` uses it instead of USER_PROMPT) and the part's certified code as the target. The
+failure range is matched to serving (`bad-max 0.78`, since the served pick averages 0.54, not 0.5):
+**46,656 pairs** — 2,531 over 831 real parts (c1/c2/c3) and 44,125 over 27,149 DeepCAD parts.
+**Real corpus 4 solved** (`solve_corpus_split.sh`: generate on serv-04, score on the cluster).
+3,007 fresh CADBench parts, e55 K=8: **first draw 0.473 / 22% >= 0.85, best-of-8 0.648 / 41% >=
+0.80** — against DeepCAD's 0.713 / 0.854 / 76%. These are bench-difficulty real parts, exactly the
+harder signal e58 lacked; tier `rft_real_corpus4` = 1,230 parts / 5,069 samples.
+**e59** (`rft_mix_u9_c4rep_dw423` = 77 base + 25 union5 + 12 corpus4 + 24 repair = 138 shards;
+corpus4 9%, repair 17%) trains on serv-04. The two levers are read by different evals — corpus4 by
+the normal benches, repair by the probe — so one run tests both without confounding.
+**Trap fixed:** `repair_probe_split.sh` never stopped its vLLM server, which then held all 8 H200s
+for 11.5 h. Every split driver now stops the server after generating and rsyncs `train_v14` to
+serv-04 first (a client-side flag was missing there and the whole probe ran with no output).

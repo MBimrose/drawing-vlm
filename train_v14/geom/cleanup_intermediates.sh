@@ -22,7 +22,7 @@ say "=== cleanup $( [ $APPLY = 1 ] && echo APPLY || echo 'REPORT ONLY' ) $(date)
 
 tot=0
 # --- 1. per-part renderer scratch directories
-for iso in $(find . -maxdepth 5 -type d -name iso -path "*/render/*" 2>/dev/null); do
+for iso in $(find . -maxdepth 7 -type d -name iso -path "*/render/*" -not -path "./.git/*" 2>/dev/null); do
   n=$(ls $iso 2>/dev/null | wc -l); [ "$n" -eq 0 ] && continue
   sz=$(du -sm $iso 2>/dev/null | cut -f1); tot=$((tot + sz))
   say "  render scratch $iso: $n part dirs, ${sz} MB"
@@ -34,6 +34,9 @@ for pat in "*.json.partial.json" "*.json.scored.jsonl"; do
   while IFS= read -r f; do
     [ -n "$f" ] || continue
     merged="${f%.json.partial.json}.json"; [ "${f##*.}" = jsonl ] && merged="${f%.scored.jsonl}"
+    # a per-GPU checkpoint <stem>.shardN.json.partial.json is superseded by the run's merged <stem>.json
+    nosh=$(echo "$merged" | sed -E 's/\.shard[0-9]+\.json$/.json/')
+    [ -s "$merged" ] || merged="$nosh"
     if [ -s "$merged" ]; then
       sz=$(du -sm "$f" 2>/dev/null | cut -f1); tot=$((tot + sz))
       [ $APPLY = 1 ] && rm -f "$f"
