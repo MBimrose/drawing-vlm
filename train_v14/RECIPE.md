@@ -1769,3 +1769,28 @@ MCB, Objaverse); 13,135 were never used here and 7,148 of those carry a STEP bod
 (`build_corpus4.py`, exclusion = every file_id in an existing manifest, so the held-out benches
 stay held out). Stage 1 (prep at max 120 faces + 0.4.23 sheets) runs as a CPU job on ccc0442
 (`sbatch/corpus_stage1.sbatch`); the K=8 solving pass waits for serv-04's GPUs after e58.
+
+### 2026-09-18 — e58 verdict: the DeepCAD tier is inert on real parts (a third neutral tier)
+Trained on serv-04 (4,000 steps, 13.5 h, the cluster GPUs having been released), evaluated by the
+split chain (generate on serv-04's native vLLM, score + consistency on the L40S CPUs, verifier
+gate back on serv-04). K=8, first-exec / consistency / gated / oracle:
+
+| bench | e55 | e57 | **e58** |
+|---|---|---|---|
+| old 146-part real | 0.500 / 0.526 / 0.554 / 0.592 | 0.463 / 0.522 / 0.559 / 0.604 | **0.484 / 0.504 / 0.545 / 0.595** |
+| permissive 0.4.23 (144) | 0.482 / 0.533 / 0.539 / 0.591 | 0.463 / 0.518 / 0.554 / 0.584 | **0.498 / 0.528 / 0.545 / 0.599** |
+| full certified pool | 0.886 / 0.909 / — / 0.935 | 0.891 / 0.911 / — / 0.946 | **0.889 / 0.914 / — / 0.944** |
+
+Every gap is inside the +-0.02 single-run noise: **65,891 DeepCAD parts (277k samples, 35% of the
+RFT draws) bought nothing on out-of-distribution real parts** — and cost nothing in distribution
+(gated 0.916 / 82% on the 1,030-part in-dist slice vs e55's 0.915 / 81%). By family on the
+permissive bench e58 is 0.587 gated on Fusion360 (88) and 0.478 on ABC (56); the old bench splits
+the same way. e55 remains the serving candidate.
+**Why, and the rule it gives:** the tier was mined from parts e55 *already solved* — the full pass
+scored best-of-8 0.854 / 70% >= 0.85, i.e. the accepted rows are the easy end of DeepCAD, and
+DeepCAD's sketch+extrude idiom is narrower than the bench's ABC/Fusion parts. Together with e56
+(borrowed reasoning: memorises, costs execution) and e57 (self-distilled hard real parts: neutral),
+the pattern is now explicit: **distilling what the model can already do adds nothing, whatever the
+source or the volume.** The remaining levers are a genuinely harder supervised signal (real parts
+with ground-truth code the model cannot yet reproduce) and test-time mechanisms that add
+information rather than data — the repair turn.
