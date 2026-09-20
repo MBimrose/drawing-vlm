@@ -12,6 +12,8 @@ LOG=$DV/logs/real/repair_probe_$BENCH.log; mkdir -p $DV/logs/real $C/results
 say() { echo "$(date '+%m-%d %H:%M') $*" | tee -a $LOG; }
 s4() { timeout ${T:-180} ssh -o BatchMode=yes $S04 "$@"; }
 
+say "syncing train_v14 code to serv-04"
+rsync -a --exclude 'mech/benchmarks/data' --exclude '__pycache__' $DV/train_v14/ $S04:$SDV/train_v14/ || exit 2
 say "shipping $BENCH (overlay sheets + prompts) to serv-04"
 s4 "mkdir -p $SDV/mech_benchmarks/$BENCH"
 rsync -aL $C/eval_cache_v15.pkl $C/user_prompts.json $C/picks.json $S04:$SDV/mech_benchmarks/$BENCH/ || exit 2

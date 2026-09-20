@@ -12,6 +12,8 @@ LOG=$DV/logs/real/solve_$CORPUS.log; mkdir -p $DV/logs/real $C/results
 say() { echo "$(date '+%m-%d %H:%M') $*" | tee -a $LOG; }
 s4() { timeout ${T:-180} ssh -o BatchMode=yes $S04 "$@"; }
 
+say "syncing train_v14 code to serv-04"
+rsync -a --exclude 'mech/benchmarks/data' --exclude '__pycache__' $DV/train_v14/ $S04:$SDV/train_v14/ || exit 2
 say "shipping $CORPUS to serv-04 (eval cache + gt meshes + manifest)"
 s4 "mkdir -p $SDV/mech_benchmarks/$CORPUS"
 rsync -a $C/eval_cache_v15.pkl $C/manifest.json $S04:$SDV/mech_benchmarks/$CORPUS/ || exit 2
