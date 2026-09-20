@@ -30,7 +30,7 @@ say "generating K=$K repairs over $BENCH"
 T=86400 s4 "cd $SDV; for i in 0 1 2 3 4 5 6 7; do .venv/bin/python train_v14/geom/gen_openai_bo.py --bench mech_benchmarks/$BENCH \
   --base-url http://127.0.0.1:8100/v1 --model $RUN --k $K --temperature 0.7 --shard \$i --nshards 8 --workers 16 \
   --user-prompts mech_benchmarks/$BENCH/user_prompts.json --out results/split/$STEM > logs/gen_${STEM}_\$i.log 2>&1 & done; wait; grep -h DONE logs/gen_${STEM}_*.log | head -3"
-say "generation done"
+s4 "pkill -f 'vllm serv[e]'"; say "generation done, server stopped"
 
 rsync -a "$S04:$SDV/results/split/$STEM.shard*.json.partial.json" $C/results/ || { say "no partials"; exit 2; }
 J=$(sbatch --parsable --job-name=score-$BENCH --export=ALL,PARTIALS="$C/results/$STEM.shard*.json.partial.json",GT=$C/gt_meshes_v15,OUT=$C/results/$STEM.json,WORKERS=100 $DV/train_v14/sbatch/score_generic.sbatch)
