@@ -1826,3 +1826,24 @@ the normal benches, repair by the probe — so one run tests both without confou
 **Trap fixed:** `repair_probe_split.sh` never stopped its vLLM server, which then held all 8 H200s
 for 11.5 h. Every split driver now stops the server after generating and rsyncs `train_v14` to
 serv-04 first (a client-side flag was missing there and the whole probe ran with no output).
+
+### 2026-09-20 — repo cleanup (/projects was 88% full, 1.9 TB free, this account holding 10 TB)
+Reclaimed without touching anything an experiment reads:
+* **302 GB** — `runs/e58-rft-deepcad-dw423/checkpoint-500`, orphaned by the cluster job cancelled on
+  09-17 when e58 moved to serv-04 (its real `final/` is there and e58 was already evaluated).
+* **5.2 GB** — `geom/cleanup_intermediates.sh --apply`: 91,290 per-part renderer scratch dirs
+  (`<corpus>/render/iso/<key>`, whose sheets were long since moved into `render/png`), plus 459
+  generation checkpoints and per-GPU shard files, each only where the merged result that supersedes
+  it exists. A `<stem>.shardN.json.partial.json` is matched against the run's merged `<stem>.json`.
+* **576 MB** — `rft_corpus4.filt120`, the first corpus-4 prep at the old filters (759 parts, a
+  subset of the 3,007 kept at `--max-faces 400 --max-aspect 40`).
+**The big finding: every run `final/` is stored as float32 (355 F32 tensors/shard, 109 GB) while its
+own `config.json` declares `torch_dtype: bfloat16`** — and every consumer loads bf16
+(`train_sft_v14.py` passes `dtype=torch.bfloat16`; vLLM serves at the config dtype), so the fp32
+mantissa is discarded at load in every path. `geom/shrink_final_bf16.py` +
+`sbatch/shrink_finals.sbatch` re-save a final as bf16: each shard is cast, **verified tensor by
+tensor for exact equality against the bf16 cast of the source**, and only then swapped in, so a
+failure leaves the run untouched. 109 -> 54 GB per run, **~2.2 TB over the 43 runs**; the cost is
+I/O-bound on Lustre (~45-60 min per run). Deleting the ~36 superseded runs outright would free
+~3.7 TB instead but is irreversible, so it is the user's call; the load-bearing ones are e51 (the
+verifier base), e55 (serving), e57, e58, e59.
