@@ -77,6 +77,7 @@ def main():
     ap.add_argument("--timeout", type=int, default=600)
     ap.add_argument("--system-prompt", default="detailed")
     ap.add_argument("--no-think", action="store_true")
+    ap.add_argument("--user-prompts", default="", help="json {key: user prompt} overriding USER_PROMPT per part")
     ap.add_argument("--out", required=True, help="output stem; writes <out>.shard<i>.json.partial.json")
     args = ap.parse_args()
 
@@ -90,6 +91,8 @@ def main():
         keys = keys[: args.n]
     keys = keys[args.shard::args.nshards]
     system, user = SYSTEM_PROMPTS[args.system_prompt], USER_PROMPT
+    # per-key user prompts (repair turn: the prompt carries the failed attempt's code)
+    user_map = json.load(open(args.user_prompts)) if args.user_prompts else {}
     out_path = f"{args.out}.shard{args.shard}.json.partial.json"
     done = {}
     if os.path.exists(out_path):
@@ -103,8 +106,9 @@ def main():
         png = cache["samples"][key]["png"]
         cands = []
         try:
-            g = chat(args.base_url, args.model, png, system, user, 0.0, 1.0, 1, args.max_tokens, args.timeout, not args.no_think)
-            s = chat(args.base_url, args.model, png, system, user, args.temperature, args.top_p, args.k - 1,
+            u = user_map.get(key, user)
+            g = chat(args.base_url, args.model, png, system, u, 0.0, 1.0, 1, args.max_tokens, args.timeout, not args.no_think)
+            s = chat(args.base_url, args.model, png, system, u, args.temperature, args.top_p, args.k - 1,
                      args.max_tokens, args.timeout, not args.no_think) if args.k > 1 else []
         except Exception as e:
             print(f"[gen] {key}: {type(e).__name__}: {str(e)[:120]}", flush=True)
