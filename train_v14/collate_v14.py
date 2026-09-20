@@ -2,7 +2,7 @@
 
 Conversation shape (single turn):
     system  : one of SYSTEM_PROMPTS[cfg.system_prompt]
-    user    : [drawing image] + USER_PROMPT
+    user    : [drawing image] + USER_PROMPT (or sample["user"], e.g. a repair prompt)
     assistant: reasoning_content = thinking trace (may be ""),
                content           = ```python fenced build123d code```
 
@@ -133,7 +133,7 @@ def build_messages(sample: dict, system_prompt: str,
         {"role": "system", "content": [{"type": "text", "text": SYSTEM_PROMPTS[system_prompt]}]},
         {"role": "user", "content": [
             {"type": "image", "image": sample["image"]},
-            {"type": "text", "text": USER_PROMPT},
+            {"type": "text", "text": sample.get("user") or USER_PROMPT},
         ]},
     ]
     if trace_style == "inline":

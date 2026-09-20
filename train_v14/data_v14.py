@@ -414,13 +414,16 @@ def build_rft_dataset(
     if not shards:
         raise FileNotFoundError(f"no RFT shards under {RFT_SHARDS}")
 
-    def _pack(t):
-        png, code, think, key = t
-        img = _decode_png(png)
+    def _pack(s):
+        img = _decode_png(s["png"])
         if image_aug:
             img = augment_image(img)
-        return {"image": img, "code": _decode_code(code),
-                "trace": _decode_code(think).strip() or None, "uuid": key}
+        # user.txt (optional) overrides the fixed USER_PROMPT: repair members carry the failed
+        # attempt's code in their prompt and the corrected code as the target.
+        return {"image": img, "code": _decode_code(s["code.py"]),
+                "trace": _decode_code(s.get("think.txt", b"")).strip() or None,
+                "user": _decode_code(s.get("user.txt", b"")).strip() or None,
+                "uuid": s["__key__"]}
 
     pipe = wds.WebDataset(
         shards, resampled=True, shardshuffle=shard_shuffle_buffer,
@@ -429,8 +432,7 @@ def build_rft_dataset(
     )
     pipe = pipe.shuffle(sample_shuffle_buffer, initial=initial_buffer)
     pipe = pipe.select(lambda s: "png" in s and "code.py" in s)
-    return (pipe.to_tuple("png", "code.py", "think.txt", "__key__")
-            .map(_pack))
+    return pipe.map(_pack)
 
 
 def build_mixed_v2(reasoning_frac: float = 0.2, image_aug: bool = True,
