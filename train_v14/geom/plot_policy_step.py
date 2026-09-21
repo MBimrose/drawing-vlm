@@ -67,6 +67,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", default="/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm")
     ap.add_argument("--out", default="policy_step.svg")
+    ap.add_argument("--milestones", default="e34,e38,e40,e46,e51",
+                    help="runs to show: the recipe steps that marked an improvement (empty = every run)")
     a = ap.parse_args()
     fam = house_style()
     repair, vote, first = load(a.root)
@@ -85,12 +87,28 @@ def main():
         raise SystemExit(f"only {len(shared)} parts common to every run; refusing to plot")
     mean = lambda d: float(np.mean([d[k] for k in shared])) if d and all(k in d for k in shared) else np.nan
 
-    runs = sorted(set(repair) | set(vote), key=lambda r: (enum(r), r))
-    x = np.array([enum(r) for r in runs], float)
-    y_rep = np.array([mean(repair.get(r, {})) for r in runs])
-    y_vote = np.array([mean(vote.get(r, {})) for r in runs])
-    y_first = np.array([mean(first.get(r, {})) for r in runs])
-    dw = np.array([f"e{enum(r)}" in DW423 for r in runs])
+    # The two evaluations name the same experiment differently ("e34" vs "e34-rft-seed43"), so
+    # everything is keyed by experiment number and merged.
+    by_e: dict[int, dict] = {}
+    for src, key in ((repair, "rep"), (vote, "vote"), (first, "first")):
+        for r, d in src.items():
+            by_e.setdefault(enum(r), {})[key] = d
+            by_e[enum(r)].setdefault("name", r)
+            if len(r) > len(by_e[enum(r)]["name"]):
+                by_e[enum(r)]["name"] = r
+    es = sorted(by_e)
+    if a.milestones:
+        want = {int(w.strip().lstrip("e")) for w in a.milestones.split(",") if w.strip()}
+        missing = sorted(want - set(es))
+        if missing:
+            print(f"[policy] no data for e{missing}")
+        es = [e for e in es if e in want]
+    runs = [by_e[e]["name"] for e in es]
+    x = np.array(es, float)
+    y_rep = np.array([mean(by_e[e].get("rep", {})) for e in es])
+    y_vote = np.array([mean(by_e[e].get("vote", {})) for e in es])
+    y_first = np.array([mean(by_e[e].get("first", {})) for e in es])
+    dw = np.array([f"e{e}" in DW423 for e in es])
 
     c = plt.cm.plasma(np.linspace(0, 0.8, 3))
     fig, ax = plt.subplots(figsize=(6, 6))
@@ -98,19 +116,18 @@ def main():
     series(ax, x, y_first, c[1], "s", "Best-of-8, first to execute", hollow=dw, noise=NOISE)
     series(ax, x, y_vote, c[2], "d", "Best-of-8, agreement vote", hollow=dw, noise=NOISE)
 
-    intro = np.nanmin(x[~np.isnan(y_vote)])
-    ax.axvline(intro - 0.5, color="0.45", linestyle="--", linewidth=1.1, zorder=1)
-    ax.text(intro - 1.0, 0.695, "best-of-8 introduced", rotation=90, fontsize=9,
-            fontweight="bold", color="0.35", va="bottom", ha="right")
-
     finish(ax, "Fine-tune experiment", f"Mean volumetric IoU, {len(shared)} shared parts",
-           (x.min() - 1.2, x.max() + 0.8), (0.68, 0.96), 5, 1, 0.05, 0.01,
+           (x.min() - 1.5, x.max() + 1.5), (0.74, 0.96), 5, 1, 0.05, 0.01,
            yfmt="%.2f", legend_loc="lower right")
+    if a.milestones:      # a short axis reads better with the experiments called out explicitly
+        from matplotlib.ticker import FixedLocator, NullLocator
+        ax.xaxis.set_major_locator(FixedLocator(list(x))); ax.xaxis.set_minor_locator(NullLocator())
+        ax.set_xticklabels([f"e{int(v)}" for v in x], fontweight="bold", fontsize=11)
     save(fig, a.root, a.out)
 
     ok = ~np.isnan(y_vote) & ~np.isnan(y_rep)
     print(f"[policy] {len(shared)} parts common to all {len(repair)} repair-loop runs and {len(vote)} best-of-8 runs")
-    print(f"  repair loop, e1-e{int(intro)-1}: {np.nanmean(y_rep[x < intro]):.3f}")
+    print(f"  shown: {', '.join(runs)}")
     print(f"  where both exist (n={ok.sum()}): repair {y_rep[ok].mean():.3f} -> "
           f"first-to-execute {y_first[ok].mean():.3f} (+{(y_first-y_rep)[ok].mean():.3f}) -> "
           f"vote {y_vote[ok].mean():.3f} (+{(y_vote-y_first)[ok].mean():.3f}); "
