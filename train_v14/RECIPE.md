@@ -1847,3 +1847,16 @@ failure leaves the run untouched. 109 -> 54 GB per run, **~2.2 TB over the 43 ru
 I/O-bound on Lustre (~45-60 min per run). Deleting the ~36 superseded runs outright would free
 ~3.7 TB instead but is irreversible, so it is the user's call; the load-bearing ones are e51 (the
 verifier base), e55 (serving), e57, e58, e59.
+
+## 2026-09-21 — Title-block presentation overrides (DW_DESIGNER / DW_DRAWING_NUMBER / DW_TOLERANCE)
+`draw_generator._pick_title_block_meta` now honours `DW_DESIGNER` / `DW_DRAWING_NUMBER`, and the
+draftwright call takes `tolerance=$DW_TOLERANCE` (passed through `draftwright_compose.render_svg`,
+which forwards it to `build_drawing`). All three are unset for corpus renders, so training sheets
+keep the seeded designer pool, the seeded `PROJ-nnnn` number and draftwright's own "ISO 2768-m";
+they exist only for one-off presentation sheets. The general-tolerance cell fits ~22 characters at
+A4 — "ALL UNITS MM · ISO 2768-m" overruns the cell divider, "ALL UNITS MM" sits centred.
+
+Also: `conn_bench` is rebuilt at the STEP's native size. `Connector_Simple_bruh.STEP` measures
+27 x 19 x 8 mm as supplied; the first sheets went through the corpus normalisation (longest edge
+-> 80/81 mm) and so were ~3x oversized. At `--target-mm 27` the prep reports `scale: 1.0` and the
+sheet carries the part's real dimensions (volume 2354 mm3, drawn 2:1 on A4).
