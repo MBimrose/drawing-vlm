@@ -1860,3 +1860,10 @@ Also: `conn_bench` is rebuilt at the STEP's native size. `Connector_Simple_bruh.
 27 x 19 x 8 mm as supplied; the first sheets went through the corpus normalisation (longest edge
 -> 80/81 mm) and so were ~3x oversized. At `--target-mm 27` the prep reports `scale: 1.0` and the
 sheet carries the part's real dimensions (volume 2354 mm3, drawn 2:1 on A4).
+
+## 2026-09-21 — No compute on the login node
+Campus-cluster process control kills any login-node process past 30 min CPU/wall and mails the
+account owner (it caught a filesystem-wide `find /` of mine). Renders, eval-cache builds, scoring,
+image work and broad find/grep now go through `train_v14/serv19/cpu_run.sh` — an srun wrapper on
+the wpk partition, node ccc0442 (L40S), default 8 cpus / 64 G / 2 h. The login node keeps only
+editing, short greps, sbatch/squeue, rsync and the sleep-loop watchers.
