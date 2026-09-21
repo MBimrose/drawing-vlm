@@ -84,7 +84,8 @@ def series(ax, x, y, color, marker, label, hollow=None, noise=NOISE_REAL):
     kw = dict(markersize=6, linewidth=1.6, capsize=3, elinewidth=1, alpha=1.0, color=color)
     solid = ok & ~hollow if hollow is not None else ok
     ax.errorbar(x[solid], y[solid], yerr=noise, fmt=marker + "-",
-                markeredgecolor="black", markeredgewidth=0.4, label=label, **kw)
+                markeredgecolor="black", markeredgewidth=0.4,
+                **({"label": label} if label else {}), **kw)
     if hollow is not None and (hollow & ok).any():
         h = hollow & ok
         ax.errorbar(x[h], y[h], yerr=noise, fmt=marker + "-", markerfacecolor="white",
@@ -115,17 +116,26 @@ def main():
     print(f"   real bench: {len(rr)} runs, e{int(x.min())}..e{int(x.max())}")
 
     # ---------- 2. Zero-To-CAD-1m derived, the deep history ----------
+    # The in-training eval pool was swapped at e19 (e1-e18 scored a disjoint set of 96 parts), and
+    # the sheets were redrawn at e55. Both breaks are marked; neither is joined across.
     sr = [r for r in rows if r.get("synth96_greedy") is not None]
     x2 = col(sr, "e"); dw = np.array([bool(r["dw423"]) for r in sr])
+    POOL_SWAP = 19
+    early = x2 < POOL_SWAP
     c = plt.cm.plasma(np.linspace(0, 0.8, 2))
     fig, ax = plt.subplots(figsize=(6, 6))
-    series(ax, x2, col(sr, "synth96_greedy"), c[0], MARKERS[0], "Greedy single shot", hollow=dw, noise=NOISE_96)
-    series(ax, x2, col(sr, "synth96_repaired"), c[1], MARKERS[1], "After execution-repair loop",
-           hollow=dw, noise=NOISE_96)
-    if dw.any():
-        ax.axvline(x2[dw].min() - 0.5, color="0.45", linestyle="--", linewidth=1.1, zorder=1)
-        ax.text(x2[dw].min() - 0.9, 0.325, "sheets redrawn (0.4.23); open markers", rotation=90, fontsize=9,
-                fontweight="bold", color="0.35", va="bottom", ha="right")
+    for seg, lab in ((early, True), (~early, False)):
+        series(ax, x2[seg], col(sr, "synth96_greedy")[seg], c[0], MARKERS[0],
+               "Greedy single shot" if lab else None, hollow=dw[seg], noise=NOISE_96)
+        series(ax, x2[seg], col(sr, "synth96_repaired")[seg], c[1], MARKERS[1],
+               "After execution-repair loop" if lab else None, hollow=dw[seg], noise=NOISE_96)
+    for xv, txt in ((POOL_SWAP - 0.5, "eval pool swapped"),
+                    (x2[dw].min() - 0.5 if dw.any() else None, "sheets redrawn (0.4.23)")):
+        if xv is None:
+            continue
+        ax.axvline(xv, color="0.45", linestyle="--", linewidth=1.1, zorder=1)
+        ax.text(xv - 0.6, 0.315, txt, rotation=90, fontsize=9, fontweight="bold",
+                color="0.35", va="bottom", ha="right")
     finish(ax, "Fine-tune experiment", "Mean volumetric IoU, 96 held-out synthetic parts",
            (x2.min() - 1.2, x2.max() + 0.8), (0.30, 0.90), 5, 1, 0.10, 0.02, yfmt="%.1f")
     save(fig, a.root, "synth_progress_single.svg")
