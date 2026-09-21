@@ -70,7 +70,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", default="/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm")
     ap.add_argument("--out", default="policy_step.svg")
-    ap.add_argument("--milestones", default="e1,e2,e22,e24,e34,e40,e46,e51",
+    ap.add_argument("--milestones", default="e1,e2,e5,e7,e12,e16,e18,e19,e22,e24,e30,e34,e38,e40,e46,e51",
                     help="runs to show: the recipe steps that marked an improvement (empty = every run)")
     a = ap.parse_args()
     fam = house_style()
@@ -130,7 +130,7 @@ def main():
     if other_pool.any() and (~other_pool).any():
         cut = (x[other_pool].max() + x[~other_pool].min()) / 2
         ax.axvline(cut, color="0.45", linestyle="--", linewidth=1.1, zorder=1)
-        ax.text(cut - 0.07, 0.415, "different eval pool", rotation=90, fontsize=9,
+        ax.text(cut - 0.12, 0.86, "different eval pool", rotation=90, fontsize=9,
                 fontweight="bold", color="0.35", va="bottom", ha="right")
     series(ax, x, y_first, c[1], "s", "Best-of-8, first to execute", hollow=dw, noise=NOISE)
     series(ax, x, y_vote, c[2], "d", "Best-of-8, agreement vote", hollow=dw, noise=NOISE)
@@ -141,7 +141,9 @@ def main():
     if a.milestones:      # explicit positions, one per milestone
         from matplotlib.ticker import FixedLocator, NullLocator
         ax.xaxis.set_major_locator(FixedLocator(list(x))); ax.xaxis.set_minor_locator(NullLocator())
-        ax.set_xticklabels([f"e{e}" for e in es], fontweight="bold", fontsize=11)
+        ax.set_xticklabels([f"e{e}" for e in es], fontweight="bold",
+                           fontsize=11 if len(es) <= 10 else 9,
+                           rotation=0 if len(es) <= 10 else 45, ha="center" if len(es) <= 10 else "right")
     save(fig, a.root, a.out)
 
     ok = ~np.isnan(y_vote) & ~np.isnan(y_rep)
