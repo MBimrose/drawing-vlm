@@ -1867,3 +1867,8 @@ account owner (it caught a filesystem-wide `find /` of mine). Renders, eval-cach
 image work and broad find/grep now go through `train_v14/serv19/cpu_run.sh` — an srun wrapper on
 the wpk partition, node ccc0442 (L40S), default 8 cpus / 64 G / 2 h. The login node keeps only
 editing, short greps, sbatch/squeue, rsync and the sleep-loop watchers.
+
+## 2026-09-21 — connector result, e59 held-out, DeepSeek in-distribution
+- conn_bench (Connector_Simple_bruh at true 27 × 19 × 8 mm), e55 best-of-8: first draw 0.366, agreement vote 0.378 = oracle. Five of eight draws byte-identical. Served pick is a 12-face rounded slab: sketch on Plane.XZ extrudes toward −Y, the model shelled it (8 → 5 mm) and aimed every cut at +Y, so all features missed. Recon + views under `data/conn_bench/recon/` (rendered via cpu_run.sh).
+- e59-rft-c4-repair-dw423 held-out: ext 0.517 vote / 0.588 oracle, dw423p 0.513 / 0.591 — vs e55 0.526 / 0.592 and 0.533 / 0.591. Flat within noise. Its repair-probe rerun died "vLLM never ready" (12:40); not yet relaunched.
+- DeepSeek-V4.1-Flash LoRA on the 144-part in-distribution set: first-exec 0.113, 108/144 executed (Qwen e55 rows are ~0.9).
