@@ -14,12 +14,17 @@ Never uses gpt-oss (user preference).
 import argparse, base64, json, os, random, re, shutil, subprocess, sys, tempfile, threading, time, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
+HUB_USER = os.environ.get("HUB_USER", "bimrose2")   # user: attribute every hub request to bimrose2
 HUB = os.environ.get("CLAUDE_HUB_ROUTER", "http://wpk-serv-07.mechse.illinois.edu:3456") + "/v1/messages"
 HERE = os.path.dirname(os.path.abspath(__file__))
 HARNESS = os.path.join(HERE, "..", "..", "geom", "exec_harness.py")
 VALIDATE = os.path.join(HERE, "validate_step.py")
-CODERS = ["claude-glm-5.3[1m]", "claude-deepseek-ai/DeepSeek-V4.1-Flash[1m]", "claude-moonshotai/Kimi-K3[1m]"]
+# coder mix, weighted toward the uncapped model: 3 DeepSeek : 2 GLM : 1 Kimi
+CODERS = ["claude-deepseek-ai/DeepSeek-V4.1-Flash[1m]", "claude-glm-5.3[1m]", "claude-deepseek-ai/DeepSeek-V4.1-Flash[1m]",
+          "claude-glm-5.3[1m]", "claude-deepseek-ai/DeepSeek-V4.1-Flash[1m]", "claude-moonshotai/Kimi-K3[1m]"]
 VISION = "claude-moonshotai/Kimi-K3[1m]"
+# per-model concurrency caps on the shared hub (user, 2026-09-23): Kimi <= 4, GLM <= 8, DeepSeek uncapped
+LIMITS = {"claude-moonshotai/Kimi-K3[1m]": threading.BoundedSemaphore(4), "claude-glm-5.3[1m]": threading.BoundedSemaphore(8)}
 
 def call(model, messages, system=None, max_tokens=16000, timeout=900, tries=4, think=6000):
     # explicit thinking budget: without it GLM-5.3 thinks up to max_tokens (30k tokens, 4+ min per turn)
@@ -28,8 +33,13 @@ def call(model, messages, system=None, max_tokens=16000, timeout=900, tries=4, t
     for t in range(tries):
         try:
             rq = urllib.request.Request(HUB, data=json.dumps(body).encode(), headers={
-                "content-type": "application/json", "x-api-key": "not-needed", "anthropic-version": "2023-06-01"})
-            d = json.load(urllib.request.urlopen(rq, timeout=timeout))
+                "content-type": "application/json", "x-api-key": "not-needed", "anthropic-version": "2023-06-01",
+                "x-hub-user": HUB_USER})   # router usage attribution (hub_user in its usage log)
+            sem = LIMITS.get(model)
+            if sem:
+                with sem: d = json.load(urllib.request.urlopen(rq, timeout=timeout))
+            else:
+                d = json.load(urllib.request.urlopen(rq, timeout=timeout))
             return "".join(b.get("text", "") for b in d.get("content", []) if b.get("type") == "text"), d.get("usage", {})
         except Exception as e:
             err = e; time.sleep(5 * (t + 1))

@@ -39,7 +39,7 @@ def ask(png, model, max_tokens=6000, timeout=600):
                 {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": img}},
                 {"type": "text", "text": USER}]}]}
     req = urllib.request.Request(f"{ROUTER}/v1/messages", data=json.dumps(body).encode(),
-                                 headers={"content-type": "application/json", "x-api-key": hub_key(),
+                                 headers={"content-type": "application/json", "x-api-key": hub_key(), "x-hub-user": os.environ.get("HUB_USER", "bimrose2"),
                                           "anthropic-version": "2023-06-01", "x-hub-user": os.environ.get("USER", "bimrose2")})
     t = time.time()
     r = json.load(urllib.request.urlopen(req, timeout=timeout))

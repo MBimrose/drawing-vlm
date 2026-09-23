@@ -45,7 +45,7 @@ LOCK = threading.Lock()
 def call(model, content, max_tokens, timeout=900):
     body = {"model": model, "max_tokens": max_tokens, "system": SYSTEM, "messages": [{"role": "user", "content": content}]}
     req = urllib.request.Request(f"{ROUTER}/v1/messages", data=json.dumps(body).encode(),
-                                 headers={"content-type": "application/json", "x-api-key": hub_key(),
+                                 headers={"content-type": "application/json", "x-api-key": hub_key(), "x-hub-user": os.environ.get("HUB_USER", "bimrose2"),
                                           "anthropic-version": "2023-06-01", "x-hub-user": os.environ.get("USER", "bimrose2")})
     for attempt in range(4):
         try:
