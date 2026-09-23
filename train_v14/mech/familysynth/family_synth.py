@@ -19,12 +19,12 @@ HUB = os.environ.get("CLAUDE_HUB_ROUTER", "http://wpk-serv-07.mechse.illinois.ed
 HERE = os.path.dirname(os.path.abspath(__file__))
 HARNESS = os.path.join(HERE, "..", "..", "geom", "exec_harness.py")
 VALIDATE = os.path.join(HERE, "validate_step.py")
-# coder mix, weighted toward the uncapped model: 3 DeepSeek : 2 GLM : 1 Kimi
-CODERS = ["claude-deepseek-ai/DeepSeek-V4.1-Flash[1m]", "claude-glm-5.3[1m]", "claude-deepseek-ai/DeepSeek-V4.1-Flash[1m]",
-          "claude-glm-5.3[1m]", "claude-deepseek-ai/DeepSeek-V4.1-Flash[1m]", "claude-moonshotai/Kimi-K3[1m]"]
+# coder mix, weighted toward the uncapped model: 6 DeepSeek : 2 GLM : 1 Kimi
+_DS, _GLM, _KIMI = "claude-deepseek-ai/DeepSeek-V4.1-Flash[1m]", "claude-glm-5.3[1m]", "claude-moonshotai/Kimi-K3[1m]"
+CODERS = [_DS, _GLM, _DS, _DS, _KIMI, _DS, _GLM, _DS, _DS]
 VISION = "claude-moonshotai/Kimi-K3[1m]"
-# per-model concurrency caps on the shared hub (user, 2026-09-23): Kimi <= 4, GLM <= 8, DeepSeek uncapped
-LIMITS = {"claude-moonshotai/Kimi-K3[1m]": threading.BoundedSemaphore(4), "claude-glm-5.3[1m]": threading.BoundedSemaphore(8)}
+# per-model concurrency caps on the shared hub (user, 2026-09-23, "don't saturate the box"): Kimi <= 2, GLM <= 4, DeepSeek uncapped
+LIMITS = {"claude-moonshotai/Kimi-K3[1m]": threading.BoundedSemaphore(2), "claude-glm-5.3[1m]": threading.BoundedSemaphore(4)}
 
 def call(model, messages, system=None, max_tokens=16000, timeout=900, tries=4, think=6000):
     # explicit thinking budget: without it GLM-5.3 thinks up to max_tokens (30k tokens, 4+ min per turn)
