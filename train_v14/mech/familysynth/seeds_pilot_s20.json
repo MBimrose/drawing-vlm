@@ -1,0 +1,722 @@
+[
+ {
+  "key": "A_00548589_0e42bd8df129210b8ff6bd16_step_000_hard",
+  "family": "A",
+  "best": 0.24146859313902672,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00548589_0e42bd8df129210b8ff6bd16_step_000_hard_v2.png"
+ },
+ {
+  "key": "A_00058016_b320d900de6d4f8bbaf020b8_step_000_hard",
+  "family": "A",
+  "best": 0.4485604179779778,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00058016_b320d900de6d4f8bbaf020b8_step_000_hard_v1.png"
+ },
+ {
+  "key": "A_00670994_2a507ea483cc5e76969fd84c_step_000_hard",
+  "family": "A",
+  "best": 0.19264245679893233,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00670994_2a507ea483cc5e76969fd84c_step_000_hard_v3.png"
+ },
+ {
+  "key": "A_00780552_425975026a27cfc9ebb3c173_step_007_medium",
+  "family": "A",
+  "best": 0.1294305186719591,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00780552_425975026a27cfc9ebb3c173_step_007_medium_v1.png"
+ },
+ {
+  "key": "A_00322749_198dcd2587b80bfaef58bf0b_step_036_medium",
+  "family": "A",
+  "best": 0.4609950469317439,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00322749_198dcd2587b80bfaef58bf0b_step_036_medium_v5.png"
+ },
+ {
+  "key": "A_00846404_cb8b14e5e2a8b3647c2b92e2_step_006_hard",
+  "family": "A",
+  "best": 0.3960262301486769,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00846404_cb8b14e5e2a8b3647c2b92e2_step_006_hard_v3.png"
+ },
+ {
+  "key": "A_00891067_6d417fc51c514787651b994d_step_000_hard",
+  "family": "A",
+  "best": 0.38931311327465584,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00891067_6d417fc51c514787651b994d_step_000_hard_v3.png"
+ },
+ {
+  "key": "A_00875996_5a59e92da7368a3c86b5f2ad_step_005_hard",
+  "family": "A",
+  "best": 0.3660520416348883,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00875996_5a59e92da7368a3c86b5f2ad_step_005_hard_v2.png"
+ },
+ {
+  "key": "A_00273500_951321b6a92e7e07c6e50f35_step_011_hard",
+  "family": "A",
+  "best": 0.3234898241140027,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00273500_951321b6a92e7e07c6e50f35_step_011_hard_v1.png"
+ },
+ {
+  "key": "A_00567379_58b3bdf122f8670f75dbe643_step_000_medium",
+  "family": "A",
+  "best": 0.35777027036554526,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00567379_58b3bdf122f8670f75dbe643_step_000_medium_v3.png"
+ },
+ {
+  "key": "A_00277943_1d02c772ada1115ef778d5e3_step_000_hard",
+  "family": "A",
+  "best": 0.22159525031235916,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00277943_1d02c772ada1115ef778d5e3_step_000_hard_v5.png"
+ },
+ {
+  "key": "A_00389271_5853de564c864f10a7718951_step_041_hard",
+  "family": "A",
+  "best": 0.30853890439070547,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00389271_5853de564c864f10a7718951_step_041_hard_v5.png"
+ },
+ {
+  "key": "A_00084613_b520cc69258d48bbd455fcae_step_077_hard",
+  "family": "A",
+  "best": 0.496012165298471,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00084613_b520cc69258d48bbd455fcae_step_077_hard_v1.png"
+ },
+ {
+  "key": "A_00262145_06087d5a9501c991af5c9cd4_step_002_medium",
+  "family": "A",
+  "best": 0.23854908510202716,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00262145_06087d5a9501c991af5c9cd4_step_002_medium_v3.png"
+ },
+ {
+  "key": "A_00887912_6e4e4568fe7976becdc054fd_step_002_hard",
+  "family": "A",
+  "best": 0.17127234675452702,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00887912_6e4e4568fe7976becdc054fd_step_002_hard_v5.png"
+ },
+ {
+  "key": "A_00140745_63346af67a53586defaf8b5c_step_000_hard",
+  "family": "A",
+  "best": 0.3229567381513344,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00140745_63346af67a53586defaf8b5c_step_000_hard_v3.png"
+ },
+ {
+  "key": "A_00353183_b82e1e706da271e3ca8e12c2_step_005_hard",
+  "family": "A",
+  "best": 0.1806006191227012,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00353183_b82e1e706da271e3ca8e12c2_step_005_hard_v4.png"
+ },
+ {
+  "key": "A_00755570_bf5f4ef8495a95dfc2d73abe_step_000_hard",
+  "family": "A",
+  "best": 0.2891322232201199,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00755570_bf5f4ef8495a95dfc2d73abe_step_000_hard_v2.png"
+ },
+ {
+  "key": "A_00746627_2f8abfd5da103039f957e8e6_step_000_medium",
+  "family": "A",
+  "best": 0.3115705873366948,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00746627_2f8abfd5da103039f957e8e6_step_000_medium_v1.png"
+ },
+ {
+  "key": "A_00716019_723fa281a8d71f344af35d9c_step_000_hard",
+  "family": "A",
+  "best": 0.16999153863851985,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00716019_723fa281a8d71f344af35d9c_step_000_hard_v4.png"
+ },
+ {
+  "key": "A_00946471_da48b6c302b32b4d85131028_step_000_hard",
+  "family": "A",
+  "best": 0.11904739092490593,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00946471_da48b6c302b32b4d85131028_step_000_hard_v3.png"
+ },
+ {
+  "key": "A_00960572_05afbd872c7fb08d4eaf8b2c_step_002_hard",
+  "family": "A",
+  "best": 0.17648209301132362,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00960572_05afbd872c7fb08d4eaf8b2c_step_002_hard_v4.png"
+ },
+ {
+  "key": "A_00870021_de0b42b3000dd85dc3ccca1a_step_000_hard",
+  "family": "A",
+  "best": 0.186437006083551,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00870021_de0b42b3000dd85dc3ccca1a_step_000_hard_v1.png"
+ },
+ {
+  "key": "A_00746571_a15daecfa7f2500d0b1b4908_step_004_easy",
+  "family": "A",
+  "best": 0.0,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00746571_a15daecfa7f2500d0b1b4908_step_004_easy_v3.png"
+ },
+ {
+  "key": "A_00447354_529880969faaa66165e0c38f_step_002_hard",
+  "family": "A",
+  "best": 0.41713735923571443,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00447354_529880969faaa66165e0c38f_step_002_hard_v3.png"
+ },
+ {
+  "key": "A_00544238_376ebc78fde0b09601e7fba2_step_000_hard",
+  "family": "A",
+  "best": 0.2794368864099451,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00544238_376ebc78fde0b09601e7fba2_step_000_hard_v4.png"
+ },
+ {
+  "key": "A_00752516_7e5a938011fbda60a759ff20_step_002_hard",
+  "family": "A",
+  "best": 0.49640852341194486,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00752516_7e5a938011fbda60a759ff20_step_002_hard_v3.png"
+ },
+ {
+  "key": "A_00382122_8cd0bb5b4e2d54e7239cfb11_step_002_hard",
+  "family": "A",
+  "best": 0.4079388055241027,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00382122_8cd0bb5b4e2d54e7239cfb11_step_002_hard_v4.png"
+ },
+ {
+  "key": "A_00880102_3b996218de5b25eb975b93a4_step_000_hard",
+  "family": "A",
+  "best": 0.21709897862604646,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00880102_3b996218de5b25eb975b93a4_step_000_hard_v1.png"
+ },
+ {
+  "key": "A_00087725_0763b9b209f171d3ae30dda7_step_005_medium",
+  "family": "A",
+  "best": 0.23096266984969938,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00087725_0763b9b209f171d3ae30dda7_step_005_medium_v1.png"
+ },
+ {
+  "key": "B_00570635_hard",
+  "family": "B",
+  "best": 0.3013517167385404,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00570635_hard_v4.png"
+ },
+ {
+  "key": "B_00244336_hard",
+  "family": "B",
+  "best": 0.2405046803364359,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00244336_hard_v2.png"
+ },
+ {
+  "key": "B_00918811_hard",
+  "family": "B",
+  "best": 0.1804557368732561,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00918811_hard_v4.png"
+ },
+ {
+  "key": "B_00880014_medium",
+  "family": "B",
+  "best": 0.3875431372752412,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00880014_medium_v5.png"
+ },
+ {
+  "key": "B_00506188_hard",
+  "family": "B",
+  "best": 0.14307904098219185,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00506188_hard_v5.png"
+ },
+ {
+  "key": "B_00895243_easy",
+  "family": "B",
+  "best": 0.0,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00895243_easy_v3.png"
+ },
+ {
+  "key": "B_00810682_hard",
+  "family": "B",
+  "best": 0.33845822678369497,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00810682_hard_v1.png"
+ },
+ {
+  "key": "B_00377725_medium",
+  "family": "B",
+  "best": 0.49858788966022616,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00377725_medium_v3.png"
+ },
+ {
+  "key": "B_00241862_medium",
+  "family": "B",
+  "best": 0.3536411459442979,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00241862_medium_v5.png"
+ },
+ {
+  "key": "B_00319479_hard",
+  "family": "B",
+  "best": 0.33316238970133183,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00319479_hard_v1.png"
+ },
+ {
+  "key": "B_00232386_easy",
+  "family": "B",
+  "best": 0.18732991274666924,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00232386_easy_v1.png"
+ },
+ {
+  "key": "B_00673343_easy",
+  "family": "B",
+  "best": 0.4150022563357315,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00673343_easy_v3.png"
+ },
+ {
+  "key": "B_00022687_easy",
+  "family": "B",
+  "best": 0.15655920396001602,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00022687_easy_v1.png"
+ },
+ {
+  "key": "B_00493658_easy",
+  "family": "B",
+  "best": 0.406522884615458,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00493658_easy_v4.png"
+ },
+ {
+  "key": "B_00359944_medium",
+  "family": "B",
+  "best": 0.40914493036882166,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00359944_medium_v2.png"
+ },
+ {
+  "key": "B_00925104_hard",
+  "family": "B",
+  "best": 0.16291185747870568,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00925104_hard_v5.png"
+ },
+ {
+  "key": "B_00437324_hard",
+  "family": "B",
+  "best": 0.32587957609227036,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00437324_hard_v5.png"
+ },
+ {
+  "key": "B_00217731_medium",
+  "family": "B",
+  "best": 0.12738505192423663,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00217731_medium_v4.png"
+ },
+ {
+  "key": "B_00825165_medium",
+  "family": "B",
+  "best": 0.20515285150601126,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00825165_medium_v5.png"
+ },
+ {
+  "key": "B_00457738_medium",
+  "family": "B",
+  "best": 0.3423826354010771,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00457738_medium_v2.png"
+ },
+ {
+  "key": "B_00500313_easy",
+  "family": "B",
+  "best": 0.45992246051646457,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00500313_easy_v4.png"
+ },
+ {
+  "key": "B_00727320_hard",
+  "family": "B",
+  "best": 0.012887059244675139,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00727320_hard_v4.png"
+ },
+ {
+  "key": "B_00959397_easy",
+  "family": "B",
+  "best": 0.3688466925716069,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00959397_easy_v1.png"
+ },
+ {
+  "key": "B_00843777_hard",
+  "family": "B",
+  "best": 0.47287693420668486,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00843777_hard_v2.png"
+ },
+ {
+  "key": "B_00354759_easy",
+  "family": "B",
+  "best": 0.1867951707516269,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00354759_easy_v3.png"
+ },
+ {
+  "key": "B_00382408_hard",
+  "family": "B",
+  "best": 0.3552202313451289,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00382408_hard_v1.png"
+ },
+ {
+  "key": "B_00288122_hard",
+  "family": "B",
+  "best": 0.4236745901125203,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00288122_hard_v2.png"
+ },
+ {
+  "key": "B_00701047_easy",
+  "family": "B",
+  "best": 0.48985359316908644,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00701047_easy_v1.png"
+ },
+ {
+  "key": "B_00878119_easy",
+  "family": "B",
+  "best": 0.18162379582098823,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00878119_easy_v2.png"
+ },
+ {
+  "key": "B_00687867_easy",
+  "family": "B",
+  "best": 0.2510653745178238,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/B_00687867_easy_v2.png"
+ },
+ {
+  "key": "E_00504313_9a611911846c5979e3913a46_step_000_medium",
+  "family": "E",
+  "best": 0.2062693481675919,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00504313_9a611911846c5979e3913a46_step_000_medium_v5.png"
+ },
+ {
+  "key": "E_00751325_2eb0e4a2e52f81bfcef277ce_step_001_medium",
+  "family": "E",
+  "best": 0.4013782802325082,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00751325_2eb0e4a2e52f81bfcef277ce_step_001_medium_v5.png"
+ },
+ {
+  "key": "E_00192162_1f343b6d77374ca7ceaa376b_step_001_hard",
+  "family": "E",
+  "best": 0.35520677809062357,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00192162_1f343b6d77374ca7ceaa376b_step_001_hard_v1.png"
+ },
+ {
+  "key": "E_00586250_ca94641dd0052e265613a843_step_000_medium",
+  "family": "E",
+  "best": 0.23405200730575682,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00586250_ca94641dd0052e265613a843_step_000_medium_v1.png"
+ },
+ {
+  "key": "E_00665530_083b08bc9e722152a4f0408d_step_003_hard",
+  "family": "E",
+  "best": 0.30546359303959814,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00665530_083b08bc9e722152a4f0408d_step_003_hard_v1.png"
+ },
+ {
+  "key": "E_00720269_58f757b507ebe70f73146db8_step_031_medium",
+  "family": "E",
+  "best": 0.4948688131349337,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00720269_58f757b507ebe70f73146db8_step_031_medium_v5.png"
+ },
+ {
+  "key": "E_00645238_19a2a6c9412f51c4ef0fb470_step_000_medium",
+  "family": "E",
+  "best": 0.48449900924227346,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00645238_19a2a6c9412f51c4ef0fb470_step_000_medium_v1.png"
+ },
+ {
+  "key": "E_00518973_bb93f0d63e97fc3782a0c6dd_step_064_medium",
+  "family": "E",
+  "best": 0.1138455418322098,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00518973_bb93f0d63e97fc3782a0c6dd_step_064_medium_v2.png"
+ },
+ {
+  "key": "E_00641670_96988bc852ff7ea0eae19b61_step_000_medium",
+  "family": "E",
+  "best": 0.2165065507019314,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00641670_96988bc852ff7ea0eae19b61_step_000_medium_v4.png"
+ },
+ {
+  "key": "E_00200786_9418c9f9f49fc36d6e96f26e_step_000_hard",
+  "family": "E",
+  "best": 0.33100453206690184,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00200786_9418c9f9f49fc36d6e96f26e_step_000_hard_v5.png"
+ },
+ {
+  "key": "E_00559308_87bc5c0100f0469bd7954efb_step_011_hard",
+  "family": "E",
+  "best": 0.33300148963417414,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00559308_87bc5c0100f0469bd7954efb_step_011_hard_v5.png"
+ },
+ {
+  "key": "E_00812666_42f1da1dda3c8dc6119db3e8_step_000_easy",
+  "family": "E",
+  "best": 0.3007092177527814,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00812666_42f1da1dda3c8dc6119db3e8_step_000_easy_v5.png"
+ },
+ {
+  "key": "E_00875981_50da88acb32b7679ce9e3a40_step_000_medium",
+  "family": "E",
+  "best": 0.2402102516363883,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00875981_50da88acb32b7679ce9e3a40_step_000_medium_v4.png"
+ },
+ {
+  "key": "E_00062641_374f3900eb9b48a09b3c3e37_step_000_hard",
+  "family": "E",
+  "best": 0.3143673652390235,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00062641_374f3900eb9b48a09b3c3e37_step_000_hard_v5.png"
+ },
+ {
+  "key": "E_00053763_2dd7c36b8a4041bc941f2edc_step_000_medium",
+  "family": "E",
+  "best": 0.16434729215580485,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00053763_2dd7c36b8a4041bc941f2edc_step_000_medium_v2.png"
+ },
+ {
+  "key": "E_00173624_495f356666cd4c2cb4fb04ca_step_000_hard",
+  "family": "E",
+  "best": 0.3806581108486756,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00173624_495f356666cd4c2cb4fb04ca_step_000_hard_v2.png"
+ },
+ {
+  "key": "E_00362904_279aaa6a3b9a28c7120ab590_step_001_hard",
+  "family": "E",
+  "best": 0.3699540069301734,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00362904_279aaa6a3b9a28c7120ab590_step_001_hard_v4.png"
+ },
+ {
+  "key": "E_00913225_93a96d25881dee0db309d7b0_step_000_hard",
+  "family": "E",
+  "best": 0.4179139987284574,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00913225_93a96d25881dee0db309d7b0_step_000_hard_v4.png"
+ },
+ {
+  "key": "E_00788742_00400a59d5af6ee791c569eb_step_001_medium",
+  "family": "E",
+  "best": 0.1649487719919674,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00788742_00400a59d5af6ee791c569eb_step_001_medium_v2.png"
+ },
+ {
+  "key": "E_00801092_1f65987ac418eef87e182124_step_000_medium",
+  "family": "E",
+  "best": 0.4339730154452405,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00801092_1f65987ac418eef87e182124_step_000_medium_v4.png"
+ },
+ {
+  "key": "E_00827278_24d1254f3ac742d3ee6b59c4_step_007_easy",
+  "family": "E",
+  "best": 0.018850871509016418,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00827278_24d1254f3ac742d3ee6b59c4_step_007_easy_v5.png"
+ },
+ {
+  "key": "E_00243536_2c16fbd913d4bdaadb252ef4_step_001_medium",
+  "family": "E",
+  "best": 0.18550429759842346,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00243536_2c16fbd913d4bdaadb252ef4_step_001_medium_v4.png"
+ },
+ {
+  "key": "E_00717203_675ead9cb4d8666417797b4c_step_000_hard",
+  "family": "E",
+  "best": 0.14723302428080678,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00717203_675ead9cb4d8666417797b4c_step_000_hard_v5.png"
+ },
+ {
+  "key": "E_00005353_d93b1cdf0cfe4aaca1a014dc_step_000_hard",
+  "family": "E",
+  "best": 0.27569376631770565,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00005353_d93b1cdf0cfe4aaca1a014dc_step_000_hard_v1.png"
+ },
+ {
+  "key": "E_00084342_d40de2f3dbfe198db89f42f8_step_002_medium",
+  "family": "E",
+  "best": 0.21221023590412041,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00084342_d40de2f3dbfe198db89f42f8_step_002_medium_v2.png"
+ },
+ {
+  "key": "E_00897322_6c28c9c43cf552ccaa036dec_step_000_medium",
+  "family": "E",
+  "best": 0.2061109119308173,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00897322_6c28c9c43cf552ccaa036dec_step_000_medium_v5.png"
+ },
+ {
+  "key": "E_00888201_8de0a58a48bbaee55947822f_step_000_medium",
+  "family": "E",
+  "best": 0.1399661257321375,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00888201_8de0a58a48bbaee55947822f_step_000_medium_v5.png"
+ },
+ {
+  "key": "E_00729663_ae12afd31cb0572cdf07bbee_step_002_hard",
+  "family": "E",
+  "best": 0.3506397163504683,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00729663_ae12afd31cb0572cdf07bbee_step_002_hard_v4.png"
+ },
+ {
+  "key": "E_00681334_c31f3b49916371ee60de997a_step_004_medium",
+  "family": "E",
+  "best": 0.1816923375673687,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00681334_c31f3b49916371ee60de997a_step_004_medium_v4.png"
+ },
+ {
+  "key": "E_00426088_12560468a01ba97aa9035871_step_000_easy",
+  "family": "E",
+  "best": 0.14642107408590885,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/E_00426088_12560468a01ba97aa9035871_step_000_easy_v1.png"
+ },
+ {
+  "key": "F_21822_7d3db422_16_medium",
+  "family": "F",
+  "best": 0.23813899702310237,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_21822_7d3db422_16_medium_v2.png"
+ },
+ {
+  "key": "F_127640_6fd90843_0_medium",
+  "family": "F",
+  "best": 0.07599996475219592,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_127640_6fd90843_0_medium_v1.png"
+ },
+ {
+  "key": "F_76880_9bb28e72_15_hard",
+  "family": "F",
+  "best": 0.052281856653200495,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_76880_9bb28e72_15_hard_v3.png"
+ },
+ {
+  "key": "F_21738_11fad342_13_medium",
+  "family": "F",
+  "best": 0.36945443972649306,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_21738_11fad342_13_medium_v3.png"
+ },
+ {
+  "key": "F_56430_4f35ba2f_0_hard",
+  "family": "F",
+  "best": 0.3063323236226821,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_56430_4f35ba2f_0_hard_v4.png"
+ },
+ {
+  "key": "F_42811_4743cfd2_0000_medium",
+  "family": "F",
+  "best": 0.42858729263452083,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_42811_4743cfd2_0000_medium_v1.png"
+ },
+ {
+  "key": "F_64236_5c284786_0_hard",
+  "family": "F",
+  "best": 0.4999721074860287,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_64236_5c284786_0_hard_v2.png"
+ },
+ {
+  "key": "F_55032_350a320d_0_hard",
+  "family": "F",
+  "best": 0.4897724171189918,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_55032_350a320d_0_hard_v1.png"
+ },
+ {
+  "key": "F_136600_cf00e137_0_hard",
+  "family": "F",
+  "best": 0.4891712638144823,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_136600_cf00e137_0_hard_v4.png"
+ },
+ {
+  "key": "F_33277_f66a4b55_0_medium",
+  "family": "F",
+  "best": 0.31061088198987863,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_33277_f66a4b55_0_medium_v5.png"
+ },
+ {
+  "key": "F_140249_7c1c5bba_0_hard",
+  "family": "F",
+  "best": 0.10457698418349767,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_140249_7c1c5bba_0_hard_v3.png"
+ },
+ {
+  "key": "F_134013_9b4cfef2_0008_medium",
+  "family": "F",
+  "best": 0.4238829136618743,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_134013_9b4cfef2_0008_medium_v3.png"
+ },
+ {
+  "key": "F_21492_8bd34fc1_15_hard",
+  "family": "F",
+  "best": 0.4989732318597293,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_21492_8bd34fc1_15_hard_v4.png"
+ },
+ {
+  "key": "F_145250_cde4d039_7_medium",
+  "family": "F",
+  "best": 0.43729166666666663,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_145250_cde4d039_7_medium_v1.png"
+ },
+ {
+  "key": "F_137290_d81443d2_0_hard",
+  "family": "F",
+  "best": 0.4317267099103082,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_137290_d81443d2_0_hard_v1.png"
+ },
+ {
+  "key": "F_21338_d5c31ee8_0_hard",
+  "family": "F",
+  "best": 0.01589537474458702,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_21338_d5c31ee8_0_hard_v3.png"
+ },
+ {
+  "key": "F_23522_5c2ec58e_0_medium",
+  "family": "F",
+  "best": 0.10958921926499927,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_23522_5c2ec58e_0_medium_v5.png"
+ },
+ {
+  "key": "F_130679_7a357a9c_22_medium",
+  "family": "F",
+  "best": 0.18967546167312846,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_130679_7a357a9c_22_medium_v5.png"
+ },
+ {
+  "key": "F_114802_bbd95e3c_3_medium",
+  "family": "F",
+  "best": 0.0063728873760337396,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_114802_bbd95e3c_3_medium_v2.png"
+ },
+ {
+  "key": "F_21557_53eafe15_0039_hard",
+  "family": "F",
+  "best": 0.39755271941954995,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_21557_53eafe15_0039_hard_v1.png"
+ },
+ {
+  "key": "F_93869_8b1922a3_0_medium",
+  "family": "F",
+  "best": 0.031062871625041167,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_93869_8b1922a3_0_medium_v5.png"
+ },
+ {
+  "key": "F_115533_da81d57e_0000_hard",
+  "family": "F",
+  "best": 0.18366987921956027,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_115533_da81d57e_0000_hard_v1.png"
+ },
+ {
+  "key": "F_124878_22da45e1_2_hard",
+  "family": "F",
+  "best": 0.3924290080518721,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_124878_22da45e1_2_hard_v1.png"
+ },
+ {
+  "key": "F_105913_93f730c4_29_hard",
+  "family": "F",
+  "best": 0.2793223880555557,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_105913_93f730c4_29_hard_v5.png"
+ },
+ {
+  "key": "F_39792_60786b6c_4_hard",
+  "family": "F",
+  "best": 0.4727389540900379,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_39792_60786b6c_4_hard_v5.png"
+ },
+ {
+  "key": "F_87950_af56e26e_3_easy",
+  "family": "F",
+  "best": 0.4885842767809781,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_87950_af56e26e_3_easy_v1.png"
+ },
+ {
+  "key": "F_111380_68491dc0_0_hard",
+  "family": "F",
+  "best": 0.14374701855720456,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_111380_68491dc0_0_hard_v5.png"
+ },
+ {
+  "key": "F_23926_e3c1232e_3_hard",
+  "family": "F",
+  "best": 0.41152604711912105,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_23926_e3c1232e_3_hard_v5.png"
+ },
+ {
+  "key": "F_35586_6a432948_8_medium",
+  "family": "F",
+  "best": 0.49456502590090173,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_35586_6a432948_8_medium_v1.png"
+ },
+ {
+  "key": "F_33770_b5473043_46_medium",
+  "family": "F",
+  "best": 0.34944416729598077,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/F_33770_b5473043_46_medium_v3.png"
+ }
+]

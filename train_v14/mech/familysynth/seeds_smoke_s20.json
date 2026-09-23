@@ -1,0 +1,20 @@
+[
+ {
+  "key": "A_00548589_0e42bd8df129210b8ff6bd16_step_000_hard",
+  "family": "A",
+  "best": 0.24146859313902672,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00548589_0e42bd8df129210b8ff6bd16_step_000_hard_v2.png"
+ },
+ {
+  "key": "A_00058016_b320d900de6d4f8bbaf020b8_step_000_hard",
+  "family": "A",
+  "best": 0.4485604179779778,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00058016_b320d900de6d4f8bbaf020b8_step_000_hard_v1.png"
+ },
+ {
+  "key": "A_00670994_2a507ea483cc5e76969fd84c_step_000_hard",
+  "family": "A",
+  "best": 0.19264245679893233,
+  "png": "/srv/scratch/bimrose2/familysynth/seed_png/A_00670994_2a507ea483cc5e76969fd84c_step_000_hard_v3.png"
+ }
+]

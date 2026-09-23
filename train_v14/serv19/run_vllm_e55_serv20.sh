@@ -11,7 +11,7 @@ SIF=$DV/containers/vllm-dsv41.sif
 export VLLM_ENGINE_READY_TIMEOUT_S=1800
 mkdir -p $DV/tmp
 exec apptainer exec --nv --bind $DV:$DV --bind /tmp:/tmp $SIF \
-  vllm serve $MODEL --served-model-name e55 \
+  vllm serve $MODEL --served-model-name ${NAME:-e55} \
     --host 127.0.0.1 --port ${PORT:-8100} \
     --data-parallel-size ${DP:-8} --tensor-parallel-size 1 \
     --reasoning-parser qwen3 \
