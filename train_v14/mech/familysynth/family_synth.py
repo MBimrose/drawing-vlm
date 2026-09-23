@@ -26,9 +26,15 @@ VISION = "claude-moonshotai/Kimi-K3[1m]"
 # per-model concurrency caps on the shared hub (user, 2026-09-23, "don't saturate the box"): Kimi <= 2, GLM <= 4, DeepSeek uncapped
 LIMITS = {"claude-moonshotai/Kimi-K3[1m]": threading.BoundedSemaphore(2), "claude-glm-5.3[1m]": threading.BoundedSemaphore(4)}
 
-def call(model, messages, system=None, max_tokens=16000, timeout=900, tries=4, think=6000):
+def call(model, messages, system=None, max_tokens=16000, timeout=900, tries=4, think=6000, effort=None):
     # explicit thinking budget: without it GLM-5.3 thinks up to max_tokens (30k tokens, 4+ min per turn)
+    # Thinking length is controlled by output_config.effort (the router passes it to the chat template);
+    # budget_tokens and thinking-disabled are ignored on real tasks and the router floors max_tokens at ~30k, so
+    # GLM-5.3 thought 30k tokens and was cut off with no code (9/76 accepted in the pilot). GLM always runs at
+    # effort "low" (7 s, code; "medium" runs away); other models drop to "low" after a turn that returned no code.
+    if "glm" in model.lower(): effort = "low"
     body = {"model": model, "max_tokens": max_tokens, "messages": messages, "thinking": {"type": "enabled", "budget_tokens": think}}
+    if effort: body["output_config"] = {"effort": effort}
     if system: body["system"] = system
     for t in range(tries):
         try:
@@ -155,10 +161,11 @@ def synth(a):
         rec = dict(jb, ok=False, turns=0, usage=[])
         for turn in range(a.turns):
             rec["turns"] = turn + 1
-            try: txt, u = call(jb["model"], msgs, system=SYSTEM)
+            try: txt, u = call(jb["model"], msgs, system=SYSTEM, effort=rec.get("effort"))
             except Exception as e: rec["err"] = str(e); break
             rec["usage"].append(u); code = code_of(txt)
             if not code:
+                rec["effort"] = "low"   # the turn ran out of tokens while thinking: think less from now on
                 msgs += [{"role": "assistant", "content": txt or "(empty)"}, {"role": "user", "content": "Answer with a single ```python code block."}]; continue
             res, err = run(code, wd, jb["id"], a.py)
             if res and not err: err = check(res[2], a.min_faces)

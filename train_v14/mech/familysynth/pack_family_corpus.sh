@@ -15,7 +15,7 @@ ok = {r["id"]: r for r in rows if r.get("ok") and os.path.exists(os.path.join(C,
 # drop steps of ids that were later rejected/overwritten
 for f in os.listdir(os.path.join(C, "step_mm")):
     if f[:-5] not in ok: os.remove(os.path.join(C, "step_mm", f))
-man = {"parts": {k: {"family": "Z", "part_family": r["family"], "seed": r["seed"], "model": r["model"], "faces": r["faces"],
+man = {"parts": {k: {"family": "Z", "src": os.path.join(C, "step_mm", k + ".step"), "part_family": r["family"], "seed": r["seed"], "model": r["model"], "faces": r["faces"],
                       "bbox_mm": r["bbox"], "desc": r["desc"]} for k, r in ok.items()}, "source": "family_synth.py"}
 json.dump(man, open(os.path.join(C, "manifest.json"), "w"), indent=1)
 json.dump({"test": sorted(ok)}, open(os.path.join(C, "split.json"), "w"))
