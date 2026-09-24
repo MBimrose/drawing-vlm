@@ -25,6 +25,6 @@ echo "$(date) scoring $PARTIALS -> $OUT on $(hostname) with $PY (${WORKERS:-40} 
 $PY $DV/train_v14/geom/score_partials.py --partials "$PARTIALS" --gt-dir $GT --out $OUT \
   --workers ${WORKERS:-40} --exec-timeout ${EXEC_TIMEOUT:-60} --iou-timeout ${IOU_TIMEOUT:-90}
 STEM=${OUT%.json}
-[ -f $OUT ] && $PY $DV/train_v14/geom/consistency_rerank.py $OUT ${STEM}_consistency.json > ${STEM}_consistency.log 2>&1
+[ -z "${NO_CONS:-}" ] && [ -f $OUT ] && $PY $DV/train_v14/geom/consistency_rerank.py $OUT ${STEM}_consistency.json > ${STEM}_consistency.log 2>&1
 tail -3 ${STEM}_consistency.log
 echo "SCORE GENERIC DONE $OUT $(date)"
