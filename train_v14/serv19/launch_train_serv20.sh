@@ -23,6 +23,6 @@ export TRAIN_VENV=$DV/.venv
 RUN=$(grep -E "^run_name:" train_v14/configs/$CFG.yaml | awk '{print $2}')
 : > logs/${RUN}_serv20.log
 setsid nohup bash -c "cd $DV && bash train_v14/run.sh train_v14/configs/$CFG.yaml \
-    --model_id=$DV/models/Qwen3.8-27B --output_dir=$DV/runs/$RUN --eval_every=0; echo TRAIN EXIT \$?" \
+    --model_id=${MODEL_ID:-$DV/models/Qwen3.8-27B} --output_dir=$DV/runs/$RUN --eval_every=0; echo TRAIN EXIT \$?" \
     >> logs/${RUN}_serv20.log 2>&1 < /dev/null &
 sleep 2; echo "$RUN launched on $(hostname) GPUs $CUDA_VISIBLE_DEVICES: log $DV/logs/${RUN}_serv20.log"

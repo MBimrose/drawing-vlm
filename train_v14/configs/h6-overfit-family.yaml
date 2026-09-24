@@ -1,0 +1,48 @@
+# H6 overfit test (2026-09-24): full FT from e55 on 50 family GT programs (empty think = no-think rows), ~38 epochs
+# (120 steps x 4 ranks x accum 4 = 1,920 samples), no augmentation. Question: can e55 fit real-vocabulary programs at all?
+# Judge in no-think mode on the 50 trained parts and 50 seed-disjoint held-out parts vs e55 no-think.
+run_name: h6-overfit-family
+model_id: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/models/Qwen3.8-27B
+output_dir: /srv/scratch/bimrose2/runs/h6-overfit-family
+accel_config: accelerate_fsdp2_4gpu.yaml
+
+use_lora: false
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.0
+rft_frac: 1.0
+image_aug: false
+exec_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 5120
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 1.0e-5
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.05
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 4
+gradient_checkpointing: false
+
+max_steps: 120
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 0
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 43
