@@ -58,5 +58,5 @@ with open(src, "w") as f:
     for r in out: f.write(json.dumps(r) + "\n")
 print(f"[tier] {len(rows)} rows >= 0.8 -> {len(out)} rows >= 0.9 over {len(by)} parts")
 PY
-python $DV/train_v14/geom/pack_rft_shards_dir.py $DV/$TIER $C/render/png 2>&1 | tail -2 | tee -a $LOG
+python $DV/train_v14/geom/pack_rft_shards_dir.py $DV/$TIER $DV/$TIER/png   # write_rft_real copies <key>.png here 2>&1 | tail -2 | tee -a $LOG
 say "SOLVE2 DONE $CORPUS -> $TIER"
