@@ -187,8 +187,9 @@ def synth(a):
     with ThreadPoolExecutor(a.workers) as ex: list(ex.map(safe, jobs))
     print("SYNTH DONE", stats, flush=True)
 
-ap = argparse.ArgumentParser(); ap.add_argument("stage"); ap.add_argument("--seeds"); ap.add_argument("--out", required=True)
-ap.add_argument("--workers", type=int, default=16); ap.add_argument("--turns", type=int, default=6); ap.add_argument("--min-faces", type=int, default=10)
-ap.add_argument("--limit", type=int, default=0); ap.add_argument("--py", default=sys.executable)
-a = ap.parse_args(); os.makedirs(a.out, exist_ok=True)
-{"describe": describe, "synth": synth}[a.stage](a)
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser(); ap.add_argument("stage"); ap.add_argument("--seeds"); ap.add_argument("--out", required=True)
+    ap.add_argument("--workers", type=int, default=16); ap.add_argument("--turns", type=int, default=6); ap.add_argument("--min-faces", type=int, default=10)
+    ap.add_argument("--limit", type=int, default=0); ap.add_argument("--py", default=sys.executable)
+    a = ap.parse_args(); os.makedirs(a.out, exist_ok=True)
+    {"describe": describe, "synth": synth}[a.stage](a)
