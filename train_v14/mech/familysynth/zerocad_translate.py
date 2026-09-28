@@ -57,15 +57,15 @@ def main():
         if rid in done: return
         gt = os.path.join(a.out, "src_stl", rid + ".stl"); open(gt, "wb").write(r["stl_file"])
         open(os.path.join(a.out, "src_cq", rid + ".py"), "w").write(r["cadquery_file"])
-        msgs = [{"role": "user", "content": f"CadQuery program:\n```python\n{r['cadquery_file']}\n```\nWrite the equivalent build123d program."}]
+        msgs = [{"role": "user", "content": f"CadQuery program:\n```python\n{r['cadquery_file']}\n```\nWrite the equivalent build123d program. Translate it directly, statement by statement; do not deliberate at length."}]
         rec = {"id": rid, "uuid": r["uuid"], "src_faces": r["num_faces"], "src_ops": r["cadquery_ops_count"], "model": _DS, "ok": False, "turns": 0, "usage": []}
         for turn in range(a.turns):
             rec["turns"] = turn + 1
-            try: txt, u = call(_DS, msgs, system=SYSTEM, effort=rec.get("effort", "low"))
+            try: txt, u = call(_DS, msgs, system=SYSTEM, effort="low", max_tokens=30000)   # pilot: 45% ran out of 15k tokens thinking
             except Exception as e: rec["err"] = str(e); break
             rec["usage"].append(u); code = code_of(txt)
             if not code:
-                msgs += [{"role": "assistant", "content": txt or "(empty)"}, {"role": "user", "content": "Answer with a single ```python code block."}]; continue
+                msgs += [{"role": "assistant", "content": txt or "(empty)"}, {"role": "user", "content": "You ran out of space while thinking. Translate directly now, statement by statement, and answer with a single ```python code block."}]; continue
             res, err = run(code, wd, rid, a.py)
             if res and not err: err = check(res[2], a.min_faces)
             if res and not err:
