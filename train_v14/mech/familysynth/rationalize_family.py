@@ -20,7 +20,7 @@ Requirements:
   derive any unprinted value arithmetically from printed ones, e.g. "half of the 80 length"). Consistent with the correct model's shape and features.
 - Cover the overall stock/envelope, the main body construction, then every feature (walls, pockets, bosses, ribs, holes with counts/patterns, slots, fillets, chamfers) in build order.
 - Never mention code, programs, scripts, variables, parameters, CAD software, build123d, or that a model was provided.
-- Style: plain numbered lines exactly like these examples, terse, 4-10 lines, 350-1000 characters total. Output ONLY the plan.
+- Style: plain numbered lines exactly like these examples, terse, 4-10 lines, 350-1000 characters total. Output ONLY the plan. Do not deliberate at length.
 
 Example plans (other parts):
 """ + "\n\n".join(f"<example>\n{e}\n</example>" for e in EX[:4])
@@ -32,7 +32,7 @@ def main():
     ap.add_argument("--min-chars", type=int, default=250); ap.add_argument("--max-chars", type=int, default=1400)
     a = ap.parse_args(); os.makedirs(os.path.join(a.out, "png"), exist_ok=True)
     rows = [json.loads(l) for l in open(os.path.join(a.tier, "accepted-000.jsonl"))]
-    raw = os.path.join(a.out, "raw.jsonl"); done = {json.loads(l)["key"] for l in open(raw)} if os.path.exists(raw) else set()
+    raw = os.path.join(a.out, "raw.jsonl"); done = {j["key"] for j in map(json.loads, open(raw)) if j["plan"]} if os.path.exists(raw) else set()   # empty plans are retried
     lock = threading.Lock(); st = {"n": 0}
     def one(r):
         if r["key"] in done: return
@@ -40,7 +40,7 @@ def main():
         code = re.sub(r"#.*", "", r["code"])   # comments would leak intent words
         try:
             txt, u = call(_DS, [{"role": "user", "content": [{"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": img}},
-                  {"type": "text", "text": PROMPT + f"\n\nCorrect model (reference only):\n```python\n{code}\n```"}]}], max_tokens=6000, effort="low")
+                  {"type": "text", "text": PROMPT + f"\n\nCorrect model (reference only):\n```python\n{code}\n```"}]}], max_tokens=30000, effort="low")   # 6000: 63% of calls thought to the cap with no plan
         except Exception as e:
             txt, u = "", {"err": str(e)}
         plan = txt.strip()
@@ -52,6 +52,7 @@ def main():
     plans = {}
     for l in open(raw):
         j = json.loads(l); p = j["plan"]
+        if not p: continue
         if a.min_chars <= len(p) <= a.max_chars and re.match(r"^1\.", p) and not BAD.search(p): plans[j["key"]] = p
     with open(os.path.join(a.out, "accepted-000.jsonl"), "w") as f:
         for r in rows:
