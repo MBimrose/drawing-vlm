@@ -24,7 +24,9 @@ _DS, _GLM, _KIMI = "claude-deepseek-ai/DeepSeek-V4.1-Flash[1m]", "claude-glm-5.3
 CODERS = [_DS, _GLM, _DS, _DS, _KIMI, _DS, _GLM, _DS, _DS]
 VISION = "claude-moonshotai/Kimi-K3[1m]"
 # per-model concurrency caps on the shared hub (user, 2026-09-23, "don't saturate the box"): Kimi <= 2, GLM <= 4, DeepSeek uncapped
-LIMITS = {"claude-moonshotai/Kimi-K3[1m]": threading.BoundedSemaphore(2), "claude-glm-5.3[1m]": threading.BoundedSemaphore(4)}
+# 2026-09-28 user: "lower your usage on deepseek" so others can use the hub -> DeepSeek capped too (per process, env DS_CAP, default 6)
+LIMITS = {"claude-moonshotai/Kimi-K3[1m]": threading.BoundedSemaphore(2), "claude-glm-5.3[1m]": threading.BoundedSemaphore(4),
+          "claude-deepseek-ai/DeepSeek-V4.1-Flash[1m]": threading.BoundedSemaphore(int(os.environ.get("DS_CAP", "6")))}
 
 def call(model, messages, system=None, max_tokens=16000, timeout=900, tries=4, think=6000, effort=None):
     # explicit thinking budget: without it GLM-5.3 thinks up to max_tokens (30k tokens, 4+ min per turn)
