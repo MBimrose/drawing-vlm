@@ -17,7 +17,7 @@ bash train_v14/serv19/cpu_run.sh -c 4 -t 01:00:00 -m 32G -- ".venv/bin/python tr
 T=$(ls -d $O/tier_n* | head -1); mv $T $O/tier_zc; T=$O/tier_zc
 on "mkdir -p $SDV/results/h6d"; rsync -a $T/accepted-000.jsonl $T/png $S20:$SDV/results/h6d/tier_zc/
 on "cd $SDV; DS_CAP=32 setsid nohup .venv/bin/python train_v14/mech/familysynth/rationalize_family.py --tier results/h6d/tier_zc --out results/h6d/tier_zc_rat --workers 32 > results/h6d/rat.log 2>&1 < /dev/null & echo rat started" | tee -a $LOG
-until grep -q "H6C DONE" logs/real/h6c_chain.log; do sleep 300; done
+until grep -q "H6C2 DONE" logs/real/h6c_chain.log; do sleep 300; done
 BASE=$DV/rft_strict90_all_dw423b/shards; U5=$DV/rft_real_union5_dw423/shards; M=rft_mix_h6d_zcnt
 bash train_v14/geom/build_rft_mix.sh $DV/$M $BASE $U5 5 >/dev/null; i=$(ls $DV/$M | wc -l); nb=$i
 for t in $DV/results/h6b/tier_n1655 $T; do ns=$(ls $t/shards/rft-*.tar | wc -l); R=$(python3 -c "print(max(1, round(($nb/3)/$ns/2)))")
