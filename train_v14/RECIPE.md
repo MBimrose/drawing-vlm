@@ -1987,3 +1987,13 @@ Hub: DeepSeek capped at 48 in flight total (user, 2026-09-28; `DS_CAP` semaphore
   | held-out families (200, start = e55 first-exec) | 0.362 | 0.397 | 0.409 | 0.411 | **0.427 (+0.065 [+0.036,+0.096])** | 0.517 |
   Mostly converged by round 3. The real-bench result (0.606) is above e55's best-of-8 ceiling (0.591) and is the best real-bench number of the project; the family held-out run is out-of-sample for the margin choice. The pipeline is e55 (first pass, vote pick) -> [DeepSeek repair from target + own render -> v3-gated adopt] x 3-6. It depends on the hub; rp1 (trained repairer) is the in-house version.
 - **Trap:** rp1_chain.sh / h6d_chain.sh reused `T` (the ssh helper's timeout variable) for a tier path, so every remote step failed ("vLLM never ready", no training) for ~2 h; fixed (TIER / TZ) and relaunched.
+
+## 2026-09-29 — RP1: trained in-house visual repairer
+- **rp1-delta-e55** (300 steps from e55, d0 mix + 3,880 repair rows from synthesized-family parts: [target sheet, sheet of a wrong h6b draw] + REPAIR_PROMPT(code) -> GT program, empty think; `serv19/rp1_chain.sh`). Served with vLLM `MM_LIMIT=2`, no-think, K=8 repairs of e55's vote pick (`geom/vr_serve.py`), real bench (143):
+  | | start | first-exec repair | mean repair | best of start+K | exec |
+  |---|---|---|---|---|---|
+  | e55 zero-shot (same prompt) | 0.537 | 0.499 (4 helped / 27 hurt) | 0.417 | 0.553 | 78% |
+  | rp1 | 0.537 | 0.429 (26 / 74) | 0.246 | **0.628** | 53% |
+  rp1 proposes much better fixes (oracle 0.628 > e55's K=8 ceiling 0.591) but half its programs fail and it cannot rank them.
+- **rp1 + render-compare v3 gate (one round, label-free):** margin 0.1 -> **0.577 (+0.040 [+0.018,+0.063])**, **ABC +0.058 [+0.019,+0.102]**, Fusion +0.029 [+0.004,+0.056]; margin 0.05 +0.042, 0.15 +0.032. First in-house (no hub) real-bench gain since e55, and the largest ABC gain of any method. (results/repair/rc_vs_rp1_v3.json)
+- In flight: 3-round in-house loop (`serv19/rp1_loop.sh`, `vr_serve.py --rounds 3 --margin 0.1`) on the real bench + held-out families; H6d on cluster ccc0451; e55 K=4 on Zero-to-CAD parts (ccc0474, more repair rows); DeepSeek repair search on corpus-4 real parts (real-shape repair rows).
