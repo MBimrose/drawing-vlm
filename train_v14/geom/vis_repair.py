@@ -13,6 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "mech", "familysynth")); sys.path.insert(0, HERE)
 from family_synth import call, code_of, _DS
 from render_compare import render_candidate
+from rc_metric2 import sheet_score_v3
 IOU_ONCE = os.path.join(HERE, "iou_once.py")
 
 SYS = """You are an expert CAD engineer. You write build123d (Python) programs that reproduce parts from engineering drawings exactly.
@@ -30,6 +31,7 @@ def img(b): return {"type": "image", "source": {"type": "base64", "media_type": 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--bench"); ap.add_argument("--picks"); ap.add_argument("--arm", choices=["vis", "blind", "scratch"])
     ap.add_argument("--rounds", type=int, default=3); ap.add_argument("--out"); ap.add_argument("--workers", type=int, default=16); ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--adopt", choices=["exec", "v3"], default="exec"); ap.add_argument("--margin", type=float, default=0.02)
     ap.add_argument("--py", default=sys.executable); ap.add_argument("--rpy"); ap.add_argument("--script-dir")
     a = ap.parse_args()
     cache = pickle.load(open(os.path.join(a.bench, "eval_cache_v15.pkl"), "rb"))["samples"]
@@ -46,15 +48,23 @@ def main():
                 return float(json.loads(p.stdout)["iou_centered"]), True, ""
             except subprocess.TimeoutExpired: return 0.0, False, "execution timed out"
             except Exception as ex: return 0.0, True, str(ex)[:200]
+    def rv3(code, k):
+        png, info = render_candidate(code, k, a.py, a.rpy, a.script_dir, 120, 300)
+        if png is None: return None, 0.0, info
+        try: return png, float(sheet_score_v3(cache[k]["png"], png)["v3"]), info
+        except Exception as ex: return png, 0.0, {"error": str(ex)[:100]}
     def one(k):
         if k in done: return
         target = cache[k]["png"]; code = None if a.arm == "scratch" else picks[k]["code"]; hist = []
-        if code: s, e, _ = score(code, k); hist.append({"round": 0, "iou": s, "exec": e, "code": code})
+        cur_png = cur_v3 = None
+        if code:
+            s, e, _ = score(code, k); hist.append({"round": 0, "iou": s, "exec": e, "code": code})
+            if a.adopt == "v3": cur_png, cur_v3, _ = rv3(code, k); hist[-1]["v3"] = cur_v3
         for r in range(1, a.rounds + 1) if code else range(0, a.rounds + 1):
             if code is None:
                 content = [img(target), {"type": "text", "text": SCRATCH}]
             elif a.arm == "vis":
-                png, info = render_candidate(code, k, a.py, a.rpy, a.script_dir, 120, 300)
+                png, info = (cur_png, {"stage": "render", "error": "cached render failed"}) if a.adopt == "v3" else render_candidate(code, k, a.py, a.rpy, a.script_dir, 120, 300)
                 if png is None:
                     content = [img(target), {"type": "text", "text": BLIND + f"\n\nNote: the current program could not be drawn ({info.get('stage')}: {info.get('error','')[-200:]}); fix that too.\n\nCURRENT program:\n```python\n{code}\n```"}]
                 else:
@@ -74,7 +84,11 @@ def main():
             if txt is None: break
             if not new: hist.append({"round": r, "nocode": True}); continue
             hist.append({"round": r, "iou": s_, "exec": e, "fixes": fix, "code": new, "notes": (txt or "").split("```")[0][-1500:]})
-            if e: code = new          # a non-executing edit is not adopted
+            if e and a.adopt == "exec": code = new          # a non-executing edit is not adopted
+            elif e:                                          # adopt only if the render matches the target better (label-free)
+                npng, nv3, _ = rv3(new, k); hist[-1]["v3"] = nv3
+                if npng is not None and nv3 > (cur_v3 or 0.0) + a.margin:
+                    code, cur_png, cur_v3 = new, npng, nv3; hist[-1]["adopted"] = True
         with lock:
             with open(a.out, "a") as f: f.write(json.dumps({"key": k, "arm": a.arm, "hist": hist}) + "\n")
     def safe(k):
