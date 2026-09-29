@@ -420,10 +420,15 @@ def build_rft_dataset(
             img = augment_image(img)
         # user.txt (optional) overrides the fixed USER_PROMPT: repair members carry the failed
         # attempt's code in their prompt and the corrected code as the target.
-        return {"image": img, "code": _decode_code(s["code.py"]),
-                "trace": _decode_code(s.get("think.txt", b"")).strip() or None,
-                "user": _decode_code(s.get("user.txt", b"")).strip() or None,
-                "uuid": s["__key__"]}
+        out = {"image": img, "code": _decode_code(s["code.py"]),
+               "trace": _decode_code(s.get("think.txt", b"")).strip() or None,
+               "user": _decode_code(s.get("user.txt", b"")).strip() or None,
+               "uuid": s["__key__"]}
+        # cand.png (optional, visual repair rows): the sheet the failed program draws, shown as a
+        # second image after the target sheet; never augmented (it is rendered, not scanned).
+        if "cand.png" in s:
+            out["image2"] = _decode_png(s["cand.png"])
+        return out
 
     pipe = wds.WebDataset(
         shards, resampled=True, shardshuffle=shard_shuffle_buffer,

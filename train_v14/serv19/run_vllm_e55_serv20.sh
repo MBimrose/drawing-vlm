@@ -16,4 +16,4 @@ exec apptainer exec --nv --bind $DV:$DV --bind /tmp:/tmp $SIF \
     --data-parallel-size ${DP:-8} --tensor-parallel-size 1 \
     --reasoning-parser qwen3 \
     --gpu-memory-utilization 0.90 --max-model-len 16384 --max-num-seqs ${SEQS:-64} \
-    --limit-mm-per-prompt '{"image": 1}' --trust-remote-code ${VLLM_EXTRA:-}
+    --limit-mm-per-prompt "{\"image\": ${MM_LIMIT:-1}}" --trust-remote-code ${VLLM_EXTRA:-}

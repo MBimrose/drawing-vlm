@@ -61,6 +61,10 @@ SYSTEM_PROMPTS: dict[str, str] = {
 }
 
 USER_PROMPT = "Reproduce the geometry as accurately as possible from the drawing."
+# Visual repair turn (2026-09-29): image 1 = target sheet, image 2 = the sheet the current program draws
+# (same renderer, same layout seed). Shared by pack_repair_shards.py (training) and vr_serve.py (serving).
+REPAIR_PROMPT = ("Image 1 is the target drawing. Image 2 is the drawing produced by the current program below. "
+                 "Rewrite the program so that it reproduces the target drawing exactly.\n\nCurrent program:\n```python\n{code}\n```")
 
 _FENCE_RE_OPEN = re.compile(r"^```(?:python)?\s*\n?")
 _FENCE_RE_CLOSE = re.compile(r"\n?```\s*$")
@@ -133,6 +137,7 @@ def build_messages(sample: dict, system_prompt: str,
         {"role": "system", "content": [{"type": "text", "text": SYSTEM_PROMPTS[system_prompt]}]},
         {"role": "user", "content": [
             {"type": "image", "image": sample["image"]},
+            *([{"type": "image", "image": sample["image2"]}] if sample.get("image2") is not None else []),
             {"type": "text", "text": sample.get("user") or USER_PROMPT},
         ]},
     ]
