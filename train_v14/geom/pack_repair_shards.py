@@ -2,20 +2,22 @@
     image = the part's target sheet, cand.png = the candidate's own sheet (render_compare --save-png-dir,
     <key>__<cand index>.png), user.txt = collate_v14.REPAIR_PROMPT with the candidate code, code.py = the part's
     ground-truth program, think.txt empty (repair turns are served in no-think format).
-    python pack_repair_shards.py --bo <candidates json> --png-dir <rc png dir> --bench <bench with eval_cache_v15.pkl> --out <tier dir>"""
+    python pack_repair_shards.py --bo <candidates json> --png-dir <rc png dir> --bench <bench with eval_cache_v15.pkl> --out <tier dir> [--targets t.json]"""
 import argparse, io, json, os, pickle, sys, tarfile
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from collate_v14 import REPAIR_PROMPT
 ap = argparse.ArgumentParser(); ap.add_argument("--bo"); ap.add_argument("--png-dir"); ap.add_argument("--bench"); ap.add_argument("--out")
+ap.add_argument("--targets", default="", help="json {key: {code}} target programs overriding the bench GT code (e.g. best repair found)")
 ap.add_argument("--per-shard", type=int, default=2000); ap.add_argument("--max-code", type=int, default=6000)
 a = ap.parse_args()
 S = pickle.load(open(os.path.join(a.bench, "eval_cache_v15.pkl"), "rb"))["samples"]
+TG = json.load(open(a.targets)) if a.targets else {}
 os.makedirs(os.path.join(a.out, "shards"), exist_ok=True)
 def add(tf, name, data):
     ti = tarfile.TarInfo(name); ti.size = len(data); tf.addfile(ti, io.BytesIO(data))
 n = shard = 0; tf = None; miss = 0; long_ = 0
 for p in json.load(open(a.bo))["candidates"]:
-    gt = S[p["key"]]["code"]
+    gt = TG[p["key"]]["code"] if p["key"] in TG else S[p["key"]]["code"]
     if not gt or len(gt) > a.max_code: long_ += 1; continue
     for i, c in enumerate(p["cands"]):
         f = os.path.join(a.png_dir, f"{p['key']}__{i}.png")
