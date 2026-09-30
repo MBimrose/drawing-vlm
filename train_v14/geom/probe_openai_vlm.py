@@ -51,7 +51,8 @@ def ask(base_url, model, png, system, user, temperature, max_tokens, timeout, th
                              {"type": "image_url", "image_url": {"url": "data:image/png;base64," + png_b64(png)}},
                              {"type": "text", "text": user}]}]}
     req = urllib.request.Request(base_url.rstrip("/") + "/chat/completions",
-                                 data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
+                                 data=json.dumps(body).encode(), headers={"Content-Type": "application/json",
+                                          **({"Authorization": "Bearer " + os.environ["VLLM_API_KEY"]} if os.environ.get("VLLM_API_KEY") else {})})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         d = json.load(r)
     m = d["choices"][0]["message"]
