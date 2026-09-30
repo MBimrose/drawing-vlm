@@ -7,7 +7,7 @@ DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm; SDV=/srv/scratch/bimrose
 say() { echo "$(date '+%m-%d %H:%M') $*" | tee -a $LOG; }
 on() { timeout ${TMO:-180} ssh -o BatchMode=yes $S20 "$@"; }
 cd $DV
-until grep -q "RP4 DONE\|no final" logs/real/rp4_chain.log 2>/dev/null; do sleep 300; done
+# (2026-09-29: user paused the rp4 chain -- start immediately)
 rsync -a --exclude 'mech/benchmarks/data' --exclude __pycache__ train_v14/ $S20:$SDV/train_v14/
 on "pkill -u bimrose2 -f 'vllm serv[e]'"; sleep 20
 RUN="cd $SDV; export CUDA_VISIBLE_DEVICES=4,5,6,7 HF_HOME=$SDV/.cache/huggingface PYTHONPATH=$SDV/train_v14:$SDV/train_v14/geom OPENBLAS_NUM_THREADS=1 TRITON_CACHE_DIR=$SDV/.cache/triton_dsv41;
@@ -17,4 +17,4 @@ say "smoke"
 TMO=10800 on "$RUN --steps 2 --accum 2 --min-layer 20 --out runs/dsv41_rep_smoke > logs/dsv41_rep_smoke.log 2>&1; tail -n 6 logs/dsv41_rep_smoke.log" | tee -a $LOG
 on "grep -q 'adapter saved' $SDV/logs/dsv41_rep_smoke.log" || { say "SMOKE FAILED"; exit 1; }
 say "training dsv41_rep"
-on "setsid nohup bash -c \"$RUN --steps ${STEPS:-500} --accum 8 --min-layer 20 --out runs/dsv41_rep_r32 > logs/dsv41_rep.log 2>&1; echo TRAIN EXIT \\\$? >> logs/dsv41_rep.log\" > /dev/null 2>&1 < /dev/null & echo started" | tee -a $LOG
+on "setsid nohup bash -c \"$RUN --steps ${STEPS:-500} --accum 8 --min-layer 20 --save-every 100 --out runs/dsv41_rep_r32 > logs/dsv41_rep.log 2>&1; echo TRAIN EXIT \\\$? >> logs/dsv41_rep.log\" > /dev/null 2>&1 < /dev/null & echo started" | tee -a $LOG

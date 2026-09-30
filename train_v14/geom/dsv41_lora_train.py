@@ -127,6 +127,7 @@ def main():
                          "(score later with dsv41_eval_score.py)")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--think", action="store_true", help="train rows that carry think.txt in thinking mode (plan in the reasoning span)")
+    ap.add_argument("--save-every", type=int, default=0, help="also save the adapter to <out>/step_<n> every n optimizer steps")
     ap.add_argument("--min-layer", type=int, default=0, help="LoRA only on decoder layers >= this index (backward stops at the first adapted layer)")
     ap.add_argument("--prompts", default="", help="prompts.json (system/user); default: next to the tier, else spike_dsv41/prompts.json")
     ap.add_argument("--dist", action="store_true",
@@ -240,6 +241,8 @@ def main():
                 del flat
             torch.nn.utils.clip_grad_norm_(params, 1.0)
             opt.step(); sched.step(); opt.zero_grad(set_to_none=True); step += 1
+            if args.save_every and step % args.save_every == 0 and rank == 0:
+                model.save_pretrained(os.path.join(args.out, f"step_{step}")); log(f"[train] checkpoint step_{step}", flush=True)
             if step % 5 == 0 or step == 1:
                 log(f"[train] step {step}/{args.steps} loss {acc_loss/n_acc:.4f} lr {sched.get_last_lr()[0]:.2e} "
                       f"{(time.time()-t0)/step:.0f} s/step skipped {skipped}", flush=True)
