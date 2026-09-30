@@ -19,6 +19,7 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--bench"); ap.add_argument("--picks"); ap.add_argument("--base-url"); ap.add_argument("--model")
     ap.add_argument("--k", type=int, default=8); ap.add_argument("--temperature", type=float, default=0.7); ap.add_argument("--max-tokens", type=int, default=2400)
     ap.add_argument("--out"); ap.add_argument("--workers", type=int, default=24); ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--extra-endpoint", action="append", default=[], help="url|model|k: pool K more repairs per round from another repairer")
     ap.add_argument("--rounds", type=int, default=1); ap.add_argument("--margin", type=float, default=0.1)
     ap.add_argument("--py", default=sys.executable); ap.add_argument("--rpy"); ap.add_argument("--script-dir")
     a = ap.parse_args()
@@ -48,15 +49,21 @@ def main():
                     "messages": [{"role": "system", "content": SYSTEM_PROMPTS["detailed"]},
                                  {"role": "user", "content": [b64(S[k]["png"]), b64(png), {"type": "text", "text": REPAIR_PROMPT.format(code=code)}]}],
                     "chat_template_kwargs": {"enable_thinking": False, "thinking": False}}
-            rq = urllib.request.Request(a.base_url.rstrip("/") + "/chat/completions", data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
-            d = json.load(urllib.request.urlopen(rq, timeout=1800))
+            eps = [(a.base_url, a.model, a.k)] + [(e.split("|")[0], e.split("|")[1], int(e.split("|")[2])) for e in a.extra_endpoint]
+            choices = []
+            for url, model, kk in eps:   # pooled repairers: each endpoint proposes kk repairs of the same program
+                try:
+                    rq = urllib.request.Request(url.rstrip("/") + "/chat/completions", data=json.dumps(dict(body, model=model, n=kk)).encode(), headers={"Content-Type": "application/json"})
+                    choices += [dict(ch, _src=model) for ch in json.load(urllib.request.urlopen(rq, timeout=3600))["choices"]]
+                except Exception as ex:
+                    print("[vs] endpoint", model, "failed", str(ex)[:120], flush=True)
             draws = []
-            for ch in d["choices"]:
+            for ch in choices:
                 c = extract_code(ch["message"].get("content") or "")
                 if not c or any(c == x["code"] for x in draws): continue
                 si, ei = score(c, k)
                 if not ei: draws.append({"iou": si, "exec": False, "code": c, "v3": 0.0}); continue
-                p2, v = rv3(c, k); draws.append({"iou": si, "exec": True, "code": c, "v3": v, "_png": p2})
+                p2, v = rv3(c, k); draws.append({"iou": si, "exec": True, "code": c, "v3": v, "_png": p2, "src": ch.get("_src")})
             rec["rounds"].append([{kk: vv for kk, vv in x.items() if kk != "_png"} for x in draws])
             best = max((x for x in draws if x["exec"] and x.get("_png") is not None), key=lambda x: x["v3"], default=None)
             if best and best["v3"] > v3 + a.margin:      # label-free adoption (render matches the target better)
