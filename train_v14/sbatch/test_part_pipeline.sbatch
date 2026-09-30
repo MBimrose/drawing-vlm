@@ -32,5 +32,5 @@ $PY $G/gen_openai_bo.py --bench $B --base-url http://127.0.0.1:8100/v1 --model e
 $PY $G/tp_pick.py "$O/e55.shard*.json.partial.json" $O/picks.json
 $PY $G/vr_serve.py --bench $B --picks $O/picks.json --base-url http://127.0.0.1:8101/v1 --model rp2 --k ${K:-16} --rounds ${ROUNDS:-5} --margin 0.1 --workers 8 \
   --out $O/repair.jsonl --py $PY --rpy $S/dw_venv/bin/python --script-dir $S/step_to_drw
-$PY $G/tp_report.py $O/repair.jsonl $B/gt_meshes_v15/ref.stl $O/final | tee $O/report.txt
+$PY $G/tp_report.py $O/repair.jsonl ${REF:-$B/gt_meshes_v15/ref.stl} $O/final | tee $O/report.txt
 echo "TP DONE $(date)"
