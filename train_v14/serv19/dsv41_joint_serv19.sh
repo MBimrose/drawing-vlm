@@ -14,5 +14,5 @@ M=$(ls -d /scratch/bimrose2/dsv41_flash/models/models--deepseek-ai--DeepSeek-V4.
 export CUDA_VISIBLE_DEVICES=4,5,6,7 HF_HOME=$SDV/.cache/huggingface PYTHONPATH=$SDV/train_v14:$SDV/train_v14/geom OPENBLAS_NUM_THREADS=1 TRITON_CACHE_DIR=$SDV/.cache/triton_dsv41
 exec .venv_dsv41/bin/python train_v14/geom/dsv41_lora_train.py --model $M --tier dsv41_joint_tier --prompts spike_dsv41/prompts.json \
   --rank 32 --lr 1e-4 --targets '(self_attn\.(q_a_proj|q_b_proj|kv_proj|o_b_proj)|shared_experts\.(gate_proj|up_proj|down_proj))$' \
-  --think --min-layer 20 --max-len 6144 --max-mem-gib 150 --last-gpu-headroom 40 --steps ${STEPS:-600} --accum 8 --save-every 50 \
+  --think --min-layer 20 --max-len 6144 --max-mem-gib 175 --last-gpu-headroom 40 --steps ${STEPS:-600} --accum 8 --save-every 50 \
   --eval-n 0 --out runs/dsv41_joint_r32

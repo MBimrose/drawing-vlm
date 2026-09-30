@@ -9,7 +9,7 @@ export HF_HOME=$SDV/.cache/huggingface PYTHONPATH=$SDV/train_v14:$SDV/train_v14/
 export MASTER_ADDR=127.0.0.1 MASTER_PORT=29613 WORLD_SIZE=2 NCCL_P2P_LEVEL=NVL
 ARGS="--dist --model models/DeepSeek-V4.1-Flash --tier dsv41_repair_tier --prompts spike_dsv41/prompts.json --rank 32 --lr 1e-4
  --targets (self_attn\.(q_a_proj|q_b_proj|kv_proj|o_b_proj)|shared_experts\.(gate_proj|up_proj|down_proj))\$ --max-len 6144 --eval-n 0
- --max-mem-gib 150 --last-gpu-headroom 40 --steps ${STEPS:-500} --accum 4 --min-layer 20 --save-every 50 --out runs/dsv41_rep_r32_dp"
+ --max-mem-gib 175 --last-gpu-headroom 40 --steps ${STEPS:-500} --accum 4 --min-layer 20 --save-every 50 --out runs/dsv41_rep_r32_dp"
 for r in 0 1; do
   G=$([ $r = 0 ] && echo 0,1,2,3 || echo 4,5,6,7)
   CUDA_VISIBLE_DEVICES=$G RANK=$r setsid nohup .venv_dsv41/bin/python train_v14/geom/dsv41_lora_train.py $ARGS > logs/dsv41_rep_dp.rank$r.log 2>&1 < /dev/null &
