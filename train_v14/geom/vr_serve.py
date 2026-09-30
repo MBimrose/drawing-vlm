@@ -47,7 +47,7 @@ def main():
             body = {"model": a.model, "temperature": a.temperature, "top_p": 0.95, "n": a.k, "max_tokens": a.max_tokens,
                     "messages": [{"role": "system", "content": SYSTEM_PROMPTS["detailed"]},
                                  {"role": "user", "content": [b64(S[k]["png"]), b64(png), {"type": "text", "text": REPAIR_PROMPT.format(code=code)}]}],
-                    "chat_template_kwargs": {"enable_thinking": False}}
+                    "chat_template_kwargs": {"enable_thinking": False, "thinking": False}}
             rq = urllib.request.Request(a.base_url.rstrip("/") + "/chat/completions", data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
             d = json.load(urllib.request.urlopen(rq, timeout=1800))
             draws = []

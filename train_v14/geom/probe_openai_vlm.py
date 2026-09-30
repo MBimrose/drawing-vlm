@@ -45,7 +45,8 @@ def png_b64(png_bytes):
 def ask(base_url, model, png, system, user, temperature, max_tokens, timeout, think=True):
     import urllib.request
     body = {"model": model, "temperature": temperature, "max_tokens": max_tokens,
-            "chat_template_kwargs": {"thinking": think, "enable_thinking": think},
+            "chat_template_kwargs": {"thinking": think, "enable_thinking": think,
+                                     **({"reasoning_effort": int(os.environ["REASONING_EFFORT"])} if os.environ.get("REASONING_EFFORT") else {})},
             "messages": [{"role": "system", "content": system},
                          {"role": "user", "content": [
                              {"type": "image_url", "image_url": {"url": "data:image/png;base64," + png_b64(png)}},

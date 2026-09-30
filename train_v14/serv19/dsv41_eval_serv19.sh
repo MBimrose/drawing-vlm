@@ -7,14 +7,14 @@ DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm; S19=wpk-serv-19.mechse.i
 B=${4:-/scratch/bimrose2/mech_benchmarks/ext_bench_dw423_perm}; N=${5:-0}; LOG=$DV/logs/real/dsv41_eval.log
 say() { echo "$(date '+%m-%d %H:%M') $*" | tee -a $LOG; }
 cd $DV; say "eval $NAME ($MODE) adapter $AD"
-bash train_v14/serv19/dsv41_ft_merge_serv19.sh $AD $NAME | tee -a $LOG
+ssh $S19 "test -f /scratch/bimrose2/dsv41_ft/$NAME/model.safetensors.index.json" && say "merged $NAME exists" || bash train_v14/serv19/dsv41_ft_merge_serv19.sh $AD $NAME | tee -a $LOG
 rsync -a train_v14/geom/probe_openai_vlm.py $S19:/srv/scratch/bimrose2/train_v14/geom/; rsync -a train_v14/serv19/dsv41_ft_serve_serv19.sh $S19:/scratch/bimrose2/dsv41_flash/
 ssh $S19 "for p in \$(ps -u bimrose2 -o pid,args | grep -E 'api_server.*--port 8200|dsv41_ft_serve_serv19.sh' | grep -v grep | awk '{print \$1}'); do kill \$p; done; sleep 45
   cd /scratch/bimrose2/dsv41_flash; setsid nohup bash dsv41_ft_serve_serv19.sh /scratch/bimrose2/dsv41_ft/$NAME $NAME 8200 4,5,6,7 > /scratch/bimrose2/dsv41_ft/serve_$NAME.log 2>&1 < /dev/null &"
 for i in $(seq 1 180); do ssh $S19 "curl -sf -m 5 localhost:8200/health >/dev/null" && break; sleep 20; done
 ssh $S19 "curl -sf -m 5 localhost:8200/health >/dev/null" || { say "serve $NAME never ready"; ssh $S19 "grep ERROR /scratch/bimrose2/dsv41_ft/serve_$NAME.log | head -5"; exit 1; }
-F=$([ $MODE = nothink ] && echo --no-think || echo ""); T=probe_${NAME}_${MODE}_$(basename $B)
-ssh $S19 "cd /srv/scratch/bimrose2; mkdir -p results/ext; source train_v14/env.sh 2>/dev/null; export OPENBLAS_NUM_THREADS=1; .venv/bin/python train_v14/geom/probe_openai_vlm.py --bench $B --base-url http://localhost:8200/v1 --model $NAME --out results/ext/$T.json --n $N --k 1 --temperature 0 --workers 16 --max-tokens 5000 --timeout 1800 $F > /tmp/$T.log 2>&1"
+F=$([ $MODE = nothink ] && echo --no-think || echo ""); T=probe_${NAME}_${MODE}_e${EFFORT:-75}_t${MAXTOK:-30000}_$(basename $B)
+ssh $S19 "cd /srv/scratch/bimrose2; mkdir -p results/ext; source train_v14/env.sh 2>/dev/null; export OPENBLAS_NUM_THREADS=1 REASONING_EFFORT=${EFFORT:-75}; .venv/bin/python train_v14/geom/probe_openai_vlm.py --bench $B --base-url http://localhost:8200/v1 --model $NAME --out results/ext/$T.json --n $N --k 1 --temperature 0 --workers 16 --max-tokens ${MAXTOK:-30000} --timeout 7200 $F > /tmp/$T.log 2>&1"
 rsync -a $S19:/srv/scratch/bimrose2/results/ext/$T.json results/ext/
 python3 -c "
 import json,numpy as np; d=json.load(open('results/ext/$T.json'))['records']; v=np.array([float(r.get('iou') or 0) for r in d]); F=np.array([r['key'][0] for r in d])
