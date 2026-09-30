@@ -10,9 +10,7 @@ cd $DV
 # (2026-09-29: user paused the rp4 chain -- start immediately)
 rsync -a --exclude 'mech/benchmarks/data' --exclude __pycache__ train_v14/ $S20:$SDV/train_v14/
 on "pkill -u bimrose2 -f 'vllm serv[e]'"; sleep 20
-RUN="cd $SDV; export CUDA_VISIBLE_DEVICES=4,5,6,7 HF_HOME=$SDV/.cache/huggingface PYTHONPATH=$SDV/train_v14:$SDV/train_v14/geom OPENBLAS_NUM_THREADS=1 TRITON_CACHE_DIR=$SDV/.cache/triton_dsv41;
- .venv_dsv41/bin/python train_v14/geom/dsv41_lora_train.py --model models/DeepSeek-V4.1-Flash --tier dsv41_repair_tier --prompts spike_dsv41/prompts.json
- --rank 32 --lr 1e-4 --targets '(self_attn\.(q_a_proj|q_b_proj|kv_proj|o_b_proj)|shared_experts\.(gate_proj|up_proj|down_proj))\$' --max-len 4096 --eval-n 0"
+RUN="cd $SDV; export CUDA_VISIBLE_DEVICES=4,5,6,7 HF_HOME=$SDV/.cache/huggingface PYTHONPATH=$SDV/train_v14:$SDV/train_v14/geom OPENBLAS_NUM_THREADS=1 TRITON_CACHE_DIR=$SDV/.cache/triton_dsv41; .venv_dsv41/bin/python train_v14/geom/dsv41_lora_train.py --model models/DeepSeek-V4.1-Flash --tier dsv41_repair_tier --prompts spike_dsv41/prompts.json --rank 32 --lr 1e-4 --targets '(self_attn\.(q_a_proj|q_b_proj|kv_proj|o_b_proj)|shared_experts\.(gate_proj|up_proj|down_proj))\$' --max-len 4096 --eval-n 0 --last-gpu-headroom 60"
 say "smoke"
 TMO=10800 on "$RUN --steps 2 --accum 2 --min-layer 20 --out runs/dsv41_rep_smoke > logs/dsv41_rep_smoke.log 2>&1; tail -n 6 logs/dsv41_rep_smoke.log" | tee -a $LOG
 on "grep -q 'adapter saved' $SDV/logs/dsv41_rep_smoke.log" || { say "SMOKE FAILED"; exit 1; }
