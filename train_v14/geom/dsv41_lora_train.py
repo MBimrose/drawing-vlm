@@ -52,35 +52,50 @@ def load_tier(tier_dir, limit=0):
                 key = name[:-8]
                 if key + ".png" not in members:
                     continue
-                rows.append({"key": key, "png": t.extractfile(members[key + ".png"]).read(),
-                             "code": t.extractfile(members[name]).read().decode()})
+                row = {"key": key, "png": t.extractfile(members[key + ".png"]).read(),
+                       "code": t.extractfile(members[name]).read().decode()}
+                # visual repair rows (2026-09-29): second image = the sheet the current program draws, per-row prompt
+                if key + ".cand.png" in members:
+                    row["png2"] = t.extractfile(members[key + ".cand.png"]).read()
+                if key + ".think.txt" in members:
+                    row["think"] = t.extractfile(members[key + ".think.txt"]).read().decode().strip()
+                if key + ".user.txt" in members:
+                    row["user"] = t.extractfile(members[key + ".user.txt"]).read().decode()
+                rows.append(row)
                 if limit and len(rows) >= limit:
                     return rows
     return rows
 
 
-def build_sample(proc, dsenc, system, user, png, answer, image_token, max_len):
-    """Prompt via the released encoder; labels masked to the assistant answer."""
+def build_sample(proc, dsenc, system, user, png, answer, image_token, max_len, png2=None, think=None):
+    """Prompt via the released encoder; labels masked to the assistant answer. png2 (optional) is a second image
+    block after the first (visual repair: target sheet, then the sheet of the current program)."""
     from PIL import Image
     import torch
     # encoding.py takes image blocks by path (as in the stage-1 smoke); the real pixels go to
     # the processor separately, so the path only has to exist for placeholder bookkeeping.
-    with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tf:
-        tf.write(png); png_path = tf.name
+    pngs = [png] + ([png2] if png2 else [])
+    paths = []
+    for b_ in pngs:
+        with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tf:
+            tf.write(b_); paths.append(tf.name)
     try:
         msgs = [{"role": "system", "content": system},
-                {"role": "user", "content": [{"type": "image_url", "image_url": {"url": png_path}},
-                                             {"type": "text", "text": user}]}]
-        prompt_no_answer = dsenc.encode_messages(msgs, thinking_mode="chat")
-        full = dsenc.encode_messages(msgs + [{"role": "assistant", "content": "```python\n" + answer + "\n```"}],
-                                     thinking_mode="chat")
+                {"role": "user", "content": [{"type": "image_url", "image_url": {"url": p_}} for p_ in paths] + [{"type": "text", "text": user}]}]
+        # think (2026-09-29): with a plan, train in "thinking" mode -- the plan in DeepSeek's reasoning span, then the
+        # code (the September no-think LoRA matched e55's own no-think first draw, 0.136 vs 0.151; e55 thinking: 0.384)
+        mode = "thinking" if think is not None else "chat"
+        amsg = {"role": "assistant", "content": "```python\n" + answer + "\n```"}
+        if think is not None: amsg["reasoning_content"] = think
+        prompt_no_answer = dsenc.encode_messages(msgs, thinking_mode=mode)
+        full = dsenc.encode_messages(msgs + [amsg], thinking_mode=mode)
     finally:
-        os.unlink(png_path)
+        for p_ in paths: os.unlink(p_)
     if not full.startswith(prompt_no_answer):
-        prompt_no_answer = full[: full.rfind("```python")]
-    img = Image.open(io.BytesIO(png)).convert("RGB")
-    enc = proc(text=[full], images=[img], return_tensors="pt")
-    pre = proc(text=[prompt_no_answer], images=[img], return_tensors="pt")
+        raise ValueError("encoded prompt is not a prefix of the full sample (mode %s)" % mode)
+    imgs = [Image.open(io.BytesIO(b_)).convert("RGB") for b_ in pngs]
+    enc = proc(text=[full], images=imgs, return_tensors="pt")
+    pre = proc(text=[prompt_no_answer], images=imgs, return_tensors="pt")
     n_pre = pre["input_ids"].shape[-1]
     labels = enc["input_ids"].clone()
     labels[:, :n_pre] = -100
@@ -111,6 +126,8 @@ def main():
                     help="interpreter with build123d/trimesh for exec_harness + iou_once; empty -> dump generations only "
                          "(score later with dsv41_eval_score.py)")
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--think", action="store_true", help="train rows that carry think.txt in thinking mode (plan in the reasoning span)")
+    ap.add_argument("--min-layer", type=int, default=0, help="LoRA only on decoder layers >= this index (backward stops at the first adapted layer)")
     ap.add_argument("--prompts", default="", help="prompts.json (system/user); default: next to the tier, else spike_dsv41/prompts.json")
     ap.add_argument("--dist", action="store_true",
                     help="one process per node (SLURM_PROCID/SLURM_NTASKS, MASTER_ADDR/PORT); each node holds a full "
@@ -166,7 +183,8 @@ def main():
         names = [n for n, m in model.named_modules() if hasattr(m, "lora_A")]
         log(f"[train] loaded adapter {args.adapter}", flush=True)
     else:
-        names = [n for n, m in model.named_modules() if isinstance(m, torch.nn.Linear) and re.search(args.targets, n)]
+        names = [n for n, m in model.named_modules() if isinstance(m, torch.nn.Linear) and re.search(args.targets, n)
+                 and int((re.search(r"layers\.(\d+)\.", n) or [0, 0])[1]) >= args.min_layer]
         model = get_peft_model(model, LoraConfig(r=args.rank, lora_alpha=2 * args.rank, lora_dropout=0.0,
                                                   target_modules=names, bias="none"))
     params = [p for p in model.parameters() if p.requires_grad]
@@ -184,7 +202,8 @@ def main():
     dev = model.device
     while step < args.steps:
         row = rows[i % len(rows)]; i += 1
-        enc = build_sample(proc, dsenc, system, user, row["png"], row["code"], proc.image_token, args.max_len)
+        enc = build_sample(proc, dsenc, system, row.get("user") or user, row["png"], row["code"], proc.image_token, args.max_len, row.get("png2"),
+                           row.get("think") if args.think and row.get("think") else None)
         if enc is None:
             skipped += 1; continue
         enc = {k: (v.to(dev) if hasattr(v, "to") else v) for k, v in enc.items()}
@@ -263,7 +282,7 @@ def main():
             msgs = [{"role": "system", "content": system},
                     {"role": "user", "content": [{"type": "image_url", "image_url": {"url": png_path}},
                                                  {"type": "text", "text": user}]}]
-            prompt = dsenc.encode_messages(msgs, thinking_mode="chat")
+            prompt = dsenc.encode_messages(msgs, thinking_mode="thinking" if args.think else "chat")
         finally:
             os.unlink(png_path)
         img = Image.open(io.BytesIO(cache["samples"][k]["png"])).convert("RGB")
