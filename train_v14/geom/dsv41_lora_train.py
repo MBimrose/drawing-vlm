@@ -128,6 +128,7 @@ def main():
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--think", action="store_true", help="train rows that carry think.txt in thinking mode (plan in the reasoning span)")
     ap.add_argument("--save-every", type=int, default=0, help="also save the adapter to <out>/step_<n> every n optimizer steps")
+    ap.add_argument("--max-mem-gib", type=float, default=0, help="per-GPU weight cap (forces an even spread; 4 B300s: ~150)")
     ap.add_argument("--last-gpu-headroom", type=float, default=0, help="GiB kept free on the last GPU (logits); 0 = device_map auto defaults")
     ap.add_argument("--min-layer", type=int, default=0, help="LoRA only on decoder layers >= this index (backward stops at the first adapted layer)")
     ap.add_argument("--prompts", default="", help="prompts.json (system/user); default: next to the tier, else spike_dsv41/prompts.json")
@@ -169,7 +170,8 @@ def main():
     if args.last_gpu_headroom > 0:
         n = torch.cuda.device_count(); tot = [torch.cuda.get_device_properties(i).total_memory / 2**30 for i in range(n)]
         free = [torch.cuda.mem_get_info(i)[0] / 2**30 for i in range(n)]
-        mm = {i: f"{int(min(free[i], tot[i]) * 0.90 - (args.last_gpu_headroom if i == n - 1 else 8))}GiB" for i in range(n)}
+        cap = lambda i: min(free[i], tot[i]) * 0.90 if args.max_mem_gib <= 0 else min(args.max_mem_gib, free[i] * 0.95)
+        mm = {i: f"{int(cap(i) - (args.last_gpu_headroom if i == n - 1 else 8))}GiB" for i in range(n)}
         log(f"[train] max_memory {mm}", flush=True)
     model = AutoModelForImageTextToText.from_pretrained(args.model, device_map="auto", dtype=torch.bfloat16, max_memory=mm)
     for p in model.parameters():
