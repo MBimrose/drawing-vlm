@@ -13,4 +13,4 @@ exec apptainer exec --nv --cleanenv --bind /scratch/bimrose2:/scratch/bimrose2 -
   $H/dsv41-flash-v0909.sif python3 -m vllm.entrypoints.openai.api_server --model $M --served-model-name $NAME \
     --host 0.0.0.0 --port $PORT --tokenizer-mode deepseek_v41 --reasoning-parser deepseek_v41 --mm-encoder-tp-mode data \
     --tensor-parallel-size $N --enable-expert-parallel --gpu-memory-utilization 0.80 --load-format safetensors \
-    --max-num-seqs 64 --max-num-batched-tokens 32768 --max-model-len 32768 --limit-mm-per-prompt '{"image": 2}'
+    --max-num-seqs 64 --max-num-batched-tokens 32768 ${MAXLEN:+--max-model-len $MAXLEN} --limit-mm-per-prompt '{"image": 2}'
