@@ -73,14 +73,19 @@ def main():
     ap.add_argument("--timeout", type=int, default=900)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--system-prompt", default="detailed")
+    ap.add_argument("--keys", default=""); ap.add_argument("--shard", type=int, default=0); ap.add_argument("--nshards", type=int, default=1)
+    ap.add_argument("--save-reasoning", action="store_true", help="keep the full reasoning text and reply (self-training data)")
     ap.add_argument("--no-think", action="store_true", help="ask the server to disable the reasoning phase")
     args = ap.parse_args()
 
     cache = pickle.load(open(os.path.join(args.bench, "eval_cache_v15.pkl"), "rb"))
     gt_dir = os.path.join(args.bench, "gt_meshes_v15")
     keys = [k for k in cache["pools"]["certified"] if os.path.exists(os.path.join(gt_dir, k + ".stl"))]
+    if args.keys:   # restrict to a key list (one key per line), e.g. the parts worth self-training on
+        want = [l.strip() for l in open(args.keys) if l.strip()]; have = set(keys); keys = [k for k in want if k in have]
     if args.n:
         keys = keys[: args.n]
+    keys = keys[args.shard::args.nshards]
     system, user = SYSTEM_PROMPTS[args.system_prompt], USER_PROMPT
     print(f"[probe] {len(keys)} parts, model {args.model}, K={args.k}, T={args.temperature}", flush=True)
 
@@ -108,6 +113,8 @@ def main():
             rec["error"] = f"{type(e).__name__}: {str(e)[:200]}"; return rec
         rec.update({"code": extract_code(text), "reply_chars": len(text), "reasoning_chars": len(reasoning),
                     "usage": usage})
+        if args.save_reasoning:
+            rec["reasoning"] = reasoning; rec["reply"] = text
         if not rec["code"]:
             rec["error"] = "no code block"; return rec
         with tempfile.TemporaryDirectory(prefix="probe_") as td:
