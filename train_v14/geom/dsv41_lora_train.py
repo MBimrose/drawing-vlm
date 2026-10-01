@@ -128,6 +128,8 @@ def main():
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--think", action="store_true", help="train rows that carry think.txt in thinking mode (plan in the reasoning span)")
     ap.add_argument("--save-every", type=int, default=0, help="also save the adapter to <out>/step_<n> every n optimizer steps")
+    ap.add_argument("--chunked-attn", type=int, default=0, help="query chunk for the banded attention replacement (0 = eager)")
+    ap.add_argument("--max-mem-list", default="", help="comma list of per-GPU caps in GiB (overrides the other memory options)")
     ap.add_argument("--max-mem-gib", type=float, default=0, help="per-GPU weight cap (forces an even spread; 4 B300s: ~150)")
     ap.add_argument("--last-gpu-headroom", type=float, default=0, help="GiB kept free on the last GPU (logits); 0 = device_map auto defaults")
     ap.add_argument("--min-layer", type=int, default=0, help="LoRA only on decoder layers >= this index (backward stops at the first adapted layer)")
@@ -150,7 +152,9 @@ def main():
         dist.init_process_group("nccl", rank=rank, world_size=world, device_id=torch.device("cuda:0"), timeout=timedelta(hours=3))
         print(f"[train] rank {rank}/{world} on {socket.gethostname()} ({torch.cuda.device_count()} GPUs)", flush=True)
     log = (lambda *a, **k: print(*a, **k)) if rank == 0 else (lambda *a, **k: None)
-    import dsv41_autograd; dsv41_autograd.register()   # backward for the Hub FP8/MXFP4 ops (input grads only)
+    import dsv41_autograd; dsv41_autograd.register()
+    if args.chunked_attn:   # exact banded attention: the eager S x S score matrix OOMs on long (>16k-token) rows
+        import dsv41_chunked_attn; dsv41_chunked_attn.install(chunk=args.chunked_attn)   # backward for the Hub FP8/MXFP4 ops (input grads only)
     from transformers import AutoModelForImageTextToText, AutoTokenizer
     from transformers.models.deepseek_v41.image_processing_deepseek_v41 import DeepseekV41ImageProcessor
     from transformers.models.deepseek_v41.processing_deepseek_v41 import DeepseekV41Processor
@@ -167,7 +171,10 @@ def main():
     # --last-gpu-headroom: device_map="auto" packs the last GPU full; the lm_head logits (vocab x ~3k tokens, fp32) then OOM
     # on two-image rows (serv-20 B300 smoke, 2026-09-30). Cap every GPU and leave extra room on the last one.
     mm = None
-    if args.last_gpu_headroom > 0:
+    if args.max_mem_list:   # explicit per-GPU caps: front-load the frozen lower layers, keep the trainable top layers thin
+        mm = {i: f"{int(float(x))}GiB" for i, x in enumerate(args.max_mem_list.split(","))}
+        log(f"[train] max_memory {mm}", flush=True)
+    elif args.last_gpu_headroom > 0:
         n = torch.cuda.device_count(); tot = [torch.cuda.get_device_properties(i).total_memory / 2**30 for i in range(n)]
         free = [torch.cuda.mem_get_info(i)[0] / 2**30 for i in range(n)]
         cap = lambda i: min(free[i], tot[i]) * 0.90 if args.max_mem_gib <= 0 else min(args.max_mem_gib, free[i] * 0.95)
