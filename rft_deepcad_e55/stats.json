@@ -1,0 +1,8 @@
+{
+ "accepted_records": 419249,
+ "scored_records": 695190,
+ "accepted_keys": 65891,
+ "png_copied_total": 65891,
+ "keys_without_sheet": 0,
+ "note": "png loop finished by hand after write_rft_real timed out on per-key globs"
+}

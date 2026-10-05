@@ -1,0 +1,11 @@
+{
+ "pairs_written": 1325,
+ "render_failed": 24,
+ "parts": 498,
+ "shards": 1,
+ "good_min": 0.8,
+ "bad_max": 0.78,
+ "max_per_part": 4,
+ "bo": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/benchmarks/data/rft_corpus3/results/bo8_rft_corpus3_e51-rft-real-u3-strict90.json",
+ "bench": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/benchmarks/data/rft_corpus3"
+}

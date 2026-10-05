@@ -805,5 +805,26 @@
   "full_oracle": 0.9437345741479167,
   "full_oracle_85": 0.8948393378773125,
   "full_n": 1027
+ },
+ {
+  "run": "e59-rft-c4-repair-dw423",
+  "e": 59,
+  "dw423": true,
+  "real_n": 146,
+  "real_first_exec": 0.46,
+  "real_first_exec_85": 0.14,
+  "real_consistency": 0.517,
+  "real_consistency_85": 0.18,
+  "real_gated": 0.54,
+  "real_gated_85": 0.18,
+  "real_oracle": 0.588,
+  "real_oracle_85": 0.24,
+  "full_first": 0.8856647927119764,
+  "full_first_85": 0.7633885102239533,
+  "full_vote": 0.9124549340017696,
+  "full_vote_85": 0.8003894839337877,
+  "full_oracle": 0.9433286078505011,
+  "full_oracle_85": 0.887049659201558,
+  "full_n": 1027
  }
 ]

@@ -1,0 +1,24 @@
+slice                     n |         first_exec |        consistency |             oracle | exec>=1
+                            |      mean / >=0.85 |      mean / >=0.85 |      mean / >=0.85
+in-dist 1030 (e51)     1030 | 0.894 /   76% | 0.917 /   81% | 0.947 /   90% |
+ALL external            110 | 0.468 /   15% | 0.510 /   20% | 0.573 /   21% |   99%
+  determinate            69 | 0.541 /   20% | 0.576 /   26% | 0.634 /   28% |   99%
+  underdetermined        41 | 0.346 /    7% | 0.397 /   10% | 0.471 /   10% |  100%
+Fusion360 (F)            74 | 0.496 /   16% | 0.553 /   22% | 0.615 /   23% |  100%
+  F determinate          49 | 0.550 /   20% | 0.596 /   27% | 0.658 /   29% |  100%
+ABC (A)                  36 | 0.410 /   14% | 0.421 /   17% | 0.486 /   17% |   97%
+  A determinate          20 | 0.519 /   20% | 0.529 /   25% | 0.576 /   25% |   95%
+
+worst 10 (consistency):
+  F_56462_3fcb906f_0_medium          fam=F under=False faces=13 exec=1/8 first=0.000 cons=0.000 oracle=0.000
+  A_00934926_7a86796337813a6e7aa25c2a_step_000_medium fam=A under=True faces=39 exec=8/8 first=0.000 cons=0.000 oracle=0.126
+  A_00949832_ee12c508734e02e63687e023_step_000_medium fam=A under=False faces=54 exec=0/8 first=0.000 cons=0.000 oracle=0.000
+  A_00984419_bc2675c169d60f821b105e0f_step_000_medium fam=A under=True faces=62 exec=5/8 first=0.062 cons=0.002 oracle=0.202
+  F_56167_90101372_13_medium         fam=F under=False faces=10 exec=7/8 first=0.008 cons=0.008 oracle=0.063
+  A_00922818_611a88896e870be2752739bc_step_000_medium fam=A under=True faces=47 exec=7/8 first=0.013 cons=0.013 oracle=0.021
+  A_00957451_e6a0434deb9d48da90e19a8a_step_006_medium fam=A under=True faces=57 exec=8/8 first=0.001 cons=0.018 oracle=0.032
+  A_00941921_f3b16049278a833ae2b34381_step_001_medium fam=A under=True faces=39 exec=8/8 first=0.039 cons=0.039 oracle=0.044
+  F_67240_525e92c1_1_medium          fam=F under=False faces=10 exec=5/8 first=0.000 cons=0.077 oracle=0.108
+  A_00928026_e2d0ba025fc68ac7b9a8def4_step_000_medium fam=A under=False faces=47 exec=7/8 first=0.025 cons=0.082 oracle=0.085
+
+n parts with no candidate >= 0.85: 87  of which underdetermined: 37

@@ -1,0 +1,19 @@
+gated = gate0.85 from /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/ext/bo4_zc_e55-rft-real-u5-gt-dw423_gated.json
+slice                     n |         first_exec |        consistency |              gated |             oracle | exec>=1
+                            |      mean / >=0.85 |      mean / >=0.85 |      mean / >=0.85 |      mean / >=0.85
+in-dist 1030 (e51)     1030 | 0.894 /   76% | 0.917 /   81% | 0.916 /   82% | 0.947 /   90% |
+ALL external           3891 | 0.821 /   64% | 0.838 /   68% | 0.841 /   68% | 0.872 /   75% |   98%
+
+worst 10 (consistency):
+  Q_014e283d-fcf4-37                 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 gated=0.000 oracle=0.000
+  Q_0247ea8e-16c7-47                 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 gated=0.000 oracle=0.000
+  Q_071998e3-78d7-ce                 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 gated=0.000 oracle=0.000
+  Q_0b1e86a2-f368-0d                 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 gated=0.000 oracle=0.000
+  Q_0b8eb190-283a-64                 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 gated=0.000 oracle=0.000
+  Q_0f9eb5ca-36ab-69                 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 gated=0.000 oracle=0.000
+  Q_10cb19e6-03b6-cf                 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 gated=0.000 oracle=0.000
+  Q_1720649a-3280-db                 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 gated=0.000 oracle=0.000
+  Q_184e0cc4-2a8d-a8                 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 gated=0.000 oracle=0.000
+  Q_1db9d754-8a5a-ff                 fam=? under=None faces=None exec=0/8 first=0.000 cons=0.000 gated=0.000 oracle=0.000
+
+n parts with no candidate >= 0.85: 989  of which underdetermined: 0

@@ -1,0 +1,17 @@
+{
+ "CONN": {
+  "parts": 1,
+  "cands": 8,
+  "exec_rate": 1.0,
+  "keys_ge80": 0,
+  "yield80": 0.0,
+  "keys_ge90": 0,
+  "yield90": 0.0,
+  "oracle8_mean": 0.378,
+  "oracle8_ge85": 0.0,
+  "underdetermined": 0
+ },
+ "accepted_records": 0,
+ "scored_records": 8,
+ "accepted_keys": 0
+}

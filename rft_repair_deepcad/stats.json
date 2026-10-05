@@ -1,0 +1,11 @@
+{
+ "pairs_written": 44125,
+ "render_failed": 696,
+ "parts": 27149,
+ "shards": 23,
+ "good_min": 0.8,
+ "bad_max": 0.78,
+ "max_per_part": 2,
+ "bo": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/deepcad/corpus_full/results_vllm/bo8_full_e55_vllm.json",
+ "bench": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/deepcad/corpus_full"
+}

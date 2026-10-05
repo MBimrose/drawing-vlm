@@ -1,0 +1,19 @@
+srun: job 10671073 queued and waiting for resources
+srun: job 10671073 has been allocated resources
+  1/4 parts, 57 s (last: 57.2 s, gt faces 15150)
+  2/4 parts, 57 s (last: 50.3 s, gt faces 3394)
+  3/4 parts, 57 s (last: 51.2 s, gt faces 11612)
+  4/4 parts, 57 s (last: 57.4 s, gt faces 11724)
+[ALL] parts 4  exec 24/32  voxel-vs-exact IoU corr +0.985 (means 0.473 vs 0.437)
+   audit-pass share of exec'd 0.35   orientation-fixable share of exec'd 0.04
+                            first    vote  oracle
+   as scored                0.346   0.505   0.579   >=.85 0.00 0.00 0.00
+   dimension audit          0.514   0.557   0.579   >=.85 0.00 0.00 0.00
+   orientation fixed        0.363   0.506   0.579   >=.85 0.00 0.00 0.00
+[A] parts 4  exec 24/32  voxel-vs-exact IoU corr +0.985 (means 0.473 vs 0.437)
+   audit-pass share of exec'd 0.35   orientation-fixable share of exec'd 0.04
+                            first    vote  oracle
+   as scored                0.346   0.505   0.579   >=.85 0.00 0.00 0.00
+   dimension audit          0.514   0.557   0.579   >=.85 0.00 0.00 0.00
+   orientation fixed        0.363   0.506   0.579   >=.85 0.00 0.00 0.00
+DIAG DONE results/ext/diag_smoke.json 58 s

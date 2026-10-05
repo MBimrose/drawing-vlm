@@ -20,3 +20,25 @@ __pycache__/
 # ABC ground-truth-code tiers (data; README + stats committed)
 rft_real_abccode*/png/
 rft_real_abccode*/shards/
+
+# bulk data, caches, containers, nested repos — never in git
+# (repo convention: data/weights/runs/envs stay out; README+stats of tiers are committed)
+.cache/
+containers/
+data/
+data_ext/
+deepcad/
+scratch_tmp/
+dsv41_selftrain_bench/
+mech_step_to_drw/
+rft_*/*
+!rft_*/README.md
+!rft_*/stats.json
+!rft_*/keys.txt
+
+# render dumps and oversized raw candidates (metrics/summaries are committed)
+results/**/*.png
+!results/figures/*.png
+*.partial.json
+results/dsv41_selftrain/gen_s*.json
+*.STEP

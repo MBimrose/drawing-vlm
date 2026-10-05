@@ -1,0 +1,11 @@
+{
+ "pairs_written": 1629,
+ "render_failed": 64,
+ "parts": 663,
+ "shards": 1,
+ "good_min": 0.8,
+ "bad_max": 0.78,
+ "max_per_part": 4,
+ "bo": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/benchmarks/data/rft_corpus4/results/bo8_rft_corpus4_e55-rft-real-u5-gt-dw423.json",
+ "bench": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/mech/benchmarks/data/rft_corpus4"
+}

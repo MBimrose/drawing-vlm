@@ -1,0 +1,17 @@
+{
+ "Z": {
+  "parts": 291,
+  "cands": 2324,
+  "exec_rate": 0.679,
+  "keys_ge80": 43,
+  "yield80": 0.148,
+  "keys_ge90": 23,
+  "yield90": 0.079,
+  "oracle8_mean": 0.475,
+  "oracle8_ge85": 0.113,
+  "underdetermined": 0
+ },
+ "accepted_records": 148,
+ "scored_records": 2324,
+ "accepted_keys": 43
+}

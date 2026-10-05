@@ -1,0 +1,4 @@
+oracle b executed 92/142
+[ALL] n=142  oracle-b (text, perfect description) 0.230 | e55 first 0.516 vote 0.569 best-of-8 0.629 | b beats e55 vote on 11% of parts
+[A] n=55  oracle-b (text, perfect description) 0.191 | e55 first 0.469 vote 0.530 best-of-8 0.577 | b beats e55 vote on 7% of parts
+[F] n=87  oracle-b (text, perfect description) 0.254 | e55 first 0.546 vote 0.594 best-of-8 0.662 | b beats e55 vote on 13% of parts

@@ -1,0 +1,17 @@
+{
+ "S": {
+  "parts": 12000,
+  "cands": 95968,
+  "exec_rate": 0.828,
+  "keys_ge80": 8138,
+  "yield80": 0.678,
+  "keys_ge90": 6037,
+  "yield90": 0.503,
+  "oracle8_mean": 0.814,
+  "oracle8_ge85": 0.603,
+  "underdetermined": 0
+ },
+ "accepted_records": 40124,
+ "scored_records": 95968,
+ "accepted_keys": 8138
+}

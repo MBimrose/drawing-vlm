@@ -1,0 +1,10 @@
+
+K=4  (n=3891; gate0.85: vote on 66% of parts, gate0.7: vote on 82% of parts)
+policy       |                    all
+             | mean / med / >=.85 / >=.5
+first_exec   | 0.821 / 0.930 /  64% /  89%
+vote         | 0.838 / 0.947 /  68% /  90%
+verifier     | 0.841 / 0.947 /  68% /  91%
+gate0.85     | 0.841 / 0.947 /  68% /  91%
+gate0.7      | 0.841 / 0.947 /  68% /  91%
+oracle       | 0.872 / 0.967 /  75% /  93%
