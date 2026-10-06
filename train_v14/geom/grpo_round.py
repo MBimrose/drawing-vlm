@@ -84,6 +84,7 @@ def parse_args():
     ap.add_argument("--save-every", type=int, default=10)
     ap.add_argument("--system-prompt", default="detailed")
     ap.add_argument("--reasoning-effort", default="medium")
+    ap.add_argument("--dump-texts", default="", help="write completions of the first group per step here (debug)")
     return ap.parse_args()
 
 
@@ -308,6 +309,8 @@ def main():
             outs.extend(gen_texts(seqs[b:b + args.gen_batch]))
 
         # ---- execute + score ----
+        # outs is DRAW-MAJOR: [draw0 x all parts, draw1 x all parts, ...]
+        # so the completion for (part pi, draw g) is outs[g * n_parts + pi].
         def split_think_code(text):
             idx = text.rfind("```python")
             if idx >= 0:
@@ -316,11 +319,18 @@ def main():
                 return think, code
             return text.strip(), None
 
+        n_parts_here = len(base)
         groups = []
+        if args.dump_texts:
+            with open(args.dump_texts, "a") as df:
+                for pi in range(min(2, n_parts_here)):
+                    for g in range(min(2, args.g)):
+                        df.write(f"===== step {step} part {base[pi]['part']} draw {g} =====\n")
+                        df.write(outs[g * n_parts_here + pi][:1500] + "\n")
         for pi, s in enumerate(base):
             cands = []
             for g in range(args.g):
-                text = outs[pi * args.g + g]
+                text = outs[g * n_parts_here + pi]
                 think, code = split_think_code(text)
                 cands.append({"draw": g, "think": think, "code": code,
                               "exec": False, "iou": 0.0})
