@@ -209,25 +209,38 @@ def main():
                                                  skip_special_tokens=True)
         return texts
 
-    def score_cands(part, cands, td):
-        """Execute + IoU every candidate of one group; sets c[i]['exec'/'iou']; returns rewards in order."""
-        def one(i):
-            c = cands[i]
-            if not c["code"]:
-                return -args.exec_penalty
-            stl = os.path.join(td, f"{part}_{i}.stl")
-            if not exec_to_stl(c["code"], stl, td, f"{part}_{i}"):
+    def score_all(groups, td):
+        """Execute + IoU every candidate of every group concurrently (flat pool).
+        Sets c['exec'/'iou'] and appends rewards in candidate order per group."""
+        work = []  # (group_idx, cand_idx)
+        for gi, g in enumerate(groups):
+            for ci, c in enumerate(g["cands"]):
+                if c["code"]:
+                    work.append((gi, ci))
+
+        def one(item):
+            gi, ci = item
+            g = groups[gi]
+            c = g["cands"][ci]
+            part = g["part"]
+            stl = os.path.join(td, f"{part}_{ci}.stl")
+            if not exec_to_stl(c["code"], stl, td, f"{part}_{ci}"):
                 c["exec"] = False
-                return -args.exec_penalty if args.exec_penalty else 0.0
+                return
             c["exec"] = True
             try:
-                r = iou_pair(stl, os.path.join(gt_dir, f"{part}.stl"))["iou_centered"]
+                c["iou"] = float(iou_pair(stl, os.path.join(gt_dir, f"{part}.stl"))["iou_centered"])
             except Exception:
-                r = 0.0
-            c["iou"] = float(r)
-            return float(r)
+                c["iou"] = 0.0
+
         with ThreadPoolExecutor(max_workers=args.score_workers) as ex:
-            return list(ex.map(one, range(len(cands))))
+            list(ex.map(one, work))
+        for g in groups:
+            g["rewards"] = [
+                (-args.exec_penalty if args.exec_penalty else 0.0) if not c["code"]
+                else (float(c.get("iou", 0.0)) if c["exec"] else (-args.exec_penalty if args.exec_penalty else 0.0))
+                for c in g["cands"]
+            ]
 
     def completion_logps(batch_dicts):
         """Forward a collated batch; returns per-sample (sum_logp, n_toks, kl_sum).
@@ -304,17 +317,17 @@ def main():
             return text.strip(), None
 
         groups = []
+        for pi, s in enumerate(base):
+            cands = []
+            for g in range(args.g):
+                text = outs[pi * args.g + g]
+                think, code = split_think_code(text)
+                cands.append({"draw": g, "think": think, "code": code,
+                              "exec": False, "iou": 0.0})
+            groups.append({"part": s["part"], "image": s["image"],
+                           "cands": cands, "rewards": None})
         with tempfile.TemporaryDirectory(prefix="grpo_") as td:
-            for pi, s in enumerate(base):
-                cands = []
-                for g in range(args.g):
-                    text = outs[pi * args.g + g]
-                    think, code = split_think_code(text)
-                    cands.append({"draw": g, "think": think, "code": code,
-                                  "exec": False, "iou": 0.0})
-                rewards = score_cands(s["part"], cands, td)
-                groups.append({"part": s["part"], "image": s["image"],
-                               "cands": cands, "rewards": rewards})
+            score_all(groups, td)   # flat concurrent exec + IoU over all parts
 
         # ---- advantages ----
         n_front = 0
