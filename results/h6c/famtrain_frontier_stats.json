@@ -1,0 +1,14 @@
+{
+ "n_parts": 1655,
+ "bands": {
+  "zero": 24,
+  "low": 870,
+  "mid": 518,
+  "high": 243
+ },
+ "n_frontier": 1492,
+ "n_solved_ge_08": 243,
+ "n_zero_signal": 19,
+ "mean_best_of_k": 0.4818506966427692,
+ "mean_first_exec": 0.36848593120369383
+}
