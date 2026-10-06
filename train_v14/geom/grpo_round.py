@@ -199,11 +199,15 @@ def main():
             model.gradient_checkpointing_disable()
         except Exception:
             pass
+        processor.tokenizer.padding_side = "left"   # generation requires left
         with torch.no_grad():
             out = model.generate(**enc, **kw)
         model.train()
-        return processor.tokenizer.batch_decode(out[:, enc["input_ids"].shape[1]:],
-                                                skip_special_tokens=True)
+        # skip_special_tokens strips the think markers; split think/code on the
+        # python fence instead (the plan text precedes the first ```python).
+        texts = processor.tokenizer.batch_decode(out[:, enc["input_ids"].shape[1]:],
+                                                 skip_special_tokens=True)
+        return texts
 
     def score_cands(part, cands, td):
         """Execute + IoU every candidate of one group; sets c[i]['exec'/'iou']; returns rewards in order."""
@@ -228,44 +232,55 @@ def main():
     def completion_logps(batch_dicts):
         """Forward a collated batch; returns per-sample (sum_logp, n_toks, kl_sum).
 
-        Completions are right-aligned (left padding), so only the last n_max
-        logit positions are needed — slice before the float32 log_softmax to
-        keep the [B, n_max, vocab] tensors small. Gradient checkpointing keeps
-        activation memory bounded for the policy forward.
+        Right padding for the collate so the collator's prompt-prefix masking
+        is correct; logprobs are gathered per row only at completion positions
+        (float32 log_softmax on [n_i, vocab] slices, not the full [B, S, V]).
+        Gradient checkpointing bounds activation memory for the policy pass.
         """
+        processor.tokenizer.padding_side = "right"   # collate: prefix masking
         enc = collator(batch_dicts)
         enc = {k: (v.to(device) if hasattr(v, "to") else v) for k, v in enc.items()}
-        labels = enc.pop("labels")
-        mask_full = labels != -100
-        n_toks = mask_full.sum(-1)
-        seq_len = labels.shape[1]
-        n_max = min(int(n_toks.max().item()), seq_len - 1)
-        # targets at the tail: labels[:, -n_max:], predicted by logits[:, -n_max-1:-1]
-        tgt = labels[:, -n_max:]
-        tmask = tgt != -100
-        tgt_safe = tgt.masked_fill(~tmask, 0)
+        labels = enc.pop("labels").to(device)
 
         try:
             model.gradient_checkpointing_enable()
             model.enable_input_require_grads()
         except Exception:
             pass
-        logits = model(**enc).logits[:, -n_max - 1:-1, :]
-        logp_all = torch.log_softmax(logits.float(), dim=-1)
-        tok_logp = logp_all.gather(-1, tgt_safe.unsqueeze(-1)).squeeze(-1) * tmask
-        sum_logp = tok_logp.sum(-1)
-        del logits, logp_all
+        logits = model(**enc).logits  # [B, S, V] bf16
 
-        kl_sum = torch.zeros_like(sum_logp)
+        B = labels.shape[0]
+        sum_logp = torch.zeros(B, device=device)
+        n_toks = torch.zeros(B, device=device)
+        kl_sum = torch.zeros(B, device=device)
+        rows = []  # (js, tok_logp) per sample for the KL pass
+        for i in range(B):
+            js = (labels[i] != -100).nonzero(as_tuple=True)[0]
+            if js.numel() == 0:
+                rows.append((js, None))
+                continue
+            lg = logits[i, js - 1, :].float()          # [n_i, V]
+            lp = torch.log_softmax(lg, -1).gather(-1, labels[i, js].unsqueeze(-1)).squeeze(-1)
+            sum_logp[i] = lp.sum()
+            n_toks[i] = js.numel()
+            rows.append((js, lp))
+            del lg
+
         if args.kl_beta > 0:
             with torch.no_grad(), model.disable_adapter():
-                rlogits = model(**enc).logits[:, -n_max - 1:-1, :]
-                rlogp_all = torch.log_softmax(rlogits.float(), dim=-1)
-                rtok = rlogp_all.gather(-1, tgt_safe.unsqueeze(-1)).squeeze(-1) * tmask
-                # k3 estimator per token: exp(ref - pi) - (ref - pi) - 1
-                d = (rtok - tok_logp).clamp(-20, 20)
-                kl_sum = (torch.expm1(d) - d).masked_fill(~tmask, 0.0).sum(-1)
-                del rlogits, rlogp_all
+                rlogits = model(**enc).logits
+                for i in range(B):
+                    js, lp = rows[i]
+                    if js.numel() == 0:
+                        continue
+                    rlg = rlogits[i, js - 1, :].float()
+                    rlp = torch.log_softmax(rlg, -1).gather(-1, labels[i, js].unsqueeze(-1)).squeeze(-1)
+                    # k3 estimator per token: exp(ref - pi) - (ref - pi) - 1
+                    d = (rlp - lp).clamp(-20, 20)
+                    kl_sum[i] = (torch.expm1(d) - d).sum()
+                    del rlg
+                del rlogits
+        del logits
         return sum_logp, n_toks, kl_sum
 
     t0 = time.time()
@@ -280,15 +295,22 @@ def main():
             outs.extend(gen_texts(seqs[b:b + args.gen_batch]))
 
         # ---- execute + score ----
+        def split_think_code(text):
+            idx = text.rfind("```python")
+            if idx >= 0:
+                think = text[:idx].strip()
+                code = text[idx + len("```python"):].rsplit("```", 1)[0].strip()
+                return think, code
+            return text.strip(), None
+
         groups = []
         with tempfile.TemporaryDirectory(prefix="grpo_") as td:
             for pi, s in enumerate(base):
                 cands = []
                 for g in range(args.g):
                     text = outs[pi * args.g + g]
-                    think = (text.split("without think", 1)[0].replace("think", "").strip()
-                             if "without think" in text else "")
-                    cands.append({"draw": g, "think": think, "code": extract_code(text),
+                    think, code = split_think_code(text)
+                    cands.append({"draw": g, "think": think, "code": code,
                                   "exec": False, "iou": 0.0})
                 rewards = score_cands(s["part"], cands, td)
                 groups.append({"part": s["part"], "image": s["image"],
