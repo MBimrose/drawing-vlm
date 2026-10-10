@@ -1,0 +1,12 @@
+[t0] 144 parts x 8, 49 episodes to run, max_tokens 30000, T None
+[t0] 10/49 3.4 min
+[t0] 20/49 5.4 min
+[t0] 30/49 7.1 min
+[t0] 40/49 7.7 min
+[t0] done: 1152 episodes, mean IoU 0.321, executed 1071, calls/episode 1.39, 9.1 min
+DS RUN DONE Sat Oct 10 04:09:06 AM CDT 2026
+144 parts, 1095 candidates with code, 0 missing episodes
+SCORED+VOTED bench_b/eval/real_dsv41: [score] executed 1069/1152 -> bench_b/eval/real_dsv41.json | [cons] re-executed 1069 candidates
+144 parts, 953 candidates with code, 0 missing episodes
+SCORED+VOTED bench_b/eval/real_dsv41_1call: [score] executed 832/1152 -> bench_b/eval/real_dsv41_1call.json | [cons] re-executed 832 candidates
+DS FIX144 DONE

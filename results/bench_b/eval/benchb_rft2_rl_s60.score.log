@@ -1,0 +1,8 @@
+[score] 4 checkpoints, 280 parts, 2240 candidates
+[score] 2230 to execute
+[score] 500/2230  1.62/s  eta 0.3 h
+[score] 1000/2230  1.08/s  eta 0.3 h
+[score] 1500/2230  1.23/s  eta 0.2 h
+[score] 2000/2230  1.22/s  eta 0.1 h
+[score] volume bound settled 0 of 2230 without a boolean; 0 overlaps timed out (scored 0)
+[score] executed 2196/2240 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/bench_b/eval/benchb_rft2_rl_s60.json

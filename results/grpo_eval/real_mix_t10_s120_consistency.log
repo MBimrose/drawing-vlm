@@ -1,0 +1,19 @@
+[cons] 144 parts, k=8
+[cons] re-executed 1113 candidates
+/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/trimesh/triangles.py:302: RuntimeWarning: invalid value encountered in divide
+  center_mass = integrated[1:4] / volume
+[iou] monte-carlo fallback: iou=0.000 (46s, n=20000, 1748+504 faces)
+[iou] monte-carlo fallback: iou=0.000 (7s, n=20000, 1748+504 faces)
+[iou] monte-carlo fallback: iou=0.000 (2s, n=20000, 320+504 faces)
+[iou] monte-carlo fallback: iou=0.000 (2s, n=20000, 320+504 faces)
+[iou] monte-carlo fallback: iou=0.000 (2s, n=20000, 304+504 faces)
+[iou] monte-carlo fallback: iou=0.000 (2s, n=20000, 304+504 faces)
+[iou] monte-carlo fallback: iou=0.000 (8s, n=20000, 2140+504 faces)
+[iou] monte-carlo fallback: iou=0.000 (8s, n=20000, 2140+504 faces)
+[iou] monte-carlo fallback: iou=0.000 (3s, n=20000, 504+2964 faces)
+[iou] monte-carlo fallback: iou=0.000 (3s, n=20000, 504+2964 faces)
+first_exec   mean=0.586 median=0.554 iou85=0.285 iou50=0.597
+consistency  mean=0.629 median=0.647 iou85=0.333 iou50=0.653
+cons_hybrid  mean=0.606 median=0.601 iou85=0.299 iou50=0.618
+verifier     mean=0.586 median=0.554 iou85=0.285 iou50=0.597
+oracle       mean=0.688 median=0.743 iou85=0.403 iou50=0.757

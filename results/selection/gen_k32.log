@@ -1,0 +1,4 @@
+[gen] shard 0/1: 144 keys, 0 done, 144 to draw, K=32
+[gen] 50/144 parts  5.3 parts/min  eta 0.3 h
+[gen] 100/144 parts  5.1 parts/min  eta 0.1 h
+[gen] DONE shard 0: 144 parts, 4606 candidates with code -> results/selection/real_k32_t10s120.shard0.json.partial.json

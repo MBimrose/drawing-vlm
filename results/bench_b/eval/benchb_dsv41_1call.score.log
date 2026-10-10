@@ -1,0 +1,7 @@
+[score] 1 checkpoints, 280 parts, 2240 candidates
+[score] 1844 to execute
+[score] 500/1844  2.71/s  eta 0.1 h
+[score] 1000/1844  2.82/s  eta 0.1 h
+[score] 1500/1844  2.86/s  eta 0.0 h
+[score] volume bound settled 0 of 1844 without a boolean; 7 overlaps timed out (scored 0)
+[score] executed 1654/2240 -> bench_b/eval/benchb_dsv41_1call.json

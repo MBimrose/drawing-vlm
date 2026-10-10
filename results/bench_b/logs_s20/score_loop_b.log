@@ -1,0 +1,8 @@
+10-10 00:36 scoring real_qwenbase
+SCORED+VOTED bench_b/eval/real_qwenbase: [score] executed 52/1152 -> bench_b/eval/real_qwenbase.json | [cons] re-executed 52 candidates
+10-10 01:29 scoring benchb_e55ctl
+SCORED+VOTED bench_b/eval/benchb_e55ctl: [score] executed 1789/2240 -> bench_b/eval/benchb_e55ctl.json | [cons] re-executed 1789 candidates
+ft1_rl2_s120.json | [cons] re-executed 2217 candidates
+10-10 03:48 scoring benchb_qwenbase
+SCORED+VOTED bench_b/eval/benchb_qwenbase: [score] executed 136/2240 -> bench_b/eval/benchb_qwenbase.json | [cons] re-executed 136 candidates
+10-10 03:57 SCORE LOOP B DONE

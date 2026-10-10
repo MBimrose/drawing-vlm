@@ -1,0 +1,7 @@
+[cons] 144 parts, k=8
+[cons] re-executed 1138 candidates
+first_exec   mean=0.627 median=0.643 iou85=0.326 iou50=0.646
+consistency  mean=0.655 median=0.701 iou85=0.354 iou50=0.708
+cons_hybrid  mean=0.648 median=0.689 iou85=0.361 iou50=0.660
+verifier     mean=0.627 median=0.643 iou85=0.326 iou50=0.646
+oracle       mean=0.714 median=0.789 iou85=0.417 iou50=0.792

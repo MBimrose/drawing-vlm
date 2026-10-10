@@ -1,0 +1,12 @@
+[score] 1 checkpoints, 280 parts, 4480 candidates
+[score] 4443 to execute
+[score] 500/4443  5.30/s  eta 0.2 h
+[score] 1000/4443  5.26/s  eta 0.2 h
+[score] 1500/4443  5.19/s  eta 0.2 h
+[score] 2000/4443  5.13/s  eta 0.1 h
+[score] 2500/4443  5.12/s  eta 0.1 h
+[score] 3000/4443  5.05/s  eta 0.1 h
+[score] 3500/4443  4.95/s  eta 0.1 h
+[score] 4000/4443  4.88/s  eta 0.0 h
+[score] volume bound settled 0 of 4443 without a boolean; 3 overlaps timed out (scored 0)
+[score] executed 4355/4480 -> bench_b/pipeline/benchb_k16_rl2s60.json

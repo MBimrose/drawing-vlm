@@ -1,0 +1,56 @@
+# RFT2-FROM-RL2 (2026-10-09, GRPO_HANDOFF "Expert-iteration round 2"): round-1 recipe (configs/rft1-from-t10.yaml) one
+# cycle later. Warm-start the search policy's LoRA (rft1_rl2 step 120, r64 on e55) and SFT it on tier 2 = per training part
+# the best GT-verified program among {round-2 K=16 T=1.0 samples, GT-selected rp3 repair search + DeepSeek teacher
+# programs (rationalized by the policy itself), round-1 tier rows} at IoU >= 0.75 (results/cycle2/tier2,
+# geom/build_rft2_tier.py), ~50% of draws (CADBench 2/3, DeepCAD realpool2 1/3), + the same 13 e55 replay shards as
+# rft1 for the rest (results/cycle2/build_mix2.sh / assemble_mix2.sh). serv-20, 2 B300 DDP, global batch 2 x 4 x 2 = 16.
+run_name: rft2-from-rl2
+model_id: /srv/scratch/bimrose2/runs/e55-rft-real-u5-gt-dw423/final
+output_dir: /srv/scratch/bimrose2/runs/rft2_from_rl2
+accel_config: accelerate_ddp_2gpu.yaml
+lora_init_adapter: /srv/scratch/bimrose2/runs/grpo_v_rft1_rl2/adapter_step120
+
+use_lora: true
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.0
+lora_target_modules: auto
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.1
+rft_frac: 0.8
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+trace_style: think
+reasoning_effort: medium
+max_seq_len: 5120
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 2.0e-5
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 2
+per_device_eval_batch_size: 2
+gradient_accumulation_steps: 4
+gradient_checkpointing: true
+
+max_steps: __STEPS__
+save_strategy: "steps"
+save_steps: __SAVE__
+save_total_limit: 3
+save_only_model: true
+save_best: false
+save_final: true
+logging_steps: 10
+eval_every: 0
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 44

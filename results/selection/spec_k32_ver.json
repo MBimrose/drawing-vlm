@@ -1,0 +1,14 @@
+{
+ "k32_t10s120": {
+  "cands": "results/selection/real_k32_t10s120.json",
+  "cons": "results/selection/real_k32_t10s120_consistency.json",
+  "vpreds": "results/selection/vpreds_k32_t10s120.json"
+ },
+ "e55ctl": {
+  "cands": "results/grpo_eval/real_e55ctl.json",
+  "cons": "results/grpo_eval/real_e55ctl_consistency.json",
+  "vpreds": "results/selection/vpreds_e55ctl.json",
+  "rc": "results/selection/rc_3m_v3.json",
+  "rc_offset": 0
+ }
+}

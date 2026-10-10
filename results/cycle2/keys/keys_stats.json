@@ -1,0 +1,25 @@
+{
+ "c4": {
+  "universe": 2310,
+  "A_noTier": 1116,
+  "C_tierLt0.9": 568,
+  "tier_ge0.9": 626
+ },
+ "c2": {
+  "universe": 1071,
+  "A_noTier": 530,
+  "C_tierLt0.9": 330,
+  "tier_ge0.9": 211
+ },
+ "c1": {
+  "universe": 1117,
+  "A_noTier": 993,
+  "C_tierLt0.9": 84,
+  "tier_ge0.9": 40
+ },
+ "rp2": {
+  "B": 4500
+ },
+ "heldout_file_ids_checked": 146,
+ "total_parts": 8121
+}

@@ -1,0 +1,21 @@
+n per model {'s60': 480, 's80': 480, 's100': 480, 's120': 480}
+
+s60 n=480 exec=0.975 finish=length 0.000 think_med=665 code_med=664
+   [('ok', 468), ('no_code:stop', 3), ('exc:OCP.OCP.Standard.Standard_TypeMismatch', 3), ('exc:ModuleNotFoundError', 2), ('exc:ValueError', 2), ('exc:AttributeError', 1), ('exc:TypeError', 1)]
+   by bench exec: {'c4': 0.983, 'c2': 0.958, 'fam': 0.992, 'rp2': 0.967}
+   top errors: [('OCP.OCP.Standard.Standard_TypeMismatch: TopoDS::Face', 3), ("ModuleNotFoundError: No module named 'X'", 2), ("AttributeError: 'X' object has no attribute 'X'", 1), ('ValueError: A face or sketch must be provided', 1), ('ValueError: Face can only be created with closed wires', 1), ('TypeError: Invalid inputs to Pos (<function offset at 0x7f2ca1756980>, 0, 2.0)', 1)]
+
+s80 n=480 exec=0.573 finish=length 0.004 think_med=685 code_med=457
+   [('ok', 275), ('no_code:stop', 194), ('exc:NameError', 4), ('exc:OCP.OCP.Standard.Standard_TypeMismatch', 3), ('exc:TypeError', 1), ('exc:IndentationError', 1), ('exc:ValueError', 1), ('exc:SyntaxError', 1)]
+   by bench exec: {'c4': 0.617, 'c2': 0.575, 'fam': 0.408, 'rp2': 0.692}
+   top errors: [("NameError: name 'X' is not defined", 4), ('OCP.OCP.Standard.Standard_TypeMismatch: TopoDS::Face', 3), ("TypeError: unsupported operand type(s) for *: 'X' and 'X'", 1), ('IndentationError: unexpected indent', 1), ('ValueError: Face can only be created with closed wires', 1), ('SyntaxError: invalid syntax', 1)]
+
+s100 n=480 exec=0.710 finish=length 0.040 think_med=753 code_med=672
+   [('ok', 341), ('no_code:stop', 116), ('no_code:length', 11), ('exc:ValueError', 3), ('exc:OCP.OCP.Standard.Standard_TypeMismatch', 3), ('exc:SyntaxError', 2), ('exc:OCP.OCP.Standard.Standard_NullObject', 1), ('timeout', 1)]
+   by bench exec: {'c4': 0.783, 'c2': 0.758, 'fam': 0.55, 'rp2': 0.75}
+   top errors: [('OCP.OCP.Standard.Standard_TypeMismatch: TopoDS::Face', 3), ('ValueError: Face can only be created with closed wires', 2), ('OCP.OCP.Standard.Standard_NullObject: BRepAdaptor_Curve::No geometry', 1), ('', 1), ("NameError: name 'X' is not defined", 1), ("UnboundLocalError: cannot access local variable 'X' where it is not associated with a valu", 1)]
+
+s120 n=480 exec=0.660 finish=length 0.356 think_med=677 code_med=631
+   [('ok', 317), ('no_code:stop', 130), ('no_code:length', 21), ('exc:ValueError', 5), ('exc:SyntaxError', 3), ('exc:NameError', 1), ('exc:OCP.OCP.Standard.Standard_ConstructionError', 1), ('no_step', 1)]
+   by bench exec: {'c4': 0.667, 'c2': 0.792, 'fam': 0.508, 'rp2': 0.675}
+   top errors: [('SyntaxError: invalid syntax', 2), ('ValueError: Failed creating a chamfer, try a smaller length value(s)', 2), ("SyntaxError: invalid character 'X' (U+00D7)", 1), ("NameError: name 'X' is not defined", 1), ('ValueError: Failed creating a fillet with radius of 5.0, try a smaller value or use max_fi', 1), ('ValueError: Failed creating a fillet with radius of 2.0, try a smaller value or use max_fi', 1)]

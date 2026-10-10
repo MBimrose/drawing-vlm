@@ -1,0 +1,5 @@
+[score] 1 checkpoints, 144 parts, 1152 candidates
+[score] resuming: 1048 candidates already scored
+[score] 47 to execute
+[score] volume bound settled 0 of 1095 without a boolean; 12 overlaps timed out (scored 0)
+[score] executed 1069/1152 -> bench_b/eval/real_dsv41.json

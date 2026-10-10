@@ -1,0 +1,34 @@
+{
+ "c4": {
+  "parts": 926,
+  "pairs": 940,
+  "search_pairs_before_cap": 51,
+  "near_pairs_before_cap": 889,
+  "mean_input_iou": 0.61,
+  "mean_target_iou": 0.784
+ },
+ "c2": {
+  "parts": 602,
+  "pairs": 613,
+  "search_pairs_before_cap": 32,
+  "near_pairs_before_cap": 581,
+  "mean_input_iou": 0.649,
+  "mean_target_iou": 0.813
+ },
+ "c1": {
+  "parts": 591,
+  "pairs": 593,
+  "search_pairs_before_cap": 58,
+  "near_pairs_before_cap": 535,
+  "mean_input_iou": 0.619,
+  "mean_target_iou": 0.774
+ },
+ "rp2": {
+  "parts": 2118,
+  "pairs": 2146,
+  "search_pairs_before_cap": 486,
+  "near_pairs_before_cap": 3222,
+  "mean_input_iou": 0.661,
+  "mean_target_iou": 0.837
+ }
+}

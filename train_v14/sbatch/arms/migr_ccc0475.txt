@@ -1,0 +1,1 @@
+rft1_rl2|ent_hi|7|8433|--bench fp/h6/rft_corpus4,mech_benchmarks/rft_corpus2_dw423,fp/h6/train_bench --keys fp/h6/real4_hard_keys.txt,fp/h6/c2_hard_keys.txt,fp/h6/fam_hard_keys.txt --scale-logits --adv batchstd --top-p 1.0 --temperature 1.0 --guard 0.6 --minibatches 4 --lr 1e-5 --kl-beta 0 --ent-coef 0.1 --ent-target 0.1829 --ent-max 0.35

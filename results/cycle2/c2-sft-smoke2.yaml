@@ -1,0 +1,56 @@
+# RFT1-FROM-T10 (2026-10-08, GRPO_HANDOFF "RFT consolidation cycle"): RL -> RFT -> RL. Warm-start the best GRPO LoRA
+# (mix_t10 step 120, r64 on e55) and SFT it on the consolidation tier = per hard real training part the best of
+# {RL K=16 T=1.0 sample, GT-search bank program} at IoU >= 0.75 (results/guide/rft1/tier: 1,859 rows, mean 0.891;
+# geom/build_rft1_tier.py), ~50% of draws, + the d0 e55 mix (dw423b base + union5 RFT, bundle reasoning, plain) for
+# the rest (results/guide/rft1/build_mix.sh). One H200 (ccc0475 GPU 3 inside grpo-fast job 11182777).
+# Global batch 16 x 450 steps = 7,200 samples ~ 1.9 epochs over the tier.
+run_name: c2-sft-smoke
+model_id: /srv/scratch/bimrose2/runs/e55-rft-real-u5-gt-dw423/final
+output_dir: /srv/scratch/bimrose2/runs/c2_sft_smoke2
+accel_config: accelerate_ddp_2gpu.yaml
+lora_init_adapter: /srv/scratch/bimrose2/runs/grpo_v_rft1_rl2/adapter_step120
+
+use_lora: true
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.0
+lora_target_modules: auto
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.1
+rft_frac: 0.8
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+trace_style: think
+reasoning_effort: medium
+max_seq_len: 5120
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 2.0e-5
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 2
+per_device_eval_batch_size: 2
+gradient_accumulation_steps: 4
+gradient_checkpointing: true
+
+max_steps: 4
+save_strategy: "steps"
+save_steps: 4
+save_total_limit: 3
+save_only_model: true
+save_best: false
+save_final: true
+logging_steps: 1
+eval_every: 0
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 44

@@ -1,0 +1,49 @@
+[cons] 144 parts, k=8
+[cons] re-executed 1145 candidates
+[iou] monte-carlo fallback: iou=0.050 (33s, n=20000, 524+12 faces)
+/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/trimesh/triangles.py:302: RuntimeWarning: divide by zero encountered in divide
+  center_mass = integrated[1:4] / volume
+/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/trimesh/triangles.py:316: RuntimeWarning: invalid value encountered in scalar multiply
+  integrated[5] + integrated[6] - (volume * (center_mass[[1, 2]] ** 2).sum())
+/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/trimesh/triangles.py:319: RuntimeWarning: invalid value encountered in scalar multiply
+  integrated[4] + integrated[6] - (volume * (center_mass[[0, 2]] ** 2).sum())
+/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/trimesh/triangles.py:322: RuntimeWarning: invalid value encountered in scalar multiply
+  integrated[4] + integrated[5] - (volume * (center_mass[[0, 1]] ** 2).sum())
+/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/trimesh/triangles.py:324: RuntimeWarning: invalid value encountered in scalar multiply
+  inertia[0, 1] = -(integrated[7] - (volume * np.prod(center_mass[[0, 1]])))
+/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/trimesh/triangles.py:325: RuntimeWarning: invalid value encountered in scalar multiply
+  inertia[1, 2] = -(integrated[8] - (volume * np.prod(center_mass[[1, 2]])))
+/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/trimesh/triangles.py:326: RuntimeWarning: invalid value encountered in scalar multiply
+  inertia[0, 2] = -(integrated[9] - (volume * np.prod(center_mass[[0, 2]])))
+[iou] monte-carlo fallback: iou=0.695 (20s, n=20000, 524+12 faces)
+[iou] monte-carlo fallback: iou=0.290 (3s, n=20000, 524+12 faces)
+[iou] monte-carlo fallback: iou=0.695 (4s, n=20000, 524+12 faces)
+[iou] monte-carlo fallback: iou=0.050 (1s, n=20000, 524+12 faces)
+[iou] monte-carlo fallback: iou=0.695 (4s, n=20000, 524+12 faces)
+[iou] monte-carlo fallback: iou=0.050 (1s, n=20000, 524+12 faces)
+[iou] monte-carlo fallback: iou=0.695 (4s, n=20000, 524+12 faces)
+/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/trimesh/triangles.py:302: RuntimeWarning: invalid value encountered in divide
+  center_mass = integrated[1:4] / volume
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 524+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 524+248 faces)
+[iou] monte-carlo fallback: iou=0.260 (3s, n=20000, 524+12 faces)
+[iou] monte-carlo fallback: iou=0.695 (4s, n=20000, 524+12 faces)
+[iou] monte-carlo fallback: iou=0.981 (5s, n=20000, 524+260 faces)
+[iou] monte-carlo fallback: iou=0.981 (5s, n=20000, 524+260 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 12+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 12+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 12+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 12+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 12+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 12+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 12+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 12+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 248+12 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 248+12 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 248+260 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 248+260 faces)
+first_exec   mean=0.564 median=0.545 iou85=0.243 iou50=0.556
+consistency  mean=0.594 median=0.586 iou85=0.299 iou50=0.604
+cons_hybrid  mean=0.583 median=0.586 iou85=0.271 iou50=0.569
+verifier     mean=0.564 median=0.545 iou85=0.243 iou50=0.556
+oracle       mean=0.651 median=0.668 iou85=0.347 iou50=0.674

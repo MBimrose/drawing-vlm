@@ -149,10 +149,13 @@ def build_messages(sample: dict, system_prompt: str,
             {"role": "assistant",
              "content": [{"type": "text", "text": body}]},
         ]
+    # 2026-10-09: "content_raw" (opt-in, GRPO --train-raw) = the exact sampled answer text, trained verbatim instead of
+    # the canonical re-wrap of the parsed code (format drift such as extra/empty fences was otherwise invisible to the loss)
+    content = sample["content_raw"] if sample.get("content_raw") is not None else wrap_python(sample["code"])
     return head + [
         {"role": "assistant",
          "reasoning_content": trace,
-         "content": [{"type": "text", "text": wrap_python(sample["code"])}]},
+         "content": [{"type": "text", "text": content}]},
     ]
 
 

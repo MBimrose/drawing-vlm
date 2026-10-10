@@ -61,13 +61,21 @@ def load_tier(tier_dir, limit=0):
                     row["think"] = t.extractfile(members[key + ".think.txt"]).read().decode().strip()
                 if key + ".user.txt" in members:
                     row["user"] = t.extractfile(members[key + ".user.txt"]).read().decode()
+                # GRPO rows (2026-10-06): the verbatim sampled reply (notes + code block) and the group advantage
+                if key + ".reply.txt" in members:
+                    row["reply"] = t.extractfile(members[key + ".reply.txt"]).read().decode()
+                if key + ".ctx.json" in members:   # T0 regime: the turns between the first user message and the trained reply
+                    row["context"] = json.loads(t.extractfile(members[key + ".ctx.json"]).read().decode())
+                if key + ".adv.txt" in members:
+                    row["adv"] = float(t.extractfile(members[key + ".adv.txt"]).read().decode().strip())
                 rows.append(row)
                 if limit and len(rows) >= limit:
                     return rows
     return rows
 
 
-def build_sample(proc, dsenc, system, user, png, answer, image_token, max_len, png2=None, think=None):
+def build_sample(proc, dsenc, system, user, png, answer, image_token, max_len, png2=None, think=None, reply=None, effort=None,
+                 context=None):
     """Prompt via the released encoder; labels masked to the assistant answer. png2 (optional) is a second image
     block after the first (visual repair: target sheet, then the sheet of the current program)."""
     from PIL import Image
@@ -85,10 +93,13 @@ def build_sample(proc, dsenc, system, user, png, answer, image_token, max_len, p
         # think (2026-09-29): with a plan, train in "thinking" mode -- the plan in DeepSeek's reasoning span, then the
         # code (the September no-think LoRA matched e55's own no-think first draw, 0.136 vs 0.151; e55 thinking: 0.384)
         mode = "thinking" if think is not None else "chat"
-        amsg = {"role": "assistant", "content": "```python\n" + answer + "\n```"}
+        # reply (GRPO): the assistant content exactly as sampled; effort: the "Reasoning Effort: N" prefix the server used
+        for c in context or []:   # earlier turns of a multi-call episode (assistant text only, as the server saw them)
+            msgs.append({"role": c["role"], "content": c["text"]})
+        amsg = {"role": "assistant", "content": reply if reply is not None else "```python\n" + answer + "\n```"}
         if think is not None: amsg["reasoning_content"] = think
-        prompt_no_answer = dsenc.encode_messages(msgs, thinking_mode=mode)
-        full = dsenc.encode_messages(msgs + [amsg], thinking_mode=mode)
+        prompt_no_answer = dsenc.encode_messages(msgs, thinking_mode=mode, reasoning_effort=effort)
+        full = dsenc.encode_messages(msgs + [amsg], thinking_mode=mode, reasoning_effort=effort)
     finally:
         for p_ in paths: os.unlink(p_)
     if not full.startswith(prompt_no_answer):
@@ -103,6 +114,161 @@ def build_sample(proc, dsenc, system, user, png, answer, image_token, max_len, p
         return None
     enc["labels"] = labels
     return enc
+
+
+def enable_layer_ckpt(model, min_layer):
+    """Activation checkpointing for the trainable decoder layers (>= min_layer) of the draft DeepSeek-V4.1 class
+    (2026-10-06: a 9k-token row OOMed the last of 4 B300s in FORWARD -- every layer above the first LoRA layer keeps its
+    MoE activations for backward). Uses the layers' own GradientCheckpointingLayer hook, non-reentrant. Trap handled:
+    `shared` is ONE dict that source layers overwrite (CSA2 group state); a recompute in backward would read the LAST
+    writer's state, so each layer's recompute gets a snapshot of the dict as it was when that layer first ran."""
+    import torch
+    from torch.utils.checkpoint import checkpoint
+
+    def ckpt_func(fn, *args):
+        base, kw = fn.func, dict(fn.keywords)
+        shared = kw.get("shared")
+        snap = dict(shared) if shared is not None else None
+        first = [True]
+
+        def run(*a):
+            if first[0]:
+                first[0] = False
+                return base(*a, **kw)
+            return base(*a, **({**kw, "shared": dict(snap)} if snap is not None else kw))
+        return checkpoint(run, *args, use_reentrant=False)
+    n = 0
+    for m in model.modules():
+        if type(m).__name__ == "DeepseekV41DecoderLayer" and m.layer_idx >= min_layer:
+            m.gradient_checkpointing = True; m._gradient_checkpointing_func = ckpt_func; n += 1
+    return n
+
+
+def grpo_pass(args, model, opt, sched, params, rows, proc, dsenc, system, user, dev, log, t0):
+    """One advantage-weighted pass (GRPO round, 2026-10-06). Rows were sampled by the served policy (vLLM, the
+    current merged adapter) in thinking mode; adv = group-centred reward (optionally / batch std), never 0 here.
+    loss = sum_rows adv_row * CE_row / n_chunk_rows, CE_row = mean token NLL of reasoning + reply (labels masked to the
+    assistant span by build_sample), so adv < 0 pushes the sample down. Grad clip 1.0, one optimizer step per chunk."""
+    import torch
+    rows = [r for r in rows if r.get("adv") is not None and r["adv"] != 0.0]
+    stats = {"rows": len(rows), "trained": 0, "skipped_long": 0, "tokens": [], "ce_pos": [], "ce_neg": []}
+    if args.ckpt_check:
+        layers = [m for m in model.modules() if type(m).__name__ == "DeepseekV41DecoderLayer" and m.gradient_checkpointing]
+        r0 = rows[0]
+        enc = build_sample(proc, dsenc, system, r0.get("user") or user, r0["png"], r0["code"], proc.image_token, 10**9,
+                           None, r0.get("think") or "", r0.get("reply"), args.reasoning_effort)
+        enc = {k: (v.to(dev) if hasattr(v, "to") else v) for k, v in enc.items()}
+        grads = []
+        for on in (True, False):
+            for m in layers: m.gradient_checkpointing = on
+            torch.cuda.reset_peak_memory_stats()
+            ts = time.time()
+            with torch.autocast("cuda", dtype=torch.bfloat16):
+                out = model(**enc)
+            out.loss.backward()
+            mem = " ".join(f"{torch.cuda.max_memory_allocated(d)/2**30:.0f}" for d in range(torch.cuda.device_count()))
+            grads.append(torch.cat([p.grad.reshape(-1).float().cpu() for p in params if p.grad is not None]))
+            log(f"[ckpt-check] ckpt={on} loss {out.loss.item():.5f} {time.time()-ts:.1f}s peak GiB/GPU {mem}", flush=True)
+            opt.zero_grad(set_to_none=True); del out
+        for m in layers: m.gradient_checkpointing = True
+        a_, b_ = grads
+        log(f"[ckpt-check] {enc['input_ids'].shape[-1]} tokens, grad rel err {float((a_-b_).norm()/b_.norm()):.2e} "
+            f"cos {float(torch.nn.functional.cosine_similarity(a_, b_, dim=0)):.6f}", flush=True)
+        del enc
+    if args.score_only:   # sampler-vs-trainer agreement: mean token NLL of the sampled tokens, train vs eval mode, T=1 vs logit_temp
+        for row in rows:
+            enc = build_sample(proc, dsenc, system, row.get("user") or user, row["png"], row["code"], proc.image_token, 10**9,
+                               None, row.get("think") or "", row.get("reply"), args.reasoning_effort)
+            enc = {k: (v.to(dev) if hasattr(v, "to") else v) for k, v in enc.items()}
+            labels = enc.pop("labels"); res = []
+            import contextlib
+            import transformers.models.deepseek_v41.modeling_deepseek_v41 as M
+            chunked = M.eager_attention_forward_dms
+            orig = getattr(sys.modules.get("dsv41_chunked_attn"), "_ORIG", None) or chunked
+            model.eval()
+            # variants: bf16 autocast (the training default) vs none (fp32-kept hyper-connection sites stay fp32), chunked vs eager
+            with torch.no_grad(), torch.autocast("cuda", dtype=torch.bfloat16):
+                out = model(**enc)
+            ids = enc["input_ids"][0].to(out.logits.device); lab0 = labels[0].to(out.logits.device); pos = (lab0 != -100).nonzero()[:, 0]
+            lg = out.logits[0].float()
+            for off in (0, 1, 2):   # logits[t] should predict token t+1 (off=1)
+                pp = pos[pos >= off]
+                nll = torch.nn.functional.cross_entropy(lg[pp - off], ids[pp], reduction="none")
+                res.append(f"off{off} mean {float(nll.mean()):.3f} median {float(nll.median()):.3f} p90 {float(nll.quantile(0.9)):.2f} "
+                           f">5nats {float((nll > 5).float().mean()):.3f} top1 {float((lg[pp - off].argmax(-1) == ids[pp]).float().mean()):.3f}")
+            nll = torch.nn.functional.cross_entropy(lg[pos - 1], ids[pos], reduction="none")
+            worst = nll.topk(8).indices
+            res.append("worst: " + " ".join(repr(proc.tokenizer.decode([int(ids[pos[w]])])) + f"={float(nll[w]):.1f}" for w in worst))
+            res.append("first40: " + " ".join(f"{proc.tokenizer.decode([int(ids[p_])])!r}:{float(x):.1f}" for p_, x in zip(pos[:40], nll[:40])))
+            del out, lg
+            for uc in (True, False):   # cache-building prefill path vs the no-cache (training) path
+                with torch.no_grad(), torch.autocast("cuda", dtype=torch.bfloat16):
+                    out = model(**enc, use_cache=uc)
+                lab = labels[0, 1:].to(out.logits.device); m = lab != -100
+                nll = torch.nn.functional.cross_entropy(out.logits[0, :-1][m].float(), lab[m], reduction="none")
+                res.append(f"use_cache={uc} {float(nll.mean()):.3f} top1 {float((out.logits[0, :-1][m].argmax(-1) == lab[m]).float().mean()):.3f}")
+                del out
+            log(f"[train] config.use_cache={getattr(model.config, 'use_cache', None)} text use_cache={getattr(getattr(model.config, 'text_config', None), 'use_cache', None)}", flush=True)
+            for name, ac, attn in (("autocast+chunked", True, chunked),):
+                M.eager_attention_forward_dms = attn
+                try:
+                    with torch.no_grad(), (torch.autocast("cuda", dtype=torch.bfloat16) if ac else contextlib.nullcontext()):
+                        out = model(**enc)
+                    lab = labels[0, 1:].to(out.logits.device); m = lab != -100
+                    nll = torch.nn.functional.cross_entropy(out.logits[0, :-1][m].float(), lab[m], reduction="none")
+                    res.append(f"{name} {float(nll.mean()):.3f} (first-500 {float(nll[:500].mean()):.3f}, last-500 {float(nll[-500:].mean()):.3f})")
+                    del out
+                except Exception as e:
+                    res.append(f"{name} ERROR {type(e).__name__}: {str(e)[:150]}")
+            M.eager_attention_forward_dms = chunked
+            log(f"[score] {row['key'][:40]} {int(m.sum())} label tokens: " + " | ".join(res), flush=True)
+        return
+    chunks = [rows[j:j + args.accum] for j in range(0, len(rows), args.accum)]
+    log(f"[grpo] {len(rows)} rows -> {len(chunks)} optimizer steps of <= {args.accum} rows, lr {args.lr:g}", flush=True)
+    for ci, chunk in enumerate(chunks):
+        n_ok = 0; ts0 = time.time()
+        for row in chunk:
+            enc = build_sample(proc, dsenc, system, row.get("user") or user, row["png"], row["code"], proc.image_token,
+                               args.max_len, row.get("png2"), row.get("think") or "", row.get("reply"), args.reasoning_effort,
+                               row.get("context"))
+            if enc is None:
+                stats["skipped_long"] += 1; continue
+            enc = {k: (v.to(dev) if hasattr(v, "to") else v) for k, v in enc.items()}
+            ts = time.time()
+            if args.logit_temp != 1.0:   # rollouts sampled at T != 1: score the same tempered distribution
+                labels = enc.pop("labels")
+                with torch.autocast("cuda", dtype=torch.bfloat16):
+                    out = model(**enc)
+                lab = labels[0, 1:].to(out.logits.device); m = lab != -100
+                lg = out.logits[0, :-1][m].float() / args.logit_temp
+                loss = torch.nn.functional.cross_entropy(lg, lab[m]); enc["labels"] = labels; del lg
+            else:
+                with torch.autocast("cuda", dtype=torch.bfloat16):
+                    out = model(**enc)
+                loss = out.loss
+            tf = time.time() - ts
+            (loss * (row["adv"] / len(chunk))).backward()
+            ce = float(loss.item()); n_tok = int(enc["input_ids"].shape[-1])
+            stats["tokens"].append(n_tok); stats["ce_pos" if row["adv"] > 0 else "ce_neg"].append(ce); n_ok += 1
+            if stats["trained"] + n_ok <= 3:
+                mem = " ".join(f"{torch.cuda.max_memory_allocated(d)/2**30:.0f}" for d in range(torch.cuda.device_count()))
+                log(f"[grpo] row {row['key'][:40]}: {n_tok} tokens adv {row['adv']:+.3f} ce {ce:.3f} forward {tf:.1f}s "
+                    f"backward {time.time()-ts-tf:.1f}s peak GiB/GPU {mem}", flush=True)
+            del out, enc, loss
+        stats["trained"] += n_ok
+        if n_ok == 0:
+            opt.zero_grad(set_to_none=True); continue
+        gn = float(torch.nn.utils.clip_grad_norm_(params, 1.0))
+        opt.step(); sched.step(); opt.zero_grad(set_to_none=True)
+        log(f"[grpo] step {ci+1}/{len(chunks)} rows {n_ok} grad_norm {gn:.3f} {time.time()-ts0:.0f}s "
+            f"(elapsed {time.time()-t0:.0f}s)", flush=True)
+    mean = lambda v: sum(v) / len(v) if v else 0.0
+    summ = {"rows": stats["rows"], "trained": stats["trained"], "skipped_long": stats["skipped_long"],
+            "mean_tokens": mean(stats["tokens"]), "ce_pos": mean(stats["ce_pos"]), "ce_neg": mean(stats["ce_neg"]),
+            "steps": len(chunks), "seconds": time.time() - t0}
+    os.makedirs(args.out, exist_ok=True)
+    json.dump(summ, open(os.path.join(args.out, "grpo_train.json"), "w"), indent=1)
+    log("[grpo] " + json.dumps(summ), flush=True)
 
 
 def main():
@@ -134,10 +300,28 @@ def main():
     ap.add_argument("--last-gpu-headroom", type=float, default=0, help="GiB kept free on the last GPU (logits); 0 = device_map auto defaults")
     ap.add_argument("--min-layer", type=int, default=0, help="LoRA only on decoder layers >= this index (backward stops at the first adapted layer)")
     ap.add_argument("--prompts", default="", help="prompts.json (system/user); default: next to the tier, else spike_dsv41/prompts.json")
+    ap.add_argument("--reasoning-effort", default=None, help="thinking-mode effort prefix (int 1-100 or low/high/max); "
+                    "default = encoding.py's default (high = 75). Must match the server's chat_template_kwargs.")
+    ap.add_argument("--adv-weighted", action="store_true",
+                    help="GRPO update: ONE pass over the tier rows (each carries adv.txt), loss per row = adv * mean token NLL "
+                         "of the assistant span (reasoning + reply), chunks of --accum rows per optimizer step (steps ignored)")
+    ap.add_argument("--fast-image", action="store_true", help="torchvision image processor (pre-2026-10-07 behaviour)")
+    ap.add_argument("--no-fix-shared", action="store_true",
+                    help="do NOT apply dsv41_hf_fixes.fix_shared_dict_hooks (reproduces the pre-2026-10-07 broken forward)")
+    ap.add_argument("--score-only", action="store_true", help="GRPO debug: log the NLL of each row's tokens, no update")
+    ap.add_argument("--grad-ckpt", action="store_true", help="activation checkpointing on decoder layers >= --min-layer")
+    ap.add_argument("--ckpt-check", action="store_true", help="debug: LoRA grads of the first row with vs without --grad-ckpt")
+    ap.add_argument("--logit-temp", type=float, default=1.0, help="GRPO: divide logits by the rollout temperature")
+    ap.add_argument("--opt-state", default="", help="AdamW state to resume (saved again to <out>/optimizer.pt)")
+    ap.add_argument("--const-lr", action="store_true", help="constant learning rate (no warmup/decay)")
     ap.add_argument("--dist", action="store_true",
                     help="one process per node (SLURM_PROCID/SLURM_NTASKS, MASTER_ADDR/PORT); each node holds a full "
                          "pipeline-split replica, LoRA gradients are averaged across nodes over NCCL")
     args = ap.parse_args()
+    if args.reasoning_effort is not None and str(args.reasoning_effort).isdigit():
+        args.reasoning_effort = int(args.reasoning_effort)
+    if args.adv_weighted:
+        args.steps = max(args.steps, 1)   # a trainable adapter; the real step count is set by the row count
 
     import socket
     import torch
@@ -167,7 +351,11 @@ def main():
     system, user = pj["system"], pj["user"]
 
     tok = AutoTokenizer.from_pretrained(args.model)
-    proc = DeepseekV41Processor(image_processor=DeepseekV41ImageProcessor(), tokenizer=tok)
+    if args.fast_image:
+        proc = DeepseekV41Processor(image_processor=DeepseekV41ImageProcessor(), tokenizer=tok)
+    else:   # 2026-10-07: PIL backend = reference/vLLM preprocessing (ImageOps.pad + PIL bicubic); torchvision differs ~4% in ViT features
+        from transformers.models.deepseek_v41.image_processing_pil_deepseek_v41 import DeepseekV41ImageProcessorPil
+        proc = DeepseekV41Processor(image_processor=DeepseekV41ImageProcessorPil(), tokenizer=tok)
     # --last-gpu-headroom: device_map="auto" packs the last GPU full; the lm_head logits (vocab x ~3k tokens, fp32) then OOM
     # on two-image rows (serv-20 B300 smoke, 2026-09-30). Cap every GPU and leave extra room on the last one.
     mm = None
@@ -193,9 +381,13 @@ def main():
                     p.data = p.data.clone(); n_bytes += p.numel() * p.element_size()
     if n_bytes:
         log(f"[train] engram tables copied off the mmap into host RAM: {n_bytes/2**30:.0f} GiB in {time.time()-t_e:.0f}s", flush=True)
+    if not args.no_fix_shared:   # 2026-10-07: without this every compressed-attention layer ran window-only (see dsv41_hf_fixes)
+        import dsv41_hf_fixes
+        dsv41_hf_fixes.fix_shared_dict_hooks(model, log=lambda m: log(m, flush=True))
     import collections
     dm = getattr(model, "hf_device_map", {}) or {}
     log(f"[train] device map: {dict(collections.Counter(str(v) for v in dm.values()))}", flush=True)
+    log("[train] GiB allocated per GPU after load: " + " ".join(f"{torch.cuda.memory_allocated(d)/2**30:.0f}" for d in range(torch.cuda.device_count())), flush=True)
     from peft import LoraConfig, get_peft_model, PeftModel
     if args.adapter:
         model = PeftModel.from_pretrained(model, args.adapter, is_trainable=args.steps > 0)
@@ -206,11 +398,18 @@ def main():
                  and int((re.search(r"layers\.(\d+)\.", n) or [0, 0])[1]) >= args.min_layer]
         model = get_peft_model(model, LoraConfig(r=args.rank, lora_alpha=2 * args.rank, lora_dropout=0.0,
                                                   target_modules=names, bias="none"))
+    if args.grad_ckpt:
+        log(f"[train] activation checkpointing on {enable_layer_ckpt(model, args.min_layer)} decoder layers", flush=True)
     params = [p for p in model.parameters() if p.requires_grad]
     log(f"[train] {len(names)} LoRA targets, {sum(p.numel() for p in params)/1e6:.1f}M trainable", flush=True)
     if args.steps > 0:
         opt = torch.optim.AdamW(params, lr=args.lr, weight_decay=0.0, betas=(0.9, 0.95))
-        sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min(1.0, (s + 1) / 20) * max(0.1, 1 - s / max(1, args.steps)))
+        sched = torch.optim.lr_scheduler.LambdaLR(opt, (lambda s: 1.0) if args.const_lr else
+                                                  (lambda s: min(1.0, (s + 1) / 20) * max(0.1, 1 - s / max(1, args.steps))))
+        if args.opt_state and os.path.exists(args.opt_state):
+            opt.load_state_dict(torch.load(args.opt_state, map_location="cpu"))
+            for g in opt.param_groups: g["lr"] = args.lr; g["initial_lr"] = args.lr
+            log(f"[train] optimizer state resumed from {args.opt_state}", flush=True)
 
     rows = load_tier(args.tier, args.limit)
     random.Random(args.seed).shuffle(rows)
@@ -219,10 +418,19 @@ def main():
     model.train()
     t0 = time.time(); step = 0; i = 0; acc_loss = 0.0; n_acc = 0; skipped = 0
     dev = model.device
+    if args.adv_weighted:
+        grpo_pass(args, model, opt, sched, params, rows, proc, dsenc, system, user, dev, log, t0)
+        if args.score_only:
+            return
+        os.makedirs(args.out, exist_ok=True)
+        model.save_pretrained(args.out)
+        torch.save(opt.state_dict(), os.path.join(args.out, "optimizer.pt"))
+        print(f"[train] adapter saved -> {args.out} ({time.time()-t0:.0f}s)", flush=True)
+        return
     while step < args.steps:
         row = rows[i % len(rows)]; i += 1
         enc = build_sample(proc, dsenc, system, row.get("user") or user, row["png"], row["code"], proc.image_token, args.max_len, row.get("png2"),
-                           row.get("think") if args.think and row.get("think") else None)
+                           row.get("think") if args.think and row.get("think") else None, None, args.reasoning_effort)
         if enc is None:
             skipped += 1; continue
         enc = {k: (v.to(dev) if hasattr(v, "to") else v) for k, v in enc.items()}

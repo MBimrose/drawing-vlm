@@ -1,0 +1,141 @@
+{
+ "key": "A_00996983_2055f078257e24aefdaf6d5f_step_000_medium",
+ "iou": [
+  0.0,
+  0.8596983581222074,
+  0.0,
+  0.5804862192562888,
+  0.6695980322170316,
+  0.78562823667831,
+  0.0,
+  0.7784073177293233
+ ],
+ "exec": [
+  false,
+  true,
+  false,
+  true,
+  true,
+  true,
+  false,
+  true
+ ],
+ "pair_iou": [
+  [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   null,
+   null,
+   null,
+   0.5554,
+   0.6852,
+   0.8102,
+   null,
+   0.8233
+  ],
+  [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   null,
+   0.5554,
+   null,
+   null,
+   0.6052,
+   0.6677,
+   null,
+   0.6793
+  ],
+  [
+   null,
+   0.6852,
+   null,
+   0.6052,
+   null,
+   0.6122,
+   null,
+   0.6583
+  ],
+  [
+   null,
+   0.8102,
+   null,
+   0.6677,
+   0.6122,
+   null,
+   null,
+   0.8495
+  ],
+  [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   null,
+   0.8233,
+   null,
+   0.6793,
+   0.6583,
+   0.8495,
+   null,
+   null
+  ]
+ ],
+ "agree": [
+  null,
+  0.7185250000000001,
+  null,
+  0.6269,
+  0.640225,
+  0.7349,
+  null,
+  0.7526
+ ],
+ "medoid": 7,
+ "oracle": 1,
+ "per_part": {
+  "first_exec": 0.8596983581222074,
+  "consistency": 0.7784073177293233,
+  "cons_hybrid": 0.8596983581222074,
+  "verifier": 0.8596983581222074,
+  "oracle": 0.8596983581222074
+ },
+ "served_iou": 0.9109479487259853,
+ "served_chain": 0,
+ "served_round": 5,
+ "vote_iou": 0.7784073177293233,
+ "first_iou": 0.8596983581222074,
+ "oracle8": 0.8596983581222074,
+ "stl_ok": [
+  false,
+  true,
+  false,
+  true,
+  true,
+  true,
+  false,
+  true
+ ],
+ "served_ok": true
+}

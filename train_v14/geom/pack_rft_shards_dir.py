@@ -4,7 +4,7 @@ pack_rft_shards.py:
 
     <key>.png  <key>.code.py  <key>.think.txt  <key>.meta.json
 
-    python pack_rft_shards_dir.py <rft_dir> [<png_dir>] [--repeat N]
+    python pack_rft_shards_dir.py <rft_dir> [<png_dir>] [--repeat N] [--per-shard N]
 
 <rft_dir>/accepted-*.jsonl rows: {key, iou, think, code}. PNGs at
 <png_dir>/<key>.png (default <rft_dir>/png). --repeat N writes every sample N
@@ -20,12 +20,13 @@ import os
 import sys
 import tarfile
 
-args = [a for a in sys.argv[1:] if not a.startswith("--")]
+_flagvals = {sys.argv[i + 1] for i, a in enumerate(sys.argv[:-1]) if a in ("--repeat", "--per-shard")}
+args = [a for a in sys.argv[1:] if not a.startswith("--") and a not in _flagvals]
 RFT = args[0]
 PNG = args[1] if len(args) > 1 else os.path.join(RFT, "png")
 REPEAT = int(sys.argv[sys.argv.index("--repeat") + 1]) if "--repeat" in sys.argv else 1
 OUT = os.path.join(RFT, "shards")
-PER_SHARD = 2000
+PER_SHARD = int(sys.argv[sys.argv.index("--per-shard") + 1]) if "--per-shard" in sys.argv else 2000  # small tiers: equal-size shards for the shard-uniform mixer
 os.makedirs(OUT, exist_ok=True)
 
 accepted: dict[str, list] = {}

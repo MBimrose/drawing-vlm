@@ -1,0 +1,1 @@
+rp3_s20_c1|/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/cycle2/pipeline/starts_rl2s20_r1.json|/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/cycle2/pipeline/chain_rp3_rl2s20_c1.jsonl

@@ -1,0 +1,1 @@
+--bench train_v14/mech/benchmarks/data/rft_corpus4,train_v14/mech/benchmarks/data/rft_corpus2_dw423,results/h6c/train_bench --keys results/h6c/real4_hard_keys.txt,results/h6c/c2_hard_keys.txt,results/h6c/fam_hard_keys.txt --scale-logits --adv batchstd --top-p 1.0 --minibatches 4 --temperature 1.0 --lr 2e-5 --kl-beta 0 --guard 0.6 --seed 1

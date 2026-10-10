@@ -25,7 +25,14 @@ def requant(w):
     return q, s.to(torch.float8_e8m0fnu)
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--base"); ap.add_argument("--adapter"); ap.add_argument("--out"); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument("--base"); ap.add_argument("--adapter"); ap.add_argument("--out")
+    # --bf16 (2026-10-06, DeepSeek GRPO): an RL-sized delta (|d|/|W| ~1e-4..1e-3) is far below the FP8 E4M3 grid step and
+    # the requantization rounds ~99% of it away (dsv41_merge_diag.py: along-delta share 0.011). Write the adapted tensors as
+    # BF16 W + d (no .scale) and list them in quantization_config.ignored_layers -> vLLM serves them unquantized
+    # (DeepseekV4FP8Config -> UnquantizedLinearMethod). Attention projections only (shared experts are fused into MegaMoE).
+    ap.add_argument("--bf16", action="store_true"); ap.add_argument("--delta-scale", type=float, default=1.0,
+                                                                     help="0 = the base with the same BF16 layout (round-0 control)")
+    a = ap.parse_args()
     cfg = json.load(open(os.path.join(a.adapter, "adapter_config.json"))); scaling = cfg["lora_alpha"] / cfg["r"]
     ad = safe_open(os.path.join(a.adapter, "adapter_model.safetensors"), "pt")
     deltas = {}
@@ -34,11 +41,29 @@ def main():
         if not m: continue
         tgt = f"layers.{m.group(1)}.{MAP[m.group(2)]}.weight"
         A = ad.get_tensor(k).float(); Bm = ad.get_tensor(k.replace("lora_A", "lora_B")).float()
-        deltas[tgt] = (Bm @ A) * scaling
+        deltas[tgt] = (Bm @ A) * scaling * a.delta_scale
     idx = json.load(open(os.path.join(a.base, "model.safetensors.index.json")))["weight_map"]
+    if a.bf16:   # vLLM fuses wq_a + wkv into one linear (fused_wqa_wkv): both shards must share the (BF16) scheme
+        for t in list(deltas):
+            m = re.match(r"(layers\.\d+\.attn\.)(wq_a|wkv)\.weight$", t)
+            if m:
+                other = m.group(1) + ("wkv" if m.group(2) == "wq_a" else "wq_a") + ".weight"
+                if other not in deltas:
+                    deltas[other] = torch.zeros(safe_open(os.path.join(a.base, idx[other]), "pt").get_slice(other).get_shape())
     by_file = collections.defaultdict(list)
     for t in deltas: by_file[idx[t]].append(t)
     os.makedirs(a.out, exist_ok=True)
+    if a.bf16:
+        assert all(".shared_experts." not in t for t in deltas), "--bf16 serves attention projections only"
+        cfg_b = json.load(open(os.path.join(a.base, "config.json")))
+        qc = cfg_b["quantization_config"]; names = {t[: -len(".weight")] for t in deltas}
+        # the multimodal wrapper registers no class-level packed_modules_mapping, so vLLM's is_layer_skipped sees the
+        # FUSED module name (fused_wqa_wkv) and must find it verbatim
+        names |= {re.sub(r"\.(wq_a|wkv)$", ".fused_wqa_wkv", n) for n in names}
+        # both the checkpoint names and the VL wrapper's module names (exact-match list; the class-level mapper may or may
+        # not be applied to it, and the multimodal wrapper roots the text model at language_model.model.)
+        qc["ignored_layers"] = sorted(set(qc.get("ignored_layers") or []) | names | {"language_model.model." + n for n in names})
+        json.dump(cfg_b, open(os.path.join(a.out, "config.json"), "w"), indent=2)
     for f in os.listdir(a.base):
         if f not in by_file and not os.path.exists(os.path.join(a.out, f)):
             os.symlink(os.path.abspath(os.path.join(a.base, f)), os.path.join(a.out, f))
@@ -48,6 +73,9 @@ def main():
         for t in ts:
             sk = t[: -len(".weight")] + ".scale"
             w = dequant(tensors[t], tensors[sk]); d = deltas[t]; assert d.shape == w.shape, (t, d.shape, w.shape)
+            if a.bf16:
+                tensors[t] = (w + d).to(torch.bfloat16); del tensors[sk]
+                stats.append((t, float(d.norm() / w.norm()), float(((tensors[t].float() - (w + d)).norm() / (w + d).norm())))); continue
             q, s = requant(w + d); tensors[t], tensors[sk] = q, s
             err = (dequant(q, s) - (w + d)).norm() / (w + d).norm(); stats.append((t, float(d.norm() / w.norm()), float(err)))
         save_file(tensors, os.path.join(a.out, f), metadata=meta)

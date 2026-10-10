@@ -1,0 +1,7691 @@
+{
+ "target_mm": 80,
+ "max_faces": 80,
+ "parts": {
+  "F_51775_49ef614a_14_x": {
+   "solids": 1,
+   "faces": 9,
+   "kinds": {
+    "PLANE": 7,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    8.0,
+    20.0,
+    8.0
+   ],
+   "aspect": 2.5,
+   "fill": 0.49102450660400027,
+   "volume": 628.5113684531203,
+   "scale": 4.0,
+   "bbox_mm": [
+    32.0,
+    80.0,
+    32.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_51775_49ef614a_14_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_33655_f8991a06_5_x": {
+   "solids": 1,
+   "faces": 9,
+   "kinds": {
+    "PLANE": 5,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    7.141221642723839,
+    7.141221642723839
+   ],
+   "aspect": 2.800641262882229,
+   "fill": 0.6482965500892183,
+   "volume": 661.2241868686639,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    28.565,
+    28.565
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_33655_f8991a06_5_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_45840_cc6ce3ba_6_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "TORUS": 4,
+    "CYLINDER": 4,
+    "PLANE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    20.0
+   ],
+   "aspect": 1.0,
+   "fill": 0.5311178093880126,
+   "volume": 4248.942475104101,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_45840_cc6ce3ba_6_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_20350_3f27fd95_1_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 3,
+    "CYLINDER": 7
+   },
+   "analytic": true,
+   "bbox": [
+    10.55959726752774,
+    20.000000000000043,
+    15.846290577187869
+   ],
+   "aspect": 1.8940116268925218,
+   "fill": 0.24856758408372107,
+   "volume": 831.8584974945893,
+   "scale": 4.0,
+   "bbox_mm": [
+    42.238,
+    80.0,
+    63.385
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/012/F_20350_3f27fd95_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_129408_cd90a7a9_10_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    5.58799454297408,
+    15.893587994542989,
+    20.0
+   ],
+   "aspect": 3.5791015624999996,
+   "fill": 0.3802633659076413,
+   "volume": 675.4487584792248,
+   "scale": 4.0,
+   "bbox_mm": [
+    22.352,
+    63.574,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/009/F_129408_cd90a7a9_10_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_57444_b45bc83a_1_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "CYLINDER": 5,
+    "PLANE": 5
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    14.0625
+   ],
+   "aspect": 1.4222222222222223,
+   "fill": 0.49559851295009294,
+   "volume": 2787.7416353442727,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    56.25
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_57444_b45bc83a_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_102606_28922dfc_3_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 6,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    3.99999994039536,
+    6.666666666666661
+   ],
+   "aspect": 5.000000074505801,
+   "fill": 0.9885545690556305,
+   "volume": 527.2290956400107,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    16.0,
+    26.667
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/F_102606_28922dfc_3_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_137433_1c5808b2_0_x": {
+   "solids": 1,
+   "faces": 9,
+   "kinds": {
+    "CYLINDER": 4,
+    "PLANE": 5
+   },
+   "analytic": true,
+   "bbox": [
+    10.333333533333342,
+    20.0000002,
+    10.333333533333342
+   ],
+   "aspect": 1.9354838528616012,
+   "fill": 0.20751364432434055,
+   "volume": 443.15693757645647,
+   "scale": 4.0,
+   "bbox_mm": [
+    41.333,
+    80.0,
+    41.333
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/010/F_137433_1c5808b2_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_69470_88ad0eac_2_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 4,
+    "CYLINDER": 4,
+    "TORUS": 2
+   },
+   "analytic": true,
+   "bbox": [
+    16.023761128826226,
+    4.884214994006097,
+    20.000000200000002
+   ],
+   "aspect": 4.0948238815334665,
+   "fill": 0.11879599625045666,
+   "volume": 185.94779752398688,
+   "scale": 4.0,
+   "bbox_mm": [
+    64.095,
+    19.537,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_69470_88ad0eac_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_57715_f04ab8e3_1_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 5,
+    "CYLINDER": 5
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    8.23529411764706,
+    20.0
+   ],
+   "aspect": 2.4285714285714284,
+   "fill": 0.12734087869222147,
+   "volume": 419.4758356920237,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    32.941,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_57715_f04ab8e3_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_21423_196855d1_0_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 6,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    10.68965516862054,
+    20.000000000000014,
+    4.5085694627885395
+   ],
+   "aspect": 4.4359968644311545,
+   "fill": 0.8951575576322096,
+   "volume": 862.8433161798426,
+   "scale": 4.0,
+   "bbox_mm": [
+    42.759,
+    80.0,
+    18.034
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/012/F_21423_196855d1_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_115786_e4499f95_6_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000007,
+    2.77280500576517,
+    5.651664610283579
+   ],
+   "aspect": 7.21291254106089,
+   "fill": 0.25984230403290354,
+   "volume": 81.43958743973967,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    11.091,
+    22.607
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/007/F_115786_e4499f95_6_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_140499_419d5823_0_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    10.0,
+    15.384615384615383
+   ],
+   "aspect": 2.0,
+   "fill": 0.9949149160822152,
+   "volume": 3061.276664868354,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    40.0,
+    61.538
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/011/F_140499_419d5823_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_24084_71f37c00_3_x": {
+   "solids": 1,
+   "faces": 9,
+   "kinds": {
+    "TORUS": 2,
+    "PLANE": 3,
+    "CYLINDER": 2,
+    "CONE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    18.62068965517242,
+    20.0,
+    20.0
+   ],
+   "aspect": 1.0740740740740737,
+   "fill": 0.3224772992174482,
+   "volume": 2401.8998838265115,
+   "scale": 4.0,
+   "bbox_mm": [
+    74.483,
+    80.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/013/F_24084_71f37c00_3_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_138114_9ae8c4e8_0_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 7,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    8.207171314741036,
+    19.28698577517615,
+    20.0
+   ],
+   "aspect": 2.4368932038834954,
+   "fill": 0.9891992822558996,
+   "volume": 3131.638670956894,
+   "scale": 4.0,
+   "bbox_mm": [
+    32.829,
+    77.148,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/011/F_138114_9ae8c4e8_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_53206_824f0184_2_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "CONE": 1,
+    "CYLINDER": 3,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    20.0000001,
+    4.3965202511493,
+    4.48717968717948
+   ],
+   "aspect": 4.549052195260963,
+   "fill": 0.17748939730124252,
+   "volume": 70.03013305090856,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    17.586,
+    17.949
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_53206_824f0184_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_23042_1184de03_6_x": {
+   "solids": 1,
+   "faces": 9,
+   "kinds": {
+    "CYLINDER": 1,
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    19.42020319080877,
+    4.41422904854492,
+    20.000000000000018
+   ],
+   "aspect": 4.5308024980245865,
+   "fill": 0.4444587732959314,
+   "volume": 762.0265673560398,
+   "scale": 4.0,
+   "bbox_mm": [
+    77.681,
+    17.657,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/013/F_23042_1184de03_6_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_50382_cb85058c_4_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "CYLINDER": 4,
+    "PLANE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    13.793103448275861,
+    13.793103448275861
+   ],
+   "aspect": 1.4500000000000002,
+   "fill": 0.24666411069201122,
+   "volume": 938.5554746901732,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    55.172,
+    55.172
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_50382_cb85058c_4_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_22341_0f9c52ed_19_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "CYLINDER": 4,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    19.754350793965322,
+    3.125,
+    20.0
+   ],
+   "aspect": 6.4,
+   "fill": 0.7368493582698021,
+   "volume": 909.748794098119,
+   "scale": 4.0,
+   "bbox_mm": [
+    79.017,
+    12.5,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/013/F_22341_0f9c52ed_19_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_30377_e18ea3de_0_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 2,
+    "CYLINDER": 4,
+    "CONE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    2.16307692307692,
+    20.0
+   ],
+   "aspect": 9.246088193456627,
+   "fill": 0.05430822012605422,
+   "volume": 46.98914307521977,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    8.652,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_30377_e18ea3de_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_36735_f4ef1c35_10_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "CYLINDER": 1,
+    "PLANE": 9
+   },
+   "analytic": true,
+   "bbox": [
+    13.333333532015487,
+    20.0,
+    15.396007407808403
+   ],
+   "aspect": 1.499999977648258,
+   "fill": 0.28691230356553943,
+   "volume": 1177.9477378425008,
+   "scale": 4.0,
+   "bbox_mm": [
+    53.333,
+    80.0,
+    61.584
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/016/F_36735_f4ef1c35_10_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_82498_92a00cd6_1_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 8,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    2.5,
+    15.444075540111399,
+    20.0
+   ],
+   "aspect": 8.0,
+   "fill": 0.6109125632013294,
+   "volume": 471.74898872422045,
+   "scale": 4.0,
+   "bbox_mm": [
+    10.0,
+    61.776,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/020/F_82498_92a00cd6_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_54762_e14d0186_2_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 6,
+    "CONE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    16.6666645321517,
+    20.000000200000002,
+    16.666664532151707
+   ],
+   "aspect": 1.200000165685099,
+   "fill": 0.06634416800359796,
+   "volume": 368.57862040847914,
+   "scale": 4.0,
+   "bbox_mm": [
+    66.667,
+    80.0,
+    66.667
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_54762_e14d0186_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_54500_0aa245ba_5_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    19.485528230331656,
+    20.0,
+    7.67376134316676
+   ],
+   "aspect": 2.6062838164506332,
+   "fill": 0.6979169679779306,
+   "volume": 2087.1527031897263,
+   "scale": 4.0,
+   "bbox_mm": [
+    77.942,
+    80.0,
+    30.695
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_54500_0aa245ba_5_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_117054_aebc9c90_0_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "CYLINDER": 4,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    4.285714249221654,
+    11.42857133125772,
+    20.000000000000014
+   ],
+   "aspect": 4.666666706403092,
+   "fill": 0.9746404145336955,
+   "volume": 954.7497775696363,
+   "scale": 4.0,
+   "bbox_mm": [
+    17.143,
+    45.714,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/007/F_117054_aebc9c90_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_24574_89354d91_1_x": {
+   "solids": 1,
+   "faces": 9,
+   "kinds": {
+    "CYLINDER": 3,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    7.82727826405324,
+    20.0000002,
+    7.82727826405324
+   ],
+   "aspect": 2.5551666269295623,
+   "fill": 0.6452594411159349,
+   "volume": 790.6529845693124,
+   "scale": 4.0,
+   "bbox_mm": [
+    31.309,
+    80.0,
+    31.309
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/014/F_24574_89354d91_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_54037_43125db1_0_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    9.64280475339736,
+    15.796847635726802
+   ],
+   "aspect": 2.0740853425403625,
+   "fill": 0.6996128471076145,
+   "volume": 2131.383376196044,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    38.571,
+    63.187
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_54037_43125db1_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_24091_c983817e_24_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    7.99999999999999,
+    20.0
+   ],
+   "aspect": 2.500000000000003,
+   "fill": 0.7952000000000002,
+   "volume": 2544.6399999999976,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    32.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/013/F_24091_c983817e_24_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_120964_7878728b_0_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 6,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    8.372521908304295,
+    7.44224180778178,
+    20.0
+   ],
+   "aspect": 2.6873622917072564,
+   "fill": 0.7015651244866066,
+   "volume": 874.2951247015865,
+   "scale": 4.0,
+   "bbox_mm": [
+    33.49,
+    29.769,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/008/F_120964_7878728b_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_23675_0aa59777_0_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 6,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    3.076923334235242,
+    7.69230777768338,
+    20.0000002
+   ],
+   "aspect": 6.499999521428091,
+   "fill": 0.8281659896130856,
+   "volume": 392.03127874225476,
+   "scale": 4.0,
+   "bbox_mm": [
+    12.308,
+    30.769,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/013/F_23675_0aa59777_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_69139_66325a92_1_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "TORUS": 3,
+    "CYLINDER": 2,
+    "PLANE": 3
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    9.090909090909099
+   ],
+   "aspect": 2.199999999999998,
+   "fill": 0.6888025555781608,
+   "volume": 2504.736565738769,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    36.364
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_69139_66325a92_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_25431_056260d7_4_x": {
+   "solids": 1,
+   "faces": 9,
+   "kinds": {
+    "CYLINDER": 2,
+    "PLANE": 7
+   },
+   "analytic": true,
+   "bbox": [
+    6.500114688246439,
+    20.0,
+    10.71428547480278
+   ],
+   "aspect": 3.0768687875868044,
+   "fill": 0.9811433698830783,
+   "volume": 1366.6166329935834,
+   "scale": 4.0,
+   "bbox_mm": [
+    26.0,
+    80.0,
+    42.857
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/014/F_25431_056260d7_4_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_65385_dd7386e8_7_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "CYLINDER": 2,
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    6.58921161825726,
+    2.5063717744437
+   ],
+   "aspect": 7.979662157039367,
+   "fill": 0.9999351307382183,
+   "volume": 330.2788539813794,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    26.357,
+    10.025
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_65385_dd7386e8_7_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_29830_c8506b83_0_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "CONE": 6,
+    "CYLINDER": 3,
+    "PLANE": 1
+   },
+   "analytic": true,
+   "bbox": [
+    1.371928053665898,
+    19.999999999999986,
+    1.371928053665898
+   ],
+   "aspect": 14.578023932492988,
+   "fill": 0.596360521077275,
+   "volume": 22.4492354451722,
+   "scale": 4.0,
+   "bbox_mm": [
+    5.488,
+    80.0,
+    5.488
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_29830_c8506b83_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_120623_002653ed_0_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    4.0691667819634,
+    2.6202786621581398
+   ],
+   "aspect": 7.63277596724289,
+   "fill": 0.5724129656449491,
+   "volume": 122.0653578914856,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    16.277,
+    10.481
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/008/F_120623_002653ed_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_132325_0493e715_1_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    18.847999224795522,
+    20.000000000000007,
+    18.306019517830585
+   ],
+   "aspect": 1.0925368008331597,
+   "fill": 0.37017079134051917,
+   "volume": 2554.4141974558543,
+   "scale": 4.0,
+   "bbox_mm": [
+    75.392,
+    80.0,
+    73.224
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/009/F_132325_0493e715_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_112090_23ac0426_2_x": {
+   "solids": 1,
+   "faces": 9,
+   "kinds": {
+    "CYLINDER": 1,
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000018,
+    5.19615234527792,
+    17.3205080756888
+   ],
+   "aspect": 3.849001851952111,
+   "fill": 0.5799563146707379,
+   "volume": 1043.9213508516887,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    20.785,
+    69.282
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/007/F_112090_23ac0426_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_146623_49c31ddf_11_x": {
+   "solids": 1,
+   "faces": 9,
+   "kinds": {
+    "TORUS": 4,
+    "CYLINDER": 1,
+    "CONE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    7.173328960464116
+   ],
+   "aspect": 2.7881057888506477,
+   "fill": 0.3866433621177504,
+   "volume": 1109.4080107401894,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    28.693
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/012/F_146623_49c31ddf_11_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_105831_359a0be0_2_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "CONE": 3,
+    "PLANE": 4,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000004,
+    3.69218945741392,
+    20.0
+   ],
+   "aspect": 5.416840124452439,
+   "fill": 0.7217454537255242,
+   "volume": 1065.928382072723,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    14.769,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/007/F_105831_359a0be0_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_33610_aa697fc9_6_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    4.654646746816104,
+    20.0,
+    19.999999701976783
+   ],
+   "aspect": 4.296781493392706,
+   "fill": 0.997927119733294,
+   "volume": 1857.9992608841103,
+   "scale": 4.0,
+   "bbox_mm": [
+    18.619,
+    80.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_33610_aa697fc9_6_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_29734_82dc402b_2_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    11.57894736842106,
+    20.0,
+    10.52631578947368
+   ],
+   "aspect": 1.9000000000000008,
+   "fill": 0.1387559808612442,
+   "volume": 338.24172619915487,
+   "scale": 4.0,
+   "bbox_mm": [
+    46.316,
+    80.0,
+    42.105
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_29734_82dc402b_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_21182_a480d230_2_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 5,
+    "CYLINDER": 3
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    12.252253663126975,
+    2.1364817324266
+   ],
+   "aspect": 9.361184650656549,
+   "fill": 0.7747422396143028,
+   "volume": 405.60415364214793,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    49.009,
+    8.546
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/012/F_21182_a480d230_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_80328_481c0939_0_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "CYLINDER": 2,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    16.629854370370843,
+    12.852214737269161,
+    20.0
+   ],
+   "aspect": 1.5561520258452826,
+   "fill": 0.9421390488975694,
+   "volume": 4027.276235121259,
+   "scale": 4.0,
+   "bbox_mm": [
+    66.519,
+    51.409,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/020/F_80328_481c0939_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_49413_4e7d47f7_2_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "CONE": 1,
+    "CYLINDER": 3,
+    "PLANE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    11.7647058136048,
+    20.0,
+    11.7647058136048
+   ],
+   "aspect": 1.7000000099341064,
+   "fill": 0.6303347860875108,
+   "volume": 1744.8713597804076,
+   "scale": 4.0,
+   "bbox_mm": [
+    47.059,
+    80.0,
+    47.059
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_49413_4e7d47f7_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_122423_9ab69fbb_2_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 8,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    5.33333333333334,
+    3.3333333333333397
+   ],
+   "aspect": 5.9999999999999885,
+   "fill": 0.9052728435726529,
+   "volume": 321.87478882583315,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    21.333,
+    13.333
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/008/F_122423_9ab69fbb_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_32159_752d3446_1_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 4,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    6.14433751349964,
+    20.0
+   ],
+   "aspect": 3.2550295220694294,
+   "fill": 0.12742896955623606,
+   "volume": 313.18663918039397,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    24.577,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_32159_752d3446_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_28893_a766b1c1_0_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    3.750000000000001,
+    10.0
+   ],
+   "aspect": 5.333333333333332,
+   "fill": 0.9648437499999999,
+   "volume": 723.6328125,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    15.0,
+    40.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/014/F_28893_a766b1c1_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_131762_39fd7174_1_x": {
+   "solids": 1,
+   "faces": 9,
+   "kinds": {
+    "PLANE": 9
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    1.785383903792784,
+    20.0
+   ],
+   "aspect": 11.202072538860106,
+   "fill": 0.9713457518921225,
+   "volume": 693.6900281782779,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    7.142,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/009/F_131762_39fd7174_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_116581_d405b783_0_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    10.547915387786908,
+    11.46317578249862,
+    20.0
+   ],
+   "aspect": 1.8961092561623463,
+   "fill": 0.9197709991094558,
+   "volume": 2224.2382095166213,
+   "scale": 4.0,
+   "bbox_mm": [
+    42.192,
+    45.853,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/007/F_116581_d405b783_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_101272_41f38c3e_0_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "PLANE": 6,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    1.5
+   ],
+   "aspect": 13.333333333333334,
+   "fill": 0.6824873913761964,
+   "volume": 409.49243482571785,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    6.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/F_101272_41f38c3e_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_146102_93e433ac_3_x": {
+   "solids": 1,
+   "faces": 10,
+   "kinds": {
+    "CYLINDER": 1,
+    "PLANE": 9
+   },
+   "analytic": true,
+   "bbox": [
+    17.320508075688767,
+    20.0,
+    5.41265877365274
+   ],
+   "aspect": 3.695041722813606,
+   "fill": 0.6439521072863451,
+   "volume": 1207.410201161896,
+   "scale": 4.0,
+   "bbox_mm": [
+    69.282,
+    80.0,
+    21.651
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/012/F_146102_93e433ac_3_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_135020_b6e12e7e_1_x": {
+   "solids": 1,
+   "faces": 8,
+   "kinds": {
+    "CYLINDER": 2,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    5.163407426632774,
+    20.0,
+    6.666666666666667
+   ],
+   "aspect": 3.8734111696939344,
+   "fill": 0.999113342772332,
+   "volume": 687.8439005491407,
+   "scale": 4.0,
+   "bbox_mm": [
+    20.654,
+    80.0,
+    26.667
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/010/F_135020_b6e12e7e_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F0"
+  },
+  "F_60725_a5735a6c_0_x": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "PLANE": 6,
+    "CYLINDER": 5
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    4.28571428571428,
+    20.0
+   ],
+   "aspect": 4.666666666666672,
+   "fill": 0.7745783318207168,
+   "volume": 1327.8485688355129,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    17.143,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_60725_a5735a6c_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_54618_943defe8_1_x": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "PLANE": 11,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    10.5263157894737,
+    20.0,
+    10.526315789473689
+   ],
+   "aspect": 1.8999999999999992,
+   "fill": 0.5201389525172908,
+   "volume": 1152.6624986532784,
+   "scale": 4.0,
+   "bbox_mm": [
+    42.105,
+    80.0,
+    42.105
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_54618_943defe8_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_52558_c0e0653f_1_x": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "PLANE": 14
+   },
+   "analytic": true,
+   "bbox": [
+    14.95726474295668,
+    1.5384615164184001,
+    20.0
+   ],
+   "aspect": 13.000000186264522,
+   "fill": 0.5538285780180926,
+   "volume": 254.88493984436295,
+   "scale": 4.0,
+   "bbox_mm": [
+    59.829,
+    6.154,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_52558_c0e0653f_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_147021_113e7fda_0_x": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "CYLINDER": 4,
+    "PLANE": 9
+   },
+   "analytic": true,
+   "bbox": [
+    6.4516129032258,
+    20.0,
+    9.62952780415999
+   ],
+   "aspect": 3.100000000000003,
+   "fill": 0.11827067858590386,
+   "volume": 146.9536500464296,
+   "scale": 4.0,
+   "bbox_mm": [
+    25.806,
+    80.0,
+    38.518
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/012/F_147021_113e7fda_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_55054_561dfabe_1_x": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "PLANE": 8,
+    "CYLINDER": 5
+   },
+   "analytic": true,
+   "bbox": [
+    6.73962870936532,
+    8.435087742046736,
+    20.000000000000004
+   ],
+   "aspect": 2.9675225242316694,
+   "fill": 0.40232811277345554,
+   "volume": 457.4419104993772,
+   "scale": 4.0,
+   "bbox_mm": [
+    26.959,
+    33.74,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_55054_561dfabe_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_128996_5943e02c_0_x": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "CYLINDER": 2,
+    "PLANE": 9
+   },
+   "analytic": true,
+   "bbox": [
+    18.98388014959742,
+    18.729051410042942,
+    20.000000000000007
+   ],
+   "aspect": 1.0678597416458344,
+   "fill": 0.41106251925512627,
+   "volume": 2923.066127581024,
+   "scale": 4.0,
+   "bbox_mm": [
+    75.936,
+    74.916,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/009/F_128996_5943e02c_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_136842_9b96e4dc_1_x": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "PLANE": 4,
+    "CYLINDER": 6,
+    "CONE": 2,
+    "TORUS": 2
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000200000002,
+    20.0,
+    6.249999906867742
+   ],
+   "aspect": 3.200000079683718,
+   "fill": 0.2831729941955189,
+   "volume": 707.9324820191058,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    25.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/010/F_136842_9b96e4dc_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_33987_d0c4e9eb_2_x": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "CYLINDER": 5,
+    "PLANE": 9
+   },
+   "analytic": true,
+   "bbox": [
+    11.999462185526102,
+    4.666666815600082,
+    20.0
+   ],
+   "aspect": 4.2857141489387045,
+   "fill": 0.6740906758005072,
+   "volume": 754.9477443227966,
+   "scale": 4.0,
+   "bbox_mm": [
+    47.998,
+    18.667,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_33987_d0c4e9eb_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_31733_5118b376_2_x": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "PLANE": 12,
+    "CYLINDER": 1,
+    "CONE": 1
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000007,
+    13.68698778169678,
+    18.81918494653668
+   ],
+   "aspect": 1.4612418977056032,
+   "fill": 0.7486421724222894,
+   "volume": 3856.67438737253,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    54.748,
+    75.277
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_31733_5118b376_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_24559_3c306e71_3_x": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "CYLINDER": 6,
+    "PLANE": 7
+   },
+   "analytic": true,
+   "bbox": [
+    6.0,
+    10.66666666666666,
+    20.0
+   ],
+   "aspect": 3.3333333333333335,
+   "fill": 0.7032885088961192,
+   "volume": 900.2092913870321,
+   "scale": 4.0,
+   "bbox_mm": [
+    24.0,
+    42.667,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/014/F_24559_3c306e71_3_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_23190_7d4ff7f9_13_x": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "PLANE": 6,
+    "CYLINDER": 5
+   },
+   "analytic": true,
+   "bbox": [
+    6.42857142857144,
+    6.42857142857144,
+    20.0
+   ],
+   "aspect": 3.1111111111111054,
+   "fill": 0.31997702953229235,
+   "volume": 264.4708101236304,
+   "scale": 4.0,
+   "bbox_mm": [
+    25.714,
+    25.714,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/013/F_23190_7d4ff7f9_13_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_132971_a993d31c_6_x": {
+   "solids": 1,
+   "faces": 12,
+   "kinds": {
+    "PLANE": 12
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    17.033948261510602,
+    14.547565816823262
+   ],
+   "aspect": 1.3748004478434028,
+   "fill": 0.5299672616485536,
+   "volume": 2626.5440717238366,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    68.136,
+    58.19
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/009/F_132971_a993d31c_6_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_90615_6b438630_0_x": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "PLANE": 14
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    12.0,
+    20.0
+   ],
+   "aspect": 1.6666666666666667,
+   "fill": 0.19999999999999993,
+   "volume": 959.9999999999997,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    48.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/021/F_90615_6b438630_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_22093_f92b7e00_0_x": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "CYLINDER": 4,
+    "PLANE": 7
+   },
+   "analytic": true,
+   "bbox": [
+    13.75,
+    20.0,
+    9.375
+   ],
+   "aspect": 2.1333333333333333,
+   "fill": 0.30602264026863707,
+   "volume": 788.96461944258,
+   "scale": 4.0,
+   "bbox_mm": [
+    55.0,
+    80.0,
+    37.5
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/013/F_22093_f92b7e00_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_36088_1ea9c8a9_11_x": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "PLANE": 8,
+    "CYLINDER": 3,
+    "CONE": 3
+   },
+   "analytic": true,
+   "bbox": [
+    4.7007874015748,
+    20.0,
+    20.0
+   ],
+   "aspect": 4.254606365159132,
+   "fill": 0.1729467487932019,
+   "volume": 325.1943591481621,
+   "scale": 4.0,
+   "bbox_mm": [
+    18.803,
+    80.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_36088_1ea9c8a9_11_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_24012_097cf980_4_x": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "CYLINDER": 4,
+    "PLANE": 7
+   },
+   "analytic": true,
+   "bbox": [
+    3.4258629837468604,
+    7.208264099762829,
+    20.0
+   ],
+   "aspect": 5.837945094384958,
+   "fill": 0.3367593417000096,
+   "volume": 166.3222407056009,
+   "scale": 4.0,
+   "bbox_mm": [
+    13.703,
+    28.833,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/013/F_24012_097cf980_4_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_108433_21e1b485_1_x": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "CYLINDER": 6,
+    "CONE": 1,
+    "PLANE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    17.219111410891756,
+    20.000000200000002,
+    4.08771994975945
+   ],
+   "aspect": 4.892703131773238,
+   "fill": 0.32213003362937603,
+   "volume": 453.4747275201304,
+   "scale": 4.0,
+   "bbox_mm": [
+    68.876,
+    80.0,
+    16.351
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/007/F_108433_21e1b485_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_86111_03125817_0_x": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "CYLINDER": 1,
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    2.734375,
+    18.35937502493306
+   ],
+   "aspect": 7.314285714285714,
+   "fill": 0.33873839796898186,
+   "volume": 340.1029452000229,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    10.938,
+    73.438
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/020/F_86111_03125817_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_21969_83e65247_0_x": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "TORUS": 2,
+    "CYLINDER": 5,
+    "PLANE": 5,
+    "CONE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    15.13513513513514,
+    20.0,
+    15.13513513513514
+   ],
+   "aspect": 1.321428571428571,
+   "fill": 0.1543177394444864,
+   "volume": 706.9984381269682,
+   "scale": 4.0,
+   "bbox_mm": [
+    60.541,
+    80.0,
+    60.541
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/013/F_21969_83e65247_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_29592_d1e941d1_0_x": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "PLANE": 11,
+    "SPHERE": 1,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    9.29117908534734,
+    20.0,
+    9.29117908534734
+   ],
+   "aspect": 2.1525793245704428,
+   "fill": 0.3971514104513229,
+   "volume": 685.689923039261,
+   "scale": 4.0,
+   "bbox_mm": [
+    37.165,
+    80.0,
+    37.165
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_29592_d1e941d1_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_51268_6e9ccb81_0_x": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "PLANE": 8,
+    "CYLINDER": 6
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    4.03268987128844,
+    10.136578451406542
+   ],
+   "aspect": 4.959468899999995,
+   "fill": 0.9417427203160307,
+   "volume": 769.9250994818792,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    16.131,
+    40.546
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_51268_6e9ccb81_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_56325_1ca40934_0_x": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "PLANE": 11
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    9.444444444444445,
+    8.888888888888879
+   ],
+   "aspect": 2.2500000000000027,
+   "fill": 0.46405228758169875,
+   "volume": 779.1495198902587,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    37.778,
+    35.556
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_56325_1ca40934_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_21164_de08f61e_5_x": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "CYLINDER": 12,
+    "PLANE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    18.857142857142847,
+    20.0,
+    20.0
+   ],
+   "aspect": 1.0606060606060612,
+   "fill": 0.29813073141209423,
+   "volume": 2248.757516936938,
+   "scale": 4.0,
+   "bbox_mm": [
+    75.429,
+    80.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/012/F_21164_de08f61e_5_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_88491_d1cba920_0_x": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "TORUS": 1,
+    "CYLINDER": 2,
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    10.822510822510825,
+    12.496759073368523,
+    20.0
+   ],
+   "aspect": 1.8479999999999996,
+   "fill": 0.32740705205502424,
+   "volume": 885.611915249668,
+   "scale": 4.0,
+   "bbox_mm": [
+    43.29,
+    49.987,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/021/F_88491_d1cba920_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_25376_8f2718e1_9_x": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "PLANE": 9,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    19.346355916214844,
+    20.000000000000004,
+    7.18460901168502
+   ],
+   "aspect": 2.783728379299706,
+   "fill": 0.42516080777020915,
+   "volume": 1181.9130587470731,
+   "scale": 4.0,
+   "bbox_mm": [
+    77.385,
+    80.0,
+    28.738
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/014/F_25376_8f2718e1_9_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_118453_721bad90_0_x": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "TORUS": 3,
+    "CYLINDER": 4,
+    "PLANE": 3,
+    "CONE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    9.197420960731835
+   ],
+   "aspect": 2.1745226281790857,
+   "fill": 0.23568737229549025,
+   "volume": 867.0863912521398,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    36.79
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/008/F_118453_721bad90_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_31968_b384541d_2_x": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "PLANE": 11,
+    "TORUS": 1,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    2.666666666666664,
+    20.0
+   ],
+   "aspect": 7.500000000000008,
+   "fill": 0.42835196670801495,
+   "volume": 456.90876448854885,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    10.667,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_31968_b384541d_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_50782_2d82ef9f_0_x": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "CYLINDER": 8,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    20.0000002,
+    20.0000002,
+    6.6666668666666595
+   ],
+   "aspect": 2.999999940000005,
+   "fill": 0.4736537976283076,
+   "volume": 1263.076856829326,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    26.667
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_50782_2d82ef9f_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_106813_7376b13c_0_x": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "PLANE": 14
+   },
+   "analytic": true,
+   "bbox": [
+    4.2857143495764,
+    5.714285799435201,
+    20.0
+   ],
+   "aspect": 4.666666597127921,
+   "fill": 0.3454544242088689,
+   "volume": 169.2021720020632,
+   "scale": 4.0,
+   "bbox_mm": [
+    17.143,
+    22.857,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/007/F_106813_7376b13c_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_126659_bfbf0231_0_x": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "CYLINDER": 9,
+    "PLANE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    5.2
+   ],
+   "aspect": 3.846153846153846,
+   "fill": 0.28402716274401946,
+   "volume": 590.7764985075605,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    20.8
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/008/F_126659_bfbf0231_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_56354_443a5a99_2_x": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "PLANE": 13
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    18.46153846153846,
+    12.6923076923077
+   ],
+   "aspect": 1.5757575757575748,
+   "fill": 0.15604887470349965,
+   "volume": 731.3059690246852,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    73.846,
+    50.769
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_56354_443a5a99_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_48290_3a237df1_3_x": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "CYLINDER": 6,
+    "PLANE": 5
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    8.57142857142856
+   ],
+   "aspect": 2.333333333333336,
+   "fill": 0.33490110588543276,
+   "volume": 1148.232363035768,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    34.286
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_48290_3a237df1_3_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_68939_82bcae5a_0_x": {
+   "solids": 1,
+   "faces": 14,
+   "kinds": {
+    "PLANE": 13,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    13.33333333333334,
+    16.66666666666666
+   ],
+   "aspect": 1.4999999999999993,
+   "fill": 0.22707439159014176,
+   "volume": 1009.219518178408,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    53.333,
+    66.667
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_68939_82bcae5a_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_47683_3a8d2dba_3_x": {
+   "solids": 1,
+   "faces": 12,
+   "kinds": {
+    "PLANE": 7,
+    "CYLINDER": 5
+   },
+   "analytic": true,
+   "bbox": [
+    2.8639618789244006,
+    20.0,
+    2.8639618789243997
+   ],
+   "aspect": 6.983333174641024,
+   "fill": 0.3682481324557809,
+   "volume": 60.40946848523656,
+   "scale": 4.0,
+   "bbox_mm": [
+    11.456,
+    80.0,
+    11.456
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_47683_3a8d2dba_3_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_41468_c7ddbf94_0_x": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "PLANE": 5,
+    "CYLINDER": 4,
+    "CONE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    8.872828183921422,
+    20.0,
+    8.80293732991834
+   ],
+   "aspect": 2.2719689179231644,
+   "fill": 0.6661230950372337,
+   "volume": 1040.5768714494743,
+   "scale": 4.0,
+   "bbox_mm": [
+    35.491,
+    80.0,
+    35.212
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/016/F_41468_c7ddbf94_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_45905_7564ded7_0_x": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "PLANE": 8,
+    "CYLINDER": 5
+   },
+   "analytic": true,
+   "bbox": [
+    8.60589261209862,
+    16.543747708985233,
+    20.0
+   ],
+   "aspect": 2.3239890272257107,
+   "fill": 0.17772760449083483,
+   "volume": 506.074790400999,
+   "scale": 4.0,
+   "bbox_mm": [
+    34.424,
+    66.175,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_45905_7564ded7_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_25839_fac364bf_14_x": {
+   "solids": 1,
+   "faces": 12,
+   "kinds": {
+    "TORUS": 1,
+    "CYLINDER": 3,
+    "PLANE": 7,
+    "CONE": 1
+   },
+   "analytic": true,
+   "bbox": [
+    3.3333335333333407,
+    3.3333334333333395,
+    20.000000100000005
+   ],
+   "aspect": 5.999999849999995,
+   "fill": 0.49486257089613483,
+   "volume": 109.96947064624051,
+   "scale": 4.0,
+   "bbox_mm": [
+    13.333,
+    13.333,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/014/F_25839_fac364bf_14_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_44340_c0e4ba34_0_x": {
+   "solids": 1,
+   "faces": 11,
+   "kinds": {
+    "PLANE": 11
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    7.199999999999999,
+    8.0
+   ],
+   "aspect": 2.777777777777778,
+   "fill": 0.7,
+   "volume": 806.4,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    28.8,
+    32.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_44340_c0e4ba34_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_34907_e9a6ae90_12_x": {
+   "solids": 1,
+   "faces": 13,
+   "kinds": {
+    "CYLINDER": 1,
+    "PLANE": 12
+   },
+   "analytic": true,
+   "bbox": [
+    6.983663183210986,
+    20.000000000000036,
+    17.958838857461785
+   ],
+   "aspect": 2.863826544224077,
+   "fill": 0.6701110067550455,
+   "volume": 1680.8861013174228,
+   "scale": 4.0,
+   "bbox_mm": [
+    27.935,
+    80.0,
+    71.835
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_34907_e9a6ae90_12_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F1"
+  },
+  "F_92355_a1f4144c_0_x": {
+   "solids": 1,
+   "faces": 21,
+   "kinds": {
+    "CYLINDER": 6,
+    "PLANE": 15
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    2.99212595265548,
+    17.637795314099865
+   ],
+   "aspect": 6.684210596900245,
+   "fill": 0.2560935501236104,
+   "volume": 270.304207377075,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    11.969,
+    70.551
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/021/F_92355_a1f4144c_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_56713_c077e606_0_x": {
+   "solids": 1,
+   "faces": 21,
+   "kinds": {
+    "PLANE": 17,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000007,
+    13.33333333333334,
+    11.666666666666668
+   ],
+   "aspect": 1.7142857142857146,
+   "fill": 0.3460702644216266,
+   "volume": 1076.6630448672836,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    53.333,
+    46.667
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_56713_c077e606_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_68261_b0a6efbb_0_x": {
+   "solids": 1,
+   "faces": 16,
+   "kinds": {
+    "PLANE": 13,
+    "CYLINDER": 3
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000200000002,
+    8.521739254133923,
+    2.31884078521866
+   ],
+   "aspect": 8.624999321854716,
+   "fill": 0.3817910802932364,
+   "volume": 150.88808610753208,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    34.087,
+    9.275
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_68261_b0a6efbb_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_135288_6bec527e_0_x": {
+   "solids": 1,
+   "faces": 15,
+   "kinds": {
+    "CYLINDER": 6,
+    "PLANE": 9
+   },
+   "analytic": true,
+   "bbox": [
+    19.66244725738396,
+    19.66244725738396,
+    20.0
+   ],
+   "aspect": 1.0171673819742493,
+   "fill": 0.07760648009282,
+   "volume": 600.0716691070307,
+   "scale": 4.0,
+   "bbox_mm": [
+    78.65,
+    78.65,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/010/F_135288_6bec527e_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_29351_fcad15b2_0_x": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "CYLINDER": 8,
+    "SPHERE": 4,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    2.5,
+    6.25
+   ],
+   "aspect": 8.0,
+   "fill": 0.976761270762399,
+   "volume": 305.2378971132497,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    10.0,
+    25.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/014/F_29351_fcad15b2_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_55830_a870eafd_0_x": {
+   "solids": 1,
+   "faces": 21,
+   "kinds": {
+    "PLANE": 19,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    12.222222222222225,
+    13.33333333333334
+   ],
+   "aspect": 1.636363636363636,
+   "fill": 0.2346339831300294,
+   "volume": 764.7329820534297,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    48.889,
+    53.333
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_55830_a870eafd_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_31627_ec4c9f84_0_x": {
+   "solids": 1,
+   "faces": 22,
+   "kinds": {
+    "CONE": 13,
+    "PLANE": 8,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    17.320508275688784,
+    20.0000002,
+    8.935182937458501
+   ],
+   "aspect": 2.23834255437066,
+   "fill": 0.4645927702179145,
+   "volume": 1438.0253043237597,
+   "scale": 4.0,
+   "bbox_mm": [
+    69.282,
+    80.0,
+    35.741
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_31627_ec4c9f84_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_130446_e7b58dbe_0_x": {
+   "solids": 1,
+   "faces": 22,
+   "kinds": {
+    "PLANE": 20,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    10.66666666666666,
+    9.33333333333334,
+    20.0
+   ],
+   "aspect": 2.1428571428571415,
+   "fill": 0.3575374842553043,
+   "volume": 711.8968575394504,
+   "scale": 4.0,
+   "bbox_mm": [
+    42.667,
+    37.333,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/009/F_130446_e7b58dbe_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_101446_95204330_2_x": {
+   "solids": 1,
+   "faces": 19,
+   "kinds": {
+    "PLANE": 18,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000004,
+    2.388468384112552,
+    10.8594692640808
+   ],
+   "aspect": 8.373566982520938,
+   "fill": 0.12560449280057792,
+   "volume": 65.15732814202393,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    9.554,
+    43.438
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/F_101446_95204330_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_111051_d8536efd_1_x": {
+   "solids": 1,
+   "faces": 16,
+   "kinds": {
+    "PLANE": 14,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    3.1547990375506,
+    14.666666666666663
+   ],
+   "aspect": 6.3395480225352445,
+   "fill": 0.13493746239533755,
+   "volume": 124.87216910500379,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    12.619,
+    58.667
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/007/F_111051_d8536efd_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_49134_e9867f8b_4_x": {
+   "solids": 1,
+   "faces": 20,
+   "kinds": {
+    "PLANE": 16,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    18.50704572250028,
+    17.60124643175624,
+    20.0
+   ],
+   "aspect": 1.1362831648056422,
+   "fill": 0.10692056716357418,
+   "volume": 696.5812348404878,
+   "scale": 4.0,
+   "bbox_mm": [
+    74.028,
+    70.405,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_49134_e9867f8b_4_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_70479_8c148490_0_x": {
+   "solids": 1,
+   "faces": 22,
+   "kinds": {
+    "CONE": 22
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    8.43457404999808,
+    8.434334567353982
+   ],
+   "aspect": 2.3712599779254897,
+   "fill": 0.12811603983780923,
+   "volume": 182.2835513716853,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    33.738,
+    33.737
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_70479_8c148490_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_56453_f3113be6_0_x": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "CYLINDER": 8,
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000004,
+    20.000000000000004,
+    11.9579614964784
+   ],
+   "aspect": 1.6725258737360853,
+   "fill": 0.8209238650710924,
+   "volume": 3926.6303880241426,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    47.832
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_56453_f3113be6_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_50947_49287c16_8_x": {
+   "solids": 1,
+   "faces": 16,
+   "kinds": {
+    "PLANE": 16
+   },
+   "analytic": true,
+   "bbox": [
+    7.27272716350186,
+    3.2225468271830997,
+    20.0
+   ],
+   "aspect": 6.20627133523532,
+   "fill": 0.9948708500591371,
+   "volume": 466.32986955134027,
+   "scale": 4.0,
+   "bbox_mm": [
+    29.091,
+    12.89,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_50947_49287c16_8_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_31621_bec85e14_0_x": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "CYLINDER": 8,
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    7.058823529411759,
+    6.27450980392156,
+    20.0
+   ],
+   "aspect": 3.1875000000000044,
+   "fill": 0.5750038373577541,
+   "volume": 509.34595973558726,
+   "scale": 4.0,
+   "bbox_mm": [
+    28.235,
+    25.098,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_31621_bec85e14_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_45285_dc1f2b6f_7_x": {
+   "solids": 1,
+   "faces": 20,
+   "kinds": {
+    "CYLINDER": 15,
+    "PLANE": 5
+   },
+   "analytic": true,
+   "bbox": [
+    15.22188062007874,
+    19.99854513764604,
+    3.8054703050196803
+   ],
+   "aspect": 5.255209878071199,
+   "fill": 0.8727810964355023,
+   "volume": 1011.0680408570908,
+   "scale": 4.0,
+   "bbox_mm": [
+    60.888,
+    79.994,
+    15.222
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_45285_dc1f2b6f_7_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_23809_8576e0c2_0_x": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "TORUS": 8,
+    "CYLINDER": 8,
+    "PLANE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000099999994,
+    1.764705882352942,
+    20.00000019999999
+   ],
+   "aspect": 11.333333446666657,
+   "fill": 0.6861854564360376,
+   "volume": 484.3662118085783,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    7.059,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/013/F_23809_8576e0c2_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_97821_67013d6d_0_x": {
+   "solids": 1,
+   "faces": 22,
+   "kinds": {
+    "CYLINDER": 8,
+    "PLANE": 14
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    5.797101449275362,
+    9.275362318840582
+   ],
+   "aspect": 3.45,
+   "fill": 0.19945563954920634,
+   "volume": 214.49545778028497,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    23.188,
+    37.101
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/021/F_97821_67013d6d_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_66786_c64f4f16_0_x": {
+   "solids": 1,
+   "faces": 20,
+   "kinds": {
+    "CONE": 2,
+    "CYLINDER": 9,
+    "PLANE": 9
+   },
+   "analytic": true,
+   "bbox": [
+    8.875819621047642,
+    8.875819621047642,
+    19.99940359519706
+   ],
+   "aspect": 2.2532458352095786,
+   "fill": 0.4837960858136516,
+   "volume": 762.2480647916235,
+   "scale": 4.0,
+   "bbox_mm": [
+    35.503,
+    35.503,
+    79.998
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_66786_c64f4f16_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_136925_70fb0381_2_x": {
+   "solids": 1,
+   "faces": 16,
+   "kinds": {
+    "CYLINDER": 3,
+    "PLANE": 11,
+    "CONE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    20.0000001,
+    11.008089056523325,
+    11.83977263680082
+   ],
+   "aspect": 1.816845775620622,
+   "fill": 0.26876085868711597,
+   "volume": 700.5696432897307,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    44.032,
+    47.359
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/010/F_136925_70fb0381_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_87358_854d47fe_13_x": {
+   "solids": 1,
+   "faces": 19,
+   "kinds": {
+    "TORUS": 2,
+    "CYLINDER": 6,
+    "PLANE": 10,
+    "CONE": 1
+   },
+   "analytic": true,
+   "bbox": [
+    5.29181371925708,
+    5.29181371925708,
+    19.53900386341073
+   ],
+   "aspect": 3.692307571656891,
+   "fill": 0.4606730891178729,
+   "volume": 252.060247058593,
+   "scale": 4.094,
+   "bbox_mm": [
+    21.665,
+    21.665,
+    79.993
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/021/F_87358_854d47fe_13_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_128996_c7d6cb2c_0_x": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "CYLINDER": 13,
+    "PLANE": 5
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    8.888888888888879,
+    20.0
+   ],
+   "aspect": 2.2500000000000027,
+   "fill": 0.22341830471131105,
+   "volume": 794.3761945291051,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    35.556,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/009/F_128996_c7d6cb2c_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_131371_d8578374_0_x": {
+   "solids": 1,
+   "faces": 21,
+   "kinds": {
+    "CYLINDER": 10,
+    "PLANE": 11
+   },
+   "analytic": true,
+   "bbox": [
+    15.81294964028778,
+    20.0,
+    20.0
+   ],
+   "aspect": 1.2647861692447673,
+   "fill": 0.9256542737517895,
+   "volume": 5854.929766061682,
+   "scale": 4.0,
+   "bbox_mm": [
+    63.252,
+    80.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/009/F_131371_d8578374_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_56001_1a681242_6_x": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "TORUS": 3,
+    "CYLINDER": 8,
+    "PLANE": 7
+   },
+   "analytic": true,
+   "bbox": [
+    1.6363638363636286,
+    20.000000100000005,
+    1.6363638363636286
+   ],
+   "aspect": 12.222220789506409,
+   "fill": 0.17744963520814727,
+   "volume": 9.503090272548699,
+   "scale": 4.0,
+   "bbox_mm": [
+    6.545,
+    80.0,
+    6.545
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_56001_1a681242_6_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_27673_754afc07_9_x": {
+   "solids": 1,
+   "faces": 20,
+   "kinds": {
+    "PLANE": 18,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    6.0,
+    20.0,
+    3.9200669954522027
+   ],
+   "aspect": 5.101953620487265,
+   "fill": 0.4801739701121367,
+   "volume": 225.87769587742073,
+   "scale": 4.0,
+   "bbox_mm": [
+    24.0,
+    80.0,
+    15.68
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/014/F_27673_754afc07_9_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_137406_9d9b7e94_0_x": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "PLANE": 18
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    4.15951972555746,
+    4.1356885413598
+   ],
+   "aspect": 4.835954110176796,
+   "fill": 0.07705669584763332,
+   "volume": 26.51132240399152,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    16.638,
+    16.543
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/010/F_137406_9d9b7e94_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_128996_f12458f7_0_x": {
+   "solids": 1,
+   "faces": 19,
+   "kinds": {
+    "CYLINDER": 9,
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    2.278796352718549,
+    20.0000002,
+    2.2648574819922858
+   ],
+   "aspect": 8.830577799715224,
+   "fill": 0.25208676856913287,
+   "volume": 26.021147576166925,
+   "scale": 4.0,
+   "bbox_mm": [
+    9.115,
+    80.0,
+    9.059
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/009/F_128996_f12458f7_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_121931_0e1266eb_0_x": {
+   "solids": 1,
+   "faces": 16,
+   "kinds": {
+    "CYLINDER": 8,
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    2.04724409448818
+   ],
+   "aspect": 9.769230769230813,
+   "fill": 0.38873420259440594,
+   "volume": 318.3335202347877,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    8.189
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/008/F_121931_0e1266eb_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_30368_d7fd30ce_10_x": {
+   "solids": 1,
+   "faces": 22,
+   "kinds": {
+    "PLANE": 18,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    2.26806130349384,
+    1.668686320314587,
+    20.00000010000001
+   ],
+   "aspect": 11.985476153618574,
+   "fill": 0.279888612102757,
+   "volume": 21.18579282493506,
+   "scale": 4.0,
+   "bbox_mm": [
+    9.072,
+    6.675,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/015/F_30368_d7fd30ce_10_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_50379_ebec8fae_2_x": {
+   "solids": 1,
+   "faces": 17,
+   "kinds": {
+    "TORUS": 2,
+    "CYLINDER": 9,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    1.621621621621622
+   ],
+   "aspect": 12.33333333333333,
+   "fill": 0.07359776356255342,
+   "volume": 47.73908987841303,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    6.486
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_50379_ebec8fae_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_107489_780a0544_0_x": {
+   "solids": 1,
+   "faces": 21,
+   "kinds": {
+    "CYLINDER": 7,
+    "PLANE": 14
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    5.797101449275361,
+    9.27536231884058
+   ],
+   "aspect": 3.4500000000000006,
+   "fill": 0.21128456324465267,
+   "volume": 227.21633350401626,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    23.188,
+    37.101
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/007/F_107489_780a0544_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_54846_74314f53_1_x": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "PLANE": 14,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    1.7996288188289093,
+    4.49537856680438,
+    20.0
+   ],
+   "aspect": 11.113402825486427,
+   "fill": 0.1981920648798145,
+   "volume": 32.067526915454,
+   "scale": 4.0,
+   "bbox_mm": [
+    7.199,
+    17.982,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_54846_74314f53_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_136885_8c630478_0_x": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "PLANE": 14,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000007,
+    2.66666666666666,
+    10.00000000000001
+   ],
+   "aspect": 7.500000000000022,
+   "fill": 0.8947859107219903,
+   "volume": 477.2191523850609,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    10.667,
+    40.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/010/F_136885_8c630478_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_132350_55d48f65_0_x": {
+   "solids": 1,
+   "faces": 17,
+   "kinds": {
+    "CYLINDER": 3,
+    "PLANE": 13,
+    "CONE": 1
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    8.181818181818183,
+    8.18181818181818
+   ],
+   "aspect": 2.444444444444445,
+   "fill": 0.26500313324015545,
+   "volume": 354.7975833463238,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    32.727,
+    32.727
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/009/F_132350_55d48f65_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_82029_4e60dd18_6_x": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "SPHERE": 4,
+    "CYLINDER": 8,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000007,
+    7.155679250875628,
+    17.88919812718906
+   ],
+   "aspect": 2.7949827401155023,
+   "fill": 0.99940329283657,
+   "volume": 2558.6595949826487,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    28.623,
+    71.557
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/020/F_82029_4e60dd18_6_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_123944_ccfed065_4_x": {
+   "solids": 1,
+   "faces": 19,
+   "kinds": {
+    "PLANE": 14,
+    "CYLINDER": 5
+   },
+   "analytic": true,
+   "bbox": [
+    5.000000000000006,
+    5.000000000000006,
+    20.0
+   ],
+   "aspect": 3.999999999999995,
+   "fill": 0.5255117487381505,
+   "volume": 262.7558743690759,
+   "scale": 4.0,
+   "bbox_mm": [
+    20.0,
+    20.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/008/F_123944_ccfed065_4_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_100804_1147d10b_3_x": {
+   "solids": 1,
+   "faces": 18,
+   "kinds": {
+    "PLANE": 12,
+    "CYLINDER": 6
+   },
+   "analytic": true,
+   "bbox": [
+    2.4137931034482802,
+    20.000000000000004,
+    2.06896551724138
+   ],
+   "aspect": 9.666666666666666,
+   "fill": 0.7824397485444169,
+   "volume": 78.15093802346156,
+   "scale": 4.0,
+   "bbox_mm": [
+    9.655,
+    80.0,
+    8.276
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/F_100804_1147d10b_3_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_55200_067161cc_0_x": {
+   "solids": 1,
+   "faces": 20,
+   "kinds": {
+    "PLANE": 20
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    8.0,
+    20.0
+   ],
+   "aspect": 2.5,
+   "fill": 0.8398553415874733,
+   "volume": 2687.5370930799145,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    32.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_55200_067161cc_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_114346_84388ab1_0_x": {
+   "solids": 1,
+   "faces": 17,
+   "kinds": {
+    "PLANE": 14,
+    "CYLINDER": 2,
+    "CONE": 1
+   },
+   "analytic": true,
+   "bbox": [
+    20.0000001,
+    4.099774459445921,
+    3.58879465095718
+   ],
+   "aspect": 5.572901780453147,
+   "fill": 0.4843496223114351,
+   "volume": 142.52712924651456,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    16.399,
+    14.355
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/007/F_114346_84388ab1_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_131320_a20efb50_0_x": {
+   "solids": 1,
+   "faces": 19,
+   "kinds": {
+    "CYLINDER": 6,
+    "PLANE": 13
+   },
+   "analytic": true,
+   "bbox": [
+    2.5114135303338596,
+    2.1749479166770858,
+    20.0
+   ],
+   "aspect": 9.195622500494755,
+   "fill": 0.691659514876902,
+   "volume": 75.55956386650482,
+   "scale": 4.0,
+   "bbox_mm": [
+    10.046,
+    8.7,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/009/F_131320_a20efb50_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_145967_40c5a2fd_0_x": {
+   "solids": 1,
+   "faces": 21,
+   "kinds": {
+    "PLANE": 12,
+    "CYLINDER": 9
+   },
+   "analytic": true,
+   "bbox": [
+    2.5010421381438004,
+    2.5010421381438004,
+    20.0
+   ],
+   "aspect": 7.996666547507036,
+   "fill": 0.33518933936288237,
+   "volume": 41.933606060615276,
+   "scale": 4.0,
+   "bbox_mm": [
+    10.004,
+    10.004,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/012/F_145967_40c5a2fd_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F2"
+  },
+  "F_143558_d11962bf_4_x": {
+   "solids": 1,
+   "faces": 26,
+   "kinds": {
+    "CYLINDER": 10,
+    "TORUS": 4,
+    "SPHERE": 8,
+    "PLANE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    3.3333333333333397,
+    20.0,
+    19.699542268439238
+   ],
+   "aspect": 5.9999999999999885,
+   "fill": 0.29207048139101227,
+   "volume": 383.5769862350436,
+   "scale": 4.0,
+   "bbox_mm": [
+    13.333,
+    80.0,
+    78.798
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/011/F_143558_d11962bf_4_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_57877_1100841a_0_x": {
+   "solids": 1,
+   "faces": 28,
+   "kinds": {
+    "PLANE": 28
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    8.57142857142858,
+    6.66666666666666
+   ],
+   "aspect": 3.000000000000003,
+   "fill": 0.4293377615575734,
+   "volume": 490.67172749436963,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    34.286,
+    26.667
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_57877_1100841a_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_78601_30a1c8b3_1_x": {
+   "solids": 1,
+   "faces": 37,
+   "kinds": {
+    "PLANE": 32,
+    "CYLINDER": 5
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    14.642857142857139,
+    14.28571428571428
+   ],
+   "aspect": 1.4000000000000006,
+   "fill": 0.0682730581530283,
+   "volume": 285.6321820687917,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    58.571,
+    57.143
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/020/F_78601_30a1c8b3_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_25387_613e50bd_0_x": {
+   "solids": 1,
+   "faces": 42,
+   "kinds": {
+    "CYLINDER": 24,
+    "PLANE": 18
+   },
+   "analytic": true,
+   "bbox": [
+    16.58536585365854,
+    3.3170731707317005,
+    20.0
+   ],
+   "aspect": 6.029411764705895,
+   "fill": 0.5060121660244499,
+   "volume": 556.7638918969784,
+   "scale": 4.0,
+   "bbox_mm": [
+    66.341,
+    13.268,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/014/F_25387_613e50bd_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_139763_8689bd25_0_x": {
+   "solids": 1,
+   "faces": 42,
+   "kinds": {
+    "CYLINDER": 20,
+    "PLANE": 22
+   },
+   "analytic": true,
+   "bbox": [
+    3.45092049123324,
+    19.999999680857037,
+    20.0
+   ],
+   "aspect": 5.795555142695475,
+   "fill": 0.562129978360884,
+   "volume": 775.9463320429381,
+   "scale": 4.0,
+   "bbox_mm": [
+    13.804,
+    80.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/011/F_139763_8689bd25_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_62281_fbc75133_0_x": {
+   "solids": 1,
+   "faces": 40,
+   "kinds": {
+    "CYLINDER": 4,
+    "PLANE": 36
+   },
+   "analytic": true,
+   "bbox": [
+    18.66666666666666,
+    20.0,
+    10.666666666666663
+   ],
+   "aspect": 1.8750000000000007,
+   "fill": 0.351550590930885,
+   "volume": 1399.9525754403232,
+   "scale": 4.0,
+   "bbox_mm": [
+    74.667,
+    80.0,
+    42.667
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_62281_fbc75133_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_54374_5c085a74_0_x": {
+   "solids": 1,
+   "faces": 40,
+   "kinds": {
+    "CYLINDER": 30,
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    19.999477162812656,
+    19.999477162812656,
+    2.39993733553752
+   ],
+   "aspect": 8.33333306943755,
+   "fill": 0.29494845133574454,
+   "volume": 283.1283165860925,
+   "scale": 4.0,
+   "bbox_mm": [
+    79.998,
+    79.998,
+    9.6
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_54374_5c085a74_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_146169_144d8264_0_x": {
+   "solids": 1,
+   "faces": 48,
+   "kinds": {
+    "CYLINDER": 28,
+    "PLANE": 20
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    1.65938864628821,
+    14.235807860262
+   ],
+   "aspect": 12.052631578947366,
+   "fill": 0.8048131715387556,
+   "volume": 380.23781274278144,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    6.638,
+    56.943
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/012/F_146169_144d8264_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_107467_a8afc51d_2_x": {
+   "solids": 1,
+   "faces": 23,
+   "kinds": {
+    "CYLINDER": 9,
+    "PLANE": 14
+   },
+   "analytic": true,
+   "bbox": [
+    2.4137930674799657,
+    2.41379306747996,
+    19.99999970197679
+   ],
+   "aspect": 8.285714285714278,
+   "fill": 0.8042637460296229,
+   "volume": 93.71919570448429,
+   "scale": 4.0,
+   "bbox_mm": [
+    9.655,
+    9.655,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/007/F_107467_a8afc51d_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_77204_63b8b9ae_0_x": {
+   "solids": 1,
+   "faces": 28,
+   "kinds": {
+    "CYLINDER": 14,
+    "PLANE": 14
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    19.0909090909091,
+    7.878787878787881
+   ],
+   "aspect": 2.538461538461538,
+   "fill": 0.19006394778974137,
+   "volume": 571.7626197972388,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    76.364,
+    31.515
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/020/F_77204_63b8b9ae_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_88235_86095bbb_20_x": {
+   "solids": 1,
+   "faces": 27,
+   "kinds": {
+    "PLANE": 27
+   },
+   "analytic": true,
+   "bbox": [
+    7.9657720731233,
+    17.269544924154026,
+    20.0
+   ],
+   "aspect": 2.5107421874999996,
+   "fill": 0.5092346489758428,
+   "volume": 1401.0599242259516,
+   "scale": 4.0,
+   "bbox_mm": [
+    31.863,
+    69.078,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/021/F_88235_86095bbb_20_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_61642_d2805a9d_0_x": {
+   "solids": 1,
+   "faces": 30,
+   "kinds": {
+    "PLANE": 30
+   },
+   "analytic": true,
+   "bbox": [
+    10.452920468317618,
+    20.0,
+    14.685426956965301
+   ],
+   "aspect": 1.913340875463388,
+   "fill": 0.5457348121715572,
+   "volume": 1675.4669959324633,
+   "scale": 4.0,
+   "bbox_mm": [
+    41.812,
+    80.0,
+    58.742
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_61642_d2805a9d_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_51903_2aa8d6d3_2_x": {
+   "solids": 1,
+   "faces": 33,
+   "kinds": {
+    "PLANE": 25,
+    "CYLINDER": 6,
+    "SPHERE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    12.664435081436006,
+    20.0,
+    19.99072716341344
+   ],
+   "aspect": 1.5792255928822863,
+   "fill": 0.8556197981788162,
+   "volume": 4332.366957095669,
+   "scale": 4.0,
+   "bbox_mm": [
+    50.658,
+    80.0,
+    79.963
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_51903_2aa8d6d3_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_111047_0d574b70_0_x": {
+   "solids": 1,
+   "faces": 33,
+   "kinds": {
+    "PLANE": 29,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    12.22614918918919,
+    20.0,
+    12.61261261261262
+   ],
+   "aspect": 1.6358380460206337,
+   "fill": 0.26714525561048413,
+   "volume": 823.8956487187397,
+   "scale": 4.0,
+   "bbox_mm": [
+    48.905,
+    80.0,
+    50.45
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/007/F_111047_0d574b70_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_53605_d1b120df_0_x": {
+   "solids": 1,
+   "faces": 35,
+   "kinds": {
+    "CYLINDER": 10,
+    "PLANE": 24,
+    "TORUS": 1
+   },
+   "analytic": true,
+   "bbox": [
+    10.35455984087849,
+    1.465267880382898,
+    20.0
+   ],
+   "aspect": 13.649381295912717,
+   "fill": 0.9843382748941621,
+   "volume": 298.6916212564388,
+   "scale": 4.0,
+   "bbox_mm": [
+    41.418,
+    5.861,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_53605_d1b120df_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_57033_efdccef5_0_x": {
+   "solids": 1,
+   "faces": 23,
+   "kinds": {
+    "PLANE": 23
+   },
+   "analytic": true,
+   "bbox": [
+    10.0,
+    6.800000000000001,
+    20.0
+   ],
+   "aspect": 2.941176470588235,
+   "fill": 0.7929411764705883,
+   "volume": 1078.4,
+   "scale": 4.0,
+   "bbox_mm": [
+    40.0,
+    27.2,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_57033_efdccef5_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_49904_639055dd_0_x": {
+   "solids": 1,
+   "faces": 23,
+   "kinds": {
+    "PLANE": 14,
+    "CYLINDER": 9
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    14.0,
+    16.0
+   ],
+   "aspect": 1.4285714285714286,
+   "fill": 0.35297607028443584,
+   "volume": 1581.3327948742726,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    56.0,
+    64.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_49904_639055dd_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_63065_8eed712c_0_x": {
+   "solids": 1,
+   "faces": 32,
+   "kinds": {
+    "TORUS": 5,
+    "CYLINDER": 14,
+    "PLANE": 13
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    18.40185586609897,
+    1.514883875160248
+   ],
+   "aspect": 13.202332091550154,
+   "fill": 0.15432442880920685,
+   "volume": 86.04103807940598,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    73.607,
+    6.06
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_63065_8eed712c_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_53941_d846174c_0_x": {
+   "solids": 1,
+   "faces": 35,
+   "kinds": {
+    "PLANE": 28,
+    "CONE": 4,
+    "CYLINDER": 3
+   },
+   "analytic": true,
+   "bbox": [
+    7.0248484390244315,
+    10.9780562764108,
+    20.0
+   ],
+   "aspect": 2.8470365124030317,
+   "fill": 0.5208866085061968,
+   "volume": 803.4069780135355,
+   "scale": 4.0,
+   "bbox_mm": [
+    28.099,
+    43.912,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_53941_d846174c_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_53919_87a231e9_0_x": {
+   "solids": 1,
+   "faces": 31,
+   "kinds": {
+    "PLANE": 20,
+    "CYLINDER": 11
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000004,
+    10.90909090909092,
+    9.0909090909091
+   ],
+   "aspect": 2.199999999999998,
+   "fill": 0.2299328506156507,
+   "volume": 456.06515824591975,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    43.636,
+    36.364
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/018/F_53919_87a231e9_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_38944_0d0c3fce_9_x": {
+   "solids": 1,
+   "faces": 45,
+   "kinds": {
+    "PLANE": 44,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    3.58974358700044,
+    20.0
+   ],
+   "aspect": 5.571428575686052,
+   "fill": 0.20335221365408826,
+   "volume": 291.99292194684267,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    14.359,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/016/F_38944_0d0c3fce_9_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_91535_cf099d8b_0_x": {
+   "solids": 1,
+   "faces": 28,
+   "kinds": {
+    "CYLINDER": 6,
+    "PLANE": 22
+   },
+   "analytic": true,
+   "bbox": [
+    10.38961007956426,
+    6.857142652512421,
+    20.0
+   ],
+   "aspect": 2.916666753705657,
+   "fill": 0.929304405426476,
+   "volume": 1324.1293891851667,
+   "scale": 4.0,
+   "bbox_mm": [
+    41.558,
+    27.429,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/021/F_91535_cf099d8b_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_44399_86308373_0_x": {
+   "solids": 1,
+   "faces": 25,
+   "kinds": {
+    "TORUS": 1,
+    "PLANE": 14,
+    "CYLINDER": 10
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000007,
+    8.000000000000004,
+    1.6
+   ],
+   "aspect": 12.500000000000004,
+   "fill": 0.9318163810311748,
+   "volume": 238.54499354398095,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    32.0,
+    6.4
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_44399_86308373_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_140220_9d521b5a_2_x": {
+   "solids": 1,
+   "faces": 28,
+   "kinds": {
+    "TORUS": 3,
+    "CYLINDER": 2,
+    "PLANE": 15,
+    "CONE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    3.4349010000652505,
+    3.4349010000652505,
+    19.99875586926877
+   ],
+   "aspect": 5.82222191233135,
+   "fill": 0.1412303126209242,
+   "volume": 33.32417052799881,
+   "scale": 4.0,
+   "bbox_mm": [
+    13.74,
+    13.74,
+    79.995
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/011/F_140220_9d521b5a_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_97255_847ea463_2_x": {
+   "solids": 1,
+   "faces": 44,
+   "kinds": {
+    "TORUS": 4,
+    "CYLINDER": 20,
+    "PLANE": 16,
+    "SPHERE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.000000000000004,
+    1.980198019801981,
+    6.732673267326742
+   ],
+   "aspect": 10.099999999999998,
+   "fill": 0.4377968675391717,
+   "volume": 116.73438679605425,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    7.921,
+    26.931
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/021/F_97255_847ea463_2_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_51715_aad82cc5_0_x": {
+   "solids": 1,
+   "faces": 28,
+   "kinds": {
+    "SPHERE": 4,
+    "CYLINDER": 8,
+    "PLANE": 16
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    8.0,
+    20.0
+   ],
+   "aspect": 2.5,
+   "fill": 0.5038063413790003,
+   "volume": 1612.180292412801,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    32.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_51715_aad82cc5_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_52336_27371a66_10_x": {
+   "solids": 1,
+   "faces": 37,
+   "kinds": {
+    "PLANE": 25,
+    "CONE": 8,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    6.250000000000001,
+    8.75
+   ],
+   "aspect": 3.1999999999999997,
+   "fill": 0.3997526501571169,
+   "volume": 437.22946110934674,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    25.0,
+    35.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/017/F_52336_27371a66_10_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_79793_f9d18e53_0_x": {
+   "solids": 1,
+   "faces": 39,
+   "kinds": {
+    "CYLINDER": 13,
+    "PLANE": 26
+   },
+   "analytic": true,
+   "bbox": [
+    19.659574668085106,
+    11.489361802127661,
+    20.0000001
+   ],
+   "aspect": 1.7407407342935528,
+   "fill": 0.3485501887889094,
+   "volume": 1574.5822213725835,
+   "scale": 4.0,
+   "bbox_mm": [
+    78.638,
+    45.957,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/020/F_79793_f9d18e53_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_136593_1772a66f_0_x": {
+   "solids": 1,
+   "faces": 28,
+   "kinds": {
+    "PLANE": 16,
+    "CYLINDER": 12
+   },
+   "analytic": true,
+   "bbox": [
+    11.0,
+    1.4000000000000004,
+    20.0
+   ],
+   "aspect": 14.285714285714283,
+   "fill": 0.3934419009676622,
+   "volume": 121.18010549803998,
+   "scale": 4.0,
+   "bbox_mm": [
+    44.0,
+    5.6,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/010/F_136593_1772a66f_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_79682_b75071d6_0_x": {
+   "solids": 1,
+   "faces": 27,
+   "kinds": {
+    "CONE": 8,
+    "PLANE": 6,
+    "CYLINDER": 12,
+    "TORUS": 1
+   },
+   "analytic": true,
+   "bbox": [
+    2.9977575746136043,
+    2.9977573746135997,
+    19.99985864367471
+   ],
+   "aspect": 6.671606852857003,
+   "fill": 0.30863531165359037,
+   "volume": 55.47094037592444,
+   "scale": 4.0,
+   "bbox_mm": [
+    11.991,
+    11.991,
+    79.999
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/020/F_79682_b75071d6_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_41647_00943ed3_0_x": {
+   "solids": 1,
+   "faces": 23,
+   "kinds": {
+    "PLANE": 17,
+    "CYLINDER": 6
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    12.916666666666671,
+    16.45833333333334
+   ],
+   "aspect": 1.548387096774193,
+   "fill": 0.18247236818024393,
+   "volume": 775.8243570719058,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    51.667,
+    65.833
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/016/F_41647_00943ed3_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_121860_63471748_0_x": {
+   "solids": 1,
+   "faces": 35,
+   "kinds": {
+    "CYLINDER": 16,
+    "PLANE": 19
+   },
+   "analytic": true,
+   "bbox": [
+    4.0,
+    10.0,
+    20.000000000000004
+   ],
+   "aspect": 5.000000000000001,
+   "fill": 0.6842536551162401,
+   "volume": 547.4029240929922,
+   "scale": 4.0,
+   "bbox_mm": [
+    16.0,
+    40.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/008/F_121860_63471748_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_130714_8b4a9662_3_x": {
+   "solids": 1,
+   "faces": 30,
+   "kinds": {
+    "PLANE": 30
+   },
+   "analytic": true,
+   "bbox": [
+    1.4441186118745937,
+    20.000000000000007,
+    1.9899272210870418
+   ],
+   "aspect": 13.849277916332813,
+   "fill": 0.80309045230274,
+   "volume": 46.15667507538879,
+   "scale": 4.0,
+   "bbox_mm": [
+    5.776,
+    80.0,
+    7.96
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/009/F_130714_8b4a9662_3_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_66253_866371ec_0_x": {
+   "solids": 1,
+   "faces": 51,
+   "kinds": {
+    "PLANE": 51
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    20.0,
+    4.0
+   ],
+   "aspect": 5.0,
+   "fill": 0.14621213813802333,
+   "volume": 233.93942102083733,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    16.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_66253_866371ec_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_138454_c91f4eb9_0_x": {
+   "solids": 1,
+   "faces": 41,
+   "kinds": {
+    "SPHERE": 8,
+    "CYLINDER": 17,
+    "PLANE": 15,
+    "TORUS": 1
+   },
+   "analytic": true,
+   "bbox": [
+    9.914743089170955,
+    6.10138033948982,
+    20.000000099999994
+   ],
+   "aspect": 3.277946790262273,
+   "fill": 0.3420521458021632,
+   "volume": 413.83944275316753,
+   "scale": 4.0,
+   "bbox_mm": [
+    39.659,
+    24.406,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/011/F_138454_c91f4eb9_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_24438_d5047b3d_1_x": {
+   "solids": 1,
+   "faces": 48,
+   "kinds": {
+    "PLANE": 10,
+    "CYLINDER": 22,
+    "TORUS": 12,
+    "SPHERE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    16.250000200000002,
+    20.0000001,
+    5.000000125494189
+   ],
+   "aspect": 3.999999919604651,
+   "fill": 0.679776486546608,
+   "volume": 1104.6368374820522,
+   "scale": 4.0,
+   "bbox_mm": [
+    65.0,
+    80.0,
+    20.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/014/F_24438_d5047b3d_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_20925_dc64a33a_0_x": {
+   "solids": 1,
+   "faces": 26,
+   "kinds": {
+    "TORUS": 12,
+    "CYLINDER": 7,
+    "CONE": 2,
+    "PLANE": 5
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    13.33333333333334,
+    20.0000001
+   ],
+   "aspect": 1.5000000074999995,
+   "fill": 0.48388466204201475,
+   "volume": 2580.7182104610047,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    53.333,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/012/F_20925_dc64a33a_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_77397_df713db5_1_x": {
+   "solids": 1,
+   "faces": 26,
+   "kinds": {
+    "CYLINDER": 7,
+    "PLANE": 19
+   },
+   "analytic": true,
+   "bbox": [
+    14.67741935483872,
+    20.0,
+    6.12903225806452
+   ],
+   "aspect": 3.2631578947368403,
+   "fill": 0.8185083487198721,
+   "volume": 1472.6336471765462,
+   "scale": 4.0,
+   "bbox_mm": [
+    58.71,
+    80.0,
+    24.516
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/020/F_77397_df713db5_1_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "F_69488_ddafd661_0_x": {
+   "solids": 1,
+   "faces": 28,
+   "kinds": {
+    "CYLINDER": 12,
+    "PLANE": 12,
+    "SPHERE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    20.0,
+    8.75,
+    7.875
+   ],
+   "aspect": 2.5396825396825395,
+   "fill": 0.8620542659889595,
+   "volume": 1188.0185353160348,
+   "scale": 4.0,
+   "bbox_mm": [
+    80.0,
+    35.0,
+    31.5
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/019/F_69488_ddafd661_0_x.step",
+   "family": "F",
+   "label": "x",
+   "stratum": "F3"
+  },
+  "A_00424847_8d6d7308c552855e8accda7c_step_000_x": {
+   "solids": 1,
+   "faces": 42,
+   "kinds": {
+    "CONE": 3,
+    "CYLINDER": 19,
+    "PLANE": 20
+   },
+   "analytic": true,
+   "bbox": [
+    50.8000002,
+    50.8000002,
+    37.4650002
+   ],
+   "aspect": 1.3559322014897521,
+   "fill": 0.16488826457616676,
+   "volume": 15942.00402293665,
+   "scale": 1.575,
+   "bbox_mm": [
+    80.01,
+    80.01,
+    59.007
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00424847_8d6d7308c552855e8accda7c_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00439557_db3dd596779f0801c4d948e5_step_001_x": {
+   "solids": 1,
+   "faces": 38,
+   "kinds": {
+    "PLANE": 38
+   },
+   "analytic": true,
+   "bbox": [
+    78.0,
+    55.0,
+    17.500000000000007
+   ],
+   "aspect": 4.4571428571428555,
+   "fill": 0.29639693639693615,
+   "volume": 22251.99999999999,
+   "scale": 1.026,
+   "bbox_mm": [
+    80.028,
+    56.43,
+    17.955
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00439557_db3dd596779f0801c4d948e5_step_001_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00425208_586ea4e194bf4c102c270da1_step_007_x": {
+   "solids": 1,
+   "faces": 39,
+   "kinds": {
+    "CONE": 6,
+    "PLANE": 14,
+    "CYLINDER": 19
+   },
+   "analytic": true,
+   "bbox": [
+    40.0000002,
+    40.00000020011634,
+    40.0000002
+   ],
+   "aspect": 1.0000000000029083,
+   "fill": 0.7172492365713529,
+   "volume": 45903.95182925937,
+   "scale": 2.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00425208_586ea4e194bf4c102c270da1_step_007_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00435982_9e85bd5ce664d03d0dbbec31_step_000_x": {
+   "solids": 1,
+   "faces": 40,
+   "kinds": {
+    "CONE": 14,
+    "PLANE": 13,
+    "CYLINDER": 11,
+    "TORUS": 2
+   },
+   "analytic": true,
+   "bbox": [
+    19.629909360929723,
+    17.002926588486837,
+    29.800000200015003
+   ],
+   "aspect": 1.7526394673840107,
+   "fill": 0.3846568965169358,
+   "volume": 3825.8837017817687,
+   "scale": 2.685,
+   "bbox_mm": [
+    52.706,
+    45.653,
+    80.013
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00435982_9e85bd5ce664d03d0dbbec31_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00423257_ee0318a5f134d979c2e3a21f_step_000_x": {
+   "solids": 1,
+   "faces": 39,
+   "kinds": {
+    "PLANE": 25,
+    "CYLINDER": 14
+   },
+   "analytic": true,
+   "bbox": [
+    807.72,
+    401.32,
+    289.56000020000005
+   ],
+   "aspect": 2.7894736822838277,
+   "fill": 0.3649695246410299,
+   "volume": 34256801.43371669,
+   "scale": 0.099,
+   "bbox_mm": [
+    79.964,
+    39.731,
+    28.666
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00423257_ee0318a5f134d979c2e3a21f_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00435289_98269c6974e135dbad0b7378_step_000_x": {
+   "solids": 1,
+   "faces": 41,
+   "kinds": {
+    "CYLINDER": 13,
+    "PLANE": 28
+   },
+   "analytic": true,
+   "bbox": [
+    16.0,
+    16.0,
+    11.0000001
+   ],
+   "aspect": 1.4545454413223142,
+   "fill": 0.3134427943901954,
+   "volume": 882.6549170269257,
+   "scale": 5.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    55.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00435289_98269c6974e135dbad0b7378_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00438698_377924731abd4272b0c0313d_step_000_x": {
+   "solids": 1,
+   "faces": 40,
+   "kinds": {
+    "CYLINDER": 19,
+    "SPHERE": 9,
+    "PLANE": 12
+   },
+   "analytic": true,
+   "bbox": [
+    19.050000004447245,
+    76.2,
+    127.00000000222371
+   ],
+   "aspect": 6.666666665227056,
+   "fill": 0.9093458137058851,
+   "volume": 167641.96557453874,
+   "scale": 0.63,
+   "bbox_mm": [
+    12.002,
+    48.006,
+    80.01
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00438698_377924731abd4272b0c0313d_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00434598_5873cea2c986e117b09e499f_step_000_x": {
+   "solids": 1,
+   "faces": 37,
+   "kinds": {
+    "PLANE": 37
+   },
+   "analytic": true,
+   "bbox": [
+    105.0,
+    65.0,
+    81.5
+   ],
+   "aspect": 1.6153846153846154,
+   "fill": 0.1842749814602576,
+   "volume": 102500.65500000003,
+   "scale": 0.762,
+   "bbox_mm": [
+    80.01,
+    49.53,
+    62.103
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00434598_5873cea2c986e117b09e499f_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00433390_2804df8c5f3948e3b955d998_step_003_x": {
+   "solids": 1,
+   "faces": 40,
+   "kinds": {
+    "PLANE": 26,
+    "CYLINDER": 10,
+    "SPHERE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    101.60000000000001,
+    76.20000000444733,
+    152.40000000222363
+   ],
+   "aspect": 1.9999999999124536,
+   "fill": 0.661537854818537,
+   "volume": 780527.7479609966,
+   "scale": 0.525,
+   "bbox_mm": [
+    53.34,
+    40.005,
+    80.01
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00433390_2804df8c5f3948e3b955d998_step_003_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00435253_301af42a2d7e15a689d311d0_step_000_x": {
+   "solids": 1,
+   "faces": 38,
+   "kinds": {
+    "PLANE": 35,
+    "CYLINDER": 3
+   },
+   "analytic": true,
+   "bbox": [
+    24.000000008112792,
+    8.0,
+    10.000000015537289
+   ],
+   "aspect": 3.000000001014099,
+   "fill": 0.3866941002475217,
+   "volume": 742.4526738797854,
+   "scale": 3.333,
+   "bbox_mm": [
+    79.992,
+    26.664,
+    33.33
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00435253_301af42a2d7e15a689d311d0_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00423759_d9f8d2450fdc48fabe6a3833_step_000_x": {
+   "solids": 1,
+   "faces": 39,
+   "kinds": {
+    "CYLINDER": 13,
+    "PLANE": 26
+   },
+   "analytic": true,
+   "bbox": [
+    200.0,
+    192.21764755176304,
+    34.54215854809661
+   ],
+   "aspect": 5.790026113206544,
+   "fill": 0.13413544884529915,
+   "volume": 178121.47942845387,
+   "scale": 0.4,
+   "bbox_mm": [
+    80.0,
+    76.887,
+    13.817
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00423759_d9f8d2450fdc48fabe6a3833_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00420946_2fd95a3db8c8bb6dfb03fbf7_step_000_x": {
+   "solids": 1,
+   "faces": 37,
+   "kinds": {
+    "CYLINDER": 23,
+    "PLANE": 13,
+    "CONE": 1
+   },
+   "analytic": true,
+   "bbox": [
+    40.0000002,
+    20.0000002000233,
+    38.0000002
+   ],
+   "aspect": 1.9999999899976701,
+   "fill": 0.27387243861253696,
+   "volume": 8325.722302536247,
+   "scale": 2.0,
+   "bbox_mm": [
+    80.0,
+    40.0,
+    76.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00420946_2fd95a3db8c8bb6dfb03fbf7_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00424688_4b2c8dd87117b59115884a62_step_002_x": {
+   "solids": 1,
+   "faces": 37,
+   "kinds": {
+    "PLANE": 30,
+    "CYLINDER": 7
+   },
+   "analytic": true,
+   "bbox": [
+    180.97500000000002,
+    203.20000000000002,
+    15.8750001
+   ],
+   "aspect": 12.79999991937008,
+   "fill": 0.08425211320451069,
+   "volume": 49185.470284455376,
+   "scale": 0.394,
+   "bbox_mm": [
+    71.304,
+    80.061,
+    6.255
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00424688_4b2c8dd87117b59115884a62_step_002_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00430055_c3d366180ca09ecab511e746_step_000_x": {
+   "solids": 1,
+   "faces": 42,
+   "kinds": {
+    "CYLINDER": 16,
+    "TORUS": 7,
+    "PLANE": 19
+   },
+   "analytic": true,
+   "bbox": [
+    71.78440141247052,
+    25.0000001,
+    72.8476704359054
+   ],
+   "aspect": 2.913906805780589,
+   "fill": 0.5799326659136818,
+   "volume": 75816.43054510652,
+   "scale": 1.098,
+   "bbox_mm": [
+    78.819,
+    27.45,
+    79.987
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/003/A_00430055_c3d366180ca09ecab511e746_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00438453_7caf16021fa15660f185b3db_step_002_x": {
+   "solids": 1,
+   "faces": 37,
+   "kinds": {
+    "CONE": 1,
+    "CYLINDER": 13,
+    "PLANE": 23
+   },
+   "analytic": true,
+   "bbox": [
+    32.0000002,
+    40.0000002,
+    22.0000002
+   ],
+   "aspect": 1.818181810743802,
+   "fill": 0.30699838055052886,
+   "volume": 8645.074572151567,
+   "scale": 2.0,
+   "bbox_mm": [
+    64.0,
+    80.0,
+    44.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00438453_7caf16021fa15660f185b3db_step_002_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00434010_97485628c63a400543809a2b_step_000_x": {
+   "solids": 1,
+   "faces": 41,
+   "kinds": {
+    "CONE": 17,
+    "CYLINDER": 18,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    458.6000002,
+    756.0000001999999,
+    458.6000002
+   ],
+   "aspect": 1.6484954205632378,
+   "fill": 0.7398780851596034,
+   "volume": 117638657.77912097,
+   "scale": 0.106,
+   "bbox_mm": [
+    48.612,
+    80.136,
+    48.612
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00434010_97485628c63a400543809a2b_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00434135_3fdf99cafc8e6c495ffaa203_step_000_x": {
+   "solids": 1,
+   "faces": 40,
+   "kinds": {
+    "CYLINDER": 16,
+    "CONE": 2,
+    "PLANE": 20,
+    "TORUS": 2
+   },
+   "analytic": true,
+   "bbox": [
+    29.500000000020002,
+    12.50000010001975,
+    36.00000020001001
+   ],
+   "aspect": 2.87999999295625,
+   "fill": 0.5068031800802436,
+   "volume": 6727.812306781529,
+   "scale": 2.222,
+   "bbox_mm": [
+    65.549,
+    27.775,
+    79.992
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00434135_3fdf99cafc8e6c495ffaa203_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00421192_073610a448b238c408d9a0e3_step_000_x": {
+   "solids": 1,
+   "faces": 39,
+   "kinds": {
+    "CYLINDER": 7,
+    "PLANE": 32
+   },
+   "analytic": true,
+   "bbox": [
+    88.0384757972235,
+    90.000000067989,
+    123.83330250330746
+   ],
+   "aspect": 1.4065816267483908,
+   "fill": 0.1266816487378214,
+   "volume": 124298.58567158415,
+   "scale": 0.646,
+   "bbox_mm": [
+    56.873,
+    58.14,
+    79.996
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00421192_073610a448b238c408d9a0e3_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00439084_5875e0d6819b6b181b06434b_step_006_x": {
+   "solids": 1,
+   "faces": 41,
+   "kinds": {
+    "PLANE": 37,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    116.00000000000018,
+    69.62695788277746,
+    320.00000010000053
+   ],
+   "aspect": 4.595921031603105,
+   "fill": 0.20544775792954567,
+   "volume": 530990.5528259997,
+   "scale": 0.25,
+   "bbox_mm": [
+    29.0,
+    17.407,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00439084_5875e0d6819b6b181b06434b_step_006_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00435951_513e2df48751722d87ca18fc_step_007_x": {
+   "solids": 1,
+   "faces": 37,
+   "kinds": {
+    "CYLINDER": 31,
+    "PLANE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    90.5098288238364,
+    25.400000000254,
+    36.62829206095252
+   ],
+   "aspect": 3.5633790875169806,
+   "fill": 0.4724745367931377,
+   "volume": 39785.47399556332,
+   "scale": 0.884,
+   "bbox_mm": [
+    80.011,
+    22.454,
+    32.379
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00435951_513e2df48751722d87ca18fc_step_007_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00434928_2a219b2c0d565c7959ffb35b_step_000_x": {
+   "solids": 1,
+   "faces": 37,
+   "kinds": {
+    "CYLINDER": 12,
+    "PLANE": 25
+   },
+   "analytic": true,
+   "bbox": [
+    19.000000000000004,
+    11.0,
+    5.000000200000001
+   ],
+   "aspect": 3.7999998480000063,
+   "fill": 0.33659932845886226,
+   "volume": 351.7463123093631,
+   "scale": 4.211,
+   "bbox_mm": [
+    80.009,
+    46.321,
+    21.055
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00434928_2a219b2c0d565c7959ffb35b_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00431736_7b53a7bda4a169cab114dab7_step_000_x": {
+   "solids": 1,
+   "faces": 38,
+   "kinds": {
+    "PLANE": 26,
+    "CYLINDER": 12
+   },
+   "analytic": true,
+   "bbox": [
+    762.0,
+    787.4000002,
+    152.4000002
+   ],
+   "aspect": 5.166666661198601,
+   "fill": 0.0619372975010396,
+   "volume": 5663535.165273096,
+   "scale": 0.102,
+   "bbox_mm": [
+    77.724,
+    80.315,
+    15.545
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/003/A_00431736_7b53a7bda4a169cab114dab7_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00423879_586e472094bf4c102c26830a_step_001_x": {
+   "solids": 1,
+   "faces": 37,
+   "kinds": {
+    "PLANE": 16,
+    "CYLINDER": 21
+   },
+   "analytic": true,
+   "bbox": [
+    57.50000009999773,
+    57.50000009999772,
+    57.5000001
+   ],
+   "aspect": 1.0000000000000397,
+   "fill": 0.06423807149009127,
+   "volume": 12212.259685901741,
+   "scale": 1.391,
+   "bbox_mm": [
+    79.983,
+    79.983,
+    79.983
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00423879_586e472094bf4c102c26830a_step_001_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00426242_2b452cfc24e87115c56078b7_step_000_x": {
+   "solids": 1,
+   "faces": 42,
+   "kinds": {
+    "PLANE": 42
+   },
+   "analytic": true,
+   "bbox": [
+    163.0,
+    50.0,
+    45.000000000000014
+   ],
+   "aspect": 3.622222222222221,
+   "fill": 0.6155419222903884,
+   "volume": 225750.0,
+   "scale": 0.491,
+   "bbox_mm": [
+    80.033,
+    24.55,
+    22.095
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/002/A_00426242_2b452cfc24e87115c56078b7_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00420541_24f0f6765a08515562113c64_step_004_x": {
+   "solids": 1,
+   "faces": 37,
+   "kinds": {
+    "CONE": 2,
+    "CYLINDER": 19,
+    "PLANE": 16
+   },
+   "analytic": true,
+   "bbox": [
+    40.00000020000293,
+    34.4,
+    15.600000100058207
+   ],
+   "aspect": 2.5641025604771426,
+   "fill": 0.23016851583268497,
+   "volume": 4940.705349851593,
+   "scale": 2.0,
+   "bbox_mm": [
+    80.0,
+    68.8,
+    31.2
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00420541_24f0f6765a08515562113c64_step_004_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00435481_238d07e52f28263bd5d645f4_step_000_x": {
+   "solids": 1,
+   "faces": 37,
+   "kinds": {
+    "PLANE": 12,
+    "TORUS": 18,
+    "SPHERE": 6,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    101.4729207257563,
+    101.6000002,
+    89.3493631220491
+   ],
+   "aspect": 1.1371093945148418,
+   "fill": 0.3827903865175781,
+   "volume": 352611.4034603844,
+   "scale": 0.787,
+   "bbox_mm": [
+    79.859,
+    79.959,
+    70.318
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00435481_238d07e52f28263bd5d645f4_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00432366_29d675bd781c99417f44f3a3_step_000_x": {
+   "solids": 1,
+   "faces": 42,
+   "kinds": {
+    "PLANE": 23,
+    "CYLINDER": 17,
+    "TORUS": 2
+   },
+   "analytic": true,
+   "bbox": [
+    43.08099243547831,
+    14.0000000000007,
+    80.0
+   ],
+   "aspect": 5.714285714285428,
+   "fill": 0.3572197502325085,
+   "volume": 17236.107120479428,
+   "scale": 1.0,
+   "bbox_mm": [
+    43.081,
+    14.0,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/003/A_00432366_29d675bd781c99417f44f3a3_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00435185_1cb7b290f45556bccd0e7796_step_000_x": {
+   "solids": 1,
+   "faces": 39,
+   "kinds": {
+    "PLANE": 25,
+    "CYLINDER": 14
+   },
+   "analytic": true,
+   "bbox": [
+    32.0,
+    8.0,
+    5.000000200000001
+   ],
+   "aspect": 6.399999744000009,
+   "fill": 0.490326816423813,
+   "volume": 627.6183501272137,
+   "scale": 2.5,
+   "bbox_mm": [
+    80.0,
+    20.0,
+    12.5
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00435185_1cb7b290f45556bccd0e7796_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00423808_c1d00ea78c6c1e414b673a58_step_000_x": {
+   "solids": 1,
+   "faces": 40,
+   "kinds": {
+    "PLANE": 27,
+    "CYLINDER": 13
+   },
+   "analytic": true,
+   "bbox": [
+    220.00000000000003,
+    211.682108619026,
+    38.39083914703564
+   ],
+   "aspect": 5.730533765031999,
+   "fill": 0.1266189658376083,
+   "volume": 226377.46947967925,
+   "scale": 0.364,
+   "bbox_mm": [
+    80.08,
+    77.052,
+    13.974
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00423808_c1d00ea78c6c1e414b673a58_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A0"
+  },
+  "A_00433354_35c10f7ceba2c972967cbea8_step_002_x": {
+   "solids": 1,
+   "faces": 46,
+   "kinds": {
+    "SPHERE": 8,
+    "CYLINDER": 12,
+    "PLANE": 26
+   },
+   "analytic": true,
+   "bbox": [
+    101.60000000000012,
+    76.2,
+    152.4
+   ],
+   "aspect": 2.0,
+   "fill": 0.6606158618629526,
+   "volume": 779439.9173589632,
+   "scale": 0.525,
+   "bbox_mm": [
+    53.34,
+    40.005,
+    80.01
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00433354_35c10f7ceba2c972967cbea8_step_002_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00439737_50e7c12d3982e3d077032b5f_step_001_x": {
+   "solids": 1,
+   "faces": 44,
+   "kinds": {
+    "CYLINDER": 20,
+    "PLANE": 16,
+    "TORUS": 8
+   },
+   "analytic": true,
+   "bbox": [
+    60.0,
+    100.00000010000011,
+    15.0
+   ],
+   "aspect": 6.66666667333334,
+   "fill": 0.24069743179159683,
+   "volume": 21662.76888290651,
+   "scale": 0.8,
+   "bbox_mm": [
+    48.0,
+    80.0,
+    12.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00439737_50e7c12d3982e3d077032b5f_step_001_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00437352_2fb8424ef941177b1fef5f7b_step_000_x": {
+   "solids": 1,
+   "faces": 48,
+   "kinds": {
+    "PLANE": 45,
+    "CONE": 2,
+    "CYLINDER": 1
+   },
+   "analytic": true,
+   "bbox": [
+    28.575000000000042,
+    23.0,
+    22.9616002
+   ],
+   "aspect": 1.2444690157091074,
+   "fill": 0.6030812727861011,
+   "volume": 9101.06191049241,
+   "scale": 2.8,
+   "bbox_mm": [
+    80.01,
+    64.4,
+    64.292
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00437352_2fb8424ef941177b1fef5f7b_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00433707_0aed8f13569e503c76e7c822_step_000_x": {
+   "solids": 1,
+   "faces": 43,
+   "kinds": {
+    "CONE": 2,
+    "CYLINDER": 7,
+    "TORUS": 4,
+    "PLANE": 30
+   },
+   "analytic": true,
+   "bbox": [
+    25.0,
+    20.800000000000004,
+    28.000000100011835
+   ],
+   "aspect": 1.3461538509621072,
+   "fill": 0.3043074893624407,
+   "volume": 4430.7170609429995,
+   "scale": 2.857,
+   "bbox_mm": [
+    71.425,
+    59.426,
+    79.996
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00433707_0aed8f13569e503c76e7c822_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00429445_5870e4ade3815217dc902588_step_002_x": {
+   "solids": 1,
+   "faces": 47,
+   "kinds": {
+    "PLANE": 9,
+    "CYLINDER": 24,
+    "TORUS": 14
+   },
+   "analytic": true,
+   "bbox": [
+    32.0,
+    10.0000002,
+    14.000000199999999
+   ],
+   "aspect": 3.199999936000001,
+   "fill": 0.35708320063865573,
+   "volume": 1599.7327937091575,
+   "scale": 2.5,
+   "bbox_mm": [
+    80.0,
+    25.0,
+    35.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/002/A_00429445_5870e4ade3815217dc902588_step_002_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00433242_beaa463ba8e8a17375fd8c79_step_002_x": {
+   "solids": 1,
+   "faces": 46,
+   "kinds": {
+    "SPHERE": 8,
+    "CYLINDER": 12,
+    "PLANE": 26
+   },
+   "analytic": true,
+   "bbox": [
+    101.6,
+    76.2000000000001,
+    152.4
+   ],
+   "aspect": 1.9999999999999973,
+   "fill": 0.5595615681725612,
+   "volume": 660209.1285300578,
+   "scale": 0.525,
+   "bbox_mm": [
+    53.34,
+    40.005,
+    80.01
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00433242_beaa463ba8e8a17375fd8c79_step_002_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00420371_9685185a9318750491ec4131_step_000_x": {
+   "solids": 1,
+   "faces": 43,
+   "kinds": {
+    "CYLINDER": 30,
+    "PLANE": 13
+   },
+   "analytic": true,
+   "bbox": [
+    60.000025351511496,
+    60.000019123046,
+    121.9000002
+   ],
+   "aspect": 2.0316660224726197,
+   "fill": 0.6606200610699869,
+   "volume": 289906.72296669957,
+   "scale": 0.656,
+   "bbox_mm": [
+    39.36,
+    39.36,
+    79.966
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00420371_9685185a9318750491ec4131_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00433447_bceb4e05aca4db1056a57af5_step_001_x": {
+   "solids": 1,
+   "faces": 46,
+   "kinds": {
+    "SPHERE": 8,
+    "CYLINDER": 12,
+    "PLANE": 26
+   },
+   "analytic": true,
+   "bbox": [
+    101.60000008251573,
+    76.2000000825157,
+    152.40000008251587
+   ],
+   "aspect": 1.999999998917119,
+   "fill": 0.5343525706714826,
+   "volume": 630465.8252755066,
+   "scale": 0.525,
+   "bbox_mm": [
+    53.34,
+    40.005,
+    80.01
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00433447_bceb4e05aca4db1056a57af5_step_001_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00425022_b2f7803d4c9fdfb9c640c682_step_002_x": {
+   "solids": 1,
+   "faces": 48,
+   "kinds": {
+    "TORUS": 11,
+    "PLANE": 18,
+    "CYLINDER": 19
+   },
+   "analytic": true,
+   "bbox": [
+    30.000000000000004,
+    18.9000002,
+    25.2000002
+   ],
+   "aspect": 1.5873015705047453,
+   "fill": 0.3971155559193689,
+   "volume": 5674.146014275088,
+   "scale": 2.667,
+   "bbox_mm": [
+    80.01,
+    50.406,
+    67.208
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00425022_b2f7803d4c9fdfb9c640c682_step_002_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00422005_5d11858df84bc0088eab80e2_step_000_x": {
+   "solids": 1,
+   "faces": 43,
+   "kinds": {
+    "PLANE": 41,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    33.02,
+    101.6,
+    21.59
+   ],
+   "aspect": 4.705882352941177,
+   "fill": 0.3195875095682583,
+   "volume": 23147.986300198827,
+   "scale": 0.787,
+   "bbox_mm": [
+    25.987,
+    79.959,
+    16.991
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00422005_5d11858df84bc0088eab80e2_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00438667_99294c9cfc53922768df426d_step_000_x": {
+   "solids": 1,
+   "faces": 44,
+   "kinds": {
+    "PLANE": 35,
+    "CYLINDER": 9
+   },
+   "analytic": true,
+   "bbox": [
+    90.00000000000001,
+    30.000000200000002,
+    30.0000001
+   ],
+   "aspect": 2.9999999900000005,
+   "fill": 0.2178291252978016,
+   "volume": 17644.159325563527,
+   "scale": 0.889,
+   "bbox_mm": [
+    80.01,
+    26.67,
+    26.67
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00438667_99294c9cfc53922768df426d_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00435983_2a60d01bd50b5a172165ce90_step_000_x": {
+   "solids": 1,
+   "faces": 45,
+   "kinds": {
+    "PLANE": 12,
+    "CONE": 19,
+    "CYLINDER": 12,
+    "TORUS": 2
+   },
+   "analytic": true,
+   "bbox": [
+    19.62990935246728,
+    17.00292658848685,
+    29.300000250005002
+   ],
+   "aspect": 1.7232327680485804,
+   "fill": 0.4692311683357073,
+   "volume": 4588.771686432138,
+   "scale": 2.73,
+   "bbox_mm": [
+    53.59,
+    46.418,
+    79.989
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00435983_2a60d01bd50b5a172165ce90_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00425614_c43b39ef704502e43410d557_step_000_x": {
+   "solids": 1,
+   "faces": 45,
+   "kinds": {
+    "CYLINDER": 14,
+    "CONE": 7,
+    "PLANE": 16,
+    "TORUS": 8
+   },
+   "analytic": true,
+   "bbox": [
+    82.00000000000004,
+    26.000000100000005,
+    17.5000001
+   ],
+   "aspect": 4.685714258938778,
+   "fill": 0.11630278363170914,
+   "volume": 4339.256898784274,
+   "scale": 0.976,
+   "bbox_mm": [
+    80.032,
+    25.376,
+    17.08
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00425614_c43b39ef704502e43410d557_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00435605_9188fcc1e05d988f2acfe408_step_000_x": {
+   "solids": 1,
+   "faces": 45,
+   "kinds": {
+    "CYLINDER": 16,
+    "PLANE": 15,
+    "CONE": 6,
+    "SPHERE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    45.599999999999994,
+    57.400000000000006,
+    18.400000100704393
+   ],
+   "aspect": 3.119565200317722,
+   "fill": 0.19895095995613726,
+   "volume": 9581.656543988718,
+   "scale": 1.394,
+   "bbox_mm": [
+    63.566,
+    80.016,
+    25.65
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00435605_9188fcc1e05d988f2acfe408_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00437501_605813d7061d20b7bce4fa92_step_008_x": {
+   "solids": 1,
+   "faces": 45,
+   "kinds": {
+    "CYLINDER": 22,
+    "PLANE": 23
+   },
+   "analytic": true,
+   "bbox": [
+    203.2000002,
+    304.8,
+    41.275000000000006
+   ],
+   "aspect": 7.384615384615384,
+   "fill": 0.1440930163669081,
+   "volume": 368356.791423137,
+   "scale": 0.262,
+   "bbox_mm": [
+    53.238,
+    79.858,
+    10.814
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00437501_605813d7061d20b7bce4fa92_step_008_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00430907_0d6a23350b2beb5b6ee44915_step_002_x": {
+   "solids": 1,
+   "faces": 46,
+   "kinds": {
+    "PLANE": 44,
+    "CYLINDER": 2
+   },
+   "analytic": true,
+   "bbox": [
+    43.122011050581904,
+    21.0,
+    110.6270244270564
+   ],
+   "aspect": 5.267953544145543,
+   "fill": 0.3522606819260742,
+   "volume": 35289.353644093826,
+   "scale": 0.723,
+   "bbox_mm": [
+    31.177,
+    15.183,
+    79.983
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/003/A_00430907_0d6a23350b2beb5b6ee44915_step_002_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00432894_d13432e270a2cdeb1a9fdf89_step_000_x": {
+   "solids": 1,
+   "faces": 47,
+   "kinds": {
+    "SPHERE": 10,
+    "CONE": 14,
+    "CYLINDER": 15,
+    "PLANE": 7,
+    "TORUS": 1
+   },
+   "analytic": true,
+   "bbox": [
+    41.312062625247755,
+    41.40204048107598,
+    25.4000002
+   ],
+   "aspect": 1.6300015809084907,
+   "fill": 0.5729715743022232,
+   "volume": 24892.32263565463,
+   "scale": 1.932,
+   "bbox_mm": [
+    79.815,
+    79.989,
+    49.073
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/003/A_00432894_d13432e270a2cdeb1a9fdf89_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00438811_5875a5a729a5ae1773e26d5f_step_000_x": {
+   "solids": 1,
+   "faces": 44,
+   "kinds": {
+    "CYLINDER": 27,
+    "PLANE": 17
+   },
+   "analytic": true,
+   "bbox": [
+    209.5500002,
+    38.10000020000001,
+    63.5000002
+   ],
+   "aspect": 5.499999976377952,
+   "fill": 0.4135834221742193,
+   "volume": 209676.37159939678,
+   "scale": 0.382,
+   "bbox_mm": [
+    80.048,
+    14.554,
+    24.257
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00438811_5875a5a729a5ae1773e26d5f_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00433367_90a7175a618ad788edb0fbc4_step_002_x": {
+   "solids": 1,
+   "faces": 48,
+   "kinds": {
+    "TORUS": 8,
+    "PLANE": 28,
+    "CYLINDER": 12
+   },
+   "analytic": true,
+   "bbox": [
+    101.6000001435221,
+    76.2000001515723,
+    152.40000014352208
+   ],
+   "aspect": 1.9999999979052163,
+   "fill": 0.6219095998178216,
+   "volume": 733771.6170260292,
+   "scale": 0.525,
+   "bbox_mm": [
+    53.34,
+    40.005,
+    80.01
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00433367_90a7175a618ad788edb0fbc4_step_002_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00423792_dfaf5a38cdee74bbae76811b_step_000_x": {
+   "solids": 1,
+   "faces": 43,
+   "kinds": {
+    "PLANE": 31,
+    "CYLINDER": 12
+   },
+   "analytic": true,
+   "bbox": [
+    45.0,
+    60.0000000000001,
+    13.75
+   ],
+   "aspect": 4.363636363636371,
+   "fill": 0.18085668996483875,
+   "volume": 6714.304614944651,
+   "scale": 1.333,
+   "bbox_mm": [
+    59.985,
+    79.98,
+    18.329
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00423792_dfaf5a38cdee74bbae76811b_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00435801_c0a34dd9869aa2764e5f9684_step_000_x": {
+   "solids": 1,
+   "faces": 48,
+   "kinds": {
+    "TORUS": 24,
+    "CYLINDER": 16,
+    "PLANE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    22.5000002,
+    90.0000002,
+    90.0000002
+   ],
+   "aspect": 3.999999973333334,
+   "fill": 0.2848398664778437,
+   "volume": 51912.066357747884,
+   "scale": 0.889,
+   "bbox_mm": [
+    20.003,
+    80.01,
+    80.01
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00435801_c0a34dd9869aa2764e5f9684_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00436437_587484a21f352c10ed92d8bc_step_057_x": {
+   "solids": 1,
+   "faces": 44,
+   "kinds": {
+    "PLANE": 40,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    30.00000000000005,
+    48.200000200000005,
+    20.0
+   ],
+   "aspect": 2.41000001,
+   "fill": 0.17159405184677415,
+   "volume": 4962.500000000003,
+   "scale": 1.66,
+   "bbox_mm": [
+    49.8,
+    80.012,
+    33.2
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00436437_587484a21f352c10ed92d8bc_step_057_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00437366_3056f6f62da9930a1726de9b_step_000_x": {
+   "solids": 1,
+   "faces": 43,
+   "kinds": {
+    "CYLINDER": 12,
+    "PLANE": 31
+   },
+   "analytic": true,
+   "bbox": [
+    13.85750018633259,
+    13.716450815301261,
+    3.1000001
+   ],
+   "aspect": 4.470161206231119,
+   "fill": 0.5677810564523613,
+   "volume": 334.5563289482823,
+   "scale": 5.773,
+   "bbox_mm": [
+    79.999,
+    79.185,
+    17.896
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00437366_3056f6f62da9930a1726de9b_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00424186_586e56c449c847111e5804ad_step_015_x": {
+   "solids": 1,
+   "faces": 44,
+   "kinds": {
+    "PLANE": 34,
+    "CYLINDER": 10
+   },
+   "analytic": true,
+   "bbox": [
+    54.500000000019995,
+    20.00000000002,
+    43.30000010002176
+   ],
+   "aspect": 2.724999999998275,
+   "fill": 0.64675649361895,
+   "volume": 30524.966299887106,
+   "scale": 1.468,
+   "bbox_mm": [
+    80.006,
+    29.36,
+    63.564
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00424186_586e56c449c847111e5804ad_step_015_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00435786_303407afdc6259a47cb7b32d_step_000_x": {
+   "solids": 1,
+   "faces": 45,
+   "kinds": {
+    "CYLINDER": 28,
+    "CONE": 10,
+    "PLANE": 7
+   },
+   "analytic": true,
+   "bbox": [
+    123.99952882283301,
+    46.0000002,
+    123.99952882283301
+   ],
+   "aspect": 2.69564191921097,
+   "fill": 0.235536779268636,
+   "volume": 166592.95650157824,
+   "scale": 0.645,
+   "bbox_mm": [
+    79.98,
+    29.67,
+    79.98
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00435786_303407afdc6259a47cb7b32d_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00429049_5870a62a79772510f11e1379_step_001_x": {
+   "solids": 1,
+   "faces": 46,
+   "kinds": {
+    "TORUS": 9,
+    "CYLINDER": 13,
+    "PLANE": 21,
+    "SPHERE": 1,
+    "CONE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    81.40345120000002,
+    81.40345120000002,
+    32.482150604954064
+   ],
+   "aspect": 2.5060979548436872,
+   "fill": 0.48280209359144444,
+   "volume": 103920.0999541741,
+   "scale": 0.983,
+   "bbox_mm": [
+    80.02,
+    80.02,
+    31.93
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/002/A_00429049_5870a62a79772510f11e1379_step_001_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A1"
+  },
+  "A_00438953_766e6c0964c7310264dd3fc4_step_000_x": {
+   "solids": 1,
+   "faces": 50,
+   "kinds": {
+    "SPHERE": 16,
+    "CYLINDER": 24,
+    "PLANE": 10
+   },
+   "analytic": true,
+   "bbox": [
+    117.6528036594391,
+    103.32720354199411,
+    65.278
+   ],
+   "aspect": 1.8023346864094962,
+   "fill": 0.8951252285436205,
+   "volume": 710342.16430433,
+   "scale": 0.68,
+   "bbox_mm": [
+    80.004,
+    70.262,
+    44.389
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00438953_766e6c0964c7310264dd3fc4_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00436498_c5a387051442040ef4f07384_step_003_x": {
+   "solids": 1,
+   "faces": 58,
+   "kinds": {
+    "PLANE": 30,
+    "TORUS": 4,
+    "CYLINDER": 24
+   },
+   "analytic": true,
+   "bbox": [
+    117.7877812979266,
+    31.78610173740818,
+    17.0
+   ],
+   "aspect": 6.928693017525094,
+   "fill": 0.053460443237142635,
+   "volume": 3402.663378055567,
+   "scale": 0.679,
+   "bbox_mm": [
+    79.978,
+    21.583,
+    11.543
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00436498_c5a387051442040ef4f07384_step_003_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00436918_a637bac386074f988eb1231a_step_000_x": {
+   "solids": 1,
+   "faces": 55,
+   "kinds": {
+    "PLANE": 29,
+    "CYLINDER": 24,
+    "TORUS": 2
+   },
+   "analytic": true,
+   "bbox": [
+    21.60697113197633,
+    18.1519483650657,
+    38.10000000000002
+   ],
+   "aspect": 2.098948235954952,
+   "fill": 0.1369698816846653,
+   "volume": 2046.7612938658704,
+   "scale": 2.1,
+   "bbox_mm": [
+    45.375,
+    38.119,
+    80.01
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00436918_a637bac386074f988eb1231a_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00422089_17473aa5dc9d94365756c3a5_step_000_x": {
+   "solids": 1,
+   "faces": 55,
+   "kinds": {
+    "CONE": 5,
+    "CYLINDER": 8,
+    "PLANE": 42
+   },
+   "analytic": true,
+   "bbox": [
+    105.18678385572353,
+    61.85170449316512,
+    287.6138880968092
+   ],
+   "aspect": 4.650055975880046,
+   "fill": 0.3116121808470316,
+   "volume": 583092.0601349752,
+   "scale": 0.278,
+   "bbox_mm": [
+    29.242,
+    17.195,
+    79.957
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00422089_17473aa5dc9d94365756c3a5_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00423044_586db29e79772510f11b02c6_step_035_x": {
+   "solids": 1,
+   "faces": 53,
+   "kinds": {
+    "CYLINDER": 26,
+    "PLANE": 27
+   },
+   "analytic": true,
+   "bbox": [
+    101.6000002,
+    120.65000011934538,
+    98.4250001
+   ],
+   "aspect": 1.2258064515800329,
+   "fill": 0.15886700417535674,
+   "volume": 191672.6579531351,
+   "scale": 0.663,
+   "bbox_mm": [
+    67.361,
+    79.991,
+    65.256
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00423044_586db29e79772510f11b02c6_step_035_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00433702_7552f0db510eaaa16d7bfa68_step_000_x": {
+   "solids": 1,
+   "faces": 51,
+   "kinds": {
+    "CYLINDER": 27,
+    "PLANE": 12,
+    "SPHERE": 12
+   },
+   "analytic": true,
+   "bbox": [
+    37.87918445633696,
+    59.918843889403846,
+    20.000000200000006
+   ],
+   "aspect": 2.99594216451077,
+   "fill": 0.4320221045765607,
+   "volume": 19611.012363503633,
+   "scale": 1.335,
+   "bbox_mm": [
+    50.569,
+    79.992,
+    26.7
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00433702_7552f0db510eaaa16d7bfa68_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00439345_58a412aadad0e5083b940012_step_009_x": {
+   "solids": 1,
+   "faces": 50,
+   "kinds": {
+    "CONE": 15,
+    "CYLINDER": 13,
+    "PLANE": 22
+   },
+   "analytic": true,
+   "bbox": [
+    4.49600020003997,
+    10.675000200020001,
+    4.9600002
+   ],
+   "aspect": 2.3743326790610686,
+   "fill": 0.22487357629223154,
+   "volume": 53.532106647768174,
+   "scale": 7.494,
+   "bbox_mm": [
+    33.693,
+    79.998,
+    37.17
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00439345_58a412aadad0e5083b940012_step_009_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00432827_5872c407e617a810bd1fda30_step_000_x": {
+   "solids": 1,
+   "faces": 54,
+   "kinds": {
+    "PLANE": 46,
+    "CYLINDER": 8
+   },
+   "analytic": true,
+   "bbox": [
+    98.00000000000003,
+    66.0,
+    33.0
+   ],
+   "aspect": 2.9696969696969706,
+   "fill": 0.1637040785607168,
+   "volume": 34941.65334431365,
+   "scale": 0.816,
+   "bbox_mm": [
+    79.968,
+    53.856,
+    26.928
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/003/A_00432827_5872c407e617a810bd1fda30_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00437468_20ac46b0dd8c5bf01593bd5d_step_006_x": {
+   "solids": 1,
+   "faces": 55,
+   "kinds": {
+    "PLANE": 33,
+    "CYLINDER": 22
+   },
+   "analytic": true,
+   "bbox": [
+    16.000000000000007,
+    32.0,
+    11.200000199999998
+   ],
+   "aspect": 2.85714280612245,
+   "fill": 0.43886198075179317,
+   "volume": 2516.6101873625503,
+   "scale": 2.5,
+   "bbox_mm": [
+    40.0,
+    80.0,
+    28.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00437468_20ac46b0dd8c5bf01593bd5d_step_006_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00435268_2de6732c033b15ac7424ad3a_step_000_x": {
+   "solids": 1,
+   "faces": 55,
+   "kinds": {
+    "PLANE": 33,
+    "CYLINDER": 22
+   },
+   "analytic": true,
+   "bbox": [
+    48.0,
+    8.0,
+    5.000000200000001
+   ],
+   "aspect": 9.599999616000014,
+   "fill": 0.4852754820440601,
+   "volume": 931.7289627937525,
+   "scale": 1.667,
+   "bbox_mm": [
+    80.016,
+    13.336,
+    8.335
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00435268_2de6732c033b15ac7424ad3a_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00433374_9f81566ee5b8edea2fd2d167_step_002_x": {
+   "solids": 1,
+   "faces": 58,
+   "kinds": {
+    "PLANE": 27,
+    "CYLINDER": 23,
+    "SPHERE": 8
+   },
+   "analytic": true,
+   "bbox": [
+    152.4,
+    76.2000000000001,
+    101.6000000000001
+   ],
+   "aspect": 1.9999999999999973,
+   "fill": 0.6566302821995339,
+   "volume": 774737.457029413,
+   "scale": 0.525,
+   "bbox_mm": [
+    80.01,
+    40.005,
+    53.34
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00433374_9f81566ee5b8edea2fd2d167_step_002_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00433433_3e2c48b9c99bf980fd5b39c7_step_005_x": {
+   "solids": 1,
+   "faces": 55,
+   "kinds": {
+    "PLANE": 35,
+    "CONE": 2,
+    "TORUS": 1,
+    "CYLINDER": 17
+   },
+   "analytic": true,
+   "bbox": [
+    32.740600000000065,
+    29.3878001,
+    11.633200200000003
+   ],
+   "aspect": 2.8144104319635157,
+   "fill": 0.5926223127727425,
+   "volume": 6633.319441200535,
+   "scale": 2.443,
+   "bbox_mm": [
+    79.985,
+    71.794,
+    28.42
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00433433_3e2c48b9c99bf980fd5b39c7_step_005_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00428700_478e2930939273b24def0cf8_step_016_x": {
+   "solids": 1,
+   "faces": 52,
+   "kinds": {
+    "PLANE": 32,
+    "CONE": 2,
+    "CYLINDER": 18
+   },
+   "analytic": true,
+   "bbox": [
+    106.0000002,
+    11.75000020000666,
+    20.4000002
+   ],
+   "aspect": 9.021276459207202,
+   "fill": 0.6757581379336647,
+   "volume": 17169.798413234956,
+   "scale": 0.755,
+   "bbox_mm": [
+    80.03,
+    8.871,
+    15.402
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/002/A_00428700_478e2930939273b24def0cf8_step_016_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00425573_8f6f3508eb000658525e42e6_step_000_x": {
+   "solids": 1,
+   "faces": 51,
+   "kinds": {
+    "CYLINDER": 17,
+    "PLANE": 34
+   },
+   "analytic": true,
+   "bbox": [
+    59.5,
+    20.000000200000002,
+    16.5000001
+   ],
+   "aspect": 3.606060584205693,
+   "fill": 0.24134953718608337,
+   "volume": 4738.898238758325,
+   "scale": 1.345,
+   "bbox_mm": [
+    80.028,
+    26.9,
+    22.193
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00425573_8f6f3508eb000658525e42e6_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00439477_71a2d5442e6e341a8eb9e6c5_step_000_x": {
+   "solids": 1,
+   "faces": 54,
+   "kinds": {
+    "PLANE": 26,
+    "CYLINDER": 24,
+    "TORUS": 4
+   },
+   "analytic": true,
+   "bbox": [
+    400.000000000001,
+    404.92092674477,
+    360.0
+   ],
+   "aspect": 1.1247803520688056,
+   "fill": 0.143993629771135,
+   "volume": 8396068.897767086,
+   "scale": 0.198,
+   "bbox_mm": [
+    79.2,
+    80.174,
+    71.28
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00439477_71a2d5442e6e341a8eb9e6c5_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00420034_3a12315be3344cc859f03d0d_step_000_x": {
+   "solids": 1,
+   "faces": 58,
+   "kinds": {
+    "CYLINDER": 24,
+    "PLANE": 28,
+    "TORUS": 4,
+    "CONE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    35.56000020050801,
+    7.5590402,
+    7.5590402
+   ],
+   "aspect": 4.704300977326197,
+   "fill": 0.2689927994921722,
+   "volume": 546.5573254795895,
+   "scale": 2.25,
+   "bbox_mm": [
+    80.01,
+    17.008,
+    17.008
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00420034_3a12315be3344cc859f03d0d_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00425997_716d2e4294153560d5744da2_step_000_x": {
+   "solids": 1,
+   "faces": 51,
+   "kinds": {
+    "CONE": 25,
+    "PLANE": 10,
+    "TORUS": 2,
+    "CYLINDER": 14
+   },
+   "analytic": true,
+   "bbox": [
+    11.112500200022847,
+    7.937500200000761,
+    12.831609932753901
+   ],
+   "aspect": 1.6165807381967274,
+   "fill": 0.4756007103967332,
+   "volume": 538.2935484382878,
+   "scale": 6.235,
+   "bbox_mm": [
+    69.286,
+    49.49,
+    80.005
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00425997_716d2e4294153560d5744da2_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00438367_d0ea6ffe6d9544908279a06a_step_000_x": {
+   "solids": 1,
+   "faces": 50,
+   "kinds": {
+    "CYLINDER": 24,
+    "PLANE": 5,
+    "TORUS": 21
+   },
+   "analytic": true,
+   "bbox": [
+    120.0000002,
+    119.7916668666667,
+    68.0000002
+   ],
+   "aspect": 1.7647058801038062,
+   "fill": 0.14494256815996473,
+   "volume": 141681.36126575732,
+   "scale": 0.667,
+   "bbox_mm": [
+    80.04,
+    79.901,
+    45.356
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00438367_d0ea6ffe6d9544908279a06a_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00423768_691c7378381937377a6addf4_step_000_x": {
+   "solids": 1,
+   "faces": 51,
+   "kinds": {
+    "CYLINDER": 25,
+    "PLANE": 26
+   },
+   "analytic": true,
+   "bbox": [
+    200.0,
+    192.217647551763,
+    34.54215854809654
+   ],
+   "aspect": 5.790026113206555,
+   "fill": 0.13411576031115585,
+   "volume": 178095.33458114002,
+   "scale": 0.4,
+   "bbox_mm": [
+    80.0,
+    76.887,
+    13.817
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00423768_691c7378381937377a6addf4_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00439238_a2b9275bf6bc557496f260e2_step_013_x": {
+   "solids": 1,
+   "faces": 50,
+   "kinds": {
+    "TORUS": 1,
+    "CYLINDER": 20,
+    "PLANE": 26,
+    "SPHERE": 3
+   },
+   "analytic": true,
+   "bbox": [
+    24.200000000000003,
+    41.0,
+    15.000000100000001
+   ],
+   "aspect": 2.733333315111111,
+   "fill": 0.23901426089465203,
+   "volume": 3557.249268610102,
+   "scale": 1.951,
+   "bbox_mm": [
+    47.214,
+    79.991,
+    29.265
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00439238_a2b9275bf6bc557496f260e2_step_013_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00420362_4790ca289e020e314dabc717_step_000_x": {
+   "solids": 1,
+   "faces": 56,
+   "kinds": {
+    "CYLINDER": 20,
+    "PLANE": 36
+   },
+   "analytic": true,
+   "bbox": [
+    23.0187502,
+    42.382470047080545,
+    15.535691923193511
+   ],
+   "aspect": 2.72807096437121,
+   "fill": 0.2744774592399944,
+   "volume": 4160.11454919901,
+   "scale": 1.888,
+   "bbox_mm": [
+    43.459,
+    80.018,
+    29.331
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00420362_4790ca289e020e314dabc717_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00438021_587535c5819b6b181b05c96d_step_060_x": {
+   "solids": 1,
+   "faces": 51,
+   "kinds": {
+    "CYLINDER": 25,
+    "PLANE": 26
+   },
+   "analytic": true,
+   "bbox": [
+    97.2370403319261,
+    35.56000000000002,
+    6.9850002
+   ],
+   "aspect": 13.92083572623607,
+   "fill": 0.8321184660146823,
+   "volume": 20097.640176034965,
+   "scale": 0.823,
+   "bbox_mm": [
+    80.026,
+    29.266,
+    5.749
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00438021_587535c5819b6b181b05c96d_step_060_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00421675_f3fdcc916f8543daef24a046_step_000_x": {
+   "solids": 1,
+   "faces": 54,
+   "kinds": {
+    "CYLINDER": 21,
+    "PLANE": 33
+   },
+   "analytic": true,
+   "bbox": [
+    55.0,
+    45.0,
+    59.0
+   ],
+   "aspect": 1.3111111111111111,
+   "fill": 0.20735596177382798,
+   "volume": 30279.15431802323,
+   "scale": 1.356,
+   "bbox_mm": [
+    74.58,
+    61.02,
+    80.004
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00421675_f3fdcc916f8543daef24a046_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00432849_3994e6df5df67f6a103962d4_step_000_x": {
+   "solids": 1,
+   "faces": 50,
+   "kinds": {
+    "SPHERE": 8,
+    "CYLINDER": 24,
+    "PLANE": 10,
+    "TORUS": 8
+   },
+   "analytic": true,
+   "bbox": [
+    144.394133893372,
+    25.400000200000004,
+    13.42139885715416
+   ],
+   "aspect": 10.758501064619203,
+   "fill": 0.1977673815322213,
+   "volume": 9734.994634821518,
+   "scale": 0.554,
+   "bbox_mm": [
+    79.994,
+    14.072,
+    7.435
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/003/A_00432849_3994e6df5df67f6a103962d4_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00439480_9dc43731e933eb0dca423785_step_000_x": {
+   "solids": 1,
+   "faces": 58,
+   "kinds": {
+    "PLANE": 34,
+    "SPHERE": 4,
+    "CYLINDER": 20
+   },
+   "analytic": true,
+   "bbox": [
+    65.1,
+    39.78777118027213,
+    39.5052060484886
+   ],
+   "aspect": 1.6478840768504384,
+   "fill": 0.18205355693557018,
+   "volume": 18628.76653959752,
+   "scale": 1.229,
+   "bbox_mm": [
+    80.008,
+    48.899,
+    48.552
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00439480_9dc43731e933eb0dca423785_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00430143_0b9d3bc4aa812ab337654ece_step_000_x": {
+   "solids": 1,
+   "faces": 53,
+   "kinds": {
+    "PLANE": 28,
+    "CYLINDER": 19,
+    "SPHERE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    53.01272803666478,
+    50.0,
+    71.2941037490964
+   ],
+   "aspect": 1.4258820749819279,
+   "fill": 0.49989743471546233,
+   "volume": 94467.99106805636,
+   "scale": 1.122,
+   "bbox_mm": [
+    59.48,
+    56.1,
+    79.992
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/003/A_00430143_0b9d3bc4aa812ab337654ece_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00421467_16885708eb673585017084d6_step_000_x": {
+   "solids": 1,
+   "faces": 56,
+   "kinds": {
+    "PLANE": 47,
+    "CYLINDER": 9
+   },
+   "analytic": true,
+   "bbox": [
+    76.20000010000003,
+    154.9400001,
+    10.922000199999998
+   ],
+   "aspect": 14.18604626101362,
+   "fill": 0.22543076204431958,
+   "volume": 29069.253760129184,
+   "scale": 0.516,
+   "bbox_mm": [
+    39.319,
+    79.949,
+    5.636
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00421467_16885708eb673585017084d6_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00426017_586ee688b894ee1030e0be4b_step_000_x": {
+   "solids": 1,
+   "faces": 56,
+   "kinds": {
+    "CYLINDER": 20,
+    "PLANE": 36
+   },
+   "analytic": true,
+   "bbox": [
+    177.80000020000003,
+    44.450000200000005,
+    31.750000100000005
+   ],
+   "aspect": 5.599999988661417,
+   "fill": 0.5134320961198808,
+   "volume": 128833.93435530191,
+   "scale": 0.45,
+   "bbox_mm": [
+    80.01,
+    20.003,
+    14.288
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00426017_586ee688b894ee1030e0be4b_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00420727_8c334d8e793af8f32d2fb608_step_000_x": {
+   "solids": 1,
+   "faces": 51,
+   "kinds": {
+    "PLANE": 35,
+    "CYLINDER": 14,
+    "TORUS": 2
+   },
+   "analytic": true,
+   "bbox": [
+    80.0,
+    80.00000000000009,
+    12.5000001
+   ],
+   "aspect": 6.399999948800008,
+   "fill": 0.36251060815072533,
+   "volume": 29000.848884064846,
+   "scale": 1.0,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    12.5
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00420727_8c334d8e793af8f32d2fb608_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A2"
+  },
+  "A_00423888_a5568bd7fee522be1187b3f8_step_000_x": {
+   "solids": 1,
+   "faces": 74,
+   "kinds": {
+    "PLANE": 70,
+    "CYLINDER": 4
+   },
+   "analytic": true,
+   "bbox": [
+    70.0000000000001,
+    30.000000000000096,
+    6.000000200000001
+   ],
+   "aspect": 11.666666277777805,
+   "fill": 0.7381476221324242,
+   "volume": 9300.66034889059,
+   "scale": 1.143,
+   "bbox_mm": [
+    80.01,
+    34.29,
+    6.858
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00423888_a5568bd7fee522be1187b3f8_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00427502_649ab3d3e9729a0d008de262_step_000_x": {
+   "solids": 1,
+   "faces": 63,
+   "kinds": {
+    "PLANE": 63
+   },
+   "analytic": true,
+   "bbox": [
+    165.00000000000003,
+    108.0,
+    250.0
+   ],
+   "aspect": 2.314814814814815,
+   "fill": 0.08659407173686837,
+   "volume": 385776.58958774863,
+   "scale": 0.32,
+   "bbox_mm": [
+    52.8,
+    34.56,
+    80.0
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/002/A_00427502_649ab3d3e9729a0d008de262_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00427842_586fe01b79772510f11d83a6_step_004_x": {
+   "solids": 1,
+   "faces": 73,
+   "kinds": {
+    "CONE": 17,
+    "PLANE": 38,
+    "CYLINDER": 16,
+    "SPHERE": 1,
+    "TORUS": 1
+   },
+   "analytic": true,
+   "bbox": [
+    225.04000019999998,
+    19.0500002,
+    75.5650001
+   ],
+   "aspect": 11.813123246056447,
+   "fill": 0.2255359835392744,
+   "volume": 73061.9456578684,
+   "scale": 0.355,
+   "bbox_mm": [
+    79.889,
+    6.763,
+    26.826
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/002/A_00427842_586fe01b79772510f11d83a6_step_004_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00430115_4e831acd2ccef54ef0cc9bf0_step_000_x": {
+   "solids": 1,
+   "faces": 65,
+   "kinds": {
+    "PLANE": 39,
+    "CYLINDER": 25,
+    "CONE": 1
+   },
+   "analytic": true,
+   "bbox": [
+    62.85950851039428,
+    145.0500002,
+    62.85950851039429
+   ],
+   "aspect": 2.307526794868511,
+   "fill": 0.3777559795419627,
+   "volume": 216506.55182497235,
+   "scale": 0.552,
+   "bbox_mm": [
+    34.698,
+    80.068,
+    34.698
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/003/A_00430115_4e831acd2ccef54ef0cc9bf0_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00421300_9e904ba7ae369f6f4229cfee_step_000_x": {
+   "solids": 1,
+   "faces": 64,
+   "kinds": {
+    "PLANE": 52,
+    "CYLINDER": 8,
+    "SPHERE": 4
+   },
+   "analytic": true,
+   "bbox": [
+    170.1799999999999,
+    45.0,
+    142.24
+   ],
+   "aspect": 3.7817777777777755,
+   "fill": 0.17861295838754876,
+   "volume": 194560.9779363221,
+   "scale": 0.47,
+   "bbox_mm": [
+    79.985,
+    21.15,
+    66.853
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00421300_9e904ba7ae369f6f4229cfee_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00430914_920ff13fc7c3c40c4fe439c8_step_000_x": {
+   "solids": 1,
+   "faces": 73,
+   "kinds": {
+    "CYLINDER": 25,
+    "PLANE": 39,
+    "TORUS": 7,
+    "SPHERE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    33.0,
+    33.00000012660624,
+    25.000000200000002
+   ],
+   "aspect": 1.3199999945042495,
+   "fill": 0.3623416970941753,
+   "volume": 9864.75282015359,
+   "scale": 2.424,
+   "bbox_mm": [
+    79.992,
+    79.992,
+    60.6
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/003/A_00430914_920ff13fc7c3c40c4fe439c8_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00425534_64335e066d3bb4ecce22d173_step_005_x": {
+   "solids": 1,
+   "faces": 59,
+   "kinds": {
+    "PLANE": 34,
+    "CYLINDER": 19,
+    "TORUS": 4,
+    "CONE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    35.0,
+    38.0,
+    18.270492784817602
+   ],
+   "aspect": 2.0798563261291565,
+   "fill": 0.2891575564025708,
+   "volume": 7026.457893745116,
+   "scale": 2.105,
+   "bbox_mm": [
+    73.675,
+    79.99,
+    38.459
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/001/A_00425534_64335e066d3bb4ecce22d173_step_005_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00433816_a9baff9b17080b1054029cd3_step_000_x": {
+   "solids": 1,
+   "faces": 62,
+   "kinds": {
+    "CYLINDER": 21,
+    "PLANE": 40,
+    "TORUS": 1
+   },
+   "analytic": true,
+   "bbox": [
+    81.0,
+    42.18015757686661,
+    32.0
+   ],
+   "aspect": 2.53125,
+   "fill": 0.44202880215482765,
+   "volume": 48327.43701762376,
+   "scale": 0.988,
+   "bbox_mm": [
+    80.028,
+    41.674,
+    31.616
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00433816_a9baff9b17080b1054029cd3_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00427380_346c16892d79861f1bcb1e07_step_000_x": {
+   "solids": 1,
+   "faces": 62,
+   "kinds": {
+    "PLANE": 62
+   },
+   "analytic": true,
+   "bbox": [
+    1117.6,
+    254.00000000000006,
+    965.2
+   ],
+   "aspect": 4.399999999999999,
+   "fill": 0.18075280942029978,
+   "volume": 49524771.35483228,
+   "scale": 0.072,
+   "bbox_mm": [
+    80.467,
+    18.288,
+    69.494
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/002/A_00427380_346c16892d79861f1bcb1e07_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00433180_568e7e8eea5754f78f63b2d0_step_000_x": {
+   "solids": 1,
+   "faces": 71,
+   "kinds": {
+    "PLANE": 41,
+    "CYLINDER": 30
+   },
+   "analytic": true,
+   "bbox": [
+    63.5,
+    14.39355906032368,
+    12.141200199999998
+   ],
+   "aspect": 5.230125436857553,
+   "fill": 0.44336242665322745,
+   "volume": 4919.969667814856,
+   "scale": 1.26,
+   "bbox_mm": [
+    80.01,
+    18.136,
+    15.298
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00433180_568e7e8eea5754f78f63b2d0_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00433732_2445bf084a00feb3a66e709c_step_001_x": {
+   "solids": 1,
+   "faces": 63,
+   "kinds": {
+    "CYLINDER": 61,
+    "PLANE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    15.0000002,
+    15.0000002,
+    24.000000200000002
+   ],
+   "aspect": 1.599999992,
+   "fill": 0.30391166492792443,
+   "volume": 1641.1230480500976,
+   "scale": 3.333,
+   "bbox_mm": [
+    49.995,
+    49.995,
+    79.992
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00433732_2445bf084a00feb3a66e709c_step_001_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00426866_17d0e3c95610c332fcc8eef1_step_002_x": {
+   "solids": 1,
+   "faces": 76,
+   "kinds": {
+    "CYLINDER": 34,
+    "PLANE": 42
+   },
+   "analytic": true,
+   "bbox": [
+    45.17999999999999,
+    17.780000000000005,
+    16.4000001
+   ],
+   "aspect": 2.7548780319824506,
+   "fill": 0.23736982441715185,
+   "volume": 3127.1401274644645,
+   "scale": 1.771,
+   "bbox_mm": [
+    80.014,
+    31.488,
+    29.044
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/002/A_00426866_17d0e3c95610c332fcc8eef1_step_002_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00439020_fa83779317c7784ea0972605_step_005_x": {
+   "solids": 1,
+   "faces": 69,
+   "kinds": {
+    "CONE": 17,
+    "PLANE": 34,
+    "CYLINDER": 16,
+    "TORUS": 1,
+    "SPHERE": 1
+   },
+   "analytic": true,
+   "bbox": [
+    225.04000019999998,
+    19.0500002,
+    75.5650001
+   ],
+   "aspect": 11.813123246056447,
+   "fill": 0.23561749647954924,
+   "volume": 76327.8322761924,
+   "scale": 0.355,
+   "bbox_mm": [
+    79.889,
+    6.763,
+    26.826
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00439020_fa83779317c7784ea0972605_step_005_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00428606_23371becea37d06559e904e1_step_000_x": {
+   "solids": 1,
+   "faces": 66,
+   "kinds": {
+    "TORUS": 28,
+    "PLANE": 6,
+    "CYLINDER": 32
+   },
+   "analytic": true,
+   "bbox": [
+    127.0000001,
+    25.4000002,
+    127.00000000000003
+   ],
+   "aspect": 4.999999964566929,
+   "fill": 0.9104512217371199,
+   "volume": 372990.56421773636,
+   "scale": 0.63,
+   "bbox_mm": [
+    80.01,
+    16.002,
+    80.01
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/002/A_00428606_23371becea37d06559e904e1_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00438866_13481f4ab00aa70d0406f5b3_step_000_x": {
+   "solids": 1,
+   "faces": 73,
+   "kinds": {
+    "CONE": 24,
+    "PLANE": 22,
+    "CYLINDER": 27
+   },
+   "analytic": true,
+   "bbox": [
+    25.0000002,
+    25.0000002,
+    19.5000002
+   ],
+   "aspect": 1.2820512791584484,
+   "fill": 0.542670541838667,
+   "volume": 6613.797402313328,
+   "scale": 3.2,
+   "bbox_mm": [
+    80.0,
+    80.0,
+    62.4
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00438866_13481f4ab00aa70d0406f5b3_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00437190_5875024f0dbf5317c8fd357d_step_002_x": {
+   "solids": 1,
+   "faces": 69,
+   "kinds": {
+    "CYLINDER": 14,
+    "PLANE": 49,
+    "CONE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    48.0000000000291,
+    34.50000000002024,
+    58.00000020011637
+   ],
+   "aspect": 1.681159426089343,
+   "fill": 0.3650602343869918,
+   "volume": 35063.30551342192,
+   "scale": 1.379,
+   "bbox_mm": [
+    66.192,
+    47.576,
+    79.982
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/005/A_00437190_5875024f0dbf5317c8fd357d_step_002_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00430471_0052f6bd859184c8ee187c7e_step_058_x": {
+   "solids": 1,
+   "faces": 69,
+   "kinds": {
+    "CONE": 5,
+    "CYLINDER": 48,
+    "PLANE": 16
+   },
+   "analytic": true,
+   "bbox": [
+    1.0668002161615342,
+    14.833600200043076,
+    14.833600200000001
+   ],
+   "aspect": 13.904759274811566,
+   "fill": 0.1531076706039758,
+   "volume": 35.939595377281805,
+   "scale": 5.393,
+   "bbox_mm": [
+    5.753,
+    79.998,
+    79.998
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/003/A_00430471_0052f6bd859184c8ee187c7e_step_058_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00432228_81795fb1fede8b5b77ec1939_step_006_x": {
+   "solids": 1,
+   "faces": 64,
+   "kinds": {
+    "PLANE": 19,
+    "CYLINDER": 33,
+    "TORUS": 12
+   },
+   "analytic": true,
+   "bbox": [
+    96.0000002,
+    100.00000002660624,
+    18.000000000116415
+   ],
+   "aspect": 5.555555556997749,
+   "fill": 0.08608899143867217,
+   "volume": 14876.177755648792,
+   "scale": 0.8,
+   "bbox_mm": [
+    76.8,
+    80.0,
+    14.4
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/003/A_00432228_81795fb1fede8b5b77ec1939_step_006_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00439853_df9fe442a2c3cf897a11f1e6_step_000_x": {
+   "solids": 1,
+   "faces": 77,
+   "kinds": {
+    "CYLINDER": 18,
+    "PLANE": 51,
+    "TORUS": 6,
+    "SPHERE": 2
+   },
+   "analytic": true,
+   "bbox": [
+    50.000000199999995,
+    50.0000002,
+    180.0000001
+   ],
+   "aspect": 3.5999999876000004,
+   "fill": 0.24436778657489377,
+   "volume": 109965.50489951817,
+   "scale": 0.444,
+   "bbox_mm": [
+    22.2,
+    22.2,
+    79.92
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/006/A_00439853_df9fe442a2c3cf897a11f1e6_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00421156_c96de354f3d2c23c06611dc7_step_000_x": {
+   "solids": 1,
+   "faces": 61,
+   "kinds": {
+    "TORUS": 14,
+    "CYLINDER": 28,
+    "CONE": 4,
+    "PLANE": 15
+   },
+   "analytic": true,
+   "bbox": [
+    96.82442659144961,
+    33.337500200254,
+    88.90000010050801
+   ],
+   "aspect": 2.904369734078379,
+   "fill": 0.12454531284066889,
+   "volume": 35739.388243229776,
+   "scale": 0.826,
+   "bbox_mm": [
+    79.977,
+    27.537,
+    73.431
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00421156_c96de354f3d2c23c06611dc7_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00435010_6594a398f7f2a923c1cab106_step_000_x": {
+   "solids": 1,
+   "faces": 67,
+   "kinds": {
+    "CYLINDER": 19,
+    "TORUS": 15,
+    "SPHERE": 15,
+    "PLANE": 18
+   },
+   "analytic": true,
+   "bbox": [
+    12.904933416926522,
+    43.18000020025401,
+    12.103751609144782
+   ],
+   "aspect": 3.5674889566991856,
+   "fill": 0.32413532162757264,
+   "volume": 2186.1742278966935,
+   "scale": 1.853,
+   "bbox_mm": [
+    23.913,
+    80.013,
+    22.428
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00435010_6594a398f7f2a923c1cab106_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00427601_42ac41b25f665af96ec9474f_step_000_x": {
+   "solids": 1,
+   "faces": 61,
+   "kinds": {
+    "TORUS": 11,
+    "CYLINDER": 31,
+    "PLANE": 13,
+    "SPHERE": 6
+   },
+   "analytic": true,
+   "bbox": [
+    13.977974247877011,
+    22.076739040530327,
+    10.000000199999997
+   ],
+   "aspect": 2.2076738598995562,
+   "fill": 0.22808869562797907,
+   "volume": 703.8545629324401,
+   "scale": 3.624,
+   "bbox_mm": [
+    50.656,
+    80.006,
+    36.24
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/002/A_00427601_42ac41b25f665af96ec9474f_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00420340_0321ba2393bd69bb8568526d_step_000_x": {
+   "solids": 1,
+   "faces": 66,
+   "kinds": {
+    "CYLINDER": 36,
+    "PLANE": 30
+   },
+   "analytic": true,
+   "bbox": [
+    50.00000020000003,
+    171.5072204123902,
+    36.85406322176262
+   ],
+   "aspect": 4.653685521196854,
+   "fill": 0.4455888858426124,
+   "volume": 140822.5294732873,
+   "scale": 0.466,
+   "bbox_mm": [
+    23.3,
+    79.922,
+    17.174
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/000/A_00420340_0321ba2393bd69bb8568526d_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00431938_72abb7c41a33122bca1e6678_step_000_x": {
+   "solids": 1,
+   "faces": 67,
+   "kinds": {
+    "CYLINDER": 31,
+    "SPHERE": 8,
+    "PLANE": 24,
+    "TORUS": 4
+   },
+   "analytic": true,
+   "bbox": [
+    120.0,
+    40.0,
+    30.000000200000017
+   ],
+   "aspect": 3.999999973333331,
+   "fill": 0.38165946394234374,
+   "volume": 54958.96317409062,
+   "scale": 0.667,
+   "bbox_mm": [
+    80.04,
+    26.68,
+    20.01
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/003/A_00431938_72abb7c41a33122bca1e6678_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  },
+  "A_00435020_5873e8bcbf09331774584983_step_000_x": {
+   "solids": 1,
+   "faces": 68,
+   "kinds": {
+    "CONE": 2,
+    "CYLINDER": 7,
+    "PLANE": 59
+   },
+   "analytic": true,
+   "bbox": [
+    38.00000000000001,
+    31.00000020000001,
+    3.9003674000000004
+   ],
+   "aspect": 9.742671933931147,
+   "fill": 0.1572515610571113,
+   "volume": 722.5131845052776,
+   "scale": 2.105,
+   "bbox_mm": [
+    79.99,
+    65.255,
+    8.21
+   ],
+   "src": "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/cand/src/004/A_00435020_5873e8bcbf09331774584983_step_000_x.step",
+   "family": "A",
+   "label": "x",
+   "stratum": "A3"
+  }
+ },
+ "renderer": {
+  "engine": "draftwright",
+  "version": "0.4.23",
+  "font_size_patch": 5.25,
+  "python": "/dev/shm/bimrose2/c2stage/dw_venv/bin/python",
+  "driver": "render_ext.py/worker_v11 VLM_MODE=1 via render_isolated.sh"
+ },
+ "source": "bench B: Fusion 360 Gallery s2.0.1 extended STEP + ABC STEP chunks (see results/bench_b/README.md)"
+}

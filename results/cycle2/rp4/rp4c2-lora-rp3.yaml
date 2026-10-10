@@ -1,0 +1,55 @@
+# RP4C2 (2026-10-09, GRPO_HANDOFF "Expert-iteration round 2", step 6): repairer for the round-2 generator. Warm start =
+# rp3's weights (model_id = runs/rp3-delta-e55/final) + a fresh LoRA r64 (full FT of the 27B on 2 B300 ran at 150 s/step:
+# FSDP2 2-rank memory thrash). rp3 data recipe otherwise (rft 0.6 / reasoning 0.2 / plain 0.2, max_seq 7168) on rp3's mix
+# (rft_mix_rp3, 257,578 rows incl. 59,576 repair rows) + the new repair tier (results/cycle2/rp4: 4,277 rows = near-miss
+# draws of the round-2 policy / GT-search starts -> best known program on TRAINING parts, cand.png rendered) at ~1/2 of
+# RFT draws (x60). lr 2e-5 (LoRA rate of rft1/rft2), 200 steps x 64 (2 GPUs DDP x 2 x accum 16), ~0.9 epoch of the tier.
+run_name: rp4c2-lora-rp3
+model_id: /srv/scratch/bimrose2/runs/rp3-delta-e55/final
+output_dir: /srv/scratch/bimrose2/runs/rp4c2-lora-rp3
+accel_config: accelerate_ddp_2gpu.yaml
+
+use_lora: true
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.0
+lora_target_modules: auto
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 7168
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 2.0e-5
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.05
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 2
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 16
+gradient_checkpointing: true
+
+max_steps: 200
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: false
+save_final: true
+logging_steps: 10
+eval_every: 0
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 43

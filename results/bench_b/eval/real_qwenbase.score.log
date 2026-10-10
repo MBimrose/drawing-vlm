@@ -1,0 +1,6 @@
+[score] 4 checkpoints, 144 parts, 1152 candidates
+[score] 1106 to execute
+[score] 500/1106  2.33/s  eta 0.1 h
+[score] 1000/1106  2.43/s  eta 0.0 h
+[score] volume bound settled 0 of 1106 without a boolean; 0 overlaps timed out (scored 0)
+[score] executed 52/1152 -> bench_b/eval/real_qwenbase.json

@@ -1,0 +1,20 @@
+[gen] shard 0/1: 908 keys, 0 done, 908 to draw, K=16
+[gen] 50/908 parts  12.3 parts/min  eta 1.2 h
+[gen] 100/908 parts  15.7 parts/min  eta 0.9 h
+[gen] 150/908 parts  16.5 parts/min  eta 0.8 h
+[gen] 200/908 parts  17.3 parts/min  eta 0.7 h
+[gen] 250/908 parts  17.1 parts/min  eta 0.6 h
+[gen] 300/908 parts  17.5 parts/min  eta 0.6 h
+[gen] 350/908 parts  17.6 parts/min  eta 0.5 h
+[gen] 400/908 parts  17.6 parts/min  eta 0.5 h
+[gen] 450/908 parts  17.4 parts/min  eta 0.4 h
+[gen] 500/908 parts  17.9 parts/min  eta 0.4 h
+[gen] 550/908 parts  18.0 parts/min  eta 0.3 h
+[gen] 600/908 parts  18.0 parts/min  eta 0.3 h
+[gen] 650/908 parts  18.0 parts/min  eta 0.2 h
+[gen] 700/908 parts  18.0 parts/min  eta 0.2 h
+[gen] 750/908 parts  18.1 parts/min  eta 0.1 h
+[gen] 800/908 parts  18.1 parts/min  eta 0.1 h
+[gen] 850/908 parts  18.1 parts/min  eta 0.1 h
+[gen] 900/908 parts  18.0 parts/min  eta 0.0 h
+[gen] DONE shard 0: 908 parts, 14526 candidates with code -> results/guide/v3/bo16_c2_t10.shard0.json.partial.json

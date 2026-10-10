@@ -1,0 +1,95 @@
+[rc] 280 parts, 0 done, 4397 distinct candidates to render, 16 workers
+[rc][gt] F_51775_49ef614a_14_x: F1 0.9858 (P 0.983 R 0.989) variant v5 8s
+[rc][gt] F_33655_f8991a06_5_x: F1 0.9909 (P 0.988 R 0.993) variant v5 10s
+[rc][gt] F_45840_cc6ce3ba_6_x: F1 0.9920 (P 0.998 R 0.986) variant v4 9s
+[rc][gt] F_20350_3f27fd95_1_x: F1 0.9888 (P 0.991 R 0.987) variant v2 7s
+[rc][gt] F_129408_cd90a7a9_10_x: F1 0.9957 (P 0.998 R 0.993) variant v2 6s
+[rc][gt] mean F1 of ground truth re-renders: 0.9906 over 5
+[rc] 50/4397 rendered, 0.8 s/candidate
+[rc] 100/4397 rendered, 0.7 s/candidate
+[rc] 150/4397 rendered, 0.7 s/candidate
+[rc] 200/4397 rendered, 0.7 s/candidate
+[rc] 250/4397 rendered, 0.7 s/candidate
+[rc] 300/4397 rendered, 0.7 s/candidate
+[rc] 350/4397 rendered, 0.7 s/candidate
+[rc] 400/4397 rendered, 0.7 s/candidate
+[rc] 450/4397 rendered, 0.7 s/candidate
+[rc] 500/4397 rendered, 0.7 s/candidate
+[rc] 550/4397 rendered, 0.7 s/candidate
+[rc] 600/4397 rendered, 0.7 s/candidate
+[rc] 650/4397 rendered, 0.7 s/candidate
+[rc] 700/4397 rendered, 0.7 s/candidate
+[rc] 750/4397 rendered, 0.7 s/candidate
+[rc] 800/4397 rendered, 0.7 s/candidate
+[rc] 850/4397 rendered, 0.7 s/candidate
+[rc] 900/4397 rendered, 0.7 s/candidate
+[rc] 950/4397 rendered, 0.7 s/candidate
+[rc] 1000/4397 rendered, 0.7 s/candidate
+[rc] 1050/4397 rendered, 0.7 s/candidate
+[rc] 1100/4397 rendered, 0.7 s/candidate
+[rc] 1150/4397 rendered, 0.7 s/candidate
+[rc] 1200/4397 rendered, 0.7 s/candidate
+[rc] 1250/4397 rendered, 0.8 s/candidate
+[rc] 1300/4397 rendered, 0.8 s/candidate
+[rc] 1350/4397 rendered, 0.8 s/candidate
+[rc] 1400/4397 rendered, 0.8 s/candidate
+[rc] 1450/4397 rendered, 0.8 s/candidate
+[rc] 1500/4397 rendered, 0.8 s/candidate
+[rc] 1550/4397 rendered, 0.8 s/candidate
+[rc] 1600/4397 rendered, 0.8 s/candidate
+[rc] 1650/4397 rendered, 0.8 s/candidate
+[rc] 1700/4397 rendered, 0.8 s/candidate
+[rc] 1750/4397 rendered, 0.8 s/candidate
+[rc] 1800/4397 rendered, 0.8 s/candidate
+[rc] 1850/4397 rendered, 0.8 s/candidate
+[rc] 1900/4397 rendered, 0.8 s/candidate
+[rc] 1950/4397 rendered, 0.8 s/candidate
+[rc] 2000/4397 rendered, 0.8 s/candidate
+[rc] 2050/4397 rendered, 0.8 s/candidate
+[rc] 2100/4397 rendered, 0.8 s/candidate
+[rc] 2150/4397 rendered, 0.8 s/candidate
+[rc] 2200/4397 rendered, 0.8 s/candidate
+[rc] 2250/4397 rendered, 0.8 s/candidate
+[rc] 2300/4397 rendered, 0.8 s/candidate
+[rc] 2350/4397 rendered, 0.8 s/candidate
+[rc] 2400/4397 rendered, 0.8 s/candidate
+[rc] 2450/4397 rendered, 0.8 s/candidate
+[rc] 2500/4397 rendered, 0.8 s/candidate
+[rc] 2550/4397 rendered, 0.8 s/candidate
+[rc] 2600/4397 rendered, 0.8 s/candidate
+[rc] 2650/4397 rendered, 0.7 s/candidate
+[rc] 2700/4397 rendered, 0.7 s/candidate
+[rc] 2750/4397 rendered, 0.8 s/candidate
+[rc] 2800/4397 rendered, 0.7 s/candidate
+[rc] 2850/4397 rendered, 0.7 s/candidate
+[rc] 2900/4397 rendered, 0.7 s/candidate
+[rc] 2950/4397 rendered, 0.7 s/candidate
+[rc] 3000/4397 rendered, 0.7 s/candidate
+[rc] 3050/4397 rendered, 0.7 s/candidate
+[rc] 3100/4397 rendered, 0.8 s/candidate
+[rc] 3150/4397 rendered, 0.8 s/candidate
+[rc] 3200/4397 rendered, 0.8 s/candidate
+[rc] 3250/4397 rendered, 0.8 s/candidate
+[rc] 3300/4397 rendered, 0.8 s/candidate
+[rc] 3350/4397 rendered, 0.8 s/candidate
+[rc] 3400/4397 rendered, 0.8 s/candidate
+[rc] 3450/4397 rendered, 0.8 s/candidate
+[rc] 3500/4397 rendered, 0.8 s/candidate
+[rc] 3550/4397 rendered, 0.8 s/candidate
+[rc] 3600/4397 rendered, 0.8 s/candidate
+[rc] 3650/4397 rendered, 0.7 s/candidate
+[rc] 3700/4397 rendered, 0.8 s/candidate
+[rc] 3750/4397 rendered, 0.8 s/candidate
+[rc] 3800/4397 rendered, 0.8 s/candidate
+[rc] 3850/4397 rendered, 0.8 s/candidate
+[rc] 3900/4397 rendered, 0.8 s/candidate
+[rc] 3950/4397 rendered, 0.8 s/candidate
+[rc] 4000/4397 rendered, 0.8 s/candidate
+[rc] 4050/4397 rendered, 0.8 s/candidate
+[rc] 4100/4397 rendered, 0.8 s/candidate
+[rc] 4150/4397 rendered, 0.8 s/candidate
+[rc] 4200/4397 rendered, 0.8 s/candidate
+[rc] 4250/4397 rendered, 0.8 s/candidate
+[rc] 4300/4397 rendered, 0.8 s/candidate
+[rc] 4350/4397 rendered, 0.8 s/candidate
+[rc] {"n_parts": 280, "first_draw": 0.6258571837211532, "render_select": 0.6698668019945442, "ceiling": 0.751286056960367, "render_select_ge85": 0.3607142857142857, "ceiling_ge85": 0.45714285714285713, "rendered": 4254, "tol_px": 3.0, "pearson_score_vs_iou": 0.44015602975386403}

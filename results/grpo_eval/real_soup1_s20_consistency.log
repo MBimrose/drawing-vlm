@@ -1,0 +1,29 @@
+[cons] 144 parts, k=8
+[cons] re-executed 1103 candidates
+/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/trimesh/triangles.py:302: RuntimeWarning: invalid value encountered in divide
+  center_mass = integrated[1:4] / volume
+[iou] monte-carlo fallback: iou=0.000 (52s, n=20000, 328+504 faces)
+[iou] monte-carlo fallback: iou=0.000 (2s, n=20000, 328+504 faces)
+[iou] monte-carlo fallback: iou=0.000 (2s, n=20000, 396+504 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 396+504 faces)
+[iou] monte-carlo fallback: iou=0.000 (3s, n=20000, 504+2836 faces)
+[iou] monte-carlo fallback: iou=0.177 (81s, n=20000, 1336+880 faces)
+[iou] monte-carlo fallback: iou=0.000 (3s, n=20000, 504+2836 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 504+12 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 504+12 faces)
+[iou] monte-carlo fallback: iou=0.187 (12s, n=20000, 1336+880 faces)
+[iou] monte-carlo fallback: iou=0.235 (8s, n=20000, 760+880 faces)
+[iou] monte-carlo fallback: iou=0.245 (8s, n=20000, 760+880 faces)
+[iou] monte-carlo fallback: iou=0.269 (10s, n=20000, 1036+880 faces)
+[iou] monte-carlo fallback: iou=0.263 (10s, n=20000, 1036+880 faces)
+[iou] monte-carlo fallback: iou=0.215 (10s, n=20000, 1036+880 faces)
+[iou] monte-carlo fallback: iou=0.185 (9s, n=20000, 1036+880 faces)
+[iou] monte-carlo fallback: iou=0.163 (10s, n=20000, 880+1064 faces)
+[iou] monte-carlo fallback: iou=0.169 (10s, n=20000, 880+1064 faces)
+[iou] monte-carlo fallback: iou=0.168 (27s, n=20000, 880+6806 faces)
+[iou] monte-carlo fallback: iou=0.163 (26s, n=20000, 880+6806 faces)
+first_exec   mean=0.594 median=0.583 iou85=0.299 iou50=0.576
+consistency  mean=0.624 median=0.660 iou85=0.319 iou50=0.653
+cons_hybrid  mean=0.605 median=0.597 iou85=0.306 iou50=0.597
+verifier     mean=0.594 median=0.583 iou85=0.299 iou50=0.576
+oracle       mean=0.691 median=0.746 iou85=0.368 iou50=0.757

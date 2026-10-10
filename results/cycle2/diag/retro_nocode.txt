@@ -1,0 +1,271 @@
+== guide_lr4e5 (129 steps; aligned 2064/2064 rollout lines)
+  s  0-  9 n= 1280 exec=0.758 nocode=0.004 nocode/fail=0.02
+  s 10- 19 n= 1280 exec=0.741 nocode=0.002 nocode/fail=0.01
+  s 20- 29 n= 1280 exec=0.748 nocode=0.077 nocode/fail=0.31
+  s 30- 39 n= 1280 exec=0.866 nocode=0.019 nocode/fail=0.14
+  s 40- 49 n= 1280 exec=0.841 nocode=0.065 nocode/fail=0.41
+  s 50- 59 n= 1280 exec=0.787 nocode=0.095 nocode/fail=0.45
+  s 60- 69 n= 1280 exec=0.895 nocode=0.029 nocode/fail=0.27
+  s 70- 79 n= 1280 exec=0.815 nocode=0.108 nocode/fail=0.58
+  s 80- 89 n= 1280 exec=0.300 nocode=0.230 nocode/fail=0.33
+  s 90- 99 n= 1280 exec=0.060 nocode=0.233 nocode/fail=0.25
+  s100-109 n= 1280 exec=0.223 nocode=0.189 nocode/fail=0.24
+  s110-119 n= 1280 exec=0.224 nocode=0.117 nocode/fail=0.15
+  s120-129 n= 1152 exec=0.004 nocode=0.190 nocode/fail=0.19
+guide_mb8b: no rollouts
+== gt10 (187 steps; aligned 2992/2992 rollout lines)
+  s  0-  9 n= 1280 exec=0.727 nocode=0.003 nocode/fail=0.01
+  s 10- 19 n= 1280 exec=0.688 nocode=0.003 nocode/fail=0.01
+  s 20- 29 n= 1280 exec=0.544 nocode=0.034 nocode/fail=0.08
+  s 30- 39 n= 1280 exec=0.667 nocode=0.006 nocode/fail=0.02
+  s 40- 49 n= 1280 exec=0.163 nocode=0.163 nocode/fail=0.19
+  s 50- 59 n= 1280 exec=0.326 nocode=0.387 nocode/fail=0.57
+  s 60- 69 n= 1280 exec=0.563 nocode=0.318 nocode/fail=0.73
+  s 70- 79 n= 1280 exec=0.683 nocode=0.171 nocode/fail=0.54
+  s 80- 89 n= 1280 exec=0.734 nocode=0.148 nocode/fail=0.56
+  s 90- 99 n= 1280 exec=0.670 nocode=0.194 nocode/fail=0.59
+  s100-109 n= 1280 exec=0.686 nocode=0.170 nocode/fail=0.54
+  s110-119 n= 1280 exec=0.699 nocode=0.164 nocode/fail=0.55
+  s120-129 n= 1280 exec=0.766 nocode=0.130 nocode/fail=0.56
+  s130-139 n= 1280 exec=0.776 nocode=0.105 nocode/fail=0.47
+  s140-149 n= 1280 exec=0.823 nocode=0.070 nocode/fail=0.39
+  s150-159 n= 1280 exec=0.765 nocode=0.109 nocode/fail=0.47
+  s160-169 n= 1280 exec=0.562 nocode=0.163 nocode/fail=0.37
+  s170-179 n= 1280 exec=0.169 nocode=0.296 nocode/fail=0.36
+  s180-189 n=  896 exec=0.128 nocode=0.253 nocode/fail=0.29
+gt10_kl0: no rollouts
+gt10_mb8: no rollouts
+gt10_np32: no rollouts
+gfrom_t10: no rollouts
+== ent_hi (79 steps; aligned 1264/1264 rollout lines)
+  s  0-  9 n= 1280 exec=0.602 nocode=0.000 nocode/fail=0.00
+  s 10- 19 n= 1280 exec=0.567 nocode=0.000 nocode/fail=0.00
+  s 20- 29 n= 1280 exec=0.748 nocode=0.001 nocode/fail=0.00
+  s 30- 39 n= 1280 exec=0.834 nocode=0.002 nocode/fail=0.01
+  s 40- 49 n= 1280 exec=0.884 nocode=0.002 nocode/fail=0.01
+  s 50- 59 n= 1280 exec=0.823 nocode=0.010 nocode/fail=0.06
+  s 60- 69 n= 1280 exec=0.241 nocode=0.116 nocode/fail=0.15
+  s 70- 79 n= 1152 exec=0.204 nocode=0.089 nocode/fail=0.11
+== ent_guide (43 steps; aligned 688/688 rollout lines)
+  s  0-  9 n= 1280 exec=0.698 nocode=0.002 nocode/fail=0.01
+  s 10- 19 n= 1280 exec=0.608 nocode=0.002 nocode/fail=0.01
+  s 20- 29 n= 1280 exec=0.428 nocode=0.024 nocode/fail=0.04
+  s 30- 39 n= 1280 exec=0.438 nocode=0.016 nocode/fail=0.03
+  s 40- 49 n=  384 exec=0.393 nocode=0.034 nocode/fail=0.06
+== dense_t10 (119 steps; aligned 1904/1904 rollout lines)
+  s  0-  9 n= 1280 exec=0.754 nocode=0.000 nocode/fail=0.00
+  s 10- 19 n= 1280 exec=0.780 nocode=0.000 nocode/fail=0.00
+  s 20- 29 n= 1280 exec=0.842 nocode=0.000 nocode/fail=0.00
+  s 30- 39 n= 1280 exec=0.876 nocode=0.002 nocode/fail=0.01
+  s 40- 49 n= 1280 exec=0.910 nocode=0.000 nocode/fail=0.00
+  s 50- 59 n= 1280 exec=0.934 nocode=0.002 nocode/fail=0.02
+  s 60- 69 n= 1280 exec=0.945 nocode=0.003 nocode/fail=0.06
+  s 70- 79 n= 1280 exec=0.801 nocode=0.016 nocode/fail=0.08
+  s 80- 89 n= 1280 exec=0.467 nocode=0.105 nocode/fail=0.20
+  s 90- 99 n= 1280 exec=0.444 nocode=0.109 nocode/fail=0.20
+  s100-109 n= 1280 exec=0.473 nocode=0.091 nocode/fail=0.17
+  s110-119 n= 1152 exec=0.457 nocode=0.089 nocode/fail=0.16
+== mix_lr4e5 (256 steps; aligned 4096/4096 rollout lines)
+  s  0-  9 n= 1280 exec=0.770 nocode=0.002 nocode/fail=0.01
+  s 10- 19 n= 1280 exec=0.845 nocode=0.002 nocode/fail=0.02
+  s 20- 29 n= 1280 exec=0.920 nocode=0.000 nocode/fail=0.00
+  s 30- 39 n= 1280 exec=0.947 nocode=0.004 nocode/fail=0.07
+  s 40- 49 n= 1280 exec=0.961 nocode=0.002 nocode/fail=0.04
+  s 50- 59 n= 1280 exec=0.970 nocode=0.001 nocode/fail=0.03
+  s 60- 69 n= 1280 exec=0.980 nocode=0.000 nocode/fail=0.00
+  s 70- 79 n= 1280 exec=0.973 nocode=0.000 nocode/fail=0.00
+  s 80- 89 n= 1280 exec=0.973 nocode=0.000 nocode/fail=0.00
+  s 90- 99 n= 1280 exec=0.970 nocode=0.001 nocode/fail=0.03
+  s100-109 n= 1280 exec=0.981 nocode=0.000 nocode/fail=0.00
+  s110-119 n= 1280 exec=0.978 nocode=0.000 nocode/fail=0.00
+  s120-129 n= 1280 exec=0.980 nocode=0.001 nocode/fail=0.04
+  s130-139 n= 1280 exec=0.975 nocode=0.002 nocode/fail=0.06
+  s140-149 n= 1280 exec=0.974 nocode=0.000 nocode/fail=0.00
+  s150-159 n= 1280 exec=0.980 nocode=0.000 nocode/fail=0.00
+  s160-169 n= 1280 exec=0.984 nocode=0.001 nocode/fail=0.05
+  s170-179 n= 1280 exec=0.973 nocode=0.000 nocode/fail=0.00
+  s180-189 n= 1280 exec=0.976 nocode=0.000 nocode/fail=0.00
+  s190-199 n= 1280 exec=0.986 nocode=0.000 nocode/fail=0.00
+  s200-209 n= 1280 exec=0.991 nocode=0.000 nocode/fail=0.00
+  s210-219 n= 1280 exec=0.984 nocode=0.000 nocode/fail=0.00
+  s220-229 n= 1280 exec=0.998 nocode=0.000 nocode/fail=0.00
+  s230-239 n= 1280 exec=0.983 nocode=0.001 nocode/fail=0.05
+  s240-249 n= 1280 exec=0.988 nocode=0.000 nocode/fail=0.00
+  s250-259 n=  768 exec=0.984 nocode=0.000 nocode/fail=0.00
+mix_b32: no rollouts
+mix_lr4e5_g16: no rollouts
+rft1_rl_lr2e5: no rollouts
+rft1_rl: no rollouts
+== ent_t10 (300 steps; aligned 4800/4800 rollout lines)
+  s  0-  9 n= 1280 exec=0.744 nocode=0.001 nocode/fail=0.00
+  s 10- 19 n= 1280 exec=0.746 nocode=0.000 nocode/fail=0.00
+  s 20- 29 n= 1280 exec=0.835 nocode=0.000 nocode/fail=0.00
+  s 30- 39 n= 1280 exec=0.884 nocode=0.000 nocode/fail=0.00
+  s 40- 49 n= 1280 exec=0.935 nocode=0.000 nocode/fail=0.00
+  s 50- 59 n= 1280 exec=0.960 nocode=0.000 nocode/fail=0.00
+  s 60- 69 n= 1280 exec=0.979 nocode=0.000 nocode/fail=0.00
+  s 70- 79 n= 1280 exec=0.966 nocode=0.000 nocode/fail=0.00
+  s 80- 89 n= 1280 exec=0.978 nocode=0.000 nocode/fail=0.00
+  s 90- 99 n= 1280 exec=0.972 nocode=0.001 nocode/fail=0.03
+  s100-109 n= 1280 exec=0.980 nocode=0.000 nocode/fail=0.00
+  s110-119 n= 1280 exec=0.989 nocode=0.000 nocode/fail=0.00
+  s120-129 n= 1280 exec=0.988 nocode=0.000 nocode/fail=0.00
+  s130-139 n= 1280 exec=0.994 nocode=0.000 nocode/fail=0.00
+  s140-149 n= 1280 exec=0.990 nocode=0.000 nocode/fail=0.00
+  s150-159 n= 1280 exec=0.989 nocode=0.000 nocode/fail=0.00
+  s160-169 n= 1280 exec=0.990 nocode=0.000 nocode/fail=0.00
+  s170-179 n= 1280 exec=0.990 nocode=0.000 nocode/fail=0.00
+  s180-189 n= 1280 exec=0.992 nocode=0.000 nocode/fail=0.00
+  s190-199 n= 1280 exec=0.992 nocode=0.000 nocode/fail=0.00
+  s200-209 n= 1280 exec=0.988 nocode=0.000 nocode/fail=0.00
+  s210-219 n= 1280 exec=0.997 nocode=0.000 nocode/fail=0.00
+  s220-229 n= 1280 exec=0.989 nocode=0.000 nocode/fail=0.00
+  s230-239 n= 1280 exec=0.991 nocode=0.000 nocode/fail=0.00
+  s240-249 n= 1280 exec=0.997 nocode=0.000 nocode/fail=0.00
+  s250-259 n= 1280 exec=0.994 nocode=0.001 nocode/fail=0.12
+  s260-269 n= 1280 exec=0.994 nocode=0.001 nocode/fail=0.12
+  s270-279 n= 1280 exec=0.995 nocode=0.000 nocode/fail=0.00
+  s280-289 n= 1280 exec=0.987 nocode=0.002 nocode/fail=0.18
+  s290-299 n= 1280 exec=0.984 nocode=0.000 nocode/fail=0.00
+== rft2_rl (144 steps; aligned 2304/2304 rollout lines)
+  s  0-  9 n= 1280 exec=0.933 nocode=0.000 nocode/fail=0.00
+  s 10- 19 n= 1280 exec=0.954 nocode=0.000 nocode/fail=0.00
+  s 20- 29 n= 1280 exec=0.961 nocode=0.000 nocode/fail=0.00
+  s 30- 39 n= 1280 exec=0.973 nocode=0.000 nocode/fail=0.00
+  s 40- 49 n= 1280 exec=0.971 nocode=0.000 nocode/fail=0.00
+  s 50- 59 n= 1280 exec=0.974 nocode=0.001 nocode/fail=0.03
+  s 60- 69 n= 1280 exec=0.980 nocode=0.000 nocode/fail=0.00
+  s 70- 79 n= 1280 exec=0.878 nocode=0.074 nocode/fail=0.61
+  s 80- 89 n= 1280 exec=0.784 nocode=0.167 nocode/fail=0.77
+  s 90- 99 n= 1280 exec=0.887 nocode=0.058 nocode/fail=0.51
+  s100-109 n= 1280 exec=0.838 nocode=0.056 nocode/fail=0.35
+  s110-119 n= 1280 exec=0.599 nocode=0.059 nocode/fail=0.15
+  s120-129 n= 1280 exec=0.602 nocode=0.030 nocode/fail=0.08
+  s130-139 n= 1280 exec=0.619 nocode=0.050 nocode/fail=0.13
+  s140-149 n=  512 exec=0.615 nocode=0.041 nocode/fail=0.11
+gfrom_t10: no rollouts
+guide_mb8b: no rollouts
+gt10_np32: no rollouts
+== gfrom_t10 (99 steps; aligned 1584/1584 rollout lines)
+  s120-129 n= 1280 exec=0.975 nocode=0.000 nocode/fail=0.00
+  s130-139 n= 1280 exec=0.964 nocode=0.000 nocode/fail=0.00
+  s140-149 n= 1280 exec=0.951 nocode=0.001 nocode/fail=0.02
+  s150-159 n= 1280 exec=0.929 nocode=0.000 nocode/fail=0.00
+  s160-169 n= 1280 exec=0.941 nocode=0.000 nocode/fail=0.00
+  s170-179 n= 2176 exec=0.942 nocode=0.003 nocode/fail=0.05
+  s180-189 n= 1280 exec=0.891 nocode=0.002 nocode/fail=0.01
+  s190-199 n= 1280 exec=0.628 nocode=0.020 nocode/fail=0.05
+  s200-209 n= 1280 exec=0.458 nocode=0.045 nocode/fail=0.08
+  s210-219 n=  256 exec=0.406 nocode=0.070 nocode/fail=0.12
+== gfrom_cap (120 steps; aligned 1920/1920 rollout lines)
+  s180-189 n= 1280 exec=0.975 nocode=0.000 nocode/fail=0.00
+  s190-199 n= 1280 exec=0.968 nocode=0.000 nocode/fail=0.00
+  s200-209 n= 1280 exec=0.956 nocode=0.000 nocode/fail=0.00
+  s210-219 n= 1280 exec=0.967 nocode=0.000 nocode/fail=0.00
+  s220-229 n= 1280 exec=0.962 nocode=0.000 nocode/fail=0.00
+  s230-239 n= 1280 exec=0.966 nocode=0.000 nocode/fail=0.00
+  s240-249 n= 1280 exec=0.975 nocode=0.000 nocode/fail=0.00
+  s250-259 n= 1280 exec=0.963 nocode=0.000 nocode/fail=0.00
+  s260-269 n= 1280 exec=0.986 nocode=0.000 nocode/fail=0.00
+  s270-279 n= 1280 exec=0.971 nocode=0.000 nocode/fail=0.00
+  s280-289 n= 1280 exec=0.966 nocode=0.001 nocode/fail=0.02
+  s290-299 n= 1280 exec=0.955 nocode=0.000 nocode/fail=0.00
+== guide_mb8b (81 steps; aligned 1296/1296 rollout lines)
+  s  0-  9 n= 1280 exec=0.775 nocode=0.002 nocode/fail=0.01
+  s 10- 19 n= 1280 exec=0.761 nocode=0.002 nocode/fail=0.01
+  s 20- 29 n= 1280 exec=0.781 nocode=0.050 nocode/fail=0.23
+  s 30- 39 n= 1280 exec=0.856 nocode=0.052 nocode/fail=0.36
+  s 40- 49 n= 1280 exec=0.845 nocode=0.055 nocode/fail=0.36
+  s 50- 59 n= 1280 exec=0.841 nocode=0.049 nocode/fail=0.31
+  s 60- 69 n= 2304 exec=0.859 nocode=0.067 nocode/fail=0.47
+  s 70- 79 n=  384 exec=0.279 nocode=0.326 nocode/fail=0.45
+== gt10_np32 (108 steps; aligned 3456/3456 rollout lines)
+  s  0-  9 n= 2560 exec=0.710 nocode=0.001 nocode/fail=0.00
+  s 10- 19 n= 2560 exec=0.619 nocode=0.005 nocode/fail=0.01
+  s 20- 29 n= 2560 exec=0.330 nocode=0.208 nocode/fail=0.31
+  s 30- 39 n= 2560 exec=0.657 nocode=0.211 nocode/fail=0.62
+  s 40- 49 n= 2560 exec=0.694 nocode=0.162 nocode/fail=0.53
+  s 50- 59 n= 2560 exec=0.718 nocode=0.124 nocode/fail=0.44
+  s 60- 69 n= 2560 exec=0.757 nocode=0.111 nocode/fail=0.46
+  s 70- 79 n= 2560 exec=0.740 nocode=0.128 nocode/fail=0.49
+  s 80- 89 n= 2560 exec=0.725 nocode=0.106 nocode/fail=0.38
+  s 90- 99 n= 2560 exec=0.068 nocode=0.173 nocode/fail=0.19
+  s100-109 n= 2048 exec=0.096 nocode=0.100 nocode/fail=0.11
+== gt10_mb8 (101 steps; aligned 1616/1616 rollout lines)
+  s  0-  9 n= 1280 exec=0.710 nocode=0.002 nocode/fail=0.01
+  s 10- 19 n= 1280 exec=0.592 nocode=0.028 nocode/fail=0.07
+  s 20- 29 n= 1280 exec=0.572 nocode=0.251 nocode/fail=0.59
+  s 30- 39 n= 1280 exec=0.752 nocode=0.130 nocode/fail=0.53
+  s 40- 49 n= 1280 exec=0.785 nocode=0.112 nocode/fail=0.52
+  s 50- 59 n= 1280 exec=0.767 nocode=0.097 nocode/fail=0.42
+  s 60- 69 n= 1280 exec=0.841 nocode=0.073 nocode/fail=0.46
+  s 70- 79 n= 1280 exec=0.531 nocode=0.162 nocode/fail=0.34
+  s 80- 89 n= 1280 exec=0.474 nocode=0.355 nocode/fail=0.67
+  s 90- 99 n= 1280 exec=0.466 nocode=0.323 nocode/fail=0.60
+  s100-109 n=  128 exec=0.156 nocode=0.453 nocode/fail=0.54
+== gt10_kl0 (36 steps; aligned 576/576 rollout lines)
+  s  0-  9 n= 1280 exec=0.711 nocode=0.002 nocode/fail=0.01
+  s 10- 19 n= 1280 exec=0.668 nocode=0.001 nocode/fail=0.00
+  s 20- 29 n= 2048 exec=0.452 nocode=0.097 nocode/fail=0.18
+== mix_b32 (300 steps; aligned 9600/9600 rollout lines)
+  s  0-  9 n= 2560 exec=0.779 nocode=0.002 nocode/fail=0.01
+  s 10- 19 n= 2560 exec=0.875 nocode=0.001 nocode/fail=0.01
+  s 20- 29 n= 2560 exec=0.916 nocode=0.000 nocode/fail=0.00
+  s 30- 39 n= 2560 exec=0.930 nocode=0.001 nocode/fail=0.01
+  s 40- 49 n= 2560 exec=0.954 nocode=0.001 nocode/fail=0.03
+  s 50- 59 n= 2560 exec=0.975 nocode=0.000 nocode/fail=0.02
+  s 60- 69 n= 2560 exec=0.978 nocode=0.001 nocode/fail=0.04
+  s 70- 79 n= 2560 exec=0.976 nocode=0.001 nocode/fail=0.03
+  s 80- 89 n= 2560 exec=0.975 nocode=0.000 nocode/fail=0.02
+  s 90- 99 n= 2560 exec=0.979 nocode=0.002 nocode/fail=0.08
+  s100-109 n= 2560 exec=0.987 nocode=0.000 nocode/fail=0.03
+  s110-119 n= 2560 exec=0.982 nocode=0.000 nocode/fail=0.02
+  s120-129 n= 2560 exec=0.845 nocode=0.008 nocode/fail=0.05
+  s130-139 n= 2560 exec=0.424 nocode=0.373 nocode/fail=0.65
+  s140-149 n= 2560 exec=0.053 nocode=0.602 nocode/fail=0.64
+  s150-159 n= 2560 exec=0.000 nocode=0.889 nocode/fail=0.89
+  s160-169 n= 2560 exec=0.000 nocode=0.947 nocode/fail=0.95
+  s170-179 n= 2560 exec=0.000 nocode=0.984 nocode/fail=0.98
+  s180-189 n= 2560 exec=0.073 nocode=0.890 nocode/fail=0.96
+  s190-199 n= 2560 exec=0.189 nocode=0.800 nocode/fail=0.99
+  s200-209 n= 2560 exec=0.265 nocode=0.231 nocode/fail=0.31
+  s210-219 n= 2560 exec=0.197 nocode=0.758 nocode/fail=0.94
+  s220-229 n= 2560 exec=0.055 nocode=0.940 nocode/fail=0.99
+  s230-239 n= 2560 exec=0.070 nocode=0.930 nocode/fail=1.00
+  s240-249 n= 2560 exec=0.216 nocode=0.773 nocode/fail=0.99
+  s250-259 n= 2560 exec=0.036 nocode=0.961 nocode/fail=1.00
+  s260-269 n= 2560 exec=0.054 nocode=0.945 nocode/fail=1.00
+  s270-279 n= 2560 exec=0.052 nocode=0.947 nocode/fail=1.00
+  s280-289 n= 2560 exec=0.025 nocode=0.974 nocode/fail=1.00
+  s290-299 n= 2560 exec=0.000 nocode=1.000 nocode/fail=1.00
+== mix_lr4e5_g16 (220 steps; aligned 1760/1760 rollout lines)
+  s  0-  9 n= 1280 exec=0.639 nocode=0.001 nocode/fail=0.00
+  s 10- 19 n= 1280 exec=0.795 nocode=0.000 nocode/fail=0.00
+  s 20- 29 n= 1280 exec=0.716 nocode=0.002 nocode/fail=0.01
+  s 30- 39 n= 1280 exec=0.863 nocode=0.003 nocode/fail=0.02
+  s 40- 49 n= 1280 exec=0.784 nocode=0.001 nocode/fail=0.00
+  s 50- 59 n= 1280 exec=0.893 nocode=0.002 nocode/fail=0.01
+  s 60- 69 n= 1280 exec=0.503 nocode=0.221 nocode/fail=0.44
+  s 70- 79 n= 1280 exec=0.024 nocode=0.868 nocode/fail=0.89
+  s 80- 89 n= 1280 exec=0.023 nocode=0.909 nocode/fail=0.93
+  s 90- 99 n= 1280 exec=0.003 nocode=0.928 nocode/fail=0.93
+  s100-109 n= 1280 exec=0.005 nocode=0.967 nocode/fail=0.97
+  s110-119 n= 1280 exec=0.000 nocode=0.965 nocode/fail=0.96
+  s120-129 n= 1280 exec=0.000 nocode=0.980 nocode/fail=0.98
+  s130-139 n= 1280 exec=0.000 nocode=0.964 nocode/fail=0.96
+  s140-149 n= 1280 exec=0.000 nocode=0.972 nocode/fail=0.97
+  s150-159 n= 1280 exec=0.001 nocode=0.980 nocode/fail=0.98
+  s160-169 n= 1280 exec=0.000 nocode=0.959 nocode/fail=0.96
+  s170-179 n= 1280 exec=0.000 nocode=0.927 nocode/fail=0.93
+  s180-189 n= 1280 exec=0.130 nocode=0.589 nocode/fail=0.68
+  s190-199 n= 1280 exec=0.525 nocode=0.073 nocode/fail=0.15
+  s200-209 n= 1280 exec=0.002 nocode=0.152 nocode/fail=0.15
+  s210-219 n= 1280 exec=0.002 nocode=0.323 nocode/fail=0.32
+== rft1_rl_lr2e5 (12 steps; aligned 192/192 rollout lines)
+  s  0-  9 n= 1280 exec=0.790 nocode=0.001 nocode/fail=0.00
+  s 10- 19 n=  256 exec=0.461 nocode=0.016 nocode/fail=0.03
+== rft1_rl (34 steps; aligned 544/544 rollout lines)
+  s  0-  9 n= 1280 exec=0.861 nocode=0.000 nocode/fail=0.00
+  s 10- 19 n= 1280 exec=0.781 nocode=0.001 nocode/fail=0.00
+  s 20- 29 n= 1280 exec=0.716 nocode=0.002 nocode/fail=0.01
+  s 30- 39 n=  512 exec=0.219 nocode=0.070 nocode/fail=0.09

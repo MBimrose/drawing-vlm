@@ -1,0 +1,52 @@
+{
+ "e55ctl": {
+  "cands": "results/grpo_eval/real_e55ctl.json",
+  "cons": "results/grpo_eval/real_e55ctl_consistency.json",
+  "vpreds": "results/selection/vpreds_e55ctl.json"
+ },
+ "mix_t10_s120": {
+  "cands": "results/grpo_eval/real_mix_t10_s120.json",
+  "cons": "results/grpo_eval/real_mix_t10_s120_consistency.json",
+  "vpreds": "results/selection/vpreds_mix_t10_s120.json"
+ },
+ "guide_mb8b_s60": {
+  "cands": "results/grpo_eval/real_guide_mb8b_s60.json",
+  "cons": "results/grpo_eval/real_guide_mb8b_s60_consistency.json",
+  "vpreds": "results/selection/vpreds_guide_mb8b_s60.json"
+ },
+ "soup1_s20": {
+  "cands": "results/grpo_eval/real_soup1_s20.json",
+  "cons": "results/grpo_eval/real_soup1_s20_consistency.json",
+  "vpreds": "results/selection/vpreds_soup1_s20.json"
+ },
+ "mix_b32_s200": {
+  "cands": "results/grpo_eval/real_mix_b32_s200.json",
+  "cons": "results/grpo_eval/real_mix_b32_s200_consistency.json",
+  "vpreds": "results/selection/vpreds_mix_b32_s200.json"
+ },
+ "gt10_mb8_s60": {
+  "cands": "results/grpo_eval/real_gt10_mb8_s60.json",
+  "cons": "results/grpo_eval/real_gt10_mb8_s60_consistency.json",
+  "vpreds": "results/selection/vpreds_gt10_mb8_s60.json"
+ },
+ "mix_t10_s200": {
+  "cands": "results/grpo_eval/real_mix_t10_s200.json",
+  "cons": "results/grpo_eval/real_mix_t10_s200_consistency.json",
+  "vpreds": "results/selection/vpreds_mix_t10_s200.json"
+ },
+ "mix_b32_s120": {
+  "cands": "results/grpo_eval/real_mix_b32_s120.json",
+  "cons": "results/grpo_eval/real_mix_b32_s120_consistency.json",
+  "vpreds": "results/selection/vpreds_mix_b32_s120.json"
+ },
+ "mix_cont_s200": {
+  "cands": "results/grpo_eval/real_mix_cont_s200.json",
+  "cons": "results/grpo_eval/real_mix_cont_s200_consistency.json",
+  "vpreds": "results/selection/vpreds_mix_cont_s200.json"
+ },
+ "guide2b_s120": {
+  "cands": "results/grpo_eval/real_guide2b_s120.json",
+  "cons": "results/grpo_eval/real_guide2b_s120_consistency.json",
+  "vpreds": "results/selection/vpreds_guide2b_s120.json"
+ }
+}

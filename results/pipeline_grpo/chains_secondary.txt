@@ -1,0 +1,3 @@
+vote_c1|/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/pipeline_grpo/starts_vote_r1.json|/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/pipeline_grpo/chain_vote_c1.jsonl
+vote_c2|/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/pipeline_grpo/starts_vote_r2.json|/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/pipeline_grpo/chain_vote_c2.jsonl
+vote_c3|/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/pipeline_grpo/starts_vote_r3.json|/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/pipeline_grpo/chain_vote_c3.jsonl

@@ -1,0 +1,254 @@
+[
+ {
+  "id": "6989952c",
+  "name": "Double-flanged spool",
+  "iou": 1.0,
+  "agree": 0.99,
+  "n_exec": 5,
+  "sizes": {
+   "drawing": [
+    1714,
+    980
+   ],
+   "gt": [
+    630,
+    835
+   ],
+   "gen": [
+    630,
+    834
+   ]
+  }
+ },
+ {
+  "id": "1fbfa3c8",
+  "name": "Flanged hub",
+  "iou": 1.0,
+  "agree": 0.91,
+  "n_exec": 7,
+  "sizes": {
+   "drawing": [
+    1714,
+    1023
+   ],
+   "gt": [
+    835,
+    629
+   ],
+   "gen": [
+    835,
+    629
+   ]
+  }
+ },
+ {
+  "id": "9ca41004",
+  "name": "Slotted shaft on mounting plate",
+  "iou": 1.0,
+  "agree": 0.47,
+  "n_exec": 8,
+  "sizes": {
+   "drawing": [
+    1716,
+    1063
+   ],
+   "gt": [
+    676,
+    702
+   ],
+   "gen": [
+    676,
+    702
+   ]
+  }
+ },
+ {
+  "id": "390dc972",
+  "name": "Flanged bushing",
+  "iou": 1.0,
+  "agree": 0.94,
+  "n_exec": 8,
+  "sizes": {
+   "drawing": [
+    1714,
+    1188
+   ],
+   "gt": [
+    570,
+    799
+   ],
+   "gen": [
+    570,
+    799
+   ]
+  }
+ },
+ {
+  "id": "40a1be28",
+  "name": "Flared pedestal mount",
+  "iou": 0.989,
+  "agree": 0.64,
+  "n_exec": 7,
+  "sizes": {
+   "drawing": [
+    1668,
+    1146
+   ],
+   "gt": [
+    835,
+    710
+   ],
+   "gen": [
+    835,
+    710
+   ]
+  }
+ },
+ {
+  "id": "2a127616",
+  "name": "Splined hub on shaft",
+  "iou": 1.0,
+  "agree": 0.8,
+  "n_exec": 6,
+  "sizes": {
+   "drawing": [
+    1641,
+    1045
+   ],
+   "gt": [
+    474,
+    751
+   ],
+   "gen": [
+    474,
+    751
+   ]
+  }
+ },
+ {
+  "id": "475993e4",
+  "name": "Lofted hopper with rib and boss",
+  "iou": 0.965,
+  "agree": 0.97,
+  "n_exec": 7,
+  "sizes": {
+   "drawing": [
+    1617,
+    1049
+   ],
+   "gt": [
+    835,
+    493
+   ],
+   "gen": [
+    835,
+    493
+   ]
+  }
+ },
+ {
+  "id": "232ebd96",
+  "name": "L-arm with bored boss",
+  "iou": 0.963,
+  "agree": 0.69,
+  "n_exec": 5,
+  "sizes": {
+   "drawing": [
+    1714,
+    902
+   ],
+   "gt": [
+    545,
+    452
+   ],
+   "gen": [
+    545,
+    452
+   ]
+  }
+ },
+ {
+  "id": "a2f71172",
+  "name": "Bolted hub housing",
+  "iou": 1.0,
+  "agree": 0.97,
+  "n_exec": 8,
+  "sizes": {
+   "drawing": [
+    1570,
+    857
+   ],
+   "gt": [
+    790,
+    768
+   ],
+   "gen": [
+    790,
+    768
+   ]
+  }
+ },
+ {
+  "id": "0264f04e",
+  "name": "Stepped tower with flange",
+  "iou": 0.975,
+  "agree": 0.96,
+  "n_exec": 8,
+  "sizes": {
+   "drawing": [
+    1666,
+    1081
+   ],
+   "gt": [
+    694,
+    739
+   ],
+   "gen": [
+    694,
+    727
+   ]
+  }
+ },
+ {
+  "id": "8f00d7de",
+  "name": "Cone-tipped spike on plate",
+  "iou": 1.0,
+  "agree": 0.9,
+  "n_exec": 8,
+  "sizes": {
+   "drawing": [
+    1606,
+    1119
+   ],
+   "gt": [
+    588,
+    713
+   ],
+   "gen": [
+    588,
+    713
+   ]
+  }
+ },
+ {
+  "id": "27676dd6",
+  "name": "Grooved spool sleeve",
+  "iou": 0.956,
+  "agree": 0.94,
+  "n_exec": 7,
+  "sizes": {
+   "drawing": [
+    1528,
+    924
+   ],
+   "gt": [
+    585,
+    834
+   ],
+   "gen": [
+    608,
+    834
+   ]
+  }
+ }
+]

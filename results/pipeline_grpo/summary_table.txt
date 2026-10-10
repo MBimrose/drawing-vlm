@@ -1,0 +1,106 @@
+Full pipeline on GRPO generator ent_t10 s120 (2026-10-08) — real bench ext_bench_dw423_perm, 144 parts
+PRIMARY = K=16 -> v3b-EV+v3 ranking -> top-3 distinct starts -> rp3 16x6 per chain (v3 gate, margin 0.1) -> v3 pick across chains
+
+== Full pipeline on GRPO generator ent_t10 s120 — primary (starts = top-3 distinct by v3b-EV + v3)
+  chain files: results/pipeline_grpo/chain_sel_c1.jsonl results/pipeline_grpo/chain_sel_c2.jsonl results/pipeline_grpo/chain_sel_c3.jsonl
+  stage                                        mean
+  K=8 vote (grpo_eval K=8 file)                0.642  ABC 0.560  Fusion 0.694  >=0.85  32%  n=144
+  K=8 vote (first 8 of the K=16 draws)         0.627  ABC 0.553  Fusion 0.674  >=0.85  31%  n=144
+  K=16 vote                                    0.632  ABC 0.554  Fusion 0.682  >=0.85  33%  n=144
+  K=16 selected pick (v3b-EV + v3) = chain-1 start 0.666  ABC 0.587  Fusion 0.717  >=0.85  35%  n=144
+  K=16 oracle (best-of-16, GT)                 0.709  ABC 0.634  Fusion 0.756  >=0.85  40%  n=144
+  single chain (rp3 16x6 from top-1)           0.689  ABC 0.593  Fusion 0.750  >=0.85  42%  n=144
+  MULTI-START 3 chains, v3 pick (label-free)   0.716  ABC 0.632  Fusion 0.770  >=0.85  44%  n=144
+  oracle over the 3 chain finals (GT)          0.740  ABC 0.657  Fusion 0.794  >=0.85  48%  n=144
+  ref: e55 vote pick (0.695 run start)         0.537  ABC 0.487  Fusion 0.567  >=0.85  19%  n=143
+  ref: 0.695 system single chain               0.667  ABC 0.584  Fusion 0.719  >=0.85  40%  n=143
+  ref: 0.695 system (multi-start)              0.695  ABC 0.598  Fusion 0.757  >=0.85  45%  n=143
+  ref: 0.695 oracle over chain finals          0.721  ABC 0.634  Fusion 0.775  >=0.85  47%  n=143
+  (chain entries missing -> start kept: 0)
+
+  paired deltas [95% bootstrap CI]  (+helped / -hurt at |d| > 0.05)
+  multi-start  vs  0.695 system (per part)             +0.020 [-0.004,+0.044]  +33/-27  n=143
+      ABC                                              +0.030 [-0.004,+0.065]  +16/-12  n=55
+      Fusion                                           +0.014 [-0.021,+0.045]  +17/-15  n=88
+  multi-start  vs  e55 vote pick                       +0.179 [+0.143,+0.214]  +97/-11  n=143
+      ABC                                              +0.140 [+0.089,+0.197]  +30/-9  n=55
+      Fusion                                           +0.203 [+0.161,+0.248]  +67/-2  n=88
+  multi-start  vs  GRPO K=16 selected pick (repair adds) +0.050 [+0.030,+0.074]  +45/-17  n=144
+      ABC                                              +0.045 [+0.007,+0.087]  +16/-10  n=56
+      Fusion                                           +0.054 [+0.030,+0.080]  +29/-7  n=88
+  multi-start  vs  single chain                        +0.028 [+0.012,+0.044]  +29/-12  n=144
+      ABC                                              +0.039 [+0.010,+0.071]  +16/-7  n=56
+      Fusion                                           +0.020 [+0.004,+0.039]  +13/-5  n=88
+  single chain vs  K=16 selected pick                  +0.023 [+0.006,+0.042]  +23/-11  n=144
+      ABC                                              +0.006 [-0.025,+0.041]  +5/-6  n=56
+      Fusion                                           +0.033 [+0.014,+0.054]  +18/-5  n=88
+  single chain vs  0.695 system's single chain         +0.020 [-0.006,+0.048]  +40/-30  n=143
+      ABC                                              +0.004 [-0.029,+0.036]  +13/-15  n=55
+      Fusion                                           +0.030 [-0.007,+0.068]  +27/-15  n=88
+  K=16 selected pick vs K=16 vote                      +0.034 [+0.013,+0.056]  +32/-17  n=144
+      ABC                                              +0.033 [+0.004,+0.071]  +11/-5  n=56
+      Fusion                                           +0.035 [+0.008,+0.063]  +21/-12  n=88
+  K=16 selected pick vs e55 vote pick                  +0.131 [+0.100,+0.164]  +87/-11  n=143
+      ABC                                              +0.103 [+0.057,+0.152]  +27/-6  n=55
+      Fusion                                           +0.149 [+0.112,+0.191]  +60/-5  n=88
+  K=16 selected pick vs 0.695 system                   -0.028 [-0.054,-0.003]  +28/-45  n=143
+      ABC                                              -0.008 [-0.053,+0.035]  +16/-13  n=55
+      Fusion                                           -0.040 [-0.072,-0.010]  +12/-32  n=88
+  chain oracle vs 0.695 chain oracle                   +0.018 [-0.002,+0.040]  +33/-21  n=143
+      ABC                                              +0.017 [-0.005,+0.041]  +14/-9  n=55
+      Fusion                                           +0.019 [-0.012,+0.049]  +19/-12  n=88
+
+=================== SECONDARY (exploratory, starts by K=16 vote) ===================
+== Full pipeline on GRPO generator ent_t10 s120 — SECONDARY (starts = top-3 distinct by K=16 VOTE, exact 0.695 start rule)
+  NOTE (secondary): chain-1 start here is the K=16 VOTE pick (0.632), not the selected pick; rows labelled "selected pick" refer to the primary selection stage.
+  chain files: results/pipeline_grpo/chain_vote_c1.jsonl results/pipeline_grpo/chain_vote_c2.jsonl results/pipeline_grpo/chain_vote_c3.jsonl
+  stage                                        mean
+  K=8 vote (grpo_eval K=8 file)                0.642  ABC 0.560  Fusion 0.694  >=0.85  32%  n=144
+  K=8 vote (first 8 of the K=16 draws)         0.627  ABC 0.553  Fusion 0.674  >=0.85  31%  n=144
+  K=16 vote                                    0.632  ABC 0.554  Fusion 0.682  >=0.85  33%  n=144
+  K=16 selected pick (v3b-EV + v3) = chain-1 start 0.666  ABC 0.587  Fusion 0.717  >=0.85  35%  n=144
+  K=16 oracle (best-of-16, GT)                 0.709  ABC 0.634  Fusion 0.756  >=0.85  40%  n=144
+  single chain (rp3 16x6 from top-1)           0.685  ABC 0.583  Fusion 0.750  >=0.85  45%  n=144
+  MULTI-START 3 chains, v3 pick (label-free)   0.700  ABC 0.577  Fusion 0.778  >=0.85  45%  n=144
+  oracle over the 3 chain finals (GT)          0.735  ABC 0.644  Fusion 0.793  >=0.85  50%  n=144
+  ref: e55 vote pick (0.695 run start)         0.537  ABC 0.487  Fusion 0.567  >=0.85  19%  n=143
+  ref: 0.695 system single chain               0.667  ABC 0.584  Fusion 0.719  >=0.85  40%  n=143
+  ref: 0.695 system (multi-start)              0.695  ABC 0.598  Fusion 0.757  >=0.85  45%  n=143
+  ref: 0.695 oracle over chain finals          0.721  ABC 0.634  Fusion 0.775  >=0.85  47%  n=143
+  (chain entries missing -> start kept: 0)
+
+  paired deltas [95% bootstrap CI]  (+helped / -hurt at |d| > 0.05)
+  multi-start  vs  0.695 system (per part)             +0.007 [-0.016,+0.031]  +33/-26  n=143
+      ABC                                              -0.015 [-0.061,+0.028]  +16/-14  n=55
+      Fusion                                           +0.021 [-0.005,+0.051]  +17/-12  n=88
+  multi-start  vs  e55 vote pick                       +0.166 [+0.129,+0.206]  +97/-13  n=143
+      ABC                                              +0.095 [+0.034,+0.159]  +31/-12  n=55
+      Fusion                                           +0.210 [+0.168,+0.257]  +66/-1  n=88
+  multi-start  vs  GRPO K=16 selected pick (repair adds) +0.034 [+0.008,+0.061]  +47/-21  n=144
+      ABC                                              -0.010 [-0.058,+0.037]  +15/-13  n=56
+      Fusion                                           +0.061 [+0.032,+0.094]  +32/-8  n=88
+  multi-start  vs  single chain                        +0.015 [-0.005,+0.035]  +29/-9  n=144
+      ABC                                              -0.006 [-0.048,+0.035]  +11/-6  n=56
+      Fusion                                           +0.027 [+0.011,+0.045]  +18/-3  n=88
+  single chain vs  K=16 selected pick                  +0.019 [-0.006,+0.045]  +40/-24  n=144
+      ABC                                              -0.004 [-0.052,+0.039]  +15/-12  n=56
+      Fusion                                           +0.034 [+0.003,+0.066]  +25/-12  n=88
+  single chain vs  0.695 system's single chain         +0.018 [-0.008,+0.044]  +43/-32  n=143
+      ABC                                              -0.004 [-0.053,+0.037]  +18/-13  n=55
+      Fusion                                           +0.031 [+0.003,+0.064]  +25/-19  n=88
+  K=16 selected pick vs K=16 vote                      +0.034 [+0.013,+0.056]  +32/-17  n=144
+      ABC                                              +0.033 [+0.004,+0.071]  +11/-5  n=56
+      Fusion                                           +0.035 [+0.008,+0.063]  +21/-12  n=88
+  K=16 selected pick vs e55 vote pick                  +0.131 [+0.100,+0.164]  +87/-11  n=143
+      ABC                                              +0.103 [+0.057,+0.152]  +27/-6  n=55
+      Fusion                                           +0.149 [+0.112,+0.191]  +60/-5  n=88
+  K=16 selected pick vs 0.695 system                   -0.028 [-0.054,-0.003]  +28/-45  n=143
+      ABC                                              -0.008 [-0.053,+0.035]  +16/-13  n=55
+      Fusion                                           -0.040 [-0.072,-0.010]  +12/-32  n=88
+  chain oracle vs 0.695 chain oracle                   +0.013 [-0.005,+0.032]  +29/-20  n=143
+      ABC                                              +0.005 [-0.026,+0.030]  +12/-10  n=55
+      Fusion                                           +0.017 [-0.006,+0.044]  +17/-10  n=88
+
+primary - secondary (144 parts, paired): multi-start +0.017 [-0.009,+0.041] +32/-24 | single chain +0.004 [-0.018,+0.028] | chain oracle +0.006 [-0.011,+0.022]
+POST-HOC (not pre-declared, 2x repair compute): v3 pick over all 6 chain finals 0.729, oracle over 6 finals 0.762
+POST-HOC 6-chain v3 pick vs 0.695 (n=143): +0.037 [+0.015,+0.060] — exploratory, not a pre-declared system; needs replication on a fresh draw before it is claimed

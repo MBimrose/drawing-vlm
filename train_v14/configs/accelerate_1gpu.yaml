@@ -1,0 +1,9 @@
+# Single-process LoRA training on one GPU (2026-10-07: verifier v5 warm start on the idle ccc0451 GPU 7).
+compute_environment: LOCAL_MACHINE
+distributed_type: 'NO'
+mixed_precision: bf16
+num_machines: 1
+num_processes: 1
+machine_rank: 0
+main_training_function: main
+same_network: true

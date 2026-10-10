@@ -1,0 +1,20 @@
+[score] 1 checkpoints, 3082 parts, 12328 candidates
+[score] resuming: 30000 candidates already scored
+[score] 7328 to execute
+[score] 500/7328  2.93/s  eta 0.6 h
+[score] 1000/7328  1.70/s  eta 1.0 h
+[score] 1501/7328  1.49/s  eta 1.1 h
+[score] 2000/7328  1.63/s  eta 0.9 h
+[score] 2501/7328  1.52/s  eta 0.9 h
+[score] 3002/7328  1.56/s  eta 0.8 h
+[score] 3500/7328  1.59/s  eta 0.7 h
+[score] 4000/7328  1.51/s  eta 0.6 h
+[score] 4500/7328  1.60/s  eta 0.5 h
+[score] 5000/7328  1.71/s  eta 0.4 h
+[score] 5501/7328  1.78/s  eta 0.3 h
+[score] 6000/7328  1.81/s  eta 0.2 h
+[score] 6502/7328  1.77/s  eta 0.1 h
+[score] 7000/7328  1.87/s  eta 0.0 h
+[score] volume bound settled 0 of 37328 without a boolean; 73 overlaps timed out (scored 0)
+[score] executed 12095/12328 -> results/realpool_v2/bo4_t10s120_d.json
+SCORE LOOP DONE Thu Oct  8 02:51:24 CDT 2026

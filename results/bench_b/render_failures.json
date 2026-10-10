@@ -1,0 +1,32 @@
+{
+ "F_135625_131b1f40_0_x": {
+  "pngs": 0,
+  "renderers": [],
+  "log": "[render] 1 parts, 1 to do, workers=1\ndraftwright renderer failed for d1bf455a98b9970c3d4ad09470514e17 v4 (RuntimeError: ValueError: Start and end points of border must be different.); NO legacy fallback (disabled) - lint=0/0 proj=third scale_fill=0.62\n[render] 1/1 ok=0 fail=1 3s\n[render] done ok=0 fail=1 in 3s -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/render_set/render/iso/F_135625_131b1f40_0_x/out\n"
+ },
+ "A_00431855_58726806ab2ab3177025b1e2_step_000_x": {
+  "pngs": 0,
+  "renderers": [],
+  "log": "[render] 1 parts, 1 to do, workers=1\ndraftwright renderer failed for fa0698596e0b2a9379b42cc9bf596184 v3 (RuntimeError: ValueError: recess pattern members do not have the same body-local geometry); NO legacy fallback (disabled) - lint=0/0 proj=third scale_fill=0.62\n[render] 1/1 ok=0 fail=1 2s\n[render] done ok=0 fail=1 in 2s -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/render_set/render/iso/A_00431855_58726806ab2ab3177025b1e2_step_000_x/out\n"
+ },
+ "A_00422717_2088cec5af6489bf34909a37_step_000_x": {
+  "pngs": 0,
+  "renderers": [],
+  "log": "[render] 1 parts, 1 to do, workers=1\ndraftwright renderer failed for e82c40b2f8858acd6bad687fd758126b v4 (RuntimeError: ValueError: Start and end points of border must be different.); NO legacy fallback (disabled) - lint=0/0 proj=first scale_fill=0.62\n[render] 1/1 ok=0 fail=1 9s\n[render] done ok=0 fail=1 in 9s -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/render_set/render/iso/A_00422717_2088cec5af6489bf34909a37_step_000_x/out\n"
+ },
+ "A_00433437_f9c8d49009411aac8a53f7a5_step_002_x": {
+  "pngs": 0,
+  "renderers": [],
+  "log": "[render] 1 parts, 1 to do, workers=1\ndraftwright renderer failed for 6ed9ec2a6f5f1a99c1942bdc4e00708d v2 (RuntimeError: ValueError: recess pattern members do not have the same body-local geometry); NO legacy fallback (disabled) - lint=0/0 proj=third scale_fill=0.62\n[render] 1/1 ok=0 fail=1 2s\n[render] done ok=0 fail=1 in 2s -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/render_set/render/iso/A_00433437_f9c8d49009411aac8a53f7a5_step_002_x/out\n"
+ },
+ "A_00420275_59c5edffc84d5b2e9c3e3bea_step_000_x": {
+  "pngs": 0,
+  "renderers": [],
+  "log": "[render] 1 parts, 1 to do, workers=1\ndraftwright renderer failed for 16220f3c094d504610cbae1a35682160 v5 (RuntimeError: StopIteration: ); NO legacy fallback (disabled) - lint=0/0 proj=first scale_fill=0.62\n[render] 1/1 ok=0 fail=1 1s\n[render] done ok=0 fail=1 in 1s -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/render_set/render/iso/A_00420275_59c5edffc84d5b2e9c3e3bea_step_000_x/out\n"
+ },
+ "A_00420505_586cc224c0e69a113467d1ca_step_004_x": {
+  "pngs": 0,
+  "renderers": [],
+  "log": "[render] 1 parts, 1 to do, workers=1\ndraftwright renderer failed for 717debf275f7fb3839374d550c8c82cf v5 (RuntimeError: _DrawingTimeout: drawing timed out); NO legacy fallback (disabled) - lint=0/0 proj=first scale_fill=0.62\n[render] 1/1 ok=0 fail=1 61s\n[render] done ok=0 fail=1 in 61s -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/data_ext/bench_b_work/render_set/render/iso/A_00420505_586cc224c0e69a113467d1ca_step_004_x/out\n"
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "c4": {
+  "bank": 407,
+  "pool_keys": 2143,
+  "added_to_pool": 42,
+  "bank_src": {
+   "rl": 364,
+   "gts": 43
+  }
+ },
+ "c2": {
+  "bank": 354,
+  "pool_keys": 1018,
+  "added_to_pool": 110,
+  "bank_src": {
+   "rl": 311,
+   "gts": 43
+  }
+ },
+ "c1": {
+  "bank": 346,
+  "pool_keys": 346,
+  "added_to_pool": 346,
+  "bank_src": {
+   "rl": 284,
+   "gts": 62
+  }
+ },
+ "rp2": {
+  "bank": 3026,
+  "pool_keys": 4500,
+  "added_to_pool": 0,
+  "bank_src": {
+   "gts": 469,
+   "rl": 2557
+  }
+ }
+}

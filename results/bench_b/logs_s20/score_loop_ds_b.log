@@ -1,0 +1,5 @@
+10-10 02:39 scoring benchb_dsv41
+SCORED+VOTED bench_b/eval/benchb_dsv41: [score] executed 2108/2240 -> bench_b/eval/benchb_dsv41.json | [cons] re-executed 2108 candidates
+10-10 03:23 scoring benchb_dsv41_1call
+SCORED+VOTED bench_b/eval/benchb_dsv41_1call: [score] executed 1654/2240 -> bench_b/eval/benchb_dsv41_1call.json | [cons] re-executed 1654 candidates
+10-10 03:58 SCORE LOOP B DONE

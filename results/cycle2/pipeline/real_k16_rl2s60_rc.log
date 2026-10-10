@@ -1,0 +1,53 @@
+[rc] 144 parts, 0 done, 2265 distinct candidates to render, 30 workers
+[rc][gt] F_55230_077b4106_0_medium: F1 0.9991 (P 0.999 R 0.999) variant v4 15s
+[rc][gt] F_55373_ddd74d2f_0_medium: F1 0.9980 (P 1.000 R 0.996) variant v5 12s
+[rc][gt] F_55423_a50f82f4_0_medium: F1 0.9995 (P 1.000 R 0.999) variant v3 12s
+[rc][gt] F_55460_998dd656_0_medium: F1 0.9946 (P 0.993 R 0.996) variant v3 6s
+[rc][gt] F_55527_0736d633_0_medium: F1 0.9935 (P 0.989 R 0.998) variant v2 9s
+[rc][gt] mean F1 of ground truth re-renders: 0.9969 over 5
+[rc] 50/2265 rendered, 1.8 s/candidate
+[rc] 100/2265 rendered, 1.5 s/candidate
+[rc] 150/2265 rendered, 1.4 s/candidate
+[rc] 200/2265 rendered, 1.3 s/candidate
+[rc] 250/2265 rendered, 1.3 s/candidate
+[rc] 300/2265 rendered, 1.2 s/candidate
+[rc] 350/2265 rendered, 1.3 s/candidate
+[rc] 400/2265 rendered, 1.2 s/candidate
+[rc] 450/2265 rendered, 1.2 s/candidate
+[rc] 500/2265 rendered, 1.2 s/candidate
+[rc] 550/2265 rendered, 1.2 s/candidate
+[rc] 600/2265 rendered, 1.2 s/candidate
+[rc] 650/2265 rendered, 1.2 s/candidate
+[rc] 700/2265 rendered, 1.2 s/candidate
+[rc] 750/2265 rendered, 1.2 s/candidate
+[rc] 800/2265 rendered, 1.2 s/candidate
+[rc] 850/2265 rendered, 1.2 s/candidate
+[rc] 900/2265 rendered, 1.2 s/candidate
+[rc] 950/2265 rendered, 1.2 s/candidate
+[rc] 1000/2265 rendered, 1.2 s/candidate
+[rc] 1050/2265 rendered, 1.2 s/candidate
+[rc] 1100/2265 rendered, 1.2 s/candidate
+[rc] 1150/2265 rendered, 1.2 s/candidate
+[rc] 1200/2265 rendered, 1.2 s/candidate
+[rc] 1250/2265 rendered, 1.2 s/candidate
+[rc] 1300/2265 rendered, 1.2 s/candidate
+[rc] 1350/2265 rendered, 1.2 s/candidate
+[rc] 1400/2265 rendered, 1.2 s/candidate
+[rc] 1450/2265 rendered, 1.1 s/candidate
+[rc] 1500/2265 rendered, 1.1 s/candidate
+[rc] 1550/2265 rendered, 1.1 s/candidate
+[rc] 1600/2265 rendered, 1.1 s/candidate
+[rc] 1650/2265 rendered, 1.1 s/candidate
+[rc] 1700/2265 rendered, 1.1 s/candidate
+[rc] 1750/2265 rendered, 1.1 s/candidate
+[rc] 1800/2265 rendered, 1.1 s/candidate
+[rc] 1850/2265 rendered, 1.1 s/candidate
+[rc] 1900/2265 rendered, 1.1 s/candidate
+[rc] 1950/2265 rendered, 1.1 s/candidate
+[rc] 2000/2265 rendered, 1.1 s/candidate
+[rc] 2050/2265 rendered, 1.1 s/candidate
+[rc] 2100/2265 rendered, 1.1 s/candidate
+[rc] 2150/2265 rendered, 1.1 s/candidate
+[rc] 2200/2265 rendered, 1.1 s/candidate
+[rc] 2250/2265 rendered, 1.1 s/candidate
+[rc] {"n_parts": 144, "first_draw": 0.6121201440978038, "render_select": 0.6811678600864598, "ceiling": 0.7431517085494433, "render_select_ge85": 0.3958333333333333, "ceiling_ge85": 0.4861111111111111, "rendered": 2150, "tol_px": 3.0, "pearson_score_vs_iou": 0.4931157522204906}

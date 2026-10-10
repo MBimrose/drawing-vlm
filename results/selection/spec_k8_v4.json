@@ -1,0 +1,23 @@
+{
+ "e55ctl": {
+  "cands": "results/grpo_eval/real_e55ctl.json",
+  "cons": "results/grpo_eval/real_e55ctl_consistency.json",
+  "vpreds": "results/selection/v4preds_e55ctl.json",
+  "rc": "results/selection/rc_3m_v3.json",
+  "rc_offset": 0
+ },
+ "mix_t10_s120": {
+  "cands": "results/grpo_eval/real_mix_t10_s120.json",
+  "cons": "results/grpo_eval/real_mix_t10_s120_consistency.json",
+  "vpreds": "results/selection/v4preds_mix_t10_s120.json",
+  "rc": "results/selection/rc_3m_v3.json",
+  "rc_offset": 8
+ },
+ "guide_mb8b_s60": {
+  "cands": "results/grpo_eval/real_guide_mb8b_s60.json",
+  "cons": "results/grpo_eval/real_guide_mb8b_s60_consistency.json",
+  "vpreds": "results/selection/v4preds_guide_mb8b_s60.json",
+  "rc": "results/selection/rc_3m_v3.json",
+  "rc_offset": 16
+ }
+}

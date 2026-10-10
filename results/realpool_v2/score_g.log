@@ -1,0 +1,9 @@
+[score] 1 checkpoints, 3082 parts, 12328 candidates
+[score] resuming: 41600 candidates already scored
+[score] 1928 to execute
+[score] 504/1928  4.98/s  eta 0.1 h
+[score] 1000/1928  2.65/s  eta 0.1 h
+[score] 1500/1928  1.90/s  eta 0.1 h
+[score] volume bound settled 0 of 43528 without a boolean; 70 overlaps timed out (scored 0)
+[score] executed 12080/12328 -> results/realpool_v2/bo4_t10s120_g.json
+SCORE LOOP DONE Thu Oct  8 03:18:49 CDT 2026

@@ -1,0 +1,21 @@
+[cons] 144 parts, k=8
+[cons] re-executed 1152 candidates
+[iou] monte-carlo fallback: iou=0.988 (63s, n=20000, 3356+1054 faces)
+[iou] monte-carlo fallback: iou=0.988 (13s, n=20000, 3356+1054 faces)
+[iou] monte-carlo fallback: iou=0.985 (12s, n=20000, 3356+768 faces)
+[iou] monte-carlo fallback: iou=0.985 (12s, n=20000, 3356+768 faces)
+[iou] monte-carlo fallback: iou=0.979 (12s, n=20000, 3356+804 faces)
+[iou] monte-carlo fallback: iou=0.979 (12s, n=20000, 3356+804 faces)
+[iou] monte-carlo fallback: iou=0.972 (12s, n=20000, 3356+812 faces)
+[iou] monte-carlo fallback: iou=0.972 (12s, n=20000, 3356+812 faces)
+[iou] monte-carlo fallback: iou=0.984 (12s, n=20000, 3356+820 faces)
+[iou] monte-carlo fallback: iou=0.984 (12s, n=20000, 3356+820 faces)
+[iou] monte-carlo fallback: iou=0.976 (13s, n=20000, 3356+948 faces)
+[iou] monte-carlo fallback: iou=0.976 (12s, n=20000, 3356+948 faces)
+[iou] monte-carlo fallback: iou=0.966 (12s, n=20000, 3356+780 faces)
+[iou] monte-carlo fallback: iou=0.937 (12s, n=20000, 3356+780 faces)
+first_exec   mean=0.611 median=0.639 iou85=0.264 iou50=0.660
+consistency  mean=0.630 median=0.662 iou85=0.312 iou50=0.667
+cons_hybrid  mean=0.612 median=0.657 iou85=0.271 iou50=0.639
+verifier     mean=0.611 median=0.639 iou85=0.264 iou50=0.660
+oracle       mean=0.686 median=0.736 iou85=0.354 iou50=0.743

@@ -1,0 +1,43 @@
+{
+ "rows": 1859,
+ "mean_iou": 0.8908,
+ "from_rl": 977,
+ "from_bank": 882,
+ "iou_ge_0.9": 877,
+ "per_bench": {
+  "rft_corpus4": {
+   "parts": 2216,
+   "rl_cands": 32867,
+   "bank_entries": 1415,
+   "kept": 1194,
+   "kept_rl": 715,
+   "kept_bank": 479,
+   "below": 1022,
+   "no_png": 0,
+   "mean_iou_kept": 0.9
+  },
+  "rft_corpus2_dw423": {
+   "parts": 936,
+   "rl_cands": 14244,
+   "bank_entries": 670,
+   "kept": 541,
+   "kept_rl": 262,
+   "kept_bank": 279,
+   "below": 395,
+   "no_png": 0,
+   "mean_iou_kept": 0.8777
+  },
+  "rft_corpus_dw423": {
+   "parts": 297,
+   "rl_cands": 0,
+   "bank_entries": 297,
+   "kept": 124,
+   "kept_rl": 0,
+   "kept_bank": 124,
+   "below": 173,
+   "no_png": 0,
+   "mean_iou_kept": 0.8598
+  }
+ },
+ "min_iou": 0.75
+}

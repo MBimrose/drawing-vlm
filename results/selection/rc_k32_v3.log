@@ -1,0 +1,46 @@
+[rc2] 3989 candidate sheets
+[rc2] 100/3989
+[rc2] 200/3989
+[rc2] 300/3989
+[rc2] 400/3989
+[rc2] 500/3989
+[rc2] 600/3989
+[rc2] 700/3989
+[rc2] 800/3989
+[rc2] 900/3989
+[rc2] 1000/3989
+[rc2] 1100/3989
+[rc2] 1200/3989
+[rc2] 1300/3989
+[rc2] 1400/3989
+[rc2] 1500/3989
+[rc2] 1600/3989
+[rc2] 1700/3989
+[rc2] 1800/3989
+[rc2] 1900/3989
+[rc2] 2000/3989
+[rc2] 2100/3989
+[rc2] 2200/3989
+[rc2] 2300/3989
+[rc2] 2400/3989
+[rc2] 2500/3989
+[rc2] 2600/3989
+[rc2] 2700/3989
+[rc2] 2800/3989
+[rc2] 2900/3989
+[rc2] 3000/3989
+[rc2] 3100/3989
+[rc2] 3200/3989
+[rc2] 3300/3989
+[rc2] 3400/3989
+[rc2] 3500/3989
+[rc2] 3600/3989
+[rc2] 3700/3989
+[rc2] 3800/3989
+[rc2] 3900/3989
+/srv/scratch/bimrose2/.venv/lib/python3.12/site-packages/numpy/lib/_function_base_impl.py:3036: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/srv/scratch/bimrose2/.venv/lib/python3.12/site-packages/numpy/lib/_function_base_impl.py:3037: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+[rc2] {"n_parts": 144, "select_score": 0.0, "pearson_score": NaN, "select_sil": 0.0, "pearson_sil": NaN, "select_edge": 0.0, "pearson_edge": NaN, "select_v2": 0.0, "pearson_v2": NaN, "select_sil3": 0.0, "pearson_sil3": NaN, "select_edge3": 0.0, "pearson_edge3": NaN, "select_v3": 0.0, "pearson_v3": NaN, "ceiling": 0.0}
+RC_CHAIN_DONE

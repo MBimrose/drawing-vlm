@@ -144,6 +144,13 @@ def maybe_wrap_lora(model, cfg):
     if not cfg.get("use_lora", False):
         return model
     from peft import LoraConfig, TaskType, get_peft_model
+    if cfg.get("lora_init_adapter"):
+        # warm start (2026-10-07, verifier v5): continue training an existing adapter instead of a fresh LoRA
+        from peft import PeftModel
+        model = PeftModel.from_pretrained(model, cfg["lora_init_adapter"], is_trainable=True)
+        print(f"[lora] warm start from {cfg['lora_init_adapter']}", flush=True)
+        model.print_trainable_parameters()
+        return model
 
     targets = cfg.get("lora_target_modules", "auto")
     if targets == "auto":

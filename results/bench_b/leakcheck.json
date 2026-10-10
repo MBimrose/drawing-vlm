@@ -1,0 +1,16 @@
+{
+ "n": 280,
+ "F": 171,
+ "A": 109,
+ "checked": {
+  "fusion_designs": 2225,
+  "abc_ids": 221564,
+  "abc_hashes": 5379,
+  "signatures": 114072
+ },
+ "sha256": {
+  "eval_cache_v15.pkl": "9266e28014c506c054f5cb7d84ffbf72d6c163e7c8bb87710fdf2868ee2c729b",
+  "manifest.json": "a95278bfae302cbc8ed3a41ea077e74e49af5b6dc4a78e6718b2580c95486dc9"
+ },
+ "keys_sha256": "a32a8c6ae9ee937c213015ffaefe76fdf570b5c100ca7c09493889c562f059e9"
+}

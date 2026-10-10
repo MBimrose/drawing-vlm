@@ -1,0 +1,53 @@
+# V5-VERIFIER-RL-WARM (2026-10-07, GRPO_HANDOFF "Selection on RL candidates"): v3b-verifier-real-reg warm-started
+# (lora_init_adapter) and trained on GRPO-generator candidates (mix_t10 s120, K=16 T=1.0) on TRAINING real parts
+# (bank v3 corpus-2/4 hard keys; held-out bench file_ids excluded by pack_scored_real --heldout) + 1/3 v3b pool
+# (anti-forgetting). One H200 (ccc0451 GPU 7): global batch 16, 600 steps, lr 5e-5.
+run_name: v5-verifier-rl-warm
+model_id: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/e51-rft-real-u3-strict90/final
+output_dir: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/v5-verifier-rl-warm
+accel_config: accelerate_1gpu.yaml
+lora_init_adapter: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/runs/v3b-verifier-real-reg/final
+
+use_lora: true
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.05
+lora_target_modules: auto
+vision_strategy: frozen
+
+data_version: 3
+image_aug: true
+system_prompt: detailed
+trace_style: think
+reasoning_effort: medium
+max_seq_len: 4096
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 5.0e-5
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 2
+per_device_eval_batch_size: 2
+gradient_accumulation_steps: 8
+gradient_checkpointing: true
+
+max_steps: 600
+save_strategy: "steps"
+save_steps: 150
+save_total_limit: 4
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 150
+eval_n: 256
+eval_n_batches: 32
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 42

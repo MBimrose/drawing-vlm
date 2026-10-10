@@ -1,0 +1,19 @@
+{
+ "train": 13909,
+ "eval": 216,
+ "parts": {
+  "train": 894,
+  "eval": 14
+ },
+ "sources": {
+  "bo16_c2_t10": 14125
+ },
+ "stats": {
+  "rows": 14528,
+  "no_code": 2,
+  "heldout": 0,
+  "no_png": 0,
+  "dup": 401
+ },
+ "pos_threshold": 0.85
+}

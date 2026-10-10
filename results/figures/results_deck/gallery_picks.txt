@@ -1,0 +1,6 @@
+0580ef4e-edaa-7eaa-0a10-6105fd6d8ad0|Solid read as hollow (8/8 agree)
+02c2c534-fdf5-09f0-a3b9-08fac95e67cc|Freeform surfaces
+64f6f518-9962-1057-93cf-a4610c62ea48|Wrong base profile
+892f7414-495b-907e-fd39-86c6937ce4b0|Pins generated as holes
+a51e495c-8730-06c0-f3ee-e03d4ff2f1eb|Dense feature layout scrambled
+3705dbb0-7895-5e56-7923-c6800e7825d4|Thin walls: near-miss, low IoU

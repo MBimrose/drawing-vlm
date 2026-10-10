@@ -1,0 +1,259 @@
+[score] 8 checkpoints, 400 parts, 1600 candidates
+[score] 1600 to execute
+[score] 500/1600  2.19/s  eta 0.1 h
+[score] 4 checkpoints, 600 parts, 2400 candidates
+[score] resuming: 500 candidates already scored
+[score] 1900 to execute
+[score] 1000/1600  1.98/s  eta 0.1 h
+[score] 500/1900  2.98/s  eta 0.1 h
+[score] 1501/1600  2.48/s  eta 0.0 h
+[score] 1000/1900  4.43/s  eta 0.1 h
+[score] volume bound settled 0 of 1600 without a boolean; 0 overlaps timed out (scored 0)
+[score] executed 1574/1600 -> results/realpool_v2/bo4_t10s120_a.json
+[score] 1500/1900  3.46/s  eta 0.0 h
+[score] volume bound settled 0 of 2400 without a boolean; 7 overlaps timed out (scored 0)
+[score] executed 2341/2400 -> results/realpool_v2/bo4_t10s120_a.json
+[score] 8 checkpoints, 2650 parts, 10600 candidates
+[score] resuming: 3200 candidates already scored
+[score] 7399 to execute
+[score] 500/7399  2.33/s  eta 0.8 h
+[score] 4 checkpoints, 1600 parts, 6400 candidates
+[score] resuming: 3700 candidates already scored
+[score] 3499 to execute
+[score] 1000/7399  2.28/s  eta 0.8 h
+[score] 501/3499  3.21/s  eta 0.3 h
+[score] 1000/3499  4.58/s  eta 0.2 h
+[score] 1500/7399  2.90/s  eta 0.6 h
+[score] 1500/3499  3.32/s  eta 0.2 h
+[score] 2000/7399  2.32/s  eta 0.6 h
+[score] 2000/3499  2.54/s  eta 0.2 h
+[score] 2500/7399  1.92/s  eta 0.7 h
+[score] 2500/3499  2.40/s  eta 0.1 h
+[score] 3000/7399  2.15/s  eta 0.6 h
+[score] 3000/3499  2.74/s  eta 0.1 h
+[score] volume bound settled 0 of 7199 without a boolean; 11 overlaps timed out (scored 0)
+[score] executed 6252/6400 -> results/realpool_v2/bo4_t10s120_a.json
+[score] 3500/7399  2.22/s  eta 0.5 h
+[score] 4000/7399  2.27/s  eta 0.4 h
+[score] 4 checkpoints, 3400 parts, 13600 candidates
+[score] resuming: 8400 candidates already scored
+[score] 7200 to execute
+[score] 4500/7399  2.12/s  eta 0.4 h
+[score] 500/7200  1.30/s  eta 1.4 h
+[score] 5000/7399  2.19/s  eta 0.3 h
+[score] 1000/7200  2.14/s  eta 0.8 h
+[score] 1500/7200  2.62/s  eta 0.6 h
+[score] 5500/7399  2.25/s  eta 0.2 h
+[score] 2000/7200  2.26/s  eta 0.6 h
+[score] 6000/7399  2.09/s  eta 0.2 h
+[score] 2500/7200  2.08/s  eta 0.6 h
+[score] 6500/7399  2.04/s  eta 0.1 h
+[score] 3000/7200  2.20/s  eta 0.5 h
+[score] 3500/7200  2.40/s  eta 0.4 h
+[score] 7000/7399  2.10/s  eta 0.1 h
+[score] 4000/7200  2.24/s  eta 0.4 h
+[score] volume bound settled 0 of 10599 without a boolean; 12 overlaps timed out (scored 0)
+[score] executed 10403/10600 -> results/realpool_v2/bo4_t10s120_a.json
+[score] 4500/7200  2.23/s  eta 0.3 h
+[score] 8 checkpoints, 11700 parts, 46800 candidates
+[score] resuming: 16299 candidates already scored
+[score] 30497 to execute
+[score] 5000/7200  2.28/s  eta 0.3 h
+[score] 5500/7200  2.40/s  eta 0.2 h
+[score] 500/30497  3.47/s  eta 2.4 h
+[score] 6000/7200  2.39/s  eta 0.1 h
+[score] 1000/30497  1.72/s  eta 4.8 h
+[score] 6500/7200  2.24/s  eta 0.1 h
+[score] 7000/7200  2.25/s  eta 0.0 h
+[score] 1500/30497  1.58/s  eta 5.1 h
+[score] 2000/30497  1.97/s  eta 4.0 h
+[score] volume bound settled 0 of 15600 without a boolean; 24 overlaps timed out (scored 0)
+[score] executed 13319/13600 -> results/realpool_v2/bo4_t10s120_a.json
+[score] 2500/30497  2.19/s  eta 3.5 h
+[score] 4 checkpoints, 7400 parts, 29600 candidates
+[score] resuming: 21499 candidates already scored
+[score] 13496 to execute
+[score] 3000/30497  2.26/s  eta 3.4 h
+[score] 500/13496  1.24/s  eta 2.9 h
+[score] 3500/30497  1.94/s  eta 3.9 h
+[score] 1000/13496  1.84/s  eta 1.9 h
+[score] 4000/30497  2.09/s  eta 3.5 h
+[score] 1500/13496  2.44/s  eta 1.4 h
+[score] 2000/13496  2.19/s  eta 1.5 h
+[score] 4500/30497  2.01/s  eta 3.6 h
+[score] 2500/13496  1.96/s  eta 1.6 h
+[score] 5000/30497  1.84/s  eta 3.9 h
+[score] 3000/13496  2.09/s  eta 1.4 h
+[score] 5500/30497  1.96/s  eta 3.5 h
+[score] 3500/13496  2.33/s  eta 1.2 h
+[score] 4000/13496  2.27/s  eta 1.2 h
+[score] 6000/30497  1.94/s  eta 3.5 h
+[score] 4500/13496  2.11/s  eta 1.2 h
+[score] 6500/30497  1.82/s  eta 3.7 h
+[score] 5000/13496  2.15/s  eta 1.1 h
+[score] 7000/30497  1.90/s  eta 3.4 h
+[score] 5500/13496  2.29/s  eta 1.0 h
+[score] 7500/30497  1.92/s  eta 3.3 h
+[score] 6000/13496  2.27/s  eta 0.9 h
+[score] 6500/13496  2.15/s  eta 0.9 h
+[score] 8000/30497  1.82/s  eta 3.4 h
+[score] 7000/13496  2.17/s  eta 0.8 h
+[score] 8500/30497  1.85/s  eta 3.3 h
+[score] 7500/13496  2.28/s  eta 0.7 h
+[score] 9000/30497  1.87/s  eta 3.2 h
+[score] 8000/13496  2.26/s  eta 0.7 h
+[score] 8500/13496  2.17/s  eta 0.6 h
+[score] 9500/30497  1.80/s  eta 3.2 h
+[score] 9000/13496  2.18/s  eta 0.6 h
+[score] 10000/30497  1.83/s  eta 3.1 h
+[score] 9500/13496  2.27/s  eta 0.5 h
+[score] 10500/30497  1.85/s  eta 3.0 h
+[score] 10000/13496  2.27/s  eta 0.4 h
+[score] 10500/13496  2.23/s  eta 0.4 h
+[score] 11000/30497  1.79/s  eta 3.0 h
+[score] 11000/13496  2.19/s  eta 0.3 h
+[score] 11500/30497  1.81/s  eta 2.9 h
+[score] 11500/13496  2.27/s  eta 0.2 h
+[score] 12000/30497  1.86/s  eta 2.8 h
+[score] 12000/13496  2.32/s  eta 0.2 h
+[score] 12500/13496  2.26/s  eta 0.1 h
+[score] 12500/30497  1.81/s  eta 2.8 h
+[score] 13000/13496  2.22/s  eta 0.1 h
+[score] 13000/30497  1.78/s  eta 2.7 h
+[score] 13500/30497  1.83/s  eta 2.6 h
+[score] volume bound settled 0 of 34995 without a boolean; 80 overlaps timed out (scored 0)
+[score] executed 29007/29600 -> results/realpool_v2/bo4_t10s120_a.json
+[score] 14000/30497  1.86/s  eta 2.5 h
+[score] 4 checkpoints, 12329 parts, 49316 candidates
+[score] resuming: 36698 candidates already scored
+[score] 19716 to execute
+[score] 14500/30497  1.85/s  eta 2.4 h
+[score] 500/19716  1.34/s  eta 4.0 h
+[score] 15001/30497  1.83/s  eta 2.4 h
+[score] 1000/19716  1.85/s  eta 2.8 h
+[score] 1500/19716  2.07/s  eta 2.4 h
+[score] 15500/30497  1.84/s  eta 2.3 h
+[score] 2000/19716  1.87/s  eta 2.6 h
+[score] 16000/30497  1.80/s  eta 2.2 h
+[score] 2500/19716  1.83/s  eta 2.6 h
+[score] 16500/30497  1.81/s  eta 2.2 h
+[score] 3000/19716  1.98/s  eta 2.4 h
+[score] 3500/19716  1.94/s  eta 2.3 h
+[score] 17000/30497  1.79/s  eta 2.1 h
+[score] 4000/19716  1.84/s  eta 2.4 h
+[score] 17500/30497  1.76/s  eta 2.1 h
+[score] 4501/19716  1.94/s  eta 2.2 h
+[score] 18000/30497  1.78/s  eta 1.9 h
+[score] 5000/19716  1.98/s  eta 2.1 h
+[score] 5500/19716  1.97/s  eta 2.0 h
+[score] 18500/30497  1.76/s  eta 1.9 h
+[score] 6000/19716  1.89/s  eta 2.0 h
+[score] 19000/30497  1.75/s  eta 1.8 h
+[score] 6500/19716  2.01/s  eta 1.8 h
+[score] 19500/30497  1.78/s  eta 1.7 h
+[score] 7000/19716  2.09/s  eta 1.7 h
+[score] 7500/19716  2.02/s  eta 1.7 h
+[score] 20000/30497  1.75/s  eta 1.7 h
+[score] 8000/19716  1.98/s  eta 1.6 h
+[score] 20500/30497  1.74/s  eta 1.6 h
+[score] 8500/19716  2.06/s  eta 1.5 h
+[score] 21000/30497  1.77/s  eta 1.5 h
+[score] 9000/19716  2.13/s  eta 1.4 h
+[score] 9500/19716  2.08/s  eta 1.4 h
+[score] 21500/30497  1.74/s  eta 1.4 h
+[score] 10000/19716  2.04/s  eta 1.3 h
+[score] 22000/30497  1.74/s  eta 1.4 h
+[score] 10500/19716  2.09/s  eta 1.2 h
+[score] 22500/30497  1.75/s  eta 1.3 h
+[score] 11000/19716  2.13/s  eta 1.1 h
+[score] 11500/19716  2.10/s  eta 1.1 h
+[score] 23000/30497  1.74/s  eta 1.2 h
+[score] 12000/19716  2.05/s  eta 1.0 h
+[score] 23500/30497  1.73/s  eta 1.1 h
+[score] 12500/19716  2.12/s  eta 0.9 h
+[score] 13000/19716  2.18/s  eta 0.9 h
+[score] 24000/30497  1.76/s  eta 1.0 h
+[score] 13501/19716  2.16/s  eta 0.8 h
+[score] 24500/30497  1.74/s  eta 1.0 h
+[score] 14000/19716  2.12/s  eta 0.8 h
+[score] 25000/30497  1.73/s  eta 0.9 h
+[score] 14500/19716  2.14/s  eta 0.7 h
+[score] 15000/19716  2.19/s  eta 0.6 h
+[score] 25500/30497  1.76/s  eta 0.8 h
+SCORE LOOP DONE Thu Oct  8 03:36:56 CDT 2026
+[score] 8 checkpoints, 24657 parts, 98628 candidates
+[score] resuming: 63198 candidates already scored
+[score] 35424 to execute
+[score] 500/35424  1.43/s  eta 6.8 h
+[score] 1000/35424  2.53/s  eta 3.8 h
+[score] 1500/35424  3.36/s  eta 2.8 h
+[score] 2000/35424  3.41/s  eta 2.7 h
+[score] 2500/35424  2.71/s  eta 3.4 h
+[score] 3000/35424  2.51/s  eta 3.6 h
+[score] 3500/35424  2.70/s  eta 3.3 h
+[score] 4000/35424  2.97/s  eta 2.9 h
+[score] 4500/35424  3.18/s  eta 2.7 h
+[score] 5000/35424  2.87/s  eta 2.9 h
+[score] 5500/35424  2.70/s  eta 3.1 h
+[score] 6000/35424  2.74/s  eta 3.0 h
+[score] 6500/35424  2.90/s  eta 2.8 h
+[score] 7000/35424  3.04/s  eta 2.6 h
+[score] 7500/35424  2.83/s  eta 2.7 h
+[score] 8000/35424  2.74/s  eta 2.8 h
+[score] 8500/35424  2.75/s  eta 2.7 h
+[score] 9000/35424  2.87/s  eta 2.6 h
+[score] 9500/35424  2.94/s  eta 2.4 h
+[score] 10000/35424  2.80/s  eta 2.5 h
+[score] 10500/35424  2.73/s  eta 2.5 h
+[score] 11000/35424  2.75/s  eta 2.5 h
+[score] 11500/35424  2.83/s  eta 2.3 h
+[score] 12000/35424  2.85/s  eta 2.3 h
+[score] 12500/35424  2.73/s  eta 2.3 h
+[score] 13000/35424  2.72/s  eta 2.3 h
+[score] 13500/35424  2.76/s  eta 2.2 h
+[score] 14000/35424  2.83/s  eta 2.1 h
+[score] 14500/35424  2.90/s  eta 2.0 h
+[score] 15000/35424  2.87/s  eta 2.0 h
+[score] 15500/35424  2.78/s  eta 2.0 h
+[score] 16000/35424  2.78/s  eta 1.9 h
+[score] 16500/35424  2.83/s  eta 1.9 h
+[score] 17000/35424  2.90/s  eta 1.8 h
+[score] 17500/35424  2.91/s  eta 1.7 h
+[score] 18000/35424  2.81/s  eta 1.7 h
+[score] 18500/35424  2.80/s  eta 1.7 h
+[score] 19000/35424  2.83/s  eta 1.6 h
+[score] 19500/35424  2.88/s  eta 1.5 h
+[score] 20000/35424  2.91/s  eta 1.5 h
+[score] 20501/35424  2.83/s  eta 1.5 h
+[score] 21000/35424  2.81/s  eta 1.4 h
+[score] 21500/35424  2.84/s  eta 1.4 h
+[score] 22000/35424  2.88/s  eta 1.3 h
+[score] 22500/35424  2.91/s  eta 1.2 h
+[score] 23000/35424  2.85/s  eta 1.2 h
+[score] 23500/35424  2.83/s  eta 1.2 h
+[score] 24000/35424  2.83/s  eta 1.1 h
+[score] 24500/35424  2.87/s  eta 1.1 h
+[score] 25000/35424  2.91/s  eta 1.0 h
+[score] 25500/35424  2.91/s  eta 0.9 h
+[score] 26000/35424  2.85/s  eta 0.9 h
+[score] 26500/35424  2.84/s  eta 0.9 h
+[score] 27000/35424  2.86/s  eta 0.8 h
+[score] 27500/35424  2.89/s  eta 0.8 h
+[score] 28000/35424  2.88/s  eta 0.7 h
+[score] 28500/35424  2.83/s  eta 0.7 h
+[score] 29000/35424  2.83/s  eta 0.6 h
+[score] 29500/35424  2.86/s  eta 0.6 h
+[score] 30000/35424  2.89/s  eta 0.5 h
+[score] 30500/35424  2.90/s  eta 0.5 h
+[score] 31000/35424  2.86/s  eta 0.4 h
+[score] 31500/35424  2.85/s  eta 0.4 h
+[score] 32000/35424  2.85/s  eta 0.3 h
+[score] 32500/35424  2.89/s  eta 0.3 h
+[score] 33000/35424  2.90/s  eta 0.2 h
+[score] 33500/35424  2.85/s  eta 0.2 h
+[score] 34000/35424  2.85/s  eta 0.1 h
+[score] 34500/35424  2.85/s  eta 0.1 h
+[score] 35000/35424  2.88/s  eta 0.0 h
+[score] volume bound settled 0 of 98622 without a boolean; 197 overlaps timed out (scored 0)
+[score] executed 96692/98628 -> results/realpool_v2/bo4_t10s120_a.json
+SCORE LOOP DONE Thu Oct  8 07:05:32 CDT 2026

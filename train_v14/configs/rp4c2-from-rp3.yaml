@@ -1,0 +1,50 @@
+# RP4C2 (2026-10-09, GRPO_HANDOFF "Expert-iteration round 2", step 6): repairer for the round-2 generator. Warm start
+# from rp3 (MODEL_ID=runs/rp3-delta-e55/final), rp3 recipe (full FT, lr 2e-6 cosine, 300 steps x 64), on rp3's mix
+# (rft_mix_rp3, 257,578 rows incl. 59,576 repair rows) + the new repair tier (results/cycle2/rp4: 4,292 pairs =
+# near-miss draws of the new policy / GT-search starts -> best known program on TRAINING parts, cand.png rendered)
+# at ~1/3 of RFT draws (x30). FSDP2 on 2 B300 (GPUs 4,5): 2 ranks x accum 32 = 64.
+run_name: rp4c2-from-rp3
+model_id: /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/models/Qwen3.8-27B
+output_dir: /srv/scratch/bimrose2/runs/rp4c2-from-rp3
+accel_config: accelerate_fsdp2_2gpu.yaml
+
+use_lora: false
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 7168
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 2.0e-6
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.05
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 32
+gradient_checkpointing: false
+
+max_steps: 300
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 43

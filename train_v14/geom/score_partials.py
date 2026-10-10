@@ -35,6 +35,12 @@ IOU_ONCE = os.path.join(HERE, "iou_once.py")
 PYTHON = sys.executable
 
 
+# One thread per scoring subprocess: unset, OCP/numpy/trimesh spawn 100-500 threads each and a few
+# dozen concurrent workers drove serv-20 to load ~900 (2026-10-06).
+_ENV1 = {**os.environ, **{v: "1" for v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
+                                          "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS")}}
+
+
 def scored_iou(stl, gt, timeout):
     """Centered IoU in a subprocess, killed after `timeout` s.
 
@@ -47,7 +53,7 @@ def scored_iou(stl, gt, timeout):
     import subprocess
     try:
         p = subprocess.run([PYTHON, IOU_ONCE, stl, gt], capture_output=True, text=True,
-                           timeout=timeout)
+                           timeout=timeout, env=_ENV1)
         return float(json.loads(p.stdout)["iou_centered"]), False
     except subprocess.TimeoutExpired:
         return 0.0, True
@@ -63,7 +69,7 @@ def execute(code, stl_path, workdir, key, timeout):
         f.write(code)
     try:
         p = subprocess.run([PYTHON, HARNESS, cp, stl_path], capture_output=True,
-                           text=True, timeout=timeout)
+                           text=True, timeout=timeout, env=_ENV1)
         return p.returncode == 0
     except subprocess.TimeoutExpired:
         return False

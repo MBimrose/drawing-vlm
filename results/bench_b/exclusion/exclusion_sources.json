@@ -1,0 +1,667 @@
+{
+ "sources": {
+  "train_v14/mech/benchmarks/data/cadbench_A_medium/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 58,
+   "abc_hashes": 57
+  },
+  "train_v14/mech/benchmarks/data/cadbench_F_medium/manifest.json": {
+   "fusion_designs": 85,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/conn_bench/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/ctrl_bench/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/deepcad_gate/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 623,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/ext_bench/manifest.json": {
+   "fusion_designs": 85,
+   "abc_ids": 58,
+   "abc_hashes": 57
+  },
+  "train_v14/mech/benchmarks/data/ext_bench_dw423/manifest.json": {
+   "fusion_designs": 85,
+   "abc_ids": 58,
+   "abc_hashes": 57
+  },
+  "train_v14/mech/benchmarks/data/ext_bench_dw423_fb/manifest.json": {
+   "fusion_designs": 85,
+   "abc_ids": 58,
+   "abc_hashes": 57
+  },
+  "train_v14/mech/benchmarks/data/ext_bench_dw423_fill45/manifest.json": {
+   "fusion_designs": 85,
+   "abc_ids": 58,
+   "abc_hashes": 57
+  },
+  "train_v14/mech/benchmarks/data/ext_bench_dw423_nodim/manifest.json": {
+   "fusion_designs": 85,
+   "abc_ids": 58,
+   "abc_hashes": 57
+  },
+  "train_v14/mech/benchmarks/data/ext_bench_dw423_perm/manifest.json": {
+   "fusion_designs": 85,
+   "abc_ids": 58,
+   "abc_hashes": 57
+  },
+  "train_v14/mech/benchmarks/data/family_pilot/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/family_scale1/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/repair_bench_e55/manifest.json": {
+   "fusion_designs": 85,
+   "abc_ids": 58,
+   "abc_hashes": 57
+  },
+  "train_v14/mech/benchmarks/data/rft_corpus/manifest.json": {
+   "fusion_designs": 641,
+   "abc_ids": 788,
+   "abc_hashes": 777
+  },
+  "train_v14/mech/benchmarks/data/rft_corpus2/manifest.json": {
+   "fusion_designs": 148,
+   "abc_ids": 1530,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/rft_corpus2_dw423/manifest.json": {
+   "fusion_designs": 148,
+   "abc_ids": 1530,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/rft_corpus3/manifest.json": {
+   "fusion_designs": 252,
+   "abc_ids": 1227,
+   "abc_hashes": 1209
+  },
+  "train_v14/mech/benchmarks/data/rft_corpus4/manifest.json": {
+   "fusion_designs": 368,
+   "abc_ids": 2806,
+   "abc_hashes": 1697
+  },
+  "train_v14/mech/benchmarks/data/rft_corpus_abccode/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 432,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/rft_corpus_abccode_dw400/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 432,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/rft_corpus_dw423/manifest.json": {
+   "fusion_designs": 641,
+   "abc_ids": 788,
+   "abc_hashes": 777
+  },
+  "train_v14/mech/benchmarks/data/rft_realpool_v2/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 12969,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/synth_long/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 7,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/test_part_dw/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/zerocad_pilot/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "train_v14/mech/benchmarks/data/zerocad_z1/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 2,
+   "abc_hashes": 0
+  },
+  "deepcad/corpus_full/manifest.json": {
+   "fusion_designs": 0,
+   "abc_ids": 87328,
+   "abc_hashes": 0
+  },
+  "data/cadbench_inventory/rows.json": {
+   "fusion_designs": 2225,
+   "abc_ids": 11956,
+   "abc_hashes": 5379
+  },
+  "train_v14/mech/benchmarks/data/heldout_file_ids.txt": {
+   "fusion_designs": 85,
+   "abc_ids": 58,
+   "abc_hashes": 57
+  },
+  "deepcad_full_ids (serv-19 deepcad/data/cad_json, 215k)": {
+   "abc_ids": 215094
+  },
+  "scan:results (2569 files)": {
+   "fusion_designs": 931,
+   "abc_ids": 29969,
+   "abc_hashes": 2201
+  },
+  "scan:train_v14/mech/benchmarks/data (234 files)": {
+   "fusion_designs": 1398,
+   "abc_ids": 58721,
+   "abc_hashes": 3715
+  },
+  "scan:data_ext/bench_b_work/s20_keys (267 files)": {
+   "fusion_designs": 931,
+   "abc_ids": 17267,
+   "abc_hashes": 2201
+  },
+  "scan:conn_tier_unused (3 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:dsv41_gen_tier (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:dsv41_joint_tier (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:dsv41_repair_tier (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:dsv41_repair_tier_v2 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:dsv41_selftrain_tier (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_all (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_best4_v3 (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 16,
+   "abc_hashes": 0
+  },
+  "scan:rft_curated (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "_skipped_large": [
+   "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/rft_deepcad_e55/scored-000.jsonl"
+  ],
+  "scan:rft_deepcad_e55 (2 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 65891,
+   "abc_hashes": 0
+  },
+  "scan:rft_family_pilot (4 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_gtfb_c1 (36 files)": {
+   "fusion_designs": 441,
+   "abc_ids": 654,
+   "abc_hashes": 644
+  },
+  "scan:rft_gtfb_c2 (36 files)": {
+   "fusion_designs": 125,
+   "abc_ids": 969,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_d0 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_d1 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_d2 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_h6b_n1655 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_h6b_n500 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_h6c_rat (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_h6c_rat2 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_h6c_rat2nt (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_h6c_ratnt (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_h6c_self (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_h6d_zcnt (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_real_strict (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_real_v1 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_rp1 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_rp2 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_rp3 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_rp4 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u10_synthlong_dw423 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u2_heavy (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u2_strict90 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u2_v1x15 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u3_strict90 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u3_v1 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u4_strict90 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u5_strict90 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u6_gt (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u6_gt_dw423 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u6_gtrat (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u7_sd_dw423 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u8_deepcad_dw423 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_u9_c4rep_dw423 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_union_strict (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_mix_union_v1 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_plain_c1 (16 files)": {
+   "fusion_designs": 441,
+   "abc_ids": 654,
+   "abc_hashes": 644
+  },
+  "scan:rft_plain_c2 (36 files)": {
+   "fusion_designs": 125,
+   "abc_ids": 969,
+   "abc_hashes": 0
+  },
+  "scan:rft_real (3 files)": {
+   "fusion_designs": 641,
+   "abc_ids": 788,
+   "abc_hashes": 777
+  },
+  "scan:rft_real2 (3 files)": {
+   "fusion_designs": 148,
+   "abc_ids": 1530,
+   "abc_hashes": 0
+  },
+  "scan:rft_real_abccode (3 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 192,
+   "abc_hashes": 0
+  },
+  "scan:rft_real_abccode_all (3 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 429,
+   "abc_hashes": 0
+  },
+  "scan:rft_real_abccode_all_dw423 (3 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 429,
+   "abc_hashes": 0
+  },
+  "scan:rft_real_abccode_dw423 (3 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 192,
+   "abc_hashes": 0
+  },
+  "scan:rft_real_abccode_rat (3 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 398,
+   "abc_hashes": 0
+  },
+  "scan:rft_real_abccode_rat_train (2 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 399,
+   "abc_hashes": 0
+  },
+  "scan:rft_real_abccode_rat_v1 (3 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 398,
+   "abc_hashes": 0
+  },
+  "scan:rft_real_abccode_train (2 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 429,
+   "abc_hashes": 0
+  },
+  "scan:rft_real_c3 (2 files)": {
+   "fusion_designs": 144,
+   "abc_ids": 619,
+   "abc_hashes": 609
+  },
+  "scan:rft_real_corpus4 (3 files)": {
+   "fusion_designs": 353,
+   "abc_ids": 2626,
+   "abc_hashes": 1548
+  },
+  "scan:rft_real_e45 (3 files)": {
+   "fusion_designs": 641,
+   "abc_ids": 788,
+   "abc_hashes": 777
+  },
+  "scan:rft_real_k16 (3 files)": {
+   "fusion_designs": 641,
+   "abc_ids": 788,
+   "abc_hashes": 777
+  },
+  "scan:rft_real_union (1 files)": {
+   "fusion_designs": 229,
+   "abc_ids": 121,
+   "abc_hashes": 121
+  },
+  "scan:rft_real_union2 (1 files)": {
+   "fusion_designs": 240,
+   "abc_ids": 134,
+   "abc_hashes": 134
+  },
+  "scan:rft_real_union3 (1 files)": {
+   "fusion_designs": 263,
+   "abc_ids": 695,
+   "abc_hashes": 134
+  },
+  "scan:rft_real_union4 (3 files)": {
+   "fusion_designs": 295,
+   "abc_ids": 869,
+   "abc_hashes": 143
+  },
+  "scan:rft_real_union5 (3 files)": {
+   "fusion_designs": 438,
+   "abc_ids": 1494,
+   "abc_hashes": 760
+  },
+  "scan:rft_real_union5_dw423 (2 files)": {
+   "fusion_designs": 438,
+   "abc_ids": 1494,
+   "abc_hashes": 760
+  },
+  "scan:rft_rel_corpus4 (1 files)": {
+   "fusion_designs": 81,
+   "abc_ids": 459,
+   "abc_hashes": 336
+  },
+  "scan:rft_repair_c1 (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_repair_c2 (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_repair_c3 (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_repair_c4 (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_repair_deepcad (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_scored_all (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_scored_real (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_scored_real_e55 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_scored_union_e55 (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_scored_v1 (24 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 58,
+   "abc_hashes": 0
+  },
+  "scan:rft_selfdistill_all (1 files)": {
+   "fusion_designs": 88,
+   "abc_ids": 278,
+   "abc_hashes": 40
+  },
+  "scan:rft_selfdistill_rft_corpus2_dw423 (3 files)": {
+   "fusion_designs": 124,
+   "abc_ids": 944,
+   "abc_hashes": 0
+  },
+  "scan:rft_selfdistill_rft_corpus_dw423 (3 files)": {
+   "fusion_designs": 433,
+   "abc_ids": 635,
+   "abc_hashes": 625
+  },
+  "scan:rft_strict90_all (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 55,
+   "abc_hashes": 0
+  },
+  "scan:rft_strict90_all_dw423 (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 55,
+   "abc_hashes": 0
+  },
+  "scan:rft_strict90_all_dw423b (0 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 0,
+   "abc_hashes": 0
+  },
+  "scan:rft_strict_all (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 41,
+   "abc_hashes": 0
+  },
+  "scan:rft_synth_long (4 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 7,
+   "abc_hashes": 0
+  },
+  "scan:rft_v1 (32 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 93,
+   "abc_hashes": 0
+  },
+  "scan:rft_v1_strict (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 20,
+   "abc_hashes": 0
+  },
+  "scan:rft_v1_strict90 (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 34,
+   "abc_hashes": 0
+  },
+  "scan:rft_v2 (32 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 93,
+   "abc_hashes": 0
+  },
+  "scan:rft_v3 (48 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 101,
+   "abc_hashes": 0
+  },
+  "scan:rft_v4_from19 (4 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 33,
+   "abc_hashes": 0
+  },
+  "scan:rft_v5_hard (24 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 14,
+   "abc_hashes": 0
+  },
+  "scan:hard_keys_v1.txt (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 34,
+   "abc_hashes": 0
+  },
+  "scan:hard_keys_near_v1.txt (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 21,
+   "abc_hashes": 0
+  },
+  "scan:hard_keys_never_v1.txt (1 files)": {
+   "fusion_designs": 0,
+   "abc_ids": 2,
+   "abc_hashes": 0
+  }
+ },
+ "totals": {
+  "fusion_designs": 2225,
+  "abc_ids": 221564,
+  "abc_hashes": 5379,
+  "signatures": 114072,
+  "scanned_files": 3443
+ }
+}
