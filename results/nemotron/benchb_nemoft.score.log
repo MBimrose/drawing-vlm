@@ -1,0 +1,7 @@
+[score] 4 checkpoints, 280 parts, 2240 candidates
+[score] 1907 to execute
+[score] 500/1907  2.92/s  eta 0.1 h
+[score] 1000/1907  2.74/s  eta 0.1 h
+[score] 1500/1907  2.82/s  eta 0.0 h
+[score] volume bound settled 0 of 1907 without a boolean; 8 overlaps timed out (scored 0)
+[score] executed 1485/2240 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/nemotron/benchb_nemoft.json

@@ -1,0 +1,4 @@
+[score] 4 checkpoints, 280 parts, 2240 candidates
+[score] 368 to execute
+[score] volume bound settled 0 of 368 without a boolean; 1 overlaps timed out (scored 0)
+[score] executed 64/2240 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/nemotron/benchb_nemobase.json

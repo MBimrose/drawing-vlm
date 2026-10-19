@@ -1,0 +1,6 @@
+[score] 4 checkpoints, 144 parts, 1152 candidates
+[score] 1149 to execute
+[score] 500/1149  5.47/s  eta 0.0 h
+[score] 1000/1149  5.54/s  eta 0.0 h
+[score] volume bound settled 0 of 1149 without a boolean; 5 overlaps timed out (scored 0)
+[score] executed 572/1152 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/ablations/real_e10.json

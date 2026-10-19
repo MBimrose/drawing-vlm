@@ -84,6 +84,9 @@ def parse_args():
                          "fallback can run 8+ min in-thread)")
     ap.add_argument("--lora-rank", type=int, default=64)
     ap.add_argument("--lora-alpha", type=int, default=128)
+    ap.add_argument("--lora-targets", default="",
+                    help="peft target_modules regex (full module name); default = every non-vision Linear. Flash-Next: "
+                         "e26's attention + linear-attention + shared-expert regex (router and routed experts frozen)")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--save-every", type=int, default=10)
     ap.add_argument("--start-step", type=int, default=0,
@@ -187,7 +190,15 @@ def main():
         cfg["model_id"] = args.model_base
     ckpt = args.ckpt or os.path.join("runs", args.run, "final")
     model, processor = load_model(ckpt, classify_ckpt(ckpt), cfg)
-    model = model.to(device)
+    if len({str(d) for d in (getattr(model, "hf_device_map", None) or {}).values()}) > 1:
+        # 2026-10-19 Flash-Next (333 GB): load_model already spread it over the visible GPUs (n-gram table on CPU);
+        # inputs go to the embedding's GPU, the loss follows the logits' device (out_dev, set per forward).
+        device = model.get_input_embeddings().weight.device
+        print(f"[grpo] multi-device model, inputs on {device}: "
+              f"{sorted({str(d) for d in model.hf_device_map.values()})}", flush=True)
+    else:
+        model = model.to(device)
+    out_dev = {"d": device}
 
     # LoRA policy on top of the frozen base (the base is the KL reference).
     # Target modules: reuse the trainer's auto-detection (covers the hybrid
@@ -224,7 +235,7 @@ def main():
     else:
         from peft import LoraConfig, get_peft_model
         lcfg = LoraConfig(r=args.lora_rank, lora_alpha=args.lora_alpha, lora_dropout=0.0,
-                          target_modules=_auto_lora_targets(model), task_type="CAUSAL_LM")
+                          target_modules=args.lora_targets or _auto_lora_targets(model), task_type="CAUSAL_LM")
         model = get_peft_model(model, lcfg)
     if args.kl_ref_adapter:
         model.load_adapter(args.kl_ref_adapter, adapter_name="ref", is_trainable=False)
@@ -515,12 +526,14 @@ def main():
         except Exception:
             pass
         logits = model(**enc).logits  # [B, S, V] bf16
+        odev = out_dev["d"] = logits.device   # = device unless the model spans GPUs
+        labels = labels.to(odev)
 
         B = labels.shape[0]
-        ent_sum = torch.zeros((), device=device)
-        sum_logp = torch.zeros(B, device=device)
-        n_toks = torch.zeros(B, device=device)
-        kl_sum = torch.zeros(B, device=device)
+        ent_sum = torch.zeros((), device=odev)
+        sum_logp = torch.zeros(B, device=odev)
+        n_toks = torch.zeros(B, device=odev)
+        kl_sum = torch.zeros(B, device=odev)
         rows = []  # (js, tok_logp) per sample for the KL pass
         for i in range(B):
             js = (labels[i] != -100).nonzero(as_tuple=True)[0]
@@ -739,7 +752,7 @@ def main():
                 for b in range(0, len(mb), args.train_batch):
                     idx = mb[b:b + args.train_batch]
                     sum_logp, n_toks, kl_sum, lps = completion_logps([train_dicts[i] for i in idx])
-                    loss = torch.zeros((), device=device)
+                    loss = torch.zeros((), device=out_dev["d"])
                     for j, i in enumerate(idx):
                         lp, o = lps[j], old[i]
                         if lp is None or o is None or lp.shape != o.shape:
@@ -782,8 +795,8 @@ def main():
             tot_loss = tot_kl = 0.0
             for b in range(0, len(train_dicts), args.train_batch):
                 chunk = train_dicts[b:b + args.train_batch]
-                ca = torch.tensor(advs[b:b + args.train_batch], dtype=torch.float32, device=device)
                 sum_logp, n_toks, kl_sum, _ = completion_logps(chunk)
+                ca = torch.tensor(advs[b:b + args.train_batch], dtype=torch.float32, device=sum_logp.device)
                 if args.loss == "drgpo":
                     per = sum_logp / n_toks.clamp(min=1)
                     loss = -(ca * per).sum() / len(chunk)

@@ -32,6 +32,8 @@ print(json.dumps({"sec": time.perf_counter() - t0}))
 
 
 def main():
+    if "--retime" in sys.argv:   # re-measure listed keys (warm) in an existing parts.json
+        return retime(sys.argv[sys.argv.index("--retime") + 1:])
     if os.path.exists(OUT) and any(r.get("exec_sec") is not None for r in json.load(open(OUT))):
         print(f"[data] {OUT} already has execution times; skipping")   # a duplicate queued run is a no-op
         return
@@ -66,6 +68,7 @@ def main():
         except Exception:
             return None
 
+    warm_up(tp, td)
     with ThreadPoolExecutor(WORKERS) as ex:
         secs = list(ex.map(time_one, rows))
     for r, s in zip(rows, secs):
@@ -73,6 +76,28 @@ def main():
     json.dump(rows, open(OUT, "w"), indent=1)
     t = [s for s in secs if s is not None]
     print(f"[data] {len(rows)} parts, timed {len(t)}: median {np.median(t):.2f}s p95 {np.percentile(t, 95):.2f}s -> {OUT}")
+
+
+def warm_up(tp, td, n=WORKERS):
+    """The first batch of programs absorbs a one-off ~1 s cold start (shared libraries loading from the network
+    filesystem): run throwaway programs first so no timed part pays it."""
+    cp = os.path.join(td, "warm.py")
+    open(cp, "w").write('from build123d import *\npart = Box(1, 1, 1) - Cylinder(0.2, 1)\nexport_step(part, "output.step")\n')
+    with ThreadPoolExecutor(n) as ex:
+        list(ex.map(lambda _: subprocess.run([sys.executable, tp, cp], capture_output=True, timeout=300), range(n)))
+
+
+def retime(prefixes):
+    rows = json.load(open(OUT)); bo8 = {p["key"]: p for p in json.load(open(BO8))["candidates"]}
+    td = tempfile.mkdtemp(prefix="rdd_"); tp = os.path.join(td, "timer.py"); open(tp, "w").write(TIMER)
+    warm_up(tp, td)
+    for r in rows:
+        if any(r["key"].startswith(p) for p in prefixes) and r.get("medoid_idx") is not None:
+            cp = os.path.join(td, r["key"] + ".py"); open(cp, "w").write(bo8[r["key"]]["cands"][r["medoid_idx"]]["code"])
+            out = subprocess.run([sys.executable, tp, cp], capture_output=True, text=True, timeout=300)
+            new = json.loads(out.stdout.strip().splitlines()[-1])["sec"]
+            print(f"[retime] {r['key'][:8]} {r['exec_sec']:.3f}s -> {new:.3f}s"); r["exec_sec"] = new
+    json.dump(rows, open(OUT, "w"), indent=1)
 
 
 if __name__ == "__main__":

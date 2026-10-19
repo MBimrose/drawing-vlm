@@ -1,0 +1,24 @@
+# 2-rank PURE-bf16 variant (optimizer check: bf16_sr_adamw vs fp32 AdamW, serv-19 GPUs 2-3).
+# Per rank: frozen routed experts bf16 ~57 GB, trained subset (~8.1B) fp32 master + AdamW + grads ~32 GB,
+# one NemotronHBlock all-gathered at a time (an MoE block is ~5.6 GB bf16), activations with checkpointing.
+compute_environment: LOCAL_MACHINE
+distributed_type: FSDP
+mixed_precision: "no"   # pure bf16 params (bf16_sr_adamw); no fp32 upcast
+num_machines: 1
+num_processes: 2
+machine_rank: 0
+main_training_function: main
+rdzv_backend: static
+same_network: true
+fsdp_config:
+  fsdp_version: 2
+  fsdp_sharding_strategy: FULL_SHARD
+  fsdp_offload_params: false
+  fsdp_state_dict_type: SHARDED_STATE_DICT
+  fsdp_activation_checkpointing: true
+  fsdp_auto_wrap_policy: TRANSFORMER_BASED_WRAP
+  fsdp_transformer_layer_cls_to_wrap: NemotronHBlock,RadioLayer
+  fsdp_cpu_ram_efficient_loading: false
+  fsdp_use_orig_params: true
+  fsdp_sync_module_states: true
+  fsdp_reshard_after_forward: true

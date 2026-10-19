@@ -37,7 +37,7 @@ from collate_v14 import SYSTEM_PROMPTS  # noqa: E402
 from geom_eval_worker import USER_PROMPT, extract_code  # noqa: E402
 
 
-def chat(base_url, model, png, system, user, temperature, top_p, n, max_tokens, timeout, think):
+def chat(base_url, model, png, system, user, temperature, top_p, n, max_tokens, timeout, think, prefill=""):
     import urllib.request
     body = {"model": model, "temperature": temperature, "top_p": top_p, "n": n, "max_tokens": max_tokens,
             "messages": [{"role": "system", "content": system},
@@ -45,6 +45,9 @@ def chat(base_url, model, png, system, user, temperature, top_p, n, max_tokens, 
                              {"type": "image_url", "image_url": {"url": "data:image/png;base64," + base64.b64encode(png).decode()}},
                              {"type": "text", "text": user}]}],
             "chat_template_kwargs": {"enable_thinking": think}}
+    if prefill:  # assistant prefill continued by the server (e.g. "<think>\n1." forces the numbered plan on Nemotron)
+        body["messages"].append({"role": "assistant", "content": prefill})
+        body.update(add_generation_prompt=False, continue_final_message=True)
     req = urllib.request.Request(base_url.rstrip("/") + "/chat/completions", data=json.dumps(body).encode(),
                                  headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -77,6 +80,7 @@ def main():
     ap.add_argument("--timeout", type=int, default=600)
     ap.add_argument("--system-prompt", default="detailed")
     ap.add_argument("--no-think", action="store_true")
+    ap.add_argument("--prefill", default="", help="assistant prefix the reply continues from (backslash escapes allowed)")
     ap.add_argument("--user-prompts", default="", help="json {key: user prompt} overriding USER_PROMPT per part")
     ap.add_argument("--out", required=True, help="output stem; writes <out>.shard<i>.json.partial.json")
     args = ap.parse_args()
@@ -91,6 +95,7 @@ def main():
         keys = keys[: args.n]
     keys = keys[args.shard::args.nshards]
     system, user = SYSTEM_PROMPTS[args.system_prompt], USER_PROMPT
+    pf = args.prefill.encode().decode("unicode_escape")
     # per-key user prompts (repair turn: the prompt carries the failed attempt's code)
     user_map = json.load(open(args.user_prompts)) if args.user_prompts else {}
     out_path = f"{args.out}.shard{args.shard}.json.partial.json"
@@ -107,9 +112,9 @@ def main():
         cands = []
         try:
             u = user_map.get(key, user)
-            g = chat(args.base_url, args.model, png, system, u, 0.0, 1.0, 1, args.max_tokens, args.timeout, not args.no_think)
+            g = chat(args.base_url, args.model, png, system, u, 0.0, 1.0, 1, args.max_tokens, args.timeout, not args.no_think, pf)
             s = chat(args.base_url, args.model, png, system, u, args.temperature, args.top_p, args.k - 1,
-                     args.max_tokens, args.timeout, not args.no_think) if args.k > 1 else []
+                     args.max_tokens, args.timeout, not args.no_think, pf) if args.k > 1 else []
         except Exception as e:
             print(f"[gen] {key}: {type(e).__name__}: {str(e)[:120]}", flush=True)
             return key, None

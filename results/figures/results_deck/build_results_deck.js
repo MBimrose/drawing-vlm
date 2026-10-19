@@ -30,6 +30,8 @@ function chart(slide, name, x, y, size) {
 }
 
 function bullets(slide, items, x, y, w, h) {
+  // keep numbers glued to their unit ("0.24 s", "45 %") so a line never breaks between them
+  items = items.map(t => t.replace(/(\d) (s|%|mm)\b/g, "$1\u00a0$2"));
   slide.addText(items.map((t, i) => ({ text: t, options: { bullet: true, breakLine: i < items.length - 1 } })),
                 { x, y, w, h, fontSize: 16, color: C.text1, valign: "top", paraSpaceAfter: 10, margin: 0, isTextBox: true,
                   objectName: "takeaways" });
@@ -98,6 +100,15 @@ if (T) chartSlide("Program Execution Time", "exectime_vs_iou", [
   `Spearman ρ = ${T.rho.toFixed(2)} with IoU`,
   `Parts at IoU ≥ 0.85 median ${T.median_ok.toFixed(2)} s vs ${T.median_bad.toFixed(2)} s below`,
 ], "Measured on the cluster CPU node (ccc0442), 12 programs in parallel, one subprocess per program.");
+
+// 3b. face count vs execution time (two complexity measures)
+const FE = S.faces_exec;
+if (FE) chartSlide("Face Count vs Execution Time", "faces_vs_exectime", [
+  `Two complexity measures for the ${FE.n} synthetic test parts: ground-truth face count and the served program's execution time`,
+  `Spearman ρ = ${FE.rho.toFixed(2)}, r² = ${FE.r2_loglog.toFixed(2)} on log-log axes`,
+  ...FE.bins.map(b => `${b.label} faces (n=${b.n}): median ${b.median.toFixed(2)} s, 95th percentile ${b.p95.toFixed(2)} s`),
+  `Outliers both ways: some programs with few faces take over a second, and some 100+ face parts build in under 0.1 s`,
+], "Execution time measured with a warm-up run first (the first batch of the original run absorbed a ~1 s cold start; those 12 parts were re-timed).");
 
 // 4. IoU distribution
 {

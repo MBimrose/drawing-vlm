@@ -178,6 +178,24 @@ class VLMCollator:
         self.tmpl_kwargs = dict(enable_thinking=True, reasoning_effort=reasoning_effort) \
             if trace_style == "think" else {}
         self._mask_warnings = 0
+        # 2026-10-15: NVIDIA Nemotron-3.5-Super-VL (remote-code processor). Images go to the processor as-is
+        # (its own dynamic-resolution rule; qwen_vl_utils would re-round them to Qwen's 28/32-px grid), and an
+        # untraced row is rendered as "<think>\n</think>code" so that, as in the Qwen template, the "choose not to
+        # think" target follows the exact think-mode generation prompt ("...assistant\n<think>\n"). The Nemotron
+        # template would otherwise render "<think></think>code", which never follows that prompt.
+        self.nemotron = type(processor).__name__.startswith("NemotronH")
+
+    def _nemotron_msgs(self, msgs: list[list[dict]]) -> list[list[dict]]:
+        out = []
+        for m in msgs:
+            last = m[-1]
+            if last.get("role") == "assistant" and not (last.get("reasoning_content") or "").strip():
+                text = "".join(p.get("text", "") for p in last["content"]) if isinstance(last["content"], list) \
+                    else str(last["content"])
+                if "<think>" not in text:
+                    last = {"role": "assistant", "content": [{"type": "text", "text": "<think>\n</think>" + text}]}
+            out.append(m[:-1] + [last])
+        return out
 
     def __call__(self, batch: list[dict[str, Any]]) -> dict[str, torch.Tensor]:
         # Poison-sample guard: isolate a failing sample instead of killing the
@@ -204,11 +222,12 @@ class VLMCollator:
             return self._collate(good)
 
     def _collate(self, batch: list[dict[str, Any]]) -> dict[str, torch.Tensor]:
-        from qwen_vl_utils import process_vision_info
-
         msgs = [build_verifier_messages(b) if "candidate_code" in b else
                 build_messages(b, self.system_prompt, self.trace_style)
                 for b in batch]
+        if self.nemotron:
+            return self._collate_nemotron(batch, self._nemotron_msgs(msgs))
+        from qwen_vl_utils import process_vision_info
 
         full_text = [
             self.processor.apply_chat_template(
@@ -267,3 +286,38 @@ class VLMCollator:
         labels[enc["attention_mask"] == 0] = -100
         enc["labels"] = labels
         return enc
+
+    def _collate_nemotron(self, batch: list[dict[str, Any]], msgs: list[list[dict]]) -> dict[str, torch.Tensor]:
+        """Same text/mask logic as the Qwen path; images = the raw PIL sheets in message order."""
+        full_text = [self.processor.apply_chat_template(m, add_generation_prompt=False, tokenize=False,
+                                                        **self.tmpl_kwargs) for m in msgs]
+        prompt_text = [self.processor.apply_chat_template(m[:-1], add_generation_prompt=True, tokenize=False,
+                                                          **self.tmpl_kwargs) for m in msgs]
+        images = [p["image"] for m in msgs for turn in m if isinstance(turn.get("content"), list)
+                  for p in turn["content"] if p.get("type") == "image"]
+        enc = self.processor(text=full_text, images=images or None, return_tensors="pt", padding=True,
+                             truncation=True, max_length=self.max_seq_len)
+        # prompt ids only (no pixels needed): expand the image placeholders the same way, then tokenize
+        prompt_ids = self.processor(text=prompt_text, images=images or None, return_tensors=None,
+                                    padding=False, truncation=True, max_length=self.max_seq_len)["input_ids"]
+        n_img = int((enc["input_ids"] == self.processor.image_token_id).sum())
+        n_exp = int(sum(enc["num_tokens"])) if "num_tokens" in enc else n_img
+        if n_img != n_exp:
+            raise ValueError(f"image tokens truncated ({n_img} of {n_exp}); raise max_seq_len")
+        out = {"input_ids": enc["input_ids"], "attention_mask": enc["attention_mask"],
+               "pixel_values": enc["pixel_values"], "use_cache": False}
+        labels = enc["input_ids"].clone()
+        for i, pids in enumerate(prompt_ids):
+            fids = enc["input_ids"][i].tolist()
+            n = min(len(pids), len(fids))
+            k = 0
+            while k < n and pids[k] == fids[k]:
+                k += 1
+            if k < len(pids) - 4 and self._mask_warnings < 10:
+                self._mask_warnings += 1
+                print(f"[collate] WARN mask prefix {k} << prompt len {len(pids)} "
+                      f"(uuid={batch[i].get('uuid')})", flush=True)
+            labels[i, :k] = -100
+        labels[enc["attention_mask"] == 0] = -100
+        out["labels"] = labels
+        return out

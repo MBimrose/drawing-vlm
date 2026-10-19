@@ -1,0 +1,41 @@
+[cons] 144 parts, k=8
+[cons] re-executed 598 candidates
+/dev/shm/bimrose2/ipcode/venv/lib/python3.12/site-packages/trimesh/triangles.py:302: RuntimeWarning: invalid value encountered in divide
+  center_mass = integrated[1:4] / volume
+[iou] monte-carlo fallback: iou=0.000 (21s, n=20000, 820+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (12s, n=20000, 820+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (14s, n=20000, 1580+380 faces)
+[iou] monte-carlo fallback: iou=0.033 (13s, n=20000, 1012+13500 faces)
+[iou] monte-carlo fallback: iou=0.000 (5s, n=20000, 1580+380 faces)
+[iou] monte-carlo fallback: iou=0.000 (5s, n=20000, 16776+380 faces)
+[iou] monte-carlo fallback: iou=0.890 (48s, n=20000, 1180+2512 faces)
+[iou] monte-carlo fallback: iou=0.074 (15s, n=20000, 1012+13500 faces)
+[iou] monte-carlo fallback: iou=0.000 (9s, n=20000, 16776+380 faces)
+[iou] monte-carlo fallback: iou=0.867 (44s, n=20000, 614+1369 faces)
+[iou] monte-carlo fallback: iou=0.000 (24s, n=20000, 15918+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (16s, n=20000, 1180+2512 faces)
+[iou] monte-carlo fallback: iou=0.753 (15s, n=20000, 614+1369 faces)
+[iou] monte-carlo fallback: iou=0.000 (22s, n=20000, 15918+248 faces)
+[iou] monte-carlo fallback: iou=0.244 (12s, n=20000, 1369+60 faces)
+[iou] monte-carlo fallback: iou=0.000 (3s, n=20000, 2422+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (2s, n=20000, 2422+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 556+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (0s, n=20000, 556+248 faces)
+[iou] monte-carlo fallback: iou=0.000 (2s, n=20000, 248+8222 faces)
+[iou] monte-carlo fallback: iou=0.000 (3s, n=20000, 248+8222 faces)
+[iou] monte-carlo fallback: iou=0.244 (10s, n=20000, 1369+60 faces)
+[iou] monte-carlo fallback: iou=0.086 (29s, n=20000, 2512+3032 faces)
+[iou] monte-carlo fallback: iou=0.289 (13s, n=20000, 1369+1282 faces)
+[iou] monte-carlo fallback: iou=0.086 (23s, n=20000, 2512+3032 faces)
+[iou] monte-carlo fallback: iou=0.289 (13s, n=20000, 1369+1282 faces)
+[iou] monte-carlo fallback: iou=0.093 (3s, n=20000, 1369+244 faces)
+[iou] monte-carlo fallback: iou=0.428 (6s, n=20000, 1369+244 faces)
+[iou] monte-carlo fallback: iou=0.502 (7s, n=20000, 1369+238 faces)
+[iou] monte-carlo fallback: iou=0.477 (7s, n=20000, 1369+238 faces)
+[iou] monte-carlo fallback: iou=0.934 (8s, n=20000, 1369+356 faces)
+[iou] monte-carlo fallback: iou=0.934 (8s, n=20000, 1369+356 faces)
+first_exec   mean=0.378 median=0.363 iou85=0.062 iou50=0.319
+consistency  mean=0.426 median=0.381 iou85=0.132 iou50=0.417
+cons_hybrid  mean=0.403 median=0.392 iou85=0.097 iou50=0.368
+verifier     mean=0.378 median=0.363 iou85=0.062 iou50=0.319
+oracle       mean=0.499 median=0.502 iou85=0.160 iou50=0.500

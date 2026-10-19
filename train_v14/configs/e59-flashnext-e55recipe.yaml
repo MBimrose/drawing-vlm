@@ -1,0 +1,61 @@
+# E59 — Qwen3.8-Flash-Next (180B-A6B) on the e55 recipe, for a fair scale comparison against e55 (2026-10-18).
+# Starts from the Flash-Next base like e55 starts from the 27B base; data = e55 exactly (serv-19 paths in
+# nemotron/env_nemo19.sh, md5-checked for the Nemotron port: tars_v14_dw423 plain tier, rft_mix_u6_gt_dw423 RFT
+# tier, v14_bundle reasoning tier, 60/20/20, exec filter), same 4000 steps, effective batch 64 (1 x 8 accum x 8
+# ranks), LR 6e-6, warmup 3%, cosine -> 10%, seed 43. Model-side settings are e26-full-serv19's (the Flash-Next
+# full FT that ran): pure-bf16 FSDP2 + bf16 stochastic-rounding AdamW, vision tower / PLE table / MTP head frozen.
+# Launch: fn55/train_e59.sh on serv-19 (all 8 GPUs, after the ablation eval lanes).
+run_name: e59-flashnext-e55recipe
+model_id: /srv/scratch/bimrose2/models/Qwen3.8-Flash-Next
+output_dir: /srv/scratch/bimrose2/runs/e59-flashnext-e55recipe
+accel_config: accelerate_fsdp2_qwen4exp_purebf16.yaml
+
+use_lora: false
+vision_strategy: frozen
+demote_persistent_buffers: true
+mmap_ngram_embedding: true
+fast_qsa_indexer: true
+optim: bf16_sr_adamw
+bf16: false
+sync_each_batch: true
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+dims_filter: false
+system_prompt: detailed
+trace_style: think
+reasoning_effort: medium
+max_seq_len: 5120
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 6.0e-6
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+
+max_steps: 4000
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+best_save_mode: gather
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 43

@@ -1,0 +1,35 @@
+[cons] 144 parts, k=8
+[cons] re-executed 1133 candidates
+/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/.venv/lib/python3.12/site-packages/trimesh/triangles.py:302: RuntimeWarning: invalid value encountered in divide
+  center_mass = integrated[1:4] / volume
+[iou] monte-carlo fallback: iou=0.000 (54s, n=20000, 768+504 faces)
+[iou] monte-carlo fallback: iou=0.247 (33s, n=20000, 3190+868 faces)
+[iou] monte-carlo fallback: iou=0.000 (4s, n=20000, 768+504 faces)
+[iou] monte-carlo fallback: iou=0.747 (5s, n=20000, 3190+868 faces)
+[iou] monte-carlo fallback: iou=0.000 (4s, n=20000, 768+504 faces)
+[iou] monte-carlo fallback: iou=0.716 (5s, n=20000, 3190+1256 faces)
+[iou] monte-carlo fallback: iou=0.000 (4s, n=20000, 768+504 faces)
+[iou] monte-carlo fallback: iou=0.770 (6s, n=20000, 3190+1256 faces)
+[iou] monte-carlo fallback: iou=0.000 (4s, n=20000, 768+504 faces)
+[iou] monte-carlo fallback: iou=0.522 (4s, n=20000, 3190+1336 faces)
+[iou] monte-carlo fallback: iou=0.000 (4s, n=20000, 768+504 faces)
+[iou] monte-carlo fallback: iou=0.636 (4s, n=20000, 3190+1336 faces)
+[iou] monte-carlo fallback: iou=0.000 (4s, n=20000, 768+504 faces)
+[iou] monte-carlo fallback: iou=0.000 (4s, n=20000, 768+504 faces)
+[iou] monte-carlo fallback: iou=0.688 (5s, n=20000, 3190+1288 faces)
+[iou] monte-carlo fallback: iou=0.000 (4s, n=20000, 768+504 faces)
+[iou] monte-carlo fallback: iou=0.750 (5s, n=20000, 3190+1288 faces)
+[iou] monte-carlo fallback: iou=0.000 (4s, n=20000, 768+504 faces)
+[iou] monte-carlo fallback: iou=0.620 (5s, n=20000, 3190+1036 faces)
+[iou] monte-carlo fallback: iou=0.000 (4s, n=20000, 504+768 faces)
+[iou] monte-carlo fallback: iou=0.572 (5s, n=20000, 3190+1036 faces)
+[iou] monte-carlo fallback: iou=0.000 (4s, n=20000, 504+768 faces)
+[iou] monte-carlo fallback: iou=0.678 (5s, n=20000, 3190+1104 faces)
+[iou] monte-carlo fallback: iou=0.000 (4s, n=20000, 504+768 faces)
+[iou] monte-carlo fallback: iou=0.763 (5s, n=20000, 3190+1104 faces)
+[iou] monte-carlo fallback: iou=0.000 (4s, n=20000, 504+768 faces)
+first_exec   mean=0.632 median=0.662 iou85=0.319 iou50=0.660
+consistency  mean=0.654 median=0.673 iou85=0.361 iou50=0.701
+cons_hybrid  mean=0.642 median=0.669 iou85=0.326 iou50=0.688
+verifier     mean=0.632 median=0.662 iou85=0.319 iou50=0.660
+oracle       mean=0.731 median=0.800 iou85=0.444 iou50=0.806

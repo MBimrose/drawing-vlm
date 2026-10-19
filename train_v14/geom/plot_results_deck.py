@@ -115,6 +115,27 @@ def exectime_vs_iou(P):
     save(fig, "exectime_vs_iou")
 
 
+def faces_vs_exectime(P):
+    """Two complexity measures against each other: GT face count vs medoid program execution time (log-log)."""
+    Q = [p for p in P if p.get("exec_sec") is not None]
+    x = np.array([p["faces"] for p in Q]); y = np.array([p["exec_sec"] for p in Q])
+    fig, ax = plt.subplots(figsize=(6, 6))
+    ax.scatter(x, y, s=18, color=ILLINI_BLUE, alpha=0.5, linewidths=0)
+    ax.set_xscale("log"); ax.set_yscale("log")
+    ylo, yhi = 10 ** np.floor(np.log10(y.min())), 10 ** np.ceil(np.log10(y.max()))
+    # log axes labelled at powers of ten only; everything in between is an unlabelled minor tick
+    style(ax, "Face count", "Execution time (s)", xmaj=FixedLocator([10, 100]), xlim=(5, 500),
+          ymaj=FixedLocator([v for v in (0.01, 0.1, 1, 10, 100) if ylo <= v <= yhi]), ylim=(ylo, yhi), xfmt="%.0f", yfmt=None)
+    ax.xaxis.set_minor_locator(FixedLocator([v * m for m in (1, 10, 100) for v in range(2, 10) if 5 <= v * m <= 500]))
+    ax.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:g}"))
+    ax.yaxis.set_minor_locator(FixedLocator([v * m for m in (0.01, 0.1, 1, 10) for v in range(2, 10) if ylo <= v * m <= yhi]))
+    for t in ax.get_xticklabels() + ax.get_yticklabels():
+        t.set_fontweight("bold")
+    r2 = np.corrcoef(np.log10(x), np.log10(y))[0, 1] ** 2
+    note(ax, f"Spearman ρ = {spearman(x, y):.2f}\nr² (log-log) = {r2:.2f}", "upper left")
+    save(fig, "faces_vs_exectime")
+
+
 def iou_hist(P):
     x = np.array([p["medoid"] for p in P])
     fig, ax = plt.subplots(figsize=(6, 6))

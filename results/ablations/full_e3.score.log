@@ -1,0 +1,20 @@
+[score] 4 checkpoints, 1027 parts, 8216 candidates
+[score] 8214 to execute
+[score] 500/8214  6.00/s  eta 0.4 h
+[score] 1000/8214  5.88/s  eta 0.3 h
+[score] 1500/8214  5.82/s  eta 0.3 h
+[score] 2000/8214  5.90/s  eta 0.3 h
+[score] 2500/8214  5.90/s  eta 0.3 h
+[score] 3000/8214  5.95/s  eta 0.2 h
+[score] 3500/8214  5.93/s  eta 0.2 h
+[score] 4000/8214  5.94/s  eta 0.2 h
+[score] 4500/8214  5.91/s  eta 0.2 h
+[score] 5000/8214  5.92/s  eta 0.2 h
+[score] 5500/8214  5.94/s  eta 0.1 h
+[score] 6000/8214  5.93/s  eta 0.1 h
+[score] 6500/8214  5.90/s  eta 0.1 h
+[score] 7000/8214  5.92/s  eta 0.1 h
+[score] 7500/8214  5.93/s  eta 0.0 h
+[score] 8000/8214  5.93/s  eta 0.0 h
+[score] volume bound settled 0 of 8214 without a boolean; 14 overlaps timed out (scored 0)
+[score] executed 5686/8216 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/ablations/full_e3.json

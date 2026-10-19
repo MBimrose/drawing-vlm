@@ -1,0 +1,35 @@
+[cons] 144 parts, k=8
+[cons] re-executed 552 candidates
+[iou] monte-carlo fallback: iou=0.000 (30s, n=20000, 7448+6494 faces)
+[iou] monte-carlo fallback: iou=0.891 (41s, n=20000, 5396+6784 faces)
+[iou] monte-carlo fallback: iou=0.076 (6s, n=20000, 5396+6784 faces)
+[iou] monte-carlo fallback: iou=0.007 (1s, n=20000, 5396+2024 faces)
+[iou] monte-carlo fallback: iou=0.028 (17s, n=20000, 7448+6494 faces)
+[iou] monte-carlo fallback: iou=0.007 (2s, n=20000, 5396+2024 faces)
+[iou] monte-carlo fallback: iou=0.008 (4s, n=20000, 6784+2024 faces)
+[iou] monte-carlo fallback: iou=0.006 (6s, n=20000, 6784+2024 faces)
+[iou] monte-carlo fallback: iou=0.111 (21s, n=20000, 2010+6494 faces)
+[iou] monte-carlo fallback: iou=0.421 (64s, n=20000, 155534+2044 faces)
+[iou] monte-carlo fallback: iou=0.111 (20s, n=20000, 2010+6494 faces)
+[iou] monte-carlo fallback: iou=0.062 (30s, n=20000, 6784+15256 faces)
+[iou] monte-carlo fallback: iou=0.155 (15s, n=20000, 1850+6494 faces)
+[iou] monte-carlo fallback: iou=0.063 (28s, n=20000, 6784+15256 faces)
+[iou] monte-carlo fallback: iou=0.130 (17s, n=20000, 1850+6494 faces)
+[iou] monte-carlo fallback: iou=0.642 (53s, n=20000, 155534+2044 faces)
+[iou] monte-carlo fallback: iou=0.172 (16s, n=20000, 1200+6494 faces)
+[iou] monte-carlo fallback: iou=0.899 (25s, n=20000, 6784+11828 faces)
+[iou] monte-carlo fallback: iou=0.170 (15s, n=20000, 1200+6494 faces)
+[iou] monte-carlo fallback: iou=0.024 (21s, n=20000, 6784+11828 faces)
+[iou] monte-carlo fallback: iou=0.306 (4s, n=20000, 6784+2396 faces)
+[iou] monte-carlo fallback: iou=0.027 (7s, n=20000, 6784+2396 faces)
+[iou] monte-carlo fallback: iou=0.076 (19s, n=20000, 2024+15256 faces)
+[iou] monte-carlo fallback: iou=0.058 (19s, n=20000, 2024+15256 faces)
+[iou] monte-carlo fallback: iou=0.006 (11s, n=20000, 2024+11828 faces)
+[iou] monte-carlo fallback: iou=0.006 (11s, n=20000, 2024+11828 faces)
+[iou] monte-carlo fallback: iou=0.005 (1s, n=20000, 2024+2396 faces)
+[iou] monte-carlo fallback: iou=0.007 (1s, n=20000, 2024+2396 faces)
+first_exec   mean=0.256 median=0.176 iou85=0.035 iou50=0.181
+consistency  mean=0.295 median=0.208 iou85=0.049 iou50=0.236
+cons_hybrid  mean=0.277 median=0.196 iou85=0.042 iou50=0.208
+verifier     mean=0.256 median=0.176 iou85=0.035 iou50=0.181
+oracle       mean=0.372 median=0.344 iou85=0.069 iou50=0.354

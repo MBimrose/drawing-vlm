@@ -24,6 +24,8 @@ mkdir -p "$TRITON_CACHE_DIR"
 # draftwright-0.4.23 re-render tars_v14_dw423 for e55); DRAWING_VLM_EVAL_CACHE_V15 likewise
 # selects the matching certified eval cache (data_v14.EVAL_CACHE_V15).
 export DRAWING_VLM_TARS=${DRAWING_VLM_TARS:-$ROOT/drawing_vlm/step_to_drw/wds_dataset/tars_v14}
-export DRAWING_VLM_TRACES_JSON=$ROOT/drawing_vlm/step_to_drw/wds_dataset/traces_v14.json
+# (2026-10-15) a preset value wins: on serv-20 the default dir has no legacy_keys_v14.txt, which data_v14 looks up
+# next to this file, so the legacy-renderer filter silently switched off unless the launcher points elsewhere.
+export DRAWING_VLM_TRACES_JSON=${DRAWING_VLM_TRACES_JSON:-$ROOT/drawing_vlm/step_to_drw/wds_dataset/traces_v14.json}
 
 mkdir -p "$HF_HUB_CACHE" "$WANDB_DIR" "$TORCH_HOME"

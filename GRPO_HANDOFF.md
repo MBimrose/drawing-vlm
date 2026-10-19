@@ -1423,3 +1423,69 @@ Still running:
 - rft2_kl2 (KL clamp 5) → s200;
 - rft2_raw_s1 → s130;
 - g2_guided_s1 → s130.
+
+### Final results (Oct 12): bench-B system, late steps, extensions
+
+Both helper agents stopped on Oct 10 (usage limit). All arms had already finished (s130/s200); the eval daemon (serv-20 GPU 3)
+scored every checkpoint. serv-20 was idle Oct 10 20:00 – Oct 12 14:00.
+
+**Bench B full pipeline (280 parts, pre-declared; `results/bench_b/pipeline/summary_b.py` → `summary_b.txt`).**
+
+| system | mean | ABC | Fusion | ≥0.85 |
+|---|---|---|---|---|
+| S2 = e55 K=8 vote start | 0.514 | 0.414 | 0.578 | 15% |
+| S2 = e55 + 3 rp3 chains, multi-start (0.695 recipe) | 0.664 | 0.542 | 0.742 | 37% |
+| S1 = rft2_rl s60 K=16 selected start (no repair) | 0.691 | 0.585 | 0.758 | 38% |
+| **S1 = rft2_rl s60 + 3 rp3 chains, multi-start** | **0.721** | 0.599 | 0.799 | 45% |
+
+- S1 − S2: **+0.057 [+0.036, +0.078]** (+95/−32), the same on ABC and Fusion. On the 144 bench the systems were n.s. (+0.017),
+  so on the bigger held-out bench the RL generator's gain **survives repair**.
+- S1 start (no repair) − S2 full system: +0.026 [+0.004, +0.048], so the RL model alone beats e55 with repair.
+- Repair: +0.150 on e55, +0.030 on the RL model (S1 multi-start − start). RL absorbs most of what repair used to add.
+
+**Late-step 144-bench evals (Δ vs rft2_rl s60).**
+
+| arm | step | vote | d0 | mean | bo8 | exec |
+|---|---|---|---|---|---|---|
+| rft2_raw | s200 | 0.667 | 0.651 | 0.646 | 0.732 | 0.984 |
+| rft2_raw_s1 | s120 | 0.669 | **0.664** | 0.646 | 0.732 | 0.989 |
+| rft2_kl2 (KL to rft2, clamp 5) | s200 | **0.678** | 0.646 | 0.641 | 0.733 | 0.989 |
+| g2_guided_s1 | s120 | 0.664 | 0.642 | 0.631 | 0.722 | 0.984 |
+| e55_t2_rl | s120 | 0.650 | 0.620 | 0.612 | 0.719 | 0.967 |
+
+- `--train-raw` arms keep improving per-sample quality with no collapse: rft2_raw s200 mean +0.020 [+0.008, +0.034];
+  rft2_raw_s1 s120 d0 +0.033 [+0.006, +0.059], mean +0.020 [+0.006, +0.034]. Vote and best-of-8 stay flat (plateau).
+- rft2_kl2 s200 vote +0.004 (n.s.); KL anchoring is neutral.
+- g2_guided_s1 replicates g2_guided (tie with SFT→RL).
+- e55_t2_rl had a transient exec dip at s122–126 (0.78–0.84 per step) despite `--train-raw`; it recovered by s128.
+
+**Extensions launched Oct 12 14:05 (serv-20; the rft2_raw recipe; daemon STEPS 20/60/120/200/300; ARMS has rft2_raw_s2 first):**
+- rft2_raw: s200 → s300 (GPU 5, :8443, cores 24–47).
+- rft2_raw_s1: s130 → s300 (GPU 4, :8447, cores 48–71).
+- rft2_raw_s2: new seed 2 from runs/rft2_from_rl2/final → s200 (GPU 6, :8448, cores 72–95).
+
+**Oct 12 22:45 update.** rft2_raw s300: vote 0.665, d0 0.654, mean 0.643, bo8 0.723, exec 0.993 (≈ s200; plateau). rft2_raw_s2
+(seed 2): s60 vote 0.661 / d0 0.619; s120 vote 0.670 / d0 0.654 / mean 0.638 / exec 0.995. Three `--train-raw` seeds at s120:
+d0 0.617 / 0.664 / 0.654, vote 0.659 / 0.669 / 0.670; minimum per-step exec over all steps 0.93. Votes for these were computed
+on serv-20 (consistency_rerank.py) and copied to results/grpo_eval/. Running: rft2_raw_s1 → s300 (step 262), rft2_raw_s2 → s200 (step 132).
+
+**Oct 13 final.** All arms done; serv-20 idle. rft2_raw_s1 s200 / s300: vote 0.663 / 0.662, d0 0.634 / 0.633, bo8 0.726 / 0.721.
+rft2_raw_s2 s200: vote 0.680, d0 0.635, mean 0.642, bo8 0.729 (min per-step exec 0.86, recovered). Three-seed `--train-raw`
+means: s120 vote 0.666 / d0 0.645; s200 vote 0.670 / d0 0.640. d0 peaks around s120 and does not keep rising (seed 0 holds 0.65 to
+s300; seeds 1 and 2 fall back to ~0.635). No seed collapsed in 200–300 steps. Every comparison with rft2_rl s60 is n.s. on vote and bo8.
+
+### In-distribution eval of the RL generators (Oct 13; for the paper's main table)
+
+`mech_benchmarks/fullpool_dw423` (1,027 parts with GT), grpo_eval protocol (K=8, draw 0 greedy + T 0.7), serv-20 GPUs 4-6,
+scored on serv-20 (`score_partials.py` + `consistency_rerank.py`); files `results/grpo_eval/full_*`; script
+`/srv/scratch/bimrose2/tmp/indist_full.sh`. Table: `eval_table.py --prefix full --refs e55ctl ent_t10_s120 rft2_rl_s60`.
+
+| model | vote | d0 | first-exec | mean | bo8 | exec |
+|---|---|---|---|---|---|---|
+| e55ctl | 0.917 (83% ≥0.85) | 0.804 | 0.899 | 0.788 | 0.943 | 0.876 |
+| ent_t10_s120 (GRPO) | 0.922 (84%) | 0.910 | 0.912 | 0.909 | 0.948 | 0.996 |
+| rft2_rl_s60 (expert iteration) | **0.932** (86%) | 0.877 | 0.915 | 0.878 | **0.958** | 0.959 |
+
+- No in-distribution regression from RL. Single draw: +0.105 [+0.086, +0.124] (GRPO), +0.073 [+0.054, +0.092] (EI).
+- Vote: GRPO +0.005 (n.s.); EI +0.015 [+0.009, +0.022].
+- e55ctl reproduces the old 0.4.23-cache numbers: first-exec 0.886, vote 0.909, oracle 0.935.

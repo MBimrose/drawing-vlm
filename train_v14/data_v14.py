@@ -51,6 +51,28 @@ BAD_KEYS_FILE = os.environ.get(
 )
 
 _TRACE_INDEX: dict[str, dict] | None = None
+
+# Opt-in deterministic data order (2026-10-15, Nemotron optimizer A/B check): webdataset seeds both the resampled shard
+# stream and the sample shuffle buffer from pid/time, so two runs with the same `seed` see different rows. With
+# DRAWING_VLM_DATA_SEED set, the shard resampler is made deterministic (per-stream seed = (rank*1000 + worker, epoch,
+# DATA_SEED)) and the shuffle buffer gets a fixed seed. Unset (default) = the old behaviour exactly.
+DATA_SEED = os.environ.get("DRAWING_VLM_DATA_SEED")
+if DATA_SEED:   # WebDataset also appends a shard shuffle seeded from WDS_SEED or an unseeded random.randint
+    os.environ.setdefault("WDS_SEED", DATA_SEED)
+
+
+def _det_shards(pipe):
+    if DATA_SEED:
+        for st in pipe.pipeline:
+            if type(st).__name__ in ("ResampledShards", "ResampledShardList"):
+                st.deterministic, st.seed = True, int(DATA_SEED)
+    return pipe
+
+
+def _shuffle_kw() -> dict:
+    return {"seed": int(DATA_SEED)} if DATA_SEED else {}
+
+
 _BAD_KEYS: frozenset[str] | None = None
 
 
@@ -187,7 +209,8 @@ def build_train_dataset(
         workersplitter=wds.split_by_worker,
         handler=wds.warn_and_continue,
     )
-    pipe = pipe.shuffle(sample_shuffle_buffer, initial=initial_buffer)
+    pipe = _det_shards(pipe)
+    pipe = pipe.shuffle(sample_shuffle_buffer, initial=initial_buffer, **_shuffle_kw())
     pipe = pipe.select(_keep)
     return pipe.to_tuple("png", "py", "__key__").map(_pack)
 
@@ -310,7 +333,8 @@ def build_reasoning_dataset(
         nodesplitter=wds.split_by_node, workersplitter=wds.split_by_worker,
         handler=wds.warn_and_continue,
     )
-    pipe = pipe.shuffle(sample_shuffle_buffer, initial=initial_buffer)
+    pipe = _det_shards(pipe)
+    pipe = pipe.shuffle(sample_shuffle_buffer, initial=initial_buffer, **_shuffle_kw())
     pipe = pipe.select(lambda s: "png" in s and "trace.txt" in s and "code.py" in s)
     return (pipe.to_tuple("png", "trace.txt", "code.py", "__key__")
             .map(_pack))
@@ -369,7 +393,8 @@ def build_plain_dataset_v2(
         nodesplitter=wds.split_by_node, workersplitter=wds.split_by_worker,
         handler=wds.warn_and_continue,
     )
-    pipe = pipe.shuffle(sample_shuffle_buffer, initial=initial_buffer)
+    pipe = _det_shards(pipe)
+    pipe = pipe.shuffle(sample_shuffle_buffer, initial=initial_buffer, **_shuffle_kw())
     pipe = pipe.select(_keep)
     return pipe.to_tuple("png", "py", "__key__").map(_pack)
 
@@ -435,7 +460,8 @@ def build_rft_dataset(
         nodesplitter=wds.split_by_node, workersplitter=wds.split_by_worker,
         handler=wds.warn_and_continue,
     )
-    pipe = pipe.shuffle(sample_shuffle_buffer, initial=initial_buffer)
+    pipe = _det_shards(pipe)
+    pipe = pipe.shuffle(sample_shuffle_buffer, initial=initial_buffer, **_shuffle_kw())
     pipe = pipe.select(lambda s: "png" in s and "code.py" in s)
     return pipe.map(_pack)
 
@@ -532,7 +558,8 @@ def build_verifier_dataset(image_aug: bool = True, shard_shuffle_buffer: int = 1
         nodesplitter=wds.split_by_node, workersplitter=wds.split_by_worker,
         handler=wds.warn_and_continue,
     )
-    pipe = pipe.shuffle(sample_shuffle_buffer, initial=initial_buffer)
+    pipe = _det_shards(pipe)
+    pipe = pipe.shuffle(sample_shuffle_buffer, initial=initial_buffer, **_shuffle_kw())
     pipe = pipe.select(lambda x: "png" in x and "code.py" in x and "meta.json" in x)
     def _mk(t):
         smp = _pack_scored(t, image_aug)

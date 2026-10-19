@@ -1,0 +1,26 @@
+# FSDP2 full-shard, 8 ranks, PURE bf16, serv-19 (2026-10-15) — Nemotron-3.5-Super-VL-120B-A12B FULL fine-tune
+# (all LLM params incl. routed experts; vision tower frozen). Per rank: bf16 params 30 GB + bf16 grads 30 GB +
+# fp32 Adam moments 122 GB (bf16_sr_adamw) ~ 182 GB + gathers/activations. cpu_ram_efficient_loading: 8 ranks x
+# 243 GB host copies would exceed serv-19's 1.84 TB, so rank 0 loads and FSDP2 broadcasts (buffers: see
+# BroadcastBuffers in train_sft_v14.py).
+compute_environment: LOCAL_MACHINE
+distributed_type: FSDP
+mixed_precision: "no"
+num_machines: 1
+num_processes: 8
+machine_rank: 0
+main_training_function: main
+rdzv_backend: static
+same_network: true
+fsdp_config:
+  fsdp_version: 2
+  fsdp_sharding_strategy: FULL_SHARD
+  fsdp_offload_params: false
+  fsdp_state_dict_type: SHARDED_STATE_DICT
+  fsdp_activation_checkpointing: true
+  fsdp_auto_wrap_policy: TRANSFORMER_BASED_WRAP
+  fsdp_transformer_layer_cls_to_wrap: NemotronHBlock,RadioLayer
+  fsdp_cpu_ram_efficient_loading: true
+  fsdp_use_orig_params: true
+  fsdp_sync_module_states: true
+  fsdp_reshard_after_forward: true

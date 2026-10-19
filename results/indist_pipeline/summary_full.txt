@@ -1,0 +1,27 @@
+| stage | n | mean | median | ≥0.85 |
+|---|---|---|---|---|
+| S1 K=16 vote | 1027 | 0.936 | 0.987 | 86% |
+| S1 K=16 selected pick (chain-1 start) | 1027 | 0.946 | 0.991 | 88% |
+| S1 K=16 oracle | 1027 | 0.966 | 0.996 | 94% |
+| S1 single chain (c1) | 1027 | 0.952 | 0.993 | 91% |
+| S1 MULTI-START (3 chains, v3 pick) | 1027 | 0.961 | 0.996 | 93% |
+| S1 oracle over chain finals | 1027 | 0.967 | 0.996 | 94% |
+| S2 e55 K=8 vote pick (chain-1 start) | 1027 | 0.917 | 0.979 | 83% |
+| S2 e55 K=8 oracle | 1027 | 0.943 | 0.990 | 89% |
+| S2 single chain (c1) | 1027 | 0.935 | 0.991 | 88% |
+| S2 MULTI-START (3 chains, v3 pick) | 1027 | 0.949 | 0.996 | 90% |
+| S2 oracle over chain finals | 1027 | 0.958 | 0.997 | 93% |
+
+| paired Δ | n | all | +/− |
+|---|---|---|---|
+| S1 MULTI-START (3 chains, v3 pick) − S2 MULTI-START (3 chains, v3 pick) | 1027 | +0.012 [+0.006, +0.017] | +81/−38 |
+| S1 MULTI-START (3 chains, v3 pick) − S1 K=16 selected pick (chain-1 start) | 1027 | +0.015 [+0.012, +0.019] | +112/−19 |
+| S1 MULTI-START (3 chains, v3 pick) − S1 single chain (c1) | 1027 | +0.009 [+0.006, +0.012] | +74/−14 |
+| S1 single chain (c1) − S1 K=16 selected pick (chain-1 start) | 1027 | +0.007 [+0.004, +0.010] | +56/−17 |
+| S1 K=16 selected pick (chain-1 start) − S1 K=16 vote | 1027 | +0.010 [+0.006, +0.014] | +104/−45 |
+| S2 MULTI-START (3 chains, v3 pick) − S2 e55 K=8 vote pick (chain-1 start) | 1027 | +0.032 [+0.027, +0.038] | +223/−43 |
+| S2 MULTI-START (3 chains, v3 pick) − S2 single chain (c1) | 1027 | +0.014 [+0.010, +0.019] | +99/−27 |
+| S2 single chain (c1) − S2 e55 K=8 vote pick (chain-1 start) | 1027 | +0.018 [+0.012, +0.024] | +155/−46 |
+| S1 single chain (c1) − S2 single chain (c1) | 1027 | +0.017 [+0.011, +0.024] | +120/−54 |
+| S1 K=16 selected pick (chain-1 start) − S2 MULTI-START (3 chains, v3 pick) | 1027 | -0.003 [-0.009, +0.002] | +64/−108 |
+| S1 oracle over chain finals − S2 oracle over chain finals | 1027 | +0.009 [+0.004, +0.013] | +54/−31 |

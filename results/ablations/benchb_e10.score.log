@@ -1,0 +1,8 @@
+[score] 4 checkpoints, 280 parts, 2240 candidates
+[score] 2229 to execute
+[score] 500/2229  6.33/s  eta 0.1 h
+[score] 1000/2229  6.34/s  eta 0.1 h
+[score] 1500/2229  6.39/s  eta 0.0 h
+[score] 2000/2229  6.35/s  eta 0.0 h
+[score] volume bound settled 0 of 2229 without a boolean; 2 overlaps timed out (scored 0)
+[score] executed 1117/2240 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/ablations/benchb_e10.json

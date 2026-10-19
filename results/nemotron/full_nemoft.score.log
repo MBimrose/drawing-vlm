@@ -1,0 +1,20 @@
+[score] 4 checkpoints, 1027 parts, 8216 candidates
+[score] 8216 to execute
+[score] 500/8216  3.18/s  eta 0.7 h
+[score] 1000/8216  3.09/s  eta 0.6 h
+[score] 1500/8216  2.93/s  eta 0.6 h
+[score] 2000/8216  2.99/s  eta 0.6 h
+[score] 2500/8216  3.01/s  eta 0.5 h
+[score] 3000/8216  2.97/s  eta 0.5 h
+[score] 3500/8216  3.00/s  eta 0.4 h
+[score] 4000/8216  2.99/s  eta 0.4 h
+[score] 4500/8216  2.98/s  eta 0.3 h
+[score] 5000/8216  2.98/s  eta 0.3 h
+[score] 5500/8216  2.99/s  eta 0.3 h
+[score] 6000/8216  2.98/s  eta 0.2 h
+[score] 6500/8216  3.00/s  eta 0.2 h
+[score] 7000/8216  3.01/s  eta 0.1 h
+[score] 7500/8216  3.02/s  eta 0.1 h
+[score] 8000/8216  3.02/s  eta 0.0 h
+[score] volume bound settled 0 of 8216 without a boolean; 11 overlaps timed out (scored 0)
+[score] executed 7157/8216 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/nemotron/full_nemoft.json

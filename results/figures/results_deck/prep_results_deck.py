@@ -16,7 +16,7 @@ from PIL import Image
 HERE = os.path.dirname(os.path.abspath(__file__))
 DV = "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm"
 PARTS = f"{DV}/results/figures/complex_parts/parts"
-CHARTS = ["repair_loop", "faces_vs_iou", "exectime_vs_iou", "iou_hist", "iou_survival"]
+CHARTS = ["repair_loop", "faces_vs_iou", "exectime_vs_iou", "faces_vs_exectime", "iou_hist", "iou_survival"]
 
 
 def spearman(x, y):
@@ -44,6 +44,12 @@ def summary():
         ti, ts = np.array([t[0] for t in T]), np.array([t[1] for t in T])
         S["exec"] = {"n": len(T), "median": float(np.median(ts)), "p95": float(np.percentile(ts, 95)), "max": float(ts.max()),
                      "rho": spearman(ti, ts), "median_ok": float(np.median(ts[ti >= 0.85])), "median_bad": float(np.median(ts[ti < 0.85]))}
+    if T:
+        fx = np.array([p["faces"] for p in P if p.get("exec_sec") is not None]); fy = np.array([p["exec_sec"] for p in P if p.get("exec_sec") is not None])
+        fb = [(0, 20), (21, 32), (33, 60), (61, 10 ** 6)]
+        S["faces_exec"] = {"n": len(fx), "rho": spearman(fx, fy), "r2_loglog": float(np.corrcoef(np.log10(fx), np.log10(fy))[0, 1] ** 2),
+                           "bins": [{"label": (f"{lo}–{hi}" if hi < 10 ** 6 else f">{lo - 1}") if lo else f"≤{hi}", "n": int(((fx >= lo) & (fx <= hi)).sum()),
+                                     "median": float(np.median(fy[(fx >= lo) & (fx <= hi)])), "p95": float(np.percentile(fy[(fx >= lo) & (fx <= hi)], 95))} for lo, hi in fb]}
     S["dist"] = {"n": len(P), "mean": float(med.mean()), "median": float(np.median(med)), "frac85": float((med >= 0.85).mean()),
                  "first85": float(np.mean([p["first"] >= 0.85 for p in P])), "oracle85": float(np.mean([p["oracle"] >= 0.85 for p in P]))}
     os.makedirs(f"{HERE}/gallery", exist_ok=True); G = []

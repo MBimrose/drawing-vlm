@@ -1,0 +1,27 @@
+[score] 2 checkpoints, 1027 parts, 16432 candidates
+[score] resuming: 5000 candidates already scored
+[score] 11426 to execute
+[score] 500/11426  7.49/s  eta 0.4 h
+[score] 1000/11426  7.87/s  eta 0.4 h
+[score] 1500/11426  7.67/s  eta 0.4 h
+[score] 2000/11426  7.71/s  eta 0.3 h
+[score] 2500/11426  7.42/s  eta 0.3 h
+[score] 3000/11426  7.46/s  eta 0.3 h
+[score] 3500/11426  7.46/s  eta 0.3 h
+[score] 4000/11426  7.58/s  eta 0.3 h
+[score] 4500/11426  7.64/s  eta 0.3 h
+[score] 5000/11426  7.70/s  eta 0.2 h
+[score] 5500/11426  7.76/s  eta 0.2 h
+[score] 6000/11426  7.77/s  eta 0.2 h
+[score] 6500/11426  7.77/s  eta 0.2 h
+[score] 7000/11426  7.76/s  eta 0.2 h
+[score] 7500/11426  7.79/s  eta 0.1 h
+[score] 8000/11426  7.82/s  eta 0.1 h
+[score] 8500/11426  7.78/s  eta 0.1 h
+[score] 9000/11426  7.75/s  eta 0.1 h
+[score] 9500/11426  7.73/s  eta 0.1 h
+[score] 10000/11426  7.73/s  eta 0.1 h
+[score] 10500/11426  7.72/s  eta 0.0 h
+[score] 11000/11426  7.70/s  eta 0.0 h
+[score] volume bound settled 0 of 16426 without a boolean; 18 overlaps timed out (scored 0)
+[score] executed 15714/16432 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/indist_pipeline/full_k16_rl2s60.json

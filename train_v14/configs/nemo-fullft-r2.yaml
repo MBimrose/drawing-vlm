@@ -1,0 +1,81 @@
+# WARM RESTART of nemo-fullft (2026-10-16): the run slowed from 18 to 35-55 s/step (no outside cause found by
+# py-spy / nvidia-smi). Continue from its newest gathered best_model (finalized: base MTP head + router buffers)
+# with a fresh bf16_sr_adamw, the same cosine schedule from that global step S (lr_resume_*; 50-step re-warm for the
+# re-initialised moments), max_steps 4000 - S, a new data seed (44; the old stream is not replayed). restart_r2.sh
+# passes S on the command line (--lr_resume_from_step / --max_steps; the values below are for S = 1250).
+# Diagnostics: lean_sync (no per-micro-batch host syncs: router counts via index_add_, loss/acc kept on device,
+# no nan filter), StepTimer every 10 steps (per-rank drain / wait / tokens / allocator counters).
+# r2 step s = global step S + s.
+# FULL FT (2026-10-15, serv-19 all 8 B300s; main's design): the e55 recipe on Nemotron-3.5-Super-VL-120B-A12B with
+# ALL LLM params trained (routed experts included, 121B), vision tower frozen. Pure-bf16 FSDP2 + bf16_sr_adamw
+# (bf16 weights with stochastically rounded updates, bf16 grads, fp32 moments; validated against fp32 AdamW on the
+# frozen-expert config: nemo-optA/B). Router: HF code has no aux loss and keeps e_score_correction_bias fixed ->
+# kept as is; RouterLoadMonitor logs load spread every 10 steps and stops on collapse.
+# Nemotron-3.5-Super-VL-120B-A12B on the e55 recipe (2026-10-15). Data = e55 exactly (paths in serv-20
+# nemotron/env_nemo.sh: tars_v14_dw423 plain tier, rft_mix_u6_gt_dw423 RFT tier, v14_bundle reasoning tier, 60/20/20,
+# exec filter, system prompt detailed, seq 5120 [Nemotron rows: p99 3.7k tokens at native 1920x1280 = 2,400 image
+# tokens, 0% truncated], cosine -> 10%, warmup 3%, effective batch 64 = 1 x 16 accum x 4 ranks).
+# Differences forced by size: routed experts (112.7B) frozen with the vision tower; everything else (Mamba,
+# attention, shared experts, router, latent projections, norms, embeddings, lm_head, vision projector; 8.1B) full FT.
+# LR 5e-6: the recipe's 1/sqrt(params) rule from 27B@6e-6 gives 9e-6 by active (12B) and 2.8e-6 by total (121B)
+# params; 5e-6 is their geometric mean.
+run_name: nemo-fullft-r2
+model_id: /srv/scratch/bimrose2/nemotron/runs/nemo-fullft/best_model
+output_dir: /srv/scratch/bimrose2/nemotron/runs/nemo-fullft-r2
+accel_config: accelerate_fsdp2_8gpu_nemotron_purebf16.yaml
+trust_remote_code: true
+experts_implementation: {llm_config: grouped_mm}
+# the remote top-level class declares no SDPA support (it has no attention itself); its LLM and RADIO sub-models do
+attn_implementation: {"": eager, llm_config: sdpa, vision_config: sdpa}
+freeze_routed_experts: false
+demote_persistent_buffers: true
+broadcast_buffers: true
+
+use_lora: false
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 5120
+
+lr: 5.0e-6
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+optim: bf16_sr_adamw
+bf16: false
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+sync_each_batch: true
+
+max_steps: 2750
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+best_save_mode: gather
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 44
+router_monitor_every: 10
+router_stop_ratio: 3.0
+lr_resume_from_step: 1250
+lr_resume_total_steps: 4000
+lr_resume_rewarm: 50
+lean_sync: true
+step_timing_every: 10
