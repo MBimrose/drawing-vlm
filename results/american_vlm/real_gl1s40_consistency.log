@@ -1,0 +1,33 @@
+[cons] 144 parts, k=8
+[cons] re-executed 1077 candidates
+[iou] monte-carlo fallback: iou=0.016 (62s, n=20000, 1148+5560 faces)
+[iou] monte-carlo fallback: iou=0.940 (77s, n=20000, 596+2512 faces)
+[iou] monte-carlo fallback: iou=0.940 (14s, n=20000, 596+2512 faces)
+[iou] monte-carlo fallback: iou=0.042 (17s, n=20000, 1148+5560 faces)
+[iou] monte-carlo fallback: iou=0.312 (12s, n=20000, 596+2512 faces)
+[iou] monte-carlo fallback: iou=0.110 (16s, n=20000, 1064+5560 faces)
+[iou] monte-carlo fallback: iou=0.940 (13s, n=20000, 596+2512 faces)
+[iou] monte-carlo fallback: iou=0.110 (15s, n=20000, 1064+5560 faces)
+[iou] monte-carlo fallback: iou=0.907 (11s, n=20000, 1560+2512 faces)
+[iou] monte-carlo fallback: iou=0.006 (13s, n=20000, 1560+2512 faces)
+[iou] monte-carlo fallback: iou=0.097 (17s, n=20000, 1896+5560 faces)
+[iou] monte-carlo fallback: iou=0.891 (17s, n=20000, 1196+2512 faces)
+[iou] monte-carlo fallback: iou=0.097 (18s, n=20000, 1896+5560 faces)
+[iou] monte-carlo fallback: iou=0.891 (15s, n=20000, 1196+2512 faces)
+[iou] monte-carlo fallback: iou=0.101 (15s, n=20000, 1248+5560 faces)
+[iou] monte-carlo fallback: iou=0.905 (14s, n=20000, 1196+2512 faces)
+[iou] monte-carlo fallback: iou=0.101 (16s, n=20000, 1248+5560 faces)
+[iou] monte-carlo fallback: iou=0.008 (11s, n=20000, 5560+1188 faces)
+[iou] monte-carlo fallback: iou=0.551 (15s, n=20000, 1196+2512 faces)
+[iou] monte-carlo fallback: iou=0.111 (15s, n=20000, 5560+1188 faces)
+[iou] monte-carlo fallback: iou=0.304 (15s, n=20000, 1196+2512 faces)
+[iou] monte-carlo fallback: iou=0.103 (15s, n=20000, 5560+1224 faces)
+[iou] monte-carlo fallback: iou=0.891 (16s, n=20000, 1196+2512 faces)
+[iou] monte-carlo fallback: iou=0.103 (15s, n=20000, 5560+1224 faces)
+[iou] monte-carlo fallback: iou=0.302 (14s, n=20000, 2512+1996 faces)
+[iou] monte-carlo fallback: iou=0.008 (14s, n=20000, 2512+1996 faces)
+first_exec   mean=0.548 median=0.550 iou85=0.201 iou50=0.569
+consistency  mean=0.582 median=0.599 iou85=0.215 iou50=0.611
+cons_hybrid  mean=0.570 median=0.596 iou85=0.194 iou50=0.611
+verifier     mean=0.548 median=0.550 iou85=0.201 iou50=0.569
+oracle       mean=0.655 median=0.702 iou85=0.271 iou50=0.729

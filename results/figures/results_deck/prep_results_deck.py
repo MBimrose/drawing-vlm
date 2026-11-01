@@ -16,7 +16,7 @@ from PIL import Image
 HERE = os.path.dirname(os.path.abspath(__file__))
 DV = "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm"
 PARTS = f"{DV}/results/figures/complex_parts/parts"
-CHARTS = ["repair_loop", "faces_vs_iou", "exectime_vs_iou", "faces_vs_exectime", "iou_hist", "iou_survival"]
+CHARTS = ["repair_loop", "faces_vs_iou", "exectime_vs_iou", "faces_vs_exectime", "latency_one_candidate", "iou_hist", "iou_survival"]
 
 
 def spearman(x, y):
@@ -50,6 +50,16 @@ def summary():
         S["faces_exec"] = {"n": len(fx), "rho": spearman(fx, fy), "r2_loglog": float(np.corrcoef(np.log10(fx), np.log10(fy))[0, 1] ** 2),
                            "bins": [{"label": (f"{lo}–{hi}" if hi < 10 ** 6 else f">{lo - 1}") if lo else f"≤{hi}", "n": int(((fx >= lo) & (fx <= hi)).sum()),
                                      "median": float(np.median(fy[(fx >= lo) & (fx <= hi)])), "p95": float(np.percentile(fy[(fx >= lo) & (fx <= hi)], 95))} for lo, hi in fb]}
+    LJ = f"{DV}/results/figures/latency/latency_rft2_rl_s60.json"   # latency_one_candidate.py output
+    if os.path.exists(LJ):
+        L = json.load(open(LJ)); rows = L["rows"]; md = lambda f: float(np.median([f(r) for r in rows]))
+        S["latency"] = {"n": L["n"], "read": md(lambda r: r["read"]), "plan": md(lambda r: r["plan"]), "code": md(lambda r: r["code"]),
+                        "run": float(np.median([r["run"] for r in rows if r["run"] is not None])),
+                        "total": md(lambda r: r["gen_total"] + (r["run"] or 0)), "import": L["import_sec"],
+                        "plan_tok": md(lambda r: r["plan_tokens"]), "code_tok": md(lambda r: r["code_tokens"]),
+                        "prompt_tok": md(lambda r: r["prompt_tokens"]),
+                        "tok_s": md(lambda r: (r["plan_tokens"] + r["code_tokens"]) / max(r["plan"] + r["code"], 1e-9)),
+                        "gen_share": md(lambda r: r["gen_total"] / (r["gen_total"] + (r["run"] or 0)))}
     S["dist"] = {"n": len(P), "mean": float(med.mean()), "median": float(np.median(med)), "frac85": float((med >= 0.85).mean()),
                  "first85": float(np.mean([p["first"] >= 0.85 for p in P])), "oracle85": float(np.mean([p["oracle"] >= 0.85 for p in P]))}
     os.makedirs(f"{HERE}/gallery", exist_ok=True); G = []

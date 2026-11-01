@@ -1,0 +1,35 @@
+[cons] 144 parts, k=8
+[cons] re-executed 1125 candidates
+[iou] monte-carlo fallback: iou=0.934 (64s, n=20000, 1354+2520 faces)
+[iou] monte-carlo fallback: iou=0.000 (52s, n=20000, 396+5010 faces)
+[iou] monte-carlo fallback: iou=0.934 (5s, n=20000, 1354+2520 faces)
+[iou] monte-carlo fallback: iou=0.903 (3s, n=20000, 1354+2520 faces)
+[iou] monte-carlo fallback: iou=0.903 (3s, n=20000, 1354+2520 faces)
+[iou] monte-carlo fallback: iou=0.993 (4s, n=20000, 1402+2520 faces)
+[iou] monte-carlo fallback: iou=0.383 (17s, n=20000, 396+5010 faces)
+[iou] monte-carlo fallback: iou=0.993 (3s, n=20000, 1402+2520 faces)
+[iou] monte-carlo fallback: iou=0.471 (3s, n=20000, 896+2520 faces)
+[iou] monte-carlo fallback: iou=0.471 (3s, n=20000, 896+2520 faces)
+[iou] monte-carlo fallback: iou=0.937 (3s, n=20000, 1368+2520 faces)
+[iou] monte-carlo fallback: iou=0.937 (4s, n=20000, 1368+2520 faces)
+[iou] monte-carlo fallback: iou=0.259 (14s, n=20000, 2496+5010 faces)
+[iou] monte-carlo fallback: iou=0.933 (4s, n=20000, 1354+2520 faces)
+[iou] monte-carlo fallback: iou=0.933 (3s, n=20000, 1354+2520 faces)
+[iou] monte-carlo fallback: iou=0.765 (3s, n=20000, 2520+1008 faces)
+[iou] monte-carlo fallback: iou=0.765 (4s, n=20000, 2520+1008 faces)
+[iou] monte-carlo fallback: iou=0.149 (14s, n=20000, 2496+5010 faces)
+[iou] monte-carlo fallback: iou=0.194 (10s, n=20000, 2270+5010 faces)
+[iou] monte-carlo fallback: iou=0.109 (10s, n=20000, 2270+5010 faces)
+[iou] monte-carlo fallback: iou=0.095 (13s, n=20000, 2404+5010 faces)
+[iou] monte-carlo fallback: iou=0.095 (13s, n=20000, 2404+5010 faces)
+[iou] monte-carlo fallback: iou=0.125 (15s, n=20000, 5010+5660 faces)
+[iou] monte-carlo fallback: iou=0.000 (16s, n=20000, 5010+5660 faces)
+[iou] monte-carlo fallback: iou=0.024 (1s, n=20000, 5010+1392 faces)
+[iou] monte-carlo fallback: iou=0.012 (1s, n=20000, 5010+1392 faces)
+[iou] monte-carlo fallback: iou=0.130 (13s, n=20000, 5010+2772 faces)
+[iou] monte-carlo fallback: iou=0.158 (13s, n=20000, 5010+2772 faces)
+first_exec   mean=0.578 median=0.574 iou85=0.278 iou50=0.583
+consistency  mean=0.598 median=0.608 iou85=0.292 iou50=0.597
+cons_hybrid  mean=0.600 median=0.617 iou85=0.292 iou50=0.590
+verifier     mean=0.578 median=0.574 iou85=0.278 iou50=0.583
+oracle       mean=0.682 median=0.725 iou85=0.375 iou50=0.736

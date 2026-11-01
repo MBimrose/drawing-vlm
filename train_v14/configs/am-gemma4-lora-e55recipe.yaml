@@ -1,0 +1,59 @@
+# Gemma 4 31B LoRA row of the American-VLM paper table (2026-10-28): the Glimmer LoRA row's recipe (am-glimmer-lora-e55recipe:
+# r64 on the language-model attention + MLP projections, e55-recipe data, lr 1e-4, global batch 32, 2,500 steps) on Gemma 4.
+# Campus-cluster H200 node (8 GPUs x GA 4 = the Glimmer row's 4 x GA 8) through srv_exec.sh. Otherwise as
+# am-gemma4-31b-e55recipe.yaml.
+run_name: am-gemma4-lora-e55recipe
+model_id: /srv/scratch/bimrose2/models/gemma-4-31B-it
+output_dir: /srv/scratch/bimrose2/amvlm/runs/am-gemma4-lora-e55recipe
+accel_config: accelerate_fsdp2_8gpu_gemma4.yaml
+
+use_lora: true
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.05
+lora_target_modules: 'model\.language_model\.layers\.\d+\.(self_attn\.(q|k|v|o)_proj|mlp\.(gate|up|down)_proj)'
+vision_strategy: frozen
+# rank-0 loading (fsdp_cpu_ram_efficient_loading) crashes on persistent buffers, and Gemma 4's 62 (layer_scalar x 60,
+# vision std_bias / std_scale) are checkpoint values: demote them, then broadcast rank 0's copies before step 1.
+demote_persistent_buffers: true
+broadcast_buffers: true
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 5120
+# 2026-10-27: OOM at step ~1,248 in backward of the full-length 262k-vocab logits (129.7 GB allocated): lm_head runs
+# only where a supervised label follows (collate_v14.answer_positions). Same loss; resumed from checkpoint-1000.
+answer_logits_only: true
+processor_kwargs: {max_soft_tokens: 1120}   # Gemma 4's top visual budget: a 1920x1280 sheet at native resolution (~1,070 tokens)
+
+lr: 1.0e-4
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 4
+gradient_checkpointing: false
+
+max_steps: 2500
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 43

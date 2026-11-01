@@ -10,11 +10,11 @@ cd /srv/scratch/bimrose2
 say() { echo "$(date '+%m-%d %H:%M') $*"; }
 P=runs/e59-flashnext-e55recipe/final; AD=abl/ckpt/e26fl; PORT=8749; L=fn55/logs
 say "waiting for e59 eval lanes"
-until grep -q "E59 EVAL LANES DONE\|no final model" fn55/logs/train_e59.log 2>/dev/null; do sleep 120; done
-grep -q "no final model" fn55/logs/train_e59.log && { say "e59 has no final model - stop"; exit 1; }
+# wait for both lanes to really finish (2026-10-21: "E59 EVAL LANES DONE" also prints when a lane fails)
+until [ -f abl/LANE_DONE_e59 ] && [ -f abl/LANE_DONE_e59best ]; do sleep 120; done
 sleep 60
 export VLLM_ALLOW_RUNTIME_LORA_UPDATING=True APPTAINERENV_VLLM_ALLOW_RUNTIME_LORA_UPDATING=True
-MODEL=$P NAME=fnpol GPUS=0,1,2,3 TP=4 PORT=$PORT VLLM_EXTRA="--enable-lora --max-lora-rank 64 --max-loras 2" \
+MODEL=$P NAME=fnpol GPUS=0,1,2,3 TP=4 PORT=$PORT VLLM_EXTRA="--enable-lora --max-lora-rank 64 --max-loras 2 --disable-custom-all-reduce" \
   setsid nohup bash train_v14/serv19/run_vllm_qwen_serv19.sh > $L/vllm-gate.log 2>&1 < /dev/null &
 VPID=$!
 ok=0; for i in $(seq 1 240); do curl -s -m 5 http://127.0.0.1:$PORT/health >/dev/null && { ok=1; break; }; sleep 15; done

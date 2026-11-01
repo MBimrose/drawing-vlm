@@ -1,0 +1,61 @@
+# Nemotron-3.5-Super-VL-120B-A12B LoRA row of the American-VLM paper table (2026-10-28): the Glimmer / Gemma LoRA rows'
+# recipe (r64, e55-recipe data, lr 1e-4, global batch 32 = 4 GPUs x GA 8, 2,500 steps) on the Nemotron base. Targets = every
+# dense LLM projection: the 8 attention layers' q/k/v/o, the 40 Mamba layers' in/out projections and the 40 MoE layers'
+# shared experts + latent projections; routed experts (grouped_mm) and the vision tower stay frozen. Data, prompt and
+# sequence cap as nemo-fullft-r2.yaml. Campus-cluster H200 node through srv_exec.sh (TRAIN_VENV .venv_nemo).
+run_name: am-nemo-lora-e55recipe
+model_id: /srv/scratch/bimrose2/models/Nemotron-3.5-Super-VL-120B-A12B-BF16
+output_dir: /srv/scratch/bimrose2/amvlm/runs/am-nemo-lora-e55recipe
+accel_config: accelerate_fsdp2_4gpu_nemotron_lora.yaml
+trust_remote_code: true
+experts_implementation: {llm_config: grouped_mm}
+attn_implementation: {"": eager, llm_config: sdpa, vision_config: sdpa}
+freeze_routed_experts: true
+demote_persistent_buffers: true
+broadcast_buffers: true
+
+use_lora: true
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.05
+lora_target_modules: '(.*\.)?language_model\.model\.layers\.\d+\.mixer\.((q|k|v|o)_proj|in_proj|out_proj|shared_experts\.(up|down)_proj|fc(1|2)_latent_proj)'
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 5120
+
+lr: 1.0e-4
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+sync_each_batch: true
+
+max_steps: 2500
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 43
+router_monitor_every: 10
+router_stop_ratio: 3.0
+lean_sync: true

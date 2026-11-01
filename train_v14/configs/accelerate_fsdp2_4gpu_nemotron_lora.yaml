@@ -1,0 +1,25 @@
+# FSDP2 full-shard, 4 ranks, bf16 mixed precision (2026-10-28): Nemotron-3.5-Super-VL LoRA on a campus-cluster H200 node.
+# 4 ranks, not 8: every rank materialises ~the whole model while the per-expert checkpoint is grouped at load (rank 1:
+# 29 GB anonymous at 8% of the tensors), and 8 copies exceed the node's 1.5 TB (serv-19 has 1.84 TB).
+# Same wrap / rank-0 loading as accelerate_fsdp2_8gpu_nemotron_purebf16.yaml; the frozen base needs no optimizer state.
+compute_environment: LOCAL_MACHINE
+distributed_type: FSDP
+mixed_precision: bf16
+num_machines: 1
+num_processes: 4
+machine_rank: 0
+main_training_function: main
+rdzv_backend: static
+same_network: true
+fsdp_config:
+  fsdp_version: 2
+  fsdp_sharding_strategy: FULL_SHARD
+  fsdp_offload_params: false
+  fsdp_state_dict_type: SHARDED_STATE_DICT
+  fsdp_activation_checkpointing: true
+  fsdp_auto_wrap_policy: TRANSFORMER_BASED_WRAP
+  fsdp_transformer_layer_cls_to_wrap: NemotronHBlock,RadioLayer
+  fsdp_cpu_ram_efficient_loading: true
+  fsdp_use_orig_params: true
+  fsdp_sync_module_states: true
+  fsdp_reshard_after_forward: true

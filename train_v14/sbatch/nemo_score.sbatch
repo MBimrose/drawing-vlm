@@ -13,6 +13,7 @@
 # (score_partials --workers 16 --exec-timeout 60 --iou-timeout 90, default --accept 0.8; consistency_rerank), python
 # from the /dev/shm stage (stage_py_shm.sh). Waits for serv-19's <stem>.GEN_DONE, pulls the partials, scores here.
 #   sbatch --export=ALL,NAMES="real_nemobase benchb_nemobase" nemo_score.sbatch
+#   cluster generations: RHOST=local RDIR=/projects/illinois/eng/ece/wpk/bimrose2/srvmirror/american_vlm/results (RDIR is required)
 # 2026-10-17: RDIR (serv-19 partials dir) / ODIR (cluster results dir) / SW (score workers) overridable; results-table ablations:
 #   sbatch --cpus-per-task=32 --export=ALL,NAMES="real_e24 ...",RDIR=/srv/scratch/bimrose2/abl/results,ODIR=$DV/results/ablations,SW=32 nemo_score.sbatch
 set -uo pipefail
@@ -20,12 +21,23 @@ DV=/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm; H=wpk-serv-19.mechse.ill
 O=${ODIR:-$DV/results/nemotron}; mkdir -p $O
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 PY=/dev/shm/bimrose2/ipcode/venv/bin/python
-[ -x $PY ] || bash $DV/results/indist_pipeline/stage_py_shm.sh
+# 2026-10-21: a ccc0442 reboot wipes /dev/shm, c2stage included -> re-stage its two venvs first (no vLLM image), once
+if [ ! -x $PY ]; then
+  mkdir -p /dev/shm/bimrose2/c2stage
+  ( flock 8; C=/dev/shm/bimrose2/c2stage
+    [ -x $C/venv/bin/python ] && [ -x $C/dw_venv/bin/python ] || {
+      rsync -a --copy-links $DV/.venv/ $C/venv/ & rsync -a --copy-links $DV/dw_venv/ $C/dw_venv/ & wait; }
+    bash $DV/results/indist_pipeline/stage_py_shm.sh ) 8>/dev/shm/bimrose2/c2stage.lock
+fi
 [ -x $PY ] || { echo "no staged python"; exit 2; }
 cd $DV
 for n in $NAMES; do
-  until ssh -o BatchMode=yes $H "test -f $R/$n.GEN_DONE"; do sleep 120; done
-  rsync -a "$H:$R/$n.shard*.json.partial.json" $O/
+  if [ "${RHOST:-}" = local ]; then   # 2026-10-28: generations on a cluster node (am_eval_cluster.sbatch -> mirror dir RDIR)
+    until [ -f $R/$n.GEN_DONE ]; do sleep 120; done; cp $R/$n.shard*.json.partial.json $O/
+  else
+    until ssh -o BatchMode=yes $H "test -f $R/$n.GEN_DONE"; do sleep 120; done
+    rsync -a "$H:$R/$n.shard*.json.partial.json" $O/
+  fi
   case $n in real_*) GT=$DV/train_v14/mech/benchmarks/data/ext_bench_dw423_perm/gt_meshes_v15;;
              benchb_*) GT=$DV/results/bench_b/bench/gt_meshes_v15;;
              full_*) GT=$DV/train_v14/mech/benchmarks/data/fullpool_dw423/gt_meshes_v15;; esac

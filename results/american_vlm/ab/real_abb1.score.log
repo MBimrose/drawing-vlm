@@ -1,0 +1,6 @@
+[score] 4 checkpoints, 144 parts, 1152 candidates
+[score] 1008 to execute
+[score] 500/1008  2.69/s  eta 0.1 h
+[score] 1000/1008  2.81/s  eta 0.0 h
+[score] volume bound settled 0 of 1008 without a boolean; 5 overlaps timed out (scored 0)
+[score] executed 745/1152 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/american_vlm/ab/real_abb1.json

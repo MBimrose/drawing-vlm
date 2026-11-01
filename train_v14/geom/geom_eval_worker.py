@@ -150,6 +150,13 @@ def _model_cls(path: str):
     arch = (AutoConfig.from_pretrained(path).architectures or [""])[0]
     if arch.startswith("Qwen3_5"):
         return Qwen3_5ForConditionalGeneration
+    if arch.startswith(("Gemma4", "MuseGlimmer")):   # 2026-10-27 American VLMs (GRPO): the SFT trainer's auto class
+        try:
+            from transformers import AutoModelForMultimodalLM
+            return AutoModelForMultimodalLM
+        except ImportError:
+            from transformers import AutoModelForImageTextToText
+            return AutoModelForImageTextToText
     if arch.startswith("Qwen4"):
         try:
             from flashnext_qsa import patch_qsa_indexer   # reference indexer loops per token
@@ -187,11 +194,14 @@ def load_model(ckpt_path: str, kind: str, cfg: dict):
     Qwen3_5ForConditionalGeneration = _model_cls(
         ckpt_path if kind == "hf" else base)
 
-    processor = AutoProcessor.from_pretrained(
-        base,
-        min_pixels=cfg.get("min_pixels", 200704),
-        max_pixels=cfg.get("max_pixels", 1179648),
-    )
+    if "processor_kwargs" in cfg:   # 2026-10-27 American VLMs: the model's own image budget, as the SFT trainer
+        processor = AutoProcessor.from_pretrained(base, **cfg["processor_kwargs"])
+    else:
+        processor = AutoProcessor.from_pretrained(
+            base,
+            min_pixels=cfg.get("min_pixels", 200704),
+            max_pixels=cfg.get("max_pixels", 1179648),
+        )
     processor.tokenizer.padding_side = "left"
 
     # Qwen4Exp: cap per-GPU memory so the 102 GB n-gram table cannot be placed

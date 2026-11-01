@@ -1,0 +1,53 @@
+# Muse-Glimmer-30B LoRA row of the American-VLM paper table (2026-10-28, user: "the lora recipe ... look[s] good"): LoRA r64
+# on the language-model attention + MLP projections (the GRPO adapter's targets; vision tower and the attention output gate
+# frozen) on the e55-recipe data (the FFT row's), at the 27B LoRA row's schedule (e3: lr 1e-4, 4 GPUs x GA 8, 2,500 steps;
+# that row used the early e1 data -> footnote). serv-05 GPUs 4-7 (0-3 serve the Glimmer repairer). Otherwise as
+# am-glimmer-30b-e55recipe.yaml.
+run_name: am-glimmer-lora-e55recipe
+model_id: /srv/scratch/bimrose2/models/Muse-Glimmer-30B
+output_dir: /srv/scratch/bimrose2/amvlm/runs/am-glimmer-lora-e55recipe
+accel_config: accelerate_fsdp2_4gpu_glimmer.yaml
+
+use_lora: true
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.05
+lora_target_modules: 'model\.language_model\.layers\.\d+\.(self_attn\.(q|k|v|o)_proj|mlp\.(gate|up|down)_proj)'
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 6144
+processor_kwargs: {}   # Glimmer's default max_image_tokens 4096 (28-px tokens): a 1920x1280 sheet at native resolution (~3.1k tokens)
+
+lr: 1.0e-4
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+
+max_steps: 2500
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 43

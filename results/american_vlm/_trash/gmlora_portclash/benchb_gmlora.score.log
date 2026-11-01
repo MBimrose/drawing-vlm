@@ -1,0 +1,10 @@
+[score] 4 checkpoints, 0 parts, 0 candidates
+[score] 0 to execute
+[score] volume bound settled 0 of 0 without a boolean; 0 overlaps timed out (scored 0)
+Traceback (most recent call last):
+  File "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/geom/score_partials.py", line 206, in <module>
+    main()
+  File "/projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/train_v14/geom/score_partials.py", line 198, in main
+    metrics = {"n": len(parts), "k": max(len(cs) for _, cs in parts), "n_exec": n_exec,
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: max() iterable argument is empty

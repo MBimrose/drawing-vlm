@@ -1,0 +1,20 @@
+[score] 4 checkpoints, 1027 parts, 8216 candidates
+[score] 8216 to execute
+[score] 500/8216  5.63/s  eta 0.4 h
+[score] 1000/8216  5.60/s  eta 0.4 h
+[score] 1500/8216  5.54/s  eta 0.3 h
+[score] 2000/8216  5.35/s  eta 0.3 h
+[score] 2500/8216  5.38/s  eta 0.3 h
+[score] 3000/8216  5.39/s  eta 0.3 h
+[score] 3500/8216  5.40/s  eta 0.2 h
+[score] 4000/8216  5.40/s  eta 0.2 h
+[score] 4500/8216  5.40/s  eta 0.2 h
+[score] 5000/8216  5.40/s  eta 0.2 h
+[score] 5500/8216  5.42/s  eta 0.1 h
+[score] 6000/8216  5.43/s  eta 0.1 h
+[score] 6500/8216  5.43/s  eta 0.1 h
+[score] 7000/8216  5.44/s  eta 0.1 h
+[score] 7500/8216  5.44/s  eta 0.0 h
+[score] 8000/8216  5.43/s  eta 0.0 h
+[score] volume bound settled 0 of 8216 without a boolean; 1 overlaps timed out (scored 0)
+[score] executed 8200/8216 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/flashnext/grpo/full_fn1s160.json

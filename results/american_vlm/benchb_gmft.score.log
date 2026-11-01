@@ -1,0 +1,7 @@
+[score] 4 checkpoints, 280 parts, 2240 candidates
+[score] 1902 to execute
+[score] 500/1902  5.20/s  eta 0.1 h
+[score] 1000/1902  4.83/s  eta 0.1 h
+[score] 1500/1902  4.77/s  eta 0.0 h
+[score] volume bound settled 0 of 1902 without a boolean; 13 overlaps timed out (scored 0)
+[score] executed 1470/2240 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/american_vlm/benchb_gmft.json

@@ -73,16 +73,16 @@ def spearman(x, y):
     return np.corrcoef(np.argsort(np.argsort(x)), np.argsort(np.argsort(y)))[0, 1]
 
 
-def repair_loop(rc):
+def repair_loop(rc, ylim=(0.45, 0.75), name="repair_loop"):
     fig, ax = plt.subplots(figsize=(6, 6)); c = palette(2); r = np.array(rc["rounds"])
     for i, (key, label) in enumerate([("chain1", "Single repair chain"), ("multistart", "Multi-start, 3 chains")]):
         ax.errorbar(r, rc[f"{key}_mean"], yerr=rc[f"{key}_sem"], fmt=MARKERS[i] + "-", color=c[i], markersize=7,
                     capsize=3, elinewidth=1, linewidth=1.5, alpha=1.0, label=label)
     ax.axhline(rc["e55_oracle8"], color="gray", linestyle="--", alpha=0.7, linewidth=1.2, label="Best of 8, no repair")
     style(ax, "Repair round", "Mean IoU", xmaj=FixedLocator(list(r)), ymaj=0.05, ymin=0.01,
-          xlim=(-0.4, r[-1] + 0.4), ylim=(0.45, 0.75), xfmt="%.0f", yfmt="%.2f")
+          xlim=(-0.4, r[-1] + 0.4), ylim=ylim, xfmt="%.0f", yfmt="%.2f")
     ax.legend(loc="lower right", frameon=False, prop={"weight": "bold", "size": 11})
-    save(fig, "repair_loop")
+    save(fig, name)
 
 
 def faces_vs_iou(P):

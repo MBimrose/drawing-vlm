@@ -9,10 +9,11 @@ export OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4 NUMEXPR_NUM_TH
 cd /srv/scratch/bimrose2
 name=${1:?name}; shift
 POLICY=${POLICY:?hf dir of the SFT policy}; VGPUS=${VGPUS:-0,1,2,3}; TGPUS=${TGPUS:-4,5,6,7}; PORT=${PORT:-8750}
+VTP=$(echo $VGPUS | tr , '\n' | grep -c .)   # 2026-10-22: TP = number of rollout GPUs (fnei rolls out on 2)
 mkdir -p runs/fn_grpo_$name fn55/logs tmp
 export VLLM_ALLOW_RUNTIME_LORA_UPDATING=True APPTAINERENV_VLLM_ALLOW_RUNTIME_LORA_UPDATING=True
-MODEL=$POLICY NAME=fnpol GPUS=$VGPUS TP=4 PORT=$PORT SEQS=${SEQS:-256} GMU=${GMU:-0.85} \
-  VLLM_EXTRA="--enable-lora --max-lora-rank 64 --max-loras 2" \
+MODEL=$POLICY NAME=fnpol GPUS=$VGPUS TP=$VTP PORT=$PORT SEQS=${SEQS:-256} GMU=${GMU:-0.85} \
+  VLLM_EXTRA="--enable-lora --max-lora-rank 64 --max-loras 2 --disable-custom-all-reduce" \
   setsid nohup bash train_v14/serv19/run_vllm_qwen_serv19.sh > fn55/logs/vllm-fn_grpo_$name.log 2>&1 < /dev/null &
 VPID=$!
 echo "$(date '+%m-%d %H:%M') vLLM for $name on GPUs $VGPUS :$PORT (pid $VPID)"

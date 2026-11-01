@@ -154,6 +154,18 @@ def parse_args():
                     help="vLLM OpenAI endpoint (started with --enable-lora, VLLM_ALLOW_RUNTIME_LORA_UPDATING=True) "
                          "for rollouts: the adapter is saved + hot-loaded each step instead of HF generate")
     ap.add_argument("--rollout-workers", type=int, default=32)
+    # 2026-10-27 American VLMs (Muse Glimmer): rollouts from a server whose chat template prefills the thought channel
+    # (generation prompt "<|start|>assistant to=self<|message|>1."). Its reasoning parser cannot see that opener, so the
+    # server runs without one and the reply comes back raw (special tokens kept) and is split here; the trainer's
+    # processor renders the same template (--chat-template), so the prefill is prompt and only sampled tokens are trained.
+    # 2026-10-28 Gemma 4 the same way: prefill "<|turn>model\n<|channel>thought\n1." (gmftpf), thought closed by <channel|>,
+    # the answer follows directly and ends at <turn|>. Nemotron 3.5 Super VL: prefill "<|im_start|>assistant\n<think>\n1."
+    # (nemopf.jinja), thought closed by </think>, answer to <|im_end|>.
+    ap.add_argument("--raw-channels", choices=["", "glimmer", "gemma", "nemotron"], default="",
+                    help="split raw (skip_special_tokens=false) replies into think / answer by the model's channel tokens")
+    ap.add_argument("--think-prefill", default="", help="text the served generation prompt already ends with ('1.')")
+    ap.add_argument("--chat-template", default="", help="jinja file for the trainer's processor (= the served template)")
+    ap.add_argument("--max-seq-len", type=int, default=5120, help="collator cap (Glimmer: ~3.1k image tokens + 2.4k answer)")
     ap.add_argument("--rollout-timeout", type=int, default=900)
     return ap.parse_args()
 
@@ -190,6 +202,9 @@ def main():
         cfg["model_id"] = args.model_base
     ckpt = args.ckpt or os.path.join("runs", args.run, "final")
     model, processor = load_model(ckpt, classify_ckpt(ckpt), cfg)
+    if args.chat_template:
+        processor.chat_template = processor.tokenizer.chat_template = open(args.chat_template).read()
+        print(f"[grpo] chat template {args.chat_template}", flush=True)
     if len({str(d) for d in (getattr(model, "hf_device_map", None) or {}).values()}) > 1:
         # 2026-10-19 Flash-Next (333 GB): load_model already spread it over the visible GPUs (n-gram table on CPU);
         # inputs go to the embedding's GPU, the loss follows the logits' device (out_dev, set per forward).
@@ -244,7 +259,7 @@ def main():
     _save_kw = {"selected_adapters": ["default"]} if args.kl_ref_adapter else {}
     model.print_trainable_parameters()
 
-    collator = VLMCollator(processor, max_seq_len=5120,
+    collator = VLMCollator(processor, max_seq_len=args.max_seq_len,
                            system_prompt=args.system_prompt,
                            reasoning_effort=args.reasoning_effort)
     # --bench / --keys take comma lists (aligned; empty keys entry = whole pool) for mixed pools.
@@ -458,6 +473,26 @@ def main():
             except Exception as e:
                 print(f"[grpo] unload {old}: {e}", flush=True)
 
+    RAW = {"glimmer": ("<|eom|>", "<|start|>assistant to=user<|message|>", ("<|eot|>", "<|eom|>", "<|end|>")),
+           "gemma": ("<channel|>", "", ("<turn|>",)),
+           "nemotron": ("</think>", "", ("<|im_end|>",))}
+
+    def split_raw(text):
+        """(think, code, answer text) of a raw reply continuing args.think_prefill; think is kept verbatim so the
+        collator re-renders exactly the sampled tokens. A reply cut off inside the thought has no answer (code None)."""
+        think_end, ans_start, ends = RAW[args.raw_channels]
+        think, sep, rest = (args.think_prefill + text).partition(think_end)
+        if not sep:
+            return think, None, None
+        i = rest.find(ans_start)
+        ans = rest[i + len(ans_start):] if i >= 0 else rest
+        for e in ends:
+            if ans.endswith(e):
+                ans = ans[:-len(e)]
+        idx = ans.rfind("```python")
+        code = ans[idx + len("```python"):].rsplit("```", 1)[0].strip() or None if idx >= 0 else None
+        return think, code, ans
+
     def gen_groups_vllm(base):
         """G sampled completions per part from the served live adapter (n=G per request)."""
         import base64
@@ -473,7 +508,7 @@ def main():
                                      *([{"type": "image_url", "image_url": {"url": "data:image/png;base64,"
                                          + base64.b64encode(s["png2"]).decode()}}] if s.get("png2") else []),
                                      {"type": "text", "text": s.get("user") or USER_PROMPT}]}],
-                    "chat_template_kwargs": dict(tmpl)}
+                    "chat_template_kwargs": dict(tmpl), **({"skip_special_tokens": False} if args.raw_channels else {})}
             req = urllib.request.Request(args.rollout_url.rstrip("/") + "/chat/completions",
                                          data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
             for attempt in range(3):
@@ -491,6 +526,11 @@ def main():
                 if g < len(chs):
                     m = chs[g]["message"]
                     text = m.get("content") or ""
+                    if args.raw_channels:
+                        think, code, text = split_raw(text)
+                        cands.append({"draw": g, "think": think, "code": code, "exec": False, "iou": 0.0,
+                                      **({"raw": text} if args.train_raw and text is not None else {})})
+                        continue
                     reasoning = m.get("reasoning_content") or m.get("reasoning") or ""
                     if not reasoning and "</think>" in text:
                         reasoning, text = text.split("</think>", 1)[0].replace("<think>", ""), text.split("</think>", 1)[1]

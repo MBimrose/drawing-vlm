@@ -1,0 +1,53 @@
+# AM-GLIMMER-RFT2 (2026-10-28): the 27B's expert-iteration SFT (results/cycle2/c2-rft2.yaml; Flash-Next fn-rft2.yaml) on
+# Muse Glimmer, for the American-VLM GRPO rows. Warm-start the GRPO policy's LoRA (gl1, the step picked on real-144 +
+# synthetic; lora_init_adapter is filled in by am_ei.sh from amvlm/grpo/GL1_BEST) on the glft full fine-tune and SFT it on
+# the same cycle-2 mix (serv-19 cycle2/mix, 114 links) at the same weights (RFT 0.8 / reasoning 0.1 / plain 0.1), lr 2e-5,
+# cosine -> 10%, warmup 3%, global batch 16 (1 x 4 accum x 4 ranks), 955 steps, seed 44. LoRA r64 on gl1's module set
+# (LM attention + MLP), FSDP2 on serv-19 GPUs 0-3; image / sequence settings as am-glimmer-30b-e55recipe.
+run_name: am-glimmer-rft2
+model_id: /srv/scratch/bimrose2/amvlm/runs/am-glimmer-30b-e55recipe/final
+output_dir: /srv/scratch/bimrose2/amvlm/runs/am-glimmer-rft2
+accel_config: accelerate_fsdp2_4gpu_glimmer.yaml
+lora_init_adapter: GL1_BEST_ADAPTER
+
+use_lora: true
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.0
+lora_target_modules: 'model\.language_model\.layers\.\d+\.(self_attn\.(q|k|v|o)_proj|mlp\.(gate|up|down)_proj)'
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.1
+rft_frac: 0.8
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 6144
+processor_kwargs: {}
+
+lr: 2.0e-5
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 4
+gradient_checkpointing: false
+
+max_steps: 955
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: false
+save_final: true
+logging_steps: 10
+eval_every: 0
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 44

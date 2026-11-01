@@ -1,0 +1,162 @@
+<title>Callout Picker</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: drafting-table split. Sticky plot on the left, option cards on the right; stacks on phones. */
+:root {
+  --bg: #f6f7f9; --panel: #ffffff; --ink: #14223a; --muted: #5a6475; --rule: #d8dde6; --accent: #13294b; --hl: #e8eef8;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1520; --panel: #161e2b; --ink: #e6ebf3; --muted: #9aa5b6; --rule: #2a3445; --accent: #8fb3ff; --hl: #1f2b3f; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f1520; --panel: #161e2b; --ink: #e6ebf3; --muted: #9aa5b6; --rule: #2a3445; --accent: #8fb3ff; --hl: #1f2b3f; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.45; }
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 40px; max-width: 1500px; margin: 0 auto; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; margin-bottom: 14px; }
+h1 { font-family: var(--display); font-weight: 800; font-size: 1.6rem; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+.sub { color: var(--muted); max-width: 70ch; margin: 0; }
+.grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 20px; align-items: start; }
+@media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.plotbox { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); background: var(--panel); border: 1px solid var(--rule);
+  border-radius: 6px; padding: 10px 10px 6px; }
+@media (max-width: 900px) { .plotbox { position: static; } }
+svg { width: 100%; height: auto; display: block; }
+.axis text { fill: var(--ink); font-family: var(--display); font-weight: 700; font-size: 12px; }
+.axis line, .frame { stroke: var(--ink); }
+.lab { fill: var(--ink); font-family: var(--display); font-weight: 700; font-size: 14px; }
+.optnum { font-family: var(--mono); font-weight: 600; font-size: 11px; fill: var(--ink); cursor: pointer; paint-order: stroke;
+  stroke: var(--panel); stroke-width: 3px; }
+.ring { fill: none; stroke: var(--ink); stroke-width: 1.4; cursor: pointer; }
+.ring.on { stroke: var(--accent); stroke-width: 3; }
+.optnum.on { fill: var(--accent); font-size: 14px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; color: var(--muted); font-size: 13px; padding: 4px 6px 2px; }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: -1px; margin-right: 5px; }
+.cbar { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 12px; }
+.cbar span.bar { width: 120px; height: 9px; border-radius: 2px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.chip { font: 600 13px var(--body); color: var(--ink); background: var(--panel); border: 1px solid var(--rule); border-radius: 999px;
+  padding: 4px 11px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--panel); }
+.chip:focus-visible, .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 12px; }
+.card { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; cursor: pointer;
+  display: grid; gap: 6px; min-width: 0; }
+.card.on { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); background: var(--hl); }
+.top { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+.n { font-family: var(--mono); font-weight: 600; font-size: 1.05rem; }
+.why { font-family: var(--display); font-weight: 700; font-size: 0.86rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--muted);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tag { margin-left: auto; font: 600 12px var(--mono); color: var(--panel); background: var(--accent); border-radius: 3px; padding: 1px 6px; white-space: nowrap; }
+.imgs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.imgs figure { margin: 0; display: grid; gap: 2px; }
+.imgs img { width: 100%; aspect-ratio: 1; object-fit: contain; background: #fff; border-radius: 4px; }
+.imgs figcaption { font-size: 11px; color: var(--muted); text-align: center; }
+.stats { font-family: var(--mono); font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; font-variant-numeric: tabular-nums; }
+.stats b { color: var(--ink); font-weight: 600; }
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; vertical-align: 0; margin-right: 4px; }
+@media (prefers-reduced-motion: no-preference) { .card { transition: box-shadow .15s, border-color .15s, background .15s; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Callout Picker</h1>
+    <p class="sub">Face count vs drawing-to-part time for SFT + GRPO without repair (bf16, 280 real + 1,027 synthetic parts).
+      Hover or click a number on the plot or a card to see where each option sits. Tags A–D mark the parts in the current figure.</p>
+  </header>
+  <div class="grid">
+    <div class="plotbox">
+      <svg id="plot" viewBox="0 0 560 520" role="img" aria-label="Scatter plot of face count against drawing-to-part time"></svg>
+      <div class="legend">
+        <span><span class="sw" style="border:2px solid var(--muted)"></span>Synthetic parts</span>
+        <span><span class="sw" style="background:var(--muted)"></span>Real parts</span>
+        <span class="cbar">IoU 0 <span class="bar" id="cbar"></span> 1</span>
+      </div>
+    </div>
+    <div>
+      <div class="chips" id="chips" role="group" aria-label="Filter options"></div>
+      <div class="cards" id="cards"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const D = /*__DATA__*/null;
+const NS = "http://www.w3.org/2000/svg";
+const W = 560, H = 520, M = { l: 62, r: 14, t: 16, b: 50 };
+const X0 = Math.log10(5), X1 = Math.log10(500), Y0 = Math.log10(10), Y1 = Math.log10(150);
+const sx = f => M.l + (Math.log10(f) - X0) / (X1 - X0) * (W - M.l - M.r);
+const sy = t => H - M.b - (Math.log10(t) - Y0) / (Y1 - Y0) * (H - M.t - M.b);
+const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent && parent.appendChild(e); return e; };
+const svg = document.getElementById("plot");
+document.getElementById("cbar").style.background = `linear-gradient(90deg, ${D.cbar.join(",")})`;
+
+// axes: log ticks, inward, all four sides (house style)
+const ax = el("g", { class: "axis" }, svg);
+el("rect", { x: M.l, y: M.t, width: W - M.l - M.r, height: H - M.t - M.b, fill: "none", class: "frame", "stroke-width": 1.2 }, ax);
+const tick = (x1, y1, x2, y2) => el("line", { x1, y1, x2, y2, "stroke-width": 1 }, ax);
+for (let d = 1; d <= 100; d *= 10) for (let m = 1; m < 10; m++) {
+  const v = d * m;
+  if (v >= 5 && v <= 500) { const x = sx(v), L = m === 1 ? 7 : 4; tick(x, H - M.b, x, H - M.b - L); tick(x, M.t, x, M.t + L);
+    if (m === 1) el("text", { x, y: H - M.b + 18, "text-anchor": "middle" }, ax).textContent = v; }
+  if (v >= 10 && v <= 150) { const y = sy(v), L = m === 1 ? 7 : 4; tick(M.l, y, M.l + L, y); tick(W - M.r, y, W - M.r - L, y);
+    if (m === 1) el("text", { x: M.l - 8, y: y + 4, "text-anchor": "end" }, ax).textContent = v; }
+}
+el("text", { x: (M.l + W - M.r) / 2, y: H - 8, "text-anchor": "middle", class: "lab" }, svg).textContent = "Face count";
+const yl = el("text", { x: 0, y: 0, "text-anchor": "middle", class: "lab", transform: `translate(16 ${(M.t + H - M.b) / 2}) rotate(-90)` }, svg);
+yl.textContent = "Drawing to part time (s)";
+
+// all parts: synthetic hollow, real solid (drawn on top); low IoU last so rare colours show
+const pts = D.pts.slice().sort((a, b) => a.r - b.r || b.i - a.i);
+const pg = el("g", {}, svg);
+for (const p of pts) {
+  if (p.r) el("circle", { cx: sx(p.f), cy: sy(p.t), r: 2.6, fill: p.c, "fill-opacity": 0.85 }, pg);
+  else el("circle", { cx: sx(p.f), cy: sy(p.t), r: 2.9, fill: "none", stroke: p.c, "stroke-width": 1.2, "stroke-opacity": 0.9 }, pg);
+}
+
+// options: ring + number on the plot, card in the list
+const og = el("g", {}, svg), rings = {}, nums = {}, cards = {};
+const cardsBox = document.getElementById("cards");
+for (const o of D.opts) {
+  const x = sx(o.faces), y = sy(o.time);
+  rings[o.n] = el("circle", { cx: x, cy: y, r: 6, class: "ring", tabindex: -1 }, og);
+  const tx = Math.min(x + 7, W - M.r - 14);
+  nums[o.n] = el("text", { x: tx, y: y - 6, class: "optnum" }, og); nums[o.n].textContent = o.n;
+  const c = document.createElement("article");
+  c.className = "card"; c.tabIndex = 0; c.dataset.why = o.why; c.id = "opt-" + o.n;
+  c.innerHTML = `<div class="top"><span class="n">${o.n}</span><span class="why">${o.why}</span>${o.fig ? `<span class="tag">in figure: ${o.fig}</span>` : ""}</div>
+    <div class="imgs"><figure><img alt="Drawing ISO view, option ${o.n}" src="${o.iso}"><figcaption>Drawing (ISO)</figcaption></figure>
+      <figure><img alt="SFT + GRPO part, option ${o.n}" src="${o.pick}"><figcaption>SFT + GRPO</figcaption></figure>
+      <figure><img alt="Ground truth, option ${o.n}" src="${o.gt}"><figcaption>Ground truth</figcaption></figure></div>
+    <div class="stats"><span><b>${o.set}</b></span><span><b>${o.faces}</b> faces</span><span><b>${o.time}</b> s</span>
+      <span><span class="dot" style="background:${o.c}"></span>IoU <b>${o.iou.toFixed(2)}</b></span><span>${o.key.slice(0, 18)}</span></div>`;
+  cardsBox.appendChild(c); cards[o.n] = c;
+  const on = () => focus(o.n, false), pick = () => focus(o.n, true);
+  for (const t of [rings[o.n], nums[o.n]]) { t.addEventListener("mouseenter", on); t.addEventListener("click", pick); }
+  c.addEventListener("mouseenter", on); c.addEventListener("focus", on); c.addEventListener("click", on);
+}
+let cur = null;
+function focus(n, scroll) {
+  if (cur) { rings[cur].classList.remove("on"); nums[cur].classList.remove("on"); cards[cur].classList.remove("on"); }
+  cur = n; rings[n].classList.add("on"); nums[n].classList.add("on"); cards[n].classList.add("on");
+  og.appendChild(rings[n]); og.appendChild(nums[n]);   // bring to front
+  if (scroll) cards[n].scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
+}
+
+// category filter
+const cats = ["All", ...new Set(D.opts.map(o => o.why))];
+const chips = document.getElementById("chips");
+cats.forEach((c, i) => {
+  const b = document.createElement("button"); b.className = "chip"; b.id = "chip-" + i; b.type = "button";
+  b.textContent = c === "All" ? `All ${D.opts.length}` : c; b.setAttribute("aria-pressed", String(c === "All"));
+  b.addEventListener("click", () => {
+    chips.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", "false")); b.setAttribute("aria-pressed", "true");
+    for (const o of D.opts) { const show = c === "All" || o.why === c;
+      cards[o.n].hidden = !show; rings[o.n].style.display = show ? "" : "none"; nums[o.n].style.display = show ? "" : "none"; }
+  });
+  chips.appendChild(b);
+});
+</script>

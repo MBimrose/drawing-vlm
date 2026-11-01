@@ -1,0 +1,37 @@
+## Bench B (held-out 280)
+
+| stage | n | mean | ≥0.85 |
+|---|---|---|---|
+| glgS2 chain-1 start (vote) | 280 | 0.622 | 24% |
+| glgS2 single chain (c1) | 280 | 0.637 | 32% |
+| glgS2 MULTI-START (3 chains, v3 pick) | 280 | 0.665 | 37% |
+| glgS2 oracle over chain finals | 280 | 0.705 | 40% |
+| 27B S2 MULTI-START | 280 | 0.664 | 37% |
+| 27B S2 chain-1 start | 280 | 0.514 | 15% |
+| FN S2 MULTI-START | 280 | 0.682 | 40% |
+
+| paired Δ | n | Δ [95% CI] | +/− |
+|---|---|---|---|
+| glgS2 MULTI-START (3 chains, v3 pick) − 27B S2 MULTI-START | 280 | +0.001 [-0.020, +0.023] | +67/−73 |
+| glgS2 MULTI-START (3 chains, v3 pick) − glgS2 chain-1 start (vote) | 280 | +0.042 [+0.022, +0.064] | +102/−43 |
+| glgS2 MULTI-START (3 chains, v3 pick) − FN S2 MULTI-START | 280 | -0.018 [-0.038, +0.004] | +55/−84 |
+| glgS2 chain-1 start (vote) − 27B S2 chain-1 start | 280 | +0.108 [+0.088, +0.129] | +152/−31 |
+
+## Synthetic (1,027)
+
+| stage | n | mean | ≥0.85 |
+|---|---|---|---|
+| glgS2 chain-1 start (vote) | 1027 | 0.901 | 78% |
+| glgS2 single chain (c1) | 1027 | 0.938 | 88% |
+| glgS2 MULTI-START (3 chains, v3 pick) | 1027 | 0.953 | 91% |
+| glgS2 oracle over chain finals | 1027 | 0.961 | 92% |
+| 27B S2 MULTI-START | 1027 | 0.949 | 90% |
+| 27B S2 chain-1 start | 1027 | 0.917 | 83% |
+| FN S2 MULTI-START | 1027 | 0.952 | 91% |
+
+| paired Δ | n | Δ [95% CI] | +/− |
+|---|---|---|---|
+| glgS2 MULTI-START (3 chains, v3 pick) − 27B S2 MULTI-START | 1027 | +0.004 [-0.001, +0.010] | +81/−80 |
+| glgS2 MULTI-START (3 chains, v3 pick) − glgS2 chain-1 start (vote) | 1027 | +0.052 [+0.045, +0.060] | +314/−29 |
+| glgS2 MULTI-START (3 chains, v3 pick) − FN S2 MULTI-START | 1027 | +0.002 [-0.004, +0.008] | +82/−83 |
+| glgS2 chain-1 start (vote) − 27B S2 chain-1 start | 1027 | -0.016 [-0.023, -0.008] | +120/−210 |

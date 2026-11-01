@@ -1,0 +1,35 @@
+[cons] 144 parts, k=8
+[cons] re-executed 1138 candidates
+/dev/shm/bimrose2/ipcode/venv/lib/python3.12/site-packages/trimesh/triangles.py:302: RuntimeWarning: invalid value encountered in divide
+  center_mass = integrated[1:4] / volume
+[iou] monte-carlo fallback: iou=0.000 (13s, n=20000, 348+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (17s, n=20000, 380+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 348+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 380+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 348+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 380+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 348+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 380+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 348+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 380+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 348+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 380+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 360+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 256+28 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 256+28 faces)
+[iou] monte-carlo fallback: iou=0.000 (2s, n=20000, 360+256 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 256+360 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 256+388 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 256+388 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 256+360 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 256+352 faces)
+[iou] monte-carlo fallback: iou=0.000 (2s, n=20000, 256+1940 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 256+352 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 256+164 faces)
+[iou] monte-carlo fallback: iou=0.000 (2s, n=20000, 256+1940 faces)
+[iou] monte-carlo fallback: iou=0.000 (1s, n=20000, 256+164 faces)
+first_exec   mean=0.649 median=0.681 iou85=0.340 iou50=0.688
+consistency  mean=0.661 median=0.713 iou85=0.354 iou50=0.708
+cons_hybrid  mean=0.657 median=0.687 iou85=0.361 iou50=0.708
+verifier     mean=0.649 median=0.681 iou85=0.340 iou50=0.688
+oracle       mean=0.727 median=0.808 iou85=0.438 iou50=0.785

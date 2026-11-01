@@ -1,0 +1,542 @@
+[
+ {
+  "key": "47adc310-e94b-4f63-6f3f-66e84b834f1a",
+  "set": "Synthetic parts",
+  "faces": 345.0,
+  "time": 35.520254605449736,
+  "iou": 0.865847317538001,
+  "why": "most complex, comes out right",
+  "n": 1
+ },
+ {
+  "key": "553502dc-a32f-5158-ebfc-f212e5b8dfe2",
+  "set": "Synthetic parts",
+  "faces": 344.0,
+  "time": 52.056729084812105,
+  "iou": 0.9846356512129844,
+  "why": "most complex, comes out right",
+  "n": 2
+ },
+ {
+  "key": "6f62d896-8cc2-7cd6-b66b-7c543e9ea286",
+  "set": "Synthetic parts",
+  "faces": 274.0,
+  "time": 18.71521618589759,
+  "iou": 0.9660164872122464,
+  "why": "most complex, comes out right",
+  "n": 3
+ },
+ {
+  "key": "533abec2-4fd4-5a40-a13d-b433aa8cab0e",
+  "set": "Synthetic parts",
+  "faces": 255.0,
+  "time": 35.31645649019629,
+  "iou": 0.8888902172055593,
+  "why": "most complex, comes out right",
+  "n": 4
+ },
+ {
+  "key": "7be9bb16-1033-034e-b878-8d05514ae8c3",
+  "set": "Synthetic parts",
+  "faces": 255.0,
+  "time": 28.25794242043048,
+  "iou": 0.8676050843414919,
+  "why": "most complex, comes out right",
+  "n": 5
+ },
+ {
+  "key": "93f532b2-c26e-7556-7514-1ceaefdcbbd4",
+  "set": "Synthetic parts",
+  "faces": 208.0,
+  "time": 35.7361900517717,
+  "iou": 1.0,
+  "why": "most complex, comes out right",
+  "n": 6
+ },
+ {
+  "key": "6179af5c-dbb0-4ed5-a1cd-82e3e52957e6",
+  "set": "Synthetic parts",
+  "faces": 197.0,
+  "time": 29.09194364026189,
+  "iou": 0.9179190212555447,
+  "why": "most complex, comes out right",
+  "n": 7
+ },
+ {
+  "key": "4884115e-a32a-4bb1-d5e3-fadc09130700",
+  "set": "Synthetic parts",
+  "faces": 197.0,
+  "time": 22.10162520315498,
+  "iou": 0.9776842998224442,
+  "why": "most complex, comes out right",
+  "n": 8
+ },
+ {
+  "key": "51593264-b54b-ef5b-493b-918e3a11e09a",
+  "set": "Synthetic parts",
+  "faces": 186.0,
+  "time": 27.40280455444008,
+  "iou": 0.9883802227813774,
+  "why": "most complex, comes out right",
+  "n": 9
+ },
+ {
+  "key": "93ce8cf2-5fbf-16c0-42e7-87760bd42f28",
+  "set": "Synthetic parts",
+  "faces": 159.0,
+  "time": 38.37005438376218,
+  "iou": 0.9962150403638419,
+  "why": "most complex, comes out right",
+  "n": 10
+ },
+ {
+  "key": "7367f296-1ca4-2985-be79-384034201fde",
+  "set": "Synthetic parts",
+  "faces": 150.0,
+  "time": 20.312872959300876,
+  "iou": 0.9911695745245116,
+  "why": "most complex, comes out right",
+  "n": 11
+ },
+ {
+  "key": "773492c6-73f8-9249-b84c-1377f7226781",
+  "set": "Synthetic parts",
+  "faces": 148.0,
+  "time": 33.511224085465074,
+  "iou": 0.9813415723588278,
+  "why": "most complex, comes out right",
+  "n": 12
+ },
+ {
+  "key": "A_00423888_a5568bd7fee522be1187b3f8_step_000_x",
+  "set": "Real parts",
+  "faces": 74.0,
+  "time": 28.273361378349364,
+  "iou": 0.8522070547936644,
+  "why": "complex real part, comes out right",
+  "n": 13
+ },
+ {
+  "key": "A_00438866_13481f4ab00aa70d0406f5b3_step_000_x",
+  "set": "Real parts",
+  "faces": 73.0,
+  "time": 18.25716462917626,
+  "iou": 0.8674133042610771,
+  "why": "complex real part, comes out right",
+  "n": 14
+ },
+ {
+  "key": "A_00435010_6594a398f7f2a923c1cab106_step_000_x",
+  "set": "Real parts",
+  "faces": 67.0,
+  "time": 23.23295941390097,
+  "iou": 0.9055264620015445,
+  "why": "complex real part, comes out right",
+  "n": 15
+ },
+ {
+  "key": "A_00428606_23371becea37d06559e904e1_step_000_x",
+  "set": "Real parts",
+  "faces": 66.0,
+  "time": 28.384389229118824,
+  "iou": 0.9262311176972474,
+  "why": "complex real part, comes out right",
+  "n": 16
+ },
+ {
+  "key": "A_00433816_a9baff9b17080b1054029cd3_step_000_x",
+  "set": "Real parts",
+  "faces": 62.0,
+  "time": 21.23394268937409,
+  "iou": 0.8271046477134955,
+  "why": "complex real part, comes out right",
+  "n": 17
+ },
+ {
+  "key": "A_00437468_20ac46b0dd8c5bf01593bd5d_step_006_x",
+  "set": "Real parts",
+  "faces": 55.0,
+  "time": 25.410793289542198,
+  "iou": 0.8504264538061335,
+  "why": "complex real part, comes out right",
+  "n": 18
+ },
+ {
+  "key": "A_00433433_3e2c48b9c99bf980fd5b39c7_step_005_x",
+  "set": "Real parts",
+  "faces": 55.0,
+  "time": 22.479428778402507,
+  "iou": 0.8004336491443931,
+  "why": "complex real part, comes out right",
+  "n": 19
+ },
+ {
+  "key": "A_00439477_71a2d5442e6e341a8eb9e6c5_step_000_x",
+  "set": "Real parts",
+  "faces": 54.0,
+  "time": 34.77658273745328,
+  "iou": 0.9798753556086099,
+  "why": "complex real part, comes out right",
+  "n": 20
+ },
+ {
+  "key": "A_00432827_5872c407e617a810bd1fda30_step_000_x",
+  "set": "Real parts",
+  "faces": 54.0,
+  "time": 30.789125527255237,
+  "iou": 0.8320730633380385,
+  "why": "complex real part, comes out right",
+  "n": 21
+ },
+ {
+  "key": "A_00430143_0b9d3bc4aa812ab337654ece_step_000_x",
+  "set": "Real parts",
+  "faces": 53.0,
+  "time": 18.598851012066007,
+  "iou": 0.8056462998214228,
+  "why": "complex real part, comes out right",
+  "n": 22
+ },
+ {
+  "key": "A_00438021_587535c5819b6b181b05c96d_step_060_x",
+  "set": "Real parts",
+  "faces": 51.0,
+  "time": 22.682404531165957,
+  "iou": 0.9181448224618121,
+  "why": "complex real part, comes out right",
+  "n": 23
+ },
+ {
+  "key": "A_00433702_7552f0db510eaaa16d7bfa68_step_000_x",
+  "set": "Real parts",
+  "faces": 51.0,
+  "time": 18.824746875092387,
+  "iou": 0.8737952698147845,
+  "why": "complex real part, comes out right",
+  "n": 24
+ },
+ {
+  "key": "A_00420727_8c334d8e793af8f32d2fb608_step_000_x",
+  "set": "Real parts",
+  "faces": 51.0,
+  "time": 24.026580970734358,
+  "iou": 0.8958012678354045,
+  "why": "complex real part, comes out right",
+  "n": 25
+ },
+ {
+  "key": "A_00438953_766e6c0964c7310264dd3fc4_step_000_x",
+  "set": "Real parts",
+  "faces": 50.0,
+  "time": 15.777685151435435,
+  "iou": 0.9426961674201826,
+  "why": "complex real part, comes out right",
+  "n": 26
+ },
+ {
+  "key": "A_00437352_2fb8424ef941177b1fef5f7b_step_000_x",
+  "set": "Real parts",
+  "faces": 48.0,
+  "time": 18.20882316213101,
+  "iou": 0.8979747209057317,
+  "why": "complex real part, comes out right",
+  "n": 27
+ },
+ {
+  "key": "F_146169_144d8264_0_x",
+  "set": "Real parts",
+  "faces": 48.0,
+  "time": 18.97184519842267,
+  "iou": 0.8944507697691774,
+  "why": "complex real part, comes out right",
+  "n": 28
+ },
+ {
+  "key": "0eec11b2-ceda-f288-f912-84a01f311449",
+  "set": "Synthetic parts",
+  "faces": 18.0,
+  "time": 100.29134530201554,
+  "iou": 0.9879430042786316,
+  "why": "slow, comes out right",
+  "n": 29
+ },
+ {
+  "key": "3dfebcca-cc10-9caa-af1f-77f892c3f9fa",
+  "set": "Synthetic parts",
+  "faces": 76.0,
+  "time": 67.3901618598029,
+  "iou": 0.9951699752967776,
+  "why": "slow, comes out right",
+  "n": 30
+ },
+ {
+  "key": "2a68b01c-40a2-3e3e-406d-82b44e0945fe",
+  "set": "Synthetic parts",
+  "faces": 21.0,
+  "time": 64.94990208279341,
+  "iou": 0.855858366032226,
+  "why": "slow, comes out right",
+  "n": 31
+ },
+ {
+  "key": "2426fd26-6802-924b-91ed-db24c971daba",
+  "set": "Synthetic parts",
+  "faces": 72.0,
+  "time": 58.69087901059538,
+  "iou": 0.8482089606222103,
+  "why": "slow, comes out right",
+  "n": 32
+ },
+ {
+  "key": "A_00425208_586ea4e194bf4c102c270da1_step_007_x",
+  "set": "Real parts",
+  "faces": 39.0,
+  "time": 55.93518547993153,
+  "iou": 0.8920106027930115,
+  "why": "slow, comes out right",
+  "n": 33
+ },
+ {
+  "key": "6cef5ab2-f8d9-0c3f-e146-7b74d9975da0",
+  "set": "Synthetic parts",
+  "faces": 109.0,
+  "time": 54.81008864939213,
+  "iou": 0.9558713400221703,
+  "why": "slow, comes out right",
+  "n": 34
+ },
+ {
+  "key": "3b124e8c-ac16-ad8b-cc49-0e916dcc34d7",
+  "set": "Synthetic parts",
+  "faces": 44.0,
+  "time": 54.480337765067816,
+  "iou": 0.9725377252985249,
+  "why": "slow, comes out right",
+  "n": 35
+ },
+ {
+  "key": "40a1be28-d887-8d8c-7e85-1cec9ee0eeb6",
+  "set": "Synthetic parts",
+  "faces": 25.0,
+  "time": 53.160627476871014,
+  "iou": 0.9893249263227863,
+  "why": "slow, comes out right",
+  "n": 36
+ },
+ {
+  "key": "8f68397e-799b-7063-b9d0-f4b694d186b1",
+  "set": "Synthetic parts",
+  "faces": 136.0,
+  "time": 19.72852542437613,
+  "iou": 0.9788103168304385,
+  "why": "complex but fast",
+  "n": 37
+ },
+ {
+  "key": "8237fa28-fd8b-f9c2-4bf4-aa6eca882550",
+  "set": "Synthetic parts",
+  "faces": 75.0,
+  "time": 20.510657359845936,
+  "iou": 0.9232101523623013,
+  "why": "complex but fast",
+  "n": 38
+ },
+ {
+  "key": "61f116be-eadc-c24a-0902-c77f95d43bfd",
+  "set": "Synthetic parts",
+  "faces": 142.0,
+  "time": 20.872905178926885,
+  "iou": 0.9874794465375873,
+  "why": "complex but fast",
+  "n": 39
+ },
+ {
+  "key": "42fdeae8-8913-d949-07c2-20b9ff6646e1",
+  "set": "Synthetic parts",
+  "faces": 64.0,
+  "time": 21.35976462997496,
+  "iou": 0.9646051438506283,
+  "why": "complex but fast",
+  "n": 40
+ },
+ {
+  "key": "23e3e176-68d8-774d-61ef-b996ff603213",
+  "set": "Synthetic parts",
+  "faces": 102.0,
+  "time": 21.67663830704987,
+  "iou": 0.9863447728815565,
+  "why": "complex but fast",
+  "n": 41
+ },
+ {
+  "key": "3cc5a2b0-7892-9964-3d57-a20f1f78ba81",
+  "set": "Synthetic parts",
+  "faces": 100.0,
+  "time": 21.958673173561692,
+  "iou": 0.9888869251976184,
+  "why": "complex but fast",
+  "n": 42
+ },
+ {
+  "key": "02133c18-0277-b899-bfb2-74a860ec2599",
+  "set": "Synthetic parts",
+  "faces": 66.0,
+  "time": 22.06189547199756,
+  "iou": 0.999999999741703,
+  "why": "complex but fast",
+  "n": 43
+ },
+ {
+  "key": "68f1dc5a-fc8f-1a79-fd19-862c3e8f9cab",
+  "set": "Synthetic parts",
+  "faces": 67.0,
+  "time": 22.553196801804006,
+  "iou": 0.9638497293977759,
+  "why": "complex but fast",
+  "n": 44
+ },
+ {
+  "key": "a51e495c-8730-06c0-f3ee-e03d4ff2f1eb",
+  "set": "Synthetic parts",
+  "faces": 106.0,
+  "time": 36.63189020100981,
+  "iou": 0.25782849969029986,
+  "why": "complex, fails",
+  "n": 45
+ },
+ {
+  "key": "A_00437190_5875024f0dbf5317c8fd357d_step_002_x",
+  "set": "Real parts",
+  "faces": 69.0,
+  "time": 30.574935879558325,
+  "iou": 0.3392102785724041,
+  "why": "complex, fails",
+  "n": 46
+ },
+ {
+  "key": "A_00430471_0052f6bd859184c8ee187c7e_step_058_x",
+  "set": "Real parts",
+  "faces": 69.0,
+  "time": 21.575715030543506,
+  "iou": 0.17567873766307826,
+  "why": "complex, fails",
+  "n": 47
+ },
+ {
+  "key": "A_00439020_fa83779317c7784ea0972605_step_005_x",
+  "set": "Real parts",
+  "faces": 69.0,
+  "time": 21.84818419907242,
+  "iou": 0.29858467987855764,
+  "why": "complex, fails",
+  "n": 48
+ },
+ {
+  "key": "A_00435020_5873e8bcbf09331774584983_step_000_x",
+  "set": "Real parts",
+  "faces": 68.0,
+  "time": 23.89961981587112,
+  "iou": 0.18676325775256633,
+  "why": "complex, fails",
+  "n": 49
+ },
+ {
+  "key": "A_00420340_0321ba2393bd69bb8568526d_step_000_x",
+  "set": "Real parts",
+  "faces": 66.0,
+  "time": 30.137991492636502,
+  "iou": 0.3926866994927041,
+  "why": "complex, fails",
+  "n": 50
+ },
+ {
+  "key": "A_00421300_9e904ba7ae369f6f4229cfee_step_000_x",
+  "set": "Real parts",
+  "faces": 64.0,
+  "time": 22.42691439203918,
+  "iou": 0.16367834322031902,
+  "why": "complex, fails",
+  "n": 51
+ },
+ {
+  "key": "A_00432228_81795fb1fede8b5b77ec1939_step_006_x",
+  "set": "Real parts",
+  "faces": 64.0,
+  "time": 23.87913107033819,
+  "iou": 0.24979198269954245,
+  "why": "complex, fails",
+  "n": 52
+ },
+ {
+  "key": "F_51903_2aa8d6d3_2_x",
+  "set": "Real parts",
+  "faces": 33.0,
+  "time": 21.016368669457734,
+  "iou": 0.9251153502622848,
+  "why": "typical part, typical time",
+  "n": 53
+ },
+ {
+  "key": "F_97255_847ea463_2_x",
+  "set": "Real parts",
+  "faces": 44.0,
+  "time": 19.032214779406786,
+  "iou": 0.9736699942874245,
+  "why": "typical part, typical time",
+  "n": 54
+ },
+ {
+  "key": "A_00433447_bceb4e05aca4db1056a57af5_step_001_x",
+  "set": "Real parts",
+  "faces": 46.0,
+  "time": 27.1531773917377,
+  "iou": 0.9841767025270521,
+  "why": "typical part, typical time",
+  "n": 55
+ },
+ {
+  "key": "A_00433390_2804df8c5f3948e3b955d998_step_003_x",
+  "set": "Real parts",
+  "faces": 40.0,
+  "time": 28.593776857480407,
+  "iou": 0.988296902474485,
+  "why": "typical part, typical time",
+  "n": 56
+ },
+ {
+  "key": "15c1ff56-4977-fd99-83b0-a90a05b4f564",
+  "set": "Synthetic parts",
+  "faces": 38.0,
+  "time": 22.553593183867633,
+  "iou": 0.963958031818678,
+  "why": "typical part, typical time",
+  "n": 57
+ },
+ {
+  "key": "27221d80-8dfc-46d7-5605-88176c4e0a91",
+  "set": "Synthetic parts",
+  "faces": 49.0,
+  "time": 22.57296949904412,
+  "iou": 0.9877580169390264,
+  "why": "typical part, typical time",
+  "n": 58
+ },
+ {
+  "key": "2b68ade6-0426-d55e-7d7a-896d929d6c3c",
+  "set": "Synthetic parts",
+  "faces": 40.0,
+  "time": 22.580570376478136,
+  "iou": 1.0,
+  "why": "typical part, typical time",
+  "n": 59
+ },
+ {
+  "key": "4ff8a512-dc8b-0c57-b6c2-c3d290159953",
+  "set": "Synthetic parts",
+  "faces": 31.0,
+  "time": 22.591128135100007,
+  "iou": 0.9526330505564067,
+  "why": "typical part, typical time",
+  "n": 60
+ }
+]

@@ -37,6 +37,28 @@ from collate_v14 import SYSTEM_PROMPTS  # noqa: E402
 from geom_eval_worker import USER_PROMPT, extract_code  # noqa: E402
 
 
+# 2026-10-29 (Kimi-trace A/B): raw replies split by the model's channel tokens, as grpo_round.py --raw-channels: a
+# template that prefills the thought channel (glftpf / gmftpf / nemopf) hides the opener from the reasoning parser, so
+# the server runs without one and the reasoning is recovered here (think = RAW_PREFILL + the sampled thought).
+RAW = {"glimmer": ("<|eom|>", "<|start|>assistant to=user<|message|>", ("<|eot|>", "<|eom|>", "<|end|>")),
+       "gemma": ("<channel|>", "", ("<turn|>",)),
+       "nemotron": ("</think>", "", ("<|im_end|>",))}
+RAW_MODE, RAW_PREFILL = "", ""
+
+
+def split_raw(text):
+    think_end, ans_start, ends = RAW[RAW_MODE]
+    think, sep, rest = (RAW_PREFILL + text).partition(think_end)
+    if not sep:
+        return "", think   # cut off inside the thought: no answer
+    i = rest.find(ans_start)
+    ans = rest[i + len(ans_start):] if i >= 0 else rest
+    for e in ends:
+        if ans.endswith(e):
+            ans = ans[:-len(e)]
+    return ans, think.strip()
+
+
 def chat(base_url, model, png, system, user, temperature, top_p, n, max_tokens, timeout, think, prefill=""):
     import urllib.request
     body = {"model": model, "temperature": temperature, "top_p": top_p, "n": n, "max_tokens": max_tokens,
@@ -44,7 +66,11 @@ def chat(base_url, model, png, system, user, temperature, top_p, n, max_tokens, 
                          {"role": "user", "content": [
                              {"type": "image_url", "image_url": {"url": "data:image/png;base64," + base64.b64encode(png).decode()}},
                              {"type": "text", "text": user}]}],
-            "chat_template_kwargs": {"enable_thinking": think}}
+            # "thinking" + REASONING_EFFORT: the DeepSeek-V4.1 template's switches (as probe_openai_vlm.py); Qwen ignores them
+            "chat_template_kwargs": {"enable_thinking": think, "thinking": think,
+                                     **({"reasoning_effort": int(os.environ["REASONING_EFFORT"])} if os.environ.get("REASONING_EFFORT") else {})}}
+    if RAW_MODE:
+        body["skip_special_tokens"] = False
     if prefill:  # assistant prefill continued by the server (e.g. "<think>\n1." forces the numbered plan on Nemotron)
         body["messages"].append({"role": "assistant", "content": prefill})
         body.update(add_generation_prompt=False, continue_final_message=True)
@@ -56,6 +82,9 @@ def chat(base_url, model, png, system, user, temperature, top_p, n, max_tokens, 
     for ch in d["choices"]:
         m = ch["message"]
         text = m.get("content") or ""
+        if RAW_MODE:
+            outs.append(split_raw(text))
+            continue
         reasoning = m.get("reasoning_content") or m.get("reasoning") or ""
         if not reasoning and "</think>" in text:
             reasoning, text = text.split("</think>", 1)[0].replace("<think>", "").strip(), text.split("</think>", 1)[1]
@@ -82,8 +111,13 @@ def main():
     ap.add_argument("--no-think", action="store_true")
     ap.add_argument("--prefill", default="", help="assistant prefix the reply continues from (backslash escapes allowed)")
     ap.add_argument("--user-prompts", default="", help="json {key: user prompt} overriding USER_PROMPT per part")
+    ap.add_argument("--raw-channels", choices=["", "glimmer", "gemma", "nemotron"], default="",
+                    help="keep special tokens and split think / answer by the model's channel tokens (server without a parser)")
+    ap.add_argument("--raw-prefill", default="", help="thought prefill of the served template, prepended to think (e.g. '1.')")
     ap.add_argument("--out", required=True, help="output stem; writes <out>.shard<i>.json.partial.json")
     args = ap.parse_args()
+    global RAW_MODE, RAW_PREFILL
+    RAW_MODE, RAW_PREFILL = args.raw_channels, args.raw_prefill
 
     cache = pickle.load(open(os.path.join(args.bench, "eval_cache_v15.pkl"), "rb"))
     gt_dir = os.path.join(args.bench, "gt_meshes_v15")

@@ -1,0 +1,47 @@
+# Kimi-trace A/B (2026-10-29), round 0 of 2 = the bootstrap sampler with no Qwen-generated data: arm A: plain synthetic rows + the 20% certified Kimi K3 reasoning tier (traces_v14 / v14_bundle), as the 27B's e22 step.
+# Muse-Glimmer-30B base, am-glimmer-30b-e55recipe otherwise (lr 6e-6 cosine, batch 8 x GA 8, seq 6144), 1,500 steps.
+# Round 1 (am-glimmer-ab-a1) continues from this final on the model's own verified samples. Campus-cluster H200 node.
+run_name: am-glimmer-ab-a0
+model_id: /srv/scratch/bimrose2/models/Muse-Glimmer-30B
+output_dir: /srv/scratch/bimrose2/amvlm/runs/am-glimmer-ab-a0
+accel_config: accelerate_fsdp2_8gpu_glimmer.yaml
+
+use_lora: false
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.0
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 6144
+processor_kwargs: {}   # Glimmer's default max_image_tokens 4096 (28-px tokens): a 1920x1280 sheet at native resolution (~3.1k tokens)
+
+lr: 6.0e-6
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+
+max_steps: 1500
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 43

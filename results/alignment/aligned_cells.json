@@ -1,0 +1,30 @@
+[
+ {
+  "column": "Gemma 4 31B",
+  "row": "FFT + vote + GRPO + repair",
+  "bench": "full",
+  "n": 1027,
+  "complete": true,
+  "stored": 0.9318277192354726,
+  "centered": 0.9318277189417811,
+  "aligned": 0.9422729607796874,
+  "icp_raw": 0.939132304615075,
+  "flip_gains": 20,
+  "mismatch_gt_0.02": 0,
+  "unscored": 0
+ },
+ {
+  "column": "Gemma 4 31B",
+  "row": "FFT + vote + GRPO + repair",
+  "bench": "benchb",
+  "n": 280,
+  "complete": true,
+  "stored": 0.6303292746831165,
+  "centered": 0.6303292746831165,
+  "aligned": 0.6592750141264013,
+  "icp_raw": 0.6534463726613402,
+  "flip_gains": 37,
+  "mismatch_gt_0.02": 0,
+  "unscored": 0
+ }
+]

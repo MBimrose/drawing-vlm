@@ -159,6 +159,20 @@ def build_messages(sample: dict, system_prompt: str,
     ]
 
 
+def answer_positions(labels: torch.Tensor) -> torch.Tensor:
+    """Logit positions p with a supervised label at p + 1 in any row (2026-10-27). Gemma 4 31B trains at the H200's
+    memory limit and its 262k-vocab softcapped logits (several fp32 copies of seq x 262k) are the peak; the prompt
+    (~2/3 of a row) never carries loss, so the cross-entropy over these positions alone is the same loss."""
+    return (labels[:, 1:] != -100).any(0).nonzero().squeeze(-1)
+
+
+def answer_targets(logits: torch.Tensor, labels: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+    """(logits, targets) aligned for next-token cross-entropy, for full logits or answer-only ones."""
+    if logits.size(1) == labels.size(1):
+        return logits[:, :-1], labels[:, 1:]
+    return logits, labels[:, 1:][:, answer_positions(labels)]
+
+
 class VLMCollator:
     def __init__(
         self,
@@ -167,6 +181,7 @@ class VLMCollator:
         system_prompt: str = "detailed",
         reasoning_effort: str = "medium",
         trace_style: str = "think",
+        answer_logits_only: bool = False,
     ):
         assert system_prompt in SYSTEM_PROMPTS, system_prompt
         assert trace_style in ("think", "inline"), trace_style
@@ -184,6 +199,14 @@ class VLMCollator:
         # think" target follows the exact think-mode generation prompt ("...assistant\n<think>\n"). The Nemotron
         # template would otherwise render "<think></think>code", which never follows that prompt.
         self.nemotron = type(processor).__name__.startswith("NemotronH")
+        # 2026-10-26: American-VLM screen (Gemma 4, Muse Glimmer). Their processors size images themselves (Gemma 4:
+        # max_soft_tokens budget; Glimmer: max_image_tokens on a 28-px grid), so they take the raw sheet like Nemotron
+        # and return extra per-token keys (Gemma 4 mm_token_type_ids / image_position_ids) that must pass through.
+        self.native = type(processor).__name__.startswith(("Gemma4", "MuseGlimmer"))
+        # 2026-10-27: lm_head only where a supervised label follows (logits_to_keep); see answer_targets.
+        self.answer_logits_only = answer_logits_only
+        if self.native:
+            processor.tokenizer.padding_side = "right"  # Gemma 4 ships left padding; the tail cut below assumes right
 
     def _nemotron_msgs(self, msgs: list[list[dict]]) -> list[list[dict]]:
         out = []
@@ -227,6 +250,8 @@ class VLMCollator:
                 for b in batch]
         if self.nemotron:
             return self._collate_nemotron(batch, self._nemotron_msgs(msgs))
+        if self.native:
+            return self._collate_native(batch, msgs)
         from qwen_vl_utils import process_vision_info
 
         full_text = [
@@ -320,4 +345,44 @@ class VLMCollator:
             labels[i, :k] = -100
         labels[enc["attention_mask"] == 0] = -100
         out["labels"] = labels
+        return out
+
+    def _collate_native(self, batch: list[dict[str, Any]], msgs: list[list[dict]]) -> dict[str, torch.Tensor]:
+        """Raw PIL sheets, no tokenizer truncation (it could cut image placeholders); the text tail past max_seq_len
+        is cut afterwards from every per-token tensor, as the Qwen path's truncation=True does for answers."""
+        full_text = [self.processor.apply_chat_template(m, add_generation_prompt=False, tokenize=False,
+                                                        **self.tmpl_kwargs) for m in msgs]
+        prompt_text = [self.processor.apply_chat_template(m[:-1], add_generation_prompt=True, tokenize=False,
+                                                          **self.tmpl_kwargs) for m in msgs]
+        per_row = [[p["image"] for turn in m if isinstance(turn.get("content"), list)
+                    for p in turn["content"] if p.get("type") == "image"] for m in msgs]
+        # 2026-10-28: the Gemma 4 processor reads a flat image list as ONE sample's images (batches > 1 failed: "images (1)
+        # and text (4)" in GRPO); it takes them nested per row. The flat list stays for the other processors.
+        images = per_row if type(self.processor).__name__.startswith("Gemma4") else [i for r in per_row for i in r]
+        if not any(per_row):
+            images = []
+        enc = self.processor(text=full_text, images=images or None, return_tensors="pt", padding=True)
+        prompt_ids = self.processor(text=prompt_text, images=images or None, return_tensors=None,
+                                    padding=False)["input_ids"]
+        if max(len(p) for p in prompt_ids) >= self.max_seq_len:
+            raise ValueError(f"prompt alone is {max(len(p) for p in prompt_ids)} tokens; raise max_seq_len")
+        seq = enc["input_ids"].shape
+        out = {k: (v[:, :self.max_seq_len] if torch.is_tensor(v) and v.shape[:2] == seq else v) for k, v in enc.items()}
+        out["use_cache"] = False
+        labels = out["input_ids"].clone()
+        for i, pids in enumerate(prompt_ids):
+            fids = out["input_ids"][i].tolist()
+            n = min(len(pids), len(fids))
+            k = 0
+            while k < n and pids[k] == fids[k]:
+                k += 1
+            if k < len(pids) - 4 and self._mask_warnings < 10:
+                self._mask_warnings += 1
+                print(f"[collate] WARN mask prefix {k} << prompt len {len(pids)} "
+                      f"(uuid={batch[i].get('uuid')})", flush=True)
+            labels[i, :k] = -100
+        labels[out["attention_mask"] == 0] = -100
+        out["labels"] = labels
+        if self.answer_logits_only:
+            out["logits_to_keep"] = answer_positions(labels)
         return out

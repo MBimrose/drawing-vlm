@@ -1,0 +1,25 @@
+# FSDP2 full-shard, 4 ranks, PURE bf16 (2026-10-28): the Nemotron repairer (am-nemo-rp3recipe.yaml, routed experts frozen)
+# on a campus-cluster H200 node. 4 ranks for host RAM as accelerate_fsdp2_4gpu_nemotron_lora.yaml (8 load-time copies exceed
+# the node's 1.5 TB). Per rank: bf16 params 60 GB + the dense 8.1B's grads 4 GB + fp32 moments 16 GB + activations.
+# Otherwise accelerate_fsdp2_8gpu_nemotron_purebf16.yaml.
+compute_environment: LOCAL_MACHINE
+distributed_type: FSDP
+mixed_precision: "no"
+num_machines: 1
+num_processes: 4
+machine_rank: 0
+main_training_function: main
+rdzv_backend: static
+same_network: true
+fsdp_config:
+  fsdp_version: 2
+  fsdp_sharding_strategy: FULL_SHARD
+  fsdp_offload_params: false
+  fsdp_state_dict_type: SHARDED_STATE_DICT
+  fsdp_activation_checkpointing: true
+  fsdp_auto_wrap_policy: TRANSFORMER_BASED_WRAP
+  fsdp_transformer_layer_cls_to_wrap: NemotronHBlock,RadioLayer
+  fsdp_cpu_ram_efficient_loading: true
+  fsdp_use_orig_params: true
+  fsdp_sync_module_states: true
+  fsdp_reshard_after_forward: true

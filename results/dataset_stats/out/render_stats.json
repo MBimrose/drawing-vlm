@@ -1,0 +1,104 @@
+{
+ "v14_dw400": {
+  "n_sheets": 498799,
+  "by_renderer": {
+   "draftwright": {
+    "n": 496320,
+    "render_s": {
+     "n": 496320,
+     "mean": 4.104098832424728,
+     "p10": 1.2304250955581666,
+     "p50": 2.7133913040161133,
+     "p90": 7.662491488456728,
+     "p99": 26.909534916877746
+    },
+    "wall_s": {},
+    "dims_placed_per_sheet": 6.112544326241135,
+    "dims_unplaced_per_sheet": 1.124995970341715,
+    "share_dims_placed": 0.8445610077124028,
+    "share_sheets_all_dims_placed": 0.6593125402965828,
+    "annotations_per_sheet": 12.387951321727918,
+    "leaders_per_sheet": 4.275235735009671,
+    "lint_errors_per_sheet": 0.02393012572533849,
+    "lint_warnings_per_sheet": 2.4006447453255966
+   },
+   "legacy": {
+    "n": 2479,
+    "render_s": {
+     "n": 2479,
+     "mean": 17.860810150201882,
+     "p10": 0.01493520736694336,
+     "p50": 0.8024368286132812,
+     "p90": 60.00142292976379,
+     "p99": 68.68347847461695
+    },
+    "wall_s": {},
+    "dims_placed_per_sheet": 0.14683340056474384,
+    "dims_unplaced_per_sheet": 0.048406615570794675,
+    "share_dims_placed": 0.7520661157024794,
+    "share_sheets_all_dims_placed": 0.9923356192012909,
+    "annotations_per_sheet": 0.0,
+    "leaders_per_sheet": 0.0,
+    "lint_errors_per_sheet": 0.0,
+    "lint_warnings_per_sheet": 0.0
+   }
+  },
+  "n_shards": 2500
+ },
+ "v14_dw423": {
+  "n_sheets": 386182,
+  "by_renderer": {
+   "draftwright": {
+    "n": 386182,
+    "render_s": {
+     "n": 386182,
+     "mean": 11.515460423207584,
+     "p10": 3.739294171333313,
+     "p50": 7.602681994438171,
+     "p90": 20.28260281085971,
+     "p99": 73.88824187755586
+    },
+    "wall_s": {
+     "n": 386182,
+     "mean": 13.991030682424347,
+     "p10": 4.76,
+     "p50": 9.188,
+     "p90": 24.52,
+     "p99": 95.47790000000002
+    },
+    "dims_placed_per_sheet": 7.243916081018794,
+    "dims_unplaced_per_sheet": 1.2196969304628387,
+    "share_dims_placed": 0.8558893313283331,
+    "share_sheets_all_dims_placed": 0.6971635135765002,
+    "annotations_per_sheet": 12.326146739102288,
+    "leaders_per_sheet": 3.2761521769528357,
+    "lint_errors_per_sheet": 0.10743639009586153,
+    "lint_warnings_per_sheet": 3.790909467556748
+   }
+  },
+  "n_shards": 2500
+ },
+ "dw423_failures": {
+  "skipped_exec_bad_blocklist": 105123,
+  "attempted": 393676,
+  "ok_sheets": 386182,
+  "failed": 7494,
+  "fail_rate_attempted": 0.01903595850394741,
+  "exec_failed": 653,
+  "render_failed": 6841,
+  "render_fail_rate_of_executed": 0.017406106003974322,
+  "logged_recovered_by_retry": 0,
+  "logged_but_has_sheet": 0,
+  "classes": {
+   "render_fail:feature_recognition": 2976,
+   "render_fail:occt": 1251,
+   "render_fail:StopIteration": 1152,
+   "render_fail:drawing_timeout": 860,
+   "exec_error": 628,
+   "render_timeout": 506,
+   "render_fail:ValueError": 90,
+   "exec_timeout": 25,
+   "render_fail:other": 6
+  }
+ }
+}

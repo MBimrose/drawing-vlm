@@ -110,6 +110,18 @@ if (FE) chartSlide("Face Count vs Execution Time", "faces_vs_exectime", [
   `Outliers both ways: some programs with few faces take over a second, and some 100+ face parts build in under 0.1 s`,
 ], "Execution time measured with a warm-up run first (the first batch of the original run absorbed a ~1 s cold start; those 12 parts were re-timed).");
 
+// 3c. end-to-end time for one candidate, by component
+const L = S.latency;
+if (L) chartSlide("Drawing to Part: Time per Candidate", "latency_one_candidate", [
+  `One candidate, one request at a time: final generator (27B) on a single B300 GPU, ${L.n} held-out real drawings`,
+  `Read drawing ${L.read.toFixed(2)} s · plan ${L.plan.toFixed(2)} s (${Math.round(L.plan_tok)} tokens) · write code ${L.code.toFixed(2)} s (${Math.round(L.code_tok)} tokens)`,
+  `Run program ${L.run.toFixed(2)} s; total ${L.total.toFixed(2)} s (medians)`,
+  `Token generation is ${(100 * L.gen_share).toFixed(0)}% of the time, at ~${Math.round(L.tok_s)} tokens/s`,
+  `One-off: loading Python + build123d takes ${L.import.toFixed(1)} s, paid once per worker`,
+], "Measured with train_v14/geom/latency_one_candidate.py: vLLM 1 GPU (serv-20 GPU 2, shared with idle processes of another user), " +
+   "greedy, thinking on, eval prompt, max 2,400 tokens, bench B parts (seed 0). Program run = median of 3 executions after warm-up, " +
+   "build123d already imported, STEP export included. Best of 8 adds 7 samples that the server batches.");
+
 // 4. IoU distribution
 {
   const s = pres.addSlide({ masterName: "TITLE_ONLY" });

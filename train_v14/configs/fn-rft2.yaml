@@ -1,0 +1,60 @@
+# FN-RFT2 (2026-10-22): the 27B's expert-iteration SFT (results/cycle2/c2-rft2.yaml) on Flash-Next, for the Flash-Next full
+# pipeline (results/flashnext/PLAN.md stage 3; user chose "match the 27B"). Warm-start the GRPO policy's LoRA (fn1, the step
+# picked on real-144 + synthetic; lora_init_adapter is filled in by fn_ei.sh from fn55/FN1_BEST) and SFT it on the same
+# cycle-2 mix (serv-19 cycle2/mix: the 13 e55 replay shards + tier-2 CADBench / realpool2 shards, 114 links, copied from
+# serv-20) at the same weights (RFT 0.8 / reasoning 0.1 / plain 0.1), lr 2e-5, cosine -> 10%, warmup 3%, global batch 16,
+# 955 steps, seq 5120, seed 44. The 27B ran two EI rounds (tier 1, then tier 2); tier 2 already holds the best of round 1's
+# programs, so Flash-Next gets the single tier-2 round. LoRA r64 on e26's Flash-Next module set (= fn1's adapter), FSDP2 on
+# 4 GPUs (batch 1 x 4 accum x 4 ranks), model-side settings as e26-flashnext-lora-serv19.
+run_name: fn-rft2
+model_id: /srv/scratch/bimrose2/runs/e59-flashnext-e55recipe/final
+output_dir: /srv/scratch/bimrose2/runs/fn_rft2
+accel_config: accelerate_fsdp2_qwen4exp_4gpu.yaml
+lora_init_adapter: FN1_BEST_ADAPTER
+
+use_lora: true
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.0
+lora_target_modules: 'model\.language_model\.layers\.\d+\.(self_attn\.(q|k|v|o)_proj|linear_attn\.(in_proj_qkv|in_proj_z|in_proj_a|in_proj_b|out_proj)|mlp\.shared_expert\.(gate|up|down)_proj)'
+vision_strategy: frozen
+demote_persistent_buffers: true
+mmap_ngram_embedding: true
+fast_qsa_indexer: true
+
+data_version: 2
+reasoning_frac: 0.1
+rft_frac: 0.8
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+trace_style: think
+reasoning_effort: medium
+max_seq_len: 5120
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 2.0e-5
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 4
+gradient_checkpointing: false
+
+max_steps: 955
+save_strategy: "no"          # the 27B also saved at 320 / 640; only its final was used (FSDP2 LoRA: final save path as e26fl)
+save_total_limit: 1
+save_only_model: false       # FSDP SHARDED_STATE_DICT rejects model-only saves (e26 used false)
+save_best: false
+save_final: true
+logging_steps: 10
+eval_every: 0
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 44

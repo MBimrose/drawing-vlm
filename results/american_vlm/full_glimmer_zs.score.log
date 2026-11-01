@@ -1,0 +1,4 @@
+[score] 4 checkpoints, 1027 parts, 8216 candidates
+[score] 174 to execute
+[score] volume bound settled 0 of 174 without a boolean; 0 overlaps timed out (scored 0)
+[score] executed 60/8216 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/american_vlm/full_glimmer_zs.json

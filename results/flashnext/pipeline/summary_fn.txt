@@ -1,0 +1,36 @@
+[Bench B (held-out 280)] FN S1: 0/280 parts finished in every chain
+
+## Bench B (held-out 280)
+
+| stage | n | mean | ≥0.85 |
+|---|---|---|---|
+| FN S2 chain-1 start | 280 | 0.527 | 15% |
+| FN S2 single chain (c1) | 280 | 0.654 | 37% |
+| FN S2 MULTI-START (3 chains, v3 pick) | 280 | 0.682 | 40% |
+| FN S2 oracle over chain finals | 280 | 0.718 | 44% |
+| 27B S2 MULTI-START (3 chains, v3 pick) | 280 | 0.664 | 37% |
+| 27B S2 chain-1 start | 280 | 0.514 | 15% |
+
+| paired Δ | n | Δ [95% CI] | +/− |
+|---|---|---|---|
+| FN S2 MULTI-START (3 chains, v3 pick) − 27B S2 MULTI-START (3 chains, v3 pick) | 280 | +0.018 [-0.003, +0.039] | +84/−62 |
+| FN S2 MULTI-START (3 chains, v3 pick) − FN S2 chain-1 start | 280 | +0.155 [+0.131, +0.181] | +187/−25 |
+| FN S2 chain-1 start − 27B S2 chain-1 start | 280 | +0.013 [-0.004, +0.032] | +80/−65 |
+[Synthetic (1,027)] FN S1: 0/1027 parts finished in every chain
+
+## Synthetic (1,027)
+
+| stage | n | mean | ≥0.85 |
+|---|---|---|---|
+| FN S2 chain-1 start | 1027 | 0.911 | 81% |
+| FN S2 single chain (c1) | 1027 | 0.940 | 89% |
+| FN S2 MULTI-START (3 chains, v3 pick) | 1027 | 0.952 | 91% |
+| FN S2 oracle over chain finals | 1027 | 0.960 | 93% |
+| 27B S2 MULTI-START (3 chains, v3 pick) | 1027 | 0.949 | 90% |
+| 27B S2 chain-1 start | 1027 | 0.917 | 83% |
+
+| paired Δ | n | Δ [95% CI] | +/− |
+|---|---|---|---|
+| FN S2 MULTI-START (3 chains, v3 pick) − 27B S2 MULTI-START (3 chains, v3 pick) | 1027 | +0.003 [-0.003, +0.009] | +83/−62 |
+| FN S2 MULTI-START (3 chains, v3 pick) − FN S2 chain-1 start | 1027 | +0.041 [+0.034, +0.047] | +232/−31 |
+| FN S2 chain-1 start − 27B S2 chain-1 start | 1027 | -0.005 [-0.012, +0.001] | +97/−132 |

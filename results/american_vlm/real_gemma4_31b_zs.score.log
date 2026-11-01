@@ -1,0 +1,4 @@
+[score] 4 checkpoints, 144 parts, 1152 candidates
+[score] 66 to execute
+[score] volume bound settled 0 of 66 without a boolean; 0 overlaps timed out (scored 0)
+[score] executed 1/1152 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/american_vlm/real_gemma4_31b_zs.json

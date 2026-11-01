@@ -1,0 +1,442 @@
+[
+ {
+  "key": "A_00439853_df9fe442a2c3cf897a11f1e6_step_000_x",
+  "set": "Real parts",
+  "faces": 77.0,
+  "time": 18.473932633176446,
+  "iou": 0.4708745749453926,
+  "n": 1,
+  "why": "Missing hole",
+  "group": "Missing features"
+ },
+ {
+  "key": "A_00437190_5875024f0dbf5317c8fd357d_step_002_x",
+  "set": "Real parts",
+  "faces": 69.0,
+  "time": 30.574935879558325,
+  "iou": 0.3392102785724041,
+  "n": 2,
+  "why": "Shape simplified",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "A_00430471_0052f6bd859184c8ee187c7e_step_058_x",
+  "set": "Real parts",
+  "faces": 69.0,
+  "time": 21.575715030543506,
+  "iou": 0.17567873766307826,
+  "n": 3,
+  "why": "Ring filled in",
+  "group": "Hollow vs solid"
+ },
+ {
+  "key": "A_00439020_fa83779317c7784ea0972605_step_005_x",
+  "set": "Real parts",
+  "faces": 69.0,
+  "time": 21.84818419907242,
+  "iou": 0.29858467987855764,
+  "n": 4,
+  "why": "Wrong profile",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "A_00435020_5873e8bcbf09331774584983_step_000_x",
+  "set": "Real parts",
+  "faces": 68.0,
+  "time": 23.89961981587112,
+  "iou": 0.18676325775256633,
+  "n": 5,
+  "why": "Lattice missed",
+  "group": "Missing features"
+ },
+ {
+  "key": "A_00420340_0321ba2393bd69bb8568526d_step_000_x",
+  "set": "Real parts",
+  "faces": 66.0,
+  "time": 30.137991492636502,
+  "iou": 0.3926866994927041,
+  "n": 6,
+  "why": "Curve flattened",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "A_00421300_9e904ba7ae369f6f4229cfee_step_000_x",
+  "set": "Real parts",
+  "faces": 64.0,
+  "time": 22.42691439203918,
+  "iou": 0.16367834322031902,
+  "n": 7,
+  "why": "Inner features missed",
+  "group": "Missing features"
+ },
+ {
+  "key": "A_00432228_81795fb1fede8b5b77ec1939_step_006_x",
+  "set": "Real parts",
+  "faces": 64.0,
+  "time": 23.87913107033819,
+  "iou": 0.24979198269954245,
+  "n": 8,
+  "why": "Holes missed",
+  "group": "Missing features"
+ },
+ {
+  "key": "A_00427502_649ab3d3e9729a0d008de262_step_000_x",
+  "set": "Real parts",
+  "faces": 63.0,
+  "time": 19.690062250941992,
+  "iou": 0.2839383103886761,
+  "n": 9,
+  "why": "Shape simplified",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "A_00421156_c96de354f3d2c23c06611dc7_step_000_x",
+  "set": "Real parts",
+  "faces": 61.0,
+  "time": 21.224153973162174,
+  "iou": 0.0984358406258434,
+  "n": 10,
+  "why": "Curve flattened",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "A_00439480_9dc43731e933eb0dca423785_step_000_x",
+  "set": "Real parts",
+  "faces": 58.0,
+  "time": 23.12331296876073,
+  "iou": 0.440315257895158,
+  "n": 11,
+  "why": "Looks right, low IoU",
+  "group": "Looks right, low IoU"
+ },
+ {
+  "key": "A_00433374_9f81566ee5b8edea2fd2d167_step_002_x",
+  "set": "Real parts",
+  "faces": 58.0,
+  "time": 19.171390576288104,
+  "iou": 0.44111049355163656,
+  "n": 12,
+  "why": "Inner walls missed",
+  "group": "Missing features"
+ },
+ {
+  "key": "A_00436498_c5a387051442040ef4f07384_step_003_x",
+  "set": "Real parts",
+  "faces": 58.0,
+  "time": 20.568783225491643,
+  "iou": 0.04787496057797366,
+  "n": 13,
+  "why": "Looks right, low IoU",
+  "group": "Looks right, low IoU"
+ },
+ {
+  "key": "A_00420034_3a12315be3344cc859f03d0d_step_000_x",
+  "set": "Real parts",
+  "faces": 58.0,
+  "time": 24.52804613020271,
+  "iou": 0.48795928271845435,
+  "n": 14,
+  "why": "Shape simplified",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "A_00420362_4790ca289e020e314dabc717_step_000_x",
+  "set": "Real parts",
+  "faces": 56.0,
+  "time": 20.061559814959764,
+  "iou": 0.3578742326186096,
+  "n": 15,
+  "why": "Wrong shape",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "A_00423044_586db29e79772510f11b02c6_step_035_x",
+  "set": "Real parts",
+  "faces": 53.0,
+  "time": 23.453683864325285,
+  "iou": 0.15170830995176163,
+  "n": 16,
+  "why": "Wrong shape",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "A_00425573_8f6f3508eb000658525e42e6_step_000_x",
+  "set": "Real parts",
+  "faces": 51.0,
+  "time": 26.62523689121008,
+  "iou": 0.25879001548743263,
+  "n": 17,
+  "why": "Holes missed",
+  "group": "Missing features"
+ },
+ {
+  "key": "A_00423768_691c7378381937377a6addf4_step_000_x",
+  "set": "Real parts",
+  "faces": 51.0,
+  "time": 25.36388940922916,
+  "iou": 0.31150109664698666,
+  "n": 18,
+  "why": "Wrong blade count",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "F_66253_866371ec_0_x",
+  "set": "Real parts",
+  "faces": 51.0,
+  "time": 20.908831036649644,
+  "iou": 0.3034919326225789,
+  "n": 19,
+  "why": "Inner walls missed",
+  "group": "Missing features"
+ },
+ {
+  "key": "A_00432849_3994e6df5df67f6a103962d4_step_000_x",
+  "set": "Real parts",
+  "faces": 50.0,
+  "time": 20.518368839286268,
+  "iou": 0.43377825549609417,
+  "n": 20,
+  "why": "Looks right, low IoU",
+  "group": "Looks right, low IoU"
+ },
+ {
+  "key": "A_00438367_d0ea6ffe6d9544908279a06a_step_000_x",
+  "set": "Real parts",
+  "faces": 50.0,
+  "time": 28.080537457950413,
+  "iou": 0.4117034149556997,
+  "n": 21,
+  "why": "Wrong legs",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "A_00439238_a2b9275bf6bc557496f260e2_step_013_x",
+  "set": "Real parts",
+  "faces": 50.0,
+  "time": 25.928307722322643,
+  "iou": 0.33363235755682885,
+  "n": 22,
+  "why": "Wrong shape",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "A_00430907_0d6a23350b2beb5b6ee44915_step_002_x",
+  "set": "Real parts",
+  "faces": 46.0,
+  "time": 18.16152778826654,
+  "iou": 0.39560289064755166,
+  "n": 23,
+  "why": "Taper missed",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "A_00435605_9188fcc1e05d988f2acfe408_step_000_x",
+  "set": "Real parts",
+  "faces": 45.0,
+  "time": 21.33887965604663,
+  "iou": 0.18278412716839784,
+  "n": 24,
+  "why": "Cutouts missed",
+  "group": "Missing features"
+ },
+ {
+  "key": "A_00435786_303407afdc6259a47cb7b32d_step_000_x",
+  "set": "Real parts",
+  "faces": 45.0,
+  "time": 27.10469708032906,
+  "iou": 0.2616513955878344,
+  "n": 25,
+  "why": "Hollow filled in",
+  "group": "Hollow vs solid"
+ },
+ {
+  "key": "A_00425614_c43b39ef704502e43410d557_step_000_x",
+  "set": "Real parts",
+  "faces": 45.0,
+  "time": 23.124949660152197,
+  "iou": 0.15182738821633354,
+  "n": 26,
+  "why": "Wrong shape",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "F_38944_0d0c3fce_9_x",
+  "set": "Real parts",
+  "faces": 45.0,
+  "time": 40.493730241432786,
+  "iou": 0.2152378254748448,
+  "n": 27,
+  "why": "Cutouts missed",
+  "group": "Missing features"
+ },
+ {
+  "key": "A_00436437_587484a21f352c10ed92d8bc_step_057_x",
+  "set": "Real parts",
+  "faces": 44.0,
+  "time": 17.558964726515114,
+  "iou": 0.1967312474675236,
+  "n": 28,
+  "why": "Wrong layout",
+  "group": "Wrong layout"
+ },
+ {
+  "key": "A_00438667_99294c9cfc53922768df426d_step_000_x",
+  "set": "Real parts",
+  "faces": 44.0,
+  "time": 27.860422948375344,
+  "iou": 0.27266500486365725,
+  "n": 29,
+  "why": "Cutouts missed",
+  "group": "Missing features"
+ },
+ {
+  "key": "A_00439737_50e7c12d3982e3d077032b5f_step_001_x",
+  "set": "Real parts",
+  "faces": 44.0,
+  "time": 17.459792252629995,
+  "iou": 0.2143505226726109,
+  "n": 30,
+  "why": "Solid made hollow",
+  "group": "Hollow vs solid"
+ },
+ {
+  "key": "A_00433707_0aed8f13569e503c76e7c822_step_000_x",
+  "set": "Real parts",
+  "faces": 43.0,
+  "time": 24.64062261302024,
+  "iou": 0.4449024269487822,
+  "n": 31,
+  "why": "Wrong shape",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "A_00426242_2b452cfc24e87115c56078b7_step_000_x",
+  "set": "Real parts",
+  "faces": 42.0,
+  "time": 16.642531386576593,
+  "iou": 0.395633598314981,
+  "n": 32,
+  "why": "Looks right, low IoU",
+  "group": "Looks right, low IoU"
+ },
+ {
+  "key": "75e4986c-9f20-17ae-6452-c0331d556274",
+  "set": "Synthetic parts",
+  "faces": 168.0,
+  "time": 24.598606411367655,
+  "iou": 0.4921893722510641,
+  "n": 33,
+  "why": "Looks right, low IoU",
+  "group": "Looks right, low IoU"
+ },
+ {
+  "key": "a51e495c-8730-06c0-f3ee-e03d4ff2f1eb",
+  "set": "Synthetic parts",
+  "faces": 106.0,
+  "time": 36.63189020100981,
+  "iou": 0.25782849969029986,
+  "n": 34,
+  "why": "Wrong layout",
+  "group": "Wrong layout"
+ },
+ {
+  "key": "2a127616-b122-d044-509e-57d2ad439430",
+  "set": "Synthetic parts",
+  "faces": 80.0,
+  "time": 23.306028648279607,
+  "iou": 0.4579533896950326,
+  "n": 35,
+  "why": "Looks right, low IoU",
+  "group": "Looks right, low IoU"
+ },
+ {
+  "key": "0580ef4e-edaa-7eaa-0a10-6105fd6d8ad0",
+  "set": "Synthetic parts",
+  "faces": 70.0,
+  "time": 31.27921851258725,
+  "iou": 0.42111103640869374,
+  "n": 36,
+  "why": "Solid made hollow",
+  "group": "Hollow vs solid"
+ },
+ {
+  "key": "80169da8-2c2a-b680-aadb-97d8c60a32e3",
+  "set": "Synthetic parts",
+  "faces": 69.0,
+  "time": 71.4505135146901,
+  "iou": 0.47111987141450606,
+  "n": 37,
+  "why": "Extra feature",
+  "group": "Wrong layout"
+ },
+ {
+  "key": "621858be-a6ae-6444-a429-5cd2e0e13393",
+  "set": "Synthetic parts",
+  "faces": 53.0,
+  "time": 22.50630046054721,
+  "iou": 0.48816537019426154,
+  "n": 38,
+  "why": "Ring filled in",
+  "group": "Hollow vs solid"
+ },
+ {
+  "key": "9f1b4834-084e-9ec5-7d12-74935b8f7e42",
+  "set": "Synthetic parts",
+  "faces": 38.0,
+  "time": 42.21244984678924,
+  "iou": 0.44918595624455593,
+  "n": 39,
+  "why": "Taper flipped",
+  "group": "Wrong shape"
+ },
+ {
+  "key": "1586c698-21dc-dcee-45b9-a5be4dfb0129",
+  "set": "Synthetic parts",
+  "faces": 35.0,
+  "time": 20.386676596477628,
+  "iou": 0.19240710823909526,
+  "n": 40,
+  "why": "Wrong layout",
+  "group": "Wrong layout"
+ },
+ {
+  "key": "4a3ab430-1d80-0cef-ad25-c3de90f15313",
+  "set": "Synthetic parts",
+  "faces": 34.0,
+  "time": 24.013427211903036,
+  "iou": 0.3063930211796071,
+  "n": 41,
+  "why": "Looks right, low IoU",
+  "group": "Looks right, low IoU"
+ },
+ {
+  "key": "4ae465ca-2dca-30ef-d26b-ddd501e272bf",
+  "set": "Synthetic parts",
+  "faces": 25.0,
+  "time": 67.56374953594059,
+  "iou": 0.4153674832962138,
+  "n": 42,
+  "why": "Looks right, low IoU",
+  "group": "Looks right, low IoU"
+ },
+ {
+  "key": "9052e15e-d604-5bbd-0d13-56f5a87d8207",
+  "set": "Synthetic parts",
+  "faces": 25.0,
+  "time": 24.779553266242146,
+  "iou": 0.2013085475392036,
+  "n": 43,
+  "why": "Tab missed",
+  "group": "Missing features"
+ },
+ {
+  "key": "0a3681ac-2be6-0034-c7c3-70e0816f9397",
+  "set": "Synthetic parts",
+  "faces": 24.0,
+  "time": 23.0200690664351,
+  "iou": 0.3871320033030619,
+  "n": 44,
+  "why": "Extra feature",
+  "group": "Wrong layout"
+ }
+]

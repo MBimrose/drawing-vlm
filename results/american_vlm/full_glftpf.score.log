@@ -1,0 +1,20 @@
+[score] 4 checkpoints, 1027 parts, 8216 candidates
+[score] 8211 to execute
+[score] 500/8211  5.09/s  eta 0.4 h
+[score] 1000/8211  4.89/s  eta 0.4 h
+[score] 1500/8211  4.59/s  eta 0.4 h
+[score] 2000/8211  4.55/s  eta 0.4 h
+[score] 2500/8211  4.56/s  eta 0.3 h
+[score] 3000/8211  4.53/s  eta 0.3 h
+[score] 3500/8211  4.50/s  eta 0.3 h
+[score] 4000/8211  4.60/s  eta 0.3 h
+[score] 4500/8211  4.69/s  eta 0.2 h
+[score] 5000/8211  4.75/s  eta 0.2 h
+[score] 5500/8211  4.82/s  eta 0.2 h
+[score] 6000/8211  4.81/s  eta 0.1 h
+[score] 6500/8211  4.86/s  eta 0.1 h
+[score] 7000/8211  4.89/s  eta 0.1 h
+[score] 7500/8211  4.90/s  eta 0.0 h
+[score] 8000/8211  4.92/s  eta 0.0 h
+[score] volume bound settled 0 of 8211 without a boolean; 9 overlaps timed out (scored 0)
+[score] executed 7346/8216 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/american_vlm/full_glftpf.json

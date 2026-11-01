@@ -1,0 +1,62 @@
+# FNRP (2026-10-22) — the rp3 visual-repairer recipe on Flash-Next, for the Flash-Next full pipeline (results/flashnext/PLAN.md
+# stage 4; user: "Flash-Next Visual repair ... to complete the comparison to 27B", own repairer chosen over reusing rp3).
+# rp3 = continued full fine-tune FROM the stage-1 generator (e55 -> here e59/final), 300 steps at lr 2e-6, warmup 5%, cosine
+# -> 10%, effective batch 64 (rp3: 4 ranks x 16 accum; here 8 ranks x 8), seq 7168, the e55 data recipe with the RFT tier
+# replaced by rft_mix_rp3 (strict90 base + union5 x5 + the four repair tiers at ~1/3 of draws; serv-19 copy built from the
+# cluster mix's symlink map, shards md5-checked), reasoning 0.2 / RFT 0.6, image aug, exec filter, seed 43.
+# Model-side settings are e59's (pure-bf16 FSDP2 + bf16 stochastic-rounding AdamW, vision tower / PLE table / MTP frozen).
+# Launch: fn55/fn_train_rp.sh on serv-19 (DRAWING_VLM_RFT_SHARDS=/srv/scratch/bimrose2/rft_mix_rp3).
+run_name: fnrp-flashnext-rp3recipe
+model_id: /srv/scratch/bimrose2/runs/e59-flashnext-e55recipe/final
+output_dir: /srv/scratch/bimrose2/runs/fnrp-flashnext-rp3recipe
+accel_config: accelerate_fsdp2_qwen4exp_purebf16.yaml
+
+use_lora: false
+vision_strategy: frozen
+demote_persistent_buffers: true
+mmap_ngram_embedding: true
+fast_qsa_indexer: true
+optim: bf16_sr_adamw
+bf16: false
+sync_each_batch: true
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+dims_filter: false
+system_prompt: detailed
+trace_style: think
+reasoning_effort: medium
+max_seq_len: 7168
+min_pixels: 200704
+max_pixels: 1179648
+
+lr: 2.0e-6
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.05
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+
+max_steps: 300
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+best_save_mode: gather
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 43

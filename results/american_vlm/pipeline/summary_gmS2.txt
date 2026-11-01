@@ -1,0 +1,37 @@
+## Bench B (held-out 280)
+
+| stage | n | mean | ≥0.85 |
+|---|---|---|---|
+| gmS2 chain-1 start (vote) | 280 | 0.497 | 15% |
+| gmS2 single chain (c1) | 280 | 0.582 | 27% |
+| gmS2 MULTI-START (3 chains, v3 pick) | 280 | 0.617 | 31% |
+| gmS2 oracle over chain finals | 280 | 0.661 | 34% |
+| 27B S2 MULTI-START | 280 | 0.664 | 37% |
+| 27B S2 chain-1 start | 280 | 0.514 | 15% |
+| FN S2 MULTI-START | 280 | 0.682 | 40% |
+
+| paired Δ | n | Δ [95% CI] | +/− |
+|---|---|---|---|
+| gmS2 MULTI-START (3 chains, v3 pick) − 27B S2 MULTI-START | 280 | -0.048 [-0.070, -0.026] | +52/−102 |
+| gmS2 MULTI-START (3 chains, v3 pick) − gmS2 chain-1 start (vote) | 280 | +0.120 [+0.096, +0.146] | +165/−24 |
+| gmS2 MULTI-START (3 chains, v3 pick) − FN S2 MULTI-START | 280 | -0.066 [-0.088, -0.046] | +37/−118 |
+| gmS2 chain-1 start (vote) − 27B S2 chain-1 start | 280 | -0.017 [-0.036, +0.002] | +67/−95 |
+
+## Synthetic (1,027)
+
+| stage | n | mean | ≥0.85 |
+|---|---|---|---|
+| gmS2 chain-1 start (vote) | 1027 | 0.888 | 77% |
+| gmS2 single chain (c1) | 1027 | 0.909 | 81% |
+| gmS2 MULTI-START (3 chains, v3 pick) | 1027 | 0.925 | 85% |
+| gmS2 oracle over chain finals | 1027 | 0.939 | 88% |
+| 27B S2 MULTI-START | 1027 | 0.949 | 90% |
+| 27B S2 chain-1 start | 1027 | 0.917 | 83% |
+| FN S2 MULTI-START | 1027 | 0.952 | 91% |
+
+| paired Δ | n | Δ [95% CI] | +/− |
+|---|---|---|---|
+| gmS2 MULTI-START (3 chains, v3 pick) − 27B S2 MULTI-START | 1027 | -0.024 [-0.031, -0.017] | +56/−182 |
+| gmS2 MULTI-START (3 chains, v3 pick) − gmS2 chain-1 start (vote) | 1027 | +0.037 [+0.030, +0.045] | +243/−61 |
+| gmS2 MULTI-START (3 chains, v3 pick) − FN S2 MULTI-START | 1027 | -0.026 [-0.033, -0.020] | +42/−189 |
+| gmS2 chain-1 start (vote) − 27B S2 chain-1 start | 1027 | -0.029 [-0.037, -0.021] | +73/−210 |

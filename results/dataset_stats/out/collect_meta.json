@@ -1,0 +1,83 @@
+{
+ "plain": {
+  "shards": 2500,
+  "rows": 386182,
+  "in_tier": 370307
+ },
+ "reasoning": {
+  "rows": 52131
+ },
+ "rft_synth": {
+  "rows": 152780
+ },
+ "rft_real": {
+  "rows": 8887
+ },
+ "abc_gt": {
+  "rows": 762
+ },
+ "repair_fam": {
+  "rows": 3880
+ },
+ "repair_real": {
+  "rows": 2792
+ },
+ "eval_synth": {
+  "rows": 1027
+ },
+ "bench_b": {
+  "rows": 280,
+  "missing_step": [],
+  "drawing_meta": 280
+ },
+ "real144": {
+  "rows": 144,
+  "missing_step": [],
+  "drawing_meta": 144
+ },
+ "pred_e55_full": {
+  "d0": 1027,
+  "vote_matched": 1023,
+  "parts": 1027
+ },
+ "pred_e55_benchb": {
+  "d0": 280,
+  "vote_matched": 279,
+  "parts": 280
+ },
+ "pred_e55_real": {
+  "d0": 144,
+  "vote_matched": 144,
+  "parts": 144
+ },
+ "pred_glimmer_full": {
+  "d0": 1027,
+  "vote_matched": 1026,
+  "parts": 1027
+ },
+ "pred_glimmer_benchb": {
+  "d0": 280,
+  "vote_matched": 279,
+  "parts": 280
+ },
+ "pred_glimmer_real": {
+  "d0": 144,
+  "vote_matched": 143,
+  "parts": 144
+ },
+ "exec_tasks": {
+  "plain": 1890,
+  "reasoning": 1562,
+  "rft_synth": 1523,
+  "rft_real": 856,
+  "abc_gt": 374,
+  "eval_synth": 1027,
+  "eval_synth_step": 1027,
+  "bench_b": 280,
+  "real144": 144,
+  "pred_e55_full_vote": 1023,
+  "pred_e55_benchb_vote": 279,
+  "pred_glimmer_full_vote": 1026,
+  "pred_glimmer_benchb_vote": 279
+ }
+}

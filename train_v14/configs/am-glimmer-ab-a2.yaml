@@ -1,0 +1,48 @@
+# Kimi-trace A/B round 2 (2026-10-31, user: "do 1"): continues am-glimmer-ab-a1's final for 2,500 steps on the e55 mix
+# with the pooled OWN tier of both rounds as the 60% RFT tier (DRAWING_VLM_RFT_SHARDS = amvlm/ab/tier_a2/mix: A0 + A1
+# samples over 84k synthetic parts and the real corpora, ab_pack_tier.py --scored scored_a2 scored_a). Tests whether a
+# second own round closes the gap to the Qwen-sample e55 mix (held-out vote A1 0.444 vs 0.522). Kimi tier 20%, plain 20%.
+run_name: am-glimmer-ab-a2
+model_id: /srv/scratch/bimrose2/amvlm/runs/am-glimmer-ab-a1/final
+output_dir: /srv/scratch/bimrose2/amvlm/runs/am-glimmer-ab-a2
+accel_config: accelerate_fsdp2_8gpu_glimmer.yaml
+
+use_lora: false
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 6144
+processor_kwargs: {}   # Glimmer's default max_image_tokens 4096 (28-px tokens): a 1920x1280 sheet at native resolution (~3.1k tokens)
+
+lr: 6.0e-6
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.03
+weight_decay: 0.0
+attention_dropout: 0.0
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 8
+gradient_checkpointing: false
+
+max_steps: 2500
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 44

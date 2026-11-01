@@ -1,0 +1,4 @@
+[score] 4 checkpoints, 1027 parts, 8216 candidates
+[score] 481 to execute
+[score] volume bound settled 0 of 481 without a boolean; 0 overlaps timed out (scored 0)
+[score] executed 2/8216 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/american_vlm/full_bolt_zs.json

@@ -293,6 +293,9 @@ def main():
                          "(score later with dsv41_eval_score.py)")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--think", action="store_true", help="train rows that carry think.txt in thinking mode (plan in the reasoning span)")
+    ap.add_argument("--think-all", action="store_true",
+                    help="every row in thinking mode; rows without think.txt get an empty reasoning span (e55's rendering of "
+                         "untraced rows, collate_v14). Implies --think for the eval prompt")
     ap.add_argument("--save-every", type=int, default=0, help="also save the adapter to <out>/step_<n> every n optimizer steps")
     ap.add_argument("--chunked-attn", type=int, default=0, help="query chunk for the banded attention replacement (0 = eager)")
     ap.add_argument("--max-mem-list", default="", help="comma list of per-GPU caps in GiB (overrides the other memory options)")
@@ -318,6 +321,7 @@ def main():
                     help="one process per node (SLURM_PROCID/SLURM_NTASKS, MASTER_ADDR/PORT); each node holds a full "
                          "pipeline-split replica, LoRA gradients are averaged across nodes over NCCL")
     args = ap.parse_args()
+    args.think = args.think or args.think_all
     if args.reasoning_effort is not None and str(args.reasoning_effort).isdigit():
         args.reasoning_effort = int(args.reasoning_effort)
     if args.adv_weighted:
@@ -429,8 +433,9 @@ def main():
         return
     while step < args.steps:
         row = rows[i % len(rows)]; i += 1
+        think = (row.get("think") or "") if args.think_all else (row.get("think") if args.think and row.get("think") else None)
         enc = build_sample(proc, dsenc, system, row.get("user") or user, row["png"], row["code"], proc.image_token, args.max_len, row.get("png2"),
-                           row.get("think") if args.think and row.get("think") else None, None, args.reasoning_effort)
+                           think, None, args.reasoning_effort)
         if enc is None:
             skipped += 1; continue
         enc = {k: (v.to(dev) if hasattr(v, "to") else v) for k, v in enc.items()}

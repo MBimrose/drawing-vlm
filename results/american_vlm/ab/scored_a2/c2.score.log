@@ -1,0 +1,30 @@
+[score] 4 checkpoints, 1650 parts, 13200 candidates
+[score] 13179 to execute
+[score] 500/13179  3.98/s  eta 0.9 h
+[score] 1000/13179  4.45/s  eta 0.8 h
+[score] 1500/13179  4.59/s  eta 0.7 h
+[score] 2000/13179  4.71/s  eta 0.7 h
+[score] 2500/13179  4.72/s  eta 0.6 h
+[score] 3000/13179  4.70/s  eta 0.6 h
+[score] 3500/13179  4.63/s  eta 0.6 h
+[score] 4000/13179  4.66/s  eta 0.5 h
+[score] 4500/13179  4.58/s  eta 0.5 h
+[score] 5000/13179  4.55/s  eta 0.5 h
+[score] 5500/13179  4.61/s  eta 0.5 h
+[score] 6000/13179  4.59/s  eta 0.4 h
+[score] 6500/13179  4.54/s  eta 0.4 h
+[score] 7000/13179  4.43/s  eta 0.4 h
+[score] 7500/13179  4.43/s  eta 0.4 h
+[score] 8000/13179  4.36/s  eta 0.3 h
+[score] 8500/13179  4.36/s  eta 0.3 h
+[score] 9000/13179  4.39/s  eta 0.3 h
+[score] 9500/13179  4.36/s  eta 0.2 h
+[score] 10000/13179  4.37/s  eta 0.2 h
+[score] 10500/13179  4.39/s  eta 0.2 h
+[score] 11000/13179  4.44/s  eta 0.1 h
+[score] 11500/13179  4.49/s  eta 0.1 h
+[score] 12000/13179  4.50/s  eta 0.1 h
+[score] 12500/13179  4.49/s  eta 0.0 h
+[score] 13000/13179  4.49/s  eta 0.0 h
+[score] volume bound settled 0 of 13179 without a boolean; 77 overlaps timed out (scored 0)
+[score] executed 10543/13200 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/american_vlm/ab/scored_a2/c2.json

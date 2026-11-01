@@ -22,7 +22,7 @@ from transformers import (
 )
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from collate_v14 import VLMCollator
+from collate_v14 import VLMCollator, answer_targets
 from data_v14 import EvalDataset, EvalDatasetV2, build_mixed_v2, build_train_dataset
 
 
@@ -548,11 +548,21 @@ class EvalLossCallback(TrainerCallback):
         with torch.no_grad():
             for b in self.batches:
                 bb = {k: (v.to(device) if hasattr(v, "to") else v) for k, v in b.items()}
+                if "logits_to_keep" in bb:
+                    # answer-only logits: the model's own loss would misalign them; same mean CE as model(labels=...)
+                    labels = bb.pop("labels")
+                    lg, tg = answer_targets(model(**bb).logits, labels)
+                    losses.append(float(torch.nn.functional.cross_entropy(
+                        lg.reshape(-1, lg.size(-1)).float(), tg.reshape(-1), ignore_index=-100).item()))
+                    continue
                 out = model(**bb)
                 if out.loss is not None:
                     losses.append(float(out.loss.detach().item()))
         if was_training:
             model.train()
+        # Return cached blocks before a possible save (2026-10-26): Gemma 4 31B trains at the H200's 150 GB limit and the
+        # DCP save's NCCL gather allocates outside the caching allocator, so with nothing free it died at step 250.
+        torch.cuda.empty_cache()
         mean = sum(losses) / len(losses) if losses else float("inf")
 
         # The improve/save decision must be identical on every rank; broadcast
@@ -615,6 +625,13 @@ def main():
             processor.image_processor.max_num_patches = int(cfg["max_num_patches"])
         print(f"[processor] {type(processor).__name__} min/max_num_patches="
               f"{processor.image_processor.min_num_patches}/{processor.image_processor.max_num_patches}", flush=True)
+    elif arch.startswith(("Gemma4", "MuseGlimmer")):
+        # 2026-10-26 American-VLM screen: the model's own image budget, set in processor_kwargs
+        # (Gemma 4: max_soft_tokens 1120 = a 1920x1280 sheet at native resolution; Glimmer: max_image_tokens).
+        processor = AutoProcessor.from_pretrained(model_id, **cfg.get("processor_kwargs", {}))
+        ip = processor.image_processor
+        print(f"[processor] {type(processor).__name__} max_soft_tokens={getattr(ip, 'max_soft_tokens', None)} "
+              f"max_image_tokens={getattr(ip, 'max_image_tokens', None)}", flush=True)
     else:
         processor = AutoProcessor.from_pretrained(
             model_id,
@@ -738,6 +755,7 @@ def main():
         system_prompt=cfg.get("system_prompt", "detailed"),
         reasoning_effort=cfg.get("reasoning_effort", "medium"),
         trace_style=cfg.get("trace_style", "think"),
+        answer_logits_only=bool(cfg.get("answer_logits_only", False)),
     )
 
     # Plain transformers Trainer: TRL 1.x's SFTTrainer rejects torch
@@ -793,24 +811,24 @@ def main():
             loss = outputs.loss
         else:
             import torch.nn.functional as F
-            logits = outputs.logits[..., :-1, :].contiguous()
-            shift = labels[..., 1:].contiguous()
+            logits, shift = answer_targets(outputs.logits, labels)
+            logits, shift = logits.contiguous(), shift.contiguous()
             loss = F.cross_entropy(
-                logits.view(-1, logits.size(-1)), shift.view(-1), ignore_index=-100)
+                logits.view(-1, logits.size(-1)), shift.view(-1).to(logits.device), ignore_index=-100)
         if lean_sync:
             # No host sync (2026-10-16): keep loss / accuracy as device tensors, read them at log time.
             with torch.no_grad():
-                shift = labels[..., 1:].to(outputs.logits.device)
+                logits, shift = answer_targets(outputs.logits, labels)
+                shift = shift.to(logits.device)
                 mask = shift != -100
-                hit = ((outputs.logits[..., :-1, :].argmax(dim=-1) == shift) & mask).sum()
+                hit = ((logits.argmax(dim=-1) == shift) & mask).sum()
                 # clone: HF scales the returned loss in place (loss *= num_processes), which a detach() view shares
                 _loss_buffer.append((loss.detach().clone(), hit / mask.sum()))   # 0/0 -> nan, dropped below
                 _tok_buffer.append(labels.numel())
             return loss
         with torch.no_grad():
             try:
-                logits = outputs.logits[..., :-1, :]
-                shift = labels[..., 1:]
+                logits, shift = answer_targets(outputs.logits, labels)
                 mask = shift != -100
                 if mask.any():
                     preds = logits.argmax(dim=-1)
@@ -917,6 +935,7 @@ def main():
                              int(cfg["lr_resume_from_step"]), int(cfg.get("lr_resume_rewarm", 50)),
                              float((cfg.get("lr_scheduler_kwargs") or {}).get("min_lr_rate", 0.1)))
     trainer.train(resume_from_checkpoint=cfg.get("resume"))
+    torch.cuda.empty_cache()   # headroom for the final gather (see EvalLossCallback)
 
     # Final consolidated save.
     import torch.distributed as dist

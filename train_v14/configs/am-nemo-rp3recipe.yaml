@@ -1,0 +1,66 @@
+# Nemotron visual repairer (2026-10-28, American-VLM table, Nemotron column): the rp3 recipe (am-glimmer-rp3recipe.yaml:
+# continued fine-tune FROM the stage-1 generator, 300 steps at lr 2e-6, warmup 5%, cosine -> 10%, effective batch 64 =
+# 8 ranks x 8 accum, e55 data with the RFT tier = rft_mix_rp3, reasoning 0.2 / RFT 0.6, seed 43) on nemo-fullft-r2's
+# best_model. One deviation, forced by memory: the routed experts (112.7B) stay frozen, so the run fits one 8x H200 node
+# (the stage-1 full FT needed all 8 B300s); the dense path (8.1B: Mamba, attention, shared experts, router, latent
+# projections, norms, embeddings, lm_head, projector) is trained as in the FT. Two sheets at ~2.4k Nemotron image tokens
+# each -> seq 10240, answer-only logits. Launch with DRAWING_VLM_RFT_SHARDS=/srv/scratch/bimrose2/rft_mix_rp3.
+# 4 ranks x 16 accum on an H200 node (host RAM at load, accelerate_fsdp2_4gpu_nemotron_purebf16.yaml): same effective batch 64.
+run_name: am-nemo-rp3recipe
+model_id: /srv/scratch/bimrose2/nemotron/runs/nemo-fullft-r2/best_model
+output_dir: /srv/scratch/bimrose2/amvlm/runs/am-nemo-rp3recipe
+accel_config: accelerate_fsdp2_4gpu_nemotron_purebf16.yaml
+trust_remote_code: true
+experts_implementation: {llm_config: grouped_mm}
+# the remote top-level class declares no SDPA support (it has no attention itself); its LLM and RADIO sub-models do
+attn_implementation: {"": eager, llm_config: sdpa, vision_config: sdpa}
+freeze_routed_experts: true
+demote_persistent_buffers: true
+broadcast_buffers: true
+
+use_lora: false
+vision_strategy: frozen
+
+data_version: 2
+reasoning_frac: 0.2
+rft_frac: 0.6
+image_aug: true
+exec_filter: true
+system_prompt: detailed
+reasoning_effort: medium
+max_seq_len: 10240
+answer_logits_only: true
+
+lr: 2.0e-6
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+warmup_ratio: 0.05
+weight_decay: 0.0
+optim: bf16_sr_adamw
+bf16: false
+
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 16
+gradient_checkpointing: false
+sync_each_batch: true
+
+max_steps: 300
+save_strategy: "no"
+save_total_limit: 1
+save_only_model: false
+save_best: true
+best_save_mode: gather
+save_final: true
+logging_steps: 10
+eval_every: 250
+eval_n: 128
+eval_n_batches: 16
+dataloader_num_workers: 6
+dataloader_prefetch_factor: 4
+seed: 43
+router_monitor_every: 10
+router_stop_ratio: 3.0
+lean_sync: true
+step_timing_every: 10

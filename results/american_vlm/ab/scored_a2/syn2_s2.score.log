@@ -1,0 +1,45 @@
+[score] 4 checkpoints, 5250 parts, 21000 candidates
+[score] 20984 to execute
+[score] 500/20984  3.28/s  eta 1.7 h
+[score] 1000/20984  3.44/s  eta 1.6 h
+[score] 1500/20984  3.62/s  eta 1.5 h
+[score] 2000/20984  3.72/s  eta 1.4 h
+[score] 2500/20984  3.79/s  eta 1.4 h
+[score] 3000/20984  3.75/s  eta 1.3 h
+[score] 3500/20984  3.73/s  eta 1.3 h
+[score] 4000/20984  3.72/s  eta 1.3 h
+[score] 4500/20984  3.76/s  eta 1.2 h
+[score] 5000/20984  3.76/s  eta 1.2 h
+[score] 5500/20984  3.77/s  eta 1.1 h
+[score] 6000/20984  3.77/s  eta 1.1 h
+[score] 6500/20984  3.77/s  eta 1.1 h
+[score] 7000/20984  3.79/s  eta 1.0 h
+[score] 7500/20984  3.83/s  eta 1.0 h
+[score] 8000/20984  3.85/s  eta 0.9 h
+[score] 8500/20984  3.88/s  eta 0.9 h
+[score] 9000/20984  3.84/s  eta 0.9 h
+[score] 9500/20984  3.83/s  eta 0.8 h
+[score] 10000/20984  3.84/s  eta 0.8 h
+[score] 10500/20984  3.85/s  eta 0.8 h
+[score] 11000/20984  3.87/s  eta 0.7 h
+[score] 11500/20984  3.87/s  eta 0.7 h
+[score] 12000/20984  3.89/s  eta 0.6 h
+[score] 12500/20984  3.89/s  eta 0.6 h
+[score] 13000/20984  3.89/s  eta 0.6 h
+[score] 13500/20984  3.89/s  eta 0.5 h
+[score] 14000/20984  3.87/s  eta 0.5 h
+[score] 14500/20984  3.88/s  eta 0.5 h
+[score] 15000/20984  3.88/s  eta 0.4 h
+[score] 15500/20984  3.86/s  eta 0.4 h
+[score] 16000/20984  3.87/s  eta 0.4 h
+[score] 16500/20984  3.88/s  eta 0.3 h
+[score] 17000/20984  3.86/s  eta 0.3 h
+[score] 17500/20984  3.86/s  eta 0.3 h
+[score] 18000/20984  3.87/s  eta 0.2 h
+[score] 18500/20984  3.87/s  eta 0.2 h
+[score] 19000/20984  3.90/s  eta 0.1 h
+[score] 19500/20984  3.92/s  eta 0.1 h
+[score] 20000/20984  3.95/s  eta 0.1 h
+[score] 20500/20984  3.98/s  eta 0.0 h
+[score] volume bound settled 0 of 20984 without a boolean; 160 overlaps timed out (scored 0)
+[score] executed 17218/21000 -> /projects/illinois/eng/ece/wpk/bimrose2/drawing_vlm/results/american_vlm/ab/scored_a2/syn2_s2.json

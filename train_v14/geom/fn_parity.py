@@ -29,6 +29,11 @@ from geom_eval_worker import classify_ckpt, load_model, run_config  # noqa: E402
 from grpo_round import load_bench  # noqa: E402
 
 
+RAW = {"glimmer": ("<|eom|>", "<|start|>assistant to=user<|message|>", ("<|eot|>", "<|eom|>", "<|end|>")),
+       "gemma": ("<channel|>", "", ("<turn|>",)),
+       "nemotron": ("</think>", "", ("<|im_end|>",))}
+
+
 def post(url, body, timeout=900):
     req = urllib.request.Request(url, data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -47,6 +52,13 @@ def main():
     ap.add_argument("--n", type=int, default=6)
     ap.add_argument("--max-tokens", type=int, default=1200)
     ap.add_argument("--out", default="")
+    # 2026-10-27 Muse Glimmer (GRPO --raw-channels glimmer): the server prefills the thought channel and runs without a
+    # reasoning parser. vLLM's logprobs of its own sampled tokens (T 1, top_p 1 = the model's distribution) are compared
+    # with HF's on the same tokens rendered through the trainer's collator + template.
+    ap.add_argument("--raw-channels", choices=["", "glimmer", "gemma", "nemotron"], default="")   # 2026-10-28: + Gemma 4 (gmftpf)
+    ap.add_argument("--think-prefill", default="")
+    ap.add_argument("--chat-template", default="")
+    ap.add_argument("--max-seq-len", type=int, default=5120)
     args = ap.parse_args()
 
     cfg = run_config(args.run) or {}
@@ -57,7 +69,9 @@ def main():
         from peft import PeftModel
         model = PeftModel.from_pretrained(model, args.adapter)
     model.eval()
-    collator = VLMCollator(processor, max_seq_len=5120, system_prompt="detailed", reasoning_effort="medium")
+    if args.chat_template:
+        processor.chat_template = processor.tokenizer.chat_template = open(args.chat_template).read()
+    collator = VLMCollator(processor, max_seq_len=args.max_seq_len, system_prompt="detailed", reasoning_effort="medium")
     tmpl = {"enable_thinking": True, "reasoning_effort": "medium"}
 
     cache, keys, _ = load_bench(args.bench, "")
@@ -69,24 +83,39 @@ def main():
                 {"role": "user", "content": [
                     {"type": "image_url", "image_url": {"url": "data:image/png;base64," + base64.b64encode(png).decode()}},
                     {"type": "text", "text": USER_PROMPT}]}]
-        d = post(args.url.rstrip("/") + "/chat/completions",
-                 {"model": args.model, "messages": msgs, "temperature": 1.0, "top_p": 1.0,
-                  "max_tokens": args.max_tokens, "chat_template_kwargs": tmpl})
-        m = d["choices"][0]["message"]
-        reasoning = (m.get("reasoning_content") or m.get("reasoning") or "").strip()
-        content = (m.get("content") or "").strip()
-        raw = f"<think>\n{reasoning}\n</think>\n\n{content}" if reasoning else content
-        # vLLM teacher-forced logprobs of the same assistant text (prefill continued, 1 new token)
-        v = post(args.url.rstrip("/") + "/chat/completions",
-                 {"model": args.model, "messages": msgs + [{"role": "assistant", "content": raw}],
-                  "add_generation_prompt": False, "continue_final_message": True, "max_tokens": 1,
-                  "temperature": 1.0, "prompt_logprobs": 0, "chat_template_kwargs": tmpl})
-        plp = v.get("prompt_logprobs") or v["choices"][0].get("prompt_logprobs")
-        v_ids, v_lp = [], []
-        for e in plp[1:]:
-            # each entry: {token_id: {"logprob", "rank", "decoded_token"}}; the actual token is the one listed (rank may vary)
-            tid, info = next(iter(e.items())) if len(e) == 1 else min(e.items(), key=lambda kv: kv[1].get("rank", 0) or 0)
-            v_ids.append(int(tid)); v_lp.append(float(info["logprob"]))
+        if args.raw_channels:
+            d = post(args.url.rstrip("/") + "/chat/completions",
+                     {"model": args.model, "messages": msgs, "temperature": 1.0, "top_p": 1.0,
+                      "max_tokens": args.max_tokens, "chat_template_kwargs": tmpl, "skip_special_tokens": False,
+                      "logprobs": True, "return_tokens_as_token_ids": True})
+            c0 = d["choices"][0]
+            v_ids = [int(e["token"].split(":", 1)[1]) for e in c0["logprobs"]["content"]]
+            v_lp = [float(e["logprob"]) for e in c0["logprobs"]["content"]]
+            think_end, ans_start, ends = RAW[args.raw_channels]   # as grpo_round.split_raw
+            think, sep, rest = (args.think_prefill + (c0["message"].get("content") or "")).partition(think_end)
+            ans = (rest.split(ans_start, 1)[-1] if ans_start else rest) if sep else ""
+            for e in ends:
+                ans = ans[:-len(e)] if ans.endswith(e) else ans
+            reasoning, content = think, ans
+        else:
+            d = post(args.url.rstrip("/") + "/chat/completions",
+                     {"model": args.model, "messages": msgs, "temperature": 1.0, "top_p": 1.0,
+                      "max_tokens": args.max_tokens, "chat_template_kwargs": tmpl})
+            m = d["choices"][0]["message"]
+            reasoning = (m.get("reasoning_content") or m.get("reasoning") or "").strip()
+            content = (m.get("content") or "").strip()
+            raw = f"<think>\n{reasoning}\n</think>\n\n{content}" if reasoning else content
+            # vLLM teacher-forced logprobs of the same assistant text (prefill continued, 1 new token)
+            v = post(args.url.rstrip("/") + "/chat/completions",
+                     {"model": args.model, "messages": msgs + [{"role": "assistant", "content": raw}],
+                      "add_generation_prompt": False, "continue_final_message": True, "max_tokens": 1,
+                      "temperature": 1.0, "prompt_logprobs": 0, "chat_template_kwargs": tmpl})
+            plp = v.get("prompt_logprobs") or v["choices"][0].get("prompt_logprobs")
+            v_ids, v_lp = [], []
+            for e in plp[1:]:
+                # each entry: {token_id: {"logprob", "rank", "decoded_token"}}; the actual token is the one listed (rank may vary)
+                tid, info = next(iter(e.items())) if len(e) == 1 else min(e.items(), key=lambda kv: kv[1].get("rank", 0) or 0)
+                v_ids.append(int(tid)); v_lp.append(float(info["logprob"]))
         # HF logprobs of the completion through the training collator
         processor.tokenizer.padding_side = "right"
         # as grpo_round --train-raw builds it: trace = the reasoning, content_raw = the answer text after </think>
